@@ -123,6 +123,7 @@ public class AVLTree {
 			} else {
 				Node replace = minV(n.right);
 				n.key = replace.key;
+				n.value = replace.value
 				n.right = remove(n.right, n.key);
 			}
 		}
