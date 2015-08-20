@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Aho_Corasick {
+public class AhoCorasick {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(
 			System.in));
