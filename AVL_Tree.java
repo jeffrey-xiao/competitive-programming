@@ -1,55 +1,49 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
 public class AVL_Tree {
-
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
-	static StringTokenizer st;
-
-	public static void main (String[] args) throws IOException {
+	public static void main (String[] args) {
+		AVL_Tree t = new AVL_Tree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 1000000; x++) {
 			int ran = (int) (Math.random() * (1 << 30)) + 5;
-			add(ran);
+			t.add(ran);
 		}
-		// traverse(root);
-		add(1);
-		System.out.println(contains(root, 1));
-		System.out.println(contains(root, 2));
-		remove(1);
-		System.out.println(contains(root, 1));
+		// t.traverse(root);
+		t.add(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(t.contains(t.root, 2));
+		t.remove(1);
+		System.out.println(t.contains(t.root, 1));
 		System.out.println(System.currentTimeMillis() - c);
-		// add(9);
-		// add(5);
-		// add(10);
-		// add(0);
-		// add(6);
-		// add(11);
-		// add(-1);
-		// add(1);
-		// add(2);
+		// t.add(9);
+		// t.add(5);
+		// t.add(10);
+		// t.add(0);
+		// t.add(6);
+		// t.add(11);
+		// t.add(-1);
+		// t.add(1);
+		// t.add(2);
 		// traverse(root);
-		// remove(10);
+		// t.remove(10);
 		// System.out.println();
-		// traverse(root);
+		// t.traverse(root);
 
 	}
+	// root of the tree
+	Node root = null;
 
-	static Node root = null;
-
+	// object representing the nodes of the tree
 	static class Node {
-		Integer value, height;
+		Integer key, value, height;
 		Node left, right;
 
+		Node (int key, int value) {
+			this.key = key;
+			this.value = value;
+			this.height = 0;
+		}
+		
 		Node (int value) {
+			this.key = value;
 			this.value = value;
 			this.height = 0;
 		}
@@ -57,15 +51,16 @@ public class AVL_Tree {
 	}
 
 	// methods to reset and get the height of a node
-	private static void resetHeight (Node n) {
+	private void resetHeight (Node n) {
 		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 	}
 
-	private static int getHeight (Node n) {
+	private int getHeight (Node n) {
 		return n == null ? -1 : n.height;
 	}
 
-	public static void traverse (Node n) {
+	// in order traversal of tree
+	public void traverse (Node n) {
 		if (n == null)
 			return;
 		System.out.println(n.value);
@@ -73,7 +68,12 @@ public class AVL_Tree {
 		traverse(n.right);
 	}
 
-	public static boolean contains (Node n, Integer v) {
+	public boolean contains (Integer v) {
+		return contains(root, v);
+	}
+	
+	// auxiliary method for contains
+	private boolean contains (Node n, Integer v) {
 		if (n == null)
 			return false;
 		int cmp = v.compareTo(n.value);
@@ -83,13 +83,13 @@ public class AVL_Tree {
 			return contains(n.right, v);
 		return true;
 	}
-
-	public static void remove (int v) {
+	
+	public void remove (int v) {
 		root = remove(root, v);
 	}
-
-	@SuppressWarnings ("unused")
-	private static Node remove (Node n, Integer v) {
+	
+	// auxiliary method for move
+	private Node remove (Node n, Integer v) {
 		if (n == null)
 			return n;
 		int cmp = v.compareTo(n.value);
@@ -111,7 +111,7 @@ public class AVL_Tree {
 			}
 		}
 		if (n == null)
-			return n;
+			return null;
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
 		if (diff1 >= 2) {
@@ -133,25 +133,29 @@ public class AVL_Tree {
 		return n;
 	}
 
-	private static Node minV (Node n) {
-		while (n.left != null)
-			;
+	private Node minV (Node n) {
+		while (n.left != null);
 		n = n.left;
 		return n;
 	}
 
-	public static void add (int v) {
-		root = add(root, v);
+	public void add (int k, int v) {
+		root = add(root, k, v);
 	}
-
-	private static Node add (Node n, Integer v) {
+	
+	public void add (int v) {
+		root = add(root, v, v);
+	}
+	
+	// auxiliary method for add
+	private Node add (Node n, Integer k, Integer v) {
 		if (n == null)
-			return new Node(v);
+			return new Node(k, v);
 		int cmp = v.compareTo(n.value);
 		if (cmp < 0)
-			n.left = add(n.left, v);
+			n.left = add(n.left, k, v);
 		else if (cmp > 0)
-			n.right = add(n.right, v);
+			n.right = add(n.right, k, v);
 
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
@@ -175,7 +179,7 @@ public class AVL_Tree {
 	}
 
 	// rotate left
-	private static Node rotateLeft (Node n) {
+	private Node rotateLeft (Node n) {
 		Node x = n.right;
 		n.right = x.left;
 		x.left = n;
@@ -185,38 +189,12 @@ public class AVL_Tree {
 	}
 
 	// rotate right
-	private static Node rotateRight (Node n) {
+	private Node rotateRight (Node n) {
 		Node x = n.left;
 		n.left = x.right;
 		x.right = n;
 		resetHeight(n);
 		resetHeight(x);
 		return x;
-	}
-
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
-
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
 	}
 }

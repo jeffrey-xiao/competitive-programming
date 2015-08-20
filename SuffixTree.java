@@ -37,7 +37,7 @@ public class SuffixTree {
 		
 		input = "abcabxabcd";
 		len = input.length();
-		// lopping through the input and adding the suffixes one by one
+		// looping through the input and adding the suffixes one by one
 		for (currentPos = 0; currentPos < len; currentPos++)
 			addSuffix();
 

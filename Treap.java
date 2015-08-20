@@ -1,67 +1,75 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
 public class Treap {
-
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
-	static StringTokenizer st;
-
-	public static void main (String[] args) throws IOException {
+	public static void main (String[] args) {
+		Treap t = new Treap();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 10; x++) {
 			int ran = (int) (Math.random() * (20)) + 5;
 			System.out.print(ran + " ");
-			add(ran);
+			t.add(ran);
 		}
 		System.out.println();
-		traverse(root);
+		t.traverse(t.root);
 		System.out.println();
-		add(1);
-		System.out.println(contains(root, 1));
-		System.out.println(contains(root, 2));
-		remove(1);
-		System.out.println(contains(root, 1));
+		t.add(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(t.contains(t.root, 2));
+		t.remove(1);
+		System.out.println(t.contains(t.root, 1));
 		System.out.println(System.currentTimeMillis() - c);
 	}
+	// root of the tree
+	Node root = null;
 
-	static Node root = null;
-
+	// object representing the nodes of the tree
 	static class Node {
+		Integer key;
 		Integer value;
 		Double priority;
 		Node left, right;
-
+		
+		Node (int key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+		
 		Node (int value) {
+			this.key = value;
 			this.value = value;
 			priority = Math.random();
 		}
 	}
-
-	public static void remove (Integer v) {
+	
+	public void remove (Integer v) {
 		root = remove(root, v);
 	}
 
-	public static void add (Integer v) {
-		root = add(root, v);
+	public void add (Integer k, Integer v) {
+		root = add(root, k, v);
 	}
-
-	public static void traverse (Node n) {
+	
+	public void add (Integer v) {
+		root = add(root, v, v);
+	}
+	
+	public boolean contains (Integer v) {
+		return contains(root, v);
+	}
+	
+	public Integer get (Integer v) {
+		return get(root, v);
+	}
+	
+	// in order traversal of nodes
+	public void traverse (Node n) {
 		if (n == null)
 			return;
 		traverse(n.left);
 		System.out.print(n.value + " ");
 		traverse(n.right);
 	}
-
-	public static boolean contains (Node n, Integer v) {
+	
+	// auxiliary function for contains
+	public boolean contains (Node n, Integer v) {
 		if (n == null)
 			return false;
 		int cmp = v.compareTo(n.value);
@@ -72,8 +80,20 @@ public class Treap {
 		return true;
 	}
 
+	// auxiliary function for get
+	public Integer get (Node n, Integer v) {
+		if (n == null)
+			return null;
+		int cmp = v.compareTo(n.value);
+		if (cmp < 0)
+			return get(n.left, v);
+		else if (cmp > 0)
+			return get(n.right, v);
+		return n.key;
+	}
+	
 	// auxiliary function to delete
-	private static Node remove (Node n, Integer v) {
+	private Node remove (Node n, Integer v) {
 		if (n == null)
 			return n;
 		int cmp = v.compareTo(n.value);
@@ -88,7 +108,7 @@ public class Treap {
 	}
 
 	// auxiliary function to merge
-	private static Node merge (Node t1, Node t2) {
+	private Node merge (Node t1, Node t2) {
 		if (t1 == null)
 			return t2;
 		else if (t2 == null)
@@ -108,20 +128,20 @@ public class Treap {
 	}
 
 	// auxiliary function to insert
-	private static Node add (Node n, Integer v) {
+	private Node add (Node n, Integer k, Integer v) {
 		if (n == null)
-			return new Node(v);
+			return new Node(k, v);
 		int cmp = v.compareTo(n.value);
 		// going left
 		if (cmp < 0) {
-			n.left = add(n.left, v);
+			n.left = add(n.left, k, v);
 			if (n.priority < n.left.priority) {
 				n = rotateRight(n);
 			}
 		}
 		// going right
 		else if (cmp > 0) {
-			n.right = add(n.right, v);
+			n.right = add(n.right, k, v);
 			if (n.priority < n.right.priority)
 				n = rotateLeft(n);
 		}
@@ -130,7 +150,7 @@ public class Treap {
 	}
 
 	// rotate left
-	private static Node rotateLeft (Node n) {
+	private Node rotateLeft (Node n) {
 		Node x = n.right;
 		n.right = x.left;
 		x.left = n;
@@ -138,36 +158,10 @@ public class Treap {
 	}
 
 	// rotate right
-	private static Node rotateRight (Node n) {
+	private Node rotateRight (Node n) {
 		Node x = n.left;
 		n.left = x.right;
 		x.right = n;
 		return x;
-	}
-
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
-
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
 	}
 }
