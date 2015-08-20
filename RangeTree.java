@@ -2,11 +2,16 @@
  * Range tree is a data structure that stores 2D points and is able to return
  * a list of points that is contained in a specific rectangle
  * 
- * This implementation uses two BSTs (treaps) and takes log N time for operations
+ * This implementation uses two BSTs (treaps) and takes log N time for adding and deletion
  * There is an assumption that there are no two points with the same x or y coordinate
  * 
  * For the simplified 1D problem, it is suffice to use one BST to find all points in the range [x1, x2]
  * The leaves of the BST will be the points and the internal nodes will be the largest point in its left subtree
+ * When searching for x1 and x2, find the split node where the search paths diverge
+ * Points in the range [x1, x2] will be the leaves in the right subtrees in the search path of x1
+ * and leaves in the left subtrees in the search path of x2
+ *
+ * The complexity for returning a range is O(log N ^ d + k) where d is the number of dimensions and k is the number of points returned
  */
 
 public class RangeTree {
