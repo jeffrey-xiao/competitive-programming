@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Treap {
 	public static void main (String[] args) {
 		Treap t = new Treap();
@@ -60,6 +62,12 @@ public class Treap {
 		return get(root, k);
 	}
 	
+	public Queue<Integer> range (Integer loK, Integer hiK) {
+		Queue<Integer> res = new ArrayDeque<Integer>();
+		range(root, loK, hiK, res);
+      	return res;
+	}
+	
 	// in order traversal of nodes
 	public void traverse (Node n) {
 		if (n == null)
@@ -69,8 +77,20 @@ public class Treap {
 		traverse(n.right);
 	}
 	
+	// auxiliary function for range
+	private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
+		if (n == null)
+			return;
+		if (n.key >= loK)
+			range(n.left, loK, hiK, res);
+		if (loK <= n.key && n.key <= hiK)
+			res.offer(n.key);
+		if (n.key <= hiK)
+			range(n.right, loK, hiK, res);
+	}
+	
 	// auxiliary function for contains
-	public boolean contains (Node n, Integer k) {
+	private boolean contains (Node n, Integer k) {
 		if (n == null)
 			return false;
 		int cmp = k.compareTo(n.key);
@@ -82,7 +102,7 @@ public class Treap {
 	}
 
 	// auxiliary function for get
-	public Integer get (Node n, Integer k) {
+	private Integer get (Node n, Integer k) {
 		if (n == null)
 			return null;
 		int cmp = k.compareTo(n.key);
