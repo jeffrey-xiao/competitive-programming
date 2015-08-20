@@ -1,8 +1,8 @@
-public class AVLTree {
+public class Main {
 	public static void main (String[] args) {
-		AVLTree t = new AVLTree();
+		Main t = new Main();
 		long c = System.currentTimeMillis();
-		for (int x = 0; x < 1000000; x++) {
+		for (int x = 0; x < 10000; x++) {
 			int ran = (int) (Math.random() * (1 << 30)) + 5;
 			t.add(ran);
 		}
@@ -42,9 +42,9 @@ public class AVLTree {
 			this.height = 0;
 		}
 		
-		Node (int value) {
-			this.key = value;
-			this.value = value;
+		Node (int key) {
+			this.key = key;
+			this.value = key;
 			this.height = 0;
 		}
 
@@ -63,40 +63,56 @@ public class AVLTree {
 	public void traverse (Node n) {
 		if (n == null)
 			return;
-		System.out.println(n.value);
+		System.out.println(n.key);
 		traverse(n.left);
 		traverse(n.right);
 	}
 
-	public boolean contains (Integer v) {
-		return contains(root, v);
+	public boolean contains (Integer k) {
+		return contains(root, k);
 	}
 	
+  	public Integer get (Integer k) {
+  		return get(root, k);
+  	}
+  
+  	// auxiliary method for get
+  	private Integer get (Node n, Integer k) {
+  		if (n == null)
+			return null;
+		int cmp = k.compareTo(n.key);
+		if (cmp < 0)
+			return get(n.left, k);
+		else if (cmp > 0)
+			return get(n.right, k);
+		return n.value;
+  	}
+  
 	// auxiliary method for contains
-	private boolean contains (Node n, Integer v) {
+	private boolean contains (Node n, Integer k) {
 		if (n == null)
 			return false;
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
-			return contains(n.left, v);
+			return contains(n.left, k);
 		else if (cmp > 0)
-			return contains(n.right, v);
+			return contains(n.right, k);
 		return true;
 	}
 	
-	public void remove (int v) {
-		root = remove(root, v);
+	public void remove (int k) {
+		root = remove(root, k);
 	}
 	
 	// auxiliary method for move
-	private Node remove (Node n, Integer v) {
+	private Node remove (Node n, Integer k) {
 		if (n == null)
 			return n;
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
-			n.left = remove(n.left, v);
+			n.left = remove(n.left, k);
 		else if (cmp > 0)
-			n.right = remove(n.right, v);
+			n.right = remove(n.right, k);
 		else {
 			if (n.left == null) {
 				n = n.right;
@@ -106,8 +122,8 @@ public class AVLTree {
 				return n;
 			} else {
 				Node replace = minV(n.right);
-				n.value = replace.value;
-				n.right = remove(n.right, n.value);
+				n.key = replace.key;
+				n.right = remove(n.right, n.key);
 			}
 		}
 		if (n == null)
@@ -143,15 +159,15 @@ public class AVLTree {
 		root = add(root, k, v);
 	}
 	
-	public void add (int v) {
-		root = add(root, v, v);
+	public void add (int k) {
+		root = add(root, k, k);
 	}
 	
 	// auxiliary method for add
 	private Node add (Node n, Integer k, Integer v) {
 		if (n == null)
 			return new Node(k, v);
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
 			n.left = add(n.left, k, v);
 		else if (cmp > 0)
