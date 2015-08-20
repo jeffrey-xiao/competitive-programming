@@ -1,6 +1,6 @@
-public class Splay_Tree {
+public class SplayTree {
 	public static void main (String[] args) {
-		Splay_Tree t = new Splay_Tree();
+		SplayTree t = new SplayTree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 100; x++) {
 			int ran = (int) (Math.random() * (100)) + 5;
