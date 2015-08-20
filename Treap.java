@@ -30,33 +30,34 @@ public class Treap {
 		Node (int key, int value) {
 			this.key = key;
 			this.value = value;
+          	priority = Math.random();
 		}
 		
-		Node (int value) {
-			this.key = value;
-			this.value = value;
+		Node (int key) {
+			this.key = key;
+			this.value = key;
 			priority = Math.random();
 		}
 	}
 	
-	public void remove (Integer v) {
-		root = remove(root, v);
+	public void remove (Integer k) {
+		root = remove(root, k);
 	}
 
 	public void add (Integer k, Integer v) {
 		root = add(root, k, v);
 	}
 	
-	public void add (Integer v) {
-		root = add(root, v, v);
+	public void add (Integer k) {
+		root = add(root, k, k);
 	}
 	
-	public boolean contains (Integer v) {
-		return contains(root, v);
+	public boolean contains (Integer k) {
+		return contains(root, k);
 	}
 	
-	public Integer get (Integer v) {
-		return get(root, v);
+	public Integer get (Integer k) {
+		return get(root, k);
 	}
 	
 	// in order traversal of nodes
@@ -64,43 +65,43 @@ public class Treap {
 		if (n == null)
 			return;
 		traverse(n.left);
-		System.out.print(n.value + " ");
+		System.out.print(n.key + " ");
 		traverse(n.right);
 	}
 	
 	// auxiliary function for contains
-	public boolean contains (Node n, Integer v) {
+	public boolean contains (Node n, Integer k) {
 		if (n == null)
 			return false;
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
-			return contains(n.left, v);
+			return contains(n.left, k);
 		else if (cmp > 0)
-			return contains(n.right, v);
+			return contains(n.right, k);
 		return true;
 	}
 
 	// auxiliary function for get
-	public Integer get (Node n, Integer v) {
+	public Integer get (Node n, Integer k) {
 		if (n == null)
 			return null;
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
-			return get(n.left, v);
+			return get(n.left, k);
 		else if (cmp > 0)
-			return get(n.right, v);
-		return n.key;
+			return get(n.right, k);
+		return n.value;
 	}
 	
 	// auxiliary function to delete
-	private Node remove (Node n, Integer v) {
+	private Node remove (Node n, Integer k) {
 		if (n == null)
 			return n;
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
-			n.left = remove(n.left, v);
+			n.left = remove(n.left, k);
 		else if (cmp > 0)
-			n.right = remove(n.right, v);
+			n.right = remove(n.right, k);
 		else {
 			n = merge(n.left, n.right);
 		}
@@ -131,7 +132,7 @@ public class Treap {
 	private Node add (Node n, Integer k, Integer v) {
 		if (n == null)
 			return new Node(k, v);
-		int cmp = v.compareTo(n.value);
+		int cmp = k.compareTo(n.key);
 		// going left
 		if (cmp < 0) {
 			n.left = add(n.left, k, v);
