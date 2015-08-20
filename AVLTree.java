@@ -1,6 +1,6 @@
-public class Main {
+public class AVLTree {
 	public static void main (String[] args) {
-		Main t = new Main();
+		AVLTree t = new AVLTree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 10000; x++) {
 			int ran = (int) (Math.random() * (1 << 30)) + 5;
