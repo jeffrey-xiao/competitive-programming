@@ -86,7 +86,9 @@ public class RangeTree {
 	private void printAll (Node n, int y1, int y2) {
 		if (n == null)
 			return;
-		
+		for (Integer y : n.bst.range(y1, y2)) {
+			System.out.println(n.bst.get(y) + " " + y);
+		}
 	}
 	// object representing a node of the tree
 	static class Node {
