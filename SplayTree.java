@@ -23,9 +23,9 @@ public class SplayTree {
 		int value;
 		Node left, right;
 
-		Node (int value) {
-			this.key = value;
-			this.value = value;
+		Node (int key) {
+			this.key = key;
+			this.value = key;
 		}
 		
 		Node (int key, int value) {
@@ -35,7 +35,7 @@ public class SplayTree {
 
 		@Override
 		public int compareTo (Node o) {
-			return value - o.value;
+			return key - o.key;
 		}
 	}
 
@@ -44,12 +44,12 @@ public class SplayTree {
 		if (n == null)
 			return;
 		traverse(n.left);
-		System.out.println(n.value);
+		System.out.println(n.key);
 		traverse(n.right);
 	}
 
-	public void add (Integer v) {
-		add(v, v);
+	public void add (Integer k) {
+		add(k, k);
 	}
 	
 	public void add (Integer k, Integer v) {
@@ -58,9 +58,9 @@ public class SplayTree {
 			root = new Node(k, v);
 			return;
 		}
-		root = splay(root, v);
+		root = splay(root, k);
 
-		int cmp = v.compareTo(root.value);
+		int cmp = k.compareTo(root.key);
 		// take left subtree and put it as left, and the left subtree and root
 		// and put it as right
 		if (cmp < 0) {
@@ -82,25 +82,25 @@ public class SplayTree {
 		// else the value already exists
 	}
 
-	public boolean contains (Integer v) {
-		root = splay(root, v);
-		return v.compareTo(root.value) == 0;
+	public boolean contains (Integer k) {
+		root = splay(root, k);
+		return k.compareTo(root.key) == 0;
 	}
 	
-	public Integer get (Integer v) {
-		root = splay(root, v);
-		if (v.compareTo(root.value) != 0)
+	public Integer get (Integer k) {
+		root = splay(root, k);
+		if (k.compareTo(root.key) != 0)
 			return null;
-		return root.key;
+		return root.value;
 	}
 
-	public void remove (Integer v) {
+	public void remove (Integer k) {
 		// empty tree
 		if (root == null)
 			return;
 		// move the key to the root
-		root = splay(root, v);
-		int cmp = v.compareTo(root.value);
+		root = splay(root, k);
+		int cmp = k.compareTo(root.key);
 
 		// if the value exists then remove it
 		if (cmp == 0) {
@@ -112,7 +112,7 @@ public class SplayTree {
 			else {
 				Node right = root.right;
 				root = root.left;
-				splay(root, v);
+				splay(root, k);
 				root.right = right;
 			}
 
@@ -120,24 +120,24 @@ public class SplayTree {
 	}
 	
 	// splay method
-	public Node splay (Node n, Integer v) {
+	public Node splay (Node n, Integer k) {
 		if (n == null)
 			return null;
-		int cmp1 = v.compareTo(n.value);
+		int cmp1 = k.compareTo(n.key);
 
 		// going to the left
 		if (cmp1 < 0) {
 			if (n.left == null)
 				return n;
-			int cmp2 = v.compareTo(n.left.value);
+			int cmp2 = k.compareTo(n.left.key);
 			// right right rotation
 			if (cmp2 < 0) {
-				n.left.left = splay(n.left.left, v);
+				n.left.left = splay(n.left.left, k);
 				n = rotateRight(n);
 			}
 			// left right rotation
 			else if (cmp2 > 0) {
-				n.left.right = splay(n.left.right, v);
+				n.left.right = splay(n.left.right, k);
 				if (n.left.right != null)
 					n.left = rotateLeft(n.left);
 			}
@@ -150,16 +150,16 @@ public class SplayTree {
 		else if (cmp1 > 0) {
 			if (n.right == null)
 				return n;
-			int cmp2 = v.compareTo(n.right.value);
+			int cmp2 = k.compareTo(n.right.key);
 			// right left rotation
 			if (cmp2 < 0) {
-				n.right.left = splay(n.right.left, v);
+				n.right.left = splay(n.right.left, k);
 				if (n.right.left != null)
 					n.right = rotateRight(n.right);
 			}
 			// left left rotation
 			else if (cmp2 > 0) {
-				n.right.right = splay(n.right.right, v);
+				n.right.right = splay(n.right.right, k);
 				n = rotateLeft(n);
 			}
 			if (n.right == null)
