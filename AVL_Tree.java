@@ -1,6 +1,6 @@
-public class AVL_Tree {
+public class AVLTree {
 	public static void main (String[] args) {
-		AVL_Tree t = new AVL_Tree();
+		AVLTree t = new AVLTree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 1000000; x++) {
 			int ran = (int) (Math.random() * (1 << 30)) + 5;
