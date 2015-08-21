@@ -125,10 +125,9 @@ public class AVLTree {
 				n.key = replace.key;
 				n.value = replace.value;
 				n.right = remove(n.right, n.key);
+				return n;
 			}
 		}
-		if (n == null)
-			return null;
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
 		if (diff1 >= 2) {
