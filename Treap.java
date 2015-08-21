@@ -4,12 +4,13 @@ public class Treap {
 	public static void main (String[] args) {
 		Treap t = new Treap();
 		long c = System.currentTimeMillis();
+		HashSet<Integer> hs = new HashSet<Integer>();
 		for (int x = 0; x < 10; x++) {
 			int ran = (int) (Math.random() * (20)) + 5;
-			System.out.print(ran + " ");
+			hs.add(ran);
 			t.add(ran);
 		}
-		System.out.println();
+		System.out.println(hs.size());
 		t.traverse(t.root);
 		System.out.println();
 		t.add(1);
@@ -18,6 +19,7 @@ public class Treap {
 		t.remove(1);
 		System.out.println(t.contains(t.root, 1));
 		System.out.println(System.currentTimeMillis() - c);
+		System.out.println(t.range(10, 15));
 	}
 	// root of the tree
 	Node root = null;
