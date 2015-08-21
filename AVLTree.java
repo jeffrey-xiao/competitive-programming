@@ -63,8 +63,8 @@ public class AVLTree {
 	public void traverse (Node n) {
 		if (n == null)
 			return;
-		System.out.println(n.key);
 		traverse(n.left);
+		System.out.println(n.key);
 		traverse(n.right);
 	}
 
@@ -128,6 +128,7 @@ public class AVLTree {
 				return n;
 			}
 		}
+		resetHeight(n);
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
 		if (diff1 >= 2) {
@@ -144,8 +145,7 @@ public class AVLTree {
 				n.right = rotateRight(n.right);
 			}
 			n = rotateLeft(n);
-		} else
-			resetHeight(n);
+		}
 		return n;
 	}
 
@@ -172,7 +172,7 @@ public class AVLTree {
 			n.left = add(n.left, k, v);
 		else if (cmp > 0)
 			n.right = add(n.right, k, v);
-
+		resetHeight(n);
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
 		if (diff1 >= 2) {
@@ -189,8 +189,7 @@ public class AVLTree {
 				n.right = rotateRight(n.right);
 			}
 			n = rotateLeft(n);
-		} else
-			resetHeight(n);
+		}
 		return n;
 	}
 
