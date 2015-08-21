@@ -6,6 +6,64 @@
  */
 
 public class IntervalTree {
+  
+  	// UNIT TEST
+  	public static void main (String[] args) {
+  		IntervalTree t = new IntervalTree();
+        t.add(4, 8);
+      	t.traverse(t.root);
+      	System.out.println("---");
+      	t.add(5, 8);
+      	t.traverse(t.root);
+      	System.out.println("---");
+      	t.add(7, 10);
+      	t.traverse(t.root);
+      	System.out.println("---");
+        t.add(15, 18);
+      	t.traverse(t.root);
+      	System.out.println("---");
+        t.add(16, 22);
+      	t.traverse(t.root);
+      	System.out.println("---");
+      	t.add(17, 19);
+      	t.traverse(t.root);
+      	System.out.println("---");
+        t.add(21, 24);
+      	t.traverse(t.root);
+      	System.out.println("---");
+
+        //System.out.println("Expected true,   Actual: " + t.isIntersect(23, 25));
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(12, 14));
+        //System.out.println("Expected true,   Actual: " + t.isIntersect(21, 23));
+        // testing adjoint
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(10, 15));
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(10, 14));
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(11, 15));
+      	t.remove(21, 24);
+      	t.traverse(t.root);
+      	System.out.println("---");
+      	//System.out.println("Expected false,  Actual: " + t.isIntersect(23, 25));
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(12, 14));
+      	t.remove(16, 22);
+      	t.traverse(t.root);
+      	System.out.println("---");
+        //System.out.println("Expected false,  Actual: " + t.isIntersect(21, 23));
+      	t = new IntervalTree();
+      	for (int i = 0; i < 10000; i++) {
+      		t.add((int)(Math.random()*100000), 1000000);
+      	}
+      	System.out.println(t.getHeight(t.root));
+ 	}
+  
+  	private void traverse (Node n) {
+  		if (n == null)
+          return;
+      	
+      	System.out.println(n.lo + " " + (n.left == null ? "NULL" : n.left.lo) + " " + (n.right == null ? "NULL" : n.right.lo));
+      	traverse(n.left);	
+      	traverse(n.right);
+  	}
+  
 	// root of the tree
 	private Node root;
 	
@@ -16,20 +74,18 @@ public class IntervalTree {
 	 * @param hi represents the end of the interval
 	 */
 	public void add (int lo, int hi) {
-		// start at the root and do a standard BST search downwards
 		root = add(root, lo, hi);
 	}
-	private Node add (Node curr, int lo, int hi) {
-		if (curr == null)
+	private Node add (Node n, int lo, int hi) {
+		if (n == null)
 			return new Node(lo, hi);
-		if (lo < curr.lo) {
-			curr.left = add(curr.left, lo, hi);
-			curr = reset(curr);
-		} else {
-			curr.right = add(curr.right, lo, hi);
-			curr = reset(curr);
-		}
-		return curr;
+		if (lo < n.lo)
+			n.left = add(n.left, lo, hi);
+		else if (lo > n.lo)
+			n.right = add(n.right, lo, hi);
+		resetMax(n); resetHeight(n);
+		n = balance(n);
+		return n;
 	}
 	
 	/**
@@ -43,56 +99,54 @@ public class IntervalTree {
 		root = remove(root, lo, hi);
 	}
 	
-	private Node remove (Node curr, int lo, int hi) {
-		if (curr == null)
-			return curr;
-		if (curr.lo == lo) {
-			if (curr.left == null && curr.right == null)
+	private Node remove (Node n, int lo, int hi) {
+		if (n == null)
+			return n;
+		if (n.lo == lo) {
+			if (n.left == null && n.right == null)
 				return null;
-			else if (curr.left == null)
-				return curr.right;
-			else if (curr.right == null)
-				return curr.left;
+			else if (n.left == null)
+				return n.right;
+			else if (n.right == null)
+				return n.left;
 			else {
-				Node replace = getMax(curr.left);
-				curr.lo = replace.lo;
-				curr.hi = replace.hi;
-				curr.left = remove(curr.left, curr.lo, curr.hi);
-				curr = reset(curr);
-				return curr;
+				Node replace = getMax(n.left);
+				n.lo = replace.lo;
+				n.hi = replace.hi;
+				n.left = remove(n.left, n.lo, n.hi);
+				resetMax(n);
+				return n;
 			}
 		}
-		
-		if (lo < curr.lo) {
-			curr.left = remove(curr.left, lo, hi);
-			curr = reset(curr);
-		} else {
-			curr.right = remove(curr.right, lo, hi);
-			curr = reset(curr);
-		}
-		return curr;
+      	
+		if (lo < n.lo)
+			n.left = remove(n.left, lo, hi);
+		else
+			n.right = remove(n.right, lo, hi);
+		resetMax(n); resetHeight(n);
+      	n = balance(n);
+		return n;
 	}
 	/**
 	 * Auxiliary function to find the node with the largest value in a subtree
-	 * @param curr represents the subtree to search in
+	 * @param n represents the subtree to search in
 	 * @return node with largest value
 	 */
-	private Node getMax (Node curr) {
-		while (curr.right != null)
-			curr = curr.right;
-		return curr;
+	private Node getMax (Node n) {
+		while (n.right != null)
+			n = n.right;
+		return n;
 	}
 	/**
 	 * Auxiliary function to reset the max attribute
-	 * @param curr represents the node to reset
+	 * @param n represents the node to reset
 	 */
-	private Node reset (Node curr) {
-		curr.max = curr.hi;
-		if (curr.left != null)
-			curr.max = Math.max(curr.left.max, curr.max);
-		if (curr.right != null)
-			curr.max = Math.max(curr.right.max, curr.max);
-		return curr;
+	private void resetMax (Node n) {
+		n.max = n.hi;
+		if (n.left != null)
+			n.max = Math.max(n.left.max, n.max);
+		if (n.right != null)
+			n.max = Math.max(n.right.max, n.max);
 	}
 	/**
 	 * @param lo represents the beginning of the interval
@@ -102,16 +156,73 @@ public class IntervalTree {
 	public boolean isIntersect (int lo, int hi) {
 		return isIntersect(root, lo, hi);
 	}
-	private boolean isIntersect (Node curr, int lo, int hi) {
-		if (curr == null)
+	private boolean isIntersect (Node n, int lo, int hi) {
+		if (n == null)
 			return false;
-		if (Math.max(curr.lo, lo) < Math.min(curr.hi, hi))
+		if (Math.max(n.lo, lo) < Math.min(n.hi, hi))
 			return true;
-		if (curr.left == null || curr.left.max <= lo)
-			return isIntersect(curr.right, lo, hi);
-		return isIntersect(curr.left, lo, hi);
+		if (n.left == null || n.left.max <= lo)
+			return isIntersect(n.right, lo, hi);
+		return isIntersect(n.left, lo, hi);
 	}
 	
+  	/**
+     * @param n represents the node to rotate right
+     * @return	new rotated node
+     */
+  	private Node rotateRight (Node n) {
+  		Node m = n.left;
+      	n.left = m.right;
+      	m.right = n;
+      	resetHeight(n); resetMax(n);
+      	resetHeight(m); resetMax(m);
+      	return m;
+  	}
+  	/**
+     * @param n represents the node to rotate left
+     * @return	new rotated node
+     */
+  	private Node rotateLeft (Node n) {
+  		Node m = n.right;
+      	n.right = m.left;
+      	m.left = n;
+      	resetHeight(n); resetMax(n);
+      	resetHeight(m); resetMax(m);
+      	return m;
+  	}
+  
+  	/**
+     * @param n represents the node to balance
+     */
+  	private Node balance (Node n) {
+  		int diff1 = getHeight(n.left) - getHeight(n.right);
+      	if (diff1 >= 2) {
+          	if (getHeight(n.left.left) < getHeight(n.left.right))
+                n.left = rotateLeft(n.left);
+            n = rotateRight(n);
+        } else if (diff1 <= -2) {
+        	if (getHeight(n.right.left) > getHeight(n.right.right))
+              	n.right = rotateRight(n.right);
+          	n = rotateLeft(n);
+        }
+      	return n;
+  	}
+  
+  	/**
+     * @param n represents the node to reset the height for
+     */
+  	private void resetHeight (Node n) {
+  		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
+  	}
+  
+  	/**
+     * @param n represents the node to retrieve the height for
+     * @return	the height of the node -- -1 is the node doesn't exist
+     */
+  	private int getHeight (Node n) {
+  		return n == null ? -1 : n.height;
+  	}
+  
 	// A node of the tree
 	static class Node {
 		// children of the node
@@ -122,12 +233,15 @@ public class IntervalTree {
 		
 		// max end point of the subtree rooted at this node
 		int max;
-		
+      
+      	// height of the node
+		int height;	
+      
 		Node (int lo, int hi) {
 			this.lo = lo;
 			this.hi = hi;
 			this.max = hi;
-		}
+			this.height = 0;
+        }
 	}
 }
-
