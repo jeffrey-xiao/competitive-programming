@@ -43,31 +43,48 @@ public class Treap {
 			priority = Math.random();
 		}
 	}
-	
+	/**
+	 * @param k represents the key to remove
+	 */
 	public void remove (Integer k) {
 		root = remove(root, k);
 	}
-
+	/**
+	 * @param k represents the key to add; in this case the value of the key is equal to the key
+	 */
+	public void add (Integer k) {
+		root = add(root, k, k);
+	}
+	/**
+	 * @param k represents the key to add
+	 * @param v represents the value of the key
+	 */
 	public void add (Integer k, Integer v) {
 		root = add(root, k, v);
 	}
 	
-	public void add (Integer k) {
-		root = add(root, k, k);
-	}
-	
+	/**
+	 * @param k represents the key to check for
+	 */
 	public boolean contains (Integer k) {
 		return contains(root, k);
 	}
-	
+	/**
+	 * @param k represents the key to find
+	 * @return the value associated with the key
+	 */
 	public Integer get (Integer k) {
 		return get(root, k);
 	}
-	
-	public Queue<Integer> range (Integer loK, Integer hiK) {
+	/**
+	 * @param loK represents the lower bound of the range
+	 * @param hiK represents the upper bound of the range
+	 * @return an iterable object of all the elements in the range present in the tree
+	 */
+	public Iterable<Integer> range (Integer loK, Integer hiK) {
 		Queue<Integer> res = new ArrayDeque<Integer>();
 		range(root, loK, hiK, res);
-      	return res;
+      		return res;
 	}
 	
 	// in order traversal of nodes
