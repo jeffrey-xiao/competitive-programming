@@ -46,3 +46,5 @@ Temporary Items
 /bin/
 in.txt
 out.txt
+.project
+.classpath
