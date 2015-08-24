@@ -28,13 +28,15 @@ public class SuffixArray {
 		// we sort the suffix array with steps of the powers of 2
 		// we can notice that a suffix with length 2^(n+1) can be split into two strings each with length 2^n
 		// since we already have the order of the first strings, the order changes only when two first strings are equivalent
-		for (sz = 1; sz < len; sz <<= 1) {
+		for (sz = 1; ; sz <<= 1) {
 			Arrays.sort(res, C);
 			// checking if two first strings are equivalent
 			for (int i = 0; i < len - 1; i++)
 				newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i+1]) < 0 ? 1 : 0);
 			for (int i = 0; i < len; i++)
 				order[res[i]] = newOrder[i];
+			if (newOrder[len - 1] == len - 1)
+				break;
 		}
 		for (int i = 0; i < len; i++)
 			System.out.println(new String(input).substring(res[i]));
