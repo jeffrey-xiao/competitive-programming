@@ -101,12 +101,17 @@ public class Treap {
 	private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
 		if (n == null)
 			return;
-		if (n.key >= loK)
-			range(n.left, loK, hiK, res);
-		if (loK <= n.key && n.key <= hiK)
-			res.offer(n.key);
-		if (n.key <= hiK)
+		if (n == null)
+			return;
+		if (n.key < loK)
 			range(n.right, loK, hiK, res);
+		if (loK <= n.key && n.key <= hiK) {
+			res.offer(n.key);
+			range(n.right, loK, hiK, res);
+			range(n.left, loK, hiK, res);
+		}
+		if (n.key > hiK)
+			range(n.left, loK, hiK, res);
 	}
 	
 	// auxiliary function for contains
