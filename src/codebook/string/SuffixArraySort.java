@@ -8,19 +8,45 @@ import java.util.*;
 import java.io.*;
 
 public class SuffixArraySort {
-	static final SuffixComparator C = new SuffixComparator();
+	final SuffixComparator C = new SuffixComparator();
 	
 	// attributes of input
-	static char[] input = "MISSISSIPPI".toCharArray();
-	static int len = input.length;
+	private char[] input;
+	private int len;
+	private Integer[] res;
+	private Integer[] order;
+	private Integer[] newOrder;
+  	private int sz;
+	SuffixArraySort (String s) {
+		input = s.toCharArray();
+		len = input.length;
+		// initializing the arrays
+		res = new Integer[len];
+		order = new Integer[len];
+		newOrder = new Integer[len];
+      	sz = 0;
+		computeSuffixArray();
+	}
 	
-	// initializing the arrays
-	static Integer[] res = new Integer[len];
-	static Integer[] order = new Integer[len];
-	static Integer[] newOrder = new Integer[len];
+	public void setString (String s) {
+		input = s.toCharArray();
+		len = input.length;
+		res = new Integer[len];
+		order = new Integer[len];
+		newOrder = new Integer[len];
+      	sz = 0;
+		computeSuffixArray();
+	}
 	
-	static int sz = 0;
-	public static void main (String[] args) throws IOException {
+	public String getString () {
+		return new String(input);
+	}
+	
+	public Integer[] getSuffixArray () {
+		return res;
+	}
+	
+	private void computeSuffixArray () {
 		// initializing suffix array, order and new order
 		for (int i = 0; i < len; i++) {
 			res[i] = i;
@@ -40,11 +66,9 @@ public class SuffixArraySort {
 			if (newOrder[len - 1] == len - 1)
 				break;
 		}
-		for (int i = 0; i < len; i++)
-			System.out.println(new String(input).substring(res[i]));
 	}
 	// Comparator for suffixes
-	static class SuffixComparator implements Comparator<Integer> {
+	class SuffixComparator implements Comparator<Integer> {
 		@Override
 		public int compare (Integer o1, Integer o2) {
 			if (order[o1] != order[o2])
@@ -54,5 +78,12 @@ public class SuffixArraySort {
 			return o2 - o1;
 		}
 	}
+	public static void main (String[] args) throws IOException {
+		SuffixArraySort s = new SuffixArraySort("mississippi");
+		Integer[] res = s.getSuffixArray();
+		for (int i = 0; i < s.getString().length(); i++)
+			System.out.println(s.getString().substring(res[i]));
+	}
+	
 }
 
