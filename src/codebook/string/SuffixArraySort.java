@@ -24,7 +24,7 @@ public class SuffixArraySort {
 		res = new Integer[len];
 		order = new Integer[len];
 		newOrder = new Integer[len];
-      	sz = 0;
+      		sz = 0;
 		computeSuffixArray();
 	}
 	
@@ -34,7 +34,7 @@ public class SuffixArraySort {
 		res = new Integer[len];
 		order = new Integer[len];
 		newOrder = new Integer[len];
-      	sz = 0;
+      		sz = 0;
 		computeSuffixArray();
 	}
 	
