@@ -1,36 +1,20 @@
 package codebook.string;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+
+import java.util.*;
 
 public class AhoCorasick {
-
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
-	static StringTokenizer st;
-
-	static final int SHIFT = 'a';
-	static Node root;
-
-	public static void main (String[] args) throws IOException {
+	private static final int SHIFT = 'a';
+	private Node root = new Node(0, 0);
+	
+	AhoCorasick () {
 		root = new Node(0, 0);
-		
-		root.addWord("apple");
-		root.addWord("banana");
 		root.parent = root;
-		computeFall();
-		search("askfjasjfklasjfasfjpasfjawofjoawjfopjapapple");
 	}
-	private static void computeFall () {
+	
+	public void addWord (String s) {
+		root.addWord(s);
+	}
+	public void computeFall () {
 		Queue<Node> q = new LinkedList<Node>();
 		// the fall of the root is the root
 		root.fall = root;
@@ -59,7 +43,7 @@ public class AhoCorasick {
 		}
 	}
 
-	private static void search (String s) {
+	public void search (String s) {
 		Node currState = root;
 		for (int i = 0; i < s.length(); i++) {
 			char curr = s.charAt(i);
@@ -84,7 +68,7 @@ public class AhoCorasick {
 		}
 	}
 
-	static class Node {
+	class Node {
 		int depth, index;
 		Node[] child;
 		Node fall;
@@ -124,30 +108,11 @@ public class AhoCorasick {
 			}
 		}
 	}
-
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
-
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
+	public static void main (String[] args) {
+		AhoCorasick tree = new AhoCorasick();
+		tree.addWord("apple");
+		tree.addWord("banana");
+		tree.computeFall();
+		tree.search("askfjasjfklasjfasfjpasfjawofjoawjfopjapapple");
 	}
 }
