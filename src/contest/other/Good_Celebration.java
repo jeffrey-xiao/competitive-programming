@@ -14,21 +14,22 @@ public class Good_Celebration {
 	static long[] m;
 	static long[][] dp;
 	static int N, M;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
-		
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
+
 		N = readInt();
 		M = readInt();
 		b = new long[N];
 		m = new long[N];
 		for (int i = 0; i < N; i++)
 			adj.add(new ArrayList<Integer>());
-		dp = new long[N][M+1];
+		dp = new long[N][M + 1];
 		for (int i = 0; i < N; i++) {
-			int prev = readInt()-1;
+			int prev = readInt() - 1;
 			b[i] = readInt();
 			m[i] = readInt();
 			if (prev != -1)
@@ -46,10 +47,10 @@ public class Good_Celebration {
 	private static void solve (int u) {
 		if (adj.get(u).size() == 0) {
 			for (int i = 0; i <= M; i++) {
-				dp[u][i] = b[u]+m[u]*i;
+				dp[u][i] = b[u] + m[u] * i;
 			}
 		} else {
-			long[] maxTasty = new long[M+1];
+			long[] maxTasty = new long[M + 1];
 			for (int v = 0; v < adj.get(u).size(); v++) {
 				solve(adj.get(u).get(v));
 				if (v == 0) {
@@ -61,7 +62,7 @@ public class Good_Celebration {
 						long max = 0;
 						for (int j = 0; j <= M; j++) {
 							if (i - j >= 0) {
-								max = Math.max(max, Math.min(maxTasty[i-j], dp[adj.get(u).get(v)][j]));
+								max = Math.max(max, Math.min(maxTasty[i - j], dp[adj.get(u).get(v)][j]));
 							}
 						}
 						maxTasty[i] = max;
@@ -69,13 +70,13 @@ public class Good_Celebration {
 				}
 			}
 			for (int i = 0; i <= M; i++) {
-//				System.out.println("MAXTASTY " + maxTasty[i]);
+				// System.out.println("MAXTASTY " + maxTasty[i]);
 				for (int j = 0; j <= i; j++) {
-					dp[u][i] = Math.max(dp[u][i], b[u] + m[u]*(j + maxTasty[i-j]));
+					dp[u][i] = Math.max(dp[u][i], b[u] + m[u] * (j + maxTasty[i - j]));
 				}
 			}
 		}
-		
+
 	}
 
 	static String next () throws IOException {
@@ -104,4 +105,3 @@ public class Good_Celebration {
 		return br.readLine().trim();
 	}
 }
-

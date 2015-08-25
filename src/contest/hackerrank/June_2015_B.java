@@ -12,38 +12,41 @@ public class June_2015_B {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
 			int r = readInt();
 			int s = readInt();
-			double firstS = (double)(r) / (double)(s);
-//			System.out.println(firstS + " " + (int)(firstS));
-			if (firstS - (int)(firstS) > 1.0/4.0) {
-				System.out.println((int)((Math.ceil(firstS))*s) + " 0/1");
+			double firstS = (double) (r) / (double) (s);
+			// System.out.println(firstS + " " + (int)(firstS));
+			if (firstS - (int) (firstS) > 1.0 / 4.0) {
+				System.out.println((int) ((Math.ceil(firstS)) * s) + " 0/1");
 			} else {
 				long top = r % s;
 				long bot = s;
 				long lca = lca(bot, 4);
-//				top = top * lca / bot - 1 * lca / 4;
-//				bot = lca;
+				// top = top * lca / bot - 1 * lca / 4;
+				// bot = lca;
 				long gcf = gcf(top, bot);
 				top /= gcf;
 				bot /= gcf;
-				System.out.println(r + " " + top+"/"+bot);
+				System.out.println(r + " " + top + "/" + bot);
 			}
 		}
-		
+
 		pr.close();
 	}
+
 	static long lca (long a, long b) {
-		return a*b / gcf(a, b);
+		return a * b / gcf(a, b);
 	}
+
 	static long gcf (long a, long b) {
 		return b == 0 ? a : gcf(b, a % b);
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -70,4 +73,3 @@ public class June_2015_B {
 		return br.readLine().trim();
 	}
 }
-

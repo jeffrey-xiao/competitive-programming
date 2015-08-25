@@ -1,4 +1,5 @@
 package codebook.datastructures;
+
 public class DisjointSetUnion {
 	private int[] id;
 

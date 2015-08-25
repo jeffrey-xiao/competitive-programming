@@ -23,12 +23,12 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 	static int[] sizeCom;
 	static Stack<Integer> s = new Stack<Integer>();
 	static int cnt = 0, comNum = 0;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
-
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		toIndex.clear();
 		toName.clear();
@@ -42,7 +42,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 		in = new int[2000];
 		sizeCom = new int[2000];
 		s.clear();
-		cnt = 0; 
+		cnt = 0;
 		comNum = 0;
 		n = 0;
 		int Q = -1;
@@ -68,21 +68,21 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 						v[toIndex.get(in[0])] = -1;
 					else
 						v[toIndex.get(in[0])] = 1;
-				}else if (in.length == 5) {
+				} else if (in.length == 5) {
 					addName(in[0]);
 					addName(in[4]);
 					int p = toIndex.get(in[0]);
 					int q = toIndex.get(in[4]);
 					if (in[2].equals("same")) {
-						adj.get(p*2).add(q*2);
-						adj.get(q*2).add(p*2);
-						adj.get(p*2+1).add(q*2+1);
-						adj.get(q*2+1).add(p*2+1);
+						adj.get(p * 2).add(q * 2);
+						adj.get(q * 2).add(p * 2);
+						adj.get(p * 2 + 1).add(q * 2 + 1);
+						adj.get(q * 2 + 1).add(p * 2 + 1);
 					} else {
-						adj.get(p*2+1).add(q*2);
-						adj.get(q*2).add(p*2+1);
-						adj.get(p*2).add(q*2+1);
-						adj.get(q*2+1).add(p*2);
+						adj.get(p * 2 + 1).add(q * 2);
+						adj.get(q * 2).add(p * 2 + 1);
+						adj.get(p * 2).add(q * 2 + 1);
+						adj.get(q * 2 + 1).add(p * 2);
 					}
 				} else {
 					addName(in[0]);
@@ -90,45 +90,45 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 					if (in[2].equals("Coke") && in[6].equals("Coke")) {
 						addName(in[4]);
 						int q = toIndex.get(in[4]);
-						adj.get(p*2+1).add(q*2+1);
-						adj.get(q*2).add(p*2);
+						adj.get(p * 2 + 1).add(q * 2 + 1);
+						adj.get(q * 2).add(p * 2);
 					} else if (in[2].equals("Coke") && in[6].equals("chocolate")) {
 						addName(in[4]);
 						int q = toIndex.get(in[4]);
-						adj.get(p*2+1).add(q*2);
-						adj.get(q*2+1).add(p*2);
+						adj.get(p * 2 + 1).add(q * 2);
+						adj.get(q * 2 + 1).add(p * 2);
 					} else if (in[2].equals("chocolate") && in[7].equals("chocolate")) {
 						addName(in[5]);
 						int q = toIndex.get(in[5]);
-						adj.get(p*2).add(q*2);
-						adj.get(q*2+1).add(p*2+1);
+						adj.get(p * 2).add(q * 2);
+						adj.get(q * 2 + 1).add(p * 2 + 1);
 					} else if (in[2].equals("chocolate") && in[7].equals("Coke")) {
 						addName(in[5]);
 						int q = toIndex.get(in[5]);
-						adj.get(p*2).add(q*2+1);
-						adj.get(q*2).add(p*2+1);
+						adj.get(p * 2).add(q * 2 + 1);
+						adj.get(q * 2).add(p * 2 + 1);
 					}
 				}
 			}
 			n = toIndex.size();
-//			for (int i = 0; i < 2*n; i++) {
-//				for (int j : adj.get(i)) {
-//					System.out.println(i + "->" + j);
-//				}
-//			}
+			// for (int i = 0; i < 2*n; i++) {
+			// for (int j : adj.get(i)) {
+			// System.out.println(i + "->" + j);
+			// }
+			// }
 			// generate all the connected components
-			for (int i = 0; i < 2*n; i++)
+			for (int i = 0; i < 2 * n; i++)
 				if (disc[i] == -1)
 					dfs(i);
 			// checking if assignment is valid
 			boolean valid = true;
-			for (int i = 0; i < 2*n; i += 2) {
-//				System.out.println(com[i] + " "  + com[i+1] + " " + comNum);
-				if (com[i] == com[i+1]) {
+			for (int i = 0; i < 2 * n; i += 2) {
+				// System.out.println(com[i] + " " + com[i+1] + " " + comNum);
+				if (com[i] == com[i + 1]) {
 					valid = false;
 				} else {
-					negcom[com[i]] = com[i+1];
-					negcom[com[i+1]] = com[i];
+					negcom[com[i]] = com[i + 1];
+					negcom[com[i + 1]] = com[i];
 				}
 			}
 			if (!valid) {
@@ -138,12 +138,12 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 			// assigning values
 			for (int i = 0; i < n; i++) {
 				if (v[i] != 0) {
-					if (idCom[com[i*2]] == -v[i] || idCom[com[i*2+1]] == v[i]) {
+					if (idCom[com[i * 2]] == -v[i] || idCom[com[i * 2 + 1]] == v[i]) {
 						System.out.println("Everybody gets water");
 						continue main;
 					}
-					idCom[com[i*2]] = v[i];
-					idCom[com[i*2+1]] = -v[i];
+					idCom[com[i * 2]] = v[i];
+					idCom[com[i * 2 + 1]] = -v[i];
 				}
 			}
 			for (int i = 0; i < comNum; i++) {
@@ -151,25 +151,26 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 					if (sizeCom[i] > sizeCom[negcom[i]]) {
 						idCom[i] = 1;
 						idCom[negcom[i]] = -1;
-					} else if (sizeCom[i] < sizeCom[negcom[i]]){
+					} else if (sizeCom[i] < sizeCom[negcom[i]]) {
 						idCom[i] = -1;
 						idCom[negcom[i]] = 1;
 					} else {
-						
+
 					}
 				}
 			}
 			for (Map.Entry<String, Integer> e : toIndex.entrySet()) {
-				//System.out.println(e.getKey() + " " + e.getValue());
-				if (idCom[com[e.getValue()*2]] == 0) {
-					idCom[com[e.getValue()*2]] = 1;
-					idCom[negcom[com[e.getValue()*2]]] = -1;
+				// System.out.println(e.getKey() + " " + e.getValue());
+				if (idCom[com[e.getValue() * 2]] == 0) {
+					idCom[com[e.getValue() * 2]] = 1;
+					idCom[negcom[com[e.getValue() * 2]]] = -1;
 				}
-				System.out.println(e.getKey() + " gets " + (idCom[com[e.getValue()*2]] == 1 ? "Coke" : "chocolate milk"));
+				System.out.println(e.getKey() + " gets " + (idCom[com[e.getValue() * 2]] == 1 ? "Coke" : "chocolate milk"));
 			}
 		}
 		pr.close();
 	}
+
 	static void dfs (int u) {
 		disc[u] = low[u] = cnt++;
 		s.push(u);
@@ -190,6 +191,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 			com[s.pop()] = comNum++;
 		}
 	}
+
 	// adds name if didn't yet
 	static void addName (String name) {
 		if (!toIndex.containsKey(name)) {
@@ -198,6 +200,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 			n++;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -224,4 +227,3 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 		return br.readLine().trim();
 	}
 }
-

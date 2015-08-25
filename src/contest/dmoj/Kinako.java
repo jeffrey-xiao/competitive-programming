@@ -1,4 +1,5 @@
 package contest.dmoj;
+
 import java.util.*;
 import java.io.*;
 
@@ -12,11 +13,12 @@ public class Kinako {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int[][] pa = new int[1001][11];
 	static int[] d;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 		int n = readInt();
 		int lk = readInt();
 		int rk = readInt();
@@ -30,9 +32,9 @@ public class Kinako {
 				pa[i][j] = -1;
 			}
 		}
-		for (int i = 0; i < n-1; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+		for (int i = 0; i < n - 1; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
@@ -67,7 +69,8 @@ public class Kinako {
 					sumK++;
 				else
 					sumC++;
-				//System.out.println(i+1 + " "+(j+1) + " " + sumK + " " + sumC);
+				// System.out.println(i+1 + " "+(j+1) + " " + sumK + " " +
+				// sumC);
 				if (lk <= sumK && sumK <= rk && lc <= sumC && sumC <= rc) {
 					cnt++;
 				}
@@ -76,22 +79,23 @@ public class Kinako {
 		System.out.println(cnt);
 		pr.close();
 	}
-	static int LCA(int x, int y){
-		if(d[x] < d[y]) {
+
+	static int LCA (int x, int y) {
+		if (d[x] < d[y]) {
 			int temp = x;
 			x = y;
 			y = temp;
 		}
-		for(int i = 10; i >= 0; i--)
-			if(pa[x][i] != -1 && d[pa[x][i]] >= d[y])
+		for (int i = 10; i >= 0; i--)
+			if (pa[x][i] != -1 && d[pa[x][i]] >= d[y])
 				x = pa[x][i];
 
-		if(x == y)
+		if (x == y)
 			return x;
 
-		for(int i = 10; i >= 0; i--)
-			if(pa[x][i] != -1 && pa[x][i] != pa[y][i]) {
-				x = pa[x][i]; 
+		for (int i = 10; i >= 0; i--)
+			if (pa[x][i] != -1 && pa[x][i] != pa[y][i]) {
+				x = pa[x][i];
 				y = pa[y][i];
 			}
 
@@ -104,7 +108,7 @@ public class Kinako {
 		for (int k : adj.get(i)) {
 			if (k == j)
 				continue;
-			dfs(k, i, depth+1);
+			dfs(k, i, depth + 1);
 		}
 
 	}
@@ -135,4 +139,3 @@ public class Kinako {
 		return br.readLine().trim();
 	}
 }
-

@@ -1,34 +1,6 @@
 package codebook.datastructures;
-public class AVLTree {
-	public static void main (String[] args) {
-		AVLTree t = new AVLTree();
-		long c = System.currentTimeMillis();
-		for (int x = 0; x < 10000; x++) {
-			int ran = (int) (Math.random() * (1 << 30)) + 5;
-			t.add(ran);
-		}
-		// t.traverse(root);
-		t.add(1);
-		System.out.println(t.contains(t.root, 1));
-		System.out.println(t.contains(t.root, 2));
-		t.remove(1);
-		System.out.println(t.contains(t.root, 1));
-		System.out.println(System.currentTimeMillis() - c);
-		// t.add(9);
-		// t.add(5);
-		// t.add(10);
-		// t.add(0);
-		// t.add(6);
-		// t.add(11);
-		// t.add(-1);
-		// t.add(1);
-		// t.add(2);
-		// traverse(root);
-		// t.remove(10);
-		// System.out.println();
-		// t.traverse(root);
 
-	}
+public class AVLTree {
 	// root of the tree
 	Node root = null;
 
@@ -42,7 +14,7 @@ public class AVLTree {
 			this.value = value;
 			this.height = 0;
 		}
-		
+
 		Node (int key) {
 			this.key = key;
 			this.value = key;
@@ -72,14 +44,14 @@ public class AVLTree {
 	public boolean contains (Integer k) {
 		return contains(root, k);
 	}
-	
-  	public Integer get (Integer k) {
-  		return get(root, k);
-  	}
-  
-  	// auxiliary method for get
-  	private Integer get (Node n, Integer k) {
-  		if (n == null)
+
+	public Integer get (Integer k) {
+		return get(root, k);
+	}
+
+	// auxiliary method for get
+	private Integer get (Node n, Integer k) {
+		if (n == null)
 			return null;
 		int cmp = k.compareTo(n.key);
 		if (cmp < 0)
@@ -87,8 +59,8 @@ public class AVLTree {
 		else if (cmp > 0)
 			return get(n.right, k);
 		return n.value;
-  	}
-  
+	}
+
 	// auxiliary method for contains
 	private boolean contains (Node n, Integer k) {
 		if (n == null)
@@ -100,11 +72,11 @@ public class AVLTree {
 			return contains(n.right, k);
 		return true;
 	}
-	
+
 	public void remove (int k) {
 		root = remove(root, k);
 	}
-	
+
 	// auxiliary method for move
 	private Node remove (Node n, Integer k) {
 		if (n == null)
@@ -151,7 +123,8 @@ public class AVLTree {
 	}
 
 	private Node minV (Node n) {
-		while (n.left != null);
+		while (n.left != null)
+			;
 		n = n.left;
 		return n;
 	}
@@ -159,11 +132,11 @@ public class AVLTree {
 	public void add (int k, int v) {
 		root = add(root, k, v);
 	}
-	
+
 	public void add (int k) {
 		root = add(root, k, k);
 	}
-	
+
 	// auxiliary method for add
 	private Node add (Node n, Integer k, Integer v) {
 		if (n == null)
@@ -212,5 +185,35 @@ public class AVLTree {
 		resetHeight(n);
 		resetHeight(x);
 		return x;
+	}
+	
+	public static void main (String[] args) {
+		AVLTree t = new AVLTree();
+		long c = System.currentTimeMillis();
+		for (int x = 0; x < 10000; x++) {
+			int ran = (int) (Math.random() * (1 << 30)) + 5;
+			t.add(ran);
+		}
+		// t.traverse(root);
+		t.add(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(t.contains(t.root, 2));
+		t.remove(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(System.currentTimeMillis() - c);
+		// t.add(9);
+		// t.add(5);
+		// t.add(10);
+		// t.add(0);
+		// t.add(6);
+		// t.add(11);
+		// t.add(-1);
+		// t.add(1);
+		// t.add(2);
+		// traverse(root);
+		// t.remove(10);
+		// System.out.println();
+		// t.traverse(root);
+
 	}
 }

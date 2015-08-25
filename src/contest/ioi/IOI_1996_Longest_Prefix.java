@@ -14,11 +14,12 @@ public class IOI_1996_Longest_Prefix {
 	static StringTokenizer st;
 	static boolean[] dp;
 	static ArrayList<HashSet<Integer>> adj;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 		ArrayList<String> words = new ArrayList<String>();
 		String in = null;
 		while (!(in = next()).equals("."))
@@ -31,12 +32,12 @@ public class IOI_1996_Longest_Prefix {
 		for (int i = 0; i < dp.length; i++) {
 			for (String word : words) {
 				if (dp[i]) {
-					if (i + word.length() < dp.length && word.equals(seq.substring(i+1, i+word.length()+1)))
+					if (i + word.length() < dp.length && word.equals(seq.substring(i + 1, i + word.length() + 1)))
 						dp[i + word.length()] = true;
 				}
 			}
 		}
-		for (int i = seq.length()-1; i >= 0; i--) {
+		for (int i = seq.length() - 1; i >= 0; i--) {
 			if (dp[i]) {
 				System.out.println(i);
 				return;

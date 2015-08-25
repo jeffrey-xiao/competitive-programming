@@ -1,27 +1,8 @@
 package codebook.datastructures;
+
 import java.util.*;
 
 public class Treap {
-	public static void main (String[] args) {
-		Treap t = new Treap();
-		long c = System.currentTimeMillis();
-		HashSet<Integer> hs = new HashSet<Integer>();
-		for (int x = 0; x < 10; x++) {
-			int ran = (int) (Math.random() * (20)) + 5;
-			hs.add(ran);
-			t.add(ran);
-		}
-		System.out.println(hs.size());
-		t.traverse(t.root);
-		System.out.println();
-		t.add(1);
-		System.out.println(t.contains(t.root, 1));
-		System.out.println(t.contains(t.root, 2));
-		t.remove(1);
-		System.out.println(t.contains(t.root, 1));
-		System.out.println(System.currentTimeMillis() - c);
-		System.out.println(t.range(10, 15));
-	}
 	// root of the tree
 	Node root = null;
 
@@ -31,63 +12,46 @@ public class Treap {
 		Integer value;
 		Double priority;
 		Node left, right;
-		
+
 		Node (int key, int value) {
 			this.key = key;
 			this.value = value;
-          	priority = Math.random();
+			priority = Math.random();
 		}
-		
+
 		Node (int key) {
 			this.key = key;
 			this.value = key;
 			priority = Math.random();
 		}
 	}
-	/**
-	 * @param k represents the key to remove
-	 */
+
 	public void remove (Integer k) {
 		root = remove(root, k);
 	}
-	/**
-	 * @param k represents the key to add; in this case the value of the key is equal to the key
-	 */
+
 	public void add (Integer k) {
 		root = add(root, k, k);
 	}
-	/**
-	 * @param k represents the key to add
-	 * @param v represents the value of the key
-	 */
+
 	public void add (Integer k, Integer v) {
 		root = add(root, k, v);
 	}
-	
-	/**
-	 * @param k represents the key to check for
-	 */
+
 	public boolean contains (Integer k) {
 		return contains(root, k);
 	}
-	/**
-	 * @param k represents the key to find
-	 * @return the value associated with the key
-	 */
+
 	public Integer get (Integer k) {
 		return get(root, k);
 	}
-	/**
-	 * @param loK represents the lower bound of the range
-	 * @param hiK represents the upper bound of the range
-	 * @return an iterable object of all the elements in the range present in the tree
-	 */
+
 	public Iterable<Integer> range (Integer loK, Integer hiK) {
 		Queue<Integer> res = new ArrayDeque<Integer>();
 		range(root, loK, hiK, res);
-      		return res;
+		return res;
 	}
-	
+
 	// in order traversal of nodes
 	public void traverse (Node n) {
 		if (n == null)
@@ -96,11 +60,9 @@ public class Treap {
 		System.out.print(n.key + " ");
 		traverse(n.right);
 	}
-	
+
 	// auxiliary function for range
 	private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
-		if (n == null)
-			return;
 		if (n == null)
 			return;
 		if (n.key < loK)
@@ -113,7 +75,7 @@ public class Treap {
 		if (n.key > hiK)
 			range(n.left, loK, hiK, res);
 	}
-	
+
 	// auxiliary function for contains
 	private boolean contains (Node n, Integer k) {
 		if (n == null)
@@ -137,7 +99,7 @@ public class Treap {
 			return get(n.right, k);
 		return n.value;
 	}
-	
+
 	// auxiliary function to delete
 	private Node remove (Node n, Integer k) {
 		if (n == null)
@@ -209,5 +171,26 @@ public class Treap {
 		n.left = x.right;
 		x.right = n;
 		return x;
+	}
+	
+	public static void main (String[] args) {
+		Treap t = new Treap();
+		long c = System.currentTimeMillis();
+		HashSet<Integer> hs = new HashSet<Integer>();
+		for (int x = 0; x < 10; x++) {
+			int ran = (int) (Math.random() * (20)) + 5;
+			hs.add(ran);
+			t.add(ran);
+		}
+		System.out.println(hs.size());
+		t.traverse(t.root);
+		System.out.println();
+		t.add(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(t.contains(t.root, 2));
+		t.remove(1);
+		System.out.println(t.contains(t.root, 1));
+		System.out.println(System.currentTimeMillis() - c);
+		System.out.println(t.range(10, 15));
 	}
 }

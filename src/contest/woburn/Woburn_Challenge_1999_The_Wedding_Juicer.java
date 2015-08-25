@@ -12,15 +12,16 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 	static int[][] g;
 	static boolean[][] v;
 
-	static int[] movex = {-1,1,0,0};
-	static int[] movey = {0,0,-1,1};
+	static int[] movex = {-1, 1, 0, 0};
+	static int[] movey = {0, 0, -1, 1};
 	static int r, c;
 	static int min = 1 << 30;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
@@ -29,7 +30,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 			g = new int[r][c];
 			v = new boolean[r][c];
 			int ans = 0;
-			Point[] ls = new Point[r*c];
+			Point[] ls = new Point[r * c];
 			int cnt = 0;
 			for (int i = 0; i < r; i++)
 				for (int j = 0; j < c; j++) {
@@ -38,7 +39,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 				}
 			Arrays.sort(ls);
 			int prev = -1;
-			for (int i = 0; i < r*c; i++) {
+			for (int i = 0; i < r * c; i++) {
 				if (ls[i].h != prev) {
 					prev = ls[i].h;
 					System.out.println(prev);
@@ -53,7 +54,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 					while (!q.isEmpty()) {
 						Point curr = q.poll();
 						res++;
-						if (curr.x == 0 || curr.y == 0 || curr.x == r-1 ||curr. y == c-1) {
+						if (curr.x == 0 || curr.y == 0 || curr.x == r - 1 || curr.y == c - 1) {
 							res = -10000;
 						}
 						for (int k = 0; k < 4; k++) {
@@ -61,7 +62,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 							int ny = curr.y + movey[k];
 							if (nx < 0 || nx >= r || ny < 0 || ny >= c || v[nx][ny])
 								continue;
-							
+
 							if (g[nx][ny] <= g[curr.x][curr.y]) {
 								v[nx][ny] = true;
 								q.offer(new Point(nx, ny));
@@ -72,8 +73,9 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 						}
 					}
 					if (res > 0 && min != 1 << 30) {
-						System.out.println("MIN " + min + " " +res);
-//						System.out.println(res * (min - ls[i].h) + " " + ls[i].x + " " + ls[i].y);
+						System.out.println("MIN " + min + " " + res);
+						// System.out.println(res * (min - ls[i].h) + " " +
+						// ls[i].x + " " + ls[i].y);
 						ans += res * (min - ls[i].h);
 					}
 				}
@@ -83,17 +85,21 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 
 		pr.close();
 	}
+
 	static class Point implements Comparable<Point> {
 		int x, y, h;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
+
 		Point (int x, int y, int h) {
 			this.x = x;
 			this.y = y;
 			this.h = h;
 		}
+
 		@Override
 		public int compareTo (Point o) {
 			return h - o.h;
@@ -126,4 +132,3 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 		return br.readLine().trim();
 	}
 }
-

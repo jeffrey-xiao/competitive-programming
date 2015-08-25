@@ -12,8 +12,8 @@ public class Epiccode_C {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
 		int k = readInt();
@@ -26,7 +26,7 @@ public class Epiccode_C {
 			int in = readInt();
 			if (!girl.containsKey(in))
 				girl.put(in, 0);
-			girl.put(in, girl.get(in)+1);
+			girl.put(in, girl.get(in) + 1);
 		}
 		Arrays.sort(boy);
 		int ans = 0;
@@ -34,13 +34,13 @@ public class Epiccode_C {
 			Integer next = girl.ceilingKey(boy[i] - k);
 			if (next != null && Math.abs(next - boy[i]) <= k) {
 				ans++;
-				girl.put(next, girl.get(next)-1);
+				girl.put(next, girl.get(next) - 1);
 				if (girl.get(next) == 0)
 					girl.remove(next);
 			}
 		}
 		System.out.println(ans);
-		
+
 		pr.close();
 	}
 
@@ -70,4 +70,3 @@ public class Epiccode_C {
 		return br.readLine().trim();
 	}
 }
-

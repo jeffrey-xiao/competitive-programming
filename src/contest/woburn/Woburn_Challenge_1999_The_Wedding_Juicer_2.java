@@ -14,17 +14,18 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer_2 {
 
 	static int r, c;
 	static int min = 1 << 30;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
 			r = readInt();
 			c = readInt();
-			g = new int[r+2][c+2];
+			g = new int[r + 2][c + 2];
 			int max = 0;
 			for (int i = 1; i <= r; i++) {
 				for (int j = 1; j <= c; j++) {
@@ -32,7 +33,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer_2 {
 					max = Math.max(g[i][j], max);
 				}
 			}
-			int[][] waterFull = new int[r+2][c+2];
+			int[][] waterFull = new int[r + 2][c + 2];
 			for (int i = 1; i <= r; i++)
 				for (int j = 1; j <= c; j++)
 					waterFull[i][j] = max;
@@ -41,7 +42,7 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer_2 {
 				isComplete = true;
 				for (int i = 1; i <= r; i++)
 					for (int j = 1; j <= c; j++) {
-						int min = Math.max(g[i][j], Math.min(Math.min(waterFull[i-1][j], waterFull[i+1][j]), Math.min(waterFull[i][j-1], waterFull[i][j+1])));
+						int min = Math.max(g[i][j], Math.min(Math.min(waterFull[i - 1][j], waterFull[i + 1][j]), Math.min(waterFull[i][j - 1], waterFull[i][j + 1])));
 						if (min < waterFull[i][j]) {
 							waterFull[i][j] = min;
 							isComplete = false;
@@ -84,4 +85,3 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer_2 {
 		return br.readLine().trim();
 	}
 }
-

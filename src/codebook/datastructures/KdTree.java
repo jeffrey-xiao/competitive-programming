@@ -130,27 +130,34 @@ public class KdTree {
 			this.area = area;
 		}
 	}
+
 	private class Point {
 		private double x, y;
+
 		@SuppressWarnings ("unused")
 		Point (double x, double y) {
 			this.x = x;
 			this.y = y;
 		}
+
 		@SuppressWarnings ("unused")
 		public double distanceTo (Point p) {
 			return Math.sqrt(distanceSquaredTo(p));
 		}
+
 		public double distanceSquaredTo (Point p) {
-			return (x - p.x)*(x - p.x) + (y - p.x) * (y - p.y);
+			return (x - p.x) * (x - p.x) + (y - p.x) * (y - p.y);
 		}
+
 		public double getX () {
 			return x;
 		}
+
 		public double getY () {
 			return y;
 		}
 	}
+
 	public class Rect {
 		private double xmin, ymin, xmax, ymax;
 
@@ -208,18 +215,6 @@ public class KdTree {
 			else if (p.getY() > ymax)
 				dy = p.getY() - ymax;
 			return dx * dx + dy * dy;
-		}
-
-		public void draw () {
-			// StdDraw.line(xmin, ymin, xmax, ymin);
-			// StdDraw.line(xmax, ymin, xmax, ymax);
-			// StdDraw.line(xmax, ymax, xmin, ymax);
-			// StdDraw.line(xmin, ymax, xmin, ymin);
-		}
-
-		public String toString () {
-			return "Xmin: " + xmin + "; Xmax: " + xmax + "; Ymin: " + ymin
-					+ "; Ymax: " + ymax + ";";
 		}
 	}
 

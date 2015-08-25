@@ -10,11 +10,12 @@ public class Yokan_Random {
 	static StringTokenizer st;
 	static int n;
 	static Candy[] cc;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
 		int m = readInt();
@@ -29,18 +30,18 @@ public class Yokan_Random {
 		int q = readInt();
 		HashSet<Integer> hs = new HashSet<Integer>();
 		for (int i = 0; i < q; i++) {
-			int l = readInt()-1;
-			int r = readInt()-1;
+			int l = readInt() - 1;
+			int r = readInt() - 1;
 			boolean valid = false;
 			int res = 0;
 			hs.clear();
 			for (int j = 0; j < 25; j++) {
-				int rand = (int)(Math.random()*(r-l+1)+l);
+				int rand = (int) (Math.random() * (r - l + 1) + l);
 				int cnt = lower(in[rand], r) - Math.max(0, higher(in[rand], l)) + 1;
-				if (cnt*3 >= (r-l+1)*2) {
+				if (cnt * 3 >= (r - l + 1) * 2) {
 					valid = true;
 					break;
-				} else if (cnt*3 >= (r-l+1))
+				} else if (cnt * 3 >= (r - l + 1))
 					hs.add(in[rand]);
 				if (res >= 2)
 					break;
@@ -53,36 +54,41 @@ public class Yokan_Random {
 
 		pr.close();
 	}
+
 	static int lower (int v, int i) {
 		int lo = 0;
-		int hi = n-1;
+		int hi = n - 1;
 		while (lo <= hi) {
-			int mid = lo + (hi - lo)/2;
+			int mid = lo + (hi - lo) / 2;
 			if (cc[mid].v < v || (cc[mid].v == v && cc[mid].i <= i))
-				lo = mid+1;
+				lo = mid + 1;
 			else
-				hi = mid-1;
+				hi = mid - 1;
 		}
 		return hi;
 	}
+
 	static int higher (int v, int i) {
 		int lo = 0;
-		int hi = n-1;
+		int hi = n - 1;
 		while (lo <= hi) {
-			int mid = lo + (hi - lo)/2;
+			int mid = lo + (hi - lo) / 2;
 			if (cc[mid].v < v || (cc[mid].v == v && cc[mid].i < i))
 				lo = mid + 1;
-			else 
+			else
 				hi = mid - 1;
 		}
 		return lo;
 	}
+
 	static class Candy implements Comparable<Candy> {
 		int v, i;
+
 		Candy (int v, int i) {
 			this.v = v;
 			this.i = i;
 		}
+
 		@Override
 		public int compareTo (Candy o) {
 			if (v == o.v)
@@ -91,6 +97,7 @@ public class Yokan_Random {
 		}
 
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -117,4 +124,3 @@ public class Yokan_Random {
 		return br.readLine().trim();
 	}
 }
-

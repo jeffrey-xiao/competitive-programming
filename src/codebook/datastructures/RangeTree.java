@@ -1,4 +1,5 @@
 package codebook.datastructures;
+
 /*
  * Range tree is a data structure that stores 2D points and is able to return
  * a list of points that is contained in a specific rectangle
@@ -16,20 +17,16 @@ package codebook.datastructures;
  */
 
 public class RangeTree {
-	
+
 	// root of the tree
 	private Node root;
-	
-	/**
-	 * Inserts a given point into the range tree
-	 * @param x
-	 * @param y
-	 */
+
 	public void add (int x, int y) {
 		root = add(root, x, y);
 	}
+
 	private Node add (Node n, int x, int y) {
-		if (n == null) 
+		if (n == null)
 			return new Node(x, y);
 		n.bst.add(y, x);
 		if (x < n.x)
@@ -38,14 +35,7 @@ public class RangeTree {
 			n.right = add(n.right, x, y);
 		return n;
 	}
-	
-	/**
-	 * Prints out all the prints that fall inside this rectangle
-	 * @param x1
-	 * @param y1
-	 * @param x2
-	 * @param y2
-	 */
+
 	public void query (int x1, int y1, int x2, int y2) {
 		// finding the node where n.x is in the x-interval
 		Node n = root;
@@ -62,6 +52,7 @@ public class RangeTree {
 		queryL(n.left, x1, y1, x2, y2);
 		queryR(n.right, x1, y1, x2, y2);
 	}
+
 	private void queryL (Node n, int x1, int y1, int x2, int y2) {
 		if (n == null)
 			return;
@@ -73,6 +64,7 @@ public class RangeTree {
 		} else
 			queryL(n.right, x1, y1, x2, y2);
 	}
+
 	private void queryR (Node n, int x1, int y1, int x2, int y2) {
 		if (n == null)
 			return;
@@ -84,6 +76,7 @@ public class RangeTree {
 		} else
 			queryR(n.left, x1, y1, x2, y2);
 	}
+
 	private void printAll (Node n, int y1, int y2) {
 		if (n == null)
 			return;
@@ -91,6 +84,7 @@ public class RangeTree {
 			System.out.println(n.bst.get(y) + " " + y);
 		}
 	}
+
 	// object representing a node of the tree
 	static class Node {
 		// x and y coordinates
@@ -99,7 +93,7 @@ public class RangeTree {
 		Node left, right;
 		// BST for y coordinate
 		Treap bst;
-		
+
 		Node (int x, int y) {
 			this.x = x;
 			this.y = y;
@@ -108,4 +102,3 @@ public class RangeTree {
 		}
 	}
 }
-

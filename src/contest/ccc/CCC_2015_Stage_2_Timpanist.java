@@ -14,11 +14,12 @@ public class CCC_2015_Stage_2_Timpanist {
 	static ArrayList<ArrayList<Integer>> states = new ArrayList<ArrayList<Integer>>();
 	static int ns;
 	static double[][] dp;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		m = readInt();
 		n = readInt();
@@ -41,6 +42,7 @@ public class CCC_2015_Stage_2_Timpanist {
 		System.out.printf("%.2f\n", ans == 1 << 30 ? 0 : ans);
 		pr.close();
 	}
+
 	private static double compute (int state, int i) {
 		if (dp[state][i] != -1)
 			return dp[state][i];
@@ -51,7 +53,7 @@ public class CCC_2015_Stage_2_Timpanist {
 				validState = true;
 		if (!validState)
 			return dp[state][i] = 0;
-		if (i == m-1)
+		if (i == m - 1)
 			return dp[state][i] = 1 << 30;
 		for (int j = 0; j < ns; j++) {
 			double cnt = 0.0;
@@ -59,17 +61,18 @@ public class CCC_2015_Stage_2_Timpanist {
 				if (states.get(state).get(k) != states.get(j).get(k))
 					cnt++;
 			if (cnt == 0)
-				res = Math.max(res, compute(j, i+1));
+				res = Math.max(res, compute(j, i + 1));
 			else {
-				res = Math.max(res, Math.min((time[i+1] - time[i])/cnt, compute(j, i+1)));
+				res = Math.max(res, Math.min((time[i + 1] - time[i]) / cnt, compute(j, i + 1)));
 			}
 		}
 		return dp[state][i] = res;
 	}
+
 	private static void computeStates (int i, ArrayList<Integer> a) {
 		if (i == n) {
 			for (int j = 1; j < n; j++)
-				if (a.get(j) <= a.get(j-1))
+				if (a.get(j) <= a.get(j - 1))
 					return;
 			ArrayList<Integer> add = new ArrayList<Integer>();
 			add.addAll(a);
@@ -77,7 +80,7 @@ public class CCC_2015_Stage_2_Timpanist {
 		} else {
 			for (int j = 1; j <= 12; j++) {
 				a.add(j);
-				computeStates(i+1, a);
+				computeStates(i + 1, a);
 				a.remove(i);
 			}
 		}
@@ -109,4 +112,3 @@ public class CCC_2015_Stage_2_Timpanist {
 		return br.readLine().trim();
 	}
 }
-

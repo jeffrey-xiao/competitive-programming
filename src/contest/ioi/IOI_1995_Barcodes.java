@@ -1,4 +1,5 @@
 package contest.ioi;
+
 import java.util.*;
 import java.io.*;
 
@@ -7,11 +8,12 @@ public class IOI_1995_Barcodes {
 	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static int[][][] dp = new int[34][34][34];
+
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		int k = readInt();
 		int m = readInt();
-		System.out.println(count(n, k, m));	
+		System.out.println(count(n, k, m));
 		int num = readInt();
 		for (int i = 0; i < num; i++) {
 			String in = next();
@@ -31,15 +33,16 @@ public class IOI_1995_Barcodes {
 			for (int j = 0; j < k; j++) {
 				if (j % 2 == 0)
 					for (int l = cnt[j] - 1; l >= 1; l--)
-						index += count(n - sum - l, k-j-1, m);
+						index += count(n - sum - l, k - j - 1, m);
 				else
 					for (int l = cnt[j] + 1; l <= m; l++)
-						index += count(n - sum - l, k-j-1, m);
+						index += count(n - sum - l, k - j - 1, m);
 				sum += cnt[j];
 			}
 			System.out.println(index);
 		}
 	}
+
 	static int count (int n, int k, int m) {
 		if (n == 0 && k == 0)
 			return 1;
@@ -49,10 +52,11 @@ public class IOI_1995_Barcodes {
 			return dp[n][k][m];
 		int res = 0;
 		for (int i = 1; i <= m; i++) {
-			res += count(n-i, k-1, m);			
+			res += count(n - i, k - 1, m);
 		}
 		return dp[n][k][m] = res;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

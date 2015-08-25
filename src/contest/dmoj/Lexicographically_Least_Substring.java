@@ -1,4 +1,5 @@
 package contest.dmoj;
+
 import java.util.*;
 import java.io.*;
 
@@ -9,11 +10,12 @@ public class Lexicographically_Least_Substring {
 	static final SuffixComparator C = new SuffixComparator();
 	static char[] input;
 	static int len;
-	
+
 	static Integer[] res;
 	static int[] order;
 	static int[] newOrder;
 	static int sz = 0;
+
 	public static void main (String[] args) throws IOException {
 		input = next().toCharArray();
 		len = input.length;
@@ -23,13 +25,13 @@ public class Lexicographically_Least_Substring {
 		int minLen = readInt();
 		for (int i = 0; i < len; i++) {
 			res[i] = i;
-			order[i] = (int)(input[i]);
+			order[i] = (int) (input[i]);
 			newOrder[i] = 0;
 		}
 		for (sz = 1;; sz <<= 1) {
 			Arrays.sort(res, C);
 			for (int i = 0; i < len - 1; i++)
-				newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i+1]) < 0 ? 1 : 0);
+				newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);
 			for (int i = 0; i < len; i++)
 				order[res[i]] = newOrder[i];
 			if (newOrder[len - 1] == len - 1)
@@ -41,6 +43,7 @@ public class Lexicographically_Least_Substring {
 				break;
 			}
 	}
+
 	static class SuffixComparator implements Comparator<Integer> {
 		@Override
 		public int compare (Integer o1, Integer o2) {

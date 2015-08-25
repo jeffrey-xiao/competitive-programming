@@ -12,8 +12,8 @@ public class Woburn_Challenge_1999_Fight_Club {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int x, y;
 		main : while ((x = readInt()) != -1 && (y = readInt()) != -1) {
@@ -53,13 +53,16 @@ public class Woburn_Challenge_1999_Fight_Club {
 		}
 		pr.close();
 	}
+
 	static class Pair {
 		int a, b;
+
 		Pair (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -86,4 +89,3 @@ public class Woburn_Challenge_1999_Fight_Club {
 		return br.readLine().trim();
 	}
 }
-

@@ -3,20 +3,25 @@ package codebook.string;
 public class ZAlgorithm {
 	private String text;
 	private int[] z;
+
 	ZAlgorithm (String text) {
 		this.text = text;
 		compute();
 	}
+
 	public String getText () {
 		return text;
 	}
+
 	public void setText (String text) {
 		this.text = text;
 		compute();
 	}
+
 	public int[] getPrefixSubstringLengths () {
 		return z;
 	}
+
 	private void compute () {
 		z = new int[text.length()];
 		int l = 0, r = 0;
@@ -42,4 +47,3 @@ public class ZAlgorithm {
 		}
 	}
 }
-

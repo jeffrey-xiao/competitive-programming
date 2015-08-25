@@ -12,21 +12,21 @@ public class Epiccode_B {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
 		char[] s = readLine().toCharArray();
 		int[] cnt = new int[26];
-        for (char c : s) {
-            cnt[(int)(c - 'a')]++;
-        }
-        long ans = 0;
-        for (int i = 0; i < 26; i++) {
-            ans += (cnt[i]*(cnt[i]-1)/2) + cnt[i];
-        }
-        System.out.println(ans);
-		
+		for (char c : s) {
+			cnt[(int) (c - 'a')]++;
+		}
+		long ans = 0;
+		for (int i = 0; i < 26; i++) {
+			ans += (cnt[i] * (cnt[i] - 1) / 2) + cnt[i];
+		}
+		System.out.println(ans);
+
 		pr.close();
 	}
 
@@ -56,4 +56,3 @@ public class Epiccode_B {
 		return br.readLine().trim();
 	}
 }
-

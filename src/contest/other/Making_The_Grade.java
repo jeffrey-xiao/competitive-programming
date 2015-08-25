@@ -13,14 +13,15 @@ public class Making_The_Grade {
 	static int[] a;
 	static TreeSet<Integer> ts = new TreeSet<Integer>();
 	static int[] h;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		a = new int[n+1];
+		a = new int[n + 1];
 		for (int i = 1; i <= n; i++) {
 			a[i] = readInt();
 			ts.add(a[i]);
@@ -30,14 +31,14 @@ public class Making_The_Grade {
 		for (int i : ts) {
 			h[cnt++] = i;
 		}
-		int[][] dp = new int[n+1][ts.size()];
+		int[][] dp = new int[n + 1][ts.size()];
 		int[] minh = new int[h.length];
 		for (int i = 1; i <= n; i++) {
 			for (int j = 0; j < h.length; j++)
 				dp[i][j] = Math.abs(a[i] - h[j]) + minh[j];
 			minh[0] = dp[i][0];
 			for (int j = 1; j < h.length; j++)
-				minh[j] = Math.min(minh[j-1], dp[i][j]);
+				minh[j] = Math.min(minh[j - 1], dp[i][j]);
 		}
 		int ans = Integer.MAX_VALUE;
 		for (int j = 0; j < h.length; j++)
@@ -72,4 +73,3 @@ public class Making_The_Grade {
 		return br.readLine().trim();
 	}
 }
-

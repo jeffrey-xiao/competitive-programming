@@ -12,17 +12,17 @@ public class June_2015_C {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
 			String n = next();
 			String m = next();
 			while (n.length() < m.length())
-				n = "0"+n;
+				n = "0" + n;
 			while (m.length() < n.length())
-				m = "0"+m;
+				m = "0" + m;
 			boolean done = false;
 			for (int i = 0; i < n.length(); i++) {
 				if (done)
@@ -67,4 +67,3 @@ public class June_2015_C {
 		return br.readLine().trim();
 	}
 }
-

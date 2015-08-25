@@ -10,13 +10,14 @@ public class IOI_1998_Camelot {
 	static StringTokenizer st;
 
 	static int[][][][] min = new int[8][8][8][8];
-	static int[] movex = {1,2,2,1,-1,-2,-2,-1};
-	static int[] movey = {-2,-1,1,2,2,1,-1,-2};
+	static int[] movex = {1, 2, 2, 1, -1, -2, -2, -1};
+	static int[] movey = {-2, -1, 1, 2, 2, 1, -1, -2};
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 		precompute();
 		String in = next();
 		ArrayList<Point> ks = new ArrayList<Point>();
@@ -24,9 +25,9 @@ public class IOI_1998_Camelot {
 		for (int i = 0; i < in.length(); i += 2) {
 			if (i == 0) {
 				kx = in.charAt(i) - 'A';
-				ky = in.charAt(i+1) - '1';
+				ky = in.charAt(i + 1) - '1';
 			} else {
-				ks.add(new Point(in.charAt(i) - 'A', in.charAt(i+1) - '1'));
+				ks.add(new Point(in.charAt(i) - 'A', in.charAt(i + 1) - '1'));
 			}
 		}
 		int[][] mk = new int[8][8];
@@ -76,13 +77,14 @@ public class IOI_1998_Camelot {
 		System.out.println(minV);
 		pr.close();
 	}
+
 	static void precompute () {
-		for (int i = 0; i < 8; i++) 
-			for (int j = 0; j < 8; j++) 
-				for (int k = 0; k < 8; k++) 
-					for (int l = 0; l < 8; l++) 
+		for (int i = 0; i < 8; i++)
+			for (int j = 0; j < 8; j++)
+				for (int k = 0; k < 8; k++)
+					for (int l = 0; l < 8; l++)
 						min[i][j][k][l] = 1 << 30;
-		for (int i = 0; i < 8; i++) 
+		for (int i = 0; i < 8; i++)
 			for (int j = 0; j < 8; j++) {
 				Queue<Point> q = new ArrayDeque<Point>();
 				min[i][j][i][j] = 0;
@@ -100,13 +102,16 @@ public class IOI_1998_Camelot {
 				}
 			}
 	}
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -133,4 +138,3 @@ public class IOI_1998_Camelot {
 		return br.readLine().trim();
 	}
 }
-

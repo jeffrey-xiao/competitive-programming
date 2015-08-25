@@ -12,11 +12,12 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
 	static int[][] dp;
 	static int[] sum, pins;
 	static int n, k, w;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
@@ -32,11 +33,11 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
 			for (int i = 1; i <= n; i++)
 				pins[i] = readInt();
 			for (int i = 1; i <= n + w; i++) {
-				sum[i] = pins[i] + sum[i-1];
+				sum[i] = pins[i] + sum[i - 1];
 			}
-			System.out.println(compute(k, n+w));
+			System.out.println(compute(k, n + w));
 		}
-		
+
 		pr.close();
 	}
 
@@ -48,12 +49,12 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
 			return dp[k][x];
 		int usePos = Math.max(0, x - w);
 		int useScore = sum[x] - sum[usePos];
-		int res = Math.max(compute(k, x-1), compute(k-1, usePos) + useScore);
+		int res = Math.max(compute(k, x - 1), compute(k - 1, usePos) + useScore);
 		if (k >= 2) {
 			int sum = 0;
 			for (int i = usePos; i > usePos - w + 1 && i > 0; i--) {
 				sum += pins[i];
-				res = Math.max(res, compute(k-2, i-1) + useScore + sum);
+				res = Math.max(res, compute(k - 2, i - 1) + useScore + sum);
 			}
 		}
 		System.out.println(res);
@@ -86,4 +87,3 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
 		return br.readLine().trim();
 	}
 }
-

@@ -1,20 +1,6 @@
 package codebook.datastructures;
+
 public class SplayTree {
-	public static void main (String[] args) {
-		SplayTree t = new SplayTree();
-		long c = System.currentTimeMillis();
-		for (int x = 0; x < 100; x++) {
-			int ran = (int) (Math.random() * (100)) + 5;
-			t.add(ran);
-		}
-		t.traverse(t.root);
-		t.add(1);
-		System.out.println(t.contains(1));
-		System.out.println(t.contains(2));
-		t.remove(1);
-		System.out.println(t.contains(1));
-		System.out.println(System.currentTimeMillis()-c);
-	}
 	// root of the tree
 	Node root = null;
 
@@ -28,7 +14,7 @@ public class SplayTree {
 			this.key = key;
 			this.value = key;
 		}
-		
+
 		Node (int key, int value) {
 			this.key = key;
 			this.value = value;
@@ -52,7 +38,7 @@ public class SplayTree {
 	public void add (Integer k) {
 		add(k, k);
 	}
-	
+
 	public void add (Integer k, Integer v) {
 		// empty tree
 		if (root == null) {
@@ -87,7 +73,7 @@ public class SplayTree {
 		root = splay(root, k);
 		return k.compareTo(root.key) == 0;
 	}
-	
+
 	public Integer get (Integer k) {
 		root = splay(root, k);
 		if (k.compareTo(root.key) != 0)
@@ -119,7 +105,7 @@ public class SplayTree {
 
 		}
 	}
-	
+
 	// splay method
 	public Node splay (Node n, Integer k) {
 		if (n == null)
@@ -188,4 +174,21 @@ public class SplayTree {
 		x.right = n;
 		return x;
 	}
+	
+	public static void main (String[] args) {
+		SplayTree t = new SplayTree();
+		long c = System.currentTimeMillis();
+		for (int x = 0; x < 100; x++) {
+			int ran = (int) (Math.random() * (100)) + 5;
+			t.add(ran);
+		}
+		t.traverse(t.root);
+		t.add(1);
+		System.out.println(t.contains(1));
+		System.out.println(t.contains(2));
+		t.remove(1);
+		System.out.println(t.contains(1));
+		System.out.println(System.currentTimeMillis() - c);
+	}
+
 }

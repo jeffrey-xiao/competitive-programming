@@ -11,11 +11,12 @@ public class Spacetime_Convergence_Cannons_Brute {
 
 	static int[] x, y;
 	static long ans = 0;
+
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
 		int X = readInt();
@@ -28,9 +29,9 @@ public class Spacetime_Convergence_Cannons_Brute {
 		boolean same_x = true;
 		boolean same_y = true;
 		for (int i = 1; i < n; i++) {
-			if (x[i] != x[i-1])
+			if (x[i] != x[i - 1])
 				same_x = false;
-			if (y[i] != y[i-1])
+			if (y[i] != y[i - 1])
 				same_y = false;
 		}
 		if (same_y) {
@@ -38,27 +39,29 @@ public class Spacetime_Convergence_Cannons_Brute {
 			return;
 		}
 		if (same_x) {
-			System.out.println((n-1)*(n)*(2*n-1)/6);
+			System.out.println((n - 1) * (n) * (2 * n - 1) / 6);
 			return;
 		}
-		for (int i =0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			int cnt = 0;
 			for (int j = 0; j < n; j++) {
 				if (i == j)
 					continue;
 				if (ccw(0, 0, x[i], y[i], x[j], y[j]) >= 0 && ccw(X, 0, x[i], y[i], x[j], y[j]) <= 0) {
-//					System.out.println(i + " " + j);
+					// System.out.println(i + " " + j);
 					cnt++;
 				}
 			}
-			ans += cnt*cnt;
+			ans += cnt * cnt;
 		}
 		System.out.println(ans);
 		pr.close();
 	}
+
 	static int ccw (int x1, int y1, int x2, int y2, int x3, int y3) {
-		return (x2-x1)*(y3-y1)-(y2-y1)*(x3-x1);
+		return (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1);
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -85,4 +88,3 @@ public class Spacetime_Convergence_Cannons_Brute {
 		return br.readLine().trim();
 	}
 }
-

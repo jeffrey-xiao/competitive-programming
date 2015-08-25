@@ -13,11 +13,12 @@ public class Busy_Schedule {
 	static int[] index;
 	static int[] start;
 	static int[] duration;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
 		int m = readInt();
@@ -29,8 +30,8 @@ public class Busy_Schedule {
 			adj[i][i] = 0;
 		}
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj[a][b] = adj[b][a] = c;
 		}
@@ -46,27 +47,27 @@ public class Busy_Schedule {
 		start = new int[k];
 		duration = new int[k];
 		for (int i = 0; i < k; i++) {
-			int a = readInt()-1;
+			int a = readInt() - 1;
 			int b = readInt();
 			int c = readInt();
 			index[i] = a;
 			start[i] = b;
 			duration[i] = c;
 		}
-		
+
 		int curr = 0;
 		int time = 0;
 		for (int i = 0; i < k; i++) {
 			if (adj[curr][index[i]] + time <= start[i]) {
 				time = start[i] + duration[i];
 				curr = index[i];
-				System.out.println(i+1);
+				System.out.println(i + 1);
 			}
 		}
-		
+
 		pr.close();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -93,4 +94,3 @@ public class Busy_Schedule {
 		return br.readLine().trim();
 	}
 }
-

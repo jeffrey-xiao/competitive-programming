@@ -3,17 +3,22 @@ package codebook.string;
 import java.util.*;
 
 public class AhoCorasick {
-	private static final int SHIFT = 'a';
-	private Node root = new Node(0, 0);
 	
+	// constant to represent the shift from the ASCII value to the proper index
+	private static final int SHIFT = 'a';
+	
+	// Object representing the root of the search tree
+	private Node root = new Node(0, 0);
+
 	AhoCorasick () {
 		root = new Node(0, 0);
 		root.parent = root;
 	}
-	
+
 	public void addWord (String s) {
 		root.addWord(s);
 	}
+
 	public void computeFall () {
 		Queue<Node> q = new LinkedList<Node>();
 		// the fall of the root is the root
@@ -84,8 +89,8 @@ public class AhoCorasick {
 			for (int i = 0; i < 26; i++)
 				child[i] = null;
 		}
-
-		void addWord (String s) {
+		
+		private void addWord (String s) {
 			if (depth == s.length()) {
 				isEnd = true;
 				return;
@@ -93,14 +98,15 @@ public class AhoCorasick {
 			char curr = s.charAt(depth);
 			if (child[curr - SHIFT] == null) {
 				child[curr - SHIFT] = new Node(depth + 1, curr - SHIFT);
-				child[curr-SHIFT].parent = this;
+				child[curr - SHIFT].parent = this;
 				c.add(curr - SHIFT);
 			}
 
 			child[curr - SHIFT].addWord(s);
 		}
-
-		void printWord (String curr) {
+		
+		@SuppressWarnings ("unused")
+		private void printWord (String curr) {
 			if (isEnd)
 				System.out.println(curr);
 			for (Integer i : c) {
@@ -108,6 +114,7 @@ public class AhoCorasick {
 			}
 		}
 	}
+
 	public static void main (String[] args) {
 		AhoCorasick tree = new AhoCorasick();
 		tree.addWord("apple");

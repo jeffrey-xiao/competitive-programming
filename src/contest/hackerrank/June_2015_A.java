@@ -12,8 +12,8 @@ public class June_2015_A {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		char[] in = next().toCharArray();
 		int[] cnt = new int[26];
@@ -25,7 +25,7 @@ public class June_2015_A {
 			if (cnt[i] > 0) {
 				if (!buckets.containsKey(cnt[i]))
 					buckets.put(cnt[i], 0);
-				buckets.put(cnt[i], buckets.get(cnt[i])+1);
+				buckets.put(cnt[i], buckets.get(cnt[i]) + 1);
 			}
 		int min = 1 << 30;
 		for (Map.Entry<Integer, Integer> e : buckets.entrySet()) {
@@ -35,7 +35,7 @@ public class June_2015_A {
 			System.out.println("YES");
 		else
 			System.out.println("NO");
-		
+
 		pr.close();
 	}
 
@@ -65,4 +65,3 @@ public class June_2015_A {
 		return br.readLine().trim();
 	}
 }
-

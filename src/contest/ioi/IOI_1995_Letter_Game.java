@@ -1,13 +1,15 @@
 package contest.ioi;
+
 import java.util.*;
 import java.io.*;
 
-public class IOI_1995_Letter_Game{
+public class IOI_1995_Letter_Game {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static HashSet<String> dict = new HashSet<String>();
-	static int[] val = {2,5,4,4,1,6,5,5,1,7,6,3,5,2,3,5,7,2,1,2,4,6,6,7,5,7};
+	static int[] val = {2, 5, 4, 4, 1, 6, 5, 5, 1, 7, 6, 3, 5, 2, 3, 5, 7, 2, 1, 2, 4, 6, 6, 7, 5, 7};
+
 	public static void main (String[] args) throws IOException {
 		String in = next();
 		while (!in.equals(".")) {
@@ -54,8 +56,10 @@ public class IOI_1995_Letter_Game{
 				System.out.println(p.s1 + " " + p.s2);
 		}
 	}
+
 	static class Pair implements Comparable<Pair> {
 		String s1, s2;
+
 		Pair (String s1, String s2) {
 			if (s1.length() < s2.length()) {
 				this.s1 = s1;
@@ -73,6 +77,7 @@ public class IOI_1995_Letter_Game{
 				}
 			}
 		}
+
 		public int compareTo (Pair p) {
 			if (s1.compareTo(p.s1) < 0)
 				return -1;
@@ -85,34 +90,39 @@ public class IOI_1995_Letter_Game{
 			return 0;
 		}
 	}
+
 	static int getScore (String s) {
 		int res = 0;
 		for (int i = 0; i < s.length(); i++)
 			res += val[s.charAt(i) - 'a'];
 		return res;
 	}
+
 	static Queue<String> permute (String s) {
 		Queue<String> res = new ArrayDeque<String>();
 		permute(s.toCharArray(), 0, res);
 		return res;
 	}
-	static void permute(char[] s, int i, Queue<String> res) {
-		if (i >= s.length-1) {
+
+	static void permute (char[] s, int i, Queue<String> res) {
+		if (i >= s.length - 1) {
 			res.offer(new String(s));
 			return;
 		}
-		for (int j = i+1; j < s.length; j++) {
+		for (int j = i + 1; j < s.length; j++) {
 			swap(s, i, j);
-			permute(s, i+1, res);
+			permute(s, i + 1, res);
 			swap(s, i, j);
 		}
-		permute(s, i+1, res);
+		permute(s, i + 1, res);
 	}
+
 	static void swap (char[] c, int i, int j) {
 		char temp = c[i];
 		c[i] = c[j];
 		c[j] = temp;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

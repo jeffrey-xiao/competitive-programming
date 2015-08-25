@@ -10,12 +10,13 @@ public class Space_Time_Convergence_Cannons {
 	static StringTokenizer st;
 
 	static long[] bit = new long[200001];
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 		int n = readInt();
 		int X = readInt();
 		ArrayList<Pair> sorted = new ArrayList<Pair>();
@@ -23,8 +24,8 @@ public class Space_Time_Convergence_Cannons {
 		for (int i = 0; i < n; i++) {
 			int x = readInt();
 			int y = readInt();
-			sorted.add(new Pair(y, x, y, X-x, y, x));
-			search.add(new Slope(y, X-x, y));
+			sorted.add(new Pair(y, x, y, X - x, y, x));
+			search.add(new Slope(y, X - x, y));
 		}
 		Collections.sort(search);
 		HashMap<Slope, Integer> hm = new HashMap<Slope, Integer>();
@@ -33,9 +34,9 @@ public class Space_Time_Convergence_Cannons {
 			if (i == 0)
 				hm.put(search.get(i), cnt++);
 			else {
-				Slope o1 = search.get(i-1);
+				Slope o1 = search.get(i - 1);
 				Slope o2 = search.get(i);
-				if (o2.dx*o1.dy - o1.dx*o2.dy == 0) {
+				if (o2.dx * o1.dy - o1.dx * o2.dy == 0) {
 					continue;
 				}
 				hm.put(search.get(i), cnt++);
@@ -45,45 +46,54 @@ public class Space_Time_Convergence_Cannons {
 		long ans = 0;
 		for (int i = 0; i < n; i++) {
 			int idx = hm.get(sorted.get(i).s2);
-			long res = i-query(idx-1);
-			ans += res*res;
+			long res = i - query(idx - 1);
+			ans += res * res;
 			update(idx, 1);
 		}
 		pr.println(ans);
 		pr.close();
 	}
+
 	static void update (int idx, int v) {
 		for (int x = idx; x <= 200000; x += (x & -x))
 			bit[x] += v;
 	}
+
 	static long query (int idx) {
 		long sum = 0;
 		for (int x = idx; x > 0; x -= (x & -x))
 			sum += bit[x];
 		return sum;
 	}
+
 	static class Pair implements Comparable<Pair> {
-		Slope s1, s2; int x, y;
+		Slope s1, s2;
+		int x, y;
+
 		Pair (int dy1, int dx1, int dy2, int dx2, int y, int x) {
 			s1 = new Slope(dy1, dx1, y);
 			s2 = new Slope(dy2, dx2, y);
 			this.x = x;
 			this.y = y;
 		}
+
 		@Override
 		public int compareTo (Pair o) {
 			int cmp = -s1.compareTo(o.s1);
 			return cmp;
 		}
 	}
+
 	static class Slope implements Comparable<Slope> {
 		int dy, dx, y;
+
 		Slope (int dy, int dx, int y) {
 			int gcf = gcf(dy, dx);
-			this.dy = dy/gcf;
-			this.dx = dx/gcf;
+			this.dy = dy / gcf;
+			this.dx = dx / gcf;
 			this.y = y;
 		}
+
 		int gcf (int a, int b) {
 			while (b != 0) {
 				int temp = a % b;
@@ -92,27 +102,31 @@ public class Space_Time_Convergence_Cannons {
 			}
 			return a;
 		}
+
 		@Override
 		public int compareTo (Slope o) {
-			int cmp = (dy*o.dx - dx*o.dy);
+			int cmp = (dy * o.dx - dx * o.dy);
 			if (cmp == 0)
 				return y - o.y;
 			return cmp;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Slope) {
-				Slope s = (Slope)o;
+				Slope s = (Slope) o;
 				return dy == s.dy && dx == s.dx;
 			}
 			return false;
 		}
+
 		@Override
 		public int hashCode () {
-			return new Integer(dy).hashCode()*1001 + new Integer(dx).hashCode();
+			return new Integer(dy).hashCode() * 1001 + new Integer(dx).hashCode();
 		}
-		
+
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

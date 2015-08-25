@@ -10,16 +10,17 @@ public class The_Fox_And_The_Wolf {
 	static int n, m, c, b;
 	static int sx1, sy1, sx2, sy2, ex1, ey1, ex2, ey2;
 	static char[][] g;
-	static int[] movex = {0,0,0,-1,1};
-	static int[] movey = {0,-1,1,0,0};
+	static int[] movex = {0, 0, 0, -1, 1};
+	static int[] movey = {0, -1, 1, 0, 0};
 	static boolean[][][][][][][] v;
+
 	public static void main (String[] args) throws IOException {
 		n = readInt();
 		m = readInt();
 		c = readInt();
 		b = readInt();
 		g = new char[n][m];
-		v = new boolean[n][m][n][m][b+1][b+1][c+1];
+		v = new boolean[n][m][n][m][b + 1][b + 1][c + 1];
 		for (int i = 0; i < n; i++) {
 			g[i] = next().toCharArray();
 			for (int j = 0; j < m; j++) {
@@ -45,7 +46,9 @@ public class The_Fox_And_The_Wolf {
 		v[sx1][sy1][sx2][sy2][0][0][0] = true;
 		while (!q.isEmpty()) {
 			State curr = q.poll();
-			// System.out.println(curr.x1 + " " + curr.y1 + " " + curr.x2 + " " + curr.y2 + " " + curr.time + " " + curr.b1 + " " + curr.b2 + " " + curr.c);
+			// System.out.println(curr.x1 + " " + curr.y1 + " " + curr.x2 + " "
+			// + curr.y2 + " " + curr.time + " " + curr.b1 + " " + curr.b2 + " "
+			// + curr.c);
 			if (curr.x1 == ex1 && curr.y1 == ey1 && curr.x2 == ex2 && curr.y2 == ey2) {
 				System.out.println(curr.time);
 				return;
@@ -62,11 +65,11 @@ public class The_Fox_And_The_Wolf {
 					int ny2 = curr.y2 + movey[j];
 					if (nx1 < 0 || nx1 >= n || ny1 < 0 || ny1 >= m || nx2 < 0 || nx2 >= n || ny2 < 0 || ny2 >= m || g[nx1][ny1] == 'T' || g[nx2][ny2] == 'T' || g[nx1][ny1] == 'W' || g[nx2][ny2] == 'F')
 						continue;
-					
+
 					int nb1 = curr.b1 > 0 ? curr.b1 - 1 : 0;
 					int nb2 = curr.b2 > 0 ? curr.b2 - 1 : 0;
 					int nc = curr.c > 0 ? curr.c - 1 : 0;
-					
+
 					if (curr.b1 == 0 && g[curr.x1][curr.y1] == 'B' && g[nx1][ny1] == '.')
 						nb1 = b;
 					if (curr.b2 == 0 && g[curr.x2][curr.y2] == 'B' && g[nx2][ny2] == '.')
@@ -76,14 +79,16 @@ public class The_Fox_And_The_Wolf {
 					if (v[nx1][ny1][nx2][ny2][nb1][nb2][nc])
 						continue;
 					v[nx1][ny1][nx2][ny2][nb1][nb2][nc] = true;
-					q.offer(new State(nx1, ny1, nx2, ny2, nb1, nb2, nc, curr.time+1));
+					q.offer(new State(nx1, ny1, nx2, ny2, nb1, nb2, nc, curr.time + 1));
 				}
 			}
 		}
 		System.out.println(-1);
 	}
+
 	static class State {
 		int x1, y1, x2, y2, time, b1, b2, c;
+
 		State (int x1, int y1, int x2, int y2, int b1, int b2, int c, int time) {
 			this.x1 = x1;
 			this.y1 = y1;
@@ -94,8 +99,9 @@ public class The_Fox_And_The_Wolf {
 			this.b2 = b2;
 			this.c = c;
 		}
-		
+
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

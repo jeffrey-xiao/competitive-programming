@@ -10,16 +10,18 @@ public class IOI_2013_Game {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		// br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		pr.close();
 	}
+
 	static void add1 (int x, int y, int val) {
 		root = add1(root, x, y, val);
 	}
+
 	static OuterNode add1 (OuterNode n, int x, int y, int val) {
 		if (n == null) {
 			return new OuterNode(x);
@@ -29,7 +31,7 @@ public class IOI_2013_Game {
 		else if (x > n.x)
 			n.right = add1(n.right, x, y, val);
 		else {
-			
+
 		}
 		int dh1 = getHeight(n.left) - getHeight(n.right);
 		if (dh1 >= 2) {
@@ -44,25 +46,30 @@ public class IOI_2013_Game {
 			n = rotateLeft(n);
 		}
 	}
-	
+
 	static OuterNode root;
+
 	static class OuterNode {
 		int x, height;
 		InnerNode root;
 		OuterNode left, right;
+
 		OuterNode (int x) {
 			this.x = x;
 			this.height = 1;
 		}
 	}
+
 	static class InnerNode {
 		int y, gcf, height;
 		InnerNode left, right;
+
 		InnerNode (int y) {
 			this.y = y;
 			this.height = 0;
 		}
 	}
+
 	static InnerNode rotateRight (InnerNode n) {
 		InnerNode x = n.left;
 		n.left = x.right;
@@ -71,6 +78,7 @@ public class IOI_2013_Game {
 		resetHeight(x);
 		return x;
 	}
+
 	static InnerNode rotateLeft (InnerNode n) {
 		InnerNode x = n.right;
 		n.right = x.left;
@@ -79,13 +87,15 @@ public class IOI_2013_Game {
 		resetHeight(x);
 		return x;
 	}
+
 	static void resetHeight (InnerNode n) {
-		n.height = Math.max(getHeight(n.left), getHeight(n.right))+1;
+		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 	}
+
 	static int getHeight (InnerNode n) {
 		return n == null ? -1 : n.height;
 	}
-	
+
 	static OuterNode rotateRight (OuterNode n) {
 		OuterNode x = n.left;
 		n.left = x.right;
@@ -94,6 +104,7 @@ public class IOI_2013_Game {
 		resetHeight(x);
 		return x;
 	}
+
 	static OuterNode rotateLeft (OuterNode n) {
 		OuterNode x = n.right;
 		n.right = x.left;
@@ -102,12 +113,15 @@ public class IOI_2013_Game {
 		resetHeight(x);
 		return x;
 	}
+
 	static void resetHeight (OuterNode n) {
-		n.height = Math.max(getHeight(n.left), getHeight(n.right))+1;
+		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 	}
+
 	static int getHeight (OuterNode n) {
 		return n == null ? -1 : n.height;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -134,4 +148,3 @@ public class IOI_2013_Game {
 		return br.readLine().trim();
 	}
 }
-
