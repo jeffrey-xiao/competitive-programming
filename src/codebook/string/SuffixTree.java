@@ -1,58 +1,81 @@
 package codebook.string;
 
 import java.util.*;
-import java.io.*;
 
 public class SuffixTree {
-
-	static BufferedReader br;
-	static PrintWriter pr;
-	static StringTokenizer st;
 
 	// constants
 	static final int SHIFT = 'a';
 	static final int END = 1 << 30;
 	
 	// attributes of the input data
-	static String input;
-	static int len;
+	private String input;
+	private int len;
 
-	static int currentPos;
-	static Node root = new Node(0, 0);
+	private int currentPos;
+	private Node root;
 
-	static Node activeNode = root;
-	static int activeEdge = 0;
-	static int activeLength = 0;
+	private Node activeNode;
+	private int activeEdge;
+	private int activeLength;
 
-	static int remainder = 0;
-	static int sub = 0;
+	private int remainder;
+	private int sub;
 
-	static boolean firstNodeCreated;
-	static Node lastNodeCreated;
+	private boolean firstNodeCreated;
+	private Node lastNodeCreated;
 
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//pr = new PrintWriter(new FileWriter("out.txt"));
-		
-		input = "abcabxabcd";
-		len = input.length();
+	SuffixTree (String input) {
+		this.input = input;
+		this.len = input.length();
+		this.root = new Node(0, 0);
+		this.activeEdge = 0;
+		this.activeLength = 0;
+		this.remainder = 0;
+		this.sub = 0;
+		this.activeNode = root;
+		this.currentPos = 0;
+		this.lastNodeCreated = null;
+		this.firstNodeCreated = false;
 		// looping through the input and adding the suffixes one by one
 		for (currentPos = 0; currentPos < len; currentPos++)
 			addSuffix();
-
-		pr.close();
 	}
-	static void printTree (Node curr) {
+	
+	public void setString (String s) {
+		this.input = s;
+		this.len = input.length();
+		this.root = new Node(0, 0);
+		this.activeEdge = 0;
+		this.activeLength = 0;
+		this.remainder = 0;
+		this.sub = 0;
+		this.activeNode = root;
+		this.currentPos = 0;
+		this.lastNodeCreated = null;
+		this.firstNodeCreated = false;
+		// looping through the input and adding the suffixes one by one
+		for (currentPos = 0; currentPos < len; currentPos++)
+			addSuffix();
+	}
+	
+	public String getString () {
+		return input;
+	}
+	
+  	public void printTree () {
+  		printTree(root);
+    }
+  
+	private void printTree (Node curr) {
 		for (int i = 0; i < 26; i++) {
 			if (curr.child[i] != null) {
-				System.out.println(input.substring(curr.child[i].start, curr.child[i].end == END ? currentPos + 1 : curr.child[i].end));
+				System.out.println(input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
 				printTree(curr.child[i]);
 			}
 		}
 	}
-	static void addSuffix () {
+	private void addSuffix () {
 		// how many previous suffixes do we need to compute
 		remainder++;
 		firstNodeCreated = true;
@@ -103,19 +126,18 @@ public class SuffixTree {
 				if (activeNode.suffix != null) {
 					activeNode = activeNode.suffix;
 				} else {
-					System.out.println(activeNode.child['a' - SHIFT] + " IN HERE");
 					activeNode = root;
 				}
 			}
 		}
 	}
-	static void addSuffixLink () {
+	private void addSuffixLink () {
 		if (firstNodeCreated == false)
 			lastNodeCreated.suffix = activeNode;
 		firstNodeCreated = true;
 		lastNodeCreated = activeNode;
 	}
-	static class Node {
+	private class Node {
 		// represents the string [start, end)
 		int start, end;
 		Node[] child;
@@ -126,35 +148,13 @@ public class SuffixTree {
 			this.start = start;
 			this.end = end;
 		}
-		public int getLength () {
+		private int getLength () {
 			return Math.min(currentPos + 1, end) - start;
 		}
 	}
-
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
-
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
+	public static void main (String[] args) {
+		SuffixTree st = new SuffixTree("abcabxabcd");
+		st.printTree(st.root);
 	}
 }
 
