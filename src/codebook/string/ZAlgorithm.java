@@ -1,11 +1,24 @@
 package codebook.string;
 
 public class ZAlgorithm {
+	private String text;
+	private int[] z;
+	ZAlgorithm (String text) {
+		this.text = text;
+		compute();
+	}
 	public String getText () {
 		return text;
 	}
+	public void setText (String text) {
+		this.text = text;
+		compute();
+	}
 	public int[] getPrefixSubstringLengths () {
-		int[] z = new int[text.length()];
+		return z;
+	}
+	private void compute () {
+		z = new int[text.length()];
 		int l = 0, r = 0;
 		for (int i = 1; i < text.length(); i++) {
 			if (i > r) {
@@ -27,14 +40,6 @@ public class ZAlgorithm {
 				}
 			}
 		}
-		return z;
-	}
-	public void setText (String text) {
-		this.text = text;
-	}
-	public String text;
-	ZAlgorithm (String text) {
-		this.text = text;
 	}
 }
 
