@@ -1,11 +1,13 @@
+/*
+ * O (N log N log N) computation of a suffix array. The time complexity can be shortened to O (N log N) if radix sort is used.
+ * This implementation is very simple to code and it's only handful of lines. Can be used if the time limit isn't very hard.
+ */
 package codebook.string;
-
-
 
 import java.util.*;
 import java.io.*;
 
-public class SuffixArray {
+public class SuffixArraySort {
 	static final SuffixComparator C = new SuffixComparator();
 	
 	// attributes of input
