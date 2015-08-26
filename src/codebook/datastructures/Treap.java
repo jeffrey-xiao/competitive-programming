@@ -172,7 +172,7 @@ public class Treap {
 		x.right = n;
 		return x;
 	}
-	
+
 	public static void main (String[] args) {
 		Treap t = new Treap();
 		long c = System.currentTimeMillis();

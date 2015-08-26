@@ -9,31 +9,30 @@ public class SuffixArrayHash {
 	static final long BASE = 137;
 	static final long MOD = 10000007;
 
-
 	long[] pow;
 	long[] hash;
 	Integer[] sa;
 	int len;
 	String text;
-	
+
 	SuffixArrayHash (String text) {
 		this.text = " " + text;
 		initialize();
 	}
-	
+
 	public String getText () {
 		return text;
 	}
-	
+
 	public void setText (String text) {
 		this.text = text;
 		initialize();
 	}
-	
+
 	public Integer[] getSuffixArray () {
 		return sa;
 	}
-	
+
 	private void initialize () {
 		this.len = text.length();
 		this.pow = new long[len];
@@ -72,12 +71,12 @@ public class SuffixArrayHash {
 			return ((hash[j] - hash[i - 1] * pow[j - (i - 1)] % MOD + MOD) % MOD);
 		}
 	}
-	
+
 	public static void main (String[] args) throws IOException {
 		SuffixArraySort s = new SuffixArraySort("mississippi");
 		Integer[] res = s.getSuffixArray();
 		for (int i = 1; i < s.getString().length(); i++)
 			System.out.println(s.getString().substring(res[i]));
 	}
-	
+
 }

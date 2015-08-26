@@ -186,7 +186,7 @@ public class AVLTree {
 		resetHeight(x);
 		return x;
 	}
-	
+
 	public static void main (String[] args) {
 		AVLTree t = new AVLTree();
 		long c = System.currentTimeMillis();

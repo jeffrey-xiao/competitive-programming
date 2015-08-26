@@ -40,7 +40,7 @@ public class SuffixArraySort {
 		sz = 0;
 		computeSuffixArray();
 	}
-	
+
 	public Integer[] getSuffixArray () {
 		return res;
 	}

@@ -3,10 +3,10 @@ package codebook.string;
 import java.util.*;
 
 public class AhoCorasick {
-	
+
 	// constant to represent the shift from the ASCII value to the proper index
 	private static final int SHIFT = 'a';
-	
+
 	// Object representing the root of the search tree
 	private Node root = new Node(0, 0);
 
@@ -89,7 +89,7 @@ public class AhoCorasick {
 			for (int i = 0; i < 26; i++)
 				child[i] = null;
 		}
-		
+
 		private void addWord (String s) {
 			if (depth == s.length()) {
 				isEnd = true;
@@ -104,7 +104,7 @@ public class AhoCorasick {
 
 			child[curr - SHIFT].addWord(s);
 		}
-		
+
 		@SuppressWarnings ("unused")
 		private void printWord (String curr) {
 			if (isEnd)

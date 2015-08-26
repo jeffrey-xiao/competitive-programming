@@ -9,8 +9,6 @@ package codebook.datastructures;
 
 public class IntervalTree {
 
-	
-
 	// root of the tree
 	private Node root;
 
@@ -72,7 +70,7 @@ public class IntervalTree {
 		traverse(n.left);
 		traverse(n.right);
 	}
-	
+
 	private Node getMax (Node n) {
 		while (n.right != null)
 			n = n.right;
@@ -166,7 +164,7 @@ public class IntervalTree {
 			this.height = 0;
 		}
 	}
-	
+
 	public static void main (String[] args) {
 		IntervalTree t = new IntervalTree();
 		t.add(4, 8);

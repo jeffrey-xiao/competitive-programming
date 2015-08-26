@@ -1,10 +1,10 @@
 package codebook.string;
 
 public class RabinKarp {
-	
+
 	private static final long MOD = 1000000007;
 	private static final long R = 256;
-	
+
 	private long pow;
 	private String pattern;
 	private long patternHash;
@@ -37,7 +37,7 @@ public class RabinKarp {
 		this.pattern = pattern;
 		initialize();
 	}
-	
+
 	private void initialize () {
 		patternHash = getHash(pattern, pattern.length());
 		pow = (long) (Math.pow(R, pattern.length() - 1) % MOD);

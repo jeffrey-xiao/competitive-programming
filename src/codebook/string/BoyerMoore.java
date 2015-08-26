@@ -18,7 +18,7 @@ public class BoyerMoore {
 		this.pattern = pattern;
 		initialize();
 	}
-	
+
 	private void initialize () {
 		rightOcc = new int[R];
 		for (int i = 0; i < R; i++)
@@ -26,7 +26,7 @@ public class BoyerMoore {
 		for (int i = 0; i < pattern.length(); i++)
 			rightOcc[pattern.charAt(i)] = i;
 	}
-	
+
 	public int search (String text) {
 		int skip = 0;
 		for (int i = 0; i <= text.length() - pattern.length(); i += skip) {
@@ -43,5 +43,4 @@ public class BoyerMoore {
 		return -1;
 	}
 
-	
 }

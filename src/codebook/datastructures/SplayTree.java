@@ -174,7 +174,7 @@ public class SplayTree {
 		x.right = n;
 		return x;
 	}
-	
+
 	public static void main (String[] args) {
 		SplayTree t = new SplayTree();
 		long c = System.currentTimeMillis();
