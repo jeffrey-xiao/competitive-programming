@@ -1,6 +1,6 @@
 package contest.ccc;
 
-import java.util.*;
+import java.util.Scanner;
 
 class CCC_2010_J5 {
 	public static Scanner scan = new Scanner(System.in);

@@ -1,6 +1,10 @@
 package contest.ccc;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 public class CCC_2007_J3 {
 	public static Scanner scan = new Scanner(System.in);

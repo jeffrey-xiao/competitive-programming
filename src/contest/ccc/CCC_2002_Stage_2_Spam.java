@@ -1,14 +1,20 @@
 package contest.ccc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 public class CCC_2002_Stage_2_Spam {
 
 	static BufferedReader br;
 	static PrintWriter pr;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,18 +29,18 @@ public class CCC_2002_Stage_2_Spam {
 		while (s > 0 || n > 0 || c > 0) {
 			String next = readLine();
 			while (!next.equals("ENDMESSAGE")) {
-				for (int i = 0; i <= next.length()-3; i++) {
+				for (int i = 0; i <= next.length() - 3; i++) {
 					if (s > 0)
-						add(spam, next.substring(i, i+3));
+						add(spam, next.substring(i, i + 3));
 					else if (n > 0)
-						add(nonspam, next.substring(i, i+3));
+						add(nonspam, next.substring(i, i + 3));
 					else
-						add(message, next.substring(i, i+3));
+						add(message, next.substring(i, i + 3));
 				}
 				next = readLine();
-				
+
 			}
-			
+
 			if (s > 0)
 				s--;
 			else if (n > 0)
@@ -58,6 +64,7 @@ public class CCC_2002_Stage_2_Spam {
 			}
 		}
 	}
+
 	static double getSim (HashMap<String, Integer> m1, HashMap<String, Integer> m2) {
 		double cos = 0;
 		double a = 0;
@@ -72,11 +79,13 @@ public class CCC_2002_Stage_2_Spam {
 		}
 		return cos / Math.sqrt(a * b);
 	}
+
 	static void add (HashMap<String, Integer> hm, String s) {
 		if (!hm.containsKey(s))
 			hm.put(s, 0);
-		hm.put(s, hm.get(s)+1);
+		hm.put(s, hm.get(s) + 1);
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

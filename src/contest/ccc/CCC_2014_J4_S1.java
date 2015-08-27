@@ -1,6 +1,7 @@
 package contest.ccc;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CCC_2014_J4_S1 {
 

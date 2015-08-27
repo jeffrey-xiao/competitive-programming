@@ -1,7 +1,13 @@
 package contest.ccc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class CCC_2015_S5 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

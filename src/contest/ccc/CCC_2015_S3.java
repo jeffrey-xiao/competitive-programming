@@ -1,7 +1,13 @@
 package contest.ccc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class CCC_2015_S3 {
 

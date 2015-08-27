@@ -1,7 +1,12 @@
 package contest.smac;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class SMAC_2008_Daycare {
 
@@ -20,15 +25,15 @@ public class SMAC_2008_Daycare {
 		for (int i = 0; i < n; i++)
 			sz[i] = readInt();
 		Stack<State> s = new Stack<State>();
-		s.push(new State(1l<<40, 1));
-		s.push(new State(sz[n-1], 1));
-		for (int i = n-2; i >= 0; i--) {
+		s.push(new State(1l << 40, 1));
+		s.push(new State(sz[n - 1], 1));
+		for (int i = n - 2; i >= 0; i--) {
 			if (s.peek().num == 0) {
 				s.push(new State(0, s.pop().occ + 1));
 			} else {
 				s.push(new State(0, 1));
 			}
-			
+
 			while (sz[i] > 0) {
 				State curr = s.pop();
 				State next = s.pop();
@@ -65,18 +70,21 @@ public class SMAC_2008_Daycare {
 		}
 		long ans = 0;
 		for (State state : s) {
-			ans += state.num*state.num*state.occ;
+			ans += state.num * state.num * state.occ;
 		}
 		pr.println(ans);
 		pr.close();
 	}
+
 	static class State {
 		long num, occ;
+
 		State (long num, long occ) {
 			this.num = num;
 			this.occ = occ;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

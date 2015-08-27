@@ -1,7 +1,12 @@
 package contest.dmoj;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Postfix_Notation {
 
@@ -14,7 +19,7 @@ public class Postfix_Notation {
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//pr = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		StringTokenizer st = new StringTokenizer(readLine().trim());
 		Stack<Double> s = new Stack<Double>();
 		while (st.hasMoreTokens()) {
@@ -34,9 +39,8 @@ public class Postfix_Notation {
 			} else if (next.equals("%")) {
 				double a = s.pop();
 				double b = s.pop();
-				s.push(b%a);
-			}
-			else
+				s.push(b % a);
+			} else
 				s.push(Double.parseDouble(next));
 		}
 		System.out.printf("%.1f", s.pop());
@@ -68,4 +72,3 @@ public class Postfix_Notation {
 		return br.readLine().trim();
 	}
 }
-

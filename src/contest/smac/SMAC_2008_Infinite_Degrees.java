@@ -1,7 +1,11 @@
 package contest.smac;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class SMAC_2008_Infinite_Degrees {
 
@@ -20,10 +24,10 @@ public class SMAC_2008_Infinite_Degrees {
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//pr = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int n = readInt();
 		int m = readInt();
-		
+
 		label = new int[n];
 		out = new int[n];
 		start = new int[n];
@@ -32,7 +36,7 @@ public class SMAC_2008_Infinite_Degrees {
 			label[i] = -1;
 			out[i] = readInt();
 		}
-		for (int i = n-1; i >= 0; i--)
+		for (int i = n - 1; i >= 0; i--)
 			if (!v[i])
 				dfs(i);
 		for (int i = 0; i < m; i++) {
@@ -47,6 +51,7 @@ public class SMAC_2008_Infinite_Degrees {
 		}
 		pr.close();
 	}
+
 	static void dfs (int i) {
 		v[i] = true;
 		int j = out[i];
@@ -67,6 +72,7 @@ public class SMAC_2008_Infinite_Degrees {
 		else
 			start[i] = i;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
