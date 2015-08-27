@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class NOI_2006_Maximum_Proft3 {
+public class NOI_2006_Maximum_Profit3 {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(
 			System.in));
