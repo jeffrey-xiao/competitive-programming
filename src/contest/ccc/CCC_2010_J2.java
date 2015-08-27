@@ -3,7 +3,7 @@ package contest.ccc;
 import java.util.Scanner;
 
 class CCC_2010_J2 {
-	
+
 	public static Scanner scan = new Scanner(System.in);
 
 	public static void main (String[] args) {

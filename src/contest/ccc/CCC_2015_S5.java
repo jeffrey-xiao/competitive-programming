@@ -4,10 +4,8 @@ import java.util.*;
 import java.io.*;
 
 public class CCC_2015_S5 {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] N, M;
@@ -15,7 +13,7 @@ public class CCC_2015_S5 {
 
 	static int[][][][] dp;
 
-	public static void main(String[] args) throws IOException {
+	public static void main (String[] args) throws IOException {
 		n = readInt();
 		N = new int[n + 1];
 		for (int x = 1; x <= n; x++)
@@ -39,7 +37,7 @@ public class CCC_2015_S5 {
 	}
 
 	// b = 0 means can eat, b = 1 means cannot eat
-	private static int compute(int i, int j1, int j2, int b) {
+	private static int compute (int i, int j1, int j2, int b) {
 		// System.out.printf("%d %d %d %d\n", i, j1, j2, b);
 		// System.out.println(j1 + " " + j2);
 		if (i == n + 1 && j1 > j2)
@@ -62,21 +60,21 @@ public class CCC_2015_S5 {
 		return max;
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 }

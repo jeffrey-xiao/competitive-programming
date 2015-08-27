@@ -5,13 +5,11 @@ import java.io.*;
 
 public class CCC_2015_S2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	public static void main(String[] args) throws IOException {
+	public static void main (String[] args) throws IOException {
 		int j = readInt();
 		int a = readInt();
 
@@ -34,7 +32,7 @@ public class CCC_2015_S2 {
 		ps.close();
 	}
 
-	private static boolean match(char c, char d) {
+	private static boolean match (char c, char d) {
 		if (c == 'S' && (d == 'S' || d == 'M' || d == 'L'))
 			return true;
 		if (c == 'M' && (d == 'M' || d == 'L'))
@@ -44,29 +42,29 @@ public class CCC_2015_S2 {
 		return false;
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }
