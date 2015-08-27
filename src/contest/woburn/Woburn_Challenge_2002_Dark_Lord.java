@@ -14,33 +14,54 @@ public class Woburn_Challenge_2002_Dark_Lord {
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	public static void main (String[] args) throws IOException {
-		int a = readInt();
-		int[][][] grid = new int[a + 1][a + 1][a + 1];
-		int max = 0;
-		int input = readInt();
-		for (int x = 1; input != -1; x++) {
-			for (int y = 1; y <= a; y++) {
-				for (int z = 1; z <= a; z++) {
+	static int[][][] g;
 
-					grid[x][y][z] = input + grid[x - 1][y][z] + grid[x][y - 1][z] + grid[x][y][z - 1] - grid[x - 1][y - 1][z] - grid[x - 1][y][z - 1] - grid[x][y - 1][z - 1] + grid[x - 1][y - 1][z - 1];
-					System.out.print(grid[x][y][z] + " ");
-					input = readInt();
+	public static void main (String[] args) throws IOException {
+		int n = readInt();
+		while (n != -1) {
+			g = new int[n + 1][n + 1][n + 1];
+			boolean pos = false;
+			int maxSingle = -1 << 30;
+			for (int i = 1; i <= n; i++) {
+				for (int j = 1; j <= n; j++) {
+					for (int k = 1; k <= n; k++) {
+						int in = readInt();
+						g[i][j][k] = in + g[i - 1][j][k] + g[i][j - 1][k] + g[i][j][k - 1] - g[i - 1][j - 1][k] - g[i][j - 1][k - 1] - g[i - 1][j][k - 1] + g[i - 1][j - 1][k - 1];
+						if (in >= 0)
+							pos = true;
+						maxSingle = Math.max(maxSingle, in);
+					}
 				}
-				System.out.println();
 			}
-			System.out.println();
-			if (x < a)
-				continue;
-			int x1 = x;
-			int y1 = a;
-			int z1 = a;
-			int x2 = x - 3;
-			int y2 = 0;
-			int z2 = 0;
-			max = Math.max(max, -(grid[x2][y2][z2] - grid[x1][y2][z2] - grid[x2][y1][z2] - grid[x2][y2][z1] + grid[x1][y1][z2] + grid[x2][y1][z1] + grid[x1][y2][z1] - grid[x1][y1][z1]));
+			int max = 0;
+			int curr = 0;
+			for (int j1 = 1; j1 <= n; j1++) {
+				for (int j2 = j1; j2 <= n; j2++) {
+					for (int k1 = 1; k1 <= n; k1++) {
+						for (int k2 = k1; k2 <= n; k2++) {
+							curr = 0;
+							for (int i = 1; i <= n; i++) {
+								curr = Math.max(curr + sum(i, j1, k1, i, j2, k2), 0);
+								max = Math.max(curr, max);
+							}
+						}
+					}
+				}
+			}
+			if (pos)
+				ps.println(max);
+			else
+				ps.println(maxSingle);
+			n = readInt();
 		}
-		System.out.println(max);
+		ps.close();
+	}
+
+	static int sum (int x1, int y1, int z1, int x2, int y2, int z2) {
+		x1--;
+		y1--;
+		z1--;
+		return g[x2][y2][z2] - g[x1][y2][z2] - g[x2][y1][z2] - g[x2][y2][z1] + g[x1][y1][z2] + g[x1][y2][z1] + g[x2][y1][z1] - g[x1][y1][z1];
 	}
 
 	static String next () throws IOException {

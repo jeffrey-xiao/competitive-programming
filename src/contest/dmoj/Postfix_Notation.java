@@ -1,9 +1,9 @@
-package codebook;
+package contest.dmoj;
 
 import java.util.*;
 import java.io.*;
 
-public class Template {
+public class Postfix_Notation {
 
 	static BufferedReader br;
 	static PrintWriter pr;
@@ -14,8 +14,32 @@ public class Template {
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//pr = new PrintWriter(new FileWriter("out.txt"));
-
-		pr.close();
+		
+		StringTokenizer st = new StringTokenizer(readLine().trim());
+		Stack<Double> s = new Stack<Double>();
+		while (st.hasMoreTokens()) {
+			String next = st.nextToken();
+			if (next.equals("+"))
+				s.push(s.pop() + s.pop());
+			else if (next.equals("-"))
+				s.push(-s.pop() + s.pop());
+			else if (next.equals("*"))
+				s.push(s.pop() * s.pop());
+			else if (next.equals("/"))
+				s.push(1 / s.pop() * s.pop());
+			else if (next.equals("^")) {
+				double a = s.pop();
+				double b = s.pop();
+				s.push(Math.pow(b, a));
+			} else if (next.equals("%")) {
+				double a = s.pop();
+				double b = s.pop();
+				s.push(b%a);
+			}
+			else
+				s.push(Double.parseDouble(next));
+		}
+		System.out.printf("%.1f", s.pop());
 	}
 
 	static String next () throws IOException {
@@ -44,3 +68,4 @@ public class Template {
 		return br.readLine().trim();
 	}
 }
+

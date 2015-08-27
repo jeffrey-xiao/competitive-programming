@@ -64,14 +64,6 @@ public class SMAC_2008_Intelligent_Stats {
 		}
 	}
 
-	private static void dfs (int x) {
-		c++;
-		v[x] = true;
-		for (Integer i : adj.get(x))
-			if (!v[i])
-				dfs(i);
-	}
-
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
