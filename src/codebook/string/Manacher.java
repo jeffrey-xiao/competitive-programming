@@ -1,4 +1,6 @@
-class Manacher {
+package codebook.string;
+
+public class Manacher {
 	public String getLongestPalindrome (String s) {
 		int len = s.length() * 2 - 1;
 		char[] text = new char[len];
