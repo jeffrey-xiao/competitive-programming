@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_S5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int m, n, a, b, c;

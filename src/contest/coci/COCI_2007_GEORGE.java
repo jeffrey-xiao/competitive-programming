@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_GEORGE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int n, m, a, b, k, g;
@@ -75,10 +73,7 @@ public class COCI_2007_GEORGE {
 				// " " + curr.cost + " " + curr.index);
 				if (reach[curr.index][nextDest] != -1) {
 					if (curr.cost + k >= reach[curr.index][nextDest]) {
-						nextCost += Math
-								.max(0,
-										e.cost
-												- (curr.cost + k - reach[curr.index][nextDest]));
+						nextCost += Math.max(0, e.cost - (curr.cost + k - reach[curr.index][nextDest]));
 					}
 				}
 				if (min[nextDest] <= nextCost)

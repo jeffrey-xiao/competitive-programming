@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2014_BOB {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static State[] stack = new State[1001];
@@ -38,8 +36,7 @@ public class COCI_2014_BOB {
 					cnt[i][j] += cnt[i - 1][j];
 				long count = 1;
 				long temp = 0;
-				while (top >= 0 && stack[top].a == grid[i][j]
-						&& stack[top].c >= cnt[i][j])
+				while (top >= 0 && stack[top].a == grid[i][j] && stack[top].c >= cnt[i][j])
 					count += stack[top--].count;
 				if (top >= 0 && stack[top].a == grid[i][j])
 					temp += stack[top].total;

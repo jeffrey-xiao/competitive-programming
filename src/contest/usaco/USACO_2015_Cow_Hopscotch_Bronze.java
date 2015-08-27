@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2015_Cow_Hopscotch_Bronze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

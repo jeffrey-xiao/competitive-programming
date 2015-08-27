@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class Subway_Routes {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adjlist = new ArrayList<ArrayList<Integer>>();
 	static int finalMax = -1;

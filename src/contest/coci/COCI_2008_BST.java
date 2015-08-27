@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_BST {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int count = -1;
 

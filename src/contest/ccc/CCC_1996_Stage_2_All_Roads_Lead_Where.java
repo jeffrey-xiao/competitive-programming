@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1996_Stage_2_All_Roads_Lead_Where {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adjlist;
 
@@ -30,8 +29,7 @@ public class CCC_1996_Stage_2_All_Roads_Lead_Where {
 		for (int x = 0; x < m; x++) {
 			int a = next().charAt(0) - 65;
 			int b = next().charAt(0) - 65;
-			System.out.println(new StringBuilder(bfs(a, b)).reverse()
-					.toString());
+			System.out.println(new StringBuilder(bfs(a, b)).reverse().toString());
 		}
 
 	}

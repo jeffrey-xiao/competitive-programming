@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Relocation {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static ArrayList<int[]> min = new ArrayList<int[]>();
@@ -51,8 +50,7 @@ public class USACO_2012_Relocation {
 			for (int y = 0; y < k; y++) {
 				for (int z = 0; z < k; z++) {
 					if (y != z) {
-						minValue = Math.min(minValue,
-								min.get(z)[x] + min.get(y)[x] + paths[y][z]);
+						minValue = Math.min(minValue, min.get(z)[x] + min.get(y)[x] + paths[y][z]);
 						// System.out.println(x + " " + y + " " + z + " " +
 						// paths[y][z]);
 						// System.out.println(min.get(y)[x] + " " +

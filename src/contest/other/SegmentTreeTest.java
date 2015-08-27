@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class SegmentTreeTest {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int size;
 	static int height;
@@ -51,8 +50,7 @@ public class SegmentTreeTest {
 			return tree[curr];
 		}
 		int mid = sindex + (eindex - sindex) / 2;
-		tree[curr] = Math.min(construct(input, sindex, mid, curr * 2 + 1),
-				construct(input, mid + 1, eindex, curr * 2 + 2));
+		tree[curr] = Math.min(construct(input, sindex, mid, curr * 2 + 1), construct(input, mid + 1, eindex, curr * 2 + 2));
 		return tree[curr];
 	}
 

@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2003_Amazing_Robots {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-1, 0, 1, 0};
 	static int[] movey = {0, 1, 0, -1};
@@ -49,8 +48,7 @@ public class IOI_2003_Amazing_Robots {
 		}
 	}
 
-	public static void readInput (char[][] grid, Robot[] robots, int r, int c,
-			boolean first) throws IOException {
+	public static void readInput (char[][] grid, Robot[] robots, int r, int c, boolean first) throws IOException {
 		for (int x = 0; x < r; x++) {
 			String s = next();
 			grid[x] = s.toCharArray();
@@ -70,8 +68,7 @@ public class IOI_2003_Amazing_Robots {
 		int n = readInt();
 		robots = new Robot[n];
 		for (int x = 0; x < n; x++)
-			robots[x] = new Robot(readInt(), readInt(), readInt(), next()
-					.charAt(0));
+			robots[x] = new Robot(readInt(), readInt(), readInt(), next().charAt(0));
 
 	}
 

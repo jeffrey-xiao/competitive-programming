@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Speech {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -31,8 +29,7 @@ public class Glenforest_Speech {
 					if (in[i].equals(s2[j]) && i < in.length - 1)
 						in[i] = s1[j];
 				} else {
-					if (in[i].substring(0, in[i].length() - 1).equals(s2[j])
-							&& i == in.length - 1)
+					if (in[i].substring(0, in[i].length() - 1).equals(s2[j]) && i == in.length - 1)
 						in[i] = s1[j] + ".";
 				}
 			}

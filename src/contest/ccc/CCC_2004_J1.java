@@ -7,13 +7,11 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_J1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		System.out.printf("The largest square has side length %d.",
-				(int) (Math.sqrt(readInt())));
+		System.out.printf("The largest square has side length %d.", (int) (Math.sqrt(readInt())));
 	}
 
 	static String next () throws IOException {

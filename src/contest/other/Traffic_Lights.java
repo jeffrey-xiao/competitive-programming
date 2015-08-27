@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class Traffic_Lights {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int m;
 
@@ -34,8 +33,7 @@ public class Traffic_Lights {
 		System.out.println(shortestPath(adjlist, cycles));
 	}
 
-	private static int shortestPath (ArrayList<ArrayList<Edge>> adjlist,
-			ArrayList<int[]> cycles) {
+	private static int shortestPath (ArrayList<ArrayList<Edge>> adjlist, ArrayList<int[]> cycles) {
 		int[] min = new int[m];
 		for (int x = 1; x < m; x++)
 			min[x] = Integer.MAX_VALUE;
@@ -52,10 +50,8 @@ public class Traffic_Lights {
 				int greenCycle = cycles.get(next.dest)[0];
 				int redCycle = cycles.get(next.dest)[1];
 				int totalCycle = greenCycle + redCycle;
-				if (totalCycle != 0
-						&& nextTime % (totalCycle) - greenCycle >= 0)
-					nextTime += redCycle
-							- (nextTime % (totalCycle) - greenCycle);
+				if (totalCycle != 0 && nextTime % (totalCycle) - greenCycle >= 0)
+					nextTime += redCycle - (nextTime % (totalCycle) - greenCycle);
 
 				if (nextTime >= min[next.dest])
 					continue;

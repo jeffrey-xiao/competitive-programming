@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_XOR {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] X, Y, R, T;
@@ -47,8 +45,7 @@ public class COCI_2009_XOR {
 			return;
 		}
 		solve(i + 1, x, y, t, count);
-		solve(i + 1, Math.max(x, X[i]), Math.max(y, Y[i]), Math.min(t, T[i]),
-				count + 1);
+		solve(i + 1, Math.max(x, X[i]), Math.max(y, Y[i]), Math.min(t, T[i]), count + 1);
 	}
 
 	static String next () throws IOException {

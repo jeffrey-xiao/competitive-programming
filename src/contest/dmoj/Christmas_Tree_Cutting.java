@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class Christmas_Tree_Cutting {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] movex = {0, 0, -1, 1};
@@ -76,12 +74,10 @@ public class Christmas_Tree_Cutting {
 			for (int z = 0; z < 4; z++) {
 				int x = curr.x + movex[z];
 				int y = curr.y + movey[z];
-				if (x < 0 || y < 0 || x >= r || y >= c
-						|| min[x][y] <= curr.moves + grid[x][y])
+				if (x < 0 || y < 0 || x >= r || y >= c || min[x][y] <= curr.moves + grid[x][y])
 					continue;
 				min[x][y] = curr.moves + grid[x][y];
-				pq.offer(new State(x, y, min[x][y], curr.trees
-						+ (grid[x][y] != 0 ? 1 : 0)));
+				pq.offer(new State(x, y, min[x][y], curr.trees + (grid[x][y] != 0 ? 1 : 0)));
 			}
 		}
 	}

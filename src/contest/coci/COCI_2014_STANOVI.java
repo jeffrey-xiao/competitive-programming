@@ -20,8 +20,7 @@ public class COCI_2014_STANOVI {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
@@ -50,18 +49,12 @@ public class COCI_2014_STANOVI {
 		int res = (N * M - K) * (N * M - K);
 		if (N > 1) {
 			for (int x = 1; x < N; x++) {
-				res = Math.min(
-						res,
-						compute(x, M, 0, j, k, l)
-								+ compute(N - x, M, i, 0, k, l));
+				res = Math.min(res, compute(x, M, 0, j, k, l) + compute(N - x, M, i, 0, k, l));
 			}
 		}
 		if (M > 1) {
 			for (int x = 1; x < M; x++) {
-				res = Math.min(
-						res,
-						compute(N, x, i, j, 0, l)
-								+ compute(N, M - x, i, j, k, 0));
+				res = Math.min(res, compute(N, x, i, j, 0, l) + compute(N, M - x, i, j, k, 0));
 			}
 		}
 		dp[N][M][i][j][k][l] = res;

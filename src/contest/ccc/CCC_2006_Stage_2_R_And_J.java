@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_Stage_2_R_And_J {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,8 +20,7 @@ public class CCC_2006_Stage_2_R_And_J {
 		int n = readInt();
 		int count = 0;
 		for (int x = 0; x < n; x++)
-			if (checkIntersection(a, b, new Point(readInt(), readInt(),
-					readInt()), readInt())) {
+			if (checkIntersection(a, b, new Point(readInt(), readInt(), readInt()), readInt())) {
 				count++;
 				// System.out.println(x);
 			}
@@ -65,9 +62,7 @@ public class CCC_2006_Stage_2_R_And_J {
 		x2 = a.x + d2 * (b.x - a.x);
 		y2 = a.y + d2 * (b.y - a.y);
 		z2 = a.z + d2 * (b.z - a.z);
-		if (minX <= x1 && x1 <= maxX && minX <= x2 && x2 <= maxX && minY <= y1
-				&& y1 <= maxY && minY <= y2 && y2 <= maxY && minZ <= z1
-				&& z1 <= maxZ && minZ <= y2 && z2 <= maxZ)
+		if (minX <= x1 && x1 <= maxX && minX <= x2 && x2 <= maxX && minY <= y1 && y1 <= maxY && minY <= y2 && y2 <= maxY && minZ <= z1 && z1 <= maxZ && minZ <= y2 && z2 <= maxZ)
 			return true;
 		return false;
 	}

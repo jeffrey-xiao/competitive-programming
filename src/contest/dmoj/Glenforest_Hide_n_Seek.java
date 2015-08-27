@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Hide_n_Seek {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static char[][] g;
@@ -66,8 +64,7 @@ public class Glenforest_Hide_n_Seek {
 				for (int j = 0; j < 4; j++) {
 					int nx = p.x + movex[j];
 					int ny = p.y + movey[j];
-					if (nx < 0 || ny < 0 || nx >= r || ny >= c || v[nx][ny]
-							|| g[nx][ny] == 'X')
+					if (nx < 0 || ny < 0 || nx >= r || ny >= c || v[nx][ny] || g[nx][ny] == 'X')
 						continue;
 					v[nx][ny] = true;
 					q.offer(new Point(nx, ny, p.time + 1));

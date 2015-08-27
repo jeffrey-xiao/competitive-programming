@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Fair_Photography {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -40,8 +39,7 @@ public class USACO_2014_Fair_Photography {
 			// System.out.println(mid);
 			for (int x = 0, y = x + mid; y <= n; y++, x++) {
 				// System.out.println(totalSum[y] + " " + totalSum[x]);
-				if (totalSum[y] - totalSum[x] >= 0
-						&& (totalSum[y] - totalSum[x]) % 2 == 0) {
+				if (totalSum[y] - totalSum[x] >= 0 && (totalSum[y] - totalSum[x]) % 2 == 0) {
 					max = Math.max(max, cows[y - 1][0] - cows[x][0]);
 				}
 			}

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class ECOO_2002_Stack_Print {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -48,13 +47,9 @@ public class ECOO_2002_Stack_Print {
 				// if(hours == 0)
 				// hours+=24;
 				if (finished == 5)
-					System.out.printf(
-							"job  5 completed at %02d:%02d:%02d for %s\n",
-							hours, times[1], times[2], curr.name);
+					System.out.printf("job  5 completed at %02d:%02d:%02d for %s\n", hours, times[1], times[2], curr.name);
 				else if (finished == n)
-					System.out.printf(
-							"job %d completed at %02d:%02d:%02d for %s\n", n,
-							hours, times[1], times[2], curr.name);
+					System.out.printf("job %d completed at %02d:%02d:%02d for %s\n", n, hours, times[1], times[2], curr.name);
 				// if(finished == n)
 				// System.out.printf("%02d %02d %02d",n ,(times[0]+1)%13,
 				// times[1], times[2]);

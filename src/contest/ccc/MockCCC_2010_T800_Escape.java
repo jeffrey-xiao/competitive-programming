@@ -30,9 +30,7 @@ public class MockCCC_2010_T800_Escape {
 		while (!moves.isEmpty()) {
 			int[] curr = moves.poll();
 
-			if (curr[0] < 0 || curr[1] < 0 || curr[0] >= r || curr[1] >= c
-					|| grid[curr[0]][curr[1]] == '#'
-					|| visited[curr[0]][curr[1]])
+			if (curr[0] < 0 || curr[1] < 0 || curr[0] >= r || curr[1] >= c || grid[curr[0]][curr[1]] == '#' || visited[curr[0]][curr[1]])
 				continue;
 			if (curr[3] < 0) {
 				visited[curr[0]][curr[1]] = false;
@@ -52,14 +50,10 @@ public class MockCCC_2010_T800_Escape {
 				moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1, k - 1});
 				moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1, k - 1});
 			} else {
-				moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1,
-						curr[3] - 1});
-				moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1,
-						curr[3] - 1});
-				moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1,
-						curr[3] - 1});
-				moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1,
-						curr[3] - 1});
+				moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1, curr[3] - 1});
+				moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1, curr[3] - 1});
+				moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1, curr[3] - 1});
+				moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1, curr[3] - 1});
 			}
 		}
 		System.out.println("T-800 Terminated.");

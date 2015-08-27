@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_Mobile {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int NAN = -10000;
@@ -68,8 +66,7 @@ public class CCC_2008_Stage_2_Mobile {
 			n.right = new Node(NAN);
 			add(b[i] - 1, n.right);
 		}
-		n.v = (n.left.v ^ n.right.v) + n.left.v + n.right.v + n.left.v
-				* n.right.v;
+		n.v = (n.left.v ^ n.right.v) + n.left.v + n.right.v + n.left.v * n.right.v;
 		if (n.left.v > n.right.v) {
 			Node temp = n.left;
 			n.left = n.right;

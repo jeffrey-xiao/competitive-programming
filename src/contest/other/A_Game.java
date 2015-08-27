@@ -27,8 +27,7 @@ class A_Game {
 		 * for(int[] x: table){ for(int y:x) System.out.print(y+" ");
 		 */
 		System.out.print(table[0][coins.length - 1] + " ");
-		System.out.println(Math.min(table[1][coins.length - 1],
-				table[0][coins.length - 2]));
+		System.out.println(Math.min(table[1][coins.length - 1], table[0][coins.length - 2]));
 	}
 
 	static int max (int a, int b) {

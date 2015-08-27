@@ -31,8 +31,7 @@ public class ACM_A_Brief_Expedition {
 
 				int[] i = moves.poll();
 
-				if (i[0] < 0 || i[1] < 0 || i[0] >= r || i[1] >= c
-						|| visited[i[0]][i[1]] || grid[i[0]][i[1]] == '#')
+				if (i[0] < 0 || i[1] < 0 || i[0] >= r || i[1] >= c || visited[i[0]][i[1]] || grid[i[0]][i[1]] == '#')
 					continue;
 				visited[i[0]][i[1]] = true;
 				if (grid[i[0]][i[1]] == 'S') {

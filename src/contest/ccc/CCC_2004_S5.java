@@ -65,8 +65,7 @@ public class CCC_2004_S5 {
 					if ((currentValues1[y] == -1 && currentValues2[y] == -1)) {
 						dp[y][x] = -1;
 					} else
-						dp[y][x] = Math.max(currentValues2[y],
-								currentValues1[y]);
+						dp[y][x] = Math.max(currentValues2[y], currentValues1[y]);
 				}
 			}
 			/*

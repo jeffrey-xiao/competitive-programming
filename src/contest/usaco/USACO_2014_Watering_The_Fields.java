@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Watering_The_Fields {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[][] matrix;

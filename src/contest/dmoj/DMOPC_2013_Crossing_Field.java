@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2013_Crossing_Field {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] movex = {-1, 1, 0, 0};
 	static int[] movey = {0, 0, -1, 1};
@@ -39,8 +37,7 @@ public class DMOPC_2013_Crossing_Field {
 			for (int i = 0; i < 4; i++) {
 				int nx = p.x + movex[i];
 				int ny = p.y + movey[i];
-				if (nx < 0 || ny < 0 || nx >= n || ny >= n || v[nx][ny]
-						|| Math.abs(g[nx][ny] - g[p.x][p.y]) > h)
+				if (nx < 0 || ny < 0 || nx >= n || ny >= n || v[nx][ny] || Math.abs(g[nx][ny] - g[p.x][p.y]) > h)
 					continue;
 				v[nx][ny] = true;
 				q.offer(new Point(nx, ny));

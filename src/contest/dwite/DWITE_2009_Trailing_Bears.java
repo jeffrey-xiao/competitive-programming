@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class DWITE_2009_Trailing_Bears {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -36,9 +35,7 @@ public class DWITE_2009_Trailing_Bears {
 			return new Point((B.x + C.x) / 2, (B.y + C.y) / 2);
 		else if (slope2 == Double.POSITIVE_INFINITY)
 			return new Point((A.x + B.x) / 2, (A.y + B.y) / 2);
-		center.x = (slope1 * slope2 * (A.y - C.y) + slope2 * (A.x + B.x) - slope1
-				* (B.x + C.x))
-				/ (2 * (slope2 - slope1));
+		center.x = (slope1 * slope2 * (A.y - C.y) + slope2 * (A.x + B.x) - slope1 * (B.x + C.x)) / (2 * (slope2 - slope1));
 		center.y = -1 * (center.x - (A.x + B.x) / 2) / slope1 + (A.y + B.y) / 2;
 
 		return center;

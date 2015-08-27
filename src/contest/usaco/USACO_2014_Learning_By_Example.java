@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Learning_By_Example {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -59,8 +57,7 @@ public class USACO_2014_Learning_By_Example {
 				if (ie >= is)
 					count += ie - is + 1;
 			}
-			if (a <= mid && mid <= b && start % 2 == end % 2
-					&& c.get(x + 1).spot && !c.get(x).spot) {
+			if (a <= mid && mid <= b && start % 2 == end % 2 && c.get(x + 1).spot && !c.get(x).spot) {
 				count++;
 			}
 		}

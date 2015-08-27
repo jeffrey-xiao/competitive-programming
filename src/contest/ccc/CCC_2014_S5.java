@@ -8,8 +8,7 @@ import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class CCC_2014_S5 {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -64,14 +63,11 @@ public class CCC_2014_S5 {
 			// row
 			if (next[0] == 0) {
 
-				bestNum[next[0]] = Math.max(bestNum[next[0]],
-						prevbestNum[next[1]]);
+				bestNum[next[0]] = Math.max(bestNum[next[0]], prevbestNum[next[1]]);
 			} else {
 
-				bestNum[next[0]] = Math.max(bestNum[next[0]],
-						prevbestNum[next[1]] + 1);
-				bestNum[next[1]] = Math.max(bestNum[next[1]],
-						prevbestNum[next[0]] + 1);
+				bestNum[next[0]] = Math.max(bestNum[next[0]], prevbestNum[next[1]] + 1);
+				bestNum[next[1]] = Math.max(bestNum[next[1]], prevbestNum[next[0]] + 1);
 			}
 			/*
 			 * for(int y = 0; y < n+1; y++){ System.out.print(bestNum[y] + ":" +

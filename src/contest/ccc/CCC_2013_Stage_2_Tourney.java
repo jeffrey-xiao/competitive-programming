@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2013_Stage_2_Tourney {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static PrintStream ps = new PrintStream(System.out);
 	static Player[] b;

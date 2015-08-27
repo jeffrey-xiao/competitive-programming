@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Ski_Course_Rating {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	private static int[] id;
@@ -85,12 +83,10 @@ public class USACO_2014_Ski_Course_Rating {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		for (int x = 0; x < r - 1; x++)
 			for (int y = 0; y < c; y++)
-				edges.add(new Edge(toIndex(x, y), toIndex(x + 1, y), Math
-						.abs(grid[x][y] - grid[x + 1][y])));
+				edges.add(new Edge(toIndex(x, y), toIndex(x + 1, y), Math.abs(grid[x][y] - grid[x + 1][y])));
 		for (int x = 0; x < r; x++)
 			for (int y = 0; y < c - 1; y++)
-				edges.add(new Edge(toIndex(x, y), toIndex(x, y + 1), Math
-						.abs(grid[x][y] - grid[x][y + 1])));
+				edges.add(new Edge(toIndex(x, y), toIndex(x, y + 1), Math.abs(grid[x][y] - grid[x][y + 1])));
 		Collections.sort(edges);
 		long total = 0;
 		for (int x = 0; x < edges.size(); x++) {
@@ -102,8 +98,7 @@ public class USACO_2014_Ski_Course_Rating {
 
 			if (size[find(a)] >= k && size[find(b)] < k && min[find(b)] == -1)
 				min[find(b)] = c;
-			else if (size[find(b)] >= k && size[find(a)] < k
-					&& min[find(a)] == -1)
+			else if (size[find(b)] >= k && size[find(a)] < k && min[find(a)] == -1)
 				min[find(a)] = c;
 
 			union(a, b);

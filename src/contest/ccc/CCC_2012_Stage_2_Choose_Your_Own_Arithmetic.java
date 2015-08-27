@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2012_Stage_2_Choose_Your_Own_Arithmetic {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static Set<Integer> num = new HashSet<Integer>();
 	static boolean[][] v;

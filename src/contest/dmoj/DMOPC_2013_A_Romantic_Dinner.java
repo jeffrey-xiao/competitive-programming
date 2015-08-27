@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2013_A_Romantic_Dinner {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -43,12 +41,9 @@ public class DMOPC_2013_A_Romantic_Dinner {
 					if (k > 0)
 						dp[j][k][i] = Math.max(dp[j][k][i], dp[j][k - 1][i]);
 
-					if (j - m[i] >= 0 && k - u[i] >= 0
-							&& dp[j - m[i]][k - u[i]][i - 1] != -1) {
+					if (j - m[i] >= 0 && k - u[i] >= 0 && dp[j - m[i]][k - u[i]][i - 1] != -1) {
 						// System.out.println(j + " " + k + " " + i);
-						dp[j][k][i] = Math.max(dp[j][k][i], dp[j - m[i]][k
-								- u[i]][i - 1]
-								+ v[i]);
+						dp[j][k][i] = Math.max(dp[j][k][i], dp[j - m[i]][k - u[i]][i - 1] + v[i]);
 					}
 					// System.out.print(dp[j][k][i] + " ");
 				}

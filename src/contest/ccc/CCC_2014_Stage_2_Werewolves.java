@@ -14,10 +14,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2014_Stage_2_Werewolves {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int SIZE = 250;
@@ -73,12 +71,8 @@ public class CCC_2014_Stage_2_Werewolves {
 					long a = 0;
 					long b = 0;
 					for (int z = 0; z <= y; z++) {
-						a = (a + dp[c][y - z][0]
-								* (dp[e.dest][z][0] + dp[e.dest][z][1]))
-								% MOD;
-						b = (b + dp[c][y - z][1]
-								* (dp[e.dest][z][e.accuse ? 0 : 1]))
-								% MOD;
+						a = (a + dp[c][y - z][0] * (dp[e.dest][z][0] + dp[e.dest][z][1])) % MOD;
+						b = (b + dp[c][y - z][1] * (dp[e.dest][z][e.accuse ? 0 : 1])) % MOD;
 					}
 					dp[c][y][0] = a;
 					dp[c][y][1] = b;

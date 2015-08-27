@@ -1,7 +1,13 @@
 package contest.other;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.StringTokenizer;
 
 public class Good_Aim {
 

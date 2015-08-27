@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Grazing_Patterns {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[][] visited = new boolean[5][5];
 	static int numVisited = 0;
@@ -29,8 +28,7 @@ public class USACO_2012_Grazing_Patterns {
 		if (numVisited == 25 && x == 4 && y == 4)
 			total++;
 		else
-			total = compute(x - 1, y) + compute(x + 1, y) + compute(x, y - 1)
-					+ compute(x, y + 1);
+			total = compute(x - 1, y) + compute(x + 1, y) + compute(x, y - 1) + compute(x, y + 1);
 		visited[x][y] = false;
 		numVisited--;
 		return total;

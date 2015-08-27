@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_Herding {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int r;
 	static int c;
@@ -60,8 +59,7 @@ public class CCC_2008_Stage_2_Herding {
 	}
 
 	private static void checkPush (int x, int y, char d) {
-		if (x >= 0 && x < r && y >= 0 && y < c && grid[x][y] == d
-				&& trap[x][y] == 0) {
+		if (x >= 0 && x < r && y >= 0 && y < c && grid[x][y] == d && trap[x][y] == 0) {
 			trap[x][y] = count;
 			q.offer(new Point(x, y));
 		}

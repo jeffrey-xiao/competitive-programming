@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2008_Linear_Garden_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][][] dp;
 	static long k;
@@ -21,8 +20,7 @@ public class IOI_2008_Linear_Garden_2 {
 		long sum = 0;
 		for (int x = 0; x < n; x++) {
 			if (s[x] == 'P') {
-				sum += compute(min, Math.max(max, curr + 1), n - x - 1,
-						curr + 1);
+				sum += compute(min, Math.max(max, curr + 1), n - x - 1, curr + 1);
 				curr--;
 				min = Math.min(min, curr);
 			} else {

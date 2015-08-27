@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Message_Relay {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[] loopy = new boolean[0];
 

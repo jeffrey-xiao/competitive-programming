@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 public class Good_Strategy {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -39,8 +38,7 @@ public class Good_Strategy {
 			if (problems.size() == 0)
 				System.out.println("Make noise");
 			else
-				System.out.println(problems.first().id + 1 + " "
-						+ (problems.last().id + 1));
+				System.out.println(problems.first().id + 1 + " " + (problems.last().id + 1));
 		}
 
 	}

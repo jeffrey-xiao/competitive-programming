@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Luxury_River_Cruise {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -69,12 +68,10 @@ public class USACO_2013_Luxury_River_Cruise {
 				amountToCycle = x;
 				break;
 			}
-			currPort = goRight[x % seqLength] ? ports[currPort][1]
-					: ports[currPort][0];
+			currPort = goRight[x % seqLength] ? ports[currPort][1] : ports[currPort][0];
 		}
 		for (int x = amountToCycle; x < (repeat * seqLength); x++) {
-			currPort = goRight[x % seqLength] ? ports[currPort][1]
-					: ports[currPort][0];
+			currPort = goRight[x % seqLength] ? ports[currPort][1] : ports[currPort][0];
 		}
 		System.out.println(currPort + 1);
 	}

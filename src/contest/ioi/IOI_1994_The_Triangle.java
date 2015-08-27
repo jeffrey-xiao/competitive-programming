@@ -15,8 +15,7 @@ public class IOI_1994_The_Triangle {
 		}
 		for (int x = triangle.length - 2; x >= 0; x--)
 			for (int y = 0; y < triangle[x].length; y++)
-				triangle[x][y] += Math.max(triangle[x + 1][y],
-						triangle[x + 1][y + 1]);
+				triangle[x][y] += Math.max(triangle[x + 1][y], triangle[x + 1][y + 1]);
 		System.out.println(triangle[0][0]);
 	}
 }

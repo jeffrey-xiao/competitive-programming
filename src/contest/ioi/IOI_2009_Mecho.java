@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2009_Mecho {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n = 0;
 	static byte[] movex = {-1, 1, 0, 0};
@@ -42,9 +41,7 @@ public class IOI_2009_Mecho {
 			for (int z = 0; z < 4; z++) {
 				int newX = curr[0] + movex[z];
 				int newY = curr[1] + movey[z];
-				if (newX < 0 || newY < 0 || newX >= n || newY >= n
-						|| visited[newX][newY] || grid[newX][newY] == 'T'
-						|| grid[newX][newY] == 'D')
+				if (newX < 0 || newY < 0 || newX >= n || newY >= n || visited[newX][newY] || grid[newX][newY] == 'T' || grid[newX][newY] == 'D')
 					continue;
 				visited[newX][newY] = true;
 				steps[newX][newY] = curr[2];
@@ -70,8 +67,7 @@ public class IOI_2009_Mecho {
 		System.out.println(min);
 	}
 
-	private static boolean bfs (char[][] grid, int[][] steps, int mid, int x,
-			int y) {
+	private static boolean bfs (char[][] grid, int[][] steps, int mid, int x, int y) {
 		boolean[][] visited = new boolean[n][n];
 		Queue<int[]> moves = new LinkedList<int[]>();
 		moves.add(new int[] {x, y, mid});
@@ -86,13 +82,7 @@ public class IOI_2009_Mecho {
 			for (int z = 0; z < 4; z++) {
 				int newX = curr[0] + movex[z];
 				int newY = curr[1] + movey[z];
-				if (newX < 0
-						|| newY < 0
-						|| newX >= n
-						|| newY >= n
-						|| visited[newX][newY]
-						|| grid[newX][newY] == 'T'
-						|| (curr[2] + 1 >= steps[newX][newY] && grid[newX][newY] != 'D'))
+				if (newX < 0 || newY < 0 || newX >= n || newY >= n || visited[newX][newY] || grid[newX][newY] == 'T' || (curr[2] + 1 >= steps[newX][newY] && grid[newX][newY] != 'D'))
 					continue;
 				visited[newX][newY] = true;
 				moves.add(new int[] {newX, newY, curr[2] + 1});

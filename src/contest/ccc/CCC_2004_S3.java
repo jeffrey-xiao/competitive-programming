@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -27,8 +26,7 @@ public class CCC_2004_S3 {
 						String token = st.nextToken();
 
 						int[] index = getIndex(token);
-						if (index[0] > x || index[1] > y
-								|| mod[index[0]][index[1]].length() > 0) {
+						if (index[0] > x || index[1] > y || mod[index[0]][index[1]].length() > 0) {
 							mod[x][y] += index[0] + "" + index[1] + " ";
 						} else {
 							values[x][y] += values[index[0]][index[1]];

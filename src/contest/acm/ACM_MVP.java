@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class ACM_MVP {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int r, c;
 	static char[][] grid;
@@ -53,17 +51,12 @@ public class ACM_MVP {
 			while (!moves.isEmpty()) {
 				Point curr = moves.poll();
 				if (curr.x == ex && curr.y == ey) {
-					System.out.printf(
-							"pwned you in %d seconds eZ, learn to play n00b\n",
-							curr.time);
+					System.out.printf("pwned you in %d seconds eZ, learn to play n00b\n", curr.time);
 					continue main;
 				}
 				for (int z = 0; z < 4; z++) {
-					Point p = new Point(curr.x + movex[z], curr.y + movey[z],
-							curr.time + 1);
-					if (p.x < 0 || p.y < 0 || p.x >= r || p.y >= c
-							|| v[p.x][p.y] || grid[p.x][p.y] == 'W'
-							|| grid[p.x][p.y] == 'M')
+					Point p = new Point(curr.x + movex[z], curr.y + movey[z], curr.time + 1);
+					if (p.x < 0 || p.y < 0 || p.x >= r || p.y >= c || v[p.x][p.y] || grid[p.x][p.y] == 'W' || grid[p.x][p.y] == 'M')
 						continue;
 					if (grid[curr.x][curr.y] == 'U' || grid[p.x][p.y] == 'U') {
 						boolean valid = false;
@@ -81,8 +74,7 @@ public class ACM_MVP {
 					moves.offer(p);
 				}
 			}
-			System.out
-					.println("terran so broken, apologize for playing this race");
+			System.out.println("terran so broken, apologize for playing this race");
 		}
 	}
 
@@ -97,10 +89,8 @@ public class ACM_MVP {
 			Point curr = moves.poll();
 			min[curr.x][curr.y] = curr.time;
 			for (int z = 0; z < 4; z++) {
-				Point p = new Point(curr.x + movex[z], curr.y + movey[z],
-						curr.time + 1);
-				if (p.x < 0 || p.y < 0 || p.x >= r || p.y >= c || v[p.x][p.y]
-						|| grid[p.x][p.y] == 'W' || grid[p.x][p.y] == 'M')
+				Point p = new Point(curr.x + movex[z], curr.y + movey[z], curr.time + 1);
+				if (p.x < 0 || p.y < 0 || p.x >= r || p.y >= c || v[p.x][p.y] || grid[p.x][p.y] == 'W' || grid[p.x][p.y] == 'M')
 					continue;
 				v[p.x][p.y] = true;
 				moves.offer(p);

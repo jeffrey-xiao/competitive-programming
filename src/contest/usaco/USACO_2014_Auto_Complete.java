@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Auto_Complete {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -40,8 +39,7 @@ public class USACO_2014_Auto_Complete {
 
 			int firstPos = binarySearch(s, entries);
 			// System.out.println(firstPos);
-			if (firstPos + position - 1 >= n
-					|| entries[firstPos + position - 1].word.indexOf(s) != 0)
+			if (firstPos + position - 1 >= n || entries[firstPos + position - 1].word.indexOf(s) != 0)
 				System.out.println(-1);
 			else {
 				// System.out.println();

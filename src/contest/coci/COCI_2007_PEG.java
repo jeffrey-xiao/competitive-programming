@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_PEG {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {1, -1, 0, 0};

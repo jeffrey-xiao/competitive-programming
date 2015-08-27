@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Cow_Decathlon_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static Award[] awards;
 	static short[][] skill;
@@ -40,8 +38,7 @@ public class USACO_2014_Cow_Decathlon_2 {
 			int length = Integer.bitCount(x);
 			for (int y = 0; y < n; y++) {
 				if ((x & (1 << y)) > 0) {
-					max = Math
-							.max(max, dp[x ^ (1 << y)] + skill[y][length - 1]);
+					max = Math.max(max, dp[x ^ (1 << y)] + skill[y][length - 1]);
 				}
 			}
 			int next = max;

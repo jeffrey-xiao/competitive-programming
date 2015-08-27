@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_Stage_2_Concentration {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -27,8 +26,7 @@ public class CCC_2003_Stage_2_Concentration {
 					for (int y = 1; y * x <= n; y++) {
 						if ((n - x * y) % factor == 0) {
 							int repeat = (n - x * y) / factor;
-							min = Math.min(min, 2 * (x + repeat) * w + 2 * y
-									* h);
+							min = Math.min(min, 2 * (x + repeat) * w + 2 * y * h);
 						}
 					}
 				}

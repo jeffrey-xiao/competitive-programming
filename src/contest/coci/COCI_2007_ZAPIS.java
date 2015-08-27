@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_ZAPIS {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static char[] c1 = {'(', '{', '['};
 	static char[] c2 = {')', '}', ']'};
@@ -45,8 +43,7 @@ public class COCI_2007_ZAPIS {
 		long total = 0;
 		for (int x = i + 1; x <= j; x += 2)
 			for (int z = 0; z < 3; z++)
-				if ((c[i] == c1[z] || c[i] == '?')
-						&& (c[x] == c2[z] || c[x] == '?')) {
+				if ((c[i] == c1[z] || c[i] == '?') && (c[x] == c2[z] || c[x] == '?')) {
 					total += (compute(i + 1, x - 1)) * (compute(x + 1, j));
 					if (total > 100000)
 						flag = true;

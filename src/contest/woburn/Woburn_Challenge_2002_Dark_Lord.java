@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Woburn_Challenge_2002_Dark_Lord {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -25,10 +23,7 @@ public class Woburn_Challenge_2002_Dark_Lord {
 			for (int y = 1; y <= a; y++) {
 				for (int z = 1; z <= a; z++) {
 
-					grid[x][y][z] = input + grid[x - 1][y][z]
-							+ grid[x][y - 1][z] + grid[x][y][z - 1]
-							- grid[x - 1][y - 1][z] - grid[x - 1][y][z - 1]
-							- grid[x][y - 1][z - 1] + grid[x - 1][y - 1][z - 1];
+					grid[x][y][z] = input + grid[x - 1][y][z] + grid[x][y - 1][z] + grid[x][y][z - 1] - grid[x - 1][y - 1][z] - grid[x - 1][y][z - 1] - grid[x][y - 1][z - 1] + grid[x - 1][y - 1][z - 1];
 					System.out.print(grid[x][y][z] + " ");
 					input = readInt();
 				}
@@ -43,9 +38,7 @@ public class Woburn_Challenge_2002_Dark_Lord {
 			int x2 = x - 3;
 			int y2 = 0;
 			int z2 = 0;
-			max = Math.max(max, -(grid[x2][y2][z2] - grid[x1][y2][z2]
-					- grid[x2][y1][z2] - grid[x2][y2][z1] + grid[x1][y1][z2]
-					+ grid[x2][y1][z1] + grid[x1][y2][z1] - grid[x1][y1][z1]));
+			max = Math.max(max, -(grid[x2][y2][z2] - grid[x1][y2][z2] - grid[x2][y1][z2] - grid[x2][y2][z1] + grid[x1][y1][z2] + grid[x2][y1][z1] + grid[x1][y2][z1] - grid[x1][y1][z1]));
 		}
 		System.out.println(max);
 	}

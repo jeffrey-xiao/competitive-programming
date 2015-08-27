@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Cyclopian_Puzzle {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void main (String[] args) throws NumberFormatException,
-			IOException {
+	public static void main (String[] args) throws NumberFormatException, IOException {
 		solve(Integer.parseInt(br.readLine()), 'A', 'B', 'C');
 	}
 

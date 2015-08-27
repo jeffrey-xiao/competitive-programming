@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2014_Stage_2_King_Gruff {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	static int n;

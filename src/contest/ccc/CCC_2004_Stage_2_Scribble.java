@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_Stage_2_Scribble {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -28,8 +27,7 @@ public class CCC_2004_Stage_2_Scribble {
 			for (int y = 97; y <= 122; y++) {
 				int count = 0;
 				String temp = word;
-				count = word.length()
-						- temp.replace("" + (char) y, "").length();
+				count = word.length() - temp.replace("" + (char) y, "").length();
 				// System.out.println(word + " " + (char)y + " " + count +
 				// temp.replace(""+(char)y, ""));
 				if (letters[y - 97] >= count)

@@ -14,10 +14,8 @@ public class CCC_2012_S5 {
 			for (int y = 0; y < lab[0].length; y++) {
 
 				if (lab[x][y] != -1 && !(x == 0 && y == 0)) {
-					int a = x - 1 < 0 || lab[x - 1][y] == -1 ? 0
-							: lab[x - 1][y];
-					int b = y - 1 < 0 || lab[x][y - 1] == -1 ? 0
-							: lab[x][y - 1];
+					int a = x - 1 < 0 || lab[x - 1][y] == -1 ? 0 : lab[x - 1][y];
+					int b = y - 1 < 0 || lab[x][y - 1] == -1 ? 0 : lab[x][y - 1];
 					lab[x][y] = a + b;
 				}
 			}

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_Stage_2_Longest_Substring_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static PrintStream ps = new PrintStream(System.out);
 	static final int MAX = 65536;
@@ -31,11 +30,6 @@ public class CCC_2003_Stage_2_Longest_Substring_2 {
 			nums[s] = true;
 
 			if (count - first > maxLast - maxFirst) {
-				// max = count-first;
-				// maxFirst = first;
-				// maxLast = count;
-				// for(int x = maxFirst; x <= maxLast; x++)
-				// bs[x%MAX] = seq[x%MAX];
 				if (first > maxLast)
 					for (int x = first; x <= count; x++)
 						bs[x % MAX] = seq[x % MAX];

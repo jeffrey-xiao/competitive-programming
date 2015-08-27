@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1995_Street_Race {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adj;
 	static int count;

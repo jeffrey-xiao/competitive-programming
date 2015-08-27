@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_CIJEVI {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int r, c;
@@ -48,27 +46,19 @@ public class COCI_2008_CIJEVI {
 	}
 
 	static boolean up (int x, int y) {
-		return x - 1 >= 0
-				&& (g[x - 1][y] == '|' || g[x - 1][y] == '+'
-						|| g[x - 1][y] == '1' || g[x - 1][y] == '4');
+		return x - 1 >= 0 && (g[x - 1][y] == '|' || g[x - 1][y] == '+' || g[x - 1][y] == '1' || g[x - 1][y] == '4');
 	}
 
 	static boolean down (int x, int y) {
-		return x + 1 < r
-				&& (g[x + 1][y] == '|' || g[x + 1][y] == '+'
-						|| g[x + 1][y] == '2' || g[x + 1][y] == '3');
+		return x + 1 < r && (g[x + 1][y] == '|' || g[x + 1][y] == '+' || g[x + 1][y] == '2' || g[x + 1][y] == '3');
 	}
 
 	static boolean left (int x, int y) {
-		return y - 1 >= 0
-				&& (g[x][y - 1] == '-' || g[x][y - 1] == '+'
-						|| g[x][y - 1] == '1' || g[x][y - 1] == '2');
+		return y - 1 >= 0 && (g[x][y - 1] == '-' || g[x][y - 1] == '+' || g[x][y - 1] == '1' || g[x][y - 1] == '2');
 	}
 
 	static boolean right (int x, int y) {
-		return y + 1 < c
-				&& (g[x][y + 1] == '-' || g[x][y + 1] == '+'
-						|| g[x][y + 1] == '3' || g[x][y + 1] == '4');
+		return y + 1 < c && (g[x][y + 1] == '-' || g[x][y + 1] == '+' || g[x][y + 1] == '3' || g[x][y + 1] == '4');
 	}
 
 	static String next () throws IOException {

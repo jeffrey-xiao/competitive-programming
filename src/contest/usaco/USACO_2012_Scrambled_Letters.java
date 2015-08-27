@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Scrambled_Letters {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -24,8 +23,7 @@ public class USACO_2012_Scrambled_Letters {
 			Arrays.sort(ordered);
 			String s1 = new String(ordered);
 			alpha[x] = s1;
-			String s2 = new StringBuilder(new String(ordered)).reverse()
-					.toString();
+			String s2 = new StringBuilder(new String(ordered)).reverse().toString();
 			rev[x] = s2;
 		}
 		Arrays.sort(alpha);
@@ -48,8 +46,7 @@ public class USACO_2012_Scrambled_Letters {
 				bound2 = -bound2 - 1;
 			else
 				bound2++;
-			System.out.println(Math.min(bound2, bound1) + " "
-					+ Math.max(bound2, bound1));
+			System.out.println(Math.min(bound2, bound1) + " " + Math.max(bound2, bound1));
 		}
 	}
 

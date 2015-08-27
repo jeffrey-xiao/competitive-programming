@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2000_S5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -21,31 +20,37 @@ public class CCC_2000_S5 {
 		}
 		for (int x = 0; x < n; x++) {
 			for (int y = 0; y < n; y++) {
-
-				if (x != y && segments[x].lo < segments[x].hi
-						&& segments[y].lo < segments[y].hi) {
-					double mid = getMedian(points[x], points[y]);
-					if (mid == Double.POSITIVE_INFINITY
-							|| mid == Double.NEGATIVE_INFINITY) {
-						if (points[x].y < points[y].y)
-							segments[y].hi = -1;
-						else
+				if (x == y)
+					continue;
+				// System.out.println("Start checking:");
+				double mid = getMedian(points[x], points[y]);
+				// System.out.printf("%s lo: %f hi: %f,\n",points[x],
+				// segments[x].lo, segments[x].hi);
+				// System.out.printf("%s lo: %f hi: %f,\n",points[y],
+				// segments[y].lo, segments[y].hi);
+				// System.out.println("Middle " + mid);
+				// System.out.println("End checking.");
+				if (segments[y].lo < segments[y].hi) {
+					// mid = getMedian(points[x],points[y]);
+					if (mid == Double.POSITIVE_INFINITY || mid == Double.NEGATIVE_INFINITY) {
+						if (points[y].y < points[x].y)
 							segments[x].hi = -1;
-					} else if (mid >= 0 && mid <= 1000) {
+						else
+							segments[y].hi = -1;
+					} else {
 						// System.out.println("SEGMENT: " + points[x] + " " +
 						// points[y] + " " + mid);
 
 						if (points[x].x < points[y].x) {
 							segments[x].hi = Math.min(segments[x].hi, mid);
-							segments[y].lo = Math.max(segments[y].lo, mid);
+							// segments[y].lo = Math.max(segments[y].lo, mid);
 						} else {
-							segments[y].hi = Math.min(segments[y].hi, mid);
+							// segments[y].hi = Math.min(segments[y].hi, mid);
 							segments[x].lo = Math.max(segments[x].lo, mid);
 						}
 						// System.out.printf("%s lo: %f hi: %f,\n",points[x],
 						// segments[x].lo, segments[x].hi);
-						// System.out.printf("%s lo: %f hi: %f,\n",points[y],
-						// segments[y].lo, segments[y].hi);
+						// System.out.printf("%s\n",points[y]);
 					}
 				}
 			}
@@ -53,31 +58,30 @@ public class CCC_2000_S5 {
 		for (int x = 0; x < n; x++) {
 			// System.out.printf("%s lo: %f hi: %f,\n",points[x],
 			// segments[x].lo, segments[x].hi);
-			if (segments[x].lo < segments[x].hi)
+			if (segments[x].lo <= segments[x].hi)
 				System.out.printf("The sheep at (%.2f, %.2f) might be eaten.\n", points[x].x, points[x].y);
 		}
 	}
 
 	private static double getMedian (Point p1, Point p2) {
-		double slope = -1.0 / ((p1.y - p2.y) / (p1.x - p2.x));
+		double slope = -1.0d / ((p1.y - p2.y) / (p1.x - p2.x));
 		Point middle = getMiddle(p1, p2);
 		// System.out.println(middle + " " + slope + " " + p1 + " " + p2);
-		if (slope == Double.POSITIVE_INFINITY
-				|| slope == Double.NEGATIVE_INFINITY)
+		if (slope == Double.POSITIVE_INFINITY || slope == Double.NEGATIVE_INFINITY)
 			return middle.x;
 		double b = middle.y - slope * middle.x;
-		double x = (0 - b) / slope;
+		double x = (0.0d - b) / slope;
 		// System.out.println(x + " " + p1 + " " + p2);
 		if (x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY)
 			return x;
-		x = Math.max(x, 0);
-		x = Math.min(x, 1000);
+		// x = Math.max(x,0);
+		// x = Math.min(x,1000);
 
 		return x;
 	}
 
 	private static Point getMiddle (Point p1, Point p2) {
-		return new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
+		return new Point((p1.x + p2.x) / 2.0d, (p1.y + p2.y) / 2.0d);
 	}
 
 	static class Segment {

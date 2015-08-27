@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_King_And_Weber {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static final boolean P = true;
 	static final boolean I = false;
@@ -55,8 +54,7 @@ public class CCC_2008_Stage_2_King_And_Weber {
 			int b = toIndex.get(s2);
 			if (types[a] == types[b])
 				System.out.println("parallel");
-			else if ((types[a] % 2 == 0 && types[a] - types[b] == -1)
-					|| (types[b] % 2 == 0 && types[b] - types[a] == -1))
+			else if ((types[a] % 2 == 0 && types[a] - types[b] == -1) || (types[b] % 2 == 0 && types[b] - types[a] == -1))
 				System.out.println("intersect");
 			else
 				System.out.println("unknown");

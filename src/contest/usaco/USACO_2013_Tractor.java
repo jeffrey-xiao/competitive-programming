@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Tractor {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[] movex = {0, 0, -1, 1};
@@ -34,8 +33,7 @@ public class USACO_2013_Tractor {
 			for (int x = 0; x < n; x++) {
 				for (int y = 0; y < n; y++) {
 					if (!visited[x][y])
-						max = Math
-								.max(max, floodFill(x, y, mid, grid, visited));
+						max = Math.max(max, floodFill(x, y, mid, grid, visited));
 				}
 			}
 
@@ -59,8 +57,7 @@ public class USACO_2013_Tractor {
 			System.out.println(upper);
 	}
 
-	private static int floodFill (int x, int y, int mid, int[][] grid,
-			boolean[][] visited) {
+	private static int floodFill (int x, int y, int mid, int[][] grid, boolean[][] visited) {
 		int ans = 0;
 		Queue<int[]> moves = new LinkedList<int[]>();
 		moves.add(new int[] {x, y, grid[x][y]});
@@ -73,9 +70,7 @@ public class USACO_2013_Tractor {
 				int nextx = curr[0] + movex[z];
 				int nexty = curr[1] + movey[z];
 
-				if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n
-						|| visited[nextx][nexty]
-						|| Math.abs(grid[nextx][nexty] - curr[2]) > mid)
+				if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n || visited[nextx][nexty] || Math.abs(grid[nextx][nexty] - curr[2]) > mid)
 					continue;
 				moves.add(new int[] {nextx, nexty, grid[nextx][nexty]});
 				visited[nextx][nexty] = true;

@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Island_Travels_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int count;
 	static int[] movex = {0, 0, -1, 1};
@@ -65,9 +63,7 @@ public class USACO_2013_Island_Travels_2 {
 		boolean[] startState = new boolean[count];
 		int min = Integer.MAX_VALUE;
 		for (int x = 0; x < count; x++)
-			min = Math.min(
-					compute(Arrays.copyOf(startState, startState.length), x),
-					min);
+			min = Math.min(compute(Arrays.copyOf(startState, startState.length), x), min);
 		System.out.println(min);
 	}
 
@@ -82,11 +78,7 @@ public class USACO_2013_Island_Travels_2 {
 		int min = Integer.MAX_VALUE;
 		for (int x = 0; x < state.length; x++) {
 			if (!state[x]) {
-				min = Math
-						.min(min,
-								adj[x][end]
-										+ compute(Arrays.copyOf(state,
-												state.length), x));
+				min = Math.min(min, adj[x][end] + compute(Arrays.copyOf(state, state.length), x));
 			}
 		}
 		state[end] = false;
@@ -124,8 +116,7 @@ public class USACO_2013_Island_Travels_2 {
 			for (int z = 0; z < 4; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
-				if (nx < 0 || ny < 0 || nx >= r || ny >= c
-						|| grid[nx][ny] == '.')
+				if (nx < 0 || ny < 0 || nx >= r || ny >= c || grid[nx][ny] == '.')
 					continue;
 				if (grid[nx][ny] == 'S') {
 					if (min[nx][ny] > curr.moves + 1) {

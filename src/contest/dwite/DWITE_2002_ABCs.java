@@ -9,8 +9,7 @@ import java.util.TreeMap;
 
 public class DWITE_2002_ABCs {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int length;
 
@@ -35,8 +34,7 @@ public class DWITE_2002_ABCs {
 		}
 	}
 
-	private static TreeMap<Character, Integer> add (
-			TreeMap<Character, Integer> map, Character curr) {
+	private static TreeMap<Character, Integer> add (TreeMap<Character, Integer> map, Character curr) {
 		if (map.get(curr) == null) {
 			map.put(curr, 1);
 			length++;

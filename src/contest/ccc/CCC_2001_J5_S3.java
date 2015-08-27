@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2001_J5_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -36,8 +35,7 @@ public class CCC_2001_J5_S3 {
 			for (int x = 0; x < 26; x++) {
 				for (int y = 0; y < 26; y++) {
 					for (int z = 0; z < 26; z++) {
-						vertices[y][z] = vertices[y][z]
-								|| (vertices[x][z] && vertices[y][x]);
+						vertices[y][z] = vertices[y][z] || (vertices[x][z] && vertices[y][x]);
 					}
 				}
 			}

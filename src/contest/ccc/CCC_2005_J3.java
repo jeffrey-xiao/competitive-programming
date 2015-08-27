@@ -17,12 +17,8 @@ public class CCC_2005_J3 {
 		}
 		for (int x = locations.size() - 1; x >= 0; x--)
 			if (!locations.get(x)[1].equals("SCHOOL")) {
-				System.out.printf("Turn %s %s\n",
-						locations.get(x + 1)[0].equals("R") ? "LEFT" : "RIGHT",
-						"onto " + locations.get(x)[1] + " street.");
+				System.out.printf("Turn %s %s\n", locations.get(x + 1)[0].equals("R") ? "LEFT" : "RIGHT", "onto " + locations.get(x)[1] + " street.");
 			}
-		System.out.println("Turn "
-				+ (locations.get(0)[0].equals("R") ? "LEFT" : "RIGHT")
-				+ " into your HOME.");
+		System.out.println("Turn " + (locations.get(0)[0].equals("R") ? "LEFT" : "RIGHT") + " into your HOME.");
 	}
 }

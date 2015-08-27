@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class Peg_Test_2014_D_Prime_Street {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static final int K = 1500000;
 
@@ -37,8 +36,7 @@ public class Peg_Test_2014_D_Prime_Street {
 		long min = Integer.MAX_VALUE;
 		int index = -1;
 		for (int x = 0; x < 110000 - l; x++) {
-			long sum = Math.abs(primes[x + l] - primes[x] - n
-					- (compos[x + l] - compos[x]));
+			long sum = Math.abs(primes[x + l] - primes[x] - n - (compos[x + l] - compos[x]));
 			if (sum < min) {
 				min = sum;
 				index = x;

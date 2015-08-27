@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Escaping_The_Farm {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int max = 1;
 

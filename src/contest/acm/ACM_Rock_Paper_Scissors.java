@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class ACM_Rock_Paper_Scissors {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2009_Raisins {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static long[][] sum;
 
@@ -26,8 +25,7 @@ public class IOI_2009_Raisins {
 			for (int y = 0; y < c; y++) {
 				long raisins = readLong();
 				dp[x][x][y][y] = raisins;
-				sum[x + 1][y + 1] = raisins - sum[x][y] + sum[x + 1][y]
-						+ sum[x][y + 1];
+				sum[x + 1][y + 1] = raisins - sum[x][y] + sum[x + 1][y] + sum[x][y + 1];
 				// System.out.println((x+1) + " " + (y+1) + " " +sum[x+1][y+1]);
 			}
 		}
@@ -41,21 +39,15 @@ public class IOI_2009_Raisins {
 
 							// x, diffx, diffx+1, x+gapx
 
-							long a = dp[x][dx][y][y + gy]
-									+ dp[dx + 1][x + gx][y][y + gy]
-									+ freq(x, x + gx + 1, y, y + gy + 1);
-							dp[x][x + gx][y][y + gy] = Math.min(
-									dp[x][x + gx][y][y + gy], a);
+							long a = dp[x][dx][y][y + gy] + dp[dx + 1][x + gx][y][y + gy] + freq(x, x + gx + 1, y, y + gy + 1);
+							dp[x][x + gx][y][y + gy] = Math.min(dp[x][x + gx][y][y + gy], a);
 							// System.out.println(dx);
 							// System.out.println(x + " " + (x+gx) + " " + y +
 							// " " + (y+gy) + " " + dp[x][x+gx][y][y+gy]);
 						}
 						for (int dy = y; dy <= y + gy && dy + 1 < c; dy++) {
-							long a = dp[x][x + gx][y][dy]
-									+ dp[x][x + gx][dy + 1][y + gy]
-									+ freq(x, x + gx + 1, y, y + gy + 1);
-							dp[x][x + gx][y][y + gy] = Math.min(
-									dp[x][x + gx][y][y + gy], a);
+							long a = dp[x][x + gx][y][dy] + dp[x][x + gx][dy + 1][y + gy] + freq(x, x + gx + 1, y, y + gy + 1);
+							dp[x][x + gx][y][y + gy] = Math.min(dp[x][x + gx][y][y + gy], a);
 							// System.out.println(dy);
 							// System.out.println(x + " " + (x+gx) + " " + y +
 							// " " + (y+gy) + " " + dp[x][x+gx][y][y+gy]);

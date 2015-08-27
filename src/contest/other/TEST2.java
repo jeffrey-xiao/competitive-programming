@@ -80,8 +80,7 @@ public class TEST2 {
 	}
 
 	// women and men are labeled from 0 to n inclusive
-	private int[] marry (ArrayList<LinkedList<Integer>> m,
-			ArrayList<LinkedList<Integer>> w, int n) {
+	private int[] marry (ArrayList<LinkedList<Integer>> m, ArrayList<LinkedList<Integer>> w, int n) {
 		Queue<Integer> freeM = new LinkedList<Integer>();
 		// female match
 		int[] match = new int[n];
@@ -98,8 +97,7 @@ public class TEST2 {
 				match[woman] = currM;
 				freeM.poll();
 			} else {
-				if (w.get(woman).indexOf(match[woman]) < w.get(woman).indexOf(
-						currM)) {
+				if (w.get(woman).indexOf(match[woman]) < w.get(woman).indexOf(currM)) {
 					freeM.offer(match[woman]);
 					match[woman] = currM;
 					freeM.poll();

@@ -8,8 +8,7 @@ import java.util.TreeSet;
 
 public class Connected_Components_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static TreeSet<Integer> ts = new TreeSet<Integer>();
 	static boolean[][] matrix;

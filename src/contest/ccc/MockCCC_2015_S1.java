@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class MockCCC_2015_S1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -68,9 +66,7 @@ public class MockCCC_2015_S1 {
 
 		@Override
 		public int hashCode () {
-			return new Integer(DU).hashCode() * 31 * 31
-					+ new Integer(D).hashCode() * 31
-					+ new Integer(U).hashCode();
+			return new Integer(DU).hashCode() * 31 * 31 + new Integer(D).hashCode() * 31 + new Integer(U).hashCode();
 		}
 	}
 

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_SLIKAR {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int N, depth;
@@ -21,15 +19,7 @@ public class COCI_2008_SLIKAR {
 	static char[][] ng;
 	static int[][][] dp;
 
-	static int[][] state = {
-			{1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4,
-					4, 4},
-			{2, 2, 3, 3, 4, 4, 1, 1, 3, 3, 4, 4, 1, 1, 2, 2, 4, 4, 1, 1, 2, 2,
-					3, 3},
-			{3, 4, 2, 4, 2, 3, 4, 3, 4, 1, 1, 3, 2, 4, 1, 4, 2, 1, 2, 3, 1, 3,
-					1, 2},
-			{4, 3, 4, 2, 3, 2, 3, 4, 1, 4, 3, 1, 4, 2, 4, 1, 1, 2, 3, 2, 3, 1,
-					2, 1}};
+	static int[][] state = { {1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4}, {2, 2, 3, 3, 4, 4, 1, 1, 3, 3, 4, 4, 1, 1, 2, 2, 4, 4, 1, 1, 2, 2, 3, 3}, {3, 4, 2, 4, 2, 3, 4, 3, 4, 1, 1, 3, 2, 4, 1, 4, 2, 1, 2, 3, 1, 3, 1, 2}, {4, 3, 4, 2, 3, 2, 3, 4, 1, 4, 3, 1, 4, 2, 4, 1, 1, 2, 3, 2, 3, 1, 2, 1}};
 
 	public static void main (String[] args) throws IOException {
 		N = readInt();
@@ -57,22 +47,16 @@ public class COCI_2008_SLIKAR {
 		}
 		int mx = (x1 + x2) / 2;
 		int my = (y1 + y2) / 2;
-		State[][] ss = { {solve(x1, mx, y1, my), solve(x1, mx, my + 1, y2)},
-				{solve(mx + 1, x2, y1, my), solve(mx + 1, x2, my + 1, y2)}};
+		State[][] ss = { {solve(x1, mx, y1, my), solve(x1, mx, my + 1, y2)}, {solve(mx + 1, x2, y1, my), solve(mx + 1, x2, my + 1, y2)}};
 
-		s.type[0] = ss[0][0].type[0] + ss[1][0].type[0] + ss[0][1].type[0]
-				+ ss[1][1].type[0];
-		s.type[1] = ss[0][0].type[1] + ss[1][0].type[1] + ss[0][1].type[1]
-				+ ss[1][1].type[1];
+		s.type[0] = ss[0][0].type[0] + ss[1][0].type[0] + ss[0][1].type[0] + ss[1][1].type[0];
+		s.type[1] = ss[0][0].type[1] + ss[1][0].type[1] + ss[0][1].type[1] + ss[1][1].type[1];
 
 		int bestV = Integer.MAX_VALUE;
 		int[] best = new int[4];
 		// trying all permutations of placing the mixed piece
 		for (int x = 0; x < 24; x++) {
-			int val = ss[(state[0][x] - 1) >> 1][(state[0][x] - 1) & 1].type[0]
-					+ ss[(state[1][x] - 1) >> 1][(state[1][x] - 1) & 1].type[1]
-					+ ss[(state[2][x] - 1) >> 1][(state[2][x] - 1) & 1].type[2]
-					+ ss[(state[3][x] - 1) >> 1][(state[3][x] - 1) & 1].type[2];
+			int val = ss[(state[0][x] - 1) >> 1][(state[0][x] - 1) & 1].type[0] + ss[(state[1][x] - 1) >> 1][(state[1][x] - 1) & 1].type[1] + ss[(state[2][x] - 1) >> 1][(state[2][x] - 1) & 1].type[2] + ss[(state[3][x] - 1) >> 1][(state[3][x] - 1) & 1].type[2];
 			if (val < bestV) {
 				bestV = val;
 				best[0] = state[0][x] - 1;

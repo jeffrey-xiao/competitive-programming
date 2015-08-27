@@ -3,63 +3,80 @@ package contest.ioi;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class IOI_2000_Post_Office {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
+	static int[] r;
 
 	public static void main (String[] args) throws IOException {
-		int numOfVillages = readInt();
-		int numOfPostOffices = readInt();
-		int[] villages = new int[numOfVillages + 1];
-		int[][] dp = new int[numOfPostOffices + 1][numOfVillages + 1];
-
-		for (int x = 1; x <= numOfVillages; x++) {
-			villages[x] = readInt();
-		}
-		int[][] cost = new int[numOfVillages + 1][numOfVillages + 1];
-		for (int x = 1; x <= numOfVillages; x++) {
-			for (int y = 1, z = y + x; z <= numOfVillages; z++, y++) {
-				cost[y][z] = villages[z] - villages[y]
-						+ Math.min(cost[y + 1][z], cost[y][z - 1]);
-			}
-
-		}
-		/*
-		 * for(int[] x: cost){ for(int y:x) System.out.print(y + " ");
-		 * System.out.println(); }
-		 */
-		dp[0][0] = 10000;
-		for (int x = 0; x <= numOfPostOffices; x++) {
-
-			for (int y = 1; y <= numOfVillages; y++) {
-				if (x == 0)
-					dp[x][y] = 10000;
-				else {
-					int min = dp[x - 1][y - 1];
-					for (int z = y - 2; z >= 0; z--) {
-						if (min == 0)
-							min = dp[x][z] + Math.min(cost[z][y], cost[z][y]);
-						else
-							min = Math
-									.min(min,
-											dp[x][z]
-													+ Math.min(cost[z][y],
-															cost[z][y]));
-					}
-
-					dp[x][y] = min;
+		int n = readInt();
+		int k = readInt();
+		r = new int[n];
+		for (int x = 0; x < n; x++)
+			r[x] = readInt();
+		int[][] dp = new int[k + 1][n];
+		int[][] prev = new int[k + 1][n];
+		for (int x = 0; x <= k; x++)
+			for (int y = 0; y < n; y++)
+				prev[x][y] = -1;
+		for (int x = 1; x <= k; x++) {
+			for (int y = 0; y < n; y++) {
+				if (x > y) {
+					dp[x][y] = 0;
+					prev[x][y] = y - 1;
+				} else {
+					int next = Integer.MAX_VALUE;
+					int nextPrev = -1;
+					if (x == 1) {
+						next = 0;
+						for (int z = 0; z < y; z++)
+							next += r[y] - r[z];
+					} else
+						for (int z = y - 1; z >= 0; z--) {
+							int a = dp[x - 1][z] + cost(z, y);
+							if (next > a) {
+								next = a;
+								nextPrev = z;
+							}
+						}
+					dp[x][y] = next;
+					prev[x][y] = nextPrev;
 				}
 			}
 		}
-		for (int[] x : dp) {
-			for (int y : x)
-				System.out.print(y + " ");
-			System.out.println();
+		int min = Integer.MAX_VALUE;
+		int minPos = -1;
+		for (int x = 0; x < n; x++) {
+			int next = dp[k][x];
+			for (int y = x + 1; y < n; y++)
+				next += r[y] - r[x];
+			if (next < min) {
+				min = next;
+				minPos = x;
+			}
 		}
+		Stack<Integer> s = new Stack<Integer>();
+		while (minPos != -1) {
+			s.push(r[minPos]);
+			minPos = prev[k][minPos];
+			k--;
+		}
+		System.out.println(min);
+		for (int x = s.size(); x > 0; x--)
+			System.out.print(s.pop() + " ");
+
+	}
+
+	private static int cost (int y, int z) {
+		int cost = 0;
+		for (int x = y + 1; x <= z; x++) {
+			cost += Math.min(r[x] - r[y], r[z] - r[x]);
+		}
+		return cost;
 	}
 
 	static String next () throws IOException {
@@ -82,8 +99,5 @@ public class IOI_2000_Post_Office {
 
 	static String readLine () throws IOException {
 		return br.readLine().trim();
-	}
-
-	public IOI_2000_Post_Office () {
 	}
 }

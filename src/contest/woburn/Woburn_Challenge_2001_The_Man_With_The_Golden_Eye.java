@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj;
 	static int min;
@@ -42,8 +41,7 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
 				start = x;
 				int[] sum = new int[n];
 				visited[x] = true;
-				dfs(x, 0, -1, Arrays.copyOf(visited, visited.length),
-						Arrays.copyOf(sum, sum.length));
+				dfs(x, 0, -1, Arrays.copyOf(visited, visited.length), Arrays.copyOf(sum, sum.length));
 				visited[x] = false;
 			}
 			System.out.println(min == Integer.MAX_VALUE ? "Infinity" : min);
@@ -60,12 +58,10 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
 				sum[next.dest] = s + next.cost;
 				dfs(next.dest, sum[next.dest], x, visited, sum);
 				visited[next.dest] = false;
-			} else if (visited[next.dest] && next.dest == start
-					&& next.dest != prev) {
+			} else if (visited[next.dest] && next.dest == start && next.dest != prev) {
 				// System.out.println(start+1 + " START " +
 				// (Math.abs(sum[x]-sum[next.dest])+next.cost));
-				min = Math.min(Math.abs(sum[x] - sum[next.dest]) + next.cost,
-						min);
+				min = Math.min(Math.abs(sum[x] - sum[next.dest]) + next.cost, min);
 			}
 		}
 	}

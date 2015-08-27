@@ -8,8 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class SMAC_2008_Digging_For_Gold {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -34,10 +33,7 @@ public class SMAC_2008_Digging_For_Gold {
 				while (!moves.isEmpty()) {
 
 					int[] c = moves.poll();
-					if (c[0] < 0 || c[1] < 0 || c[2] < 0 || c[0] >= n
-							|| c[1] >= n || c[2] >= n
-							|| visited[c[0]][c[1]][c[2]]
-							|| grid[c[0]][c[1]][c[2]] == 'X')
+					if (c[0] < 0 || c[1] < 0 || c[2] < 0 || c[0] >= n || c[1] >= n || c[2] >= n || visited[c[0]][c[1]][c[2]] || grid[c[0]][c[1]][c[2]] == 'X')
 						continue;
 					visited[c[0]][c[1]][c[2]] = true;
 					if (grid[c[0]][c[1]][c[2]] == '*')

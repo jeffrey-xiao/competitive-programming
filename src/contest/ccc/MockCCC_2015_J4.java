@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class MockCCC_2015_J4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -35,18 +33,14 @@ public class MockCCC_2015_J4 {
 		o.put('.', '.');
 		for (int x = 0; x < n / 2; x++) {
 			for (int y = 0; y < n; y++) {
-				if (x != n - 1 - x
-						&& !(g[x][y] == o.get(g[n - 1 - x][y])
-								|| (g[x][y] == '(' && g[n - 1 - x][y] == '(') || (g[x][y] == ')' && g[n
-								- 1 - x][y] == ')')))
+				if (x != n - 1 - x && !(g[x][y] == o.get(g[n - 1 - x][y]) || (g[x][y] == '(' && g[n - 1 - x][y] == '(') || (g[x][y] == ')' && g[n - 1 - x][y] == ')')))
 					first = false;
 				if (x == n - 1 - x && (g[x][y] == '\\' || g[x][y] == '/'))
 					first = false;
 
 				if (x != n - 1 - x && !(g[y][x] == o.get(g[y][n - 1 - x])))
 					second = false;
-				if (x == n - 1 - x
-						&& (g[y][x] == '(' || g[y][x] == ')' || g[y][x] == '\\' || g[y][x] == '/'))
+				if (x == n - 1 - x && (g[y][x] == '(' || g[y][x] == ')' || g[y][x] == '\\' || g[y][x] == '/'))
 					second = false;
 			}
 		}

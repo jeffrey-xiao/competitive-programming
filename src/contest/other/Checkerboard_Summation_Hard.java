@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class Checkerboard_Summation_Hard {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int nx;
 	static int ny;
@@ -26,8 +25,7 @@ public class Checkerboard_Summation_Hard {
 				int a = readInt();
 				if ((x + y) % 2 != 0)
 					a = -a;
-				int sum = freqTo(x, y) + freqTo(x - 1, y - 1)
-						- freqTo(x - 1, y) - freqTo(x, y - 1);
+				int sum = freqTo(x, y) + freqTo(x - 1, y - 1) - freqTo(x - 1, y) - freqTo(x, y - 1);
 				update(x, y, a - sum);
 			} else {
 				int x1 = readInt() - 1;
@@ -36,8 +34,7 @@ public class Checkerboard_Summation_Hard {
 				int y2 = readInt();
 				// System.out.printf("%d %d %d %d\n",freqTo(x2,y2),freqTo(x1,y1),freqTo(x1,y2),freqTo(x2,y1));
 
-				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2)
-						- freqTo(x2, y1);
+				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2) - freqTo(x2, y1);
 				if ((x1 + y1) % 2 != 0)
 					total = -total;
 				System.out.println(total);

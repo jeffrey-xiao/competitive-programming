@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Lairs_And_Truth_Tellers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static ArrayList<Edge> edges = new ArrayList<Edge>();
@@ -31,8 +29,7 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
 		for (int x = 0; x < n; x++)
 			id[x] = x;
 		for (int x = 0; x < m; x++)
-			edges.add(new Edge(readInt() - 1, readInt() - 1,
-					next().charAt(0) == 'T'));
+			edges.add(new Edge(readInt() - 1, readInt() - 1, next().charAt(0) == 'T'));
 		int x = 0;
 		for (; x < m; x++) {
 			int a = edges.get(x).a;
@@ -50,8 +47,7 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
 				} else if (state[b] == 0) {
 					state[b] = same ? state[a] : -state[a];
 				} else {
-					if ((state[a] == state[b] && !same)
-							|| (state[a] != state[b] && same)) {
+					if ((state[a] == state[b] && !same) || (state[a] != state[b] && same)) {
 						change = true;
 					}
 				}
@@ -61,8 +57,7 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
 							state[y] = -state[y];
 				merge(roota, rootb);
 			} else if (roota == rootb) {
-				if ((same && state[a] != state[b])
-						|| (!same && state[a] == state[b])) {
+				if ((same && state[a] != state[b]) || (!same && state[a] == state[b])) {
 					break;
 				}
 			}

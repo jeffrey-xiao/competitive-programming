@@ -7,16 +7,14 @@ import java.util.StringTokenizer;
 
 public class Mirrored_Pairs {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		String n = "";
 		System.out.println("Ready");
 		while (!(n = readLine().substring(0, 2)).equals("  ")) {
-			if (n.equals("pq") || n.equals("qp") || n.equals("bd")
-					|| n.equals("db"))
+			if (n.equals("pq") || n.equals("qp") || n.equals("bd") || n.equals("db"))
 				System.out.println("Mirrored pair");
 			else
 				System.out.println("Ordinary pair");

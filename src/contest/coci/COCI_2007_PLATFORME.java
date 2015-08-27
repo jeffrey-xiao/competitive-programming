@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_PLATFORME {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -37,16 +36,11 @@ public class COCI_2007_PLATFORME {
 			int x1 = Integer.MAX_VALUE;
 			int x2 = Integer.MAX_VALUE;
 
-			for (int y = x - 1; y >= 0
-					&& (x1 == Integer.MAX_VALUE || x2 == Integer.MAX_VALUE); y--) {
-				if (x1 == Integer.MAX_VALUE
-						&& platforms[x][1] >= platforms[y][1]
-						&& platforms[x][1] < platforms[y][2]) {
+			for (int y = x - 1; y >= 0 && (x1 == Integer.MAX_VALUE || x2 == Integer.MAX_VALUE); y--) {
+				if (x1 == Integer.MAX_VALUE && platforms[x][1] >= platforms[y][1] && platforms[x][1] < platforms[y][2]) {
 					x1 = platforms[x][0] - platforms[y][0];
 				}
-				if (x2 == Integer.MAX_VALUE
-						&& platforms[x][2] > platforms[y][1]
-						&& platforms[x][2] <= platforms[y][2]) {
+				if (x2 == Integer.MAX_VALUE && platforms[x][2] > platforms[y][1] && platforms[x][2] <= platforms[y][2]) {
 					x2 = platforms[x][0] - platforms[y][0];
 				}
 			}

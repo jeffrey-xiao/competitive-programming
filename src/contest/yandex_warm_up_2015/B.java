@@ -63,8 +63,7 @@ public class B {
 			int ni = movex[z] + i;
 			int nj = movey[z] + j;
 			int nk = movez[z] + k;
-			if (ni < 0 || nj < 0 || nk < 0 || ni >= n || nj >= n || nk >= n
-					|| v[ni][nj][nk] || cube[i][j][k] != cube[ni][nj][nk])
+			if (ni < 0 || nj < 0 || nk < 0 || ni >= n || nj >= n || nk >= n || v[ni][nj][nk] || cube[i][j][k] != cube[ni][nj][nk])
 				continue;
 			dfs(ni, nj, nk, n);
 		}

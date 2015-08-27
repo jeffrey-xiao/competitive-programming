@@ -29,8 +29,7 @@ public class CCC_2006_Stage_2_Dominoes {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("test.txt"));
 		// ps = new PrintWriter("output.txt");
 
@@ -83,29 +82,19 @@ public class CCC_2006_Stage_2_Dominoes {
 					State s1 = s.get(i);
 					State s2 = s.get(j);
 					if (s1.so != INF && s2.so != INF) {
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.so),
-								Math.max(s1.so, s2.so), -1, -1));
-						odddestroy.add(new Edge(s1.id, s2.id, Math.min(s1.so,
-								s2.so), Math.max(s1.so, s2.so), -1, -1));
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.so),
-								Math.max(s1.se, s2.so), 1, -1));
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.se),
-								Math.max(s1.so, s2.se), -1, 1));
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se),
-								Math.max(s1.se, s2.se), 1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.so), Math.max(s1.so, s2.so), -1, -1));
+						odddestroy.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.so), Math.max(s1.so, s2.so), -1, -1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.so), Math.max(s1.se, s2.so), 1, -1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.se), Math.max(s1.so, s2.se), -1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se), Math.max(s1.se, s2.se), 1, 1));
 					} else if (s1.so == INF && s2.so == INF) {
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se),
-								Math.max(s1.se, s2.se), 1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se), Math.max(s1.se, s2.se), 1, 1));
 					} else if (s1.so != INF && s2.so == INF) {
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.se),
-								Math.max(s1.so, s2.se), -1, 1));
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se),
-								Math.max(s1.se, s2.se), 1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.so, s2.se), Math.max(s1.so, s2.se), -1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se), Math.max(s1.se, s2.se), 1, 1));
 					} else {
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.so),
-								Math.max(s1.se, s2.so), 1, -1));
-						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se),
-								Math.max(s1.se, s2.se), 1, 1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.so), Math.max(s1.se, s2.so), 1, -1));
+						e.add(new Edge(s1.id, s2.id, Math.min(s1.se, s2.se), Math.max(s1.se, s2.se), 1, 1));
 					}
 				}
 			}
@@ -117,8 +106,7 @@ public class CCC_2006_Stage_2_Dominoes {
 				if (find(edge.id1) != find(edge.id2)) {
 					if (add == 2 && oddcount == 2) {
 						while (!odddestroy.isEmpty()) {
-							while (!merge(odddestroy.peek().id1,
-									odddestroy.peek().id2))
+							while (!merge(odddestroy.peek().id1, odddestroy.peek().id2))
 								odddestroy.poll();
 						}
 						if (odddestroy.size() == 0) {

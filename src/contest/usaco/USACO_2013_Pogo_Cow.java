@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Pogo_Cow {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -34,9 +33,7 @@ public class USACO_2013_Pogo_Cow {
 			int maxValue = 0;
 			int y = n - 1;
 			for (int z = 0; z <= x; z++) {
-				for (; y > x
-						&& targets[y][0] - targets[x][0] >= targets[x][0]
-								- targets[z][0]; y--) {
+				for (; y > x && targets[y][0] - targets[x][0] >= targets[x][0] - targets[z][0]; y--) {
 					maxValue = Math.max(maxValue, targets[y][1] + dp[y][x]);
 				}
 				dp[x][z] = maxValue;
@@ -53,9 +50,7 @@ public class USACO_2013_Pogo_Cow {
 			int maxValue = 0;
 			int y = n - 1;
 			for (int z = 0; z <= x; z++) {
-				for (; y > x
-						&& targets[y][0] - targets[x][0] <= targets[x][0]
-								- targets[z][0]; y--) {
+				for (; y > x && targets[y][0] - targets[x][0] <= targets[x][0] - targets[z][0]; y--) {
 					maxValue = Math.max(maxValue, targets[y][1] + dp[y][x]);
 				}
 				dp[x][z] = maxValue;

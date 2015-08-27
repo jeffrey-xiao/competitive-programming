@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class APIO_2009_Digging_For_Oil {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][][][][] dp;
 	static int[][] g;
@@ -22,8 +21,7 @@ public class APIO_2009_Digging_For_Oil {
 		g = new int[r + 1][c + 1];
 		for (int x = 1; x <= r; x++)
 			for (int y = 1; y <= c; y++) {
-				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1]
-						- g[x - 1][y - 1];
+				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1] - g[x - 1][y - 1];
 				for (int z = 1; z <= 3; z++)
 					for (int x1 = 0; x1 <= r; x1++)
 						for (int y1 = 0; y1 <= c; y1++)
@@ -51,12 +49,8 @@ public class APIO_2009_Digging_For_Oil {
 		int a = 0;
 		int b = 0;
 		for (int z = 0; z <= d - 1; z++) {
-			a = Math.max(
-					compute(x1, y2, x, y, d - 1 - z)
-							+ compute(x2, y1, x1, y, z), a);
-			b = Math.max(
-					compute(x2, y1, x, y, d - 1 - z)
-							+ compute(x1, y2, x, y1, z), b);
+			a = Math.max(compute(x1, y2, x, y, d - 1 - z) + compute(x2, y1, x1, y, z), a);
+			b = Math.max(compute(x2, y1, x, y, d - 1 - z) + compute(x1, y2, x, y1, z), b);
 		}
 		// if(x2 == r && y2 == c && x == 0 && y == 0){
 		// System.out.println(a + " " + b + " " + sum);
@@ -67,10 +61,8 @@ public class APIO_2009_Digging_For_Oil {
 		x1 = x2 - 1;
 		y1 = y2 - 1;
 		for (int z = 0; z <= d; z++) {
-			a = Math.max(
-					compute(x1, y2, x, y, d - z) + compute(x2, y1, x1, y, z), a);
-			b = Math.max(
-					compute(x2, y1, x, y, d - z) + compute(x1, y2, x, y1, z), b);
+			a = Math.max(compute(x1, y2, x, y, d - z) + compute(x2, y1, x1, y, z), a);
+			b = Math.max(compute(x2, y1, x, y, d - z) + compute(x1, y2, x, y1, z), b);
 		}
 		int noTake = Math.max(a, b);
 		dp[x2][y2][x][y][d] = Math.max(take, noTake);

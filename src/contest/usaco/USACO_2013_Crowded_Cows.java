@@ -13,10 +13,8 @@ import java.util.TreeSet;
 
 public class USACO_2013_Crowded_Cows {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -55,8 +53,7 @@ public class USACO_2013_Crowded_Cows {
 			// System.out.println("HERE C: " + c + " " +loSeg.size());
 			// System.out.println(loSeg.last().height + " " +
 			// hiSeg.last().height + " " + cows[c].height);
-			if (loSeg.last().height >= 2 * cows[c].height
-					&& hiSeg.last().height >= 2 * cows[c].height)
+			if (loSeg.last().height >= 2 * cows[c].height && hiSeg.last().height >= 2 * cows[c].height)
 				count++;
 			hiSeg.remove(cows[c]);
 		}

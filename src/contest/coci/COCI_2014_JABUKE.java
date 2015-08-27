@@ -16,8 +16,7 @@ public class COCI_2014_JABUKE {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("test.txt"));
 		// ps = new PrintWriter("output.txt");
 
@@ -50,8 +49,7 @@ public class COCI_2014_JABUKE {
 			int y = readInt() - 1;
 			int minDist = 1 << 30;
 			for (int i = 0; i < r; i++) {
-				minDist = min(minDist,
-						sqr(x - i) + min(min[i][y][0], min[i][y][1]));
+				minDist = min(minDist, sqr(x - i) + min(min[i][y][0], min[i][y][1]));
 				// ps.println(min[i][y][0] + " " + min[i][y][1]);
 			}
 			for (int i = 0; i < c; i++) {

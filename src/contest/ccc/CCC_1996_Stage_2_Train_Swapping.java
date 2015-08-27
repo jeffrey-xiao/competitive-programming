@@ -22,8 +22,7 @@ public class CCC_1996_Stage_2_Train_Swapping {
 					}
 				}
 			}
-			System.out.printf("Optimal train swapping takes %d swap(s).\n",
-					passes);
+			System.out.printf("Optimal train swapping takes %d swap(s).\n", passes);
 		}
 	}
 

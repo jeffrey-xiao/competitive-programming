@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2010_Stage_2_Shuffle {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] cycles = new int[27];
 	static boolean[] visited = new boolean[27];

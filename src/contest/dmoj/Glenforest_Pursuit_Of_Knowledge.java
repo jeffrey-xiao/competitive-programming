@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Pursuit_Of_Knowledge {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -50,8 +48,7 @@ public class Glenforest_Pursuit_Of_Knowledge {
 		int q = readInt();
 		for (int i = 0; i < q; i++) {
 			int res = time[readInt() - 1][readInt() - 1];
-			System.out.println(res == 1 << 30 ? "Not enough hallways!" : res
-					* t);
+			System.out.println(res == 1 << 30 ? "Not enough hallways!" : res * t);
 		}
 	}
 

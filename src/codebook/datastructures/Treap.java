@@ -1,6 +1,8 @@
 package codebook.datastructures;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
 
 public class Treap {
 	// root of the tree

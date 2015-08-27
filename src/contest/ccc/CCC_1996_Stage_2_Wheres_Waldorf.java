@@ -8,8 +8,7 @@ import java.util.TreeSet;
 
 public class CCC_1996_Stage_2_Wheres_Waldorf {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int r;
 	static int c;
@@ -36,8 +35,7 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
 						if (find(x, y, grid, s)) {
 							p.add(new Point(x + 1, y + 1));
 							break main;
-						} else if (find(x, y, grid, new StringBuilder(s)
-								.reverse().toString())) {
+						} else if (find(x, y, grid, new StringBuilder(s).reverse().toString())) {
 							if (b)
 								p.add(new Point(x + 1, y + s.length()));
 							else if (d)
@@ -45,8 +43,7 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
 							else if (a)
 								p.add(new Point(x + s.length(), y + s.length()));
 							else
-								p.add(new Point(x + s.length(), y - s.length()
-										+ 2));
+								p.add(new Point(x + s.length(), y - s.length() + 2));
 							break main;
 						}
 					}

@@ -1,7 +1,13 @@
 package contest.dmoj;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.StringTokenizer;
 
 public class Lexicographically_Least_Substring {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

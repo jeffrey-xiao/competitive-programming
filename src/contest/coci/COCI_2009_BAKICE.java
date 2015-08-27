@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_BAKICE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -56,8 +55,7 @@ public class COCI_2009_BAKICE {
 			for (int z = 0; z < 4; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
-				if (nx < 0 || ny < 0 || nx >= r || ny >= c
-						|| currState.visited[nx][ny])
+				if (nx < 0 || ny < 0 || nx >= r || ny >= c || currState.visited[nx][ny])
 					continue;
 
 				currState.visited[nx][ny] = true;

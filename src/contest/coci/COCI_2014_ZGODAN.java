@@ -21,8 +21,7 @@ public class COCI_2014_ZGODAN {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("in.txt"));
 		// ps = new PrintWriter("out.txt");
 

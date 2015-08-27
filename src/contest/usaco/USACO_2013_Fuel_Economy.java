@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Fuel_Economy {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -41,12 +40,10 @@ public class USACO_2013_Fuel_Economy {
 		long cost = 0;
 		int currPos = 0;
 		while (currPos != n - 1) {
-			System.out.println(currPos + " " + curr + " " + cost + " "
-					+ nextSmall[currPos]);
+			System.out.println(currPos + " " + curr + " " + cost + " " + nextSmall[currPos]);
 			int nextPos = 0;
 			int nextGas = 0;
-			if (nextSmall[currPos] == -1
-					|| stations[nextSmall[currPos]].pos - stations[currPos].pos > maxGas) {
+			if (nextSmall[currPos] == -1 || stations[nextSmall[currPos]].pos - stations[currPos].pos > maxGas) {
 				nextPos = currPos + 1;
 				nextGas = maxGas;
 			} else {
@@ -64,8 +61,7 @@ public class USACO_2013_Fuel_Economy {
 		if (end - stations[currPos].pos > maxGas)
 			System.out.println("-1");
 		else {
-			cost += Math.max((end - stations[currPos].pos) - curr, 0)
-					* stations[currPos].cost;
+			cost += Math.max((end - stations[currPos].pos) - curr, 0) * stations[currPos].cost;
 			System.out.println(cost);
 		}
 	}

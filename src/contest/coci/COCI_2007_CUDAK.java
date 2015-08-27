@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_CUDAK {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static HashMap<State, Long> hm = new HashMap<State, Long>();
@@ -57,8 +55,7 @@ public class COCI_2007_CUDAK {
 			// System.out.println(st.l + " " + st.s + " " + dp1(new State(len-1,
 			// i)) + " " + (len-1) + " " + i);
 		}
-		res += dp2(new State(st.l - firstD * (long) Math.pow(10, len - 1), st.s
-				- firstD));
+		res += dp2(new State(st.l - firstD * (long) Math.pow(10, len - 1), st.s - firstD));
 		hm2.put(st, res);
 		// System.out.println(st.l + " " + st.s + " " + res);
 		return res;

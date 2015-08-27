@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class NOI_2012_Random_Number_Generator {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -28,8 +26,7 @@ public class NOI_2012_Random_Number_Generator {
 			System.out.println((c * n + x) % m % g);
 			return;
 		}
-		long ans = ((an * (x % m)) % m + ((c % m) * (1 - an) / (1 - a)) % m)
-				% m;
+		long ans = ((an * (x % m)) % m + ((c % m) * (1 - an) / (1 - a)) % m) % m;
 		System.out.println(ans % g);
 	}
 

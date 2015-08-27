@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class MockCCC_2014_S5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int l;
 	static int r;

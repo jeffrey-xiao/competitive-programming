@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Roadblock {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n = 0;
 	static ArrayList<Integer> shortestPath = null;
@@ -42,8 +41,7 @@ public class USACO_2011_Roadblock {
 		System.out.println(max - ori);
 	}
 
-	private static int shortestPath (int i, int d,
-			ArrayList<ArrayList<Edge>> adjlist, boolean getShortestPath) {
+	private static int shortestPath (int i, int d, ArrayList<ArrayList<Edge>> adjlist, boolean getShortestPath) {
 		boolean[] visited = new boolean[n];
 		int[] min = new int[n];
 		int[] prevDest = new int[n];

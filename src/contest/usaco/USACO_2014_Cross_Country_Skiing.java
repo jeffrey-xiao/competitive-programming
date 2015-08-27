@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Cross_Country_Skiing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -50,29 +49,13 @@ public class USACO_2014_Cross_Country_Skiing {
 			if (!visited[curr[0]][curr[1]]) {
 				visited[curr[0]][curr[1]] = true;
 				if (curr[0] + 1 < r)
-					moves.add(new int[] {
-							curr[0] + 1,
-							curr[1],
-							Math.abs(grid[curr[0] + 1][curr[1]]
-									- grid[curr[0]][curr[1]])});
+					moves.add(new int[] {curr[0] + 1, curr[1], Math.abs(grid[curr[0] + 1][curr[1]] - grid[curr[0]][curr[1]])});
 				if (curr[0] - 1 >= 0)
-					moves.add(new int[] {
-							curr[0] - 1,
-							curr[1],
-							Math.abs(grid[curr[0] - 1][curr[1]]
-									- grid[curr[0]][curr[1]])});
+					moves.add(new int[] {curr[0] - 1, curr[1], Math.abs(grid[curr[0] - 1][curr[1]] - grid[curr[0]][curr[1]])});
 				if (curr[1] + 1 < c)
-					moves.add(new int[] {
-							curr[0],
-							curr[1] + 1,
-							Math.abs(grid[curr[0]][curr[1] + 1]
-									- grid[curr[0]][curr[1]])});
+					moves.add(new int[] {curr[0], curr[1] + 1, Math.abs(grid[curr[0]][curr[1] + 1] - grid[curr[0]][curr[1]])});
 				if (curr[1] - 1 >= 0)
-					moves.add(new int[] {
-							curr[0],
-							curr[1] - 1,
-							Math.abs(grid[curr[0]][curr[1] - 1]
-									- grid[curr[0]][curr[1]])});
+					moves.add(new int[] {curr[0], curr[1] - 1, Math.abs(grid[curr[0]][curr[1] - 1] - grid[curr[0]][curr[1]])});
 			}
 		}
 		/*

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Cow_Steeplechase {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	static ArrayList<Integer> intersection = new ArrayList<Integer>();
@@ -42,8 +41,7 @@ public class USACO_2011_Cow_Steeplechase {
 			for (int y = 0; y < r; y++) {
 				Interval i1 = xs.get(x);
 				Interval i2 = ys.get(y);
-				if (i2.y1 <= i1.y1 && i1.y1 <= i2.y2 && i1.x1 <= i2.x1
-						&& i2.x1 <= i1.x2) {
+				if (i2.y1 <= i1.y1 && i1.y1 <= i2.y2 && i1.x1 <= i2.x1 && i2.x1 <= i1.x2) {
 
 					adj[x][y] = true;
 				}

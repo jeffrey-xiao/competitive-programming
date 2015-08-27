@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class MITACM_A_City_Of_Skyscrapers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -63,8 +62,7 @@ public class MITACM_A_City_Of_Skyscrapers {
 		int[] aux = new int[length];
 		for (int gap = 1; gap < length; gap *= 2)
 			for (int low = 0; low < length - gap; low += gap * 2)
-				merge(a, aux, low, low + gap - 1,
-						Math.min(length - 1, low + gap + gap - 1));
+				merge(a, aux, low, low + gap - 1, Math.min(length - 1, low + gap + gap - 1));
 	}
 
 	private static void merge (int[] a, int[] aux, int low, int mid, int high) {
@@ -84,8 +82,7 @@ public class MITACM_A_City_Of_Skyscrapers {
 		}
 	}
 
-	private static boolean checkImpossible (int[] rows, int[] columns, int n,
-			int m) {
+	private static boolean checkImpossible (int[] rows, int[] columns, int n, int m) {
 		return rows[n - 1] != columns[m - 1];
 	}
 

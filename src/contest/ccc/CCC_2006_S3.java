@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -36,8 +35,7 @@ public class CCC_2006_S3 {
 		System.out.println(count);
 	}
 
-	private static boolean checkIntersection (Line a, Line b, Point w, Point x,
-			Point y, Point z) {
+	private static boolean checkIntersection (Line a, Line b, Point w, Point x, Point y, Point z) {
 		if (a.m == b.m)
 			return false;
 		int y1 = Math.min(w.y, x.y);
@@ -69,8 +67,7 @@ public class CCC_2006_S3 {
 		// System.out.println(xx);
 		// System.out.println(yy1 + " " + yy2);
 
-		return y1 <= yy1 && yy2 <= y2 && y3 <= yy2 && yy2 <= y4 && x1 <= xx
-				&& xx <= x2 && x3 <= xx && xx <= x4;
+		return y1 <= yy1 && yy2 <= y2 && y3 <= yy2 && yy2 <= y4 && x1 <= xx && xx <= x2 && x3 <= xx && xx <= x4;
 
 	}
 

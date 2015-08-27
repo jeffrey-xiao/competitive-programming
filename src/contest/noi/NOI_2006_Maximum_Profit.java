@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class NOI_2006_Maximum_Profit {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[] node;
@@ -99,8 +98,7 @@ public class NOI_2006_Maximum_Profit {
 		int totalCost = 0;
 		int totalProfit = 0;
 		for (int x = 0; x <= n; x++)
-			System.out.println("Previous value of " + (x + 1) + " :"
-					+ (prev[x][0] + 1));
+			System.out.println("Previous value of " + (x + 1) + " :" + (prev[x][0] + 1));
 		while (curr != -1) {
 			if (!bought[curr])
 				totalCost += node[curr];
@@ -127,8 +125,7 @@ public class NOI_2006_Maximum_Profit {
 			bought[curr] = true;
 			if (prev[curr][0] == -1)
 				break;
-			int edgeIndex = adjlist.get(prev[curr][0]).indexOf(
-					new Edge(curr, 0));
+			int edgeIndex = adjlist.get(prev[curr][0]).indexOf(new Edge(curr, 0));
 			adjlist.get(prev[curr][0]).get(edgeIndex).cost = -1;
 			curr = prev[curr][0];
 		}

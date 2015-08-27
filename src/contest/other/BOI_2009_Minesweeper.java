@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class BOI_2009_Minesweeper {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -29,8 +27,7 @@ public class BOI_2009_Minesweeper {
 		ArrayList<Point> l = new ArrayList<Point>();
 		for (int x = 0; x < n; x++) {
 			int size = l.size();
-			while (size >= 2
-					&& (ccw(l.get(size - 2), l.get(size - 1), p[x]) <= 0)) {
+			while (size >= 2 && (ccw(l.get(size - 2), l.get(size - 1), p[x]) <= 0)) {
 				l.remove(size - 1);
 				size = l.size();
 			}
@@ -38,8 +35,7 @@ public class BOI_2009_Minesweeper {
 		}
 		for (int x = n - 1; x >= 0; x--) {
 			int size = u.size();
-			while (size >= 2
-					&& (ccw(u.get(size - 2), u.get(size - 1), p[x]) <= 0)) {
+			while (size >= 2 && (ccw(u.get(size - 2), u.get(size - 1), p[x]) <= 0)) {
 				u.remove(size - 1);
 				size = u.size();
 			}

@@ -40,8 +40,7 @@ public class UTS_Open_P2_Solution {
 			}
 			for (int y = 0; y < in.length; y++) {
 				if (map[in[y] - 'a'] == -1) {
-					if ((out[y] - 'a' != map1[in[y] - 'a'] && out[y] - 'a' != map2[in[y] - 'a'])
-							|| alreadyMapped[out[y] - 'a']) {
+					if ((out[y] - 'a' != map1[in[y] - 'a'] && out[y] - 'a' != map2[in[y] - 'a']) || alreadyMapped[out[y] - 'a']) {
 						ps.println("NO");
 						continue main;
 					}
@@ -63,8 +62,7 @@ public class UTS_Open_P2_Solution {
 		ps.close();
 	}
 
-	private static boolean checkOthers (int i, int n, boolean[] alreadyMapped,
-			int[] map) {
+	private static boolean checkOthers (int i, int n, boolean[] alreadyMapped, int[] map) {
 		if (i == n)
 			return true;
 		if (map[i] == -1) {

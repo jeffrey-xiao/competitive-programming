@@ -19,8 +19,7 @@ public class ECOO_2002_Count_Shapes {
 			shapes[x] = getShapes(image);
 		}
 		for (int x = 0; x < shapes.length; x++)
-			System.out.printf("In rectangle #%d are %d shapes\n", x + 1,
-					shapes[x]);
+			System.out.printf("In rectangle #%d are %d shapes\n", x + 1, shapes[x]);
 
 	}
 
@@ -39,8 +38,7 @@ public class ECOO_2002_Count_Shapes {
 	}
 
 	private static void removeShapes (char[][] image, int x, int y, int lastMove) {
-		if (x < 0 || y < 0 || x >= image.length || y >= image[x].length
-				|| image[x][y] == '.')
+		if (x < 0 || y < 0 || x >= image.length || y >= image[x].length || image[x][y] == '.')
 			return;
 		image[x][y] = '.';
 		removeShapes(image, x + 1, y, -1);

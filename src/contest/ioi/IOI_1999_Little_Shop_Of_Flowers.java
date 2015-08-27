@@ -18,11 +18,9 @@ public class IOI_1999_Little_Shop_Of_Flowers {
 
 		for (int x = 1; x <= flowers; x++) {
 			for (int y = x; y <= vases; y++) {
-				pointValues[x][y] = pointValues[x - 1][y - 1]
-						+ pointValues[x][y];
+				pointValues[x][y] = pointValues[x - 1][y - 1] + pointValues[x][y];
 				if (y > 1)
-					pointValues[x][y] = Math.max(pointValues[x][y],
-							pointValues[x][y - 1]);
+					pointValues[x][y] = Math.max(pointValues[x][y], pointValues[x][y - 1]);
 			}
 		}
 

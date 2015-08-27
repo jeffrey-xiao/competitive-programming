@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class MockCCC_2015_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static Pillar[] p;
@@ -41,8 +39,7 @@ public class MockCCC_2015_S4 {
 			for (int x = 0; x < n; x++) {
 				// System.out.println(x + " " + left[x] + " " + right[x] + " " +
 				// p[x].d);
-				if ((leftD[x] + rightD[x] > max || (leftD[x] + rightD[x] == max && p[x].d < time))
-						&& p[x].d != 0) {
+				if ((leftD[x] + rightD[x] > max || (leftD[x] + rightD[x] == max && p[x].d < time)) && p[x].d != 0) {
 					max = leftD[x] + rightD[x];
 					time = p[x].d;
 					index = x;

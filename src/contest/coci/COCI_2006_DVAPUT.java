@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_DVAPUT {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final long MOD = 100000000007l;
@@ -38,8 +36,7 @@ public class COCI_2006_DVAPUT {
 			for (int i = mid; i < str.length; i++) {
 				// System.out.println(26*hash + " " + pow*(long)str[i-mid] + " "
 				// + (long)str[i]);
-				hash = (26 * hash - (pow * (long) (str[i - mid] - 'a')) + (long) (str[i] - 'a'))
-						% MOD;
+				hash = (26 * hash - (pow * (long) (str[i - mid] - 'a')) + (long) (str[i] - 'a')) % MOD;
 				if (hs.contains(hash)) {
 					success = true;
 					break;

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Reordering_The_Cows {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[] visited = new boolean[0];
 

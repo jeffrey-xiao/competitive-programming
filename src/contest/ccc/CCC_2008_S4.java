@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[] visited;
 	static int[] nums;

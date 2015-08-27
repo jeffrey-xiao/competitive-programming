@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2011_Rice_Hub {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,15 +29,8 @@ public class IOI_2011_Rice_Hub {
 			int rightFields = hi - median;
 			long rightCost = sum[hi] - sum[lo + leftFields - 1];
 			long leftCost = sum[leftFields + lo - 1] - sum[lo - 1];
-			// System.out.println(x + " " + leftFields + " " + rightFields + " "
-			// + rightCost + " " + leftCost);
 
-			long nextCost = leftFields * rice[median] - leftCost + rightCost
-					- rightFields * rice[median];
-			// System.out.println(nextCost);
-			// System.out.println(leftFields*x - leftCost + " " +
-			// (rightCost-rightFields*x));
-			// System.out.println("RESULT: " + lo + " " + hi + " " + minCost);
+			long nextCost = leftFields * rice[median] - leftCost + rightCost - rightFields * rice[median];
 			if (nextCost <= b) {
 				maxFields = Math.max(maxFields, hi - lo + 1);
 				hi++;

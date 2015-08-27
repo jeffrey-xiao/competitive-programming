@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class MockCCC_2015_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static Point[] p;
@@ -113,8 +111,7 @@ public class MockCCC_2015_S3 {
 		public boolean intersect (Line l) {
 			double delta = A * l.B - l.A * B;
 			if (delta == 0) {
-				if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1)
-						|| p2.equals(l.p2))
+				if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1) || p2.equals(l.p2))
 					return true;
 				return false;
 			}
@@ -123,15 +120,9 @@ public class MockCCC_2015_S3 {
 			// System.out.println(p1 + " " + p2 + " " + x + " " + y);
 			// System.out.println(l.p1 + " " + l.p2);
 			// System.out.println(x + " " + y);
-			if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1)
-					|| p2.equals(l.p2))
+			if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1) || p2.equals(l.p2))
 				return false;
-			if (Math.min(p1.x, p2.x) <= x && x <= Math.max(p1.x, p2.x)
-					&& Math.min(p1.y, p2.y) <= y && y <= Math.max(p1.y, p2.y)
-					&& Math.min(l.p1.x, l.p2.x) <= x
-					&& x <= Math.max(l.p1.x, l.p2.x)
-					&& Math.min(l.p1.y, l.p2.y) <= y
-					&& y <= Math.max(l.p1.y, l.p2.y))
+			if (Math.min(p1.x, p2.x) <= x && x <= Math.max(p1.x, p2.x) && Math.min(p1.y, p2.y) <= y && y <= Math.max(p1.y, p2.y) && Math.min(l.p1.x, l.p2.x) <= x && x <= Math.max(l.p1.x, l.p2.x) && Math.min(l.p1.y, l.p2.y) <= y && y <= Math.max(l.p1.y, l.p2.y))
 				return true;
 			return false;
 		}

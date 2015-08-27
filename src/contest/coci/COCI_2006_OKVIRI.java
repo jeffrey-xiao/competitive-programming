@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_OKVIRI {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int l;
 
@@ -18,8 +17,7 @@ public class COCI_2006_OKVIRI {
 		print1();
 		print2();
 		for (int x = 0; x < l; x++) {
-			System.out.printf("%1$s.%2$s.", (x + 1) % 3 == 0 || (x) % 3 == 0
-					&& x != 0 ? "*" : "#", n.charAt(x));
+			System.out.printf("%1$s.%2$s.", (x + 1) % 3 == 0 || (x) % 3 == 0 && x != 0 ? "*" : "#", n.charAt(x));
 		}
 		System.out.println((l) % 3 == 0 ? "*" : "#");
 		print2();

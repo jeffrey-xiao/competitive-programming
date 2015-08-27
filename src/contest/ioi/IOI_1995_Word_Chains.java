@@ -7,13 +7,11 @@ import java.util.StringTokenizer;
 
 public class IOI_1995_Word_Chains {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		IOI_1995_Word_Chains.TrieNode tn = new IOI_1995_Word_Chains().new TrieNode(
-				'\u0000', false);
+		IOI_1995_Word_Chains.TrieNode tn = new IOI_1995_Word_Chains().new TrieNode('\u0000', false);
 		String s = next();
 		while (!s.equals(".")) {
 			tn.addWord(s);
@@ -44,8 +42,7 @@ public class IOI_1995_Word_Chains {
 			int max = 0;
 			for (int x = 0; x < links.length; x++) {
 				if (links[x] != null && links[x].letter == s.charAt(0)) {
-					int numOfWords = links[x]
-							.addWord(s.substring(1, s.length()));
+					int numOfWords = links[x].addWord(s.substring(1, s.length()));
 					if (numOfWords > max)
 						max = numOfWords;
 					break;
@@ -55,14 +52,12 @@ public class IOI_1995_Word_Chains {
 
 					if (s.length() == 1) {
 						links[x] = new TrieNode(s.charAt(0), true);
-						numOfWords = links[x]
-								.addWord(s.substring(1, s.length()));
+						numOfWords = links[x].addWord(s.substring(1, s.length()));
 						if (numOfWords > max)
 							max = numOfWords;
 					} else {
 						links[x] = new TrieNode(s.charAt(0), false);
-						numOfWords = links[x]
-								.addWord(s.substring(1, s.length()));
+						numOfWords = links[x].addWord(s.substring(1, s.length()));
 						if (numOfWords > max)
 							max = numOfWords;
 					}

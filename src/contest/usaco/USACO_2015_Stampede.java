@@ -14,10 +14,8 @@ import java.util.TreeSet;
 
 public class USACO_2015_Stampede {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -48,8 +46,7 @@ public class USACO_2015_Stampede {
 				continue;
 			if (!e1.equals(e2)) {
 				res++;
-				SortedSet ss = ((TreeSet) (xV.clone())).subSet(e1, false, e2,
-						false);
+				SortedSet ss = ((TreeSet) (xV.clone())).subSet(e1, false, e2, false);
 				xV.removeAll(ss);
 			}
 		}

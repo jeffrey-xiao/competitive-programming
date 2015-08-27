@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_Stage_2_Jengaism {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -26,8 +25,7 @@ public class CCC_2004_Stage_2_Jengaism {
 			int col = s.charAt(l - 1) - 'A';
 			top = Math.max(row, top);
 			blocks[row][col] = false;
-			if (row != top
-					&& ((!blocks[row][0] && !blocks[row][1]) || (!blocks[row][1] && !blocks[row][2]))) {
+			if (row != top && ((!blocks[row][0] && !blocks[row][1]) || (!blocks[row][1] && !blocks[row][2]))) {
 				System.out.println("The tower collapses after removing " + s);
 				return;
 			}
@@ -38,8 +36,7 @@ public class CCC_2004_Stage_2_Jengaism {
 			top = Math.max(row, top);
 			col = s.charAt(s.length() - 1) - 'A';
 			blocks[row][col] = true;
-			if (row != top
-					&& ((!blocks[row][0] && !blocks[row][1]) || (!blocks[row][1] && !blocks[row][2]))) {
+			if (row != top && ((!blocks[row][0] && !blocks[row][1]) || (!blocks[row][1] && !blocks[row][2]))) {
 				System.out.println("The tower collapses after placing " + s);
 				return;
 			}

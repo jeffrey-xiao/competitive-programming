@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_VUK {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};

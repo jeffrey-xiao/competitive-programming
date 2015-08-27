@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Distant_Pastures {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int a;
@@ -60,8 +59,7 @@ public class USACO_2012_Distant_Pastures {
 			for (int z = 0; z < 4; z++) {
 				int nextx = x + movex[z];
 				int nexty = y + movey[z];
-				if (nextx < startx || nexty < starty || nextx >= n
-						|| nexty >= n || visited[nextx][nexty])
+				if (nextx < startx || nexty < starty || nextx >= n || nexty >= n || visited[nextx][nexty])
 					continue;
 				int add = a;
 				if (grid[x][y] != grid[nextx][nexty])

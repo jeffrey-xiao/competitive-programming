@@ -23,9 +23,7 @@ public class CCC_2005_J5 {
 				boolean result = false;
 				for (int i = 0; i < words.length(); i++) {
 					if (words.charAt(i) == 'N') {
-						result = result
-								|| (isA_Word(words.substring(0, i)) && isMokeyLang(words
-										.substring(i + 1)));
+						result = result || (isA_Word(words.substring(0, i)) && isMokeyLang(words.substring(i + 1)));
 						if (result)
 							break;
 					}

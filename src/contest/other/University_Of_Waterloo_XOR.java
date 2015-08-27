@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class University_Of_Waterloo_XOR {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	// XOR IS ASSOCIATIVE

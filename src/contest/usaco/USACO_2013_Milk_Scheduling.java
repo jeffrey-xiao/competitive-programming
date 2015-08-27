@@ -10,21 +10,19 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Milk_Scheduling {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int numOfCows = readInt();
-		PriorityQueue<Integer> maxGall = new PriorityQueue<Integer>(numOfCows,
-				new Comparator<Integer>() {
+		PriorityQueue<Integer> maxGall = new PriorityQueue<Integer>(numOfCows, new Comparator<Integer>() {
 
-					@Override
-					public int compare (Integer o1, Integer o2) {
-						return o2 - o1;
-					}
+			@Override
+			public int compare (Integer o1, Integer o2) {
+				return o2 - o1;
+			}
 
-				});
+		});
 		int[][] cows = new int[numOfCows][2];
 		for (int x = 0; x < numOfCows; x++) {
 			int gallon = readInt();

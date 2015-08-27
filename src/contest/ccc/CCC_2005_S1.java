@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_S1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -37,8 +36,7 @@ public class CCC_2005_S1 {
 				else if (c != '-')
 					sf += c;
 			}
-			System.out.println(sf.substring(0, 3) + "-" + sf.substring(3, 6)
-					+ "-" + sf.substring(6));
+			System.out.println(sf.substring(0, 3) + "-" + sf.substring(3, 6) + "-" + sf.substring(6));
 		}
 	}
 

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Binary_Sudoku {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static char[][] grid = new char[9][];
@@ -48,11 +46,7 @@ public class USACO_2011_Binary_Sudoku {
 			return compute(r + 1, 0, bp, cp, 0);
 		}
 		int a = (grid[r][c] == '0' ? 1 : 0);
-		dp[r][c][cp][bp][rp] = Math
-				.min(a
-						+ compute(r, c + 1, bp ^ (1 << c / 3), cp ^ (1 << c),
-								rp ^ 1),
-						(a + 1) % 2 + compute(r, c + 1, bp, cp, rp));
+		dp[r][c][cp][bp][rp] = Math.min(a + compute(r, c + 1, bp ^ (1 << c / 3), cp ^ (1 << c), rp ^ 1), (a + 1) % 2 + compute(r, c + 1, bp, cp, rp));
 		return dp[r][c][cp][bp][rp];
 	}
 

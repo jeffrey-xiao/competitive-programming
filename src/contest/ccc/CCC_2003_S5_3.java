@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_S5_3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj;
 

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Exam_Time_P3_Chemistry_Homework {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[][] adj;
 	static int[] size;
@@ -53,8 +51,7 @@ public class Exam_Time_P3_Chemistry_Homework {
 		if (!isPossible) {
 			System.out.println("Impossible.");
 		} else {
-			System.out.printf("%d\nC%sH%s\n", energy, C == 1 ? "" : C,
-					H == 1 ? "" : H);
+			System.out.printf("%d\nC%sH%s\n", energy, C == 1 ? "" : C, H == 1 ? "" : H);
 		}
 	}
 
@@ -70,9 +67,7 @@ public class Exam_Time_P3_Chemistry_Homework {
 					energy += 615;
 				} else if (size[i] == 4 && size[x] == 4 && adj[i][x] == 1) {
 					energy += 346;
-				} else if (((size[i] == 4 && size[x] == 1) || size[i] == 1
-						&& size[x] == 4)
-						&& adj[i][x] == 1) {
+				} else if (((size[i] == 4 && size[x] == 1) || size[i] == 1 && size[x] == 4) && adj[i][x] == 1) {
 					energy += 413;
 				} else {
 					// isPossible = false;

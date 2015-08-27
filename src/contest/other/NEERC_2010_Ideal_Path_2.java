@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class NEERC_2010_Ideal_Path_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
@@ -55,12 +53,10 @@ public class NEERC_2010_Ideal_Path_2 {
 				int nextDist = dist[curr] + 1;
 				int nextColor = e.color;
 				if (e.dest == 28) {
-					System.out.println("HERE " + curr + " " + color[curr] + " "
-							+ nextDist + " " + nextColor);
+					System.out.println("HERE " + curr + " " + color[curr] + " " + nextDist + " " + nextColor);
 				}
 				boolean equal = (nextDist == dist[e.dest] && nextColor == color[e.dest]);
-				if ((nextDist < dist[e.dest] || (nextDist == dist[e.dest] && nextColor < color[e.dest]))
-						|| (equal && (prev[e.dest] == -1 || color[prev[e.dest]] > color[curr]))) {
+				if ((nextDist < dist[e.dest] || (nextDist == dist[e.dest] && nextColor < color[e.dest])) || (equal && (prev[e.dest] == -1 || color[prev[e.dest]] > color[curr]))) {
 					dist[e.dest] = nextDist;
 					color[e.dest] = nextColor;
 					prev[e.dest] = curr;

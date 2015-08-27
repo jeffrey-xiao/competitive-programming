@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class STNBD_P5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -25,10 +23,8 @@ public class STNBD_P5 {
 		Point mid = new Point((a.x + b.x) / 2, (a.y + b.y) / 2);
 		double A, B, C;
 		double x1, x2, y1, y2;
-		if (slope == Double.NEGATIVE_INFINITY
-				|| slope == Double.POSITIVE_INFINITY) {
-			C = -(d * d - a.y * a.y + 2 * a.y * mid.y - mid.y * mid.y - a.x
-					* a.x);
+		if (slope == Double.NEGATIVE_INFINITY || slope == Double.POSITIVE_INFINITY) {
+			C = -(d * d - a.y * a.y + 2 * a.y * mid.y - mid.y * mid.y - a.x * a.x);
 			B = -2 * a.x;
 			A = 1;
 			x1 = (-B + Math.sqrt(B * B - 4 * A * C)) / (2 * A);

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Stardust_Snow {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	// row, column, snowflakes, max temp, max snowflakes, max move
@@ -56,14 +54,8 @@ public class Glenforest_Stardust_Snow {
 			if (i + col < 1 || i + col > c)
 				continue;
 			ans = Math.max(ans, solve(time + 1, i + col, temp, snow));
-			if (snowflake[time + 1][i + col] != null
-					&& temp > snowflake[time + 1][i + col].temp) {
-				ans = Math.max(
-						ans,
-						snowflake[time + 1][i + col].value
-								+ solve(time + 1, i + col, temp
-										- snowflake[time + 1][i + col].temp,
-										snow - 1));
+			if (snowflake[time + 1][i + col] != null && temp > snowflake[time + 1][i + col].temp) {
+				ans = Math.max(ans, snowflake[time + 1][i + col].value + solve(time + 1, i + col, temp - snowflake[time + 1][i + col].temp, snow - 1));
 			}
 		}
 		return dp[time][col][temp][snow] = ans;

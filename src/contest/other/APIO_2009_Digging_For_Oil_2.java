@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class APIO_2009_Digging_For_Oil_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[][][][] dp;
 	static int k;
@@ -27,8 +25,7 @@ public class APIO_2009_Digging_For_Oil_2 {
 		g = new int[r + 1][c + 1];
 		for (int x = 1; x <= r; x++)
 			for (int y = 1; y <= c; y++)
-				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1]
-						- g[x - 1][y - 1];
+				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1] - g[x - 1][y - 1];
 		int max = 0;
 		for (int x = k; x <= r - k + 1; x++) {
 			for (int y = k; y <= c - k + 1; y++) {

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Virtuoso {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int INF = 1 << 30;
@@ -44,8 +42,7 @@ public class Virtuoso {
 				for (int y = 0; y < 7; y++) {
 					for (int i = 0; i <= 2; i++) {
 						for (int z = 0; z < slides; z++) {
-							int nextMoves = Math.abs(s[z] - y)
-									+ dp[x - 1][y][i].moves;
+							int nextMoves = Math.abs(s[z] - y) + dp[x - 1][y][i].moves;
 							int nextDir = 0;
 							int nextTurns = dp[x - 1][y][i].turns;
 							if (y < s[z])
@@ -57,8 +54,7 @@ public class Virtuoso {
 								nextTurns++;
 							}
 
-							if (dp[x][s[z]][nextDir].moves > nextMoves
-									|| (dp[x][s[z]][nextDir].moves == nextMoves && nextTurns < dp[x][s[z]][nextDir].turns)) {
+							if (dp[x][s[z]][nextDir].moves > nextMoves || (dp[x][s[z]][nextDir].moves == nextMoves && nextTurns < dp[x][s[z]][nextDir].turns)) {
 								dp[x][s[z]][nextDir].moves = nextMoves;
 								dp[x][s[z]][nextDir].turns = nextTurns;
 								// System.out.println(x + " " + (s[z]+1) + " " +
@@ -76,8 +72,7 @@ public class Virtuoso {
 		int minTurns = INF;
 		for (int y = 0; y < 7; y++) {
 			for (int i = 0; i <= 2; i++) {
-				if (dp[n - 1][y][i].moves < minMoves
-						|| (dp[n - 1][y][i].turns < minTurns && dp[n - 1][y][i].moves == minMoves)) {
+				if (dp[n - 1][y][i].moves < minMoves || (dp[n - 1][y][i].turns < minTurns && dp[n - 1][y][i].moves == minMoves)) {
 					minMoves = dp[n - 1][y][i].moves;
 					minTurns = dp[n - 1][y][i].turns;
 

@@ -32,8 +32,7 @@ public class Directed_Acyclic_Path {
 
 	}
 
-	public static boolean isDAG (int curr, boolean[] vertex,
-			ArrayList<ArrayList<Integer>> edges) {
+	public static boolean isDAG (int curr, boolean[] vertex, ArrayList<ArrayList<Integer>> edges) {
 		for (Integer i : edges.get(curr)) {
 			if (vertex[i])
 				return false;

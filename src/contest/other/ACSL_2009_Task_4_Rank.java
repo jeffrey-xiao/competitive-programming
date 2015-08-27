@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class ACSL_2009_Task_4_Rank {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adjlist = new ArrayList<ArrayList<Integer>>();
 	static Set<Integer> cycle = new HashSet<Integer>();
@@ -47,8 +46,7 @@ public class ACSL_2009_Task_4_Rank {
 			return false;
 		visited[x] = true;
 		for (int y = 0; y < adjlist.get(x).size(); y++) {
-			if (dfs(Arrays.copyOf(visited, visited.length),
-					adjlist.get(x).get(y), start, depth + 1)) {
+			if (dfs(Arrays.copyOf(visited, visited.length), adjlist.get(x).get(y), start, depth + 1)) {
 				cycle.add(x);
 				return true;
 			}

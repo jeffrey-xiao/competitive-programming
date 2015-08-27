@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_PRAVOKUTNI {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int N;
@@ -48,8 +46,7 @@ public class COCI_2007_PRAVOKUTNI {
 				}
 				int i1 = lo, i2 = hi == N ? 1 : hi;
 				c = sort[lo];
-				double angle = angle(sort[i1], curr)
-						- angle(sort[i1], sort[i2]);
+				double angle = angle(sort[i1], curr) - angle(sort[i1], sort[i2]);
 				// System.out.println(angle(c, curr) + " " + angle(c,
 				// sort[i2]));
 				System.out.println(curr + " " + sort[i1] + " " + sort[i2]);

@@ -24,8 +24,7 @@ public class Coin_Change {
 						table[y][1] = table[y - coins[x] * z][1] + z;
 						table[y][0] = a;
 					} else if (a == b)
-						table[y][1] = min(table[y - coins[x] * z][1] + z,
-								table[y][1]);
+						table[y][1] = min(table[y - coins[x] * z][1] + z, table[y][1]);
 					if (table[y][0] < 0) {
 						table[y][0] = -5000;
 						table[y][1] = 0;

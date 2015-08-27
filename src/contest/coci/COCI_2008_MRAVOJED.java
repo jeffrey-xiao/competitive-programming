@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_MRAVOJED {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,8 +28,7 @@ public class COCI_2008_MRAVOJED {
 						dp[x][y] = 1;
 				} else {
 					if (grid[x][y] == 'x')
-						dp[x][y] = Math.min(dp[x + 1][y], dp[x][y + 1])
-								+ ((grid[x][y] == 'x') ? 1 : 0);
+						dp[x][y] = Math.min(dp[x + 1][y], dp[x][y + 1]) + ((grid[x][y] == 'x') ? 1 : 0);
 					else
 						dp[x][y] = 0;
 				}
@@ -60,8 +57,7 @@ public class COCI_2008_MRAVOJED {
 						dp[x][y] = 1;
 				} else {
 					if (grid[x][y] == 'x')
-						dp[x][y] = Math.min(dp[x + 1][y],
-								Math.min(dp[x][y + 1], dp[x + 1][y + 1])) + 1;
+						dp[x][y] = Math.min(dp[x + 1][y], Math.min(dp[x][y + 1], dp[x + 1][y + 1])) + 1;
 					else
 						dp[x][y] = 0;
 				}
@@ -73,12 +69,7 @@ public class COCI_2008_MRAVOJED {
 		int y2 = y1;
 		for (int x = 0; x < r; x++) {
 			for (int y = 0; y < c; y++) {
-				if ((y < y1 || x < x1 || dp[x][y] + x > x1 + prevMax || dp[x][y]
-						+ y > y1 + prevMax)
-						&& (dp[x][y] > max || (dp[x][y] == max && (Math.abs(x
-								- x1)
-								+ Math.abs(y - y1) > Math.abs(x2 - x1)
-								+ Math.abs(y2 - y1))))) {
+				if ((y < y1 || x < x1 || dp[x][y] + x > x1 + prevMax || dp[x][y] + y > y1 + prevMax) && (dp[x][y] > max || (dp[x][y] == max && (Math.abs(x - x1) + Math.abs(y - y1) > Math.abs(x2 - x1) + Math.abs(y2 - y1))))) {
 					max = dp[x][y];
 					x2 = x;
 					y2 = y;

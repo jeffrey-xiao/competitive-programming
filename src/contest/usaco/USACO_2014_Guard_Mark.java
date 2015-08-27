@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Guard_Mark {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int INF = 1 << 30;
@@ -36,11 +34,9 @@ public class USACO_2014_Guard_Mark {
 			for (int y = 0; y < n; y++) {
 				if ((x & 1 << y) == 0) {
 					int next = x | 1 << y;
-					long nextSafe = Math.min(dp[x].safe - c[y].weight,
-							c[y].strength);
+					long nextSafe = Math.min(dp[x].safe - c[y].weight, c[y].strength);
 					if (dp[next].safe < nextSafe) {
-						dp[next] = new State(dp[x].height + c[y].height,
-								nextSafe);
+						dp[next] = new State(dp[x].height + c[y].height, nextSafe);
 					}
 				}
 			}

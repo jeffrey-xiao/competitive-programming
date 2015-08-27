@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2015_Censoring_Bronze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,9 +20,7 @@ public class USACO_2015_Censoring_Bronze {
 		String res = "";
 		for (int i = 0; i < s.length(); i++) {
 			res += s.charAt(i);
-			if (res.length() >= t.length()
-					&& res.substring(res.length() - t.length(), res.length())
-							.equals(t)) {
+			if (res.length() >= t.length() && res.substring(res.length() - t.length(), res.length()).equals(t)) {
 				res = res.substring(0, res.length() - t.length());
 			}
 		}

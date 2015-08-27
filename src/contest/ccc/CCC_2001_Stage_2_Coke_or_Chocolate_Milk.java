@@ -1,7 +1,17 @@
 package contest.ccc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Stack;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 

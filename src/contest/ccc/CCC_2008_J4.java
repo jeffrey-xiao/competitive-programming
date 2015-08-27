@@ -9,16 +9,14 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_J4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static PrintStream ps = new PrintStream(System.out);
 
 	public static void main (String[] args) throws IOException {
 		String next = "";
 		while (!(next = readLine()).equals("0")) {
-			String[] e = new StringBuilder(next).reverse().toString()
-					.split(" ");
+			String[] e = new StringBuilder(next).reverse().toString().split(" ");
 			Stack<String> s = new Stack<String>();
 			int i = 0;
 			String result = "";

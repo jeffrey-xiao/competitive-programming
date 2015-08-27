@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class Woburn_Challenge_1995_Round_Numbers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -69,9 +67,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
 				currZero++;
 			}
 		}
-		System.out.printf(
-				"There are %d round numbers less than or equal to %d.\n", sum,
-				n);
+		System.out.printf("There are %d round numbers less than or equal to %d.\n", sum, n);
 	}
 
 	private static long C (int n, int k) {

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_JABUKE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,8 +21,7 @@ public class COCI_2007_JABUKE {
 			if (p.inside(a, b, c))
 				count++;
 		}
-		System.out.println(Math.abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x
-				* (a.y - b.y)) / 2);
+		System.out.println(Math.abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2);
 		System.out.println(count);
 	}
 
@@ -37,14 +35,11 @@ public class COCI_2007_JABUKE {
 		}
 
 		boolean inside (Point p1, Point p2, Point p3) {
-			return area(p1, p2, p3) - area(new Point(x, y), p1, p2)
-					- area(new Point(x, y), p2, p3)
-					- area(new Point(x, y), p3, p1) == 0;
+			return area(p1, p2, p3) - area(new Point(x, y), p1, p2) - area(new Point(x, y), p2, p3) - area(new Point(x, y), p3, p1) == 0;
 		}
 
 		double area (Point a, Point b, Point c) {
-			return Math.abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x
-					* (a.y - b.y)) / 2;
+			return Math.abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2;
 		}
 	}
 

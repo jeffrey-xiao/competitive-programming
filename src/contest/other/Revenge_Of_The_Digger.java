@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class Revenge_Of_The_Digger {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[] node;

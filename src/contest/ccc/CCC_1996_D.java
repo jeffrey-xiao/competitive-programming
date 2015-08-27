@@ -87,8 +87,6 @@ public class CCC_1996_D {
 			if (values.get(n.charAt(endIndex)) != biggestValue)
 				break;
 		endIndex++;
-		return (biggestIndex - endIndex + 1) * values.get(n.charAt(endIndex))
-				- getDecimal(n.substring(0, endIndex))
-				+ getDecimal(n.substring(biggestIndex + 1, n.length()));
+		return (biggestIndex - endIndex + 1) * values.get(n.charAt(endIndex)) - getDecimal(n.substring(0, endIndex)) + getDecimal(n.substring(biggestIndex + 1, n.length()));
 	}
 }

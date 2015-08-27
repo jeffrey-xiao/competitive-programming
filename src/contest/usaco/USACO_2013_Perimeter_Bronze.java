@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Perimeter_Bronze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[][] grid = new boolean[102][102];
 	static boolean[][] visited = new boolean[102][102];

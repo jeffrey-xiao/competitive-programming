@@ -24,8 +24,7 @@ public class CCC_2000_S4 {
 						table[y][1] = table[y - clubs[x] * z][1] + z;
 						table[y][0] = a;
 					} else if (a == b)
-						table[y][1] = min(table[y - clubs[x] * z][1] + z,
-								table[y][1]);
+						table[y][1] = min(table[y - clubs[x] * z][1] + z, table[y][1]);
 					if (table[y][0] < 0) {
 						table[y][0] = -5000;
 						table[y][1] = 0;
@@ -37,8 +36,7 @@ public class CCC_2000_S4 {
 			System.out.println();
 		}
 
-		System.out.printf(table[dist][0] < 0 ? "Roberta acknowledges defeat."
-				: "Roberta wins in %d strokes.", table[table.length - 1][1]);
+		System.out.printf(table[dist][0] < 0 ? "Roberta acknowledges defeat." : "Roberta wins in %d strokes.", table[table.length - 1][1]);
 	}
 
 	public static int min (int a, int b) {

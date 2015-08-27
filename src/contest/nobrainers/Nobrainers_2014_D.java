@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class Nobrainers_2014_D {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static byte[] movex = {-1, 0, 1, 0};
 	static byte[] movey = {0, 1, 0, -1};

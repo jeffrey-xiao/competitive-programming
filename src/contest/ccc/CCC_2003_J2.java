@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_J2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -20,9 +19,7 @@ public class CCC_2003_J2 {
 					last = x;
 			}
 			int perimeter = 2 * last + 2 * (n / last);
-			System.out.printf(
-					"Minimum perimeter is %d with dimensions %d x %d\n",
-					perimeter, last, n / last);
+			System.out.printf("Minimum perimeter is %d with dimensions %d x %d\n", perimeter, last, n / last);
 		}
 	}
 

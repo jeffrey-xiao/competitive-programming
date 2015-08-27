@@ -14,10 +14,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_SVEMIR {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] union;
@@ -44,8 +42,7 @@ public class COCI_2009_SVEMIR {
 		});
 
 		for (int x = 1; x < n; x++)
-			adj.add(new Edge(p[x - 1].index, p[x].index,
-					getDist(p[x], p[x - 1])));
+			adj.add(new Edge(p[x - 1].index, p[x].index, getDist(p[x], p[x - 1])));
 
 		// sorting by y-coordinates
 		Arrays.sort(p, new Comparator<Planet>() {
@@ -56,8 +53,7 @@ public class COCI_2009_SVEMIR {
 		});
 
 		for (int x = 1; x < n; x++)
-			adj.add(new Edge(p[x - 1].index, p[x].index,
-					getDist(p[x], p[x - 1])));
+			adj.add(new Edge(p[x - 1].index, p[x].index, getDist(p[x], p[x - 1])));
 
 		// sorting by z-coordinates
 		Arrays.sort(p, new Comparator<Planet>() {
@@ -68,8 +64,7 @@ public class COCI_2009_SVEMIR {
 		});
 
 		for (int x = 1; x < n; x++)
-			adj.add(new Edge(p[x - 1].index, p[x].index,
-					getDist(p[x], p[x - 1])));
+			adj.add(new Edge(p[x - 1].index, p[x].index, getDist(p[x], p[x - 1])));
 
 		Collections.sort(adj);
 

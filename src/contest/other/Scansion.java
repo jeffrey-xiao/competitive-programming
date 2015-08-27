@@ -9,11 +9,9 @@ import java.util.StringTokenizer;
 
 public class Scansion {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static String[] s = {"0001", "0010", "0011", "0100", "0110", "1000",
-			"1001"};
+	static String[] s = {"0001", "0010", "0011", "0100", "0110", "1000", "1001"};
 	static ArrayList<String> four = new ArrayList<String>(Arrays.asList(s));
 
 	public static void main (String[] args) throws IOException {

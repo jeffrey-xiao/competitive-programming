@@ -10,18 +10,15 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_DATUM {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int D = readInt();
 		int M = readInt();
 		int[] day = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		String[] name = {"Monday", "Tuesday", "Wednesday", "Thursday",
-				"Friday", "Saturday", "Sunday"};
+		String[] name = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 		int d = 2 + D;
 		for (int m = 0; m < M - 1; m++)
 			d += day[m];

@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Island_Travels {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int count;
 	static int[] movex = {0, 0, -1, 1};
@@ -65,9 +63,7 @@ public class USACO_2013_Island_Travels {
 		int min = Integer.MAX_VALUE;
 		for (int x = 0; x < count; x++) {
 			startState[x] = true;
-			min = Math.min(
-					compute(Arrays.copyOf(startState, startState.length), x),
-					min);
+			min = Math.min(compute(Arrays.copyOf(startState, startState.length), x), min);
 			startState[x] = false;
 		}
 		System.out.println(min);
@@ -83,11 +79,7 @@ public class USACO_2013_Island_Travels {
 		for (int x = 0; x < state.length; x++) {
 			if (!state[x]) {
 				state[x] = true;
-				min = Math
-						.min(min,
-								adj[start][x]
-										+ compute(Arrays.copyOf(state,
-												state.length), x));
+				min = Math.min(min, adj[start][x] + compute(Arrays.copyOf(state, state.length), x));
 				state[x] = false;
 			}
 		}
@@ -117,16 +109,14 @@ public class USACO_2013_Island_Travels {
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
 			char id = grid[curr.x][curr.y];
-			if (id != i + SHIFT && id != '.' && id != 'S'
-					&& adj[i][id - SHIFT] == 0) {
+			if (id != i + SHIFT && id != '.' && id != 'S' && adj[i][id - SHIFT] == 0) {
 				adj[i][id - SHIFT] = curr.moves - 1;
 				adj[id - SHIFT][i] = curr.moves - 1;
 			}
 			for (int z = 0; z < 4; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
-				if (nx < 0 || ny < 0 || nx >= r || ny >= c
-						|| grid[nx][ny] == '.' || visited[nx][ny])
+				if (nx < 0 || ny < 0 || nx >= r || ny >= c || grid[nx][ny] == '.' || visited[nx][ny])
 					continue;
 				visited[nx][ny] = true;
 				moves.offer(new Point(nx, ny, curr.moves + 1));

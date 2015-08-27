@@ -10,8 +10,7 @@ import java.util.TreeSet;
 
 public class Peg_Test_2014_C_2spooky4me {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static HashMap<Integer, Integer> toX = new HashMap<Integer, Integer>();
 	static HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();

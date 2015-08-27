@@ -27,8 +27,7 @@ public class USACO_2014_Ski_Course_Design {
 				int cost = 0;
 				for (int x = 0; x < lowerBound; x++)
 					if (x < lowerBound)
-						cost += (lowerBound - (x)) * (lowerBound - (x))
-								* hills[x];
+						cost += (lowerBound - (x)) * (lowerBound - (x)) * hills[x];
 				for (int x = 100; x > max; x--)
 					if (x > max)
 						cost += (x - max) * (x - max) * hills[x];

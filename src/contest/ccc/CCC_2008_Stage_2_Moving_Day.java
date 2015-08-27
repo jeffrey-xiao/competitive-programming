@@ -14,8 +14,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_Moving_Day {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	/*

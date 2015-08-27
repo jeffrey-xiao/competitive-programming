@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class Cyclopian_Cash {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -21,8 +20,7 @@ public class Cyclopian_Cash {
 		if (n % 2 == 1)
 			System.out.printf("%.1f\n", (float) nums[n / 2]);
 		else
-			System.out.printf("%.1f\n",
-					((double) nums[n / 2] + nums[n / 2 - 1]) / 2);
+			System.out.printf("%.1f\n", ((double) nums[n / 2] + nums[n / 2 - 1]) / 2);
 	}
 
 	static String next () throws IOException {

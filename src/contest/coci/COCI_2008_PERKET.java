@@ -23,8 +23,7 @@ public class COCI_2008_PERKET {
 			if (s == 1 && b == 0)
 				return diff(items[i][0], items[i][1]);
 			else {
-				return Math.min(diff(s, b),
-						diff(items[i][0] * s, items[i][1] + b));
+				return Math.min(diff(s, b), diff(items[i][0] * s, items[i][1] + b));
 			}
 		}
 		int d1 = minValue(items, i + 1, s, b);

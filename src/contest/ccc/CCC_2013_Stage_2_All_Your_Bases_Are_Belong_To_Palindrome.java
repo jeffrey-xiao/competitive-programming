@@ -11,8 +11,7 @@ import java.util.TreeSet;
 
 public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -21,8 +20,7 @@ public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
 		for (long x = 2; x * x <= input; x++) {
 			long y = input;
 			ArrayList<Long> value = new ArrayList<Long>();
-			long curr = (long) Math.pow(x,
-					(long) (Math.log(input) / Math.log(x)));
+			long curr = (long) Math.pow(x, (long) (Math.log(input) / Math.log(x)));
 
 			while (curr != 0) {
 

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class ACM_Foxling_Feeding_Frenzy {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static final int MOD = 1000000007;
 
@@ -42,8 +41,7 @@ public class ACM_Foxling_Feeding_Frenzy {
 					for (int z = 0; z <= i[x].hi; z++) {
 						if (y - z >= 0) {
 							if (dp[x - 1][y - z] >= 0)
-								sum = (Math.max(sum, 0) + dp[x - 1][y - z])
-										% MOD;
+								sum = (Math.max(sum, 0) + dp[x - 1][y - z]) % MOD;
 						}
 					}
 					if (y - i[x].hi <= 0)

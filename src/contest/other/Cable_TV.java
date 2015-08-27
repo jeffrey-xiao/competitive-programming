@@ -48,15 +48,13 @@ public class Cable_TV {
 					if (connection[2] < vertices[connection[0]][1]) {
 						vertices[connection[0]][1] = connection[2];
 						vertices[connection[0]][0] = connection[1];
-					} else if (connection[2] == vertices[connection[0]][1]
-							&& connection[1] < vertices[connection[0]][0]) {
+					} else if (connection[2] == vertices[connection[0]][1] && connection[1] < vertices[connection[0]][0]) {
 						vertices[connection[0]][0] = connection[1];
 					}
 					// getting next min connected
 				}
 				for (int y = 0; y < vertices.length; y++) {
-					if (!visited[y]
-							&& (vertices[y][1] < minDanger || (vertices[y][1] == minDanger && vertices[y][0] < minCost))) {
+					if (!visited[y] && (vertices[y][1] < minDanger || (vertices[y][1] == minDanger && vertices[y][0] < minCost))) {
 						index = y;
 						minDanger = vertices[y][1];
 						minCost = vertices[y][0];

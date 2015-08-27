@@ -8,8 +8,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class USACO_2013_Vacation_Planning_Gold {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int m;

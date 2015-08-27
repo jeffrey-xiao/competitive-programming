@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2013_Dreaming {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int max = 0;
@@ -19,9 +18,11 @@ public class IOI_2013_Dreaming {
 	static boolean[] visited;
 	static int[] prev;
 	static int[] maxD;
+	static int n;
+	static ArrayList<Integer> pathLengths = new ArrayList<Integer>();
 
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
+		n = readInt();
 		int m = readInt();
 		int l = readInt();
 		for (int x = 0; x < n; x++)
@@ -41,102 +42,90 @@ public class IOI_2013_Dreaming {
 				visited[x] = true;
 				max = end = -1;
 				getEnd(x);
-				// System.out.println("END " + end);
 				ends.add(end);
+				// System.out.println("START " + end);
 			}
 		}
-		// START
 		ArrayList<Integer> diameters = new ArrayList<Integer>();
 		ArrayList<Integer> starts = new ArrayList<Integer>();
-		visited = new boolean[n];
+		// START DEBUG
 		for (int x = 0; x < n; x++)
 			prev[x] = -1;
+		visited = new boolean[n];
 		for (Integer i : ends) {
 			visited[i] = true;
 			max = end = -1;
-			getPath(i);
+			diameters.add(getPath(i));
 			starts.add(end);
+			// System.out.println("END " + end);
 		}
-		ArrayList<Integer> components = new ArrayList<Integer>();
-		for (Integer curr : starts) {
-			int min = Integer.MAX_VALUE;
-			int i = curr;
-			while (i != -1) {
-				visited = new boolean[n];
-				maxD = new int[n];
-				visited[i] = true;
-				int currMin = getMin(i);
-				if (i == curr) {
-					diameters.add(currMin);
-				}
-				min = Math.min(currMin, min);
-				i = prev[i];
-			}
-			components.add(min);
-		}
-		Collections.sort(components, Collections.reverseOrder());
+		ArrayList<Integer> radii = new ArrayList<Integer>();
+		visited = new boolean[n];
+		for (int x = 0; x < starts.size(); x++)
+			radii.add(getRadius(starts.get(x), diameters.get(x)));
+		// for(int x = 0; x < starts.size(); x++)
+		// System.out.println(x + ": " + diameters.get(x) + " " + radii.get(x));
+		int size = starts.size();
 		Collections.sort(diameters, Collections.reverseOrder());
-		// System.out.println(components.get(0) + components.get(1) + l + " " +
-		// (components.get(1) + components.get(2) + 2*l));
-		int max = diameters.get(0);
-		if (components.size() >= 3)
-			max = Math.max(components.get(0) + components.get(1) + l,
-					components.get(1) + components.get(2) + 2 * l);
-		else
-			max = components.get(0) + components.get(1) + l;
-		System.out.println(max);
-	}
-
-	private static int getMin (int i) {
-		Stack<State> s = new Stack<State>();
-		s.push(new State(i, 0));
-		int maxDist = 0;
-		while (!s.isEmpty()) {
-			State curr = s.pop();
-			// System.out.println(curr.index + " : " + curr.count);
-			maxDist = Math.max(curr.count, maxDist);
-			for (Edge e : adj.get(curr.index)) {
-				if (!visited[e.dest]) {
-					visited[e.dest] = true;
-					s.push(new State(e.dest, curr.count + e.cost));
-				}
-			}
+		Collections.sort(radii, Collections.reverseOrder());
+		// for(int x = 0; x < starts.size(); x++)
+		// System.out.println(x + ": " + diameters.get(x) + " " + radii.get(x));
+		int minDist = diameters.get(0);
+		if (size >= 2) {
+			minDist = Math.max(minDist, radii.get(0) + l + radii.get(1));
 		}
-		return maxDist;
+		if (size >= 3)
+			minDist = Math.max(minDist, radii.get(1) + l + l + radii.get(2));
+		System.out.println(minDist);
 	}
 
-	private static void getPath (int i) {
+	private static int getRadius (int i, int diameter) {
+		int curr = i;
+		int total = 0;
+		int minR = Integer.MAX_VALUE;
+		while (prev[curr] != -1) {
+			minR = Math.min(minR, Math.max(total, diameter - total));
+			int index = adj.get(prev[curr]).indexOf(new Edge(curr, 0));
+			total += adj.get(prev[curr]).get(index).cost;
+			curr = prev[curr];
+		}
+		return minR == Integer.MAX_VALUE ? 0 : minR;
+	}
+
+	private static int getPath (int i) {
+		// System.out.println(i);
 		Stack<State> s = new Stack<State>();
-		s.push(new State(i, 0));
+		s.push(new State(i, 0, 0));
 		while (!s.isEmpty()) {
 			State curr = s.pop();
-			if (curr.count > max) {
-				max = curr.count;
+			if (curr.cost > max) {
+				max = curr.cost;
 				end = curr.index;
 			}
 			for (Edge e : adj.get(curr.index)) {
 				if (!visited[e.dest]) {
 					visited[e.dest] = true;
 					prev[e.dest] = curr.index;
-					s.push(new State(e.dest, curr.count + 1));
+					s.push(new State(e.dest, curr.count + 1, curr.cost + e.cost));
 				}
 			}
 		}
+		return max;
 	}
 
 	private static void getEnd (int i) {
 		Stack<State> s = new Stack<State>();
-		s.push(new State(i, 0));
+		s.push(new State(i, 0, 0));
 		while (!s.isEmpty()) {
 			State curr = s.pop();
-			if (curr.count > max) {
-				max = curr.count;
+			if (curr.cost > max) {
+				max = curr.cost;
 				end = curr.index;
 			}
 			for (Edge e : adj.get(curr.index)) {
 				if (!visited[e.dest]) {
 					visited[e.dest] = true;
-					s.push(new State(e.dest, curr.count + 1));
+					s.push(new State(e.dest, curr.count + 1, curr.cost + e.cost));
 				}
 			}
 		}
@@ -150,15 +139,31 @@ public class IOI_2013_Dreaming {
 			this.dest = dest;
 			this.cost = cost;
 		}
+
+		@Override
+		public boolean equals (Object o) {
+			if (o instanceof Edge) {
+				Edge e = (Edge) o;
+				return dest == e.dest;
+			}
+			return false;
+		}
 	}
 
 	static class State {
 		int count;
 		int index;
+		int cost;
 
 		State (int index, int count) {
 			this.index = index;
 			this.count = count;
+		}
+
+		State (int index, int count, int cost) {
+			this.index = index;
+			this.count = count;
+			this.cost = cost;
 		}
 	}
 

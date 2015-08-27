@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2002_J2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -16,8 +15,7 @@ public class CCC_2002_J2 {
 		String cons = "bcdfghjklmnpqrstvwxyz";
 		while (!(s = readLine()).equals("quit!")) {
 			int l = s.length();
-			if (l > 4 && s.substring(l - 2).equals("or")
-					&& cons.indexOf(s.charAt(l - 3)) != -1)
+			if (l > 4 && s.substring(l - 2).equals("or") && cons.indexOf(s.charAt(l - 3)) != -1)
 				System.out.println(s.substring(0, l - 2) + "our");
 			else
 				System.out.println(s);

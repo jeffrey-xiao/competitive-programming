@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2011_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	// 0 1 2 3 4 5 6 7
 	// O- O+ A- A+ B- B+ AB- AB+
@@ -40,8 +39,7 @@ public class CCC_2011_S4 {
 		total1 += get(0, 5) + get(1, 5);
 		// ALL THE BLOOD
 		total1 += get(6, 6) + get(4, 6) + get(2, 6) + get(0, 6);
-		total1 += get(7, 7) + get(6, 7) + get(5, 7) + get(4, 7) + get(3, 7)
-				+ get(2, 7) + get(1, 7) + get(0, 7);
+		total1 += get(7, 7) + get(6, 7) + get(5, 7) + get(4, 7) + get(3, 7) + get(2, 7) + get(1, 7) + get(0, 7);
 
 		p = tp;
 		b = tb;
@@ -53,8 +51,7 @@ public class CCC_2011_S4 {
 		total2 += get(4, 5) + get(0, 5);
 		// ALL THE BLOOD
 		total2 += get(6, 6) + get(4, 6) + get(2, 6) + get(0, 6);
-		total2 += get(7, 7) + get(6, 7) + get(5, 7) + get(4, 7) + get(3, 7)
-				+ get(2, 7) + get(1, 7) + get(0, 7);
+		total2 += get(7, 7) + get(6, 7) + get(5, 7) + get(4, 7) + get(3, 7) + get(2, 7) + get(1, 7) + get(0, 7);
 
 		System.out.println(total + Math.max(total1, total2));
 	}

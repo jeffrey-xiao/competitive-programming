@@ -16,8 +16,7 @@ public class MockCCC_2014_J4 {
 			shifts[x][1] = scan.next();
 			int a1 = toMinutes(shifts[x][0]);
 			int a2 = toMinutes(shifts[x][1]);
-			int union = 1 + a2 - a1 + b2 - b1 - Math.max(b2, a2)
-					+ Math.min(b1, a1);
+			int union = 1 + a2 - a1 + b2 - b1 - Math.max(b2, a2) + Math.min(b1, a1);
 			if (union > max) {
 				max = union;
 				index = x;

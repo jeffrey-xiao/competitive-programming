@@ -11,8 +11,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class CCC_2003_S5 {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) {
@@ -45,18 +44,17 @@ public class CCC_2003_S5 {
 		cities[0] = 0;
 		visited[0] = true;
 
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(numOfCities,
-				new Comparator<int[]>() {
-					@Override
-					public int compare (int[] arg0, int[] arg1) {
-						if (arg0[1] > arg1[1])
-							return -1;
-						else if (arg0[1] < arg1[1])
-							return 1;
-						else
-							return 0;
-					}
-				});
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(numOfCities, new Comparator<int[]>() {
+			@Override
+			public int compare (int[] arg0, int[] arg1) {
+				if (arg0[1] > arg1[1])
+					return -1;
+				else if (arg0[1] < arg1[1])
+					return 1;
+				else
+					return 0;
+			}
+		});
 		// edges, 0 is dest, 2 is cost
 		for (int x = 0; x < adjlist.get(0).size(); x++) {
 			int[] next = adjlist.get(0).get(x);

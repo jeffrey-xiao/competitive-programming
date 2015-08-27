@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_J2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -19,8 +18,7 @@ public class CCC_2006_J2 {
 			if (a >= x && b >= (10 - x))
 				count++;
 		}
-		System.out.printf("There %s %d %s to get the sum 10.",
-				count == 1 ? "is" : "are", count, count == 1 ? "way" : "ways");
+		System.out.printf("There %s %d %s to get the sum 10.", count == 1 ? "is" : "are", count, count == 1 ? "way" : "ways");
 	}
 
 	static String next () throws IOException {

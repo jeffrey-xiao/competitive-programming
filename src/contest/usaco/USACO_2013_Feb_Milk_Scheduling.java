@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Feb_Milk_Scheduling {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] cows;
 	static int[] totalTime;

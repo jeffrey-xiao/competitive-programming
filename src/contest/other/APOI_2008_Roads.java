@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class APOI_2008_Roads {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(System.out);
 	static StringTokenizer st;
 
@@ -52,15 +51,13 @@ public class APOI_2008_Roads {
 			init();
 			for (Integer i : mark) {
 				merge(black.get(i).src, black.get(i).dest);
-				ps.println(black.get(i).src + 1 + " " + (black.get(i).dest + 1)
-						+ " 0");
+				ps.println(black.get(i).src + 1 + " " + (black.get(i).dest + 1) + " 0");
 			}
 			int count = 0;
 			for (int x = 0; x < black.size(); x++) {
 				if (find(black.get(x).src) != find(black.get(x).dest)) {
 					merge(black.get(x).src, black.get(x).dest);
-					ps.println(black.get(x).src + 1 + " "
-							+ (black.get(x).dest + 1) + " 0");
+					ps.println(black.get(x).src + 1 + " " + (black.get(x).dest + 1) + " 0");
 					count++;
 					if (count + mark.size() == k)
 						break;
@@ -71,8 +68,7 @@ public class APOI_2008_Roads {
 				if (find(white.get(x).src) != find(white.get(x).dest)) {
 					count++;
 					merge(white.get(x).src, white.get(x).dest);
-					ps.println(white.get(x).src + 1 + " "
-							+ (white.get(x).dest + 1) + " 1");
+					ps.println(white.get(x).src + 1 + " " + (white.get(x).dest + 1) + " 1");
 					if (count == n - k - 1)
 						break;
 				}

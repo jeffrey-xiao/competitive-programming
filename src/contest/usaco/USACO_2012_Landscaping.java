@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Landscaping {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static final int SIZE = 1010;
 
@@ -46,8 +44,7 @@ public class USACO_2012_Landscaping {
 				} else {
 					dp[c][d] = dp[c - 1][d] + y;
 					dp[c][d] = Math.min(dp[c][d], dp[c][d - 1] + x);
-					dp[c][d] = Math.min(dp[c][d],
-							dp[c - 1][d - 1] + Math.abs(a[c] - b[d]) * z);
+					dp[c][d] = Math.min(dp[c][d], dp[c - 1][d - 1] + Math.abs(a[c] - b[d]) * z);
 				}
 			}
 		}

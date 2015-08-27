@@ -1,7 +1,12 @@
 package contest.codejam;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class R1C_C {
 

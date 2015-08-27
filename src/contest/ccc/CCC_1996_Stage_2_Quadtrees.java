@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1996_Stage_2_Quadtrees {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -21,8 +20,7 @@ public class CCC_1996_Stage_2_Quadtrees {
 			// System.out.println("Second");
 			qt.insert(0, new StringBuilder(next()));
 			// System.out.println(qt.child[0].child[2].node+"WTF");
-			System.out.printf("There are %d black pixels.\n",
-					qt.getTotalValue(1024));
+			System.out.printf("There are %d black pixels.\n", qt.getTotalValue(1024));
 		}
 	}
 
@@ -81,8 +79,7 @@ public class CCC_1996_Stage_2_Quadtrees {
 					if (node != 'f') {
 						if (child[currChild] == null)
 							child[currChild] = new Quadtree();
-						child[currChild].insert(depth + 1, new StringBuilder(
-								value.substring(x, end)));
+						child[currChild].insert(depth + 1, new StringBuilder(value.substring(x, end)));
 					}
 					x = end;
 					currChild++;

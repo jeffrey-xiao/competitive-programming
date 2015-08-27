@@ -10,12 +10,10 @@ class CCC_2006_J5 {
 		String[] inputarr = input.split(" ");
 		char config = inputarr[0].charAt(0);
 		// System.out.println(config + " " + Integer.parseInt(inputarr[1]));
-		CCC_2006_J5.Othello_Board board = new CCC_2006_J5().new Othello_Board(
-				config);
+		CCC_2006_J5.Othello_Board board = new CCC_2006_J5().new Othello_Board(config);
 		// System.out.println(inputarr[1]);
 		for (int x = 2; x < (Integer.parseInt(inputarr[1]) * 2) + 2; x = x + 2) {
-			board.move(Integer.parseInt(inputarr[x]),
-					Integer.parseInt(inputarr[x + 1]));
+			board.move(Integer.parseInt(inputarr[x]), Integer.parseInt(inputarr[x + 1]));
 			// board.printArray();
 		}
 		// board.printArray();
@@ -24,11 +22,7 @@ class CCC_2006_J5 {
 	}
 
 	class Othello_Board {
-		private int[][] array = { {0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
-				{0, 0, 0, 0, 0, 0, 0, 0}};;
+		private int[][] array = { {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};;
 		private char config;
 		private int numOfBlack;
 		private int numOfWhite;
@@ -75,11 +69,7 @@ class CCC_2006_J5 {
 				int xmove = 0;
 				// System.out.println((x+movex[a]+xmove) + " " +
 				// (y+movey[a]+ymove));
-				while (x + movex[a] + xmove >= 0
-						&& x + movex[a] + xmove <= 7
-						&& y + movey[a] + ymove >= 0
-						&& y + movey[a] + ymove <= 7
-						&& array[x + movex[a] + xmove][y + movey[a] + ymove] == pieceNum) {
+				while (x + movex[a] + xmove >= 0 && x + movex[a] + xmove <= 7 && y + movey[a] + ymove >= 0 && y + movey[a] + ymove <= 7 && array[x + movex[a] + xmove][y + movey[a] + ymove] == pieceNum) {
 
 					// System.out.println(a);
 					// System.out.println("DONE IT");
@@ -87,15 +77,12 @@ class CCC_2006_J5 {
 					xmove += movex[a];
 				}
 
-				if ((x + movex[a] + xmove) < 0 || (x + movex[a] + xmove) > 7
-						|| (y + movey[a] + ymove) < 0
-						|| (y + movey[a] + ymove) > 7) {
+				if ((x + movex[a] + xmove) < 0 || (x + movex[a] + xmove) > 7 || (y + movey[a] + ymove) < 0 || (y + movey[a] + ymove) > 7) {
 					// System.out.println((x+movex[a]+xmove) + " " +
 					// (y+movey[a]+ymove));
 					continue;
 				}
-				if (array[x + movex[a] + xmove][y + movey[a] + ymove] != 0
-						&& array[x + movex[a] + xmove][y + movey[a] + ymove] != pieceNum) {
+				if (array[x + movex[a] + xmove][y + movey[a] + ymove] != 0 && array[x + movex[a] + xmove][y + movey[a] + ymove] != pieceNum) {
 					while (ymove != 0 || xmove != 0) {
 						if (ymove != 0)
 							ymove -= movey[a];

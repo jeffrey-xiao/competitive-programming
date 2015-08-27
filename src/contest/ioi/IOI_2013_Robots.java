@@ -1,122 +1,111 @@
 package contest.ioi;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class IOI_2013_Robots {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	static int n, m, t;
+	static ArrayList<Integer> weak, small;
+	static LinkedList<Toy> toys = new LinkedList<Toy>();
+
 	public static void main (String[] args) throws IOException {
-		int a = readInt();
-		int b = readInt();
-		int n = readInt();
-		int[] weak = new int[a];
-		int[] small = new int[b];
-		for (int x = 0; x < a; x++)
-			weak[x] = readInt();
-		for (int x = 0; x < b; x++)
-			small[x] = readInt();
-		Arrays.sort(weak);
-		Arrays.sort(small);
-		ArrayList<Toy> toys = new ArrayList<Toy>();
-		for (int x = 0; x < n; x++)
-			toys.add(new Toy(readInt(), readInt()));
-		Comparator<Toy> c1 = new Comparator<Toy>() {
+		n = readInt();
+		m = readInt();
+		t = readInt();
+		weak = new ArrayList<Integer>();
+		small = new ArrayList<Integer>();
+
+		for (int i = 0; i < n; i++)
+			weak.add(readInt());
+		for (int i = 0; i < m; i++)
+			small.add(readInt());
+		Collections.sort(weak);
+		Collections.sort(small);
+		for (int i = 0; i < t; i++)
+			toys.offer(new Toy(readInt(), readInt()));
+		Collections.sort(toys, new Comparator<Toy>() {
 			@Override
 			public int compare (Toy o1, Toy o2) {
 				if (o1.weight == o2.weight)
 					return o1.size - o2.size;
 				return o1.weight - o2.weight;
 			}
-		};
-		Comparator<Toy> c2 = new Comparator<Toy>() {
-			@Override
-			public int compare (Toy o1, Toy o2) {
-				if (o1.size == o2.size)
-					return o1.weight - o2.weight;
-				return o1.size - o2.size;
+		});
+		int lo = 0;
+		int hi = 500000;
+		while (lo <= hi) {
+			int mid = lo + (hi - lo) / 2;
+			if (isPossible(mid)) {
+				hi = mid - 1;
+			} else {
+				lo = mid + 1;
 			}
-		};
-		int time = 0;
-		boolean flag = true;
-		while (toys.size() != 0 && flag) {
-			Collections.sort(toys, c1);
-			flag = false;
-			// System.out.println("weight");
-			for (int y = 0; y < weak.length && toys.size() > 0; y++) {
-				int i = getWeightIndex(toys, weak[y]);
-				if (i != -1) {
-					// System.out.println(weak[y] + " " + toys.get(i).weight);
-					toys.remove(i);
-					flag = true;
+		}
+		System.out.println(lo == 501 ? -1 : lo);
+	}
+
+	private static boolean isPossible (int t) {
+		Queue<Toy> curr = new LinkedList<Toy>(toys);
+		// weak calculation
+		PriorityQueue<Toy> pq = new PriorityQueue<Toy>();
+		for (int i = 0; i < n; i++) {
+			int size = curr.size();
+			for (int j = 0; j < size; j++) {
+				if (weak.get(i) > curr.peek().weight) {
+					// System.out.println("OFFERED " + curr.peek().weight + " "
+					// + curr.peek().size);
+					pq.offer(curr.poll());
+				} else {
+					break;
 				}
 			}
-			Collections.sort(toys, c2);
-			// System.out.println("size");
-			for (int y = 0; y < small.length && toys.size() > 0; y++) {
-				int i = getSizeIndex(toys, small[y]);
-				if (i != -1) {
-					// System.out.println(small[y] + " " + toys.get(i).weight);
-					toys.remove(i);
-					flag = true;
-				}
+			size = Math.min(t, pq.size());
+			for (int k = 0; k < size; k++) {
+				// System.out.println("REMOVED " + pq.peek().weight + " " +
+				// pq.peek().size);
+				pq.poll();
 			}
-			time++;
-			// System.out.println("Next iteration");
 		}
-		System.out.println(toys.size() != 0 ? -1 : time);
+		int size = curr.size();
+		for (int i = 0; i < size; i++)
+			pq.offer(curr.poll());
+		// strong calculation
+		for (int i = m - 1; i >= 0; i--) {
+			size = Math.min(t, pq.size());
+			for (int j = 0; j < size; j++)
+				if (pq.poll().size >= small.get(i))
+					return false;
+		}
+		return pq.size() == 0;
 	}
 
-	public static int getWeightIndex (ArrayList<Toy> t, int weak) {
-		int lower = 0;
-		int higher = t.size() - 1;
-		while (higher - lower > 1) {
-			int mid = (higher + lower) / 2;
-			if (t.get(mid).weight < weak)
-				lower = mid;
-			else
-				higher = mid;
-		}
-		if (t.get(higher).weight < weak)
-			return higher;
-		else if (t.get(lower).weight < weak)
-			return lower;
-		return -1;
-	}
-
-	public static int getSizeIndex (ArrayList<Toy> t, int small) {
-		int lower = 0;
-		int higher = t.size() - 1;
-		while (higher - lower > 1) {
-			int mid = (higher + lower) / 2;
-			if (t.get(mid).size < small)
-				lower = mid;
-			else
-				higher = mid;
-		}
-		if (t.get(higher).size < small)
-			return higher;
-		else if (t.get(lower).size < small)
-			return lower;
-		return -1;
-	}
-
-	static class Toy {
-		int weight;
-		int size;
+	static class Toy implements Comparable<Toy> {
+		int weight, size;
 
 		Toy (int weight, int size) {
 			this.weight = weight;
 			this.size = size;
+		}
+
+		@Override
+		public int compareTo (Toy o) {
+			return size == o.size ? o.weight - weight : o.size - size;
 		}
 	}
 
@@ -136,6 +125,10 @@ public class IOI_2013_Robots {
 
 	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
+	}
+
+	static char readCharacter () throws IOException {
+		return next().charAt(0);
 	}
 
 	static String readLine () throws IOException {

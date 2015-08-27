@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][] matrix;
 	static int[] pathS;

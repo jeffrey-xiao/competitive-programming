@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_Stage_2_Fast_Food {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] r;
 

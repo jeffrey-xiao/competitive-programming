@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class UTS_Open_P2_Generation {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps;
 	static StringTokenizer st;
 
@@ -41,11 +40,9 @@ public class UTS_Open_P2_Generation {
 		for (int y = 0; y < x; y++) {
 			int ran = (int) (Math.random() * 2);
 			if (ran == 0)
-				ps.println((char) (map1[y] + 'a') + " "
-						+ (char) (map2[y] + 'a'));
+				ps.println((char) (map1[y] + 'a') + " " + (char) (map2[y] + 'a'));
 			else
-				ps.println((char) (map2[y] + 'a') + " "
-						+ (char) (map1[y] + 'a'));
+				ps.println((char) (map2[y] + 'a') + " " + (char) (map1[y] + 'a'));
 		}
 		int q = Integer.parseInt(args[1]);
 		ps.println(q);

@@ -7,8 +7,7 @@ public class CCC_2011_S3 {
 
 	public static void main (String[] args) {
 		for (int x = scan.nextInt(); x > 0; x--) {
-			System.out.println(isCrystal(scan.nextInt(), scan.nextInt(),
-					scan.nextInt()) ? "crystal" : "empty");
+			System.out.println(isCrystal(scan.nextInt(), scan.nextInt(), scan.nextInt()) ? "crystal" : "empty");
 		}
 	}
 
@@ -21,10 +20,8 @@ public class CCC_2011_S3 {
 			return true;
 		} else if (newX == 2 && newY == 1) {
 			return true;
-		} else if (((newX == 1 || newX == 3) && newY == 1)
-				|| (newY == 2 && newX == 2))
-			return isCrystal(m - 1, (int) (x % (Math.pow(5, m) / 5)),
-					(int) (y % (Math.pow(5, m) / 5)));
+		} else if (((newX == 1 || newX == 3) && newY == 1) || (newY == 2 && newX == 2))
+			return isCrystal(m - 1, (int) (x % (Math.pow(5, m) / 5)), (int) (y % (Math.pow(5, m) / 5)));
 		return false;
 	}
 }

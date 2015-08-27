@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_SKAKAVAC_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int n, r, c;
 	static int[] poss = {-1, 1};
@@ -54,17 +52,13 @@ public class COCI_2008_SKAKAVAC_2 {
 				// System.out.println(p[y].x + " " + p[y].y);
 				short max = p[y].dp;
 				if (p[y].x > 0)
-					max = (short) Math.max(max,
-							1 + getMax(br, p[y].x - 1, p[y]));
+					max = (short) Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
 				if (p[y].x + 1 < n)
-					max = (short) Math.max(max,
-							1 + getMax(br, p[y].x + 1, p[y]));
+					max = (short) Math.max(max, 1 + getMax(br, p[y].x + 1, p[y]));
 				if (p[y].y > 0)
-					max = (short) Math.max(max,
-							1 + getMax(bc, p[y].y - 1, p[y]));
+					max = (short) Math.max(max, 1 + getMax(bc, p[y].y - 1, p[y]));
 				if (p[y].y + 1 < n)
-					max = (short) Math.max(max,
-							1 + getMax(bc, p[y].y + 1, p[y]));
+					max = (short) Math.max(max, 1 + getMax(bc, p[y].y + 1, p[y]));
 				p[y].dp = max;
 				total = Math.max(p[y].dp, total);
 			}
@@ -87,8 +81,7 @@ public class COCI_2008_SKAKAVAC_2 {
 
 	private static short getMax (State[][] a, int i, Point p) {
 		for (int x = 0; x < 4; x++) {
-			if (Math.abs(p.y - a[i][x].y) <= 1
-					&& Math.abs(p.x - a[i][x].x) <= 1)
+			if (Math.abs(p.y - a[i][x].y) <= 1 && Math.abs(p.x - a[i][x].x) <= 1)
 				continue;
 			return a[i][x].dp;
 		}

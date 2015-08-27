@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Stalactites {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int N;
@@ -49,9 +47,7 @@ public class Glenforest_Stalactites {
 	}
 
 	static long query (int x1, int y1, int z1, int x2, int y2, int z2) {
-		return +query(x2, y2, z2) - query(x1, y2, z2) - query(x2, y1, z2)
-				- query(x2, y2, z1) + query(x1, y1, z2) + query(x2, y1, z1)
-				+ query(x1, y2, z1) - query(x1, y1, z1);
+		return +query(x2, y2, z2) - query(x1, y2, z2) - query(x2, y1, z2) - query(x2, y2, z1) + query(x1, y1, z2) + query(x2, y1, z1) + query(x1, y2, z1) - query(x1, y1, z1);
 	}
 
 	static void update (int indx, int indy, int indz, long value) {

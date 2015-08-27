@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_Stage_2_Cheap_Gas {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] movex = {0, 0, -1, 1};
@@ -71,8 +69,7 @@ public class CCC_2003_Stage_2_Cheap_Gas {
 
 					if (cost[curr.x][curr.y] != 1 << 30) {
 						for (int nf = curr.fuel - 1; nf <= f - 1; nf++) {
-							double newCost = (nf - (curr.fuel - 1))
-									* cost[curr.x][curr.y] + curr.cost;
+							double newCost = (nf - (curr.fuel - 1)) * cost[curr.x][curr.y] + curr.cost;
 							int newFuel = nf;
 
 							if (newFuel < 0 || dp[nx][ny][newFuel] <= newCost)

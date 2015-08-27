@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_J1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -16,8 +15,7 @@ public class CCC_2006_J1 {
 		int[] s = {100, 57, 70, 0};
 		int[] dr = {130, 160, 118, 0};
 		int[] ds = {167, 266, 75, 0};
-		System.out.printf("Your total Calorie count is %d.", b[readInt() - 1]
-				+ s[readInt() - 1] + dr[readInt() - 1] + ds[readInt() - 1]);
+		System.out.printf("Your total Calorie count is %d.", b[readInt() - 1] + s[readInt() - 1] + dr[readInt() - 1] + ds[readInt() - 1]);
 	}
 
 	static String next () throws IOException {

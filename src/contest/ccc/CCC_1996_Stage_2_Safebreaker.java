@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1996_Stage_2_Safebreaker {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -34,18 +33,14 @@ public class CCC_1996_Stage_2_Safebreaker {
 							for (int x = 0; x < n; x++) {
 								int correct = guesses[x][0];
 								int misplace = guesses[x][1];
-								int numCorrect = getCorrect(new int[] {a, b,
-										c, d}, nums[x]);
-								int numMisplaced = getMisplaced(new int[] {a,
-										b, c, d}, nums[x]);
+								int numCorrect = getCorrect(new int[] {a, b, c, d}, nums[x]);
+								int numMisplaced = getMisplaced(new int[] {a, b, c, d}, nums[x]);
 								/*
 								 * if(a==3&&b==4&&c==1&&(d==0||d==1)){
 								 * System.out.println(numCorrect + " " +
 								 * numMisplaced); }
 								 */
-								if (correct != numCorrect
-										|| misplace != numMisplaced
-												- numCorrect) {
+								if (correct != numCorrect || misplace != numMisplaced - numCorrect) {
 									continue inner;
 								}
 							}

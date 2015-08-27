@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_CUDOVISTE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -29,8 +28,7 @@ public class COCI_2009_CUDOVISTE {
 					count++;
 				if (g[x - 1][y - 1] == 'X')
 					count++;
-				if (g[x][y] != '#' && g[x - 1][y] != '#' && g[x][y - 1] != '#'
-						&& g[x - 1][y - 1] != '#')
+				if (g[x][y] != '#' && g[x - 1][y] != '#' && g[x][y - 1] != '#' && g[x - 1][y - 1] != '#')
 					counts[count]++;
 			}
 		}

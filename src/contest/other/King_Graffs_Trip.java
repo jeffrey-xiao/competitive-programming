@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class King_Graffs_Trip {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int source;
 	static int dest;
@@ -44,8 +43,7 @@ public class King_Graffs_Trip {
 		System.out.println(shortest == Long.MAX_VALUE ? -1 : shortest);
 	}
 
-	private static long shortestPath (ArrayList<ArrayList<Edge>> adjlist, int s,
-			int d) {
+	private static long shortestPath (ArrayList<ArrayList<Edge>> adjlist, int s, int d) {
 		long[] min = new long[n];
 		for (int x = 0; x < n; x++) {
 			if (x != s)
@@ -77,11 +75,9 @@ public class King_Graffs_Trip {
 				min[next.dest] = maxShrineTime;
 
 				if (shrines.contains(next.dest))
-					moves.offer(new Vertex(next.dest, nextTime, maxShrineTime,
-							0));
+					moves.offer(new Vertex(next.dest, nextTime, maxShrineTime, 0));
 				else
-					moves.offer(new Vertex(next.dest, nextTime, maxShrineTime,
-							shrineTime));
+					moves.offer(new Vertex(next.dest, nextTime, maxShrineTime, shrineTime));
 			}
 		}
 		return min[d];

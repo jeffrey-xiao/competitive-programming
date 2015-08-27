@@ -17,11 +17,8 @@ public class MockCCC_2014_J3 {
 			parsed += "0" + (int) h / 30 + ":";
 		else
 			parsed += (int) h / 30 + ":";
-		parsed += (((m / 6.0) % 60) < 10 ? "0" + (int) ((m / 6.0) % 60)
-				: (int) (m / 6.0) % 60) + ":";
-		parsed += Math.round((s / 6.0) % 60) < 10 ? "0"
-				+ (int) Math.round((s / 6.0) % 60) : (int) Math
-				.round((s / 6.0) % 60);
+		parsed += (((m / 6.0) % 60) < 10 ? "0" + (int) ((m / 6.0) % 60) : (int) (m / 6.0) % 60) + ":";
+		parsed += Math.round((s / 6.0) % 60) < 10 ? "0" + (int) Math.round((s / 6.0) % 60) : (int) Math.round((s / 6.0) % 60);
 
 		System.out.println(parsed);
 

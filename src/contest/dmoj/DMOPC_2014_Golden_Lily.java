@@ -19,8 +19,7 @@ public class DMOPC_2014_Golden_Lily {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
@@ -52,8 +51,7 @@ public class DMOPC_2014_Golden_Lily {
 			for (int z = 0; z < 3; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
-				if (nx >= 0 && nx < l && ny >= 0 && ny < d
-						&& min[ny][nx] > curr.min + grid[ny][nx]) {
+				if (nx >= 0 && nx < l && ny >= 0 && ny < d && min[ny][nx] > curr.min + grid[ny][nx]) {
 					min[ny][nx] = curr.min + grid[ny][nx];
 					pq.offer(new State(nx, ny, min[ny][nx]));
 				}

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class DWITE_2005_Sum_Em_Up {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

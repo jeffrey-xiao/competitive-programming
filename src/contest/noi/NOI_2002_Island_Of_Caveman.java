@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class NOI_2002_Island_Of_Caveman {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	// (S1 + Ax) mod m = (S2 + By) mod m
@@ -21,67 +19,55 @@ public class NOI_2002_Island_Of_Caveman {
 	// (S1 - S2 + Ax - By) mod m = 0;
 	// Ax - By = m*n - (S1 - S2)
 
-	//
+	static int n, max;
+	static int[] start, move, life;
 
-	static int n;
-	static int[] start;
-	static int[] move;
-	static int[] life;
-
-	@SuppressWarnings ("unused")
 	public static void main (String[] args) throws IOException {
 		n = readInt();
-		int max = 0;
 		start = new int[n];
 		move = new int[n];
 		life = new int[n];
+
 		for (int x = 0; x < n; x++) {
-			start[x] = readInt() - 1;
-			max = Math.max(max, start[x]);
+			start[x] = readInt();
 			move[x] = readInt();
 			life[x] = readInt();
+			max = Math.max(max, start[x]);
 		}
-		max++;
-		for (int x = 0; x < n; x++) {
-			for (int y = x + 1; y < n; y++) {
-				for (int m = max; m <= 1000000; m++) {
-					extended(move[x], -move[y]);
-					State s1 = new State(x1, y1, d);
-					System.out.println(x1 + " " + y1 + " " + d + " " + move[x]
-							+ " " + move[y]);
-					// form in Z(n1) - m*n2 = k
-					int k = -(move[x] - move[y]);
 
-					extended(d, -m);
-					System.out.println(k + " " + x1 + " " + y1 + " " + s1.d
-							+ " " + m + " " + d);
-					int mult = Math.abs(k * d) / gcf(k, d);
-					System.out.println(mult);
-					int moveX = mult * x1;
-					int moveY = mult * y1;
-					System.out.println(moveX + " " + moveY);
-					if (moveY == 0 || moveX == 0) {
-						int lcm = lcm(d, -m);
-						moveX += lcm / d;
-						moveY += lcm / m;
+		main : for (int b = max;; b++) {
+			for (int x = 0; x < n; x++) {
+				for (int y = x + 1; y < n; y++) {
+					int a = move[x] - move[y];
+					int c = start[y] - start[x];
+
+					extended(a, -b);
+
+					// System.out.println(a + " " + b + " " + c + " " + x1 + " "
+					// + y1 + " " + d);
+					if (c % d != 0) {
+						// System.out.println(x + " " + y + " " + b + " WORKS");
+						continue;
 					}
-					System.out.println(moveX + " " + moveY);
-					int finalX = moveX * s1.x;
-					int finalY = moveX * s1.y;
-					System.out.println(finalX + " " + finalY + " " + max);
-					return;
+					int lcm = Math.abs(lcm(a, b));
+					x1 = x1 * (c / d);
+					y1 = y1 * (c / d);
+					// System.out.println(a*x1 + " " + (b*y1) + " " + c);
+					int amount = a < 0 ? (-lcm / a) : (lcm / a);
+					while (x1 < 0) {
+						x1 += amount;
+					}
+					while (x1 - amount > 0)
+						x1 -= amount;
+					// System.out.println(a*x1 + " " + (b*y1) + " " + c);
+					// System.out.printf("A: %d; B: %d; C: %d; X: %d; Y: %d; Life1: %d; Life2: %d\n",
+					// a, b, c, x1, y1, life[x], life[y]);
+					if (x1 <= life[x] && x1 <= life[y])
+						continue main;
 				}
 			}
-		}
-	}
-
-	static class State {
-		int x, y, d;
-
-		State (int x, int y, int d) {
-			this.x = x;
-			this.y = y;
-			this.d = d;
+			System.out.println(b);
+			return;
 		}
 	}
 

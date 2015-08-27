@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class ACM_Reverse_Fox_Hunt {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj;
 	static int r;

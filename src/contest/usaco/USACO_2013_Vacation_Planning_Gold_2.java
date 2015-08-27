@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Vacation_Planning_Gold_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n = 0;
 	static int[][] minDistanceTo = null;
@@ -57,8 +56,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 			for (int y = 0; y < k; y++) {
 				int dist1 = minDistanceTo[a][y];
 				int dist2 = minDistanceFrom[b][y];
-				if ((a != hubs.get(y) && dist1 == 0)
-						|| (b != hubs.get(y) && dist2 == 0))
+				if ((a != hubs.get(y) && dist1 == 0) || (b != hubs.get(y) && dist2 == 0))
 					continue;
 				min = Math.min(min, dist1 + dist2);
 			}
@@ -79,8 +77,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 		 */
 	}
 
-	private static void shortest_path (int i,
-			ArrayList<ArrayList<int[]>> adjlist, int index, boolean isStraight) {
+	private static void shortest_path (int i, ArrayList<ArrayList<int[]>> adjlist, int index, boolean isStraight) {
 		// System.out.println("ASLHFLASKJFAS");
 		int[] min = new int[n];
 		for (int x = 0; x < n; x++)
@@ -97,8 +94,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 			else
 				minDistanceFrom[curr.index][index] = curr.cost;
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {
-				Vertex next = new Vertex(adjlist.get(curr.index).get(x)[0],
-						adjlist.get(curr.index).get(x)[1] + curr.cost);
+				Vertex next = new Vertex(adjlist.get(curr.index).get(x)[0], adjlist.get(curr.index).get(x)[1] + curr.cost);
 				// System.out.println(curr.index + " " + next.index + " " +
 				// next.cost);
 				if (min[next.index] > next.cost) {

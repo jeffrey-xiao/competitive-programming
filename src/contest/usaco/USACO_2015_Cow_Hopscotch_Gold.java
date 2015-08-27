@@ -10,10 +10,8 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class USACO_2015_Cow_Hopscotch_Gold {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int MOD = 1000000007;
@@ -67,12 +65,9 @@ public class USACO_2015_Cow_Hopscotch_Gold {
 				int id = g[i][j];
 				int x = toCx[id].get(i);
 				int y = toCy[id].get(j);
-				sum = (prefix[i - 1][j - 1] - query(x - 1, y - 1, bit[id]))
-						% MOD;
+				sum = (prefix[i - 1][j - 1] - query(x - 1, y - 1, bit[id])) % MOD;
 				update(x, y, bit[id], sum);
-				prefix[i][j] = (((sum + prefix[i - 1][j]) % MOD + prefix[i][j - 1])
-						% MOD - prefix[i - 1][j - 1])
-						% MOD;
+				prefix[i][j] = (((sum + prefix[i - 1][j]) % MOD + prefix[i][j - 1]) % MOD - prefix[i - 1][j - 1]) % MOD;
 			}
 		}
 		if (sum < 0)

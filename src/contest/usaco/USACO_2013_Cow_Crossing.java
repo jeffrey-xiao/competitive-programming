@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Cow_Crossing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -38,8 +36,7 @@ public class USACO_2013_Cow_Crossing {
 		int count = n;
 
 		for (int x = 0; x < n; x++) {
-			if ((x != 0 && left[x - 1] > c[x].y)
-					|| (x != n - 1 && right[x + 1] < c[x].y))
+			if ((x != 0 && left[x - 1] > c[x].y) || (x != n - 1 && right[x + 1] < c[x].y))
 				count--;
 		}
 		System.out.println(count);

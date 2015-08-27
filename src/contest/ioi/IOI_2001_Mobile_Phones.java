@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2001_Mobile_Phones {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][] tree;
 	static int n;
@@ -35,8 +34,7 @@ public class IOI_2001_Mobile_Phones {
 				int x2 = readInt() + 1;
 				int y2 = readInt() + 1;
 				// System.out.printf("%d %d %d %d\n",freqTo(x2,y2),freqTo(x1,y1),freqTo(x1,y2),freqTo(x2,y1));
-				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2)
-						- freqTo(x2, y1);
+				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2) - freqTo(x2, y1);
 				System.out.println(total);
 			}
 			command = readInt();

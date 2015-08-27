@@ -34,9 +34,7 @@ public class MockCCC_2014_J5 {
 		moves.add(new int[] {0, r1, c1, 0});
 		while (!moves.isEmpty()) {
 			int[] curr = moves.poll();
-			if (curr[1] < 0 || curr[1] >= r || curr[2] < 0 || curr[2] >= c
-					|| states[curr[3]][curr[1]][curr[2]] == 'X'
-					|| visited[curr[3]][curr[1]][curr[2]]) {
+			if (curr[1] < 0 || curr[1] >= r || curr[2] < 0 || curr[2] >= c || states[curr[3]][curr[1]][curr[2]] == 'X' || visited[curr[3]][curr[1]][curr[2]]) {
 				// System.out.printf("%d %d %d %d\n", curr[3], curr[2], curr[1],
 				// curr[0]);
 				continue;

@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_CUSKIJA {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -33,8 +31,7 @@ public class COCI_2008_CUSKIJA {
 			else
 				two.add(a);
 		}
-		if (count[0] >= 2 + count[1] + count[2]
-				|| (count[1] >= 1 && count[2] >= 1 && count[0] == 0)) {
+		if (count[0] >= 2 + count[1] + count[2] || (count[1] >= 1 && count[2] >= 1 && count[0] == 0)) {
 			System.out.println("impossible");
 		} else {
 			if (count[0] == 0) {

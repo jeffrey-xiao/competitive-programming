@@ -5,8 +5,13 @@ TASK: movie
  */
 package contest.usaco;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class USACO_2015_Moovie_Mooving {
 	static BufferedReader br;
@@ -47,10 +52,8 @@ public class USACO_2015_Moovie_Mooving {
 					Integer nextMovie = ts.get(y).floor(dp[x]);
 					if (nextMovie == null || nextMovie + times[y] < dp[x])
 						continue;
-					System.out.println(dp[x] + " " + nextMovie + " "
-							+ dp[x | (1 << y)]);
-					dp[x | (1 << y)] = Math.max(dp[x | (1 << y)], nextMovie
-							+ times[y]);
+					System.out.println(dp[x] + " " + nextMovie + " " + dp[x | (1 << y)]);
+					dp[x | (1 << y)] = Math.max(dp[x | (1 << y)], nextMovie + times[y]);
 					System.out.println(dp[x | (1 << y)]);
 				}
 			}

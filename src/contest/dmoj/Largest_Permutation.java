@@ -1,7 +1,11 @@
 package contest.dmoj;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Largest_Permutation {
 
@@ -33,7 +37,6 @@ public class Largest_Permutation {
 			int swaps = 0;
 			for (int i = 1; i <= n && swaps < k; i++) {
 				State s = query(i + 1, n, 1);
-				// System.out.println(s.max + " HERE " + s.index);
 				if (s.max > a[i]) {
 					int temp = a[i];
 					a[i] = s.max;

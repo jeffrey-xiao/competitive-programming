@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_Stage_2_Number_Matrix {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -28,8 +27,7 @@ public class CCC_2005_Stage_2_Number_Matrix {
 					Queue<Point> moves = new LinkedList<Point>();
 					boolean visited[][] = new boolean[r][c];
 					for (int y = 0; y < c; y++) {
-						if (grid[0][y] == i || grid[0][y] == j
-								|| grid[0][y] == k) {
+						if (grid[0][y] == i || grid[0][y] == j || grid[0][y] == k) {
 							moves.offer(new Point(0, y));
 							visited[0][y] = true;
 						}
@@ -44,11 +42,9 @@ public class CCC_2005_Stage_2_Number_Matrix {
 						for (int z = 0; z < 4; z++) {
 							int nx = curr.x + movex[z];
 							int ny = curr.y + movey[z];
-							if (nx < 0 || ny < 0 || nx >= r || ny >= c
-									|| visited[nx][ny])
+							if (nx < 0 || ny < 0 || nx >= r || ny >= c || visited[nx][ny])
 								continue;
-							if (grid[nx][ny] == i || grid[nx][ny] == j
-									|| grid[nx][ny] == k) {
+							if (grid[nx][ny] == i || grid[nx][ny] == j || grid[nx][ny] == k) {
 								visited[nx][ny] = true;
 								moves.offer(new Point(nx, ny));
 							}

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class Divisibility_Rules {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -29,9 +28,7 @@ public class Divisibility_Rules {
 			if (-smallestNValue == smallestPValue)
 				System.out.println("+" + smallestPValue);
 			else
-				System.out
-						.println(-smallestNValue < smallestPValue ? ("+" + (-smallestNValue))
-								: "-" + smallestPValue);
+				System.out.println(-smallestNValue < smallestPValue ? ("+" + (-smallestNValue)) : "-" + smallestPValue);
 		}
 	}
 

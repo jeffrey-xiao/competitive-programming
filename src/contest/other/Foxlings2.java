@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class Foxlings2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static HashMap<Integer, Integer> hs = new HashMap<Integer, Integer>();
 

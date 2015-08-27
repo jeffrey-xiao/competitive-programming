@@ -14,8 +14,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2000_J5_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static Map<Integer, String> m = new HashMap<Integer, String>();
 	static Map<String, Integer> rm = new HashMap<String, Integer>();
@@ -64,8 +63,7 @@ public class CCC_2000_J5_S3 {
 		String s2 = readLine();
 		while (!s1.equals("The End")) {
 			// System.out.println(s1 + " " + s2);
-			System.out.printf("%s surf from %s to %s\n",
-					bfs(rm.get(s1), rm.get(s2)) ? "Can" : "Can't", s1, s2);
+			System.out.printf("%s surf from %s to %s\n", bfs(rm.get(s1), rm.get(s2)) ? "Can" : "Can't", s1, s2);
 
 			// System.out.println(rm.get(s1) + " " + rm.get(s2));
 			s1 = readLine();

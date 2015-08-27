@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Horseshoes {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -29,8 +28,7 @@ public class USACO_2012_Horseshoes {
 		}
 	}
 
-	private static void compute (int x, int y, boolean[][] v, char[][] g,
-			int open, int close, boolean onOpen) {
+	private static void compute (int x, int y, boolean[][] v, char[][] g, int open, int close, boolean onOpen) {
 		if (open == close)
 			max = Math.max(open * 2, max);
 
@@ -39,8 +37,7 @@ public class USACO_2012_Horseshoes {
 			int nextx = movex[z] + x;
 			int nexty = movey[z] + y;
 
-			if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n
-					|| v[nextx][nexty])
+			if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n || v[nextx][nexty])
 				continue;
 			// System.out.println(x + " " + y + " " + nextx + " " + nexty);
 			if (g[nextx][nexty] == '(' && !onOpen)

@@ -15,8 +15,7 @@ public class CCC_2000_J4_S2 {
 			if (x == 99) {
 				int index = scan.nextInt() - 1;
 				int percent = scan.nextInt();
-				a.add(index + 1,
-						(float) (a.get(index) * ((100.0 - percent)) / 100.0));
+				a.add(index + 1, (float) (a.get(index) * ((100.0 - percent)) / 100.0));
 				a.set(index, (float) (a.get(index) * (percent / 100.0)));
 			} else {
 				int index = scan.nextInt() - 1;

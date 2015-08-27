@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_P1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] cards;
 
@@ -59,12 +58,10 @@ public class CCC_1999_P1 {
 				points = checkHigh(x, 1) ? 1 : 0;
 			if (points > 0) {
 				if (turnA) {
-					System.out.println("Player A scores " + points
-							+ " point(s).");
+					System.out.println("Player A scores " + points + " point(s).");
 					pointsA += points;
 				} else {
-					System.out.println("Player B scores " + points
-							+ " point(s).");
+					System.out.println("Player B scores " + points + " point(s).");
 					pointsB += points;
 				}
 			}

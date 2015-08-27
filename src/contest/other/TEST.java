@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class TEST extends Thread {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int index;
 
@@ -199,8 +198,7 @@ public class TEST extends Thread {
 			for (int w = 0; w <= W; w++) {
 				matrix[i][w] = Math.max(matrix[i][w], matrix[i - 1][w]);
 				if (wt[i] + w <= W)
-					matrix[i][w + wt[i]] = Math.max(val[i] + matrix[i][w],
-							matrix[i][w]);
+					matrix[i][w + wt[i]] = Math.max(val[i] + matrix[i][w], matrix[i][w]);
 			}
 		}
 		return matrix[n][W];

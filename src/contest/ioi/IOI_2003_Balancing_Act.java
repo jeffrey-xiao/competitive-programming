@@ -7,64 +7,80 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class IOI_2003_Balancing_Act {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static boolean[] visited = new boolean[0];
+	static int min = Integer.MAX_VALUE;
+	static Node[] nodes;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
-		ArrayList<ArrayList<Integer>> nodes = new ArrayList<ArrayList<Integer>>();
-
-		for (int x = 0; x < n; x++)
-			nodes.add(new ArrayList<Integer>());
-		for (int x = 0; x < n - 1; x++) {
-
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			nodes.get(a).add(b);
-			nodes.get(b).add(a);
-		}
-		/*
-		 * for(int x = 0; x < nodes.size(); x++){ System.out.print(x+1 + " : ");
-		 * for(int y = 0; y < nodes.get(x).size(); y++)
-		 * System.out.print(nodes.get(x).get(y)+1 + " "); System.out.println();
-		 * }
-		 */
-		int length = Integer.MAX_VALUE;
-		int index = 0;
-		for (int y = 0; y < n; y++) {
-			visited = new boolean[n];
-			int exLength = -1;
-			int exIndex = 0;
-			for (int x = 0; x < n; x++) {
-				if (x != y) {
-					int newLength = getLength(nodes, x, y, 0);
-					if (newLength > exLength) {
-						exLength = newLength;
-						exIndex = y;
-					}
-					// System.out.println((y+1) + " " + (x+1) + " " +
-					// newLength);
+		boolean[] added = new boolean[n];
+		nodes = new Node[n];
+		added[0] = true;
+		Node u = new Node(null, -1);
+		u.size = 0;
+		nodes[0] = new Node(u, 0);
+		ArrayList<int[]> edges = new ArrayList<int[]>();
+		for (int x = 0; x < n - 1; x++)
+			edges.add(new int[] {readInt() - 1, readInt() - 1});
+		while (!edges.isEmpty()) {
+			for (int x = edges.size() - 1; x >= 0; x--) {
+				int[] curr = edges.get(x);
+				if (added[curr[0]]) {
+					nodes[curr[1]] = new Node(nodes[curr[0]], curr[1]);
+					nodes[curr[0]].child.add(nodes[curr[1]]);
+					added[curr[1]] = true;
+					edges.remove(x);
+				} else if (added[curr[1]]) {
+					nodes[curr[0]] = new Node(nodes[curr[1]], curr[0]);
+					nodes[curr[1]].child.add(nodes[curr[0]]);
+					added[curr[0]] = true;
+					edges.remove(x);
 				}
 			}
-			if (exLength < length) {
-				index = exIndex;
-				length = exLength;
+		}
+		update(nodes[0]);
+		int pos = 0;
+		for (int x = 0; x < nodes.length; x++) {
+			int curr = getMin(nodes[x]);
+			if (curr < min) {
+				min = curr;
+				pos = x;
 			}
 		}
-		System.out.println((index + 1) + " " + (length + 1));
+		System.out.println(pos + 1 + " " + min);
 	}
 
-	private static int getLength (ArrayList<ArrayList<Integer>> nodes, int curr,
-			int ex, int num) {
-		// System.out.println("IN DFS " + (curr+1) + " " + (ex+1) + " ");
-		if (visited[curr] || curr == ex)
-			return num - 1;
-		visited[curr] = true;
-		for (int z : nodes.get(curr))
-			num = getLength(nodes, z, ex, num + 1);
-		return num;
+	private static int getMin (Node node) {
+		int max = nodes[0].size - node.size;
+		for (int x = 0; x < node.child.size(); x++) {
+			max = Math.max(node.child.get(x).size, max);
+		}
+		return max;
+	}
+
+	private static int update (Node node) {
+		int size = 1;
+		for (int x = 0; x < node.child.size(); x++) {
+			// System.out.println(node.child.get(x).id);
+			size += update(node.child.get(x));
+		}
+		node.size = size;
+		return size;
+	}
+
+	static class Node {
+		Node parent;
+		int size;
+		int id;
+		ArrayList<Node> child;
+
+		Node (Node parent, int id) {
+			this.parent = parent;
+			this.id = id;
+			child = new ArrayList<Node>();
+		}
 	}
 
 	static String next () throws IOException {

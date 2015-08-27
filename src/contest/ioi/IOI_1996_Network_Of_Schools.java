@@ -12,8 +12,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1996_Network_Of_Schools {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<ArrayList<Integer>> rev = new ArrayList<ArrayList<Integer>>();

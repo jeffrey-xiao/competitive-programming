@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Tenri {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[][] dp = new int[1 << 11][16];
@@ -84,8 +82,7 @@ public class Tenri {
 		return c;
 	}
 
-	private static void generateSubsets (int s, int b, int res,
-			HashSet<Pair> subsets) {
+	private static void generateSubsets (int s, int b, int res, HashSet<Pair> subsets) {
 		if (s == n) {
 			if (Integer.bitCount(res) % 2 == 1)
 				subsets.add(new Pair(res, b & (~res)));

@@ -7,56 +7,30 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_Stage_2_Segments {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static Interval[] l;
-	static int dp[][];
-	static int n;
 
 	public static void main (String[] args) throws IOException {
-		n = readInt();
-		l = new Interval[n];
-		// dp = new int[n+1][n+1];
-		for (int x = 0; x < n; x++) {
+		int n = readInt();
+		Interval[] l = new Interval[n + 1];
+		for (int x = 1; x <= n; x++) {
 			int lo = readInt();
 			int hi = readInt();
 			l[x] = new Interval(lo, hi);
 		}
-		System.out.println(compute(1, 0) + n - 1);
-	}
-
-	private static int compute (int i, int r) {
-
-		// if(dp[i][r] > 0)
-		// return dp[i][r];
-		int min = Integer.MAX_VALUE;
-		if (i <= l[r].lo) {
-			if (r == n - 1)
-				min = Math.min(min, l[r].hi - i + (n - l[r].hi));
-			else
-				min = Math.min(min, l[r].hi - i + compute(l[r].hi, r + 1));
-		} else if (i >= l[r].hi) {
-			if (r == n - 1)
-				min = Math.min(min, i - l[r].lo + (n - l[r].lo));
-			else
-				min = Math.min(min, i - l[r].lo + compute(l[r].lo, r + 1));
-		} else {
-			if (r == n - 1) {
-				min = Math.min(min, l[r].hi - l[r].lo + i - l[r].lo + n
-						- l[r].lo);
-				min = Math.min(min, l[r].hi - l[r].lo + l[r].hi - i + n
-						- l[r].hi);
-			} else {
-				int a = l[r].hi - l[r].lo + i - l[r].lo;
-				int b = l[r].hi - l[r].lo + l[r].hi - i;
-				min = Math.min(min, a + compute(l[r].lo, r + 1));
-				min = Math.min(min, b + compute(l[r].hi, r + 1));
-			}
+		int costLL = n - l[n].lo;
+		int costLR = (l[n].hi - l[n].lo) + (n - l[n].lo);
+		// System.out.println(costLL + " " + costLR);
+		for (int x = n - 1; x >= 1; x--) {
+			int a = Math.min(Math.abs(l[x + 1].lo - l[x].hi) + costLL, Math.abs(l[x + 1].hi - l[x].hi) + costLR);
+			int b = Math.min(Math.abs(l[x + 1].lo - l[x].lo) + costLL, Math.abs(l[x + 1].hi - l[x].lo) + costLR);
+			int c = 1 + l[x].hi - l[x].lo;
+			int costL = c + a;
+			costLR = c + b;
+			costLL = costL;
+			// System.out.println(costLR + " " + costLL + " " + a + " " + b);
 		}
-		// dp[i][r] = min;
-		// System.out.println(i + " " + r + " " + min);
-		return min;
+		System.out.println(Math.min(costLL + l[1].lo - 1, costLR + l[1].hi - 1));
 	}
 
 	static class Interval {

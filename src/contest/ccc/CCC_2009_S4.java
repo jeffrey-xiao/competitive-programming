@@ -4,80 +4,79 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class CCC_2009_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
+	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 
 	public static void main (String[] args) throws IOException {
-		int numOfCities = readInt();
-		int numOfRoutes = readInt();
-		int[] cities = new int[numOfCities];
-		boolean[] visited = new boolean[numOfCities];
-		ArrayList<ArrayList<int[]>> adjlist = new ArrayList<ArrayList<int[]>>();// 0
-																				// is
-																				// connected
-																				// to,
-																				// 1
-																				// cost,
-																				// 2
-																				// danger
-		for (int x = 0; x < numOfCities; x++) {
-			adjlist.add(new ArrayList<int[]>());
-			cities[x] = 10000000;
+		int n = readInt();
+		int m = readInt();
+		int[] min = new int[n];
+		for (int x = 0; x < n; x++) {
+			adj.add(new ArrayList<Edge>());
+			min[x] = Integer.MAX_VALUE;
 		}
-
-		for (int x = 0; x < numOfRoutes; x++) {
+		for (int x = 0; x < m; x++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			if (a < numOfCities && b < numOfCities) {
-				adjlist.get(a).add(new int[] {b, c});
-				adjlist.get(b).add(new int[] {a, c});
-			}
+			adj.get(a).add(new Edge(b, c));
+			adj.get(b).add(new Edge(a, c));
 		}
-		int shops = readInt();
-		int min = 10000000;
-		int index = 0;
-		for (int x = 0; x < shops; x++) {
+		PriorityQueue<Vertex> pq = new PriorityQueue<Vertex>();
+		int k = readInt();
+		for (int x = 0; x < k; x++) {
 			int a = readInt() - 1;
 			int b = readInt();
-			cities[a] = b;
-			if (b < min) {
-				min = b;
-				index = a;
+			if (b < min[a]) {
+				min[a] = b;
+				pq.offer(new Vertex(a, b));
 			}
 		}
-		int destination = readInt() - 1;
-		while (index != -1 && index != destination) {
-			// System.out.println("INDEX: " + index);
-			visited[index] = true;
-			for (int x = 0; x < adjlist.get(index).size(); x++) {
-				int[] conn = adjlist.get(index).get(x);
-				if (!visited[conn[0]]) {
+		int d = readInt() - 1;
+		while (!pq.isEmpty()) {
+			Vertex curr = pq.poll();
+			if (curr.index == d)
+				break;
+			for (int x = 0; x < adj.get(curr.index).size(); x++) {
+				Edge next = adj.get(curr.index).get(x);
+				if (next.cost + curr.cost >= min[next.dest])
+					continue;
+				min[next.dest] = next.cost + curr.cost;
+				pq.offer(new Vertex(next.dest, min[next.dest]));
+			}
+		}
+		System.out.println(min[d]);
+	}
 
-					if (conn[1] + cities[index] < cities[conn[0]]) {
-						// System.out.println("MODIFY " + conn[0] + " " +
-						// conn[1] + " " + cities[index]);
-						cities[conn[0]] = conn[1] + cities[index];
-						// System.out.println("AFTER MODIFY " +
-						// cities[conn[0]]);
-					}
-				}
-			}
-			index = -1;
-			min = 10000000;
-			for (int x = 0; x < numOfCities; x++) {
-				if (!visited[x] && cities[x] < min) {
-					min = cities[x];
-					index = x;
-				}
-			}
+	static class Vertex implements Comparable<Vertex> {
+		int index;
+		int cost;
+
+		Vertex (int index, int cost) {
+			this.index = index;
+			this.cost = cost;
 		}
-		System.out.println(cities[destination]);
+
+		@Override
+		public int compareTo (Vertex o) {
+			return cost - o.cost;
+		}
+	}
+
+	static class Edge {
+		int dest;
+		int cost;
+
+		Edge (int dest, int cost) {
+			this.dest = dest;
+			this.cost = cost;
+		}
 	}
 
 	static String next () throws IOException {

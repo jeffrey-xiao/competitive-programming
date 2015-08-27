@@ -16,11 +16,7 @@ class CCC_2005_J4 {
 		for (int x = 0; x < board.length; x++) {
 			for (int y = 0; y < board[x].length; y++) {
 				board[x][y] = 1;
-				if ((x < length && y < width)
-						|| (x < length && y > board[x].length - width - 1)
-						|| (x > board.length - length - 1 && y < width)
-						|| (x > board.length - length - 1 && y > board[x].length
-								- width - 1)) {
+				if ((x < length && y < width) || (x < length && y > board[x].length - width - 1) || (x > board.length - length - 1 && y < width) || (x > board.length - length - 1 && y > board[x].length - width - 1)) {
 					board[x][y] = 0;
 				}
 			}
@@ -48,26 +44,21 @@ class CCC_2005_J4 {
 			 */
 			if (direction.equals("right")) {
 				// UP
-				if (location.getY() - 1 >= 0
-						&& board[(int) location.getY() - 1][(int) location
-								.getX()] == 1) {
+				if (location.getY() - 1 >= 0 && board[(int) location.getY() - 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() - 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "up";
 					continue;
 				}
 				// RIGHT
-				else if (location.getX() + 1 < board[0].length
-						&& board[(int) location.getY()][(int) location.getX() + 1] == 1) {
+				else if (location.getX() + 1 < board[0].length && board[(int) location.getY()][(int) location.getX() + 1] == 1) {
 					location.setLocation(location.getX() + 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "right";
 					continue;
 				}
 				// DOWN
-				else if (location.getY() + 1 < board.length
-						&& board[(int) location.getY() + 1][(int) location
-								.getX()] == 1) {
+				else if (location.getY() + 1 < board.length && board[(int) location.getY() + 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() + 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "down";
@@ -75,8 +66,7 @@ class CCC_2005_J4 {
 				}
 
 				// LEFT
-				else if (location.getX() - 1 >= 0
-						&& board[(int) location.getY()][(int) location.getX() - 1] == 1) {
+				else if (location.getX() - 1 >= 0 && board[(int) location.getY()][(int) location.getX() - 1] == 1) {
 					location.setLocation(location.getX() - 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "left";
@@ -84,34 +74,28 @@ class CCC_2005_J4 {
 				}
 			} else if (direction.equals("down")) {
 				// RIGHT
-				if (location.getX() + 1 < board[0].length
-						&& board[(int) location.getY()][(int) location.getX() + 1] == 1) {
+				if (location.getX() + 1 < board[0].length && board[(int) location.getY()][(int) location.getX() + 1] == 1) {
 					location.setLocation(location.getX() + 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "right";
 					continue;
 				}
 				// DOWN
-				else if (location.getY() + 1 < board.length
-						&& board[(int) location.getY() + 1][(int) location
-								.getX()] == 1) {
+				else if (location.getY() + 1 < board.length && board[(int) location.getY() + 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() + 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "down";
 					continue;
 				}
 				// LEFT
-				else if (location.getX() - 1 >= 0
-						&& board[(int) location.getY()][(int) location.getX() - 1] == 1) {
+				else if (location.getX() - 1 >= 0 && board[(int) location.getY()][(int) location.getX() - 1] == 1) {
 					location.setLocation(location.getX() - 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "left";
 					continue;
 				}
 				// UP
-				else if (location.getY() - 1 >= 0
-						&& board[(int) location.getY() - 1][(int) location
-								.getX()] == 1) {
+				else if (location.getY() - 1 >= 0 && board[(int) location.getY() - 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() - 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "up";
@@ -119,34 +103,28 @@ class CCC_2005_J4 {
 				}
 			} else if (direction.equals("left")) {
 				// DOWN
-				if (location.getY() + 1 < board.length
-						&& board[(int) location.getY() + 1][(int) location
-								.getX()] == 1) {
+				if (location.getY() + 1 < board.length && board[(int) location.getY() + 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() + 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "down";
 					continue;
 				}
 				// LEFT
-				else if (location.getX() - 1 >= 0
-						&& board[(int) location.getY()][(int) location.getX() - 1] == 1) {
+				else if (location.getX() - 1 >= 0 && board[(int) location.getY()][(int) location.getX() - 1] == 1) {
 					location.setLocation(location.getX() - 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "left";
 					continue;
 				}
 				// UP
-				else if (location.getY() - 1 >= 0
-						&& board[(int) location.getY() - 1][(int) location
-								.getX()] == 1) {
+				else if (location.getY() - 1 >= 0 && board[(int) location.getY() - 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() - 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "up";
 					continue;
 				}
 				// RIGHT
-				else if (location.getX() + 1 < board[0].length
-						&& board[(int) location.getY()][(int) location.getX() + 1] == 1) {
+				else if (location.getX() + 1 < board[0].length && board[(int) location.getY()][(int) location.getX() + 1] == 1) {
 					location.setLocation(location.getX() + 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "right";
@@ -154,34 +132,28 @@ class CCC_2005_J4 {
 				}
 			} else if (direction.equals("up")) {
 				// LEFT
-				if (location.getX() - 1 >= 0
-						&& board[(int) location.getY()][(int) location.getX() - 1] == 1) {
+				if (location.getX() - 1 >= 0 && board[(int) location.getY()][(int) location.getX() - 1] == 1) {
 					location.setLocation(location.getX() - 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "left";
 					continue;
 				}
 				// UP
-				if (location.getY() - 1 >= 0
-						&& board[(int) location.getY() - 1][(int) location
-								.getX()] == 1) {
+				if (location.getY() - 1 >= 0 && board[(int) location.getY() - 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() - 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "up";
 					continue;
 				}
 				// RIGHT
-				else if (location.getX() + 1 < board[0].length
-						&& board[(int) location.getY()][(int) location.getX() + 1] == 1) {
+				else if (location.getX() + 1 < board[0].length && board[(int) location.getY()][(int) location.getX() + 1] == 1) {
 					location.setLocation(location.getX() + 1, location.getY());
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "right";
 					continue;
 				}
 				// DOWN
-				else if (location.getY() + 1 < board.length
-						&& board[(int) location.getY() + 1][(int) location
-								.getX()] == 1) {
+				else if (location.getY() + 1 < board.length && board[(int) location.getY() + 1][(int) location.getX()] == 1) {
 					location.setLocation(location.getX(), location.getY() + 1);
 					board[(int) location.getY()][(int) location.getX()] = 0;
 					direction = "down";

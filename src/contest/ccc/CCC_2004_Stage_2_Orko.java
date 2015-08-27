@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_Stage_2_Orko {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static boolean[] isA;
@@ -76,16 +74,10 @@ public class CCC_2004_Stage_2_Orko {
 						// other player wins
 						if (k > j % 5) {
 							// System.out.println("LOST " + j + " " + next);
-							min = (byte) Math.min(
-									min,
-									size
-											- 1
-											- compute(i, !isATurn,
-													(byte) (size - 1)));
+							min = (byte) Math.min(min, size - 1 - compute(i, !isATurn, (byte) (size - 1)));
 						} else {
 							// System.out.println("WON " + j + " " + next);
-							min = (byte) Math.min(min,
-									1 + compute(i, isATurn, (byte) (size - 1)));
+							min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
 						}
 						i ^= 1 << next;
 					}
@@ -99,8 +91,7 @@ public class CCC_2004_Stage_2_Orko {
 
 						if ((i & 1 << k) != 0 && isA[k] != isATurn) {
 							i ^= (1 << k);
-							min = (byte) Math.min(min,
-									1 + compute(i, isATurn, (byte) (size - 1)));
+							min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
 							i ^= (1 << k);
 						}
 

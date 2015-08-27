@@ -15,8 +15,7 @@ import java.util.StringTokenizer;
 public class CCC_2010_Stage_2_Wowow {
 
 	static BufferedReader br;
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static HashMap<Integer, Integer> fromRating = new HashMap<Integer, Integer>();
 	static HashMap<Integer, Integer> fromId = new HashMap<Integer, Integer>();
@@ -25,10 +24,7 @@ public class CCC_2010_Stage_2_Wowow {
 	static int count;
 
 	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(
-				new FileReader(
-						new File(
-								"C:/Documents and Settings/Jeffrey/workspace/Contest_4/src/ccc/test.txt")));
+		br = new BufferedReader(new FileReader(new File("C:/Documents and Settings/Jeffrey/workspace/Contest_4/src/ccc/test.txt")));
 		int n = readInt();
 		Command[] c = new Command[n];
 		ArrayList<Integer> id = new ArrayList<Integer>();

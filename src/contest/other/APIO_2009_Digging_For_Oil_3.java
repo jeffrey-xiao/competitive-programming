@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class APIO_2009_Digging_For_Oil_3 {
 
-	static BufferedReader b = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[][] tl;
 	static int[][] tr;
@@ -34,8 +32,7 @@ public class APIO_2009_Digging_For_Oil_3 {
 		br = new int[r + 1][c + 1];
 		for (int x = 1; x <= r; x++)
 			for (int y = 1; y <= c; y++)
-				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1]
-						- g[x - 1][y - 1];
+				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1] - g[x - 1][y - 1];
 		int max = 0;
 		for (int x = k; x <= r - k; x++) {
 			for (int y = k; y <= c - k; y++) {
@@ -61,8 +58,7 @@ public class APIO_2009_Digging_For_Oil_3 {
 				int top = getTL(0, 0, x, c);
 				int bottom = getBR(y, 0, r, c);
 				for (int z = k; z <= c; z++) {
-					int middle = g[y][z] - g[y - k][z] - g[y][z - k]
-							+ g[y - k][z - k];
+					int middle = g[y][z] - g[y - k][z] - g[y][z - k] + g[y - k][z - k];
 					max = Math.max(max, top + middle + bottom);
 				}
 			}
@@ -72,8 +68,7 @@ public class APIO_2009_Digging_For_Oil_3 {
 				int left = getTL(0, 0, r, x);
 				int right = getBR(0, y, r, c);
 				for (int z = k; z <= r; z++) {
-					int middle = g[z][y] - g[z - k][y] - g[z][y - k]
-							+ g[z - k][y - k];
+					int middle = g[z][y] - g[z - k][y] - g[z][y - k] + g[z - k][y - k];
 					max = Math.max(max, left + middle + right);
 				}
 			}

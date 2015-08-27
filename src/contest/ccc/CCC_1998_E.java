@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1998_E {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[][] dp;
@@ -40,8 +39,7 @@ public class CCC_1998_E {
 			 * dp[x][y]>=1000000?-1:grid[x][y]); } System.out.println(); }
 			 */
 			System.out.println();
-			System.out.println(dp[0][0] == 1000000 ? "CANNOT MAKE THE TRIP"
-					: dp[0][0]);
+			System.out.println(dp[0][0] == 1000000 ? "CANNOT MAKE THE TRIP" : dp[0][0]);
 		}
 	}
 
@@ -55,14 +53,11 @@ public class CCC_1998_E {
 		for (int z = 0; z < 4; z++) {
 			int newx = movex[z] + x;
 			int newy = movey[z] + y;
-			if (newx < 0 || newy < 0 || newx >= n || newy >= n || v[newx][newy]
-					|| Math.abs(g[newx][newy] - g[x][y]) > 2)
+			if (newx < 0 || newy < 0 || newx >= n || newy >= n || v[newx][newy] || Math.abs(g[newx][newy] - g[x][y]) > 2)
 				continue;
 			int extraOxygen = g[newx][newy] > s || g[x][y] > s ? 1 : 0;
-			if (dp[newx][newy] == 1000000
-					|| (dp[x][y] - extraOxygen < dp[newx][newy] && dp[newx][newy] < 1000000)) {
-				dp[newx][newy] = compute(s, newx, newy, g, cloneArray(v))
-						+ extraOxygen;
+			if (dp[newx][newy] == 1000000 || (dp[x][y] - extraOxygen < dp[newx][newy] && dp[newx][newy] < 1000000)) {
+				dp[newx][newy] = compute(s, newx, newy, g, cloneArray(v)) + extraOxygen;
 			}
 			// System.out.printf("X: %d Y: %d VALUE: %d\n",newx,newy,
 			// dp[newx][newy]);

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_Candy_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,8 +29,7 @@ public class CCC_2008_Stage_2_Candy_2 {
 				if (x == 0)
 					dp[x % 2][y] = Math.min(a, b);
 				else {
-					int prevDiffA = a >= 600 ? Integer.MAX_VALUE
-							: dp[(x - 1) % 2][a];
+					int prevDiffA = a >= 600 ? Integer.MAX_VALUE : dp[(x - 1) % 2][a];
 					int prevDiffB = dp[(x - 1) % 2][b];
 					dp[x % 2][y] = Math.min(prevDiffA, prevDiffB);
 				}

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2000_Stage_2_The_Game_Of_31 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][][][][][] win; // 1 is win, -1 is lose
 

@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Vacation_Planning {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<int[]>> con = new ArrayList<ArrayList<int[]>>();
 	static int hubNum;
@@ -43,8 +42,7 @@ public class USACO_2013_Vacation_Planning {
 		System.out.println(count + "\n" + total);
 	}
 
-	private static int getMinCost (int o, int d, boolean[] v, int cost,
-			boolean hubPassed) {
+	private static int getMinCost (int o, int d, boolean[] v, int cost, boolean hubPassed) {
 		// System.out.println(o+1 + " " + (d+1) + " " + cost);
 		if (cost == Integer.MAX_VALUE)
 			return cost;
@@ -62,11 +60,7 @@ public class USACO_2013_Vacation_Planning {
 			// System.out.println("RIGHT HERE " + x + " " + (connection[0]+1) +
 			// " " + (o+1));
 			if (!v[connection[0]])
-				min = Math.min(
-						min,
-						getMinCost(connection[0], d,
-								Arrays.copyOf(v, v.length), cost
-										+ connection[1], hubPassed));
+				min = Math.min(min, getMinCost(connection[0], d, Arrays.copyOf(v, v.length), cost + connection[1], hubPassed));
 		}
 		return min;
 	}

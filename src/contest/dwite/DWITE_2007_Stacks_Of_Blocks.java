@@ -22,9 +22,7 @@ class DWITE_2007_Stacks_Of_Blocks {
 					table[y][0] = a;
 					table[y][1] = table[y - blocks[x]][1] + 1;
 				} else if (a == b)
-					table[y][1] = table[y - blocks[x]][1] + 1 < table[y][1] ? table[y
-							- blocks[x]][1] + 1
-							: table[y][1];
+					table[y][1] = table[y - blocks[x]][1] + 1 < table[y][1] ? table[y - blocks[x]][1] + 1 : table[y][1];
 				if (table[y][0] < 0) {
 					table[y][0] = -101;
 					table[y][1] = 0;
@@ -35,7 +33,6 @@ class DWITE_2007_Stacks_Of_Blocks {
 			}
 			System.out.println();
 		}
-		System.out.println(table[table.length - 1][0] < 0 ? 0
-				: table[table.length - 1][1]);
+		System.out.println(table[table.length - 1][0] < 0 ? 0 : table[table.length - 1][1]);
 	}
 }

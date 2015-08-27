@@ -12,12 +12,9 @@ public class CCC_2006_J4 {
 	public static Integer[] temp2 = {7, 4, 1, 4, 5};
 	public static ArrayList<Integer> done = new ArrayList<Integer>();
 	public static Integer[] temp3 = {7, 6, 5, 4, 3, 2, 1};
-	public static List<Integer> haveToDo = new ArrayList<Integer>(
-			Arrays.asList(temp3));
-	public static ArrayList<Integer> before = new ArrayList<Integer>(
-			Arrays.asList(temp1));
-	public static ArrayList<Integer> after = new ArrayList<Integer>(
-			Arrays.asList(temp2));
+	public static List<Integer> haveToDo = new ArrayList<Integer>(Arrays.asList(temp3));
+	public static ArrayList<Integer> before = new ArrayList<Integer>(Arrays.asList(temp1));
+	public static ArrayList<Integer> after = new ArrayList<Integer>(Arrays.asList(temp2));
 
 	public static void main (String[] args) {
 		int value = scan.nextInt();

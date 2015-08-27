@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Dueling_GPS {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static ArrayList<ArrayList<Edge>> newList = null;
@@ -48,8 +47,7 @@ public class USACO_2014_Dueling_GPS {
 		 */
 	}
 
-	private static void shortestPath (int s, int d,
-			ArrayList<ArrayList<Edge>> currList) {
+	private static void shortestPath (int s, int d, ArrayList<ArrayList<Edge>> currList) {
 		int[] min = new int[n];
 		for (int x = 0; x < n; x++)
 			if (x != s)
@@ -61,8 +59,7 @@ public class USACO_2014_Dueling_GPS {
 			min[curr.index] = curr.cost;
 			// System.out.println(curr.index+1 + " " + (curr.prev+1));
 			if (curr.prev != -1) {
-				int index = newList.get(curr.index).indexOf(
-						new Edge(curr.prev, 0));
+				int index = newList.get(curr.index).indexOf(new Edge(curr.prev, 0));
 				newList.get(curr.index).get(index).cost--;
 			}
 			for (int x = 0; x < currList.get(curr.index).size(); x++) {
@@ -78,8 +75,7 @@ public class USACO_2014_Dueling_GPS {
 		}
 	}
 
-	private static void printShortestPath (int s, int d,
-			ArrayList<ArrayList<Edge>> currList) {
+	private static void printShortestPath (int s, int d, ArrayList<ArrayList<Edge>> currList) {
 		boolean[] visited = new boolean[n];
 		int[] min = new int[n];
 		for (int x = 0; x < n; x++)

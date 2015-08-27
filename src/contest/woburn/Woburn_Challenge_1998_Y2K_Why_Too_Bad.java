@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class Woburn_Challenge_1998_Y2K_Why_Too_Bad {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

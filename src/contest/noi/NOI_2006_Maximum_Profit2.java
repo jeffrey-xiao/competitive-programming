@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class NOI_2006_Maximum_Profit2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int m;

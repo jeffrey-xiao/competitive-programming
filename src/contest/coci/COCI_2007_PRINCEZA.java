@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_PRINCEZA {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] before1;
 	static int[] after1;
@@ -48,15 +46,13 @@ public class COCI_2007_PRINCEZA {
 		Arrays.sort(s1, new Comparator<State>() {
 			@Override
 			public int compare (State o1, State o2) {
-				return o1.value == o2.value ? X[o1.index] - X[o2.index]
-						: o1.value - o2.value;
+				return o1.value == o2.value ? X[o1.index] - X[o2.index] : o1.value - o2.value;
 			}
 		});
 		Arrays.sort(s2, new Comparator<State>() {
 			@Override
 			public int compare (State o1, State o2) {
-				return o1.value == o2.value ? X[o1.index] - X[o2.index]
-						: o1.value - o2.value;
+				return o1.value == o2.value ? X[o1.index] - X[o2.index] : o1.value - o2.value;
 			}
 		});
 		for (int i = 0; i < n; i++) {

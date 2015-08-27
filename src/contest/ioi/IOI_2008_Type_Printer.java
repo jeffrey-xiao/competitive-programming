@@ -1,106 +1,111 @@
 package contest.ioi;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class IOI_2008_Type_Printer {
-	static int counter = 0;
-	static String end = "";
-	static Scanner scan = new Scanner(System.in);
+	static Scan scan = new Scan();
 
 	public static void main (String[] args) {
-		IOI_2008_Type_Printer.TrieNode tn = new IOI_2008_Type_Printer().new TrieNode(
-				'\u0000', false);
-		int numOfWords = scan.nextInt();
-		String[] s = new String[numOfWords];
-		for (int x = 0; x < numOfWords; x++) {
-			s[x] = scan.next();
-
+		int num = scan.nextInt();
+		String[] words = new String[num];
+		int longest = -1;
+		int index = 0;
+		for (int x = 0; x < words.length; x++) {
+			String s = scan.next();
+			words[x] = s;
+			if (words[x].length() > longest) {
+				longest = words[x].length();
+				index = x;
+			}
 		}
-		Arrays.sort(s, new Comparator<String>() {
-
+		String temp = words[0];
+		words[0] = words[index];
+		words[index] = temp;
+		final String longestS = words[0];
+		Arrays.sort(words, 1, words.length, new Comparator<String>() {
 			@Override
 			public int compare (String o1, String o2) {
-				return o1.length() - o2.length();
+				int counter1 = 0;
+				int counter2 = 0;
+				for (int x = 0; x < Math.min(o1.length(), o2.length()); x++) {
+					if (longestS.charAt(x) == o1.charAt(x))
+						counter1++;
+					if (longestS.charAt(x) == o2.charAt(x))
+						counter2++;
+					if (longestS.charAt(x) != o1.charAt(x) || longestS.charAt(x) != o2.charAt(x))
+						break;
+				}
+				if (counter1 == counter2) {
+					for (int x = 0; x < Math.min(o1.length(), o2.length()); x++) {
+						if (o1.charAt(x) < o2.charAt(x))
+							return 1;
+						else if (o1.charAt(x) > o2.charAt(x))
+							return -1;
+					}
+					return o2.length() - o1.length();
+				}
+				return counter2 - counter1;
 			}
-
 		});
+		int nextIndex = 0;
+		String finalS = "";
+		int operations = 0;
+		main : for (int x = words.length - 1; x >= 0; x--) {
+			int common = 0;
+			if (x == 0) {
+				String ss = words[x].substring(nextIndex, words[x].length());
+				finalS += ss + "P";
+				operations += ss.length() + 1;
 
-		for (int x = 0; x < numOfWords; x++) {
-			tn.addWord(s[x]);
+				break main;
+
+			}
+			for (int y = 0; y < words[x].length(); y++) {
+				if (words[x - 1].length() > y && words[x - 1].charAt(y) == words[x].charAt(y))
+					common++;
+				else
+					break;
+			}
+			String ss = words[x].substring(nextIndex, words[x].length());
+			finalS += ss + "P";
+			operations += ss.length() + 1;
+			String repeat = new String(new char[words[x].length() - common]).replace("\0", "-");
+			finalS += repeat;
+			operations += repeat.length();
+
+			nextIndex = common;
 		}
-		tn.printWords(true);
-		System.out.println(counter);
-		/*
-		 * for(int x = 0; x < end.length(); x++){
-		 * System.out.println(end.charAt(x)); }
-		 */
-		System.out.println(end);
+		System.out.println(operations);
+		System.out.println(finalS);
 	}
 
-	class TrieNode {
-		char letter;
-		TrieNode[] links;
-		boolean fullWord;
+	public static class Scan {
+		BufferedReader br;
+		StringTokenizer st;
 
-		TrieNode (char letter, boolean fullWord) {
-			this.letter = letter;
-			links = new TrieNode[26];
-			this.fullWord = fullWord;
+		public Scan () {
+			br = new BufferedReader(new InputStreamReader(System.in));
 		}
 
-		void addWord (String s) {
-			if (s.length() == 0)
-				return;
-			for (int x = 0; x < links.length; x++) {
-				if (links[x] != null && links[x].letter == s.charAt(0)) {
-					links[x].addWord(s.substring(1, s.length()));
-					break;
-				}
-				if (links[x] == null) {
-					if (s.length() == 1)
-						links[x] = new TrieNode(s.charAt(0), true);
-					else
-						links[x] = new TrieNode(s.charAt(0), false);
-					links[x].addWord(s.substring(1, s.length()));
-					break;
+		String next () {
+			while (st == null || !st.hasMoreTokens()) {
+				try {
+					st = new StringTokenizer(br.readLine().trim());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
+			return st.nextToken();
 		}
 
-		void printWords (boolean lastWord) {
-			boolean currLastWord = lastWord;
-			if (fullWord) {
-				end += letter;
-				end += "P";
-				counter += 2;
-			}
-			if (letter != '\u0000' && !fullWord) {
-				end += letter;
-				counter++;
-			}
-			for (int x = 0; x < links.length; x++) {
-				if (links[x] != null) {
-					if ((x + 1 != links.length && links[x + 1] != null)
-							|| !lastWord) {
-						links[x].printWords(false);
-						currLastWord = false;
-					} else {
-						links[x].printWords(true);
-						currLastWord = true;
-					}
-					if (currLastWord) {
-						return;
-					}
-
-				} else {
-					break;
-				}
-			}
-			if (!currLastWord)
-				end += "-";
-			counter++;
+		int nextInt () {
+			return Integer.parseInt(next());
 		}
 	}
 }

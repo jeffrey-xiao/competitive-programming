@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Wormholes {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] pair;
 	static int[] next;
@@ -34,8 +32,7 @@ public class USACO_2013_Wormholes {
 			for (int y = 0; y < n; y++) {
 				if (x == y)
 					continue;
-				if ((next[x] == -1 || p[next[x]].x > p[y].x)
-						&& p[x].y == p[y].y && p[x].x < p[y].x) {
+				if ((next[x] == -1 || p[next[x]].x > p[y].x) && p[x].y == p[y].y && p[x].x < p[y].x) {
 					// System.out.println("MATCHING " + x + " " + y);
 					next[x] = y;
 				}

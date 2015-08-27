@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,8 +21,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 			int y = readInt();
 			int w = readInt();
 			int h = readInt();
-			boxes[z] = new Box(new Point(x, y), new Point(x + w, y), new Point(
-					x + w, y + h), new Point(x, y + h));
+			boxes[z] = new Box(new Point(x, y), new Point(x + w, y), new Point(x + w, y + h), new Point(x, y + h));
 		}
 		while (true) {
 			int index = -1;
@@ -119,8 +117,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 				if (nextDist < dist) {
 					dist = nextDist;
 					index = x;
-					if ((next.x == p[x].x && next.y == p[x].y)
-							|| (next.x == p[(x + 1) % 4].x && next.y == p[(x + 1) % 4].y))
+					if ((next.x == p[x].x && next.y == p[x].y) || (next.x == p[(x + 1) % 4].x && next.y == p[(x + 1) % 4].y))
 						index = 4;
 					closest = new Point(next.x, next.y);
 				}
@@ -149,8 +146,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
 			double delta = A1 * B2 - A2 * B1;
 			if (delta == 0)
-				return new Point(Double.POSITIVE_INFINITY,
-						Double.POSITIVE_INFINITY);
+				return new Point(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
 			double x = (B2 * C1 - B1 * C2) / delta;
 			double y = (A1 * C2 - A2 * C1) / delta;
 

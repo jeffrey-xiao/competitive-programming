@@ -1,7 +1,17 @@
 package contest.dmoj;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class Touching_Segment {
 

@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class BOI_2009_Frog_Mutants {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -28,8 +26,7 @@ public class BOI_2009_Frog_Mutants {
 		ArrayList<Integer> heights = new ArrayList<Integer>();
 		int[] ans = new int[n];
 		for (int x = n - 1; x >= 0; x--) {
-			while (heights.size() != 0
-					&& h[x] >= heights.get(heights.size() - 1))
+			while (heights.size() != 0 && h[x] >= heights.get(heights.size() - 1))
 				heights.remove(heights.get(heights.size() - 1));
 			if (heights.size() == 0 || heights.size() - j[x] < 0)
 				ans[x] = -1;

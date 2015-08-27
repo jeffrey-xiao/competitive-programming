@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2002_Stage_2_Connect_The_Campus {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static double[][] matrix;

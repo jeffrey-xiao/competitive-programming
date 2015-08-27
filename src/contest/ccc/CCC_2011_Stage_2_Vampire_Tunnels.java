@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2011_Stage_2_Vampire_Tunnels {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int maxLight;
 	static int n;
@@ -35,33 +34,23 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
 		System.out.println(shortest == Integer.MAX_VALUE ? -1 : shortest);
 	}
 
-	private static int shortestPath (int s, int d,
-			ArrayList<ArrayList<Edge>> adjlist) {
-		int[][] min = new int[n][maxLight + 1];
+	private static int shortestPath (int s, int d, ArrayList<ArrayList<Edge>> adjlist) {
+		int[] min = new int[n];
 		for (int x = 1; x < n; x++)
-			for (int y = 0; y < maxLight + 1; y++)
-				min[x][y] = Integer.MAX_VALUE;
+			min[x] = Integer.MAX_VALUE;
 		PriorityQueue<Vertex> moves = new PriorityQueue<Vertex>();
 		moves.add(new Vertex(s, 0, 0));
 		while (!moves.isEmpty()) {
 			Vertex curr = moves.poll();
-			min[curr.index][curr.totalLight] = Math.min(curr.cost,
-					min[curr.index][curr.totalLight]);
+			min[curr.index] = Math.min(curr.cost, min[curr.index]);
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {
 				Edge next = adjlist.get(curr.index).get(x);
-				if (next.light + curr.totalLight > maxLight
-						|| next.cost + curr.cost >= min[next.dest][curr.totalLight
-								+ next.light])
+				if (next.light + curr.totalLight > maxLight || next.cost + curr.cost >= min[next.dest])
 					continue;
-				moves.add(new Vertex(next.dest, curr.cost + next.cost,
-						curr.totalLight + next.light));
+				moves.add(new Vertex(next.dest, curr.cost + next.cost, curr.totalLight + next.light));
 			}
 		}
-		int minDist = Integer.MAX_VALUE;
-		for (int x = 0; x < maxLight + 1; x++) {
-			minDist = Math.min(min[n - 1][x], minDist);
-		}
-		return minDist;
+		return min[d];
 	}
 
 	static class Vertex implements Comparable<Vertex> {
@@ -77,7 +66,7 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
 
 		@Override
 		public int compareTo (Vertex v) {
-			return cost - v.cost;
+			return totalLight - v.totalLight;
 		}
 
 		@Override

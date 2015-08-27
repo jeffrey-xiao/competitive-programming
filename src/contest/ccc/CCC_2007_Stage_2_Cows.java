@@ -1,88 +1,104 @@
 package contest.ccc;
 
-//UNFINISHED
-
-import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class CCC_2007_Stage_2_Cows {
-	static Scanner scan = new Scanner(System.in);
 
-	public static void main (String[] args) {
-		int numOfPoints = scan.nextInt();
-		Point[] points = new Point[numOfPoints + 1];
-		int min = 16001;
-		int index = 0;
-		for (int x = 0; x < points.length; x++) {
-			points[x] = new Point(scan.nextInt(), scan.nextInt());
-			if (points[x].getY() < min) {
-				min = (int) points[x].getY();
-				index = x;
-			}
-		}
-		// swapping to get lowest y coord first
-		Point temp = points[index];
-		points[index] = points[0];
-		points[0] = temp;
-		final Point startPoint = points[0];
-		System.out.println("HERE");
-		Arrays.sort(points, 1, points.length - 1, new Comparator<Point>() {
-			@Override
-			public int compare (Point p1, Point p2) {
-				return p1.getX() * p2.getY() + p2.getX() * startPoint.getY()
-						+ startPoint.getX() * p1.getY() - p2.getY()
-						* startPoint.getX() - startPoint.getY() * p1.getX()
-						- p1.getY() * p2.getX() > 0 ? -1 : 1;
-			}
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	static int n;
 
-		});
-		/*
-		 * for(Point p: points){ System.out.println("x:"+p.getX() +
-		 * " y:"+p.getY()); }
-		 */
-		points[points.length - 1] = startPoint;
-		int m = 1;
-		for (int x = 2; x < points.length; x++) {
-			System.out.println(x);
-			while (ccw(points[m - 1], points[x], points[x]) <= 0) {
-				if (m > 1)
-					m--;
-				else if (x == points.length - 1)
-					break;
-				else
-					x++;
-			}
+	public static void main (String[] args) throws IOException {
+		for (int t = readInt(); t > 0; t--) {
+			int n = readInt();
+			Point[] points = new Point[n];
+			for (int x = 0; x < n; x++)
+				points[x] = new Point(readInt(), readInt());
+			ArrayList<Point> u = new ArrayList<Point>();
+			ArrayList<Point> l = new ArrayList<Point>();
+			Arrays.sort(points);
+			for (int x = 0; x < n; x++) {
+				int i = l.size();
+				while (i >= 2 && ccw(l.get(i - 2), l.get(i - 1), points[x]) <= 0) {
 
-			m++;
-			temp = points[m];
-			points[m] = points[x];
-			points[x] = temp;
-		}
-		System.out.println((int) points[0].getX() + " "
-				+ (int) points[0].getY());
-		for (int x = 1; x < points.length
-				&& (points[x].getX() != points[0].getX() && points[x].getY() != points[0]
-						.getY()); x++) {
-			System.out.println((int) points[x].getX() + " "
-					+ (int) points[x].getY());
+					l.remove(i - 1);
+					i = l.size();
+				}
+				l.add(points[x]);
+			}
+			for (int x = n - 1; x >= 0; x--) {
+				int i = u.size();
+				while (i >= 2 && ccw(u.get(i - 2), u.get(i - 1), points[x]) <= 0) {
+
+					u.remove(i - 1);
+					i = u.size();
+				}
+				u.add(points[x]);
+			}
+			u.remove(u.size() - 1);
+			l.remove(l.size() - 1);
+			l.addAll(u);
+			double length = 0;
+			int j = l.size() - 1;
+			for (int i = 0; i < l.size(); i++) {
+				length += getDist(l.get(j).x, l.get(j).y, l.get(i).x, l.get(i).y);
+				j = i;
+			}
+			System.out.printf("%.2f\n", length);
 		}
 	}
 
-	@SuppressWarnings ("unused")
-	private static double crossProduct (Point p1, Point p2) {
-		return p1.getX() * p2.getY() - p1.getY() * p2.getX();
+	static double getDist (int x1, int y1, int x2, int y2) {
+		double x = x1 - x2;
+		double y = y1 - y2;
+		return Math.sqrt(x * x + y * y);
 	}
 
-	private static double ccw (Point p1, Point p2, Point p3) {
-		return (p2.getX() - p1.getX()) * (p3.getY() - p1.getY())
-				- (p2.getY() - p1.getY()) * (p3.getX() - p1.getX());
+	// CCW > 0 counter clockwise
+	static int ccw (Point p1, Point p2, Point p3) {
+		return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
+	}
+
+	static class Point implements Comparable<Point> {
+		int x, y;
+
+		Point (int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		@Override
+		public int compareTo (Point o) {
+			if (x == o.x)
+				return y - o.y;
+			return x - o.x;
+		}
+	}
+
+	static String next () throws IOException {
+		while (st == null || !st.hasMoreTokens())
+			st = new StringTokenizer(br.readLine().trim());
+		return st.nextToken();
+	}
+
+	static long readLong () throws IOException {
+		return Long.parseLong(next());
+	}
+
+	static int readInt () throws IOException {
+		return Integer.parseInt(next());
+	}
+
+	static double readDouble () throws IOException {
+		return Double.parseDouble(next());
+	}
+
+	static String readLine () throws IOException {
+		return br.readLine().trim();
 	}
 }
-/*
- * if(p1.getY() == 0 && p1.getX()>0) return -1; if(p2.getY() == 0 &&
- * p2.getX()>0) return 1; if(p1.getY() > 0 && p2.getY()<0) return -1;
- * if(p1.getY() < 0 && p2.getY()>0) return 1; return
- * (crossProduct(p1,p2))>0?-1:1;
- */

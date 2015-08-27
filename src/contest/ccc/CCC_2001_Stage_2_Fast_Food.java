@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2001_Stage_2_Fast_Food {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -33,9 +32,7 @@ public class CCC_2001_Stage_2_Fast_Food {
 				}
 			}
 			for (int x = 0; x < n; x++) {
-				System.out.printf(
-						"Restaurant at %s serves %.1f%s of the population.\n",
-						p[x], count[x] / 100.0d, "%");
+				System.out.printf("Restaurant at %s serves %.1f%s of the population.\n", p[x], count[x] / 100.0d, "%");
 			}
 		}
 	}

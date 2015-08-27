@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_PRASE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static HashMap<String, Integer> hs = new HashMap<String, Integer>();
 

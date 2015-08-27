@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static boolean[] v;
 	static int[] lag;
@@ -44,13 +42,11 @@ public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
 				if (v[next])
 					continue;
 				hasSub = true;
-				pq.offer(new State(next, curr.depth + 1, curr.lagTime
-						+ lag[curr.index]));
+				pq.offer(new State(next, curr.depth + 1, curr.lagTime + lag[curr.index]));
 				v[next] = true;
 			}
 			if (!hasSub) {
-				int totalTime = curr.depth * 10 * 2 + lag[curr.index]
-						+ curr.lagTime * 2;
+				int totalTime = curr.depth * 10 * 2 + lag[curr.index] + curr.lagTime * 2;
 				max = Math.max(max, totalTime);
 			}
 		}
@@ -68,8 +64,7 @@ public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
 
 		@Override
 		public int compareTo (State o) {
-			return (depth * 10 * 2 + lagTime * 2 + lag[index])
-					- (o.depth * 10 * 2 + o.lagTime * 2 + lag[o.index]);
+			return (depth * 10 * 2 + lagTime * 2 + lag[index]) - (o.depth * 10 * 2 + o.lagTime * 2 + lag[o.index]);
 		}
 
 	}

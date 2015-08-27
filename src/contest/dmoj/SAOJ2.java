@@ -10,15 +10,20 @@ import java.util.StringTokenizer;
 
 public class SAOJ2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		long n = readLong();
-		System.out.println(n + 2 + 1);
+		int N = readInt();
+		System.out.println("#include <bits/stdc++.h>");
+
+		System.out.println("using namespace std;");
+
+		System.out.println("int main () {");
+		System.out.println("\tprintf(\"%lld\\n\"," + N + "ll*(" + N + "ll+1ll)/2ll);");
+		System.out.println("\treturn 0;");
+		System.out.println("}");
 	}
 
 	static String next () throws IOException {

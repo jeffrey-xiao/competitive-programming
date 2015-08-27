@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class APIO_2009_Digging_For_Oil_4 {
 
-	static BufferedReader b = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[][] tl;
 	static int[][] tr;
@@ -33,8 +31,7 @@ public class APIO_2009_Digging_For_Oil_4 {
 		br = new int[r + 1][c + 1];
 		for (int x = 1; x <= r; x++)
 			for (int y = 1; y <= c; y++)
-				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1]
-						- g[x - 1][y - 1];
+				g[x][y] = readInt() + g[x - 1][y] + g[x][y - 1] - g[x - 1][y - 1];
 		int max = 0;
 		// Top calculation
 		for (int x = k; x <= r; x++) {
@@ -89,8 +86,7 @@ public class APIO_2009_Digging_For_Oil_4 {
 		for (int x = k; x <= r; x++) {
 			int maxRow = 0;
 			for (int z = k; z <= c; z++) {
-				int middle = g[x][z] - g[x - k][z] - g[x][z - k]
-						+ g[x - k][z - k];
+				int middle = g[x][z] - g[x - k][z] - g[x][z - k] + g[x - k][z - k];
 				maxRow = Math.max(maxRow, middle);
 			}
 			rows[x] = maxRow;
@@ -99,8 +95,7 @@ public class APIO_2009_Digging_For_Oil_4 {
 		for (int z = k; z <= c; z++) {
 			int maxCol = 0;
 			for (int x = k; x <= r; x++) {
-				int middle = g[x][z] - g[x - k][z] - g[x][z - k]
-						+ g[x - k][z - k];
+				int middle = g[x][z] - g[x - k][z] - g[x][z - k] + g[x - k][z - k];
 				maxCol = Math.max(maxCol, middle);
 			}
 			columns[z] = maxCol;

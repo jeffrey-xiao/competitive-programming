@@ -25,8 +25,7 @@ public class Hole_In_The_Bucket {
 							table[y][1] = table[y - buckets[x] * z][1] + z;
 							table[y][0] = a;
 						} else if (a == b)
-							table[y][1] = min(table[y - buckets[x] * z][1] + z,
-									table[y][1]);
+							table[y][1] = min(table[y - buckets[x] * z][1] + z, table[y][1]);
 						if (table[y][0] < 0) {
 							table[y][0] = -5000;
 							table[y][1] = 0;
@@ -35,8 +34,7 @@ public class Hole_In_The_Bucket {
 				}
 			}
 
-			System.out.println(table[table.length - 1][1] < 0 ? -1
-					: table[table.length - 1][1]);
+			System.out.println(table[table.length - 1][1] < 0 ? -1 : table[table.length - 1][1]);
 			volume = scan.nextInt();
 			numOfBuckets = scan.nextInt();
 		}

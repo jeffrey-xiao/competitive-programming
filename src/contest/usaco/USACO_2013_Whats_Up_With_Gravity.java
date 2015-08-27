@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Whats_Up_With_Gravity {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-1, 1};
 	static char[][] grid;
@@ -60,15 +59,13 @@ public class USACO_2013_Whats_Up_With_Gravity {
 			for (int x = -1; x <= 1; x++) {
 				if (x == 0) {
 					int[] z = getCoor(p.x, p.y, !p.regGrav);
-					if (z[0] == -1 || min[z[0]][z[1]] <= p.time + 1
-							|| grid[p.x][p.y + x] == '#')
+					if (z[0] == -1 || min[z[0]][z[1]] <= p.time + 1 || grid[p.x][p.y + x] == '#')
 						continue;
 					min[z[0]][z[1]] = p.time + 1;
 					// System.out.println(p.x + " " + p.y + " " + p.time);
 					moves.offer(new Point(z[0], z[1], p.time + 1, !p.regGrav));
 				} else {
-					if (p.y + x < 0 || p.y + x >= c
-							|| grid[p.x][p.y + x] == '#')
+					if (p.y + x < 0 || p.y + x >= c || grid[p.x][p.y + x] == '#')
 						continue;
 					int[] z = getCoor(p.x, p.y + x, p.regGrav);
 

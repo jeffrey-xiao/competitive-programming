@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2007_Miners {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -34,13 +33,9 @@ public class IOI_2007_Miners {
 								else if (s[x] == 'B')
 									f = 3;
 								int next = getValue(f, y, z);
-								dp[(x + 1) % 2][z][f][i][j] = Math.max(
-										dp[x % 2][y][z][i][j] + next,
-										dp[(x + 1) % 2][z][f][i][j]);
+								dp[(x + 1) % 2][z][f][i][j] = Math.max(dp[x % 2][y][z][i][j] + next, dp[(x + 1) % 2][z][f][i][j]);
 								next = getValue(f, i, j);
-								dp[(x + 1) % 2][y][z][j][f] = Math.max(
-										dp[x % 2][y][z][i][j] + next,
-										dp[(x + 1) % 2][y][z][j][f]);
+								dp[(x + 1) % 2][y][z][j][f] = Math.max(dp[x % 2][y][z][i][j] + next, dp[(x + 1) % 2][y][z][j][f]);
 							}
 						}
 		}

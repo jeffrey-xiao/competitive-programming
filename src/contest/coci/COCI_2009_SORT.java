@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_SORT {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	@SuppressWarnings ("unused")

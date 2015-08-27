@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_J2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -17,9 +16,7 @@ public class CCC_2005_J2 {
 		int count = 0;
 		for (int x = s; x <= e; x++)
 			count += (isRSA(x) ? 1 : 0);
-		System.out.printf(
-				"The number of RSA numbers between %d and %d is %d\n", s, e,
-				count);
+		System.out.printf("The number of RSA numbers between %d and %d is %d\n", s, e, count);
 	}
 
 	private static boolean isRSA (int n) {

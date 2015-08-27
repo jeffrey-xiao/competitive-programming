@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class DWITE_2005_Game_Of_Life {
 	static Scanner scan = new Scanner(System.in);
-	static final int[][] moves = { {-1, 1}, {0, 1}, {1, 1}, {-1, 0},
-			{1, 0}, {-1, -1}, {0, -1}, {1, -1}};
+	static final int[][] moves = { {-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 	public static void main (String[] args) {
 		char[][] grid = new char[scan.nextInt()][];
@@ -35,9 +34,7 @@ public class DWITE_2005_Game_Of_Life {
 	private static int countNeighbours (int x, int y, char[][] grid) {
 		int neighbours = 0;
 		for (int[] i : moves) {
-			if (i[0] + x >= 0 && i[0] + x < grid.length && i[1] + y >= 0
-					&& i[1] + y < grid[0].length
-					&& grid[x + i[0]][y + i[1]] == 'X')
+			if (i[0] + x >= 0 && i[0] + x < grid.length && i[1] + y >= 0 && i[1] + y < grid[0].length && grid[x + i[0]][y + i[1]] == 'X')
 				neighbours++;
 
 		}

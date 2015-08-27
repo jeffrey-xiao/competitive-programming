@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Cow_IDs {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintStream ps = new PrintStream(System.out);
 	static StringTokenizer st;
 	static final int SIZE = 6000;
@@ -46,8 +45,7 @@ public class USACO_2012_Cow_IDs {
 			} else {
 				leading = false;
 				ps.print("1");
-				state = new State(state.n - dp[state.curr - 1][state.k],
-						state.k - 1, state.curr - 1);
+				state = new State(state.n - dp[state.curr - 1][state.k], state.k - 1, state.curr - 1);
 			}
 		}
 	}

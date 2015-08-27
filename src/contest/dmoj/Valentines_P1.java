@@ -14,10 +14,8 @@ import java.util.regex.Pattern;
 
 public class Valentines_P1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -53,10 +51,7 @@ public class Valentines_P1 {
 		}
 		for (int x = 0; x < poss.size(); x++) {
 			for (int y = x - 1; y >= 0; y--) {
-				if (poss.get(y).time >= y + 2
-						&& ((poss.get(y + 1).size > poss.get(y).size) || (poss
-								.get(y + 1).index < poss.get(y).index && poss
-								.get(y).size == poss.get(y + 1).size))) {
+				if (poss.get(y).time >= y + 2 && ((poss.get(y + 1).size > poss.get(y).size) || (poss.get(y + 1).index < poss.get(y).index && poss.get(y).size == poss.get(y + 1).size))) {
 					Group gr = poss.get(y + 1);
 					poss.set(y + 1, poss.get(y));
 					poss.set(y, gr);

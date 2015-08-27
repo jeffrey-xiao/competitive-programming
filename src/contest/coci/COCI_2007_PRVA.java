@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_PRVA {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 1};
 	static int[] movey = {1, 0};
@@ -61,8 +60,7 @@ public class COCI_2007_PRVA {
 		for (int z = 0; z < 2; z++) {
 			int nx = x + movex[z];
 			int ny = y + movey[z];
-			if (nx < 0 || ny < 0 || nx >= r + 2 || ny >= c + 2
-					|| g[nx][ny] == '#') {
+			if (nx < 0 || ny < 0 || nx >= r + 2 || ny >= c + 2 || g[nx][ny] == '#') {
 				if (dir == z && s.length() > 1)
 					words.add(s);
 				continue;

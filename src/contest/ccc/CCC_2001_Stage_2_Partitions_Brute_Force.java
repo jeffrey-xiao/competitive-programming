@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2001_Stage_2_Partitions_Brute_Force {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] values;
 	static int start;

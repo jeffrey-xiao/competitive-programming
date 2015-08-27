@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_S1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,9 +29,7 @@ public class CCC_2004_S1 {
 	}
 
 	static boolean w (String q, String w) {
-		if ((q.indexOf(w) == q.length() - w.length() && q.indexOf(w) >= 0)
-				|| (w.indexOf(q) >= 0 && w.length() - q.length() == w
-						.indexOf(q)))
+		if ((q.indexOf(w) == q.length() - w.length() && q.indexOf(w) >= 0) || (w.indexOf(q) >= 0 && w.length() - q.length() == w.indexOf(q)))
 			return true;
 		return false;
 	}

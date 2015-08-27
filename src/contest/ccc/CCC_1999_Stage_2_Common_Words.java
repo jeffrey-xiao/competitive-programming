@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_Stage_2_Common_Words {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -46,8 +45,7 @@ public class CCC_1999_Stage_2_Common_Words {
 				}
 			}
 			Collections.sort(words);
-			if (m - 1 >= words.size()
-					|| (m - 2 >= 0 && words.get(m - 2).occ == m - 1)) {
+			if (m - 1 >= words.size() || (m - 2 >= 0 && words.get(m - 2).occ == m - 1)) {
 				System.out.println();
 				continue;
 			}

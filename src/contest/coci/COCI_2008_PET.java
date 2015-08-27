@@ -9,8 +9,7 @@ public class COCI_2008_PET {
 		int max = 0;
 		int index = 0;
 		for (int x = 1; x <= 5; x++) {
-			int sum = scan.nextInt() + scan.nextInt() + scan.nextInt()
-					+ scan.nextInt();
+			int sum = scan.nextInt() + scan.nextInt() + scan.nextInt() + scan.nextInt();
 			if (sum > max) {
 				max = sum;
 				index = x;

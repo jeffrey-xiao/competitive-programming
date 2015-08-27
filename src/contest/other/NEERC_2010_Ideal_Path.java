@@ -14,10 +14,8 @@ import java.util.StringTokenizer;
 
 public class NEERC_2010_Ideal_Path {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();

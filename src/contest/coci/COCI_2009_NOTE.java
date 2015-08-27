@@ -10,15 +10,12 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_NOTE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		int[] a = {readInt(), readInt(), readInt(), readInt(), readInt(),
-				readInt(), readInt(), readInt()};
+		int[] a = {readInt(), readInt(), readInt(), readInt(), readInt(), readInt(), readInt(), readInt()};
 		boolean q = true, w = true;
 		for (int i = 1; i < 8; i++) {
 			if (a[i] != a[i - 1] - 1)

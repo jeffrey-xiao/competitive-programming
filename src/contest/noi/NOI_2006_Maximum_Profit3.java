@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class NOI_2006_Maximum_Profit3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int m;
@@ -93,15 +92,13 @@ public class NOI_2006_Maximum_Profit3 {
 			for (int x = 0; x < adjlist.get(curr.dest).size(); x++) {
 				Edge next = adjlist.get(curr.dest).get(x);
 				int nextValue = next.cost == Integer.MAX_VALUE ? 0 : next.cost;
-				if (max[next.dest] >= Math.max(curr.cost, nextValue)
-						|| next.cost == 0)
+				if (max[next.dest] >= Math.max(curr.cost, nextValue) || next.cost == 0)
 					continue;
 				max[next.dest] = Math.max(curr.cost, nextValue);
 				visited[next.dest] = true;
 				prev[next.dest] = curr.dest;
 
-				moves.offer(new Next(next.dest, Math.max(curr.cost, nextValue),
-						curr.moves + 1));
+				moves.offer(new Next(next.dest, Math.max(curr.cost, nextValue), curr.moves + 1));
 			}
 		}
 		int c = curr.dest;

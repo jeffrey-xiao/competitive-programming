@@ -11,10 +11,8 @@ import java.util.TreeSet;
 
 public class Peg_Test_2014_Assembly_Elves_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static TreeSet<Integer>[][] dp = new TreeSet[101][101];
@@ -29,8 +27,7 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 		}
 	}
 
-	private static TreeSet<Integer> compute (int i, TreeSet<Integer> prev,
-			int with) {
+	private static TreeSet<Integer> compute (int i, TreeSet<Integer> prev, int with) {
 		// System.out.println(i);
 		if (mem[i][with])
 			return (TreeSet<Integer>) dp[i][with].headSet(i, true);

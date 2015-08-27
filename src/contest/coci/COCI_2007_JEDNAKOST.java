@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_JEDNAKOST {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static char[] a;
@@ -39,9 +37,7 @@ public class COCI_2007_JEDNAKOST {
 		}
 		// System.out.println(dp.get(new State(i+1, t-j, a[i] - '0')) + " " +
 		// (i+1) + " " + t + " " + j);
-		if (j * 10 + a[i] - '0' > t
-				|| (t - j >= 0 && dp.get(new State(i + 1, t - j, a[i] - '0')) < dp
-						.get(new State(i + 1, t, j * 10 + a[i] - '0')))) {
+		if (j * 10 + a[i] - '0' > t || (t - j >= 0 && dp.get(new State(i + 1, t - j, a[i] - '0')) < dp.get(new State(i + 1, t, j * 10 + a[i] - '0')))) {
 			System.out.print(sum + "+");
 			print(i + 1, t - j, "" + a[i]);
 		} else {

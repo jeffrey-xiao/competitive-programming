@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2011_Stage_2_The_Monkey_Dance {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

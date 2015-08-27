@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Mirror_Field {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] dir1 = {1, 0, 3, 2};
 	static int[] dir2 = {3, 2, 1, 0};

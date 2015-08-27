@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1996_Stage_2_Hoppers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static boolean[][][][] visited;
 	static int[] movex = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
@@ -56,16 +55,14 @@ public class CCC_1996_Stage_2_Hoppers {
 				int sy = next[3];
 				int moves = next[4];
 
-				if (x < 0 || y < 0 || x >= r || y >= c || sx > 3 || sx < -3
-						|| sy > 3 || sy < -3 || grid[x][y])
+				if (x < 0 || y < 0 || x >= r || y >= c || sx > 3 || sx < -3 || sy > 3 || sy < -3 || grid[x][y])
 					continue;
 				if (visited[x][y][sx + 3][sy + 3])
 					continue;
 				// System.out.println(x + " " + y + " " + sx + " " + sy);
 				if (x == endx && endy == y) {
 
-					System.out.printf("Optimal solution takes %d hop(s).\n",
-							moves);
+					System.out.printf("Optimal solution takes %d hop(s).\n", moves);
 					continue main;
 					// break;
 				}
@@ -73,8 +70,7 @@ public class CCC_1996_Stage_2_Hoppers {
 				for (int z = 0; z < 9; z++) {
 					int nextsx = sx + movex[z];
 					int nextsy = sy + movey[z];
-					q.add(new int[] {x + nextsx, y + nextsy, nextsx, nextsy,
-							moves + 1});
+					q.add(new int[] {x + nextsx, y + nextsy, nextsx, nextsy, moves + 1});
 				}
 			}
 			System.out.println("No solution.");

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_BOND {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][] prob;
 	static double ans = 0.0d;

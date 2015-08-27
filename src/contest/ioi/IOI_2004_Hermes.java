@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class IOI_2004_Hermes {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int SHIFT = 1000;
@@ -32,12 +30,8 @@ public class IOI_2004_Hermes {
 		}
 		for (int z = 1; z <= n; z++) {
 			for (int i = 0; i <= 2000; i++) {
-				dp1[z % 2][i] = Math.min(Math.abs(p[z - 1].x - p[z].x)
-						+ dp1[(z - 1) % 2][i], dp2[(z - 1) % 2][p[z].x + 1000]
-						+ Math.abs(i - 1000 - p[z - 1].y));
-				dp2[z % 2][i] = Math.min(Math.abs(p[z - 1].y - p[z].y)
-						+ dp2[(z - 1) % 2][i], dp1[(z - 1) % 2][p[z].y + 1000]
-						+ Math.abs(i - 1000 - p[z - 1].x));
+				dp1[z % 2][i] = Math.min(Math.abs(p[z - 1].x - p[z].x) + dp1[(z - 1) % 2][i], dp2[(z - 1) % 2][p[z].x + 1000] + Math.abs(i - 1000 - p[z - 1].y));
+				dp2[z % 2][i] = Math.min(Math.abs(p[z - 1].y - p[z].y) + dp2[(z - 1) % 2][i], dp1[(z - 1) % 2][p[z].y + 1000] + Math.abs(i - 1000 - p[z - 1].x));
 				// System.out.println(dp1[z][i] + " " + dp2[z][i]);
 			}
 			// System.out.println();

@@ -20,14 +20,10 @@ public class USACO_2011_Tile_Exchanging {
 				table[x][y] = 50000;
 				for (int z = 1; z * z <= y; z++) {
 					int cost = Math.abs(tiles[x] - z);
-					table[x][y] = Math.min(table[x][y], table[x - 1][y
-							- (z * z)]
-							+ cost * cost);
+					table[x][y] = Math.min(table[x][y], table[x - 1][y - (z * z)] + cost * cost);
 				}
 			}
 		}
-		System.out
-				.println(table[table.length - 1][table[0].length - 1] == 50000 ? -1
-						: table[table.length - 1][table[0].length - 1]);
+		System.out.println(table[table.length - 1][table[0].length - 1] == 50000 ? -1 : table[table.length - 1][table[0].length - 1]);
 	}
 }

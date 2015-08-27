@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Fair_Photography_Bronze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -32,8 +30,7 @@ public class USACO_2014_Fair_Photography_Bronze {
 			int sizeOfOne = 1;
 			while (x + sizeOfOne <= n && cows[x].isG == cows[x + sizeOfOne].isG)
 				sizeOfOne++;
-			largest = Math.max(largest, cows[x + sizeOfOne - 1].dist
-					- cows[x].dist);
+			largest = Math.max(largest, cows[x + sizeOfOne - 1].dist - cows[x].dist);
 			x += sizeOfOne;
 		}
 		for (int x = 1; x <= n; x++) {

@@ -24,8 +24,7 @@ public class COCI_2014_MRAVI {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("test.txt"));
 		// ps = new PrintWriter("output.txt");
 
@@ -71,10 +70,8 @@ public class COCI_2014_MRAVI {
 					continue;
 				// System.out.println("VISIT " + e.dest);
 				if (e.charged)
-					need[e.dest] = Math.max(need[e.dest], Math.sqrt(need[c])
-							* 100 / e.percent);
-				need[e.dest] = Math.max(need[e.dest], need[c] * 100.0
-						/ e.percent);
+					need[e.dest] = Math.max(need[e.dest], Math.sqrt(need[c]) * 100 / e.percent);
+				need[e.dest] = Math.max(need[e.dest], need[c] * 100.0 / e.percent);
 			}
 		}
 		System.out.println(need[0]);

@@ -12,8 +12,7 @@ import java.util.TreeSet;
 
 public class CCC_2000_Stage_2_Subsets {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<Set<Character>> sets = new ArrayList<Set<Character>>();
 	static ArrayList<ArrayList<Integer>> link = new ArrayList<ArrayList<Integer>>();
@@ -51,8 +50,7 @@ public class CCC_2000_Stage_2_Subsets {
 			if (s.equals(""))
 				System.out.println((char) (x + 65) + " = {}");
 			else
-				System.out.println((char) (x + 65) + " = {"
-						+ s.substring(1, s.length()) + "}");
+				System.out.println((char) (x + 65) + " = {" + s.substring(1, s.length()) + "}");
 		}
 	}
 

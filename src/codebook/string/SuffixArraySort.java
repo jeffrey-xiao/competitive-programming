@@ -4,8 +4,9 @@
  */
 package codebook.string;
 
-import java.util.*;
-import java.io.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class SuffixArraySort {
 	final SuffixComparator C = new SuffixComparator();

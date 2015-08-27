@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_MARATON {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-1, -1, -1, 0, 0, 1, 1, 1};
 	static int[] movey = {-1, 0, 1, -1, 1, -1, 0, 1};
@@ -24,8 +23,7 @@ public class COCI_2006_MARATON {
 			for (int y = 0; y < n; y++) {
 				if (g[x][y] != '.') {
 					for (int z = 0; z < 4; z++) {
-						if (check(x + movex[z], y + movey[z], movex[z],
-								movey[z], 1, g[x][y])) {
+						if (check(x + movex[z], y + movey[z], movex[z], movey[z], 1, g[x][y])) {
 							System.out.println(g[x][y]);
 							return;
 						}

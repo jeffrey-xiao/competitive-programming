@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2014_Math_Homework {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int MOD = 1000000007;
@@ -42,10 +40,7 @@ public class DMOPC_2014_Math_Homework {
 			for (int k = 0; k <= c; k++) {
 				int mult = k % 2 == 0 ? 1 : -1;
 				// System.out.println(pow(pow(2, c-k)-1,r));
-				ans = (ans + mult
-						* ((long) (C[c + 1][k + 1]) * pow(pow(2, c - k) - 1, r))
-						% MOD)
-						% MOD;
+				ans = (ans + mult * ((long) (C[c + 1][k + 1]) * pow(pow(2, c - k) - 1, r)) % MOD) % MOD;
 			}
 			System.out.println(ans < 0 ? ans + MOD : ans);
 		}

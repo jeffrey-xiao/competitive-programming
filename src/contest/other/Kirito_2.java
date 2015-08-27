@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Kirito_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int r = 0, c = 0;
@@ -40,8 +38,7 @@ public class Kirito_2 {
 		// calculate binomial coefficients in advance
 		for (int i = 0; i <= n; i++)
 			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0) ? 1 : binomial[i - 1][j - 1]
-						+ binomial[i - 1][j];
+				binomial[i][j] = (j == 0) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
 		System.out.print("i suck");
 		return binomial;
 	}

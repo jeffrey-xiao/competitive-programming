@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class Sleigh_Ride {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int total = 0;

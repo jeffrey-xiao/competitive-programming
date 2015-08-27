@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Math_On_Titan {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -47,9 +45,7 @@ public class Math_On_Titan {
 					}
 				}
 
-				if ((count > max || (count == max && currA < A) || (count == max
-						&& currA == A && currB < B))
-						&& (currA >= 0 && currB >= 0)) {
+				if ((count > max || (count == max && currA < A) || (count == max && currA == A && currB < B)) && (currA >= 0 && currB >= 0)) {
 					max = count;
 					A = currA;
 					B = currB;
@@ -66,14 +62,12 @@ public class Math_On_Titan {
 				double slope2 = (p[i].y - 100.0d) / (p[i].x - 100.0d);
 				double b2 = 100.0d - 100.0d * slope2;
 				double currA2 = Math.round(b2);
-				if ((max == 0 || (currA1 < A) || (currA1 == A && currB1 < B))
-						&& (currA1 >= 0 && currB1 >= 0)) {
+				if ((max == 0 || (currA1 < A) || (currA1 == A && currB1 < B)) && (currA1 >= 0 && currB1 >= 0)) {
 					A = currA1;
 					B = currB1;
 					max = 1;
 				}
-				if ((max == 0 || (currA2 < A) || (currA2 == A && currB2 < B))
-						&& (currA2 >= 0 && currB2 >= 0)) {
+				if ((max == 0 || (currA2 < A) || (currA2 == A && currB2 < B)) && (currA2 >= 0 && currB2 >= 0)) {
 					A = currA2;
 					B = currB2;
 					max = 1;

@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class Peg_Test_2014_E_Stingy_Candyman {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static long[] nums;
 

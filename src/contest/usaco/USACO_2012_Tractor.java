@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Tractor {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -40,12 +39,7 @@ public class USACO_2012_Tractor {
 			for (int z = 0; z < 4; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
-				if (nx < 0
-						|| ny < 0
-						|| nx >= 1002
-						|| ny >= 1002
-						|| (min[nx][ny] != 0 && hay[nx][ny]
-								+ min[curr.x][curr.y] >= min[nx][ny]))
+				if (nx < 0 || ny < 0 || nx >= 1002 || ny >= 1002 || (min[nx][ny] != 0 && hay[nx][ny] + min[curr.x][curr.y] >= min[nx][ny]))
 					continue;
 				min[nx][ny] = min[curr.x][curr.y] + hay[nx][ny];
 				if (hay[nx][ny] == 0)

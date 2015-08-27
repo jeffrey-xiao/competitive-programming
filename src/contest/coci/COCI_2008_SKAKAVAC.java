@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_SKAKAVAC {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int n, r, c;
 	static int[] poss = {-1, 1};
@@ -44,17 +42,11 @@ public class COCI_2008_SKAKAVAC {
 				continue;
 			for (int i = 0; i < 2; i++) {
 				for (int k = 0; k < n; k++) {
-					if (x + poss[i] >= 0 && x + poss[i] < n
-							&& Math.abs(k - y) > 1
-							&& val[x + poss[i]][k] > val[x][y]) {
-						best[x + poss[i]][k] = Math.max(best[x + poss[i]][k],
-								best[x][y] + 1);
+					if (x + poss[i] >= 0 && x + poss[i] < n && Math.abs(k - y) > 1 && val[x + poss[i]][k] > val[x][y]) {
+						best[x + poss[i]][k] = Math.max(best[x + poss[i]][k], best[x][y] + 1);
 					}
-					if (y + poss[i] >= 0 && y + poss[i] < n
-							&& Math.abs(k - x) > 1
-							&& val[k][y + poss[i]] > val[x][y]) {
-						best[k][y + poss[i]] = Math.max(best[k][y + poss[i]],
-								best[x][y] + 1);
+					if (y + poss[i] >= 0 && y + poss[i] < n && Math.abs(k - x) > 1 && val[k][y + poss[i]] > val[x][y]) {
+						best[k][y + poss[i]] = Math.max(best[k][y + poss[i]], best[x][y] + 1);
 					}
 				}
 			}

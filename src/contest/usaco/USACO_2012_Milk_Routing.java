@@ -10,8 +10,7 @@ import java.util.TreeSet;
 
 public class USACO_2012_Milk_Routing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adjlist = new ArrayList<ArrayList<Edge>>();
 	static int n;
@@ -57,8 +56,7 @@ public class USACO_2012_Milk_Routing {
 				if (next.capacity < currCost)
 					continue;
 				// System.out.println("NEXT " + next.dest);
-				float f = curr.latency + next.latency + ((float) milk)
-						/ (Math.min(curr.capacity, next.capacity));
+				float f = curr.latency + next.latency + ((float) milk) / (Math.min(curr.capacity, next.capacity));
 				// System.out.println(curr.latency+next.latency + " " +
 				// Math.min(curr.capacity,next.capacity) + " " + f + " " +
 				// milk);
@@ -67,10 +65,8 @@ public class USACO_2012_Milk_Routing {
 
 				minCost[next.dest] = (int) f;
 				visited[next.dest] = true;
-				pq.remove(new Node(next.dest, curr.latency + next.latency, Math
-						.min(curr.capacity, next.capacity)));
-				pq.add(new Node(next.dest, curr.latency + next.latency, Math
-						.min(curr.capacity, next.capacity)));
+				pq.remove(new Node(next.dest, curr.latency + next.latency, Math.min(curr.capacity, next.capacity)));
+				pq.add(new Node(next.dest, curr.latency + next.latency, Math.min(curr.capacity, next.capacity)));
 			}
 		}
 		return minCost[n - 1];

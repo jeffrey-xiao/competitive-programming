@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class DWITE_2005_Minesweeper {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-1, 0, 1, -1, 1, -1, 0, 1};
 	static int[] movey = {-1, -1, -1, 0, 0, 1, 1, 1};
@@ -31,8 +30,7 @@ public class DWITE_2005_Minesweeper {
 				} else {
 					boolean[][] visited = new boolean[16][30];
 					int squares = floodFill(x, y, visited);
-					System.out.printf("NO MINE - %d SQUARES REVEALED\n",
-							squares);
+					System.out.printf("NO MINE - %d SQUARES REVEALED\n", squares);
 					/*
 					 * for(int x1 = 0; x1 < 16; x1++){ for(int y1 = 0;y1< 30;
 					 * y1++){ System.out.print(grid1[x1][y1]); }
@@ -53,8 +51,7 @@ public class DWITE_2005_Minesweeper {
 		for (int z = 0; z < 8; z++) {
 			int newx = x + movex[z];
 			int newy = y + movey[z];
-			if (newx < 0 || newy < 0 || newx >= 16 || newy >= 30
-					|| v[newx][newy])
+			if (newx < 0 || newy < 0 || newx >= 16 || newy >= 30 || v[newx][newy])
 				continue;
 			if (checkSquares(x, y) == 0)
 				count += floodFill(newx, newy, Arrays.copyOf(v, v.length));

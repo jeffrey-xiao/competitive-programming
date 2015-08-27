@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_Stage_2_Constrained_Permutations {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static HashMap<Integer, HashSet<Integer>> cons;
 	static int count = 0;

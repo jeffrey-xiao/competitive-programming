@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class DWITE_2009_The_Missing_Link {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

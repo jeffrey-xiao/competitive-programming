@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class ACM_Diablo_Bot {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -23,15 +22,12 @@ public class ACM_Diablo_Bot {
 				if (!s[0].equalsIgnoreCase("of"))
 					isMagic = true;
 			}
-			if (s.length >= 3 && s.length <= 4 && next.length() >= 2
-					&& s[s.length - 2].equalsIgnoreCase("of")) {
+			if (s.length >= 3 && s.length <= 4 && next.length() >= 2 && s[s.length - 2].equalsIgnoreCase("of")) {
 				isMagic = true;
 			}
 			if (s.length > 0) {
 				String first = s[0];
-				if (first.length() >= 2
-						&& first.substring(first.length() - 2)
-								.equalsIgnoreCase("'s"))
+				if (first.length() >= 2 && first.substring(first.length() - 2).equalsIgnoreCase("'s"))
 					isSet = true;
 				if (first.equalsIgnoreCase("damaged"))
 					isNormal = true;

@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Mostly_Talking {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -55,8 +53,7 @@ public class Glenforest_Mostly_Talking {
 					min[e.dest][curr.type] = nextCost;
 					pq.offer(new Vertex(e.dest, nextCost, curr.type));
 				}
-				if (curr.type == 0 && e.secret
-						&& min[e.dest][1] > curr.cost + e.cost) {
+				if (curr.type == 0 && e.secret && min[e.dest][1] > curr.cost + e.cost) {
 					min[e.dest][1] = curr.cost + e.cost;
 					pq.offer(new Vertex(e.dest, curr.cost + e.cost, 1));
 				}

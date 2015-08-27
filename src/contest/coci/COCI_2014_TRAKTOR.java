@@ -16,8 +16,7 @@ public class COCI_2014_TRAKTOR {
 
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
+		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 		br = new BufferedReader(new FileReader("in.txt"));
 		// ps = new PrintWriter("out.txt");
 
@@ -34,8 +33,7 @@ public class COCI_2014_TRAKTOR {
 			cnty[y]++;
 			diag1[x + y]++;
 			diag2[x - y + 100001]++;
-			if (cntx[x] >= k || cnty[y] >= k || diag1[x + y] >= k
-					|| diag2[x - y + 100001] >= k) {
+			if (cntx[x] >= k || cnty[y] >= k || diag1[x + y] >= k || diag2[x - y + 100001] >= k) {
 				ps.println(i + 1);
 				ps.close();
 				return;

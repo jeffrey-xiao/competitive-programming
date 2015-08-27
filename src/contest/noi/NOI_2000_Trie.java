@@ -9,13 +9,11 @@ public class NOI_2000_Trie {
 	static int counter = 0;
 	static String end = "";
 	static int countNodes = 1;
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		NOI_2000_Trie.TrieNode tn = new NOI_2000_Trie().new TrieNode('\u0000',
-				false);
+		NOI_2000_Trie.TrieNode tn = new NOI_2000_Trie().new TrieNode('\u0000', false);
 
 		String s = br.readLine();
 		while (s != null && s.length() != 0) {
@@ -80,8 +78,7 @@ public class NOI_2000_Trie {
 			}
 			for (int x = 0; x < links.length; x++) {
 				if (links[x] != null) {
-					if ((x + 1 != links.length && links[x + 1] != null)
-							|| !lastWord) {
+					if ((x + 1 != links.length && links[x + 1] != null) || !lastWord) {
 						links[x].printWords(false);
 						currLastWord = false;
 					} else {

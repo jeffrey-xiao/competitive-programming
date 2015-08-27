@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2013_AFK {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static char[][] g;
@@ -51,16 +49,14 @@ public class DMOPC_2013_AFK {
 				Point curr = q.poll();
 				if (curr.x == ex && curr.y == ey) {
 					good = true;
-					System.out.println(curr.time >= 60 ? "#notworth"
-							: curr.time);
+					System.out.println(curr.time >= 60 ? "#notworth" : curr.time);
 					break;
 				}
 
 				for (int i = 0; i < 4; i++) {
 					int nx = curr.x + movex[i];
 					int ny = curr.y + movey[i];
-					if (nx < 0 || ny < 0 || nx >= r || ny >= c || v[nx][ny]
-							|| g[nx][ny] == 'X')
+					if (nx < 0 || ny < 0 || nx >= r || ny >= c || v[nx][ny] || g[nx][ny] == 'X')
 						continue;
 					q.offer(new Point(nx, ny, curr.time + 1));
 					v[nx][ny] = true;

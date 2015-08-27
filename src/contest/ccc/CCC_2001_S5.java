@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2001_S5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -43,8 +42,7 @@ public class CCC_2001_S5 {
 			}
 			visited.add(curr);
 			for (int x = 0; x < k; x++) {
-				State s = new State(curr.a + as[x], curr.b + bs[x],
-						curr.length + 1, x, curr.moves);
+				State s = new State(curr.a + as[x], curr.b + bs[x], curr.length + 1, x, curr.moves);
 				if (s.trim() != 0)
 					q.offer(s);
 			}

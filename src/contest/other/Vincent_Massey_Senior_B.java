@@ -1,45 +1,24 @@
 package contest.other;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 public class Vincent_Massey_Senior_B {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static PrintWriter pw;
-	static int[] tree;
-	static int n;
 
 	public static void main (String[] args) throws IOException {
-		pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-				System.out)));
-		n = readInt();
-		tree = new int[n + 1];
+		int n = readInt();
+		int[] nums = new int[n + 1];
 		for (int m = readInt(); m > 0; m--)
-			update(readInt());
-		for (int q = readInt(); q > 0; q--) {
-			pw.println((-getFreq(readInt() - 1) + getFreq(readInt())));
-		}
-		pw.close();
-	}
-
-	static void update (int idx) {
-		for (int x = idx; x <= n; x += (x & -x))
-			tree[x]++;
-	}
-
-	static int getFreq (int idx) {
-		int sum = 0;
-		for (int x = idx; x > 0; x -= (x & -x))
-			sum += tree[x];
-		return sum;
+			nums[readInt() + 1]++;
+		for (int x = 1; x <= n; x++)
+			nums[x] += nums[x - 1];
+		for (int q = readInt(); q > 0; q--)
+			System.out.println(-nums[readInt()] + nums[readInt() + 1]);
 	}
 
 	static String next () throws IOException {

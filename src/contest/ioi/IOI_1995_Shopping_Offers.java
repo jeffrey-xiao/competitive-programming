@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1995_Shopping_Offers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] prices;
 	static HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();

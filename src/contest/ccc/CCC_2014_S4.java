@@ -10,8 +10,7 @@ import java.util.TreeSet;
 
 public class CCC_2014_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -49,13 +48,10 @@ public class CCC_2014_S4 {
 			for (int x = 0; x < count; x++) {
 				currTotal += line[x];
 				// System.out.print(currTotal + " ");
-				if (lastx != Integer.MIN_VALUE && currTotal >= minTint
-						&& x != count - 1) {
+				if (lastx != Integer.MIN_VALUE && currTotal >= minTint && x != count - 1) {
 					// System.out.println("INCREASE " + currx + " " + lastx
 					// +" "+ toCoord.get(x+1)+" " + toCoord.get(x));
-					totalArea += (currx - lastx)
-							* ((long) toCoord.get(x + 1) - (long) toCoord
-									.get(x));
+					totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
 					// System.out.println("TOTAL AREA " + totalArea);
 				}
 

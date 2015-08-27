@@ -23,8 +23,7 @@ public class CCC_2007_S5 {
 						continue;
 					} else
 						curr = curr + pins[y] - pins[y - width];
-					dp[z % 2][y] = Math.max(curr + dp[(z - 1) % 2][y - width],
-							dp[z % 2][y - 1]);
+					dp[z % 2][y] = Math.max(curr + dp[(z - 1) % 2][y - width], dp[z % 2][y - 1]);
 				}
 			}
 			System.out.println(dp[numOfBalls % 2][numOfBowlingPins]);

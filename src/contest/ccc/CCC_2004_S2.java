@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2004_S2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -45,9 +44,7 @@ public class CCC_2004_S2 {
 		}
 		for (int x = 0; x < n; x++)
 			if (isMax[x])
-				System.out
-						.printf("Yodeller %d is the TopYodeller: score %d, worst rank %d\n",
-								x + 1, score[x], highestRank[x] + 1);
+				System.out.printf("Yodeller %d is the TopYodeller: score %d, worst rank %d\n", x + 1, score[x], highestRank[x] + 1);
 	}
 
 	static String next () throws IOException {

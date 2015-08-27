@@ -10,8 +10,7 @@ class CCC_2012_J1 {
 		int recordedSpeed = scan.nextInt();
 		int fine = 0;
 		if (speedLimit - recordedSpeed >= 0) {
-			System.out
-					.println("Congratulations, you are within the speed limit!");
+			System.out.println("Congratulations, you are within the speed limit!");
 		} else if (Math.abs(speedLimit - recordedSpeed) > 30) {
 			fine = 500;
 		} else if (Math.abs(speedLimit - recordedSpeed) > 20) {

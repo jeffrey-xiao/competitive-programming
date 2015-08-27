@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_CAVLI {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,8 +28,7 @@ public class COCI_2008_CAVLI {
 			Collections.sort(points);
 			for (int x = 0; x < points.size(); x++) {
 				int i = l.size();
-				while (i >= 2
-						&& ccw(l.get(i - 2), l.get(i - 1), points.get(x)) <= 0) {
+				while (i >= 2 && ccw(l.get(i - 2), l.get(i - 1), points.get(x)) <= 0) {
 					l.remove(i - 1);
 					i = l.size();
 				}
@@ -39,8 +36,7 @@ public class COCI_2008_CAVLI {
 			}
 			for (int x = points.size() - 1; x >= 0; x--) {
 				int i = u.size();
-				while (i >= 2
-						&& ccw(u.get(i - 2), u.get(i - 1), points.get(x)) <= 0) {
+				while (i >= 2 && ccw(u.get(i - 2), u.get(i - 1), points.get(x)) <= 0) {
 					u.remove(i - 1);
 					i = u.size();
 				}
@@ -98,8 +94,7 @@ public class COCI_2008_CAVLI {
 		double area = 0;
 		int n = l.size();
 		for (int z = 0; z < n; z++) {
-			area += ((l.get(z).x * l.get((z + 1) % n).y) - (l.get(z).y * l
-					.get((z + 1) % n).x)) / 2.0d;
+			area += ((l.get(z).x * l.get((z + 1) % n).y) - (l.get(z).y * l.get((z + 1) % n).x)) / 2.0d;
 		}
 		return area;
 	}

@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_ZUMA {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int n, k;
@@ -49,10 +47,7 @@ public class COCI_2009_ZUMA {
 			res = solve(i, j, count + 1) + 1;
 		for (int l = i + 1; l <= j; l++) {
 			if (A[i] == A[l]) {
-				res = Math.min(
-						res,
-						solve(i + 1, l - 1, 0)
-								+ solve(l, j, Math.min(k - 1, count + 1)));
+				res = Math.min(res, solve(i + 1, l - 1, 0) + solve(l, j, Math.min(k - 1, count + 1)));
 			}
 		}
 		return dp[i][j][count] = res;

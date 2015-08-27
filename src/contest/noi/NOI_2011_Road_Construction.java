@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class NOI_2011_Road_Construction {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static long[] size;
 	static ArrayList<ArrayList<Integer>> adj;

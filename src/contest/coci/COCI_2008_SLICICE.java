@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_SLICICE {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int n, m, p;
@@ -107,11 +106,8 @@ public class COCI_2008_SLICICE {
 		// System.out.println(x + ": " + adj.get(x));
 		main : for (int x = 1; x <= p; x++) {
 			if (x <= m) {
-				int flow = Integer.MAX_VALUE
-						- adj.get(x).get(
-								adj.get(x).indexOf(new Edge(input[x][0], 0))).cost;
-				System.out.println(input[x][0] - p + " " + (input[x][1] - p)
-						+ " " + flow);
+				int flow = Integer.MAX_VALUE - adj.get(x).get(adj.get(x).indexOf(new Edge(input[x][0], 0))).cost;
+				System.out.println(input[x][0] - p + " " + (input[x][1] - p) + " " + flow);
 			} else {
 				boolean first = true;
 				int firstFlow = 0;
@@ -125,13 +121,9 @@ public class COCI_2008_SLICICE {
 							nums[curr.dest - p - 1] += flow;
 							if (flow == 2) {
 								if (y - 1 >= 1)
-									System.out
-											.println(adj.get(x).get(y - 1).dest
-													- p + " " + flow);
+									System.out.println(adj.get(x).get(y - 1).dest - p + " " + flow);
 								else if (y + 1 < adj.get(x).size())
-									System.out
-											.println(adj.get(x).get(y + 1).dest
-													- p + " " + flow);
+									System.out.println(adj.get(x).get(y + 1).dest - p + " " + flow);
 								continue main;
 							}
 							first = false;

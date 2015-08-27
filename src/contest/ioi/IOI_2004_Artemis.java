@@ -7,69 +7,51 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class IOI_2004_Artemis {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
-	static HashMap<Integer, Integer> toX = new HashMap<Integer, Integer>();
-	static HashMap<Integer, Integer> toY = new HashMap<Integer, Integer>();
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		int k = readInt();
 		Point[] p = new Point[n];
-		int countX = 1, countY = 1;
-		int[] X = new int[n];
-		int[] Y = new int[n];
-		for (int x = 0; x < n; x++) {
-			p[x] = new Point(readInt(), readInt(), x);
-			X[x] = p[x].x;
-			Y[x] = p[x].y;
-		}
-		Arrays.sort(X);
-		Arrays.sort(Y);
-		for (int x = 0; x < n; x++) {
-			if (!toX.containsKey(X[x]))
-				toX.put(X[x], countX++);
-			if (!toY.containsKey(Y[x]))
-				toY.put(Y[x], countY++);
-		}
-		int[][] sum = new int[countX][countY];
 		for (int x = 0; x < n; x++)
-			sum[toX.get(p[x].x)][toY.get(p[x].y)]++;
-		for (int x = 1; x < countX; x++) {
-			for (int y = 1; y < countY; y++) {
-				sum[x][y] += sum[x][y - 1] + sum[x - 1][y] - sum[x - 1][y - 1];
-				// System.out.print(sum[x][y] + " ");
-			}
-			// System.out.println();
-		}
-		int min = Integer.MAX_VALUE;
+			p[x] = new Point(readInt(), readInt(), x + 1);
 		Arrays.sort(p);
+		int min = Integer.MAX_VALUE;
+		int[] down = new int[n];
+		int[] trees = new int[n];
 		int first = 0, second = 0;
-		for (int x = 0; x < n; x++) {
-			for (int y = x - 1; y >= 0; y--) {
-				int x1 = toX.get(p[x].x);
-				int y1 = toY.get(p[x].y);
-				int x2 = toX.get(p[y].x) - 1;
-				int y2 = toY.get(p[y].y) - 1;
-				int s = sum[x1][y1] - sum[x1][y2] - sum[x2][y1] + sum[x2][y2];
-				// System.out.println(s);
-				if (s >= k && s < min) {
-					min = s;
-					first = p[x].id + 1;
-					second = p[y].id + 1;
+		main : for (int x = 0; x < n; x++) {
+			down[x] = x;
+			for (int y = 0; y < x; y++) {
+				if (p[y].y > p[x].y) {
+					down[x]--;
+					down[y]++;
 				}
+			}
+			trees[x] = down[x];
+			int exit = 0; // Marks trees left of current tree
+			for (int y = 0; y < x - k + 2; y++) {
+				int sum = Math.abs(trees[x] + trees[y] - exit - down[y]) + 1;
+				// System.out.println(sum);
+				if (sum >= k && sum < min) {
+					min = sum;
+					first = p[x].id;
+					second = p[y].id;
+					if (sum == k) {
+						break main;
+					}
+				}
+				if (p[y].y < p[x].y)
+					exit++;
 			}
 		}
 		System.out.println(first + " " + second);
-
 	}
 
 	static class Point implements Comparable<Point> {

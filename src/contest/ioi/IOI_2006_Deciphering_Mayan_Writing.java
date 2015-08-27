@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class IOI_2006_Deciphering_Mayan_Writing {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -36,8 +35,7 @@ public class IOI_2006_Deciphering_Mayan_Writing {
 				while (charsInSeq[index] > charsInGlyph[index]) {
 					char charToRemove = sequence[indexOfSeq++];
 
-					int indexToRemove = (charToRemove) - 65 > 25 ? (charToRemove) - 71
-							: (charToRemove) - 65;
+					int indexToRemove = (charToRemove) - 65 > 25 ? (charToRemove) - 71 : (charToRemove) - 65;
 					charsInSeq[indexToRemove]--;
 				}
 			}

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1996_Sorting_A_Three_Valued_Sequence {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

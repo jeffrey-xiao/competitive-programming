@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Odometer_Bronze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -27,8 +26,7 @@ public class USACO_2014_Odometer_Bronze {
 							for (int i = 0; i < s.length(); i++) {
 								if (i == 0 && z == 0)
 									continue;
-								StringBuilder newS = new StringBuilder(s)
-										.replace(i, i + 1, "" + z);
+								StringBuilder newS = new StringBuilder(s).replace(i, i + 1, "" + z);
 								if (newS.charAt(0) == '0')
 									continue;
 								long num = Long.parseLong(newS.toString());

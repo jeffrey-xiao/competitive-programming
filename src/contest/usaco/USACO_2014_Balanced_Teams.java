@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Balanced_Teams {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] skills = new int[12];
 	static int[] playerIndex = new int[12];

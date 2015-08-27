@@ -16,12 +16,8 @@ public class Shortest_Path_Adjacency {
 		for (int z = 0; z < size; z++) {
 			for (int x = 0; x < size; x++) {
 				for (int y = 0; y < size; y++) {
-					if (x != z && y != 0 && table[z][y] != 0
-							&& table[x][z] != 0) {
-						table[x][y] = Math.min(
-								table[x][y] == 0 ? Integer.MAX_VALUE
-										: table[x][y], table[z][y]
-										+ table[x][z]);
+					if (x != z && y != 0 && table[z][y] != 0 && table[x][z] != 0) {
+						table[x][y] = Math.min(table[x][y] == 0 ? Integer.MAX_VALUE : table[x][y], table[z][y] + table[x][z]);
 					}
 
 				}

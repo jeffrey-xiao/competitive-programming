@@ -1,6 +1,7 @@
 package codebook.datastructures;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class KdTree {
 	private int size;
@@ -66,8 +67,7 @@ public class KdTree {
 		return ps;
 	}
 
-	private Node insert (Node n, Point v, int height, double xmin,
-			double ymin, double xmax, double ymax) {
+	private Node insert (Node n, Point v, int height, double xmin, double ymin, double xmax, double ymax) {
 		if (n == null) {
 			size++;
 			return new Node(v, height, new Rect(xmin, ymin, xmax, ymax));
@@ -76,18 +76,14 @@ public class KdTree {
 
 		if (compare > 0) {
 			if (height % 2 == 0)
-				n.left = insert(n.left, v, height + 1, xmin, ymin, n.value.getX(),
-						ymax);
+				n.left = insert(n.left, v, height + 1, xmin, ymin, n.value.getX(), ymax);
 			else
-				n.left = insert(n.left, v, height + 1, xmin, ymin, xmax,
-						n.value.getY());
+				n.left = insert(n.left, v, height + 1, xmin, ymin, xmax, n.value.getY());
 		} else if (compare < 0) {
 			if (height % 2 == 0)
-				n.right = insert(n.right, v, height + 1, n.value.getX(), ymin,
-						xmax, ymax);
+				n.right = insert(n.right, v, height + 1, n.value.getX(), ymin, xmax, ymax);
 			else
-				n.right = insert(n.right, v, height + 1, xmin, n.value.getY(),
-						xmax, ymax);
+				n.right = insert(n.right, v, height + 1, xmin, n.value.getY(), xmax, ymax);
 		}
 		return n;
 	}

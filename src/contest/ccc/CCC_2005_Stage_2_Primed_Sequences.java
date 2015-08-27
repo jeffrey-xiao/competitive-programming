@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2005_Stage_2_Primed_Sequences {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,9 +21,7 @@ public class CCC_2005_Stage_2_Primed_Sequences {
 			for (int x = 2; x <= n; x++) {
 				for (int y = 0, z = y + x; z <= n; y++, z++) {
 					if (isPrime(sum[z] - sum[y])) {
-						System.out
-								.print("Shortest primed subsequence is length "
-										+ x + ":");
+						System.out.print("Shortest primed subsequence is length " + x + ":");
 						for (int y1 = y; y1 < z; y1++) {
 							System.out.print(" " + (sum[y1 + 1] - sum[y1]));
 						}

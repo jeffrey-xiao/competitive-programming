@@ -12,8 +12,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2013_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static Map<Integer, ArrayList<Integer>> p = new HashMap<Integer, ArrayList<Integer>>();
 	static int numOfPeople;

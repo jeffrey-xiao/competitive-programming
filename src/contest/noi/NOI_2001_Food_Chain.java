@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class NOI_2001_Food_Chain {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] id;
 	static int[] size;
@@ -43,8 +41,7 @@ public class NOI_2001_Food_Chain {
 			System.out.println("Z: " + z + " " + eat.get(find(x)));
 			System.out.println("FIND X " + find(x));
 			if (c == 1) {
-				if (eat.get(find(y)).contains(find(x))
-						|| eat.get(find(x)).contains(find(y))) {
+				if (eat.get(find(y)).contains(find(x)) || eat.get(find(x)).contains(find(y))) {
 					total++;
 					continue;
 				}

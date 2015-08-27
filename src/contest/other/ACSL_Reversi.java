@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class ACSL_Reversi {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;// 2 is x 1 is O
 	static byte[][] board;
 	static byte[] movex = {-1, -1, -1, 0, 0, 1, 1, 1};
@@ -18,11 +17,7 @@ public class ACSL_Reversi {
 	public static void main (String[] args) throws IOException {
 		for (int t = 0; t < 5; t++) {
 			counter = 0;
-			board = new byte[][] { {0, 0, 0, 0, 0, 0, 0, 0},
-					{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
-					{0, 0, 0, 2, 1, 0, 0, 0}, {0, 0, 0, 1, 2, 0, 0, 0},
-					{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
-					{0, 0, 0, 0, 0, 0, 0, 0}};
+			board = new byte[][] { {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 2, 1, 0, 0, 0}, {0, 0, 0, 1, 2, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
 			String move = next();
 			boolean isXMove = true;
 			while (!move.equals("##")) {
@@ -50,8 +45,7 @@ public class ACSL_Reversi {
 			return true;
 		if (board[i][j] == 0)
 			return false;
-		boolean valid = makeMove(i + movex[move], j + movey[move], isXMove,
-				move);
+		boolean valid = makeMove(i + movex[move], j + movey[move], isXMove, move);
 		if (valid) {
 			board[i][j] = same;
 			counter++;

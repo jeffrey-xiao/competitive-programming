@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_NIKOLA {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[][] dp = new int[0][0];
 	static int[] row = new int[0];

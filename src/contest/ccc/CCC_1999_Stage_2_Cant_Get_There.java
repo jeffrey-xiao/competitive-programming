@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_Stage_2_Cant_Get_There {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -53,13 +51,9 @@ public class CCC_1999_Stage_2_Cant_Get_There {
 				v.add(new Point(x, y, dir));
 				double prevy = y;
 				double b = y - m * x;
-				if (ey == m * ex + b
-						&& (((dir == 0 || dir == 1) && ey >= y) || (dir == 2 || dir == 3)
-								&& ey <= y)) {
+				if (ey == m * ex + b && (((dir == 0 || dir == 1) && ey >= y) || (dir == 2 || dir == 3) && ey <= y)) {
 					count += Math.abs(ey - prevy);
-					System.out.printf(
-							"B can be reached from A after %d move(s).\n",
-							count);
+					System.out.printf("B can be reached from A after %d move(s).\n", count);
 					break;
 				}
 				if (dir == 0) {
@@ -172,8 +166,7 @@ public class CCC_1999_Stage_2_Cant_Get_There {
 
 		@Override
 		public int hashCode () {
-			return new Short(x).hashCode() * 31 * 31 + new Short(y).hashCode()
-					* 31 + new Short(m).hashCode();
+			return new Short(x).hashCode() * 31 * 31 + new Short(y).hashCode() * 31 + new Short(m).hashCode();
 		}
 	}
 

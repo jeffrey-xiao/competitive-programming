@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Cow_Baseball {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -22,8 +21,7 @@ public class USACO_2013_Cow_Baseball {
 		for (int x = 0; x < n - 2; x++) {
 			for (int y = x + 1; y < n - 1; y++) {
 				for (int z = y + 1; z < n; z++) {
-					if (cows[y] - cows[x] <= cows[z] - cows[y]
-							&& (cows[z] - cows[y]) <= 2 * (cows[y] - cows[x])) {
+					if (cows[y] - cows[x] <= cows[z] - cows[y] && (cows[z] - cows[y]) <= 2 * (cows[y] - cows[x])) {
 						// System.out.println(x + " " + y + " " + z);
 						total++;
 					}

@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Valentines_P3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static int[] movex = {-1, 1, 0, 0, 0, 0};
 	static int[] movey = {0, 0, -1, 1, 0, 0};
@@ -35,8 +33,7 @@ public class Valentines_P3 {
 		q.offer(new Pos(1, 1, 1, 0));
 		while (!q.isEmpty()) {
 			Pos curr = q.poll();
-			if (curr.x >= w - 2 && curr.x <= w && curr.y == l
-					&& curr.z >= h - 2 && curr.z <= h) {
+			if (curr.x >= w - 2 && curr.x <= w && curr.y == l && curr.z >= h - 2 && curr.z <= h) {
 				System.out.println(curr.moves);
 				return;
 			}
@@ -46,8 +43,7 @@ public class Valentines_P3 {
 				int nx = curr.x + movex[k];
 				int ny = curr.y + movey[k];
 				int nz = curr.z + movez[k];
-				if (nx <= 0 || nx > w || ny <= 0 || ny > l || nz <= 0 || nz > h
-						|| ob[nx][ny][nz] || v[nx][ny][nz])
+				if (nx <= 0 || nx > w || ny <= 0 || ny > l || nz <= 0 || nz > h || ob[nx][ny][nz] || v[nx][ny][nz])
 					continue;
 				v[nx][ny][nz] = true;
 				;

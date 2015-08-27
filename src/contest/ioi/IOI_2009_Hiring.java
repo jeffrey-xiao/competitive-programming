@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class IOI_2009_Hiring {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -27,13 +25,12 @@ public class IOI_2009_Hiring {
 			p[i] = new Person(readInt(), readInt(), i);
 		}
 		Arrays.sort(p);
-		PriorityQueue<Person> pq = new PriorityQueue<Person>(N + 10,
-				new Comparator<Person>() {
-					@Override
-					public int compare (Person o1, Person o2) {
-						return o2.quality - o1.quality;
-					}
-				});
+		PriorityQueue<Person> pq = new PriorityQueue<Person>(N + 10, new Comparator<Person>() {
+			@Override
+			public int compare (Person o1, Person o2) {
+				return o2.quality - o1.quality;
+			}
+		});
 		boolean[] used = new boolean[N];
 		int total = 0, best = 0, bestIndex = 0;
 		double bestCost = Long.MAX_VALUE;

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Goldilocks_And_The_N_Cows {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {

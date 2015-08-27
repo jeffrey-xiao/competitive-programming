@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Fizz_Fuzz {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -39,9 +37,7 @@ public class Glenforest_Fizz_Fuzz {
 				b = "Fuzz";
 			else
 				b = "" + j;
-			if ((a.equals("Fizz Fuzz") && (b.equals("Fizz") || b.equals("Fuzz")))
-					|| (b.equals("Fizz Fuzz") && (a.equals("Fizz") || a
-							.equals("Fuzz"))))
+			if ((a.equals("Fizz Fuzz") && (b.equals("Fizz") || b.equals("Fuzz"))) || (b.equals("Fizz Fuzz") && (a.equals("Fizz") || a.equals("Fuzz"))))
 				System.out.println("Fizz Fuzz");
 			else
 				System.out.println(a + " " + b);

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class BOI_2009_Diamonds_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static PrintStream pr = new PrintStream(System.out);
 	static int L, M, N;
@@ -24,12 +23,7 @@ public class BOI_2009_Diamonds_2 {
 			for (int y = 1; y <= M; y++) {
 				for (int z = 1; z <= L; z++) {
 
-					grid[i(x, y, z)] = readInt() + grid[i(x - 1, y, z)]
-							+ grid[i(x, y - 1, z)] + grid[i(x, y, z - 1)]
-							- grid[i(x - 1, y - 1, z)]
-							- grid[i(x - 1, y, z - 1)]
-							- grid[i(x, y - 1, z - 1)]
-							+ grid[i(x - 1, y - 1, z - 1)];
+					grid[i(x, y, z)] = readInt() + grid[i(x - 1, y, z)] + grid[i(x, y - 1, z)] + grid[i(x, y, z - 1)] - grid[i(x - 1, y - 1, z)] - grid[i(x - 1, y, z - 1)] - grid[i(x, y - 1, z - 1)] + grid[i(x - 1, y - 1, z - 1)];
 
 				}
 			}
@@ -46,10 +40,7 @@ public class BOI_2009_Diamonds_2 {
 			int y2 = Integer.parseInt(next.nextToken());
 			int x2 = Integer.parseInt(next.nextToken());
 			// System.out.printf("%d %d %d %d %d %d\n",x1,y1,z1,x2,y2,z2);
-			int sum = grid[i(x2, y2, z2)] - grid[i(x1, y2, z2)]
-					- grid[i(x2, y1, z2)] - grid[i(x2, y2, z1)]
-					+ grid[i(x1, y1, z2)] + grid[i(x2, y1, z1)]
-					+ grid[i(x1, y2, z1)] - grid[i(x1, y1, z1)];
+			int sum = grid[i(x2, y2, z2)] - grid[i(x1, y2, z2)] - grid[i(x2, y1, z2)] - grid[i(x2, y2, z1)] + grid[i(x1, y1, z2)] + grid[i(x2, y1, z1)] + grid[i(x1, y2, z1)] - grid[i(x1, y1, z1)];
 			pr.print(sum + "\n");
 		}
 		// System.out.println(grid[N][M][L]);

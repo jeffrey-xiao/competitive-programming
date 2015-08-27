@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2001_S4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -26,14 +25,10 @@ public class CCC_2001_S4 {
 					double c = getDist(points[x], points[z]);
 					double s = (a + b + c) / 2.0;
 					double dist = 0;
-					if ((a * a + b * b - c * c < 0)
-							|| (b * b + c * c - a * a < 0)
-							|| (c * c + a * a - b * b < 0))
+					if ((a * a + b * b - c * c < 0) || (b * b + c * c - a * a < 0) || (c * c + a * a - b * b < 0))
 						dist = Math.max(Math.max(a, b), c);
 					else
-						dist = (a * b * c)
-								/ (2 * Math.sqrt(s * (s - a) * (s - b)
-										* (s - c)));
+						dist = (a * b * c) / (2 * Math.sqrt(s * (s - a) * (s - b) * (s - c)));
 					min = Math.max(dist, min);
 				}
 			}
@@ -42,8 +37,7 @@ public class CCC_2001_S4 {
 	}
 
 	private static double getDist (Point point, Point point2) {
-		return Math.sqrt(sq(point.getX() - point2.getX())
-				+ sq(point.getY() - point2.getY()));
+		return Math.sqrt(sq(point.getX() - point2.getX()) + sq(point.getY() - point2.getY()));
 	}
 
 	private static double sq (double f) {

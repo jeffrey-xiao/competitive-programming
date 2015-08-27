@@ -24,8 +24,7 @@ public class Woburn_Challenge_1996_Row_and_Column_Compressions {
 					} else if (alpha.indexOf(in.charAt(count)) != -1) {
 						grid[x][y] = in.charAt(count);
 						count++;
-					} else if (in.charAt(count) == '1'
-							&& in.charAt(count + 1) == '0') {
+					} else if (in.charAt(count) == '1' && in.charAt(count + 1) == '0') {
 						repeat = 10;
 						curr = in.charAt(count + 2);
 						grid[x][y] = curr;

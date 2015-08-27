@@ -11,22 +11,20 @@ import java.util.StringTokenizer;
 
 public class IOI_1996_Job_Processing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int tasks = readInt();
 		int numOfA = readInt();
-		PriorityQueue<int[]> moves = new PriorityQueue<int[]>(numOfA,
-				new Comparator<int[]>() {
+		PriorityQueue<int[]> moves = new PriorityQueue<int[]>(numOfA, new Comparator<int[]>() {
 
-					@Override
-					public int compare (int[] arg0, int[] arg1) {
-						return arg0[0] + arg0[1] - arg1[0] - arg1[1];
-					}
+			@Override
+			public int compare (int[] arg0, int[] arg1) {
+				return arg0[0] + arg0[1] - arg1[0] - arg1[1];
+			}
 
-				});
+		});
 		for (int x = 0; x < numOfA; x++) {
 			int a = readInt();
 			moves.offer(new int[] {0, a});

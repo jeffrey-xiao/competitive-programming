@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2014_Wall {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] up;
 	static int[] down;
@@ -61,8 +60,7 @@ public class IOI_2014_Wall {
 									// parent
 	}
 
-	static void update (int value, int x, int y, int sindex, int eindex,
-			int curr, boolean build) {
+	static void update (int value, int x, int y, int sindex, int eindex, int curr, boolean build) {
 		System.out.println(sindex + " " + eindex + " " + curr);
 		if (eindex > x || sindex < y)
 			return;

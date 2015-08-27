@@ -33,11 +33,8 @@ public class Shortest_Path {
 				}
 			}
 			for (int x = 0; x < edges.length; x++) {
-				if (edges[x][0] == smallestIndex + 1
-						&& vertices[edges[x][1] - 1][1] == 0
-						&& edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][1] - 1][0]) {
-					vertices[edges[x][1] - 1][0] = edges[x][2]
-							+ vertices[smallestIndex][0];
+				if (edges[x][0] == smallestIndex + 1 && vertices[edges[x][1] - 1][1] == 0 && edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][1] - 1][0]) {
+					vertices[edges[x][1] - 1][0] = edges[x][2] + vertices[smallestIndex][0];
 				}
 			}
 			vertices[smallestIndex][1] = -1;

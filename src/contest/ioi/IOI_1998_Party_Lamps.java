@@ -10,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1998_Party_Lamps {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -48,8 +47,7 @@ public class IOI_1998_Party_Lamps {
 							flip(4, lights);
 						// print(lights);
 						// System.out.println(b1+"" +b2+"" +b3+"" +b4);
-						if (b1 + b2 + b3 + b4 <= numOfButtons
-								&& check(lights, on, off)) {
+						if (b1 + b2 + b3 + b4 <= numOfButtons && check(lights, on, off)) {
 							s.add(print(lights));
 							// System.out.println(print(lights));
 							// System.out.println(b1+"" +b2+"" +b3+"" +b4);
@@ -78,8 +76,7 @@ public class IOI_1998_Party_Lamps {
 		return s;
 	}
 
-	private static boolean check (boolean[] lights, ArrayList<Byte> on,
-			ArrayList<Byte> off) {
+	private static boolean check (boolean[] lights, ArrayList<Byte> on, ArrayList<Byte> off) {
 		for (byte b : on)
 			if (!lights[b - 1])
 				return false;

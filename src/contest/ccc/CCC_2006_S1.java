@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_S1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static char[] dom = new char[] {'A', 'B', 'C', 'D', 'E'};
 	static char[] rec = new char[] {'a', 'b', 'c', 'd', 'e'};
@@ -38,13 +37,11 @@ public class CCC_2006_S1 {
 	}
 
 	private static boolean checkDom (String s1, String s2, int x) {
-		return s1.charAt(x) == dom[x / 2] || s1.charAt(x + 1) == dom[x / 2]
-				|| s2.charAt(x) == dom[x / 2] || s2.charAt(x + 1) == dom[x / 2];
+		return s1.charAt(x) == dom[x / 2] || s1.charAt(x + 1) == dom[x / 2] || s2.charAt(x) == dom[x / 2] || s2.charAt(x + 1) == dom[x / 2];
 	}
 
 	private static boolean checkRec (String s1, String s2, int x) {
-		return (s1.charAt(x) == rec[x / 2] || s1.charAt(x + 1) == rec[x / 2])
-				&& (s2.charAt(x) == rec[x / 2] || s2.charAt(x + 1) == rec[x / 2]);
+		return (s1.charAt(x) == rec[x / 2] || s1.charAt(x + 1) == rec[x / 2]) && (s2.charAt(x) == rec[x / 2] || s2.charAt(x + 1) == rec[x / 2]);
 	}
 
 	static String next () throws IOException {

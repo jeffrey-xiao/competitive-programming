@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class IOI_1994_The_Castle {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -50,20 +49,16 @@ public class IOI_1994_The_Castle {
 				if (x - 1 >= 0 && grid[x][y] != grid[x - 1][y]) {
 					// System.out.println(x+1 + " " +(y+1)+ " " +
 					// (sizes.get(-grid[x][y]-1)+sizes.get(-grid[x-1][y]-1)) );
-					if (sizes.get(-grid[x][y] - 1)
-							+ sizes.get(-grid[x - 1][y] - 1) > maxCombo) {
-						maxCombo = sizes.get(-grid[x][y] - 1)
-								+ sizes.get(-grid[x - 1][y] - 1);
+					if (sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x - 1][y] - 1) > maxCombo) {
+						maxCombo = sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x - 1][y] - 1);
 						x1 = x + 1;
 						y1 = y + 1;
 						dir = 'N';
 					}
 				}
 				if (y + 1 < c && grid[x][y] != grid[x][y + 1]) {
-					if (sizes.get(-grid[x][y] - 1)
-							+ sizes.get(-grid[x][y + 1] - 1) > maxCombo) {
-						maxCombo = sizes.get(-grid[x][y] - 1)
-								+ sizes.get(-grid[x][y + 1] - 1);
+					if (sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x][y + 1] - 1) > maxCombo) {
+						maxCombo = sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x][y + 1] - 1);
 						x1 = x + 1;
 						y1 = y + 1;
 						dir = 'E';
@@ -71,8 +66,7 @@ public class IOI_1994_The_Castle {
 				}
 			}
 		}
-		System.out.printf("%d\n%d\n%d\n%d %d %c", counter, max, maxCombo, x1,
-				y1, dir);
+		System.out.printf("%d\n%d\n%d\n%d %d %c", counter, max, maxCombo, x1, y1, dir);
 	}
 
 	private static int fillGrid (int x, int y, int[][] g, int c, boolean[][] v) {

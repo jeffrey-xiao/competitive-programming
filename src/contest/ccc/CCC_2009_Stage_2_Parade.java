@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2009_Stage_2_Parade {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static Node[] tree = new Node[300005];
@@ -111,8 +109,7 @@ public class CCC_2009_Stage_2_Parade {
 		return n;
 	}
 
-	private static void swap (byte[][] p, byte[][] np, int r, int c, int r2,
-			int c2) {
+	private static void swap (byte[][] p, byte[][] np, int r, int c, int r2, int c2) {
 		// byte temp = p[r][c];
 		// p[r][c] = p[r2][c2];
 		// p[r2][c2] = temp;

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_DOBRA_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static StringBuilder s;
 	static ArrayList<Integer> blank;
@@ -35,13 +34,9 @@ public class COCI_2009_DOBRA_2 {
 			if (s.indexOf("L") == -1)
 				return;
 			for (int y = 1; y < s.length() - 1; y++) {
-				if (vowel.indexOf(s.charAt(y - 1)) != -1
-						&& vowel.indexOf(s.charAt(y + 1)) != -1
-						&& vowel.indexOf(s.charAt(y)) != -1)
+				if (vowel.indexOf(s.charAt(y - 1)) != -1 && vowel.indexOf(s.charAt(y + 1)) != -1 && vowel.indexOf(s.charAt(y)) != -1)
 					return;
-				if (alpha.indexOf(s.charAt(y - 1)) != -1
-						&& alpha.indexOf(s.charAt(y + 1)) != -1
-						&& alpha.indexOf(s.charAt(y)) != -1)
+				if (alpha.indexOf(s.charAt(y - 1)) != -1 && alpha.indexOf(s.charAt(y + 1)) != -1 && alpha.indexOf(s.charAt(y)) != -1)
 					return;
 			}
 			sum += m;

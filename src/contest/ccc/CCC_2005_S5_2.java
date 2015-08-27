@@ -3,75 +3,86 @@ package contest.ccc;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CCC_2005_S5_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
+	static int n;
+	static int[] tree;
 
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
-		long total = 0;
-		Tree t = new Tree();
+		n = readInt();
+		tree = new int[n + 1];
+		int[] indexes = new int[n];
+		Score[] ranks = new Score[n];
 		for (int x = 0; x < n; x++) {
-			int next = readInt();
-			int temp = t.add(next);
-			total += temp + 1;
-			// System.out.println(temp+1);
+			int score = readInt();
+			ranks[x] = new Score(score, x);
 		}
-		float f = total / (float) n;
-		if (Double.parseDouble(String.format("%.2f", f * 100.0
-				- (int) (f * 100.0))) == 0.5
-				&& (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
+		Arrays.sort(ranks);
+		int count = 1;
+		indexes[ranks[0].index] = 1;
+		int[] freq = new int[n + 1];
+		for (int x = 2; x <= n; x++) {
+			if (ranks[x - 1].score != ranks[x - 2].score)
+				count++;
+			indexes[ranks[x - 1].index] = count;
+			// System.out.println(count);
+		}
+		// System.out.println(n + " " + count);
+		double f = 0;
+		for (int x = 0; x < n; x++) {
+			update(indexes[x], +1);
+
+			f += freqTo(indexes[x]) - freq[indexes[x]];
+			freq[indexes[x]]++;
+			// System.out.println(freqTo(indexes[x]) + " " + indexes[x]);
+		}
+		f /= n;
+		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
 			f -= 0.01;
 		System.out.printf("%.2f", f);
 	}
 
-	static class Node {
+	static class Score implements Comparable<Score> {
 		int score;
-		int rank;
-		Node left;
-		Node right;
+		int index;
 
-		public Node (int s) {
-			score = s;
+		Score (int score, int index) {
+			this.score = score;
+			this.index = index;
+		}
+
+		@Override
+		public int compareTo (Score o) {
+			if (o.score == score)
+				return index - o.index;
+			return o.score - score;
 		}
 	}
 
-	static class Tree {
-		Node root;
-
-		public int add (int score) {
-			int rank = 0;
-			if (root == null) {
-				root = new Node(score);
-			} else {
-				Node next = root;
-				while (true) {
-					// System.out.println(next.score +" "+ next.rank);
-					if (score < next.score) {
-						// System.out.println("LEFT");
-						rank += next.rank + 1;
-						if (next.left == null) {
-							next.left = new Node(score);
-							return rank;
-						} else
-							next = next.left;
-					} else if (score >= next.score) {
-						// System.out.println("RIGHT");
-						next.rank++;
-						if (next.right == null) {
-							next.right = new Node(score);
-							return rank;
-						} else
-							next = next.right;
-					}
-				}
-			}
-			return 0;
+	private static void update (int x, int val) {
+		while (x <= n) {
+			tree[x] += val;
+			x += (x & -x);
 		}
+	}
+
+	@SuppressWarnings ("unused")
+	private static int freqAt (int x) {
+		return freqTo(x) - freqTo(x - 1);
+	}
+
+	private static int freqTo (int x) {
+		int sum = 0;
+		while (x > 0) {
+			sum += tree[x];
+			x -= (x & -x);
+		}
+		return sum;
 	}
 
 	static String next () throws IOException {

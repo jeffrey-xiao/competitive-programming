@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2014_Kittans_Dilemma {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -32,9 +30,7 @@ public class DMOPC_2014_Kittans_Dilemma {
 			for (int j = 1; j <= m; j++) {
 				dp[i % 2][j] = Math.max(dp[(i - 1) % 2][j], dp[i % 2][j - 1]);
 				if (j - men[i].space >= 0) {
-					dp[i % 2][j] = Math.max(dp[i % 2][j], dp[(i - 1) % 2][j
-							- men[i].space]
-							+ (men[i].protection ? 2 : 1));
+					dp[i % 2][j] = Math.max(dp[i % 2][j], dp[(i - 1) % 2][j - men[i].space] + (men[i].protection ? 2 : 1));
 				}
 			}
 		}

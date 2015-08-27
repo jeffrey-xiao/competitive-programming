@@ -1,7 +1,15 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class IOI_1995_Letter_Game {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

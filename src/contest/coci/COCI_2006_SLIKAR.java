@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_SLIKAR {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -53,8 +52,7 @@ public class COCI_2006_SLIKAR {
 			for (int z = 0; z < 4; z++) {
 				int x = curr.x + movex[z];
 				int y = curr.y + movey[z];
-				if (x < 0 || y < 0 || x >= r || y >= c || grid[x][y] == 'X'
-						|| grid[x][y] == 'D' || visited[x][y])
+				if (x < 0 || y < 0 || x >= r || y >= c || grid[x][y] == 'X' || grid[x][y] == 'D' || visited[x][y])
 					continue;
 				moves.offer(new Point(x, y, curr.time + 1));
 				visited[x][y] = true;
@@ -81,8 +79,7 @@ public class COCI_2006_SLIKAR {
 			for (int z = 0; z < 4; z++) {
 				int x = curr.x + movex[z];
 				int y = curr.y + movey[z];
-				if (x < 0 || y < 0 || x >= r || y >= c || visited[x][y]
-						|| grid[x][y] == 'X' || (curr.time + 1 >= min[x][y]))
+				if (x < 0 || y < 0 || x >= r || y >= c || visited[x][y] || grid[x][y] == 'X' || (curr.time + 1 >= min[x][y]))
 					continue;
 				moves.offer(new Point(x, y, curr.time + 1));
 				visited[x][y] = true;

@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_The_Cow_Run {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -31,14 +30,10 @@ public class USACO_2013_The_Cow_Run {
 		for (int x = 1; x < n; x++) {
 			int length = n - x;
 			for (int y = 1; y + x <= n + 1; y++) {
-				dp[y - 1][x + 1][0] = Math.min(dp[y - 1][x + 1][0], dp[y][x][0]
-						+ length * (cows[y] - cows[y - 1]));
-				dp[y - 1][x + 1][0] = Math.min(dp[y - 1][x + 1][0], dp[y][x][1]
-						+ length * (cows[y + x - 1] - cows[y - 1]));
-				dp[y][x + 1][1] = Math.min(dp[y][x + 1][1], dp[y][x][0]
-						+ length * (cows[y + x] - cows[y]));
-				dp[y][x + 1][1] = Math.min(dp[y][x + 1][1], dp[y][x][1]
-						+ length * (cows[y + x] - cows[y + x - 1]));
+				dp[y - 1][x + 1][0] = Math.min(dp[y - 1][x + 1][0], dp[y][x][0] + length * (cows[y] - cows[y - 1]));
+				dp[y - 1][x + 1][0] = Math.min(dp[y - 1][x + 1][0], dp[y][x][1] + length * (cows[y + x - 1] - cows[y - 1]));
+				dp[y][x + 1][1] = Math.min(dp[y][x + 1][1], dp[y][x][0] + length * (cows[y + x] - cows[y]));
+				dp[y][x + 1][1] = Math.min(dp[y][x + 1][1], dp[y][x][1] + length * (cows[y + x] - cows[y + x - 1]));
 			}
 		}
 		System.out.println(Math.min(dp[1][n][0], dp[1][n][1]));

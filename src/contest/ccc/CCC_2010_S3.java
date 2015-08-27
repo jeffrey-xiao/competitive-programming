@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2010_S3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static final int LEN = 1000000;
 	static int[] h;

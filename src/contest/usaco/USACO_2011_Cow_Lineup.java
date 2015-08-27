@@ -13,8 +13,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Cow_Lineup {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 

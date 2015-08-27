@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2010_Quality_Of_Living {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -41,12 +40,10 @@ public class IOI_2010_Quality_Of_Living {
 						newGrid[x][y] = -1;
 					else
 						newGrid[x][y] = 1;
-					newGrid[x][y] = newGrid[x][y] - newGrid[x - 1][y - 1]
-							+ newGrid[x - 1][y] + newGrid[x][y - 1];
+					newGrid[x][y] = newGrid[x][y] - newGrid[x - 1][y - 1] + newGrid[x - 1][y] + newGrid[x][y - 1];
 					// System.out.printf("%3d ",newGrid[x][y]);
 					if (x > h && y > w) {
-						int sum = newGrid[x][y] + newGrid[x - h - 1][y - w - 1]
-								- newGrid[x][y - w - 1] - newGrid[x - h - 1][y];
+						int sum = newGrid[x][y] + newGrid[x - h - 1][y - w - 1] - newGrid[x][y - w - 1] - newGrid[x - h - 1][y];
 						// System.out.println(sum + " " + x + " " + y);
 						if (sum < 0) {
 							high = mid;

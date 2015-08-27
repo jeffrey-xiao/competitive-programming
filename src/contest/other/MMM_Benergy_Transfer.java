@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class MMM_Benergy_Transfer {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 
@@ -29,11 +28,8 @@ public class MMM_Benergy_Transfer {
 		double lower = 0;
 		double higher = Integer.MAX_VALUE;
 		while (higher - lower > 0.00000000005f) {
-			double lowDist = getDistance(setDistance(initialB, speedB, lower),
-					setDistance(initialS, speedS, lower));
-			double highDist = getDistance(
-					setDistance(initialB, speedB, higher),
-					setDistance(initialS, speedS, higher));
+			double lowDist = getDistance(setDistance(initialB, speedB, lower), setDistance(initialS, speedS, lower));
+			double highDist = getDistance(setDistance(initialB, speedB, higher), setDistance(initialS, speedS, higher));
 			if (lowDist <= highDist)
 				higher = (lower + higher) / 2;
 			else

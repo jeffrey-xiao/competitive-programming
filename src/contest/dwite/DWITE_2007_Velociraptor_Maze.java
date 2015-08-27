@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class DWITE_2007_Velociraptor_Maze {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {0, 0, -1, 1};
 	static int[] movey = {-1, 1, 0, 0};
@@ -65,8 +64,7 @@ public class DWITE_2007_Velociraptor_Maze {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
 
-				if (nx < 0 || ny < 0 || nx >= r || ny >= c
-						|| grid[nx][ny] == '#')
+				if (nx < 0 || ny < 0 || nx >= r || ny >= c || grid[nx][ny] == '#')
 					continue;
 				Point p = prevh[nx][ny];
 				if (p != null)
@@ -86,8 +84,7 @@ public class DWITE_2007_Velociraptor_Maze {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
 
-				if (nx < 0 || ny < 0 || nx >= r || ny >= c
-						|| grid[nx][ny] == '#')
+				if (nx < 0 || ny < 0 || nx >= r || ny >= c || grid[nx][ny] == '#')
 					continue;
 				Point p = prevv[nx][ny];
 				if (p != null)

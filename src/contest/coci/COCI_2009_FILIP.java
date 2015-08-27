@@ -10,17 +10,13 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_FILIP {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		int a = Integer
-				.parseInt(new StringBuilder(next()).reverse().toString());
-		int b = Integer
-				.parseInt(new StringBuilder(next()).reverse().toString());
+		int a = Integer.parseInt(new StringBuilder(next()).reverse().toString());
+		int b = Integer.parseInt(new StringBuilder(next()).reverse().toString());
 		System.out.println(Math.max(a, b));
 	}
 

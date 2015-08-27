@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_P4 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-2, -2, -1, -1, 1, 1, 2, 2};
 	static int[] movey = {-1, 1, -2, 2, -2, 2, -1, 1};
@@ -54,16 +53,12 @@ public class CCC_1999_P4 {
 				int time = pr - x;
 				if (grid[x][pc] == 0)
 					continue;
-				if (x != 0
-						&& grid[x][pc] <= time
-						&& ((grid[x][pc] == -1 ? 0 : grid[x][pc]) - time) % 2 == 0) {
+				if (x != 0 && grid[x][pc] <= time && ((grid[x][pc] == -1 ? 0 : grid[x][pc]) - time) % 2 == 0) {
 					win = true;
 					winMoves = time;
 					break;
 				}
-				if (grid[x][pc] <= time
-						&& ((grid[x][pc] == -1 ? 0 : grid[x][pc]) - time + 1) % 2 == 0
-						&& !stale) {
+				if (grid[x][pc] <= time && ((grid[x][pc] == -1 ? 0 : grid[x][pc]) - time + 1) % 2 == 0 && !stale) {
 					stale = true;
 					staleMoves = time - 1;
 				}
@@ -71,8 +66,7 @@ public class CCC_1999_P4 {
 			if (win)
 				System.out.printf("Win in %d knight move(s).\n", winMoves);
 			else if (stale)
-				System.out.printf("Stalemate in %d knight move(s).\n",
-						staleMoves);
+				System.out.printf("Stalemate in %d knight move(s).\n", staleMoves);
 			else
 				System.out.printf("Loss in %d knight move(s).\n", pr - 1);
 		}

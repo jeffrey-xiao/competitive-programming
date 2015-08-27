@@ -4,75 +4,124 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class CCC_2007_Stage_2_Road_Construction {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static ArrayList<ArrayList<Integer>> adjlist = new ArrayList<ArrayList<Integer>>();
+
+	static Stack<Integer> s = new Stack<Integer>();
+	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+	static HashMap<Integer, Integer> nodeToCom = new HashMap<Integer, Integer>();
+	static ArrayList<HashSet<Integer>> tree = new ArrayList<HashSet<Integer>>();
+	static int leaves;
 	static int count;
+	static boolean[] visited;
+	static int[] parent;
+	static int[] d;
+	static int[] low;
+	static int numOfComponents;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
+		visited = new boolean[n];
+		parent = new int[n];
+		d = new int[n];
+		low = new int[n];
+		for (int x = 0; x < n; x++) {
+			adj.add(new ArrayList<Integer>());
+			parent[x] = -1;
+		}
 		int m = readInt();
-		for (int x = 0; x < n; x++)
-			adjlist.add(new ArrayList<Integer>());
+		int a = 0;
+		int b = 0;
 		for (int x = 0; x < m; x++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			adjlist.get(a).add(b);
-			adjlist.get(b).add(a);
+			a = readInt() - 1;
+			b = readInt() - 1;
+			adj.get(a).add(b);
+			adj.get(b).add(a);
 		}
-		boolean[] visited = new boolean[n];
-		int[] depthVisited = new int[n];
-		dfs(0, visited, 0, depthVisited, -1);
-		boolean flag = checkRoot(0, new boolean[n], -1);
-		if (!flag) {
-			count--;
+		// if(b==1)
+		// leaves--;
+		for (int x = 0; x < n; x++) {
+			if (!visited[x])
+				dfs(x);
 		}
-		System.out.println((count) / 2);
-		// System.out.println(count);
-	}
-
-	private static boolean checkRoot (int i, boolean[] visited, int prev) {
-		if (visited[i])
-			return false;
-		visited[i] = true;
-		for (int x = 0; x < adjlist.get(i).size(); x++) {
-			int next = adjlist.get(i).get(x);
-			if (i != next) {
-				boolean flag = checkRoot(adjlist.get(i).get(x), visited, i);
-				if (i == 0 && x > 0 && flag)
-					return true;
+		for (int x = 0; x < n; x++) {
+			if (nodeToCom.get(x) == null) {
+				nodeToCom.put(x, numOfComponents);
+				numOfComponents++;
 			}
 		}
-		if (i != 0)
-			return true;
-		return false;
+		for (int x = 0; x < numOfComponents; x++)
+			tree.add(new HashSet<Integer>());
+		// for(Entry<Integer, Integer> e: nodeToCom.entrySet())
+		// System.out.println(e.getKey()+1 + " " + e.getValue());
+		for (int x = 0; x < n; x++)
+			for (int y = 0; y < adj.get(x).size(); y++) {
+				a = nodeToCom.get(x);
+				b = nodeToCom.get(adj.get(x).get(y));
+
+				if (a != b) {
+					tree.get(a).add(b);
+					tree.get(b).add(a);
+				}
+			}
+		for (HashSet<Integer> h : tree) {
+			if (h.size() == 1)
+				leaves++;
+		}
+		System.out.println((leaves + 1) / 2);
 	}
 
-	private static int dfs (int curr, boolean[] visited, int depth,
-			int[] depthVisited, int prev) {
-		int min = Integer.MAX_VALUE;
-		if (visited[curr])
-			return depthVisited[curr];
-		visited[curr] = true;
-		depthVisited[curr] = depth;
-		for (int x = 0; x < adjlist.get(curr).size(); x++) {
-			int next = adjlist.get(curr).get(x);
-			if (next != prev)
-				min = Math.min(min,
-						dfs(next, visited, depth + 1, depthVisited, curr));
+	static class Edge {
+		int source;
+		int dest;
 
+		Edge (int source, int dest) {
+			this.source = source;
+			this.dest = dest;
 		}
-		if (min >= depth && adjlist.get(curr).size() > 0) {
-			count++;
+	}
+
+	private static void dfs (int x) {
+		visited[x] = true;
+		low[x] = d[x] = ++count;
+		for (int y = 0; y < adj.get(x).size(); y++) {
+			int next = adj.get(x).get(y);
+			if (!visited[next]) {
+				s.push(x);
+				parent[next] = x;
+				dfs(next);
+				if (low[next] >= low[x])
+					print(x);
+				low[x] = Math.min(low[next], low[x]);
+			} else if (parent[x] != next && d[next] < d[x]) {
+				s.push(x);
+				low[x] = Math.min(d[next], low[x]);
+			}
 		}
-		// System.out.println(curr + " " + min);
-		depthVisited[curr] = min;
-		return min;
+	}
+
+	private static void print (Integer x) {
+		// System.out.println("NEW COMPONENT");
+		// System.out.println("VERTEX " + x);
+		if (s.isEmpty())
+			return;
+		Integer e = s.pop();
+		if (nodeToCom.containsKey(e))
+			return;
+		nodeToCom.put(e, numOfComponents);
+		while (!s.isEmpty() && (e != x)) {
+			// System.out.println(e);
+			e = s.pop();
+			nodeToCom.put(e, numOfComponents);
+		}
+		numOfComponents++;
 	}
 
 	static String next () throws IOException {

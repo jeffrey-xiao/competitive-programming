@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class COCI_2007_VAUVAU {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -19,11 +18,9 @@ public class COCI_2007_VAUVAU {
 
 		for (int x = 0; x < 3; x++) {
 			int man = readInt();
-			if (man % (a + b) <= a && man % (a + b) > 0 && man % (c + d) <= c
-					&& man % (c + d) > 0)
+			if (man % (a + b) <= a && man % (a + b) > 0 && man % (c + d) <= c && man % (c + d) > 0)
 				System.out.println("both");
-			else if ((man % (a + b) <= a && man % (a + b) > 0)
-					|| (man % (c + d) <= c && man % (c + d) > 0))
+			else if ((man % (a + b) <= a && man % (a + b) > 0) || (man % (c + d) <= c && man % (c + d) > 0))
 				System.out.println("one");
 			else
 				System.out.println("none");

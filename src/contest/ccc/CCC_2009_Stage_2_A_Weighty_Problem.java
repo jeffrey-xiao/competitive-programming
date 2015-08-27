@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2009_Stage_2_A_Weighty_Problem {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -46,8 +45,7 @@ public class CCC_2009_Stage_2_A_Weighty_Problem {
 						if (dp[y] && y + z * coins[x].value <= total) {
 							int i = y + z * coins[x].value;
 							dp[i] = true;
-							maxWeight[i] = Math.max(maxWeight[i], maxWeight[y]
-									+ z * coins[x].weight);
+							maxWeight[i] = Math.max(maxWeight[i], maxWeight[y] + z * coins[x].weight);
 						}
 				}
 			}
@@ -56,8 +54,7 @@ public class CCC_2009_Stage_2_A_Weighty_Problem {
 		double min = Integer.MAX_VALUE;
 		for (int x = 1; x <= total; x++)
 			if (dp[x] && x >= c)
-				min = Math.min(min,
-						totalWeight - diff(x - c, coins, maxWeight[x]));
+				min = Math.min(min, totalWeight - diff(x - c, coins, maxWeight[x]));
 		System.out.printf("%.2f", min);
 	}
 

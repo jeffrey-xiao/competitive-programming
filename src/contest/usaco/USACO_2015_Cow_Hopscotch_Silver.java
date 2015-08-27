@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2015_Cow_Hopscotch_Silver {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static final int MOD = 1000000007;
@@ -36,10 +34,7 @@ public class USACO_2015_Cow_Hopscotch_Silver {
 				int sum = 0;
 				int id = g[i][j];
 				for (int x = 0; x < k; x++) {
-					prefix[i][j][x] = (((prefix[i][j][x] + prefix[i - 1][j][x])
-							% MOD + prefix[i][j - 1][x])
-							% MOD - prefix[i - 1][j - 1][x])
-							% MOD;
+					prefix[i][j][x] = (((prefix[i][j][x] + prefix[i - 1][j][x]) % MOD + prefix[i][j - 1][x]) % MOD - prefix[i - 1][j - 1][x]) % MOD;
 					if (x == id)
 						continue;
 					sum = (sum + prefix[i - 1][j - 1][x]) % MOD;
@@ -47,12 +42,7 @@ public class USACO_2015_Cow_Hopscotch_Silver {
 				prefix[i][j][id] = (prefix[i][j][id] + sum) % MOD;
 			}
 		}
-		System.out
-				.println(((((prefix[r][c][g[r][c]] - prefix[r - 1][c][g[r][c]])
-						% MOD - prefix[r][c - 1][g[r][c]])
-						% MOD + prefix[r - 1][c - 1][g[r][c]])
-						% MOD + MOD)
-						% MOD);
+		System.out.println(((((prefix[r][c][g[r][c]] - prefix[r - 1][c][g[r][c]]) % MOD - prefix[r][c - 1][g[r][c]]) % MOD + prefix[r - 1][c - 1][g[r][c]]) % MOD + MOD) % MOD);
 	}
 
 	static String next () throws IOException {

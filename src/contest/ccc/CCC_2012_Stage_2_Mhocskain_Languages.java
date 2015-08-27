@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2012_Stage_2_Mhocskain_Languages {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -38,8 +36,7 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
 		}
 		int r2 = readInt();
 		for (int i = 0; i < r2; i++) {
-			mapT.get(readCharacter() - 'A').add(
-					new char[] {readCharacter(), readCharacter()});
+			mapT.get(readCharacter() - 'A').add(new char[] {readCharacter(), readCharacter()});
 		}
 		int w = readInt();
 		for (int q = 0; q < w; q++) {
@@ -57,8 +54,7 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
 					for (char c : vs) {
 						for (char[] p : mapT.get(c - 'A')) {
 							for (int j = i + 1; j < i + len; j++) {
-								if (dp[p[0] - 'A'][j - i][i]
-										&& dp[p[1] - 'A'][(i + len) - j][j]) {
+								if (dp[p[0] - 'A'][j - i][i] && dp[p[1] - 'A'][(i + len) - j][j]) {
 									dp[c - 'A'][len][i] = true;
 								}
 							}

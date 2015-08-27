@@ -12,8 +12,7 @@ public class Main {
 	ArrayList<Integer> leaves;
 
 	public static void main (String[] args) {
-		System.out.println(new Main().differentTime(new int[] {0, 1},
-				new int[] {1, 2}, new int[] {10, 1}));
+		System.out.println(new Main().differentTime(new int[] {0, 1}, new int[] {1, 2}, new int[] {10, 1}));
 	}
 
 	public int differentTime (int[] a, int[] b, int[] len) {
@@ -62,8 +61,7 @@ public class Main {
 					v[next.dest] = true;
 					copy.get(curr).remove(z);
 					// System.out.println(next.dest + " " + curr);
-					copy.get(next.dest).remove(
-							copy.get(next.dest).indexOf(new Edge(curr, 0.0d)));
+					copy.get(next.dest).remove(copy.get(next.dest).indexOf(new Edge(curr, 0.0d)));
 					totalTime += next.cost;
 					q.offer(next.dest);
 				}

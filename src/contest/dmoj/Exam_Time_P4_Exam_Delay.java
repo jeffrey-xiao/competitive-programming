@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Exam_Time_P4_Exam_Delay {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 
@@ -44,12 +42,10 @@ public class Exam_Time_P4_Exam_Delay {
 			for (Edge next : adj.get(curr.index)) {
 				double nextTime = curr.time + next.dist / (double) next.speed;
 				int nextInter = curr.inter + 1;
-				if (s[next.dest].time < nextTime
-						|| (s[next.dest].time == nextTime && s[next.dest].inter <= nextInter))
+				if (s[next.dest].time < nextTime || (s[next.dest].time == nextTime && s[next.dest].inter <= nextInter))
 					continue;
 				s[next.dest] = new State(nextTime, nextInter, curr.index, next);
-				pq.offer(new State(next.dest, nextTime, nextInter, curr.index,
-						next));
+				pq.offer(new State(next.dest, nextTime, nextInter, curr.index, next));
 			}
 		}
 		double delay = 0;

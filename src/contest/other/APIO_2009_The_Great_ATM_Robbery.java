@@ -11,8 +11,7 @@ import java.util.StringTokenizer;
 
 public class APIO_2009_The_Great_ATM_Robbery {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<ArrayList<Integer>> rev = new ArrayList<ArrayList<Integer>>();
@@ -79,8 +78,7 @@ public class APIO_2009_The_Great_ATM_Robbery {
 		// }
 	}
 
-	private static int maxValue (int start, int[] values,
-			ArrayList<HashSet<Integer>> g, HashSet<Integer> ends) {
+	private static int maxValue (int start, int[] values, ArrayList<HashSet<Integer>> g, HashSet<Integer> ends) {
 		int[] max = new int[n];
 		max[start] = values[start];
 		int ans = 0;

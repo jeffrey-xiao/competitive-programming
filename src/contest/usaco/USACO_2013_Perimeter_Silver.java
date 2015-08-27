@@ -10,8 +10,7 @@ import java.util.TreeSet;
 
 public class USACO_2013_Perimeter_Silver {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int count;
 	static TreeSet<Point> points = new TreeSet<Point>();

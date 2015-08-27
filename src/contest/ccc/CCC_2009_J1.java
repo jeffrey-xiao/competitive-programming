@@ -7,13 +7,11 @@ import java.util.StringTokenizer;
 
 public class CCC_2009_J1 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		System.out.println("The 1-3-sum is "
-				+ (91 + readInt() + readInt() * 3 + readInt()));
+		System.out.println("The 1-3-sum is " + (91 + readInt() + readInt() * 3 + readInt()));
 	}
 
 	static String next () throws IOException {

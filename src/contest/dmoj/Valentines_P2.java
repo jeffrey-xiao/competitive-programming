@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Valentines_P2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -32,8 +30,7 @@ public class Valentines_P2 {
 			for (int y = k; y >= 0; y--) {
 				dp[x][y] = Math.max(dp[x][y], dp[x - 1][y]);
 				if (y - c[x].t >= 0 && dp[x - 1][y - c[x].t] != -1) {
-					dp[x][y] = Math.max(dp[x][y], dp[x - 1][y - c[x].t]
-							+ c[x].p);
+					dp[x][y] = Math.max(dp[x][y], dp[x - 1][y - c[x].t] + c[x].p);
 					// System.out.println("HERE " + x + " " +y + " " + c[x].p);
 				}
 				// System.out.print(dp[x][y] + " ");

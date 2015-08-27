@@ -3,53 +3,72 @@ package contest.ccc;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class CCC_2005_S5 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
-		ArrayList<Integer> scores = new ArrayList<Integer>();
 		long total = 0;
+		Tree t = new Tree();
 		for (int x = 0; x < n; x++) {
 			int next = readInt();
-			total += binaryInsertion(scores, next) + 1;
-			// System.out.println(total);
-
+			int temp = t.add(next);
+			total += temp + 1;
+			// System.out.println(temp+1);
 		}
-		// System.out.println(total);
-
 		float f = total / (float) n;
-		// System.out.println(Double.parseDouble(String.format("%.3f",f*100.0-(int)(f*100.0))));
-		// System.out.println("blahhh " + (int)((f*10-(int)(f*10))*10));
-		if (Double.parseDouble(String.format("%.2f", f * 100.0
-				- (int) (f * 100.0))) == 0.5
-				&& (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
+		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
 			f -= 0.01;
 		System.out.printf("%.2f", f);
 	}
 
-	private static int binaryInsertion (ArrayList<Integer> scores, int next) {
-		int lower = 0;
-		int higher = scores.size() - 1;
-		if (scores.size() == 0) {
-			scores.add(next);
+	static class Node {
+		int score;
+		int rank;
+		Node left;
+		Node right;
+
+		public Node (int s) {
+			score = s;
+		}
+	}
+
+	static class Tree {
+		Node root;
+
+		public int add (int score) {
+			int rank = 0;
+			if (root == null) {
+				root = new Node(score);
+			} else {
+				Node next = root;
+				while (true) {
+					// System.out.println(next.score +" "+ next.rank);
+					if (score < next.score) {
+						// System.out.println("LEFT");
+						rank += next.rank + 1;
+						if (next.left == null) {
+							next.left = new Node(score);
+							return rank;
+						} else
+							next = next.left;
+					} else if (score >= next.score) {
+						// System.out.println("RIGHT");
+						next.rank++;
+						if (next.right == null) {
+							next.right = new Node(score);
+							return rank;
+						} else
+							next = next.right;
+					}
+				}
+			}
 			return 0;
 		}
-		while (lower <= higher) {
-			int mid = lower + (higher - lower) / 2;
-			if (scores.get(mid) <= next)
-				higher = mid - 1;
-			else
-				lower = mid + 1;
-		}
-		scores.add(lower, next);
-		return lower;
 	}
 
 	static String next () throws IOException {

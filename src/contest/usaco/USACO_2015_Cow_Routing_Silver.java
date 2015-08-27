@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class USACO_2015_Cow_Routing_Silver {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -34,8 +32,7 @@ public class USACO_2015_Cow_Routing_Silver {
 			for (int y = 0; y < num; y++) {
 				curr[y] = readInt() - 1;
 				for (int z = 0; z < y; z++) {
-					if (cost < adj[curr[z]][curr[y]]
-							|| (cost == adj[curr[z]][curr[y]] && y - z < moves[curr[z]][curr[y]])) {
+					if (cost < adj[curr[z]][curr[y]] || (cost == adj[curr[z]][curr[y]] && y - z < moves[curr[z]][curr[y]])) {
 						adj[curr[z]][curr[y]] = cost;
 						// System.out.println(cost);
 						moves[curr[z]][curr[y]] = y - z;
@@ -61,9 +58,7 @@ public class USACO_2015_Cow_Routing_Silver {
 			for (int y = 0; y < 1000; y++) {
 				if (v[y] || adj[curr][y] == Long.MAX_VALUE)
 					continue;
-				if (adj[curr][y] + min[curr] < min[y]
-						|| (adj[curr][y] + min[curr] == min[y] && moves[curr][y]
-								+ minMoves[curr] < minMoves[y])) {
+				if (adj[curr][y] + min[curr] < min[y] || (adj[curr][y] + min[curr] == min[y] && moves[curr][y] + minMoves[curr] < minMoves[y])) {
 					min[y] = adj[curr][y] + min[curr];
 					minMoves[y] = moves[curr][y] + minMoves[curr];
 				}
@@ -71,8 +66,7 @@ public class USACO_2015_Cow_Routing_Silver {
 			for (int y = 0; y < 1000; y++) {
 				if (v[y])
 					continue;
-				if (min[y] < currMin
-						|| (min[y] == currMin && minMoves[y] < currMinMoves)) {
+				if (min[y] < currMin || (min[y] == currMin && minMoves[y] < currMinMoves)) {
 					next = y;
 					currMin = min[y];
 					currMinMoves = minMoves[y];

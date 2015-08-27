@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class DWITE_2006_Connect_4 {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movex = {-1, -1, -1, 0, 0, 1, 1, 1};
 	static int[] movey = {-1, 0, 1, -1, 1, -1, 0, 1};
@@ -31,10 +30,8 @@ public class DWITE_2006_Connect_4 {
 				for (int x1 = 0; x1 < 6; x1++) {
 					for (int y1 = 0; y1 < 7; y1++) {
 						for (int z = 0; z < 4; z++) {
-							if (check(x1, y1, movex[z], movey[z], 3,
-									grid[row][column], grid)) {
-								System.out.println((red ? "RED" : "BLUE") + "-"
-										+ (x + 1));
+							if (check(x1, y1, movex[z], movey[z], 3, grid[row][column], grid)) {
+								System.out.println((red ? "RED" : "BLUE") + "-" + (x + 1));
 								continue main;
 							}
 						}
@@ -52,8 +49,7 @@ public class DWITE_2006_Connect_4 {
 		}
 	}
 
-	static boolean check (int x, int y, int dx, int dy, int moves, char c,
-			char[][] grid) {
+	static boolean check (int x, int y, int dx, int dy, int moves, char c, char[][] grid) {
 		if (x < 0 || x >= 6 || y < 0 || y >= 7 || grid[x][y] != c)
 			return false;
 		if (moves == 0)

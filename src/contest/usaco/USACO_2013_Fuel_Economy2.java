@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Fuel_Economy2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -45,8 +44,7 @@ public class USACO_2013_Fuel_Economy2 {
 				System.out.println("-1");
 				return;
 			}
-			int needed = Math.min(maxGas, (nextSmall[x] == -1 ? end
-					: stations[nextSmall[x]].pos) - stations[x].pos);
+			int needed = Math.min(maxGas, (nextSmall[x] == -1 ? end : stations[nextSmall[x]].pos) - stations[x].pos);
 			if (needed > curr) {
 				cost += (long) (needed - curr) * (long) stations[x].cost;
 				curr = needed;

@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2014_Stage_2_Early_Exam_Evacuation {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static long[][] tree;
 	static int ny;// column
@@ -106,8 +105,7 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
 	static long getArea (int x1, int y1, int x2, int y2) {
 		x1--;
 		y1--;
-		return freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x2, y1)
-				- freqTo(x1, y2);
+		return freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x2, y1) - freqTo(x1, y2);
 	}
 
 	static long getValue (int x, int y) {

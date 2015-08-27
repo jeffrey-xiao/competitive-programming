@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class CCC_1998_D {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -33,8 +31,7 @@ public class CCC_1998_D {
 			while (!seq.isEmpty()) {
 				String t = seq.pollFirst();
 				if (t.equals("+") || t.equals("-"))
-					res.add("(" + res.pollLast() + " " + t + " "
-							+ seq.pollFirst() + ")");
+					res.add("(" + res.pollLast() + " " + t + " " + seq.pollFirst() + ")");
 				else
 					res.add(t);
 			}

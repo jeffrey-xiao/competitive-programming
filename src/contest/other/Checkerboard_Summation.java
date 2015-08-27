@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Checkerboard_Summation {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -26,8 +25,7 @@ public class Checkerboard_Summation {
 		}
 		for (int x = 1; x <= r; x++) {
 			for (int y = 1; y <= c; y++) {
-				sum[x][y] = grid[x][y] - sum[x - 1][y - 1] + sum[x - 1][y]
-						+ sum[x][y - 1];
+				sum[x][y] = grid[x][y] - sum[x - 1][y - 1] + sum[x - 1][y] + sum[x][y - 1];
 			}
 		}
 		/*
@@ -42,8 +40,7 @@ public class Checkerboard_Summation {
 		int y2 = readInt();
 		while (x1 != 0) {
 			int k = (x1 + y1) % 2 == 0 ? 1 : -1;
-			long ans = sum[x1 - 1][y1 - 1] - sum[x1 - 1][y2] - sum[x2][y1 - 1]
-					+ sum[x2][y2];
+			long ans = sum[x1 - 1][y1 - 1] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x2][y2];
 			// System.out.println(k);
 			System.out.println(ans * k);
 			x1 = readInt();

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2010_Stage_2_Tree_Pruning {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static final boolean WHITE = true;
 	static final boolean BLACK = false;
@@ -63,8 +62,7 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 		if (node.right != -1 && node.left != -1) {
 			for (int x = 0; x <= Math.abs(diff); x++) {
 				int a = search(nodes[node.left], diff < 0 ? -x : x);
-				int b = search(nodes[node.right], diff < 0 ? -(-diff - x)
-						: diff - x);
+				int b = search(nodes[node.right], diff < 0 ? -(-diff - x) : diff - x);
 				// System.out.println(diff < 0 ? -x:x);
 				// System.out.println(diff < 0 ? -(-diff-x):diff-x);
 				// System.out.println("A " + a + "; B " + b);
@@ -80,8 +78,7 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 			if (a != -1)
 				min = Math.min(min, a);
 		}
-		minPrune[node.index][Math.abs(diff)] = min == Integer.MAX_VALUE ? -1
-				: min;
+		minPrune[node.index][Math.abs(diff)] = min == Integer.MAX_VALUE ? -1 : min;
 		return minPrune[node.index][Math.abs(diff)];
 	}
 

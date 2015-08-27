@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2012_S2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -17,8 +16,7 @@ public class CCC_2012_S2 {
 		for (int x = 0; x < input.length; x += 2) {
 			int curr = toNum(input[x + 1]);
 			// System.out.println(curr + " " + input[x]);
-			if (x + 2 >= input.length
-					|| (x + 2 < input.length && curr >= toNum(input[x + 3])))
+			if (x + 2 >= input.length || (x + 2 < input.length && curr >= toNum(input[x + 3])))
 				total += (input[x] - 48) * curr;
 			else
 				total -= (input[x] - 48) * curr;

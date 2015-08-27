@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class Clique {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -74,11 +72,9 @@ public class Clique {
 				// System.out.println("BITSET " + otherSet);
 				int check = toBinary(otherSet);
 				if (dp[check]) {
-					max = Math.max(max,
-							Integer.bitCount(check) + Integer.bitCount(x));
+					max = Math.max(max, Integer.bitCount(check) + Integer.bitCount(x));
 					if (Integer.bitCount(check) + Integer.bitCount(x) == 14)
-						System.out.println(Integer.toBinaryString(check) + " "
-								+ Integer.toBinaryString(x));
+						System.out.println(Integer.toBinaryString(check) + " " + Integer.toBinaryString(x));
 				}
 				main : for (int y = 0; y < sizeB; y++)
 					if ((x & 1 << y) == 0) {

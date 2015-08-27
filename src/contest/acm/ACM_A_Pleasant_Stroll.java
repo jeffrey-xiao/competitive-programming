@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class ACM_A_Pleasant_Stroll {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int[] movey = {-1, 0, 1};
 	static int[][][] dp;
@@ -57,8 +56,7 @@ public class ACM_A_Pleasant_Stroll {
 			for (int z2 = 0; z2 < 3; z2++) {
 				int ny1 = y1 + movey[z1];
 				int ny2 = y2 + movey[z2];
-				if (ny1 == ny2 || ny1 < 0 || ny2 < 0 || ny1 >= c || ny2 >= c
-						|| grid[nx][ny1] == '#' || grid[nx][ny2] == '#')
+				if (ny1 == ny2 || ny1 < 0 || ny2 < 0 || ny1 >= c || ny2 >= c || grid[nx][ny1] == '#' || grid[nx][ny2] == '#')
 					continue;
 				next = Math.max(next, compute(nx, ny1, ny2));
 			}

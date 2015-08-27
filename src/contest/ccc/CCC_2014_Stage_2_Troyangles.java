@@ -15,12 +15,8 @@ public class CCC_2014_Stage_2_Troyangles {
 			for (int y = 0; y < table[x].length; y++) {
 				if (table[x][y] == '#')
 					solution[x][y]++;
-				if (table[x][y] == '#' && x + 1 < table.length
-						&& y + 1 < table[x].length && y - 1 >= 0
-						&& table[x + 1][y] == '#' && table[x + 1][y + 1] == '#'
-						&& table[x + 1][y - 1] == '#')
-					solution[x][y] += Math.min(Math.min(solution[x + 1][y],
-							solution[x + 1][y + 1]), solution[x + 1][y - 1]);
+				if (table[x][y] == '#' && x + 1 < table.length && y + 1 < table[x].length && y - 1 >= 0 && table[x + 1][y] == '#' && table[x + 1][y + 1] == '#' && table[x + 1][y - 1] == '#')
+					solution[x][y] += Math.min(Math.min(solution[x + 1][y], solution[x + 1][y + 1]), solution[x + 1][y - 1]);
 			}
 		}
 		int sum = 0;

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Above_The_Median {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	@SuppressWarnings ("unused")

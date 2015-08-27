@@ -38,16 +38,10 @@ public class CCC_2000_Stage_2_Packet_Routing {
 					}
 				}
 				for (int x = 0; x < edges.length; x++) {
-					if (edges[x][0] == smallestIndex
-							&& vertices[edges[x][1]][1] == 0
-							&& edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][1]][0]) {
-						vertices[edges[x][1]][0] = edges[x][2]
-								+ vertices[smallestIndex][0];
-					} else if (edges[x][1] == smallestIndex
-							&& vertices[edges[x][0]][1] == 0
-							&& edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][0]][0]) {
-						vertices[edges[x][0]][0] = edges[x][2]
-								+ vertices[smallestIndex][0];
+					if (edges[x][0] == smallestIndex && vertices[edges[x][1]][1] == 0 && edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][1]][0]) {
+						vertices[edges[x][1]][0] = edges[x][2] + vertices[smallestIndex][0];
+					} else if (edges[x][1] == smallestIndex && vertices[edges[x][0]][1] == 0 && edges[x][2] + vertices[smallestIndex][0] < vertices[edges[x][0]][0]) {
+						vertices[edges[x][0]][0] = edges[x][2] + vertices[smallestIndex][0];
 					}
 				}
 				vertices[smallestIndex][1] = -1;

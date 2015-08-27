@@ -11,10 +11,8 @@ import java.util.StringTokenizer;
 
 public class Fibonacci {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 	static final long MOD = 1000000007;
 
@@ -29,8 +27,7 @@ public class Fibonacci {
 		}
 		Matrix result = null;
 		for (int x = 0; x < 64; x++) {
-			if (!l.and(new BigInteger(new Long(1L << x).toString())).toString()
-					.equals("0")) {
+			if (!l.and(new BigInteger(new Long(1L << x).toString())).toString().equals("0")) {
 				if (result == null)
 					result = m[x];
 				else

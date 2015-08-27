@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class Woburn_Challenge_1999_Where_In_The_World_Is_Will_And_Ethan_Hunt {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int l;
 	static int r;

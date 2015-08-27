@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class IOI_1998_Camelot {
 

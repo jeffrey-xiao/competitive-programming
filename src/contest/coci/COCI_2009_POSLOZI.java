@@ -15,10 +15,8 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class COCI_2009_POSLOZI {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[] A;
@@ -56,8 +54,7 @@ public class COCI_2009_POSLOZI {
 			// System.out.print(curr.s[i] + " ");
 			// }
 			// System.out.println(curr.isStart);
-			if ((curr.isStart && ve.containsKey(toIndex(curr.s)) || (!curr.isStart && vs
-					.containsKey(toIndex(curr.s))))) {
+			if ((curr.isStart && ve.containsKey(toIndex(curr.s)) || (!curr.isStart && vs.containsKey(toIndex(curr.s))))) {
 				// System.out.println("HERE");
 				end = Arrays.copyOf(curr.s, curr.s.length);
 				break;

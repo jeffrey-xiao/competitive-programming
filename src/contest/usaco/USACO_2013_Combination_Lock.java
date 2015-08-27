@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Combination_Lock {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -23,8 +22,7 @@ public class USACO_2013_Combination_Lock {
 		for (int x = 1; x <= n; x++) {
 			for (int y = 1; y <= n; y++) {
 				for (int z = 1; z <= n; z++) {
-					if (close(x, y, z, a1, a2, a3, n)
-							|| close(x, y, z, b1, b2, b3, n))
+					if (close(x, y, z, a1, a2, a3, n) || close(x, y, z, b1, b2, b3, n))
 						count++;
 				}
 			}
@@ -32,8 +30,7 @@ public class USACO_2013_Combination_Lock {
 		System.out.println(count);
 	}
 
-	private static boolean close (int x, int y, int z, int a1, int a2, int a3,
-			int n) {
+	private static boolean close (int x, int y, int z, int a1, int a2, int a3, int n) {
 		if (valid(x, a1, n) && valid(y, a2, n) && valid(z, a3, n))
 			return true;
 		return false;

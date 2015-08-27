@@ -1,7 +1,11 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class IOI_2002_The_Troublesome_Frog {
 

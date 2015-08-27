@@ -8,8 +8,7 @@ import java.util.StringTokenizer;
 
 public class IOI_2010_Traffic_Congestion {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int n;
 	static int[] sum;

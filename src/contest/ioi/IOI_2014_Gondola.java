@@ -13,10 +13,8 @@ import java.util.StringTokenizer;
 
 public class IOI_2014_Gondola {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -49,8 +47,7 @@ public class IOI_2014_Gondola {
 			}
 		hs.add(inputSeq[r]);
 		for (int x = 0; x < n; x++) {
-			if (inputSeq[x % n] <= n
-					&& inputSeq[x % n] % n != (inputSeq[r] - r + x) % n) {
+			if (inputSeq[x % n] <= n && inputSeq[x % n] % n != (inputSeq[r] - r + x) % n) {
 				return 0;
 			}
 			hs.add(inputSeq[x]);

@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1997_A {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -28,8 +27,7 @@ public class CCC_1997_A {
 			for (int x = 0; x < n; x++)
 				for (int y = 0; y < v; y++)
 					for (int z = 0; z < o; z++)
-						System.out.printf("%s %s %s.\n", nouns[x], verbs[y],
-								objects[z]);
+						System.out.printf("%s %s %s.\n", nouns[x], verbs[y], objects[z]);
 		}
 	}
 

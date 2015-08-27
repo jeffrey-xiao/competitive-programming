@@ -11,31 +11,29 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Mountain_Climbing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(n,
-				new Comparator<int[]>() {
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(n, new Comparator<int[]>() {
 
-					@Override
-					public int compare (int[] arg0, int[] arg1) {
-						if (arg0[0] < arg0[1]) {
-							if (arg1[0] < arg1[1])
-								return arg0[0] - arg1[0];
-							else
-								return -1;
-						} else {
-							if (arg1[0] > arg1[1])
-								return arg1[1] - arg0[1];
-							else
-								return 1;
-						}
-					}
+			@Override
+			public int compare (int[] arg0, int[] arg1) {
+				if (arg0[0] < arg0[1]) {
+					if (arg1[0] < arg1[1])
+						return arg0[0] - arg1[0];
+					else
+						return -1;
+				} else {
+					if (arg1[0] > arg1[1])
+						return arg1[1] - arg0[1];
+					else
+						return 1;
+				}
+			}
 
-				});
+		});
 		for (int x = 0; x < n; x++) {
 			pq.offer(new int[] {readInt(), readInt()});
 		}

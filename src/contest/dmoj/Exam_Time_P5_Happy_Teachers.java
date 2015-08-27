@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class Exam_Time_P5_Happy_Teachers {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -30,8 +28,7 @@ public class Exam_Time_P5_Happy_Teachers {
 			for (int y = 0; y <= time; y++) {
 				if (dp[(x - 1) % 2][y] != null) {
 					if (dp[x % 2][y] != null) {
-						if (dp[(x - 1) % 2][y].happy > dp[x % 2][y].happy
-								|| (dp[x % 2][y].happy == dp[(x - 1) % 2][y].happy && dp[(x - 1) % 2][y].time < dp[(x) % 2][y].time))
+						if (dp[(x - 1) % 2][y].happy > dp[x % 2][y].happy || (dp[x % 2][y].happy == dp[(x - 1) % 2][y].happy && dp[(x - 1) % 2][y].time < dp[(x) % 2][y].time))
 							dp[x % 2][y] = dp[(x - 1) % 2][y];
 					} else
 						dp[x % 2][y] = dp[(x - 1) % 2][y];
@@ -46,8 +43,7 @@ public class Exam_Time_P5_Happy_Teachers {
 						if (cs == null) {
 							dp[x % 2][currTime] = new State(nh, nt);
 						} else {
-							if ((nh > cs.happy)
-									|| (nh == cs.happy && nt < cs.time))
+							if ((nh > cs.happy) || (nh == cs.happy && nt < cs.time))
 								dp[x % 2][currTime] = new State(nh, nt);
 						}
 						nh += t[x].h - t[x].e * count;
@@ -77,8 +73,7 @@ public class Exam_Time_P5_Happy_Teachers {
 			if (dp[n % 2][x].happy > maxHappy) {
 				maxHappy = dp[n % 2][x].happy;
 				minTime = dp[n % 2][x].time;
-			} else if (dp[n % 2][x].happy == maxHappy
-					&& dp[n % 2][x].time < minTime)
+			} else if (dp[n % 2][x].happy == maxHappy && dp[n % 2][x].time < minTime)
 				minTime = dp[n % 2][x].time;
 			// System.out.printf("(%d, %d) ",dp[n%2][x].happy, dp[n%2][x].time);
 		}

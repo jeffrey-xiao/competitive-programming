@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_1999_P3 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static char[][] g;
 

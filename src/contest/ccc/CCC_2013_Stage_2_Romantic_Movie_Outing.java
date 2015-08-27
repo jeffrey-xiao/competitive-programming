@@ -10,10 +10,8 @@ import java.util.StringTokenizer;
 
 public class CCC_2013_Stage_2_Romantic_Movie_Outing {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static int[][] bit = new int[3100][3100];
@@ -69,8 +67,7 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
 	}
 
 	static int point (int x, int y) {
-		return query(x, y) - query(x - 1, y) - query(x, y - 1)
-				+ query(x - 1, y - 1);
+		return query(x, y) - query(x - 1, y) - query(x, y - 1) + query(x - 1, y - 1);
 	}
 
 	static void update (int idxx, int idxy, int value) {

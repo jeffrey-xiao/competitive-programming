@@ -7,8 +7,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2000_S4_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -19,8 +18,7 @@ public class CCC_2000_S4_2 {
 			c[x] = readInt();
 		int ans = knapSack(d, c, n);
 		if (ans != 1000)
-			System.out.printf("Roberta wins in %d %s.", ans,
-					(ans == 1 ? "stroke" : "strokes"));
+			System.out.printf("Roberta wins in %d %s.", ans, (ans == 1 ? "stroke" : "strokes"));
 		else
 			System.out.println("Roberta acknowledges defeat.");
 	}
@@ -43,8 +41,7 @@ public class CCC_2000_S4_2 {
 			for (int w = 0; w <= W; w++) {
 				matrix[i][w] = Math.min(matrix[i][w], matrix[i - 1][w]);
 				if (c[i] + w <= W)
-					matrix[i][w + c[i]] = Math.min(1 + matrix[i][w],
-							matrix[i][w + c[i]]);
+					matrix[i][w + c[i]] = Math.min(1 + matrix[i][w], matrix[i][w + c[i]]);
 			}
 		}
 		return matrix[n][W];

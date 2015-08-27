@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 
 public class CCC_2007_S2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -38,8 +37,7 @@ public class CCC_2007_S2 {
 		});
 		main : for (int x = 0; x < numOfItems; x++) {
 			for (int y = 0; y < numOfBoxes; y++) {
-				if (items[x][0] <= boxes[y][0] && items[x][1] <= boxes[y][1]
-						&& items[x][2] <= boxes[y][2]) {
+				if (items[x][0] <= boxes[y][0] && items[x][1] <= boxes[y][1] && items[x][2] <= boxes[y][2]) {
 					System.out.println(boxes[y][0] * boxes[y][1] * boxes[y][2]);
 					continue main;
 				}

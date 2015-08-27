@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2013_Phone_Microwave {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
@@ -25,8 +23,7 @@ public class DMOPC_2013_Phone_Microwave {
 		// System.out.println(i);
 		String[] in1 = next().split("/");
 		String[] in2 = next().split(":");
-		c.set(i(in1[0]), i(in1[1]) - 1, i(in1[2]), i(in2[0]), i(in2[1]),
-				i(in2[2]));
+		c.set(i(in1[0]), i(in1[1]) - 1, i(in1[2]), i(in2[0]), i(in2[1]), i(in2[2]));
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		// System.out.println(df.format(c.getTime()));
 		// c.add(Calendar.HOUR_OF_DAY, -5);

@@ -26,30 +26,20 @@ public class COCI_2009_DOBRA {
 			return 1;
 		}
 		for (int x = 1; x < indexOf_ - 1; x++) {
-			if ((vowels.indexOf(s.charAt(x)) != -1
-					&& vowels.indexOf(s.charAt(x - 1)) != -1 && vowels
-					.indexOf(s.charAt(x + 1)) != -1)
-					|| (consonants.indexOf(s.charAt(x)) != -1
-							&& consonants.indexOf(s.charAt(x - 1)) != -1 && consonants
-							.indexOf(s.charAt(x + 1)) != -1)) {
+			if ((vowels.indexOf(s.charAt(x)) != -1 && vowels.indexOf(s.charAt(x - 1)) != -1 && vowels.indexOf(s.charAt(x + 1)) != -1) || (consonants.indexOf(s.charAt(x)) != -1 && consonants.indexOf(s.charAt(x - 1)) != -1 && consonants.indexOf(s.charAt(x + 1)) != -1)) {
 				// System.out.println("DELTED " + s);
 				return 0;
 			}
 		}
 
-		if (!(vowels.indexOf(s.charAt(indexOf_ - 1)) != -1 && vowels.indexOf(s
-				.charAt(indexOf_ + 1)) != -1)) {
-			String s1 = s.substring(0, indexOf_) + "A"
-					+ s.substring(indexOf_ + 1, s.length());
+		if (!(vowels.indexOf(s.charAt(indexOf_ - 1)) != -1 && vowels.indexOf(s.charAt(indexOf_ + 1)) != -1)) {
+			String s1 = s.substring(0, indexOf_) + "A" + s.substring(indexOf_ + 1, s.length());
 			sum += (5 * getSum(s1, b));
 		}
-		if (!(consonants.indexOf(s.charAt(indexOf_ - 1)) != -1 && consonants
-				.indexOf(s.charAt(indexOf_ + 1)) != -1)) {
-			String s1 = s.substring(0, indexOf_) + "B"
-					+ s.substring(indexOf_ + 1, s.length());
+		if (!(consonants.indexOf(s.charAt(indexOf_ - 1)) != -1 && consonants.indexOf(s.charAt(indexOf_ + 1)) != -1)) {
+			String s1 = s.substring(0, indexOf_) + "B" + s.substring(indexOf_ + 1, s.length());
 			sum += 20 * getSum(s1, b);
-			String s2 = s.substring(0, indexOf_) + "L"
-					+ s.substring(indexOf_ + 1, s.length());
+			String s2 = s.substring(0, indexOf_) + "L" + s.substring(indexOf_ + 1, s.length());
 			sum += getSum(s2, true);
 		}
 

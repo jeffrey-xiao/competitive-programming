@@ -16,8 +16,7 @@ public class CCC_2012_S3 {
 		}
 		SortedSet<KeyValuePair> sortedSet = new TreeSet<KeyValuePair>();
 		for (Map.Entry<Integer, Integer> entry : tm.entrySet()) {
-			sortedSet.add(new CCC_2012_S3().new KeyValuePair(entry.getKey(),
-					entry.getValue()));
+			sortedSet.add(new CCC_2012_S3().new KeyValuePair(entry.getKey(), entry.getValue()));
 		}
 		int maxValue = -1;
 		int firstValue = -1;

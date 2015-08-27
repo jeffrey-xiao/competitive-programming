@@ -1,111 +1,83 @@
 package contest.ccc;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 public class CCC_2010_Stage_2_Space_Miner {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
-		ArrayList<int[]> points = new ArrayList<int[]>();
-		for (int x1 = 0; x1 < n; x1++) {
-			int x = readInt();
-			int y = readInt();
-			int z = readInt();
-			int r = readInt();
-			int d = readInt();
-			points.add(new int[] {x, y, z, r, d});
+		Planet[] p = new Planet[n];
+		for (int x = 0; x < n; x++) {
+			p[x] = new Planet(readDouble(), readDouble(), readDouble(), readDouble(), readDouble());
 		}
 		int m = readInt();
-		ArrayList<int[]> waypoints = new ArrayList<int[]>();
-		for (int x1 = 0; x1 < m; x1++) {
-			int x = readInt();
-			int y = readInt();
-			int z = readInt();
-			waypoints.add(new int[] {x, y, z});
-		}
-		int d = readInt();
+		Point[] path = new Point[m];
+		for (int x = 0; x < m; x++)
+			path[x] = new Point(readDouble(), readDouble(), readDouble());
+		double minD = readDouble();
 		int total = 0;
-		for (int i = 0; i < waypoints.size() - 1; i++) {
-			int x1 = waypoints.get(i)[0];
-			int y1 = waypoints.get(i)[1];
-			int z1 = waypoints.get(i)[2];
-
-			int x2 = waypoints.get(i + 1)[0];
-			int y2 = waypoints.get(i + 1)[1];
-			int z2 = waypoints.get(i + 1)[2];
-			for (int j = points.size() - 1; j >= 0; j--) {
-				int x3 = points.get(j)[0];
-				int y3 = points.get(j)[1];
-				int z3 = points.get(j)[2];
-				/*
-				 * double d1 = getDistance(x1,y1,z1,x3,y3,z3); double d2 =
-				 * getDistance(x2,y2,z2,x1,y1,z1); double dot =
-				 * getDot(x1-x3,y1-y3,z1-z3,x2-x1,y2-y1,z2-z1); double distance
-				 * = (d1*d1*d2*d2-dot*dot)/d2/d2;
-				 */
-
-				// dist from 2 to 3
-				double linex = x2 - x3;
-				double liney = y2 - y3;
-				double linez = z2 - z3;
-				double d1 = getDistance(x2, y2, z2, x3, y3, z3);
-
-				// direction from 2 to 1
-				double newx = x2 - x1;
-				double newy = y2 - y1;
-				double newz = z2 - z1;
-				double scale = Math.sqrt(newx * newx + newy * newy + newz
-						* newz);
-				double unitx = newx / scale;
-				double unity = newy / scale;
-				double unitz = newz / scale;
-
-				double distance = getDot(linex, liney, linez, unitx, unity,
-						unitz);
-				// System.out.println(distance);
-				distance = Math.sqrt(d1 * d1 - distance * distance);
-				distance = Math.min(distance,
-						getDistance(x1, y1, z1, x3, y3, z3));
-				distance = Math.min(distance,
-						getDistance(x2, y2, z2, x3, y3, z3));
-				// System.out.println(getDistance(x1,y1,z1,x3,y3,z3) + " " +
-				// getDistance(x2,y2,z2,x3,y3,z3));
-				// System.out.println(distance + " " + j + " " + d1);
-				if (distance <= d + points.get(j)[4]) {
-					total += points.get(j)[3];
-					// System.out.println(points.get(j)[3]);
-					points.remove(j);
+		for (int i = 0; i < m - 1; i++) {
+			Point d = new Point(path[i + 1].x - path[i].x, path[i + 1].y - path[i].y, path[i + 1].z - path[i].z);
+			for (int j = 0; j < n; j++) {
+				if (p[j].collected)
+					continue;
+				Point o = new Point(p[j].p.x - path[i].x, p[j].p.y - path[i].y, p[j].p.z - path[i].z);
+				double a = (d.x * d.x) + (d.y * d.y) + (d.z * d.z);
+				double b = -(2 * o.x * d.x + 2 * o.y * d.y + 2 * o.z * d.z);
+				double c = (o.x * o.x) + (o.y * o.y) + (o.z * o.z);
+				double x1 = -b / (2 * a);
+				if (x1 < 0 || x1 > 1) {
+					double dx1 = p[j].p.x - path[i].x;
+					double dy1 = p[j].p.y - path[i].y;
+					double dz1 = p[j].p.z - path[i].z;
+					double dx2 = p[j].p.x - path[i + 1].x;
+					double dy2 = p[j].p.y - path[i + 1].y;
+					double dz2 = p[j].p.z - path[i + 1].z;
+					double dist1 = Math.sqrt(dx1 * dx1 + dy1 * dy1 + dz1 * dz1);
+					double dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2 + dz2 * dz2);
+					if (dist1 <= minD + p[j].r || dist2 <= minD + p[j].r) {
+						total += (int) p[j].v;
+						p[j].collected = true;
+					}
+				} else {
+					double dist = Math.sqrt(a * x1 * x1 + b * x1 + c);
+					if (dist <= minD + p[j].r) {
+						total += (int) p[j].v;
+						p[j].collected = true;
+					}
 				}
 			}
-
 		}
 		System.out.println(total);
 	}
 
-	static double getDot (double x1, double y1, double z1, double x2, double y2,
-			double z2) {
-		return x1 * x2 + y1 * y2 + z1 * z2;
-	}
+	static class Planet {
+		Point p;
+		double v, r;
+		boolean collected;
 
-	static double getDistance (int x1, int y1, int z1, int x2, int y2, int z2) {
-		return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
-				+ (z1 - z2) * (z1 - z2));
+		Planet (double x, double y, double z, double v, double r) {
+			collected = false;
+			p = new Point(x, y, z);
+			this.v = v;
+			this.r = r;
+		}
 	}
 
 	static class Point {
-		int x;
-		int y;
-		int z;
+		double x, y, z;
 
-		Point (int x, int y, int z) {
+		Point (double x, double y, double z) {
 			this.x = x;
 			this.y = y;
 			this.z = z;
@@ -128,6 +100,10 @@ public class CCC_2010_Stage_2_Space_Miner {
 
 	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
+	}
+
+	static char readCharacter () throws IOException {
+		return next().charAt(0);
 	}
 
 	static String readLine () throws IOException {

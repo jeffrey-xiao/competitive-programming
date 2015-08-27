@@ -12,10 +12,8 @@ import java.util.StringTokenizer;
 
 public class King_Graffs_Trip_2 {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
@@ -77,10 +75,8 @@ public class King_Graffs_Trip_2 {
 				long nextCurrTemple = 0;
 				if (!temple[next.dest])
 					nextCurrTemple = curr.currTemple + next.cost;
-				long nextMaxTemple = Math.max(curr.maxTemple, curr.currTemple
-						+ next.cost);
-				if ((nextMaxTemple >= min[next.dest] && nextTime >= minTime[next.dest])
-						|| nextTime > t || nextMaxTemple > tt)
+				long nextMaxTemple = Math.max(curr.maxTemple, curr.currTemple + next.cost);
+				if ((nextMaxTemple >= min[next.dest] && nextTime >= minTime[next.dest]) || nextTime > t || nextMaxTemple > tt)
 					continue;
 				// always memoize the minimum maximum distance without any
 				// shrine as well as the time for that shrine
@@ -91,8 +87,7 @@ public class King_Graffs_Trip_2 {
 					min[next.dest] = nextMaxTemple;
 					minTime[next.dest] = nextTime;
 				}
-				pq.offer(new Vertex(next.dest, nextTime, nextCurrTemple,
-						nextMaxTemple));
+				pq.offer(new Vertex(next.dest, nextTime, nextCurrTemple, nextMaxTemple));
 			}
 		}
 		return false;

@@ -24,8 +24,7 @@ public class ACM_A_Subtle_Surf {
 				if (startChannel == channels[x])
 					c = x;
 			while (c < channels.length) {
-				for (y = c; y + 1 < channels.length
-						&& channels[y + 1] - maxGap <= channels[c]; y++)
+				for (y = c; y + 1 < channels.length && channels[y + 1] - maxGap <= channels[c]; y++)
 					;
 				if (y == c || channels[y] == channels[c])
 					break;
