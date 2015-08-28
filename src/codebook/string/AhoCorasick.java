@@ -93,21 +93,22 @@ public class AhoCorasick {
 		}
 
 		private void addWord (String s) {
+			// marking it as a leaf node if it is the end of the word
 			if (depth == s.length()) {
 				isEnd = true;
 				return;
 			}
 			char curr = s.charAt(depth);
+			// creating a new node if it does not already exist
 			if (child[curr - SHIFT] == null) {
 				child[curr - SHIFT] = new Node(depth + 1, curr - SHIFT);
 				child[curr - SHIFT].parent = this;
 				c.add(curr - SHIFT);
 			}
-
+			// recursively add the rest of the word
 			child[curr - SHIFT].addWord(s);
 		}
-
-		@SuppressWarnings ("unused")
+		// auxiliary method to print out the words in the trie
 		private void printWord (String curr) {
 			if (isEnd)
 				System.out.println(curr);
