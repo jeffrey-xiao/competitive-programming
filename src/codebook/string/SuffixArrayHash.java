@@ -22,7 +22,7 @@ public class SuffixArrayHash {
 	}
 
 	public String getText () {
-		return text;
+		return text.substring(1);
 	}
 
 	public void setText (String text) {
@@ -46,6 +46,8 @@ public class SuffixArrayHash {
 			sa[i - 1] = i;
 		}
 		Arrays.sort(sa, new SuffixComparator());
+		for (int i = 0; i < len-1; i++)
+			s[i]--;
 	}
 
 	class SuffixComparator implements Comparator<Integer> {
