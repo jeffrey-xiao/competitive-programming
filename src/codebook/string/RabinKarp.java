@@ -20,9 +20,11 @@ public class RabinKarp {
 		long currHash = getHash(text, pattern.length());
 		if (currHash == patternHash)
 			return 0;
+		// use a rolling hash to compute the hashes of successive substrings in O(1) time
 		for (int i = pattern.length(); i < text.length(); i++) {
 			currHash = (currHash + MOD - pow * text.charAt(i - pattern.length()) % MOD) % MOD;
 			currHash = (currHash * R + text.charAt(i)) % MOD;
+			// assume that there is no overlap in hashes
 			if (currHash == patternHash)
 				return i - pattern.length() + 1;
 		}
