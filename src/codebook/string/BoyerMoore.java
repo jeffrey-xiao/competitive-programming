@@ -32,6 +32,8 @@ public class BoyerMoore {
 		for (int i = 0; i <= text.length() - pattern.length(); i += skip) {
 			skip = 0;
 			for (int j = pattern.length() - 1; j >= 0; j--) {
+				// if there is a mismatch, then we shift left to the rightmost character we are looking for
+				// if the rightmost character has already passed, then we shift by one
 				if (pattern.charAt(j) != text.charAt(i + j)) {
 					skip = Math.max(1, j - rightOcc[text.charAt(i + j)]);
 					break;
