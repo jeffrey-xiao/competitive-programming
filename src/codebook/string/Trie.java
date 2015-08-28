@@ -19,10 +19,13 @@ public class Trie {
 	public void addWord (String word) {
 		Node curr = root;
 		for (int i = 0; i < word.length(); i++) {
+			// if the node does not exist, then create it
 			if (curr.child[word.charAt(i) - SHIFT] == null)
 				curr.child[word.charAt(i) - SHIFT] = new Node();
+			// iteratively traverse the trie
 			curr = curr.child[word.charAt(i) - SHIFT];
 		}
+		// mark the last node as a leaf node
 		curr.isLeaf = true;
 	}
 
