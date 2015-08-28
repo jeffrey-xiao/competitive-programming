@@ -51,10 +51,12 @@ public class SuffixArrayHash {
 	class SuffixComparator implements Comparator<Integer> {
 		@Override
 		public int compare (Integer i, Integer j) {
+			// if the first character isn't the same, then we pick the one with the "lower" first character
 			if (text.charAt(i) != text.charAt(j))
 				return text.charAt(i) - text.charAt(j);
 			int lo = 0;
 			int hi = len - Math.max(i, j) - 1;
+			// binary search for the place where the suffixes mismatch
 			while (lo <= hi) {
 				int mid = lo + (hi - lo) / 2;
 				if (getHash(i, i + mid) == getHash(j, j + mid))
@@ -62,9 +64,10 @@ public class SuffixArrayHash {
 				else
 					hi = mid - 1;
 			}
-			if (lo + Math.max(i, j) == len) {
+			// one suffix is a substring of the other, so we return the shorter one
+			if (lo + Math.max(i, j) == len)
 				return j - i;
-			}
+			// return the one with the "lower" character when the suffixes mismatch
 			return text.charAt(lo + i) - text.charAt(lo + j);
 		}
 
