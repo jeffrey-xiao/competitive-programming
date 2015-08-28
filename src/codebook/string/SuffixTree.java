@@ -24,38 +24,31 @@ public class SuffixTree {
 
 	SuffixTree (String input) {
 		this.input = input;
-		this.len = input.length();
-		this.root = new Node(0, 0);
-		this.activeEdge = 0;
-		this.activeLength = 0;
-		this.remainder = 0;
-		this.activeNode = root;
-		this.currentPos = 0;
-		this.lastNodeCreated = null;
-		this.firstNodeCreated = false;
-		// looping through the input and adding the suffixes one by one
-		for (currentPos = 0; currentPos < len; currentPos++)
-			addSuffix();
+		initialize();
 	}
 
-	public void setString (String s) {
-		this.input = s;
-		this.len = input.length();
-		this.root = new Node(0, 0);
-		this.activeEdge = 0;
-		this.activeLength = 0;
-		this.remainder = 0;
-		this.activeNode = root;
-		this.currentPos = 0;
-		this.lastNodeCreated = null;
-		this.firstNodeCreated = false;
-		// looping through the input and adding the suffixes one by one
-		for (currentPos = 0; currentPos < len; currentPos++)
-			addSuffix();
+	public void setString (String string) {
+		this.input = string;
+		initialize();
 	}
 
 	public String getString () {
 		return input;
+	}
+	
+	private void initialize () {
+		this.len = input.length();
+		this.root = new Node(0, 0);
+		this.activeEdge = 0;
+		this.activeLength = 0;
+		this.remainder = 0;
+		this.activeNode = root;
+		this.currentPos = 0;
+		this.lastNodeCreated = null;
+		this.firstNodeCreated = false;
+		// looping through the input and adding the suffixes one by one
+		for (currentPos = 0; currentPos < len; currentPos++)
+			addSuffix();
 	}
 
 	public void printTree () {
