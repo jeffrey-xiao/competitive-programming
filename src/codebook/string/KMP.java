@@ -1,6 +1,7 @@
 package codebook.string;
 
 public class KMP {
+	
 	private String pattern;
 	private int[] LCP;
 
