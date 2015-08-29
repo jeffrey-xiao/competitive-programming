@@ -25,7 +25,6 @@ public class June_2015_A {
 		int[] cnt = new int[26];
 		for (int i = 0; i < in.length; i++)
 			cnt[in[i] - 'a']++;
-		int res = 0;
 		HashMap<Integer, Integer> buckets = new HashMap<Integer, Integer>();
 		for (int i = 0; i < 26; i++)
 			if (cnt[i] > 0) {

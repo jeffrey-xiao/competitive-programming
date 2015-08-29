@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Exam_Time_P2_Physics_Duel {
+public class DMOPC_2014_Physics_Duel {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));

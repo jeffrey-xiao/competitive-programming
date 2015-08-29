@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Exam_Time_P4_Exam_Delay {
+public class DMOPC_2014_Exam_Delay {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));

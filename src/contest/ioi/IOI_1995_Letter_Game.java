@@ -12,13 +12,15 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 public class IOI_1995_Letter_Game {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
+	static BufferedReader br;
+	static PrintWriter pr;
 	static StringTokenizer st;
 	static HashSet<String> dict = new HashSet<String>();
 	static int[] val = {2, 5, 4, 4, 1, 6, 5, 5, 1, 7, 6, 3, 5, 2, 3, 5, 7, 2, 1, 2, 4, 6, 6, 7, 5, 7};
 
 	public static void main (String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		String in = next();
 		while (!in.equals(".")) {
 			dict.add(in);
@@ -69,21 +71,13 @@ public class IOI_1995_Letter_Game {
 		String s1, s2;
 
 		Pair (String s1, String s2) {
-			if (s1.length() < s2.length()) {
-				this.s1 = s1;
-				this.s2 = s2;
-			} else if (s2.length() < s1.length()) {
-				this.s1 = s2;
-				this.s2 = s1;
-			} else {
-				if (s1.compareTo(s2) < 0) {
+				if (s1.compareTo(s2) < 0 && !s1.equals("") || s2.equals("")) {
 					this.s1 = s1;
 					this.s2 = s2;
 				} else {
 					this.s1 = s2;
 					this.s2 = s1;
 				}
-			}
 		}
 
 		public int compareTo (Pair p) {

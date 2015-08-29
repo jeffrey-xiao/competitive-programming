@@ -8,7 +8,7 @@ public class SuffixArrayHash {
 
 	// constants
 	static final long BASE = 137;
-	static final long MOD = 10000007;
+	static final long MOD = 1000000007;
 
 	long[] pow;
 	long[] hash;
@@ -47,7 +47,7 @@ public class SuffixArrayHash {
 		}
 		Arrays.sort(sa, new SuffixComparator());
 		for (int i = 0; i < len-1; i++)
-			s[i]--;
+			sa[i]--;
 	}
 
 	class SuffixComparator implements Comparator<Integer> {

@@ -1,113 +1,94 @@
 package contest.dmoj;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
 public class DMOPC_2014_Revenge_Of_The_Bins {
-
-	static BufferedReader br;
-	static PrintWriter pr;
-	static StringTokenizer st;
-
+	
+	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private static StringTokenizer st;
+	
+	static int n;
+	static int[] a;
+	static Node[] tree = new Node[100005*3];
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		// pr = new PrintWriter(new FileWriter("out.txt"));
-
-		int n = readInt();
-		int[] in = new int[n];
+		n = readInt();
+		a = new int[n];
 		for (int i = 0; i < n; i++)
-			in[i] = readInt();
-		ArrayList<State> s = new ArrayList<State>();
-		for (int i = n / 2; i < n; i++)
-			s.add(new State(in[i], 0));
-		Collections.sort(s);
-		for (int i = 0; i < n / 2; i++) {
-			for (int j = 0; j < s.size(); j++)
-				if (in[i] > s.get(j).value)
-					s.get(j).cnt++;
+			a[i] = readInt();
+		int ans = 0;
+//		int[] count = new int[n];
+		build(1, n, 1);
+		for (int i = 0; i < n/2; i++) {
+			update(1, a[i], 1, 2);
+			update(1, a[i*2], 1, -1);
+			update(1, a[i*2+1], 1, -1);
+			
+//			for (int k = 0; k < a[i]; k++)
+//				count[k] += 2;
+//			for (int k = 0; k < a[i*2]; k++)
+//				count[k]--;
+//			for (int k = 0; k < a[i*2+1]; k++)
+//				count[k]--;
+			int minimum = tree[1].min;
+//			int minimum = Integer.MAX_VALUE;
+//			for (int j = 0; j < n; j++) {
+//				minimum = Math.min(minimum, count[j]);
+//			}
+			if (minimum < 0)
+				continue;
+			ans = i+1;
 		}
-		int index = n - 1;
-		while (s.size() != 1) {
-			boolean valid = true;
-			for (int i = 0; i < s.size(); i++) {
-				System.out.println(index + " " + s.get(i).value + " " + s.get(i).cnt);
-				if (s.get(i).cnt < i + 1)
-					valid = false;
-			}
-			if (valid) {
-				System.out.println(s.size());
-				return;
-			}
-			s.remove(new State(in[index--], 0));
-			s.remove(new State(in[index--], 0));
-			for (int i = 0; i < s.size(); i++) {
-				if (in[index / 2] > s.get(i).value)
-					s.get(i).cnt--;
-			}
-			s.add(new State(in[index / 2], 0));
-			// for (int i = 0; i < index/2; i++)
-		}
-		if (in[0] > in[1])
-			System.out.println(1);
-		else
-			System.out.println(0);
-		pr.close();
+		System.out.println(ans);
 	}
-
-	static class State implements Comparable<State> {
-		int value, cnt;
-
-		State (int value, int cnt) {
-			this.value = value;
-			this.cnt = cnt;
+	static void update (int l, int r, int n, int v) {
+		if (tree[n].l == l && tree[n].r == r) {
+			tree[n].p += v;
+			tree[n].min += v;
+			return;
 		}
-
-		@Override
-		public int compareTo (State o) {
-			return value - o.value;
+		if (tree[n].p != 0) {
+			tree[2*n].p += tree[n].p;
+			tree[2*n+1].p += tree[n].p;
+			tree[2*n].min += tree[n].p;
+			tree[2*n+1].min += tree[n].p;
+			tree[n].p = 0;
 		}
-
-		@Override
-		public boolean equals (Object o) {
-			if (o instanceof State) {
-				State s = (State) o;
-				return s.value == value;
-			}
-			return false;
+		int mid = (tree[n].l + tree[n].r)/2;
+		if (r <= mid)
+			update(l, r, 2*n, v);
+		else if (l > mid)
+			update(l, r, 2*n+1, v);
+		else {
+			update(l, mid, 2*n, v);
+			update(mid+1, r, 2*n+1, v);
+		}
+		tree[n].min = Math.min(tree[2*n].min, tree[2*n+1].min);
+	}
+	
+	static void build (int l, int r, int n) {
+		tree[n] = new Node(l, r);
+		if (l == r)
+			return;
+		int mid = (l+r)/2;
+		build(l, mid, 2*n);
+		build(mid+1, r, 2*n+1);
+	}
+	
+	static class Node {
+		int l, r, min, p;
+		Node (int l, int r) {
+			this.l = l;
+			this.r = r;
 		}
 	}
-
-	static String next () throws IOException {
+	
+	private static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
-
-	static int readInt () throws IOException {
+	private static int readInt() throws IOException {
 		return Integer.parseInt(next());
-	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
 	}
 }

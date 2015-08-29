@@ -30,7 +30,6 @@ public class June_2015_B {
 			} else {
 				long top = r % s;
 				long bot = s;
-				long lca = lca(bot, 4);
 				// top = top * lca / bot - 1 * lca / 4;
 				// bot = lca;
 				long gcf = gcf(top, bot);

@@ -119,6 +119,7 @@ public class CCC_2012_S4 {
 	}
 
 	static class State {
+		@SuppressWarnings ("unchecked")
 		Stack<Integer>[] s = new Stack[n];
 
 		State () {

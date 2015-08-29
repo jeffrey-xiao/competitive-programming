@@ -19,7 +19,7 @@ public class Epiccode_B {
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
+		readInt();
 		char[] s = readLine().toCharArray();
 		int[] cnt = new int[26];
 		for (char c : s) {

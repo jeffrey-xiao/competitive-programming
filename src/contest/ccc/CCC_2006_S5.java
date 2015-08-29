@@ -67,7 +67,7 @@ public class CCC_2006_S5 {
 		System.out.println(res == 1 << 30 ? -1 : res);
 	}
 
-	private static int compute (int s, boolean b) {
+	static int compute (int s, boolean b) {
 		v[s] = true;
 		if (s == end) {
 			// print(getState(s));
@@ -88,7 +88,7 @@ public class CCC_2006_S5 {
 		return (steps[s] = next + 1);
 	}
 
-	private static void print (boolean[][] ds) {
+	static void print (boolean[][] ds) {
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++)
 				System.out.print(ds[i][j] ? 1 : 0);

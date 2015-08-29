@@ -3,20 +3,26 @@ package contest.ioi;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-public class IOI_2008_Type_Printer {
-	static Scan scan = new Scan();
 
-	public static void main (String[] args) {
-		int num = scan.nextInt();
+public class IOI_2008_Type_Printer {
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
+	
+	public static void main (String[] args) throws IOException {
+		int num = readInt();
 		String[] words = new String[num];
 		int longest = -1;
 		int index = 0;
 		for (int x = 0; x < words.length; x++) {
-			String s = scan.next();
+			String s = next();
 			words[x] = s;
 			if (words[x].length() > longest) {
 				longest = words[x].length();
@@ -53,13 +59,13 @@ public class IOI_2008_Type_Printer {
 			}
 		});
 		int nextIndex = 0;
-		String finalS = "";
+		StringBuilder finalS = new StringBuilder();
 		int operations = 0;
 		main : for (int x = words.length - 1; x >= 0; x--) {
 			int common = 0;
 			if (x == 0) {
 				String ss = words[x].substring(nextIndex, words[x].length());
-				finalS += ss + "P";
+				finalS.append(ss + "P");
 				operations += ss.length() + 1;
 
 				break main;
@@ -72,40 +78,28 @@ public class IOI_2008_Type_Printer {
 					break;
 			}
 			String ss = words[x].substring(nextIndex, words[x].length());
-			finalS += ss + "P";
+			finalS.append(ss + "P");
 			operations += ss.length() + 1;
 			String repeat = new String(new char[words[x].length() - common]).replace("\0", "-");
-			finalS += repeat;
+			finalS.append(repeat);
 			operations += repeat.length();
 
 			nextIndex = common;
 		}
-		System.out.println(operations);
-		System.out.println(finalS);
+		pr.println(operations);
+		pr.println(finalS.toString());
+		pr.close();
 	}
-
-	public static class Scan {
-		BufferedReader br;
-		StringTokenizer st;
-
-		public Scan () {
-			br = new BufferedReader(new InputStreamReader(System.in));
-		}
-
-		String next () {
-			while (st == null || !st.hasMoreTokens()) {
-				try {
-					st = new StringTokenizer(br.readLine().trim());
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			return st.nextToken();
-		}
-
-		int nextInt () {
-			return Integer.parseInt(next());
-		}
+	
+	static String readLine () throws IOException {
+		return br.readLine().trim();
+	}
+	static String next () throws IOException {
+		while (st == null || !st.hasMoreTokens())
+			st = new StringTokenizer(readLine());
+		return st.nextToken();
+	}
+	static Integer readInt () throws IOException {
+		return Integer.parseInt(next());
 	}
 }

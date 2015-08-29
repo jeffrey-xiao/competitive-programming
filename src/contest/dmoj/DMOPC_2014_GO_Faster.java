@@ -24,7 +24,6 @@ public class DMOPC_2014_GO_Faster {
 		}
 		int first = on[0];
 		int first1 = on[0];
-		int excess1 = 0;
 		int excess = 0;
 		for (int i = 1; i < n - 1; i++) {
 			if (excess >= off[i])
@@ -36,7 +35,6 @@ public class DMOPC_2014_GO_Faster {
 			if (first1 >= off[i])
 				first1 -= off[i];
 			else {
-				excess1 -= (off[i] - first1);
 				first1 = 0;
 			}
 

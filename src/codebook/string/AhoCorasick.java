@@ -109,7 +109,7 @@ public class AhoCorasick {
 			child[curr - SHIFT].addWord(s);
 		}
 		// auxiliary method to print out the words in the trie
-		private void printWord (String curr) {
+		public void printWord (String curr) {
 			if (isEnd)
 				System.out.println(curr);
 			for (Integer i : c) {

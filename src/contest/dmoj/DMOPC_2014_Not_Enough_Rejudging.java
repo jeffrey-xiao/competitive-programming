@@ -19,7 +19,6 @@ public class DMOPC_2014_Not_Enough_Rejudging {
 		int n = readInt();
 		ArrayList<String> status = new ArrayList<String>();
 		int WA = 0;
-		int IR = 0;
 		for (int x = 0; x < n; x++) {
 			String s = next();
 			if (s.equals("WA"))

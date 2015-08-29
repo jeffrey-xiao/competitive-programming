@@ -99,14 +99,12 @@ public class CCC_2013_Stage_2_LHC {
 			subtrees.clear();
 			long currTotal = 0;
 			long currPaths = 0;
-			long currSum = 0;
 			for (Integer i : adj.get(centers.get(0))) {
 				v[i] = true;
 				long add = dfs(i, 1);
 
 				currTotal += (add) * currPaths;
 				currPaths += add;
-				currSum = add;
 				// System.out.println(currSum + " " + currTotal);
 			}
 

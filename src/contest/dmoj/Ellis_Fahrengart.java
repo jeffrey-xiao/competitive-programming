@@ -29,9 +29,7 @@ public class Ellis_Fahrengart {
 	static long res = 0;
 
 	public static void main (String[] args) throws IOException {
-		int N = 50, MOD = 1000000007;
-		int[][] C = new int[N][N];
-
+		
 		n = readInt();
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 		for (int i = 1; i <= n; i++) {

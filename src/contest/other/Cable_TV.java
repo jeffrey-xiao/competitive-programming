@@ -8,21 +8,14 @@ public class Cable_TV {
 
 	public static void main (String[] args) {
 		int numOfVertices = scan.nextInt();
-		boolean[] visited = new boolean[numOfVertices];// if visited already
-		int[][] vertices = new int[numOfVertices][2];// 0 is cost, 1 is danger
+		boolean[] visited = new boolean[numOfVertices];
+		int[][] vertices = new int[numOfVertices][2];
 		visited[0] = true;
 		for (int x = 1; x < vertices.length; x++) {
 			vertices[x][0] = Integer.MAX_VALUE;
 			vertices[x][1] = Integer.MAX_VALUE;
 		}
-		ArrayList<ArrayList<int[]>> adjList = new ArrayList<ArrayList<int[]>>();// 0
-																				// is
-																				// connected
-																				// to,
-																				// 1
-																				// cost,
-																				// 2
-																				// danger
+		ArrayList<ArrayList<int[]>> adjList = new ArrayList<ArrayList<int[]>>();
 		for (int x = 0; x < numOfVertices; x++) {
 			adjList.add(new ArrayList<int[]>());
 		}
@@ -51,7 +44,6 @@ public class Cable_TV {
 					} else if (connection[2] == vertices[connection[0]][1] && connection[1] < vertices[connection[0]][0]) {
 						vertices[connection[0]][0] = connection[1];
 					}
-					// getting next min connected
 				}
 				for (int y = 0; y < vertices.length; y++) {
 					if (!visited[y] && (vertices[y][1] < minDanger || (vertices[y][1] == minDanger && vertices[y][0] < minCost))) {

@@ -14,6 +14,7 @@ public class CCC_2009_Stage_2_Dinner_Simple {
 	static PrintWriter pr;
 	static StringTokenizer st;
 
+	@SuppressWarnings ("unused")
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
