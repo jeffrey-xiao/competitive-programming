@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class June_2015_D {
@@ -16,69 +17,60 @@ public class June_2015_D {
 	static PrintWriter pr;
 	static StringTokenizer st;
 
+	static int sz = 0;
+	static Integer[] sa;
+	static int[] order;
+	static int[] newOrder;
+	static String in;
+	static String s;
+	static SuffixComparator sc = new SuffixComparator();
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
-		String in = next();
+		in = next();
 		int q = readInt();
 		ArrayList<Query> qs = new ArrayList<Query>();
-		for (int i = 0; i < q; i++) {
+		for (int i = 0; i < q; i++)
 			qs.add(new Query(readInt() - 1, readInt() - 1, i));
-		}
-		HashSet<String> unique = new HashSet<String>();
-		for (int j = 0; j < in.length(); j++) {
-			for (int k = j + 1; k <= in.length(); k++) {
-				String ss = in.substring(j, k);
-				if (search(ss, in) == 1)
-					unique.add(in.substring(j, k));
-			}
-		}
-		int[] ans = new int[q];
+
+		int[] end1 = getEnd(in);
+		int[] end2 = getEnd(new StringBuilder(in).reverse().toString());
+
+		long[] ans = new long[q];
 		int sz = (int) Math.sqrt(in.length());
 		for (int i = 0; i < (in.length() - 1) / sz + 1; i++) {
 			int start = i * sz;
 			int end = Math.min((i + 1) * sz - 1, in.length() - 1);
-			// System.out.println(start + " " + end);
+
 			ArrayList<Query> curr = new ArrayList<Query>();
-			for (Query query : qs) {
-				if (start <= query.l && query.l <= end) {
+			for (Query query : qs)
+				if (start <= query.l && query.l <= end)
 					curr.add(query);
-				}
-			}
+
 			Collections.sort(curr);
-			int l = -1, r = -1, cnt = 0;
+			int l = -1, r = -1;
+			long cnt = 0;
 			for (Query query : curr) {
 				if (l == -1 && r == -1) {
 					l = query.l;
 					r = query.r;
-					for (int j = l; j <= r; j++) {
-						for (int k = j + 1; k <= r + 1; k++) {
-							String ss = in.substring(j, k);
-							if (unique.contains(ss))
-								cnt++;
-						}
-					}
+					for (int j = l; j <= r; j++) 
+						cnt += Math.max(0, r - j + 1 - (end1[j]));
 				}
 				while (r < query.r) {
 					r++;
-					for (int j = l; j <= r; j++)
-						if (unique.contains(in.substring(j, r + 1)))
-							cnt++;
+					cnt += Math.max(0, r - l + 1 - end2[in.length() - r - 1]);
 				}
 				while (l < query.l) {
-					for (int j = l; j <= r; j++)
-						if (unique.contains(in.substring(l, j + 1)))
-							cnt--;
+					cnt -= Math.max(0, r - l + 1 - end1[l]);
 					l++;
 				}
 				while (l > query.l) {
 					l--;
-					for (int j = l; j <= r; j++)
-						if (search(in.substring(l, j + 1), in) == 1)
-							cnt++;
+					cnt += Math.max(0, r - l + 1 - end1[l]);
 				}
 				ans[query.i] = cnt;
 			}
@@ -88,7 +80,59 @@ public class June_2015_D {
 
 		pr.close();
 	}
+	static int[] getEnd (String s1) {
+		s = s1;
+		sa = new Integer[s.length()];
+		order = new int[s.length()];
+		newOrder = new int[s.length()];
+		for (int i = 0; i < s.length(); i++) {
+			sa[i] = i;
+			order[i] = (int)(s.charAt(i));
+			newOrder[i] = 0;
+		}
 
+		for (sz = 1; ; sz <<= 1) {
+			Arrays.sort(sa, sc);
+			for (int i = 0; i < s.length() - 1; i++) {
+				newOrder[i+1] = newOrder[i] + (sc.compare(sa[i], sa[i+1]) < 0 ? 1 : 0);
+			}
+			for (int i = 0; i < s.length(); i++) {
+				order[sa[i]] = newOrder[i];
+			}
+			if (newOrder[s.length()-1] == s.length() - 1)
+				break;
+		}
+		int[] lcp = new int[s.length()];
+		int k = 0;
+		for (int i = 0; i < s.length(); i++, k = k > 0 ? k - 1 : k) {
+			if (order[i] == s.length() - 1) {
+				lcp[i] = 0;
+				continue;
+			}
+			int j = sa[order[i] + 1];
+			while (j + k < s.length() && i + k < s.length() && s.charAt(j+k) == s.charAt(i+k))
+				k++;
+			lcp[i] = k;
+		}
+		int[] end = new int[s.length()];
+		for (int i = 0; i < s.length(); i++) {
+			if (order[i] == 0)
+				end[i] = lcp[i];
+			else
+				end[i] = Math.max(lcp[sa[order[i]-1]], lcp[i]);
+		}
+		return end;
+	}
+	static class SuffixComparator implements Comparator<Integer> {
+		@Override
+		public int compare (Integer o1, Integer o2) {
+			if (order[o1] != order[o2])
+				return order[o1] - order[o2];
+			if ((o1 += sz) < s.length() & (o2 += sz) < s.length())
+				return order[o1] - order[o2];
+			return o2 - o1;
+		}
+	}
 	static class Query implements Comparable<Query> {
 		int l, r, i;
 
@@ -103,41 +147,6 @@ public class June_2015_D {
 			return r - o.r;
 		}
 	}
-
-	private static int[] computeLSPTable (String s) {
-		int[] LSP = new int[s.length()];
-		LSP[0] = 0;
-		for (int x = 1; x < s.length(); x++) {
-			// First assume that we are extending the previous LSP
-			int y = LSP[x - 1];
-			// If there is a mismatch, go to previous LSP
-			while (y > 0 && s.charAt(y) != s.charAt(x))
-				y = LSP[y - 1];
-			if (s.charAt(y) == s.charAt(x))
-				y++;
-			LSP[x] = y;
-		}
-		return LSP;
-	}
-
-	private static int search (String pattern, String text) {
-		int[] LSP = computeLSPTable(pattern);
-		int y = 0;
-		int cnt = 0;
-		for (int x = 0; x < text.length(); x++) {
-			while (y > 0 && text.charAt(x) != pattern.charAt(y))
-				y = LSP[y - 1];
-			if (text.charAt(x) == pattern.charAt(y)) {
-				y++;
-				if (y == pattern.length()) {
-					cnt++;
-					y = LSP[y - 1];
-				}
-			}
-		}
-		return cnt;
-	}
-
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
