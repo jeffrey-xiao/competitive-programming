@@ -1,7 +1,14 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Road_Network {
 
@@ -13,6 +20,7 @@ public class Road_Network {
 	static int[] dist;
 	static int[][] cost;
 	static int n, m;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,8 +35,8 @@ public class Road_Network {
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			cost[a][b] = cost[b][a] = c;
 			adj.get(a).add(new Edge(b, c));
@@ -38,11 +46,11 @@ public class Road_Network {
 		long ans = 1;
 		if (n <= 50) {
 			for (int i = 0; i < n; i++) {
-				for (int j = i+1; j < n; j++) {
+				for (int j = i + 1; j < n; j++) {
 					for (int k = 0; k < adj.size(); k++)
 						for (Edge e : adj.get(k))
 							cost[k][e.dest] = cost[e.dest][k] = e.cost;
-					ans  = ans * getFlow(i, j) % 1000000007;
+					ans = ans * getFlow(i, j) % 1000000007;
 				}
 			}
 		} else {
@@ -73,6 +81,7 @@ public class Road_Network {
 		}
 		return res;
 	}
+
 	static int getPath (int a, int b, int flow) {
 		if (a == b)
 			return flow;
@@ -88,6 +97,7 @@ public class Road_Network {
 		}
 		return 0;
 	}
+
 	static boolean constructGraph (int a, int b) {
 		for (int i = 0; i < n; i++)
 			dist[i] = -1;
@@ -105,15 +115,16 @@ public class Road_Network {
 		}
 		return dist[b] != -1;
 	}
-	
-	static class Edge{
+
+	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -140,4 +151,3 @@ public class Road_Network {
 		return br.readLine().trim();
 	}
 }
-

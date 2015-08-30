@@ -24,6 +24,7 @@ public class June_2015_D {
 	static String in;
 	static String s;
 	static SuffixComparator sc = new SuffixComparator();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
@@ -57,7 +58,7 @@ public class June_2015_D {
 				if (l == -1 && r == -1) {
 					l = query.l;
 					r = query.r;
-					for (int j = l; j <= r; j++) 
+					for (int j = l; j <= r; j++)
 						cnt += Math.max(0, r - j + 1 - (end1[j]));
 				}
 				while (r < query.r) {
@@ -80,6 +81,7 @@ public class June_2015_D {
 
 		pr.close();
 	}
+
 	static int[] getEnd (String s1) {
 		s = s1;
 		sa = new Integer[s.length()];
@@ -87,19 +89,19 @@ public class June_2015_D {
 		newOrder = new int[s.length()];
 		for (int i = 0; i < s.length(); i++) {
 			sa[i] = i;
-			order[i] = (int)(s.charAt(i));
+			order[i] = (int) (s.charAt(i));
 			newOrder[i] = 0;
 		}
 
-		for (sz = 1; ; sz <<= 1) {
+		for (sz = 1;; sz <<= 1) {
 			Arrays.sort(sa, sc);
 			for (int i = 0; i < s.length() - 1; i++) {
-				newOrder[i+1] = newOrder[i] + (sc.compare(sa[i], sa[i+1]) < 0 ? 1 : 0);
+				newOrder[i + 1] = newOrder[i] + (sc.compare(sa[i], sa[i + 1]) < 0 ? 1 : 0);
 			}
 			for (int i = 0; i < s.length(); i++) {
 				order[sa[i]] = newOrder[i];
 			}
-			if (newOrder[s.length()-1] == s.length() - 1)
+			if (newOrder[s.length() - 1] == s.length() - 1)
 				break;
 		}
 		int[] lcp = new int[s.length()];
@@ -110,7 +112,7 @@ public class June_2015_D {
 				continue;
 			}
 			int j = sa[order[i] + 1];
-			while (j + k < s.length() && i + k < s.length() && s.charAt(j+k) == s.charAt(i+k))
+			while (j + k < s.length() && i + k < s.length() && s.charAt(j + k) == s.charAt(i + k))
 				k++;
 			lcp[i] = k;
 		}
@@ -119,10 +121,11 @@ public class June_2015_D {
 			if (order[i] == 0)
 				end[i] = lcp[i];
 			else
-				end[i] = Math.max(lcp[sa[order[i]-1]], lcp[i]);
+				end[i] = Math.max(lcp[sa[order[i] - 1]], lcp[i]);
 		}
 		return end;
 	}
+
 	static class SuffixComparator implements Comparator<Integer> {
 		@Override
 		public int compare (Integer o1, Integer o2) {
@@ -133,6 +136,7 @@ public class June_2015_D {
 			return o2 - o1;
 		}
 	}
+
 	static class Query implements Comparable<Query> {
 		int l, r, i;
 
@@ -147,6 +151,7 @@ public class June_2015_D {
 			return r - o.r;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
