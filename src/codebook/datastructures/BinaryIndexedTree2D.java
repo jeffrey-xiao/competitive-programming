@@ -1,3 +1,7 @@
+/*
+ * A 2D implementation of a binary indexed tree.
+ */
+
 package codebook.datastructures;
 
 public class BinaryIndexedTree2D {
