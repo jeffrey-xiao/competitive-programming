@@ -106,25 +106,24 @@ public class AVLTree {
 		// rotating right
 		if (diff1 >= 2) {
 			int diff2 = getHeight(n.left.right) - getHeight(n.left.left);
-			if (diff2 > 0) {
+			// rotating left
+			if (diff2 > 0)
 				n.left = rotateLeft(n.left);
-			}
 			n = rotateRight(n);
 		}
 		// rotating left
 		else if (diff1 <= -2) {
 			int diff2 = getHeight(n.right.left) - getHeight(n.right.right);
-			if (diff2 > 0) {
+			// rotating right
+			if (diff2 > 0)
 				n.right = rotateRight(n.right);
-			}
 			n = rotateLeft(n);
 		}
 		return n;
 	}
 
 	private Node minV (Node n) {
-		while (n.left != null)
-			;
+		while (n.left != null) ;
 		n = n.left;
 		return n;
 	}
@@ -151,17 +150,17 @@ public class AVLTree {
 		// rotating right
 		if (diff1 >= 2) {
 			int diff2 = getHeight(n.left.right) - getHeight(n.left.left);
-			if (diff2 > 0) {
+			// rotating left
+			if (diff2 > 0)
 				n.left = rotateLeft(n.left);
-			}
 			n = rotateRight(n);
 		}
 		// rotating left
 		else if (diff1 <= -2) {
 			int diff2 = getHeight(n.right.left) - getHeight(n.right.right);
-			if (diff2 > 0) {
+			// rotating right
+			if (diff2 > 0)
 				n.right = rotateRight(n.right);
-			}
 			n = rotateLeft(n);
 		}
 		return n;
