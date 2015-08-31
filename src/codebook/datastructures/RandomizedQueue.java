@@ -1,3 +1,7 @@
+/*
+ * A randomized queue is a data structure that allows the insertion of elements and the removal/retrival of random elemnts.
+ */
+
 package codebook.datastructures;
 
 import java.util.Iterator;
