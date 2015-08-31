@@ -1,4 +1,5 @@
-/* An AA Tree is a balanced binary search tree that is a variation of the red-black tree with an additional restriction.
+/* 
+ * An AA Tree is a balanced binary search tree that is a variation of the red-black tree with an additional restriction.
  * Unlike red-black trees, no red node can be left subchild. This results in the simulation of 2-3 tree instead of a 2-3-4 tree.
  */
 package codebook.datastructures;
