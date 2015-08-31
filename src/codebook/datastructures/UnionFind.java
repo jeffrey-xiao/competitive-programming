@@ -1,6 +1,5 @@
 /*
  * A union find data structure is a data structure that keeps track of a set of elements partitioned into a number of disjoint subsets.
- *
  */
 
 package codebook.datastructures;
