@@ -1,12 +1,9 @@
-package codebook.datastructures;
-
 /*
- * An interval tree is a data structure that represents a series of ranges
- * It stores these ranges and facilitates searching for those ranges
- * Adding a range and finding a range can be done in O (log N) time
- * There is an assumption that all left end-points are unique
- * The underlying BST in the Interval tree is an AVL Tree
+ * An interval tree is a data structure that represents a series of ranges. It stores these ranges and facilitates searching for those ranges
+ * There is an assumption that all left end-points are unique and the underlying BST in this implementation is an AVL tree.
  */
+
+package codebook.datastructures;
 
 public class IntervalTree {
 
