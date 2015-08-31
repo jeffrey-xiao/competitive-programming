@@ -2,23 +2,35 @@ package codebook.datastructures;
 
 public class DisjointSetUnion {
 	private int[] id;
-
+	private int[] sz;
+	
 	public DisjointSetUnion (int n) {
 		id = new int[n];
-		for (int x = 0; x < n; x++)
+		sz = new int[n];
+		for (int x = 0; x < n; x++) {
 			id[x] = x;
+			sz[x] = 1;
+		}
 	}
 
-	public boolean find (int x, int y) {
-		return id[x] == id[y];
+	public boolean isSame (int x, int y) {
+		return find(x) == find(y);
+	}
+
+	public int find (int x) {
+		return x == id[x] ? x : (id[x] = find(id[x]);
 	}
 
 	public void union (int x, int y) {
-		int idx = id[x];
-		int idy = id[y];
-		for (int z = 0; z < id.length; z++)
-			if (id[z] == idx)
-				id[z] = idy;
+		int rx = find(x);
+		int ry = find(y);
+		if (sz[rx] > sz[ry]) {
+			sz[rx] += sz[ry];
+			id[ry] = rx;
+		} else {
+			sz[ry] += sz[rx];
+			id[rx] = ry;
+		}
 	}
 
 	public void print () {
