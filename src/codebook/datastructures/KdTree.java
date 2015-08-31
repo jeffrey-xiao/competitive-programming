@@ -1,3 +1,8 @@
+/*
+ * A kd tree is a space partitioning data structure for organizing points in a k-dimensional space.
+ * This implementation deals with the second dimension.
+ */
+
 package codebook.datastructures;
 
 import java.util.ArrayList;
