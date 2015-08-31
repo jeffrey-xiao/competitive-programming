@@ -1,3 +1,10 @@
+/*
+ * A treap is a randomized balanced binary search tree. 
+ * It is built on the observation that randomized binary search trees are usually balanaced to a certian degree. 
+ * When a node is inserted, it has another attribute called the priority.
+ * Through tree rotations, a treap maintains a heap invariant with the priorities and a binary search tree invariant with the keys.
+ */
+
 package codebook.datastructures;
 
 import java.util.ArrayDeque;
