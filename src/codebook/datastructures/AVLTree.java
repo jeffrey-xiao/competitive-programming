@@ -1,3 +1,8 @@
+/* 
+ * An AVL tree is a balanced binary search tree where the heights of the two subtrees of any node differ by at most one.
+ * If at any point in time, the difference between two subtrees is greater than two, rebalancing is done to maintain this property.
+ */
+
 package codebook.datastructures;
 
 public class AVLTree {
