@@ -1,5 +1,6 @@
 /*
- * Implementation of edge list for representing directed graphs. Can be extended to directed graphs by only adding one edge in addEdge ()
+ * Implementation of an edge list for representing graphs. 
+ * Can be extended to directed graphs by only adding one edge in addEdge ()
  * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
  */
 
