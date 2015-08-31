@@ -1,8 +1,8 @@
 package contest.other;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -17,9 +17,9 @@ public class Boxdropper {
 	static double[][] d = new double[500][500];
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		String in = null;
@@ -42,7 +42,7 @@ public class Boxdropper {
 				}
 				index++;
 			} else if (c == 'G') {
-				System.out.printf("%.3f\n", d[readInt() - 1][readInt() - 1]);
+				pr.printf("%.3f\n", d[readInt() - 1][readInt() - 1]);
 			}
 		}
 		// for (int i = 0; i < index; i++) {
