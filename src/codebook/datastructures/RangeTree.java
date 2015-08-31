@@ -1,5 +1,3 @@
-package codebook.datastructures;
-
 /*
  * Range tree is a data structure that stores 2D points and is able to return
  * a list of points that is contained in a specific rectangle
@@ -15,6 +13,8 @@ package codebook.datastructures;
  *
  * The complexity for returning a range is O(log N ^ d + k) where d is the number of dimensions and k is the number of points returned
  */
+
+package codebook.datastructures;
 
 public class RangeTree {
 
