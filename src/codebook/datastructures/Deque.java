@@ -1,3 +1,7 @@
+/*
+ * A deque is a data structure that allows in the deletion and insertion of elements from both sides.
+ */
+
 package codebook.datastructures;
 
 import java.util.Iterator;
