@@ -1,6 +1,6 @@
 /*
- * A red black tree is a balanced binary tree that simulates a 2-3-4 tree.
- * This implementation is a particular form of the red black tree called the left leaning red black tree
+ * A red-black tree is a balanced binary tree that simulates a 2-3-4 tree.
+ * This implementation is a particular form of the red-black tree called the left leaning red-black tree
  */
 package codebook.datastructures;
 
