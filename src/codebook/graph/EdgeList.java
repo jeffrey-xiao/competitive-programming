@@ -1,5 +1,5 @@
 /*
- * Implementation of an edge list for representing graphs. 
+ * An edge list is a data structure that represents a graph.
  * Can be extended to directed graphs by only adding one edge in addEdge ()
  * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
  */
@@ -21,7 +21,7 @@ public class Main {
 
 	static Edge[] edges;
 	static int[] last;
-	static int cnt = 0;
+	static int n, m, cnt;
 	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,8 +29,8 @@ public class Main {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 		
-		int n = readInt();
-		int m = readInt();
+		n = readInt();
+		m = readInt();
 		
 		edges = new Edge[m*2];
 		last = new int[n];
