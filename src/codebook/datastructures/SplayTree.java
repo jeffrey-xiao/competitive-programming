@@ -1,3 +1,8 @@
+/*
+ * A splay tree is a balanced binary tree with the additional property that recently accessed nodes are quick to access again.
+ * When accessing node x, it brings the node to the root of the tree using a splay operation.
+ */
+
 package codebook.datastructures;
 
 public class SplayTree {
