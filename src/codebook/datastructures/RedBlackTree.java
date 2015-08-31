@@ -11,6 +11,7 @@ public class RedBlackTree {
 	private Node root;
 
 	public void remove (int key) {
+		// if both children of the root are black, set root to red
 		if (!isRed(root.left) && !isRed(root.right))
 			root.color = RED;
 		root = remove(root, key);
@@ -71,7 +72,7 @@ public class RedBlackTree {
 			n.right = add(n.right, key, value);
 		else
 			n.value = value;
-
+		// fix any right-leaning links
 		if (isRed(n.right) && !isRed(n.left))
 			n = rotateLeft(n);
 		if (isRed(n.left) && isRed(n.left.left))
@@ -109,7 +110,7 @@ public class RedBlackTree {
 			return false;
 		return n.color == RED;
 	}
-
+	// restore red-black tree invariant
 	private Node balance (Node n) {
 		if (isRed(n.right))
 			n = rotateLeft(n);
@@ -119,7 +120,8 @@ public class RedBlackTree {
 			flipColors(n);
 		return n;
 	}
-
+	// Assuming that h is red and both h.left and h.left.left
+	// are black, make h.left or one of its children red.
 	private Node shiftLeft (Node n) {
 		flipColors(n);
 		if (isRed(n.right.left)) {
@@ -129,7 +131,8 @@ public class RedBlackTree {
 		}
 		return n;
 	}
-
+	// Assuming that h is red and both h.right and h.right.left
+    	// are black, make h.right or one of its children red.
 	private Node shiftRight (Node n) {
 		flipColors(n);
 		if (isRed(n.left.left)) {
