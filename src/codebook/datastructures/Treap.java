@@ -78,8 +78,8 @@ public class Treap {
 			range(n.left, loK, hiK, res);
 		if (loK <= n.key && n.key <= hiK) {
 			res.offer(n.key);
-			range(n.right, loK, hiK, res);
 			range(n.left, loK, hiK, res);
+			range(n.right, loK, hiK, res);
 		}
 		if (n.key < loK)
 			range(n.right, loK, hiK, res);
