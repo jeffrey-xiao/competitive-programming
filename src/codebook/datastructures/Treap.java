@@ -161,8 +161,8 @@ public class Treap {
 			n.right = add(n.right, k, v);
 			if (n.priority < n.right.priority)
 				n = rotateLeft(n);
-		}
-		// else the value already exists
+		} else 
+			n.value = v;
 		return n;
 	}
 
