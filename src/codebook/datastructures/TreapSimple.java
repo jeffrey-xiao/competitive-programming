@@ -2,13 +2,13 @@
  * A treap is a randomized balanced binary search tree. 
  * It is built on the observation that randomized binary search trees are usually balanaced to a certian degree. 
  * When a node is inserted, it has another attribute called the priority.
- * Through tree rotations, a treap maintains a heap invariant with the priorities and a binary search tree invariant with the keys.
+ * Through mreges and splits, a treap maintains a heap invariant with the priorities and a binary search tree invariant with the keys.
  */
 
 package codebook.datastructures;
 
 import java.util.ArrayDeque;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Queue;
 
 public class TreapSimple {
@@ -34,17 +34,24 @@ public class TreapSimple {
 			priority = Math.random();
 		}
 	}
-
+	// object representing a pair of nodes of the tree
+	static class NodePair {
+		Node left, right;
+		NodePair (Node left, Node right) {
+			this.left = left;
+			this.right = right;
+		}
+	}
 	public void remove (Integer k) {
 		root = remove(root, k);
 	}
 
 	public void add (Integer k) {
-		root = add(root, k, k);
+		root = add(root, new Node(k));
 	}
 
 	public void add (Integer k, Integer v) {
-		root = add(root, k, v);
+		root = add(root, new Node(k, v));
 	}
 
 	public boolean contains (Integer k) {
@@ -143,26 +150,47 @@ public class TreapSimple {
 		}
 		return newRoot;
 	}
+	
+	// auxiliary function to split
+	
+	private NodePair split (Node n, Integer key) {
+		NodePair res = new NodePair(null, null);
+		if (n == null)
+			return res;
+		
+		if (n.key > key) {
+			res = split(n.left, key);
+			n.left = res.right;
+			res.right = n;
+			return res;
+		} else if (n.key < key) {
+			res = split(n.right, key);
+			n.right = res.left;
+			res.left = n;
+			return res;
+		} else {
+			return new NodePair(n.left, n.right);
+		}
+	}
 
 	// auxiliary function to insert
-	private Node add (Node n, Integer k, Integer v) {
+	private Node add (Node n, Node m) {
 		if (n == null)
-			return new Node(k, v);
-		int cmp = k.compareTo(n.key);
-		// going left
-		if (cmp < 0) {
-			n.left = add(n.left, k, v);
-			if (n.priority < n.left.priority) {
-				n = rotateRight(n);
-			}
+			return m;
+		if (m.priority > n.priority) {
+			NodePair pair = split(n, m.key);
+			m.left = pair.left;
+			m.right = pair.right;
+			return m;
+		} else {
+			int cmp = n.key.compareTo(m.key);
+			if (cmp < 0)
+				n.right = add(n.right, m);
+			else if (cmp > 0)
+				n.left = add(n.left, m);
+			else 
+				n.value = m.value;
 		}
-		// going right
-		else if (cmp > 0) {
-			n.right = add(n.right, k, v);
-			if (n.priority < n.right.priority)
-				n = rotateLeft(n);
-		} else 
-			n.value = v;
 		return n;
 	}
 
@@ -183,15 +211,18 @@ public class TreapSimple {
 	}
 
 	public static void main (String[] args) {
-		Treap t = new Treap();
+		TreapSimple t = new TreapSimple();
 		long c = System.currentTimeMillis();
-		HashSet<Integer> hs = new HashSet<Integer>();
+		TreeSet<Integer> hs = new TreeSet<Integer>();
 		for (int x = 0; x < 10; x++) {
 			int ran = (int) (Math.random() * (20)) + 5;
 			hs.add(ran);
 			t.add(ran);
 		}
 		System.out.println(hs.size());
+		for (Integer i : hs)
+			System.out.print(i + " ");
+		System.out.println();
 		t.traverse(t.root);
 		System.out.println();
 		t.add(1);
