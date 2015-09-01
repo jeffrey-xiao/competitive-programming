@@ -1,7 +1,7 @@
 int tree[17][65536];
 void insert(int x) { 
   for (int i=0; i<17; i++) { 
-    tree[i][x]++; x/=2; 
+    tree[i][x]++; x/=2;
   } 
 }
 void erase(int x) { 
