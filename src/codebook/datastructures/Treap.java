@@ -74,15 +74,15 @@ public class Treap {
 	private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
 		if (n == null)
 			return;
-		if (n.key < loK)
-			range(n.right, loK, hiK, res);
+		if (n.key > hiK)
+			range(n.left, loK, hiK, res);
 		if (loK <= n.key && n.key <= hiK) {
 			res.offer(n.key);
 			range(n.right, loK, hiK, res);
 			range(n.left, loK, hiK, res);
 		}
-		if (n.key > hiK)
-			range(n.left, loK, hiK, res);
+		if (n.key < loK)
+			range(n.right, loK, hiK, res);
 	}
 
 	// auxiliary function for contains
@@ -119,10 +119,16 @@ public class Treap {
 		else if (cmp > 0)
 			n.right = remove(n.right, k);
 		else {
-			Node remove = getFirst(n.right);
-			n.value = remove.value;
-			n.key = remove.key;
-			remove(n.right, n.key);
+			if (n.right == null)
+				n = n.left;
+			else if (n.left == null)
+				n = n.right;
+			else {
+				Node remove = getFirst(n.right);
+				n.value = remove.value;
+				n.key = remove.key;
+				remove(n.right, n.key);
+			}
 		}
 		return n;
 	}
@@ -148,12 +154,12 @@ public class Treap {
 			n.value = v;
 		return n;
 	}
-	private void Node getFirst (Node n) {
+	private Node getFirst (Node n) {
 		while (n.left != null)
 			n = n.left;
 		return n;
 	}
-	private void Node getLast (Node n) {
+	private Node getLast (Node n) {
 		while (n.right != null)
 			n = n.right;
 		return n;
