@@ -21,8 +21,10 @@ public class IntervalTree {
 			n.left = add(n.left, lo, hi);
 		else if (lo > n.lo)
 			n.right = add(n.right, lo, hi);
-		else
-			n = new Node(lo, hi);
+		else {
+			n.lo = lo;
+			n.hi = n.max = hi;
+		}
 		resetMax(n);
 		resetHeight(n);
 		n = balance(n);
