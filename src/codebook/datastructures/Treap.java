@@ -119,29 +119,12 @@ public class Treap {
 		else if (cmp > 0)
 			n.right = remove(n.right, k);
 		else {
-			n = merge(n.left, n.right);
+			Node remove = getFirst(n.right);
+			n.value = remove.value;
+			n.key = remove.key;
+			remove(n.right, n.key);
 		}
 		return n;
-	}
-
-	// auxiliary function to merge
-	private Node merge (Node t1, Node t2) {
-		if (t1 == null)
-			return t2;
-		else if (t2 == null)
-			return t1;
-
-		Node newRoot = null;
-		if (t1.priority > t2.priority) {
-			t1.left = merge(t1.left, t1.right);
-			newRoot = t1;
-			newRoot.right = t2;
-		} else {
-			t2.right = merge(t2.left, t2.right);
-			newRoot = t2;
-			newRoot.left = t1;
-		}
-		return newRoot;
 	}
 
 	// auxiliary function to insert
@@ -165,7 +148,16 @@ public class Treap {
 			n.value = v;
 		return n;
 	}
-
+	private void Node getFirst (Node n) {
+		while (n.left != null)
+			n = n.left;
+		return n;
+	}
+	private void Node getLast (Node n) {
+		while (n.right != null)
+			n = n.right;
+		return n;
+	}
 	// rotate left
 	private Node rotateLeft (Node n) {
 		Node x = n.right;
