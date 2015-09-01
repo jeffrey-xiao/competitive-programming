@@ -70,8 +70,8 @@ public class SplayTree {
 			newRoot.left = root;
 			root.right = null;
 			root = newRoot;
-		}
-		// else the value already exists
+		} else
+			root.value = v;
 	}
 
 	public boolean contains (Integer k) {
