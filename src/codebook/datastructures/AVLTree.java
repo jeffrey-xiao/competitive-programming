@@ -150,6 +150,8 @@ public class AVLTree {
 			n.left = add(n.left, k, v);
 		else if (cmp > 0)
 			n.right = add(n.right, k, v);
+		else
+			n.value = v;
 		resetHeight(n);
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
