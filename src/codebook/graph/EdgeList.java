@@ -13,10 +13,10 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Main {
+public class EdgeList {
 
 	static BufferedReader br;
-	static PrintWriter pr;
+	static PrintWriter out;
 	static StringTokenizer st;
 
 	static Edge[] edges;

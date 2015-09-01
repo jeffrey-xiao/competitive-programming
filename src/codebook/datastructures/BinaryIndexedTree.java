@@ -17,7 +17,7 @@ public class BinaryIndexedTree {
 	}
 
 	// Point updates and range queries
-	
+	/*
 	public void update (int idx, int val) { 
 		for (int x = idx; x < size; x += (x & -x)) tree1[x] += val; 
 	} 
@@ -29,9 +29,9 @@ public class BinaryIndexedTree {
 	public int query (int x1, int x2) { 
 		return query(x2) - query(x1 - 1); 
 	}
-	
+	*/
 	// Range updates and point queries
-	
+	/*
 	public void update (int idx, int val) { 
 		for (int x = idx; x < size; x += (x & -x)) tree1[x] += val; 
 	} 
@@ -44,10 +44,10 @@ public class BinaryIndexedTree {
 		sum += tree1[x]; 
 		return sum; 
 	}
-	 
+	*/
 
 	// Range updates and range queries
-	
+	/*
 	public void update (int[] tree, int idx, int val) { 
 		for (int x = idx; x < size; x += (x & -x)) 
 		tree[x] += val; 
@@ -69,4 +69,5 @@ public class BinaryIndexedTree {
 	public int query (int x1, int x2) { 
 		return query(x2) - query(x1-1); 
 	}
+	*/
 }

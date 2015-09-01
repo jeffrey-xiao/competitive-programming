@@ -17,7 +17,7 @@ public class BinaryIndexedTree2D {
 		this.tree4 = new int[rows][columns];
 	}
 	// point update and range query
-	
+	/*
 	public void update (int idx, int idy, int val) { 
 		for (int x = idx; x < rows; x += (x & -x)) 
 			for (int y = idy; y < columns; y += (y & -y))
@@ -33,9 +33,9 @@ public class BinaryIndexedTree2D {
 				sum += tree1[x][y]; 
 		return sum; 
 	}
-
+	*/
 	// range update and range query
-	
+	/*
 	private void update (int[][] tree, int idx, int idy, int val) { 
 		for (int x = idx; x < rows; x += (x & -x)) 
 			for (int y = idy; y < columns; y += (y & -y)) 
@@ -72,4 +72,5 @@ public class BinaryIndexedTree2D {
 		} 
 		return s1 * idx * idy + s2 * idx + s3 * idy + s4; 
 	}
+	*/
 }

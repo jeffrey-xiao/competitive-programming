@@ -8,7 +8,7 @@ public class UnionFind {
 	private int[] id;
 	private int[] sz;
 	
-	public DisjointSetUnion (int n) {
+	public UnionFind (int n) {
 		id = new int[n];
 		sz = new int[n];
 		for (int x = 0; x < n; x++) {
@@ -22,7 +22,7 @@ public class UnionFind {
 	}
 
 	public int find (int x) {
-		return x == id[x] ? x : (id[x] = find(id[x]);
+		return x == id[x] ? x : (id[x] = find(id[x]));
 	}
 
 	public void union (int x, int y) {
