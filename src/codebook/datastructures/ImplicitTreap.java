@@ -3,6 +3,8 @@
  * As a result, it can perform removal and deletion in O(log N)
  */
 
+package codebook.datastructures;
+
 import java.util.ArrayDeque;
 import java.util.TreeSet;
 import java.util.Queue;
@@ -207,7 +209,7 @@ class ImplicitTreap {
 	}
 
 	public static void main (String[] args) {
-		TreapSimple t = new TreapSimple();
+		ImplicitTreap t = new ImplicitTreap();
 		long c = System.currentTimeMillis();
 		TreeSet<Integer> hs = new TreeSet<Integer>();
 		for (int x = 0; x < 10; x++) {
