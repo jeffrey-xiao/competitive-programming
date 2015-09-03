@@ -15,9 +15,11 @@ public class COCI_2009_RAZGOVORI {
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	static int n, m;
+
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
-		int m = readInt();
+		n = readInt();
+		m = readInt();
 		Detector[] d = new Detector[n];
 		for (int x = 0; x < n; x++)
 			d[x] = new Detector(readInt(), readInt());

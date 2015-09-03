@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Kth_Ancestor {
 
@@ -34,7 +39,7 @@ public class Kth_Ancestor {
 			}
 			tree[root] = dfs(tree[root]);
 			int q = readInt();
-//			System.out.println("HERE " + tree[3].par[1].index);
+			//			System.out.println("HERE " + tree[3].par[1].index);
 			for (int i = 0; i < q; i++) {
 				int command = readInt();
 				if (command == 0) {
@@ -49,49 +54,56 @@ public class Kth_Ancestor {
 					int a = readInt();
 					tree[a] = new Node(a);
 				} else {
-//					out.println("Here");
+					//					out.println("Here");
 					int a = readInt();
 					int k = readInt();
 					out.println(tree[a].getParent(k));
 				}
 			}
 		}
-		
+
 		out.close();
 	}
+
 	static Node dfs (Node n) {
 		n.computeParent();
 		for (int i = 0; i < n.child.size(); i++)
 			n.child.set(i, dfs(n.child.get(i)));
 		return n;
 	}
+
 	static class Node {
 		Node[] par;
 		ArrayList<Node> child = new ArrayList<Node>();
 		int index;
+
 		Node (int index) {
 			this.index = index;
 			child = new ArrayList<Node>();
 			par = new Node[14];
 		}
+
 		void addChild (Node n) {
 			child.add(n);
 		}
+
 		void addParent (Node n) {
 			par[0] = n;
 		}
+
 		void computeParent () {
 			for (int i = 1; i < 14; i++)
-				if (par[i-1] != null)
-					par[i] = par[i-1].par[i-1];
+				if (par[i - 1] != null)
+					par[i] = par[i - 1].par[i - 1];
 		}
+
 		int getParent (int k) {
-//			out.println(k + " " + index);
+			//			out.println(k + " " + index);
 			if (k == 0)
 				return index;
 			for (int i = 13; i >= 0; i--) {
 				if (k >= 1 << i) {
-//					out.println("PARENT " + i);
+					//					out.println("PARENT " + i);
 					if (par[i] == null) {
 						return 0;
 					} else
@@ -101,7 +113,7 @@ public class Kth_Ancestor {
 			return 0;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -128,4 +140,3 @@ public class Kth_Ancestor {
 		return br.readLine().trim();
 	}
 }
-

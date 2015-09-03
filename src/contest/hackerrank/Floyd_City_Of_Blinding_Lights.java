@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Floyd_City_Of_Blinding_Lights {
 
@@ -24,8 +28,8 @@ public class Floyd_City_Of_Blinding_Lights {
 			adj[i][i] = 0;
 		}
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj[a][b] = c;
 		}
@@ -38,8 +42,8 @@ public class Floyd_City_Of_Blinding_Lights {
 			}
 		}
 		for (int i = 0; i < q; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int res = adj[a][b];
 			out.println(res == 1 << 29 ? -1 : res);
 		}
@@ -72,4 +76,3 @@ public class Floyd_City_Of_Blinding_Lights {
 		return br.readLine().trim();
 	}
 }
-

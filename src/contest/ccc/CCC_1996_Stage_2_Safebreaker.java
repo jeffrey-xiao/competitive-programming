@@ -72,8 +72,8 @@ public class CCC_1996_Stage_2_Safebreaker {
 		}
 		return count;
 	}/*
-	 * 6 9793 0/1 2384 0/2 6264 0/1 3383 1/0 2795 0/0 0218 1/0
-	 */
+		* 6 9793 0/1 2384 0/2 6264 0/1 3383 1/0 2795 0/0 0218 1/0
+		*/
 
 	private static int getMisplaced (int[] guess, String i) {
 		StringBuilder s = new StringBuilder(i);

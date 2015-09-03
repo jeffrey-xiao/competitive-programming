@@ -62,25 +62,30 @@ public class Dijkstra_Shortest_Reach_2 {
 
 		pr.close();
 	}
+
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Vertex o) {
 			return cost - o.cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

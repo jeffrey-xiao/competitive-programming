@@ -9,13 +9,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-
 public class IOI_2008_Type_Printer {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
-	
+
 	public static void main (String[] args) throws IOException {
 		int num = readInt();
 		String[] words = new String[num];
@@ -90,15 +89,17 @@ public class IOI_2008_Type_Printer {
 		pr.println(finalS.toString());
 		pr.close();
 	}
-	
+
 	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(readLine());
 		return st.nextToken();
 	}
+
 	static Integer readInt () throws IOException {
 		return Integer.parseInt(next());
 	}

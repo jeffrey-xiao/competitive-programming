@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Chief_Hopper {
 
@@ -20,8 +24,8 @@ public class Chief_Hopper {
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
 		long ans = 0;
-		for (int i = n-1; i >= 0; i--)
-				ans = (a[i] + ans)/2 + (a[i] + ans)%2;
+		for (int i = n - 1; i >= 0; i--)
+			ans = (a[i] + ans) / 2 + (a[i] + ans) % 2;
 		out.println(ans);
 		out.close();
 	}
@@ -52,4 +56,3 @@ public class Chief_Hopper {
 		return br.readLine().trim();
 	}
 }
-

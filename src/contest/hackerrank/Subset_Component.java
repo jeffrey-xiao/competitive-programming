@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Subset_Component {
 
@@ -11,6 +16,7 @@ public class Subset_Component {
 
 	static int[] id = new int[64];
 	static int cnt = 0;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -50,22 +56,27 @@ public class Subset_Component {
 		out.println(ans);
 		out.close();
 	}
+
 	static int find (int x) {
 		return x == id[x] ? x : (id[x] = find(id[x]));
 	}
+
 	static void merge (int x, int y) {
 		cnt--;
 		int rx = find(x);
 		int ry = find(y);
 		id[ry] = rx;
 	}
+
 	static class Edge {
 		int a, b;
+
 		Edge (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -92,4 +103,3 @@ public class Subset_Component {
 		return br.readLine().trim();
 	}
 }
-

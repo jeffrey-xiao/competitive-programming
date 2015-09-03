@@ -14,7 +14,7 @@ public class Yokan_Random {
 	static BufferedReader br;
 	static PrintWriter pr;
 	static StringTokenizer st;
-	static int n;
+	static int n, m;
 	static Candy[] cc;
 
 	public static void main (String[] args) throws IOException {
@@ -24,7 +24,7 @@ public class Yokan_Random {
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		int m = readInt();
+		m = readInt();
 		cc = new Candy[n];
 		int[] in = new int[n];
 		for (int i = 0; i < n; i++) {

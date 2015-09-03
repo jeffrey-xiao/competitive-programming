@@ -8,15 +8,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Journey_To_The_Moon {
+public class Kingdom_Connectivity {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static int n, m;
+	static final int MOD = 1000000000;
+	static int[] edge;
+	static int[] next;
+	static int[] last;
+	static int cnt = 0;
+	static ArrayList<Integer> order = new ArrayList<Integer>();
+	static int[] dp;
 	static boolean[] v;
+	static boolean[] computed;
+	static ArrayList<Integer> inCycle = new ArrayList<Integer>();
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,39 +30,61 @@ public class Journey_To_The_Moon {
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
-		n = readInt();
-		m = readInt();
+		int n = readInt();
+		int m = readInt();
+		edge = new int[m];
+		next = new int[m];
+		last = new int[n];
+
 		v = new boolean[n];
+		computed = new boolean[n];
+		dp = new int[n];
 		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<Integer>());
+			last[i] = -1;
 		for (int i = 0; i < m; i++) {
-			int a = readInt();
-			int b = readInt();
-			adj.get(a).add(b);
-			adj.get(b).add(a);
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			edge[cnt] = b;
+			next[cnt] = last[a];
+			last[a] = cnt++;
 		}
-		ArrayList<Long> sz = new ArrayList<Long>();
-		for (int i = 0; i < n; i++)
-			if (!v[i])
-				sz.add((long) dfs(i));
-		for (int i = 0; i < sz.size(); i++)
-			if (i > 0)
-				sz.set(i, sz.get(i - 1) + sz.get(i));
-		long ans = 0;
-		for (int i = 0; i < sz.size() - 1; i++) {
-			ans += (sz.get(i + 1) - sz.get(i)) * sz.get(i);
+		dfs(0);
+		v = new boolean[n];
+		for (int i : inCycle)
+			mark(i);
+		if (v[n - 1]) {
+			out.println("INFINITE PATHS");
+			out.close();
+			return;
 		}
-		out.println(ans);
+		dp[0] = 1;
+		for (int i = order.size() - 1; i >= 0; i--) {
+			for (int j = last[order.get(i)]; j != -1; j = next[j]) {
+				dp[edge[j]] = (dp[edge[j]] + dp[order.get(i)]) % MOD;
+			}
+		}
+		out.println(dp[n - 1]);
 		out.close();
 	}
 
-	static int dfs (int i) {
+	static void mark (int i) {
 		v[i] = true;
-		int cnt = 1;
-		for (int j : adj.get(i))
-			if (!v[j])
-				cnt += dfs(j);
-		return cnt;
+		for (int j = last[i]; j != -1; j = next[j])
+			if (!v[edge[j]])
+				mark(edge[j]);
+	}
+
+	static void dfs (int i) {
+		v[i] = true;
+		for (int j = last[i]; j != -1; j = next[j]) {
+			if (v[edge[j]] && !computed[edge[j]])
+				inCycle.add(edge[j]);
+			if (v[edge[j]])
+				continue;
+			dfs(edge[j]);
+		}
+		computed[i] = true;
+		order.add(i);
 	}
 
 	static String next () throws IOException {

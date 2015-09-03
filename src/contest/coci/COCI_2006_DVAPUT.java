@@ -16,9 +16,10 @@ public class COCI_2006_DVAPUT {
 	static StringTokenizer st;
 
 	static final long MOD = 100000000007l;
+	static int n;
 
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
+		n = readInt();
 		char[] str = next().toCharArray();
 		int lo = 1;
 		int hi = str.length;

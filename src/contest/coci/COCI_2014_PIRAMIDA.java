@@ -1,8 +1,9 @@
 package contest.coci;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
@@ -13,13 +14,16 @@ public class COCI_2014_PIRAMIDA {
 	static PrintWriter ps;
 	static StringTokenizer st;
 
+	static long n;
+
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
-		// ps = new PrintWriter(new BufferedWriter(new
-		// OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		ps = new PrintWriter("output.txt");
-		long n = readLong();
+		br = new BufferedReader(new InputStreamReader(System.in));
+		ps = new PrintWriter(new OutputStreamWriter(System.out));
+		//br = new BufferedReader(new FileReader("in.txt"));
+		//ps = new PrintWriter(new FileWriter("in.txt"));
+
+		n = readLong();
+
 		char[] input = (" " + next()).toCharArray();
 		int N = input.length - 1;
 		int q = readInt();
@@ -49,8 +53,6 @@ public class COCI_2014_PIRAMIDA {
 				prevChar = qs[i].c;
 			}
 			long l = qs[i].line;
-			long lo = (l - 1) * l / 2 + 1;
-			long hi = (l + 1) * l / 2;
 			long diff = l - 1;
 			int left = 0, right = 0;
 			if (l % 2 == 0) {
@@ -61,8 +63,6 @@ public class COCI_2014_PIRAMIDA {
 				right = (int) ((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
 			}
 
-			int left1 = (int) ((lo - 1) % N + 1);
-			int right1 = (int) ((hi - 1) % N + 1);
 			// System.out.println(hi - lo + " " + diff);
 			// System.out.println(left + " " + right + " " + left1 + " " +
 			// right1 + " " + N + " " + l);

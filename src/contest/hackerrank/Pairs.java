@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.StringTokenizer;
 
 public class Pairs {
 
@@ -31,7 +36,7 @@ public class Pairs {
 			hs.add(a[i]);
 		}
 		System.out.println(cnt);
-		
+
 		out.close();
 	}
 
@@ -61,4 +66,3 @@ public class Pairs {
 		return br.readLine().trim();
 	}
 }
-

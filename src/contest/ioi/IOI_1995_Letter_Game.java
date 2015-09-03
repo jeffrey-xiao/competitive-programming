@@ -71,13 +71,13 @@ public class IOI_1995_Letter_Game {
 		String s1, s2;
 
 		Pair (String s1, String s2) {
-				if (s1.compareTo(s2) < 0 && !s1.equals("") || s2.equals("")) {
-					this.s1 = s1;
-					this.s2 = s2;
-				} else {
-					this.s1 = s2;
-					this.s2 = s1;
-				}
+			if (s1.compareTo(s2) < 0 && !s1.equals("") || s2.equals("")) {
+				this.s1 = s1;
+				this.s2 = s2;
+			} else {
+				this.s1 = s2;
+				this.s2 = s1;
+			}
 		}
 
 		public int compareTo (Pair p) {

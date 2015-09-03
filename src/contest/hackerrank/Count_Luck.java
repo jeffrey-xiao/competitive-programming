@@ -1,17 +1,23 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Count_Luck {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
-	static int[] movex = {0,0,-1,1};
-	static int[] movey = {-1,1,0,0};
-	
+
+	static int[] movex = {0, 0, -1, 1};
+	static int[] movey = {-1, 1, 0, 0};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -78,16 +84,19 @@ public class Count_Luck {
 			else
 				out.println("Oops!");
 		}
-		
+
 		out.close();
 	}
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -114,4 +123,3 @@ public class Count_Luck {
 		return br.readLine().trim();
 	}
 }
-

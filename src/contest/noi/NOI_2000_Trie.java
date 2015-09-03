@@ -13,7 +13,7 @@ public class NOI_2000_Trie {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		NOI_2000_Trie.TrieNode tn = new NOI_2000_Trie().new TrieNode('\u0000', false);
+		TrieNode tn = new TrieNode('\u0000', false);
 
 		String s = br.readLine();
 		while (s != null && s.length() != 0) {
@@ -34,7 +34,7 @@ public class NOI_2000_Trie {
 		return st.nextToken();
 	}
 
-	class TrieNode {
+	static class TrieNode {
 		char letter;
 		TrieNode[] links;
 		boolean fullWord;
@@ -54,7 +54,7 @@ public class NOI_2000_Trie {
 					break;
 				}
 				if (links[x] == null) {
-					NOI_2000_Trie.countNodes++;
+					countNodes++;
 					if (s.length() == 1)
 						links[x] = new TrieNode(s.charAt(0), true);
 					else

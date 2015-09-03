@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Matrix {
 
@@ -11,9 +16,9 @@ public class Matrix {
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static boolean[] isMachine;
-	
+
 	static int[][] dp;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,9 +30,9 @@ public class Matrix {
 		dp = new int[n][2];
 		// 1 = something, 0 = nothin
 		isMachine = new boolean[n];
-		for (int i = 0; i < n; i++) 
+		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
-		for (int i = 0; i < n-1; i++) {
+		for (int i = 0; i < n - 1; i++) {
 			int a = readInt();
 			int b = readInt();
 			int c = readInt();
@@ -40,6 +45,7 @@ public class Matrix {
 		out.println(Math.min(dp[0][0], dp[0][1]));
 		out.close();
 	}
+
 	static void dfs (int curr, int prev) {
 		dp[curr][0] = 0;
 		dp[curr][1] = isMachine[curr] ? 1 << 29 : 0;
@@ -54,14 +60,16 @@ public class Matrix {
 			}
 		}
 	}
-	
+
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -88,4 +96,3 @@ public class Matrix {
 		return br.readLine().trim();
 	}
 }
-

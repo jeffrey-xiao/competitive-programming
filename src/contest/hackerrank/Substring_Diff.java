@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Substring_Diff {
 
@@ -10,6 +14,7 @@ public class Substring_Diff {
 	static StringTokenizer st;
 	static int n;
 	static char[] p, q;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,13 +29,14 @@ public class Substring_Diff {
 			int max = 0;
 			for (int i = 0; i < n; i++) {
 				max = Math.max(max, Math.max(getMax(0, i, s), getMax(i, 0, s)));
-			
+
 			}
-				out.println(max);
+			out.println(max);
 		}
-		
+
 		out.close();
 	}
+
 	static int getMax (int i, int j, int s) {
 		int len = 0;
 		int mismatch = 0;
@@ -39,7 +45,7 @@ public class Substring_Diff {
 			if (p[i + len] != q[j + len])
 				mismatch++;
 			if (mismatch <= s) {
-				best = Math.max(best, len+1);
+				best = Math.max(best, len + 1);
 				len++;
 			} else {
 				while (i < n && j < n && p[i] == q[j]) {
@@ -54,6 +60,7 @@ public class Substring_Diff {
 		}
 		return best;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -80,4 +87,3 @@ public class Substring_Diff {
 		return br.readLine().trim();
 	}
 }
-

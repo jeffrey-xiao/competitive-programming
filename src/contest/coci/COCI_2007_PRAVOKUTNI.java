@@ -38,14 +38,12 @@ public class COCI_2007_PRAVOKUTNI {
 			// }
 			int lo = 1;
 			int hi = 2;
-			Point c;
 			while (hi <= N) {
 				if (lo == hi) {
 					hi++;
 					continue;
 				}
 				int i1 = lo, i2 = hi == N ? 1 : hi;
-				c = sort[lo];
 				double angle = angle(sort[i1], curr) - angle(sort[i1], sort[i2]);
 				// System.out.println(angle(c, curr) + " " + angle(c,
 				// sort[i2]));

@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Bytelandian_Tours {
 
@@ -11,6 +16,7 @@ public class Bytelandian_Tours {
 
 	static ArrayList<ArrayList<Integer>> adj;
 	static final int MOD = 1000000007;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,7 +25,7 @@ public class Bytelandian_Tours {
 		long[] fac = new long[10001];
 		fac[0] = 1;
 		for (int i = 1; i <= 10000; i++) {
-			fac[i] = (fac[i-1] * i) % MOD;
+			fac[i] = (fac[i - 1] * i) % MOD;
 		}
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
@@ -27,13 +33,13 @@ public class Bytelandian_Tours {
 			adj = new ArrayList<ArrayList<Integer>>();
 			for (int i = 0; i < n; i++)
 				adj.add(new ArrayList<Integer>());
-			for (int i = 0; i < n-1; i++) {
+			for (int i = 0; i < n - 1; i++) {
 				int a = readInt();
 				int b = readInt();
 				adj.get(a).add(b);
 				adj.get(b).add(a);
 			}
-			
+
 			int prev = -1;
 			int curr = 0;
 			boolean found = true;
@@ -74,13 +80,13 @@ public class Bytelandian_Tours {
 					break;
 				prev = curr;
 				curr = next;
-				
+
 			}
 			if (prev != -1)
 				res = (res * 2) % MOD;
 			out.println(res);
 		}
-		
+
 		out.close();
 	}
 
@@ -110,4 +116,3 @@ public class Bytelandian_Tours {
 		return br.readLine().trim();
 	}
 }
-

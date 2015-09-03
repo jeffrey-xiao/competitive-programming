@@ -5,18 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Journey_To_The_Moon {
+public class Encryption {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static int n, m;
-	static boolean[] v;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,39 +19,24 @@ public class Journey_To_The_Moon {
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
-		n = readInt();
-		m = readInt();
-		v = new boolean[n];
-		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<Integer>());
-		for (int i = 0; i < m; i++) {
-			int a = readInt();
-			int b = readInt();
-			adj.get(a).add(b);
-			adj.get(b).add(a);
-		}
-		ArrayList<Long> sz = new ArrayList<Long>();
-		for (int i = 0; i < n; i++)
-			if (!v[i])
-				sz.add((long) dfs(i));
-		for (int i = 0; i < sz.size(); i++)
-			if (i > 0)
-				sz.set(i, sz.get(i - 1) + sz.get(i));
-		long ans = 0;
-		for (int i = 0; i < sz.size() - 1; i++) {
-			ans += (sz.get(i + 1) - sz.get(i)) * sz.get(i);
-		}
-		out.println(ans);
-		out.close();
-	}
+		String s = next();
+		int len = s.length();
+		int width = (int) (Math.ceil(Math.sqrt(len)));
+		int height = (width * (width - 1) >= len) ? width - 1 : width;
+		char[][] g = new char[height][width];
+		for (int i = 0, k = 0; i < height; i++)
+			for (int j = 0; j < width; j++)
+				if (k < len)
+					g[i][j] = s.charAt(k++);
+		StringBuilder res = new StringBuilder();
+		for (int j = 0; j < width; j++, res.append(" "))
+			for (int i = 0; i < height; i++)
+				if (g[i][j] >= 'a' && g[i][j] <= 'z')
+					res.append(g[i][j]);
 
-	static int dfs (int i) {
-		v[i] = true;
-		int cnt = 1;
-		for (int j : adj.get(i))
-			if (!v[j])
-				cnt += dfs(j);
-		return cnt;
+		out.println(res.toString());
+
+		out.close();
 	}
 
 	static String next () throws IOException {

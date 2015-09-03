@@ -78,11 +78,11 @@ public class USACO_2014_Fair_Photography {
  * max = Math.max(max,cows[upper-1][0]-cows[lower][0]);
  * //System.out.println(cows[upper-1][0] + " " + cows[lower][0]); } upper++; } }
  *//*
-	 * int lower = 0; int upper = n; int max = 0; main:while(upper-lower > 1){
-	 * int mid = (upper+lower)/2; if(mid%2 == 1){ upper++; lower++; mid =
-	 * (upper+lower)/2; } boolean poss = false; //System.out.println(mid);
-	 * for(int x = 0, y = x+mid; y <= n; y++, x++){ if(totalSum[y]-totalSum[x]
-	 * >= 0 && (totalSum[y]-totalSum[x])%2 ==0){ poss = true; max =
-	 * Math.max(max,cows[y-1][0]-cows[x][0]); } } if(poss){ lower = mid; }else{
-	 * upper = mid; } }
-	 */
+ * int lower = 0; int upper = n; int max = 0; main:while(upper-lower > 1){
+ * int mid = (upper+lower)/2; if(mid%2 == 1){ upper++; lower++; mid =
+ * (upper+lower)/2; } boolean poss = false; //System.out.println(mid);
+ * for(int x = 0, y = x+mid; y <= n; y++, x++){ if(totalSum[y]-totalSum[x]
+ * >= 0 && (totalSum[y]-totalSum[x])%2 ==0){ poss = true; max =
+ * Math.max(max,cows[y-1][0]-cows[x][0]); } } if(poss){ lower = mid; }else{
+ * upper = mid; } }
+ */

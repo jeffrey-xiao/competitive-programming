@@ -53,12 +53,15 @@ public class Prims_MST_Special_Subtree {
 
 		pr.close();
 	}
+
 	static class Edge implements Comparable<Edge> {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Edge o) {
 			return cost - o.cost;

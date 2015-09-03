@@ -1,7 +1,15 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Rust_And_Murderer {
 
@@ -11,6 +19,7 @@ public class Rust_And_Murderer {
 
 	static HashSet<Integer> nv = new HashSet<Integer>();
 	static ArrayList<ArrayList<Integer>> adj;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,13 +35,13 @@ public class Rust_And_Murderer {
 				nv.add(i);
 			}
 			for (int i = 0; i < m; i++) {
-				int a = readInt()-1;
-				int b = readInt()-1;
+				int a = readInt() - 1;
+				int b = readInt() - 1;
 				adj.get(b).add(a);
 				adj.get(a).add(b);
 			}
 			Queue<Integer> q = new ArrayDeque<Integer>();
-			int s = readInt()-1;
+			int s = readInt() - 1;
 			q.offer(s);
 			int[] dist = new int[n];
 			nv.remove(s);
@@ -55,7 +64,7 @@ public class Rust_And_Murderer {
 					out.print(dist[i] + " ");
 			out.println();
 		}
-		
+
 		out.close();
 	}
 
@@ -85,4 +94,3 @@ public class Rust_And_Murderer {
 		return br.readLine().trim();
 	}
 }
-

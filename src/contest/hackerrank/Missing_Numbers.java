@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Missing_Numbers {
 
@@ -26,8 +30,7 @@ public class Missing_Numbers {
 			if (cnt[i] > 0)
 				out.print(i + " ");
 		out.println();
-		
-		
+
 		out.close();
 	}
 
@@ -57,4 +60,3 @@ public class Missing_Numbers {
 		return br.readLine().trim();
 	}
 }
-

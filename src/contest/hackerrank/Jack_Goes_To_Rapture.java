@@ -1,7 +1,13 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class Jack_Goes_To_Rapture {
 
@@ -24,8 +30,8 @@ public class Jack_Goes_To_Rapture {
 			dist[i] = 1 << 30;
 		}
 		for (int i = 0; i < e; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj.get(a).add(new Edge(b, c));
 			adj.get(b).add(new Edge(a, c));
@@ -42,29 +48,33 @@ public class Jack_Goes_To_Rapture {
 				pq.offer(new Vertex(edge.dest, dist[edge.dest]));
 			}
 		}
-		out.println(dist[n-1] == 1 << 30 ? "NO PATH EXISTS" : dist[n-1]);
+		out.println(dist[n - 1] == 1 << 30 ? "NO PATH EXISTS" : dist[n - 1]);
 		out.close();
 	}
 
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Vertex o) {
 			return cost - o.cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -91,4 +101,3 @@ public class Jack_Goes_To_Rapture {
 		return br.readLine().trim();
 	}
 }
-

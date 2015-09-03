@@ -25,7 +25,6 @@ public class COCI_2007_LIGA {
 			int a1 = 0, a2 = 100;
 			int b1 = 0, b2 = 100;
 			int c1 = 0, c2 = 100;
-			int d1 = 0, d2 = 100;
 			if (a != -1)
 				a1 = (a2 = a);
 			else if (b != -1 && c != -1 && d != -1)

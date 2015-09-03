@@ -29,7 +29,7 @@ public class Ellis_Fahrengart {
 	static long res = 0;
 
 	public static void main (String[] args) throws IOException {
-		
+
 		n = readInt();
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 		for (int i = 1; i <= n; i++) {

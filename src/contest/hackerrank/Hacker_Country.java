@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Hacker_Country {
 
@@ -12,6 +17,7 @@ public class Hacker_Country {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int n, m;
 	static boolean[] v;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,7 +25,7 @@ public class Hacker_Country {
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int[][] dist = new int[n+1][n];
+		int[][] dist = new int[n + 1][n];
 		int[][] adj = new int[n][n];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -33,18 +39,18 @@ public class Hacker_Country {
 
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
-				for (int k = 0; k < n; k++) 
-					if (dist[i][k] + adj[k][j] < dist[i+1][j]) 
-						dist[i+1][j] = dist[i][k] + adj[k][j];
+				for (int k = 0; k < n; k++)
+					if (dist[i][k] + adj[k][j] < dist[i + 1][j])
+						dist[i + 1][j] = dist[i][k] + adj[k][j];
 		double min = 1 << 30;
 		int top = 0;
 		int bottom = 0;
 		for (int i = 0; i < n; i++) {
-			double best = ((double)(dist[n][i] - dist[0][i]))/n;
+			double best = ((double) (dist[n][i] - dist[0][i])) / n;
 			int newTop = dist[n][i] - dist[0][i];
 			int newBottom = n;
 			for (int j = 1; j < n; j++) {
-				double val = (dist[n][i] - dist[j][i]) / ((double)(n - j));
+				double val = (dist[n][i] - dist[j][i]) / ((double) (n - j));
 				if (val > best) {
 					best = val;
 					newTop = dist[n][i] - dist[j][i];
@@ -60,12 +66,14 @@ public class Hacker_Country {
 		int gcf = gcf(top, bottom);
 		top /= gcf;
 		bottom /= gcf;
-		out.println(top +"/"+bottom);
+		out.println(top + "/" + bottom);
 		out.close();
 	}
+
 	static int gcf (int x, int y) {
-		return y == 0 ? x : gcf(y, x%y);
+		return y == 0 ? x : gcf(y, x % y);
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

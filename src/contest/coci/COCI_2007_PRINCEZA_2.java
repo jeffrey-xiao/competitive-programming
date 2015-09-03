@@ -16,9 +16,12 @@ public class COCI_2007_PRINCEZA_2 {
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	static int n, k;
+
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
-		int k = readInt();
+		n = readInt();
+		k = readInt();
+
 		char[] moves = next().toCharArray();
 		State[] s1 = new State[n];
 		State[] s2 = new State[n];

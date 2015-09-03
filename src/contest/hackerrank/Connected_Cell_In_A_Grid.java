@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Connected_Cell_In_A_Grid {
 
@@ -9,10 +13,10 @@ public class Connected_Cell_In_A_Grid {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	
 	static int n, m;
 	static int[][] g;
 	static boolean[][] v;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -39,15 +43,16 @@ public class Connected_Cell_In_A_Grid {
 		out.println(max);
 		out.close();
 	}
+
 	static int dfs (int i, int j) {
 		if (i < 0 || i >= n || j < 0 || j >= m || v[i][j] || g[i][j] == 0)
 			return 0;
 		v[i][j] = true;
 		int cnt = 1;
-		cnt += dfs(i+1, j) + dfs(i-1, j) + dfs(i, j+1) + dfs(i, j-1) +
-				dfs(i+1, j+1) + dfs(i+1, j-1) + dfs(i-1, j+1) + dfs(i-1, j-1);
+		cnt += dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1) + dfs(i + 1, j + 1) + dfs(i + 1, j - 1) + dfs(i - 1, j + 1) + dfs(i - 1, j - 1);
 		return cnt;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -74,4 +79,3 @@ public class Connected_Cell_In_A_Grid {
 		return br.readLine().trim();
 	}
 }
-

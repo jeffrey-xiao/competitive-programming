@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Almost_Sorted {
 
@@ -43,25 +48,25 @@ public class Almost_Sorted {
 			return;
 		}
 		if (swap && index1 != -1 && index2 != -1 && a[index1] == b[index2] && a[index2] == b[index1]) {
-			System.out.printf("yes\nswap %d %d\n", index1+1, index2+1);
+			System.out.printf("yes\nswap %d %d\n", index1 + 1, index2 + 1);
 			return;
 		}
 		int i = 0;
-		while (i < n - 1 && a[i] < a[i+1]) {
+		while (i < n - 1 && a[i] < a[i + 1]) {
 			i++;
 		}
 		int j = i;
-		while (j < n - 1 && a[j] > a[j+1]) {
+		while (j < n - 1 && a[j] > a[j + 1]) {
 			j++;
 		}
 		boolean reverse = true;
-		for (int k = j + 1; k < n-1; k++) {
-			if (a[k] > a[k+1])
+		for (int k = j + 1; k < n - 1; k++) {
+			if (a[k] > a[k + 1])
 				reverse = false;
 		}
-		if (reverse && (i == 0 || a[i-1] < a[j]) && (j == n-1 || a[j+1] > a[i])) {
+		if (reverse && (i == 0 || a[i - 1] < a[j]) && (j == n - 1 || a[j + 1] > a[i])) {
 			System.out.println("yes");
-			System.out.printf("reverse %d %d\n", i+1, j+1);
+			System.out.printf("reverse %d %d\n", i + 1, j + 1);
 		} else {
 			System.out.println("no");
 		}
@@ -94,4 +99,3 @@ public class Almost_Sorted {
 		return br.readLine().trim();
 	}
 }
-

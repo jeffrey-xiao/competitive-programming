@@ -50,7 +50,6 @@ public class COCI_2014_NEO {
 				int size = 1;
 				int nsize = 0;
 				int nheight = 0;
-				int height = 0;
 				while (!curr.isEmpty() && curr.peek().height >= dp[i][j]) {
 					nsize += curr.peek().size;
 					nheight = curr.pop().height;

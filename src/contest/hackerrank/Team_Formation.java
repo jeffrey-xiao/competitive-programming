@@ -1,7 +1,13 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Team_Formation {
 
@@ -30,15 +36,15 @@ public class Team_Formation {
 			int prev = -1;
 			int prevIndex = 0;
 			for (int i = 0; i < n; i++) {
-//				System.out.println(a[i]);
+				//				System.out.println(a[i]);
 				if (a[i] != prev) {
 					prev = a[i];
-					prevIndex = list.size()-1;
+					prevIndex = list.size() - 1;
 				}
-				if (list.size() == 0 || prevIndex < 0 || list.get(prevIndex).end != a[i]-1) {
-//					System.out.println("NEW LIST");
+				if (list.size() == 0 || prevIndex < 0 || list.get(prevIndex).end != a[i] - 1) {
+					//					System.out.println("NEW LIST");
 					list.add(new State(a[i], 1));
-					prevIndex = list.size()-1;
+					prevIndex = list.size() - 1;
 				} else {
 					list.set(prevIndex, new State(a[i], list.get(prevIndex).sz + 1));
 					prevIndex--;
@@ -51,13 +57,16 @@ public class Team_Formation {
 		}
 		out.close();
 	}
+
 	static class State {
 		int end, sz;
+
 		State (int end, int sz) {
 			this.end = end;
 			this.sz = sz;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -84,4 +93,3 @@ public class Team_Formation {
 		return br.readLine().trim();
 	}
 }
-

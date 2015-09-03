@@ -1,7 +1,12 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Max_Min {
 
@@ -24,10 +29,10 @@ public class Max_Min {
 		Arrays.sort(a);
 		int min = 1 << 30;
 		for (int i = 0; i + k <= n; i++) {
-			min = Math.min(min, a[i+k-1] - a[i]);
+			min = Math.min(min, a[i + k - 1] - a[i]);
 		}
 		out.println(min);
-		
+
 		out.close();
 	}
 
@@ -57,4 +62,3 @@ public class Max_Min {
 		return br.readLine().trim();
 	}
 }
-

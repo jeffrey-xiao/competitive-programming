@@ -5,18 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
-public class Journey_To_The_Moon {
+public class Maximize_Sum {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static int n, m;
-	static boolean[] v;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,39 +20,27 @@ public class Journey_To_The_Moon {
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
-		n = readInt();
-		m = readInt();
-		v = new boolean[n];
-		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<Integer>());
-		for (int i = 0; i < m; i++) {
-			int a = readInt();
-			int b = readInt();
-			adj.get(a).add(b);
-			adj.get(b).add(a);
+		int t = readInt();
+		for (int qq = 1; qq <= t; qq++) {
+			int n = readInt();
+			long m = readLong();
+			long[] a = new long[n + 1];
+			long[] sum = new long[n + 1];
+			for (int i = 1; i <= n; i++)
+				a[i] = readLong();
+			for (int i = 1; i <= n; i++)
+				sum[i] = (sum[i - 1] + a[i] % m) % m;
+			TreeSet<Long> ts = new TreeSet<Long>();
+			ts.add(m);
+			long max = 0;
+			for (int i = 1; i <= n; i++) {
+				max = Math.max((sum[i] - ts.ceiling(sum[i]) + m) % m, max);
+				ts.add(sum[i]);
+			}
+			out.println(max);
 		}
-		ArrayList<Long> sz = new ArrayList<Long>();
-		for (int i = 0; i < n; i++)
-			if (!v[i])
-				sz.add((long) dfs(i));
-		for (int i = 0; i < sz.size(); i++)
-			if (i > 0)
-				sz.set(i, sz.get(i - 1) + sz.get(i));
-		long ans = 0;
-		for (int i = 0; i < sz.size() - 1; i++) {
-			ans += (sz.get(i + 1) - sz.get(i)) * sz.get(i);
-		}
-		out.println(ans);
-		out.close();
-	}
 
-	static int dfs (int i) {
-		v[i] = true;
-		int cnt = 1;
-		for (int j : adj.get(i))
-			if (!v[j])
-				cnt += dfs(j);
-		return cnt;
+		out.close();
 	}
 
 	static String next () throws IOException {

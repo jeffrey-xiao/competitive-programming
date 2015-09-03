@@ -18,6 +18,7 @@ public class USACO_2015_Stampede {
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	@SuppressWarnings ("unchecked")
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		TreeSet<Integer> xV = new TreeSet<Integer>();
@@ -46,7 +47,7 @@ public class USACO_2015_Stampede {
 				continue;
 			if (!e1.equals(e2)) {
 				res++;
-				SortedSet ss = ((TreeSet) (xV.clone())).subSet(e1, false, e2, false);
+				SortedSet<Integer> ss = ((TreeSet<Integer>) (xV.clone())).subSet(e1, false, e2, false);
 				xV.removeAll(ss);
 			}
 		}

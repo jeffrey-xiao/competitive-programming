@@ -1,7 +1,11 @@
 package contest.hackerrank;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Bike_Racers {
 
@@ -14,6 +18,7 @@ public class Bike_Racers {
 	static boolean[] v;
 	static long[] bx, by, rx, ry;
 	static int n, m, k;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,7 +28,7 @@ public class Bike_Racers {
 		n = readInt();
 		m = readInt();
 		k = readInt();
-		
+
 		adj = new int[n][m];
 		rx = new long[n];
 		ry = new long[n];
@@ -39,12 +44,11 @@ public class Bike_Racers {
 			bx[i] = readInt();
 			by[i] = readInt();
 		}
-		
-		
+
 		int lo = 0;
 		int hi = 1 << 30;
 		while (lo < hi) {
-			int mid = (hi + lo - 1)/2;
+			int mid = (hi + lo - 1) / 2;
 			if (isValid(mid)) {
 				hi = mid;
 			} else {
@@ -54,6 +58,7 @@ public class Bike_Racers {
 		out.println(lo);
 		out.close();
 	}
+
 	static boolean isValid (double time) {
 		for (int i = 0; i < n; i++) {
 			prev[i] = -1;
@@ -70,7 +75,8 @@ public class Bike_Racers {
 		}
 		return count >= k;
 	}
-	static boolean hungary(int i) {
+
+	static boolean hungary (int i) {
 		for (int j = 0; j < m; j++) {
 			if (adj[i][j] == 1 && !v[j]) {
 				v[j] = true;
@@ -82,6 +88,7 @@ public class Bike_Racers {
 		}
 		return false;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -108,4 +115,3 @@ public class Bike_Racers {
 		return br.readLine().trim();
 	}
 }
-
