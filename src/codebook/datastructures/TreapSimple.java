@@ -194,22 +194,6 @@ public class TreapSimple {
 		return n;
 	}
 
-	// rotate left
-	private Node rotateLeft (Node n) {
-		Node x = n.right;
-		n.right = x.left;
-		x.left = n;
-		return x;
-	}
-
-	// rotate right
-	private Node rotateRight (Node n) {
-		Node x = n.left;
-		n.left = x.right;
-		x.right = n;
-		return x;
-	}
-
 	public static void main (String[] args) {
 		TreapSimple t = new TreapSimple();
 		long c = System.currentTimeMillis();

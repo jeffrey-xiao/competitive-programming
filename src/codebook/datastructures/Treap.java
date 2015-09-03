@@ -154,6 +154,15 @@ public class Treap {
 			n.value = v;
 		return n;
 	}
+	
+	public Integer getFirst () {
+		return getFirst(root).value;
+	}
+	
+	public Integer getLast () {
+		return getLast(root).value;
+	}
+	
 	private Node getFirst (Node n) {
 		while (n.left != null)
 			n = n.left;
