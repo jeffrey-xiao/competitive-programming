@@ -3,14 +3,14 @@ package codebook.string;
 import java.util.*;
 
 public class PalindromeTreeSimple {
-	
+
 	static final int SHIFT = 'a';
-	
+
 	private ArrayList<Node> tree;
 	private ArrayList<Character> seq;
 	private Node root, zero;
 	private int ans = 0;
-	
+
 	PalindromeTreeSimple () {
 		tree = new ArrayList<Node>();
 		seq = new ArrayList<Character>();
@@ -20,16 +20,16 @@ public class PalindromeTreeSimple {
 		zero.suffixLink = root;
 		tree.add(root);
 	}
-	
+
 	class Node {
 		private int num, len;
 		private Node suffixLink;
 		private Node[] nextLink;
-		
+
 		Node () {
 			this(0, 0);
 		}
-		
+
 		Node (int num, int len) {
 			this.num = num;
 			this.len = len;
@@ -37,10 +37,10 @@ public class PalindromeTreeSimple {
 			this.nextLink = new Node[26];
 		}
 	}
-	
+
 	public void addCharacter (char c) {
 		seq.add(c);
-		Node curr = tree.get(tree.size()-1);
+		Node curr = tree.get(tree.size() - 1);
 		while (seq.size() - curr.len - 2 < 0 || seq.get(seq.size() - curr.len - 2) != c)
 			curr = curr.suffixLink;
 		Node next = curr.nextLink[c - SHIFT];
@@ -62,13 +62,13 @@ public class PalindromeTreeSimple {
 		ans += next.num;
 		tree.add(next);
 	}
-	
+
 	public void deleteCharacter () {
-		ans -= tree.get(tree.size()-1).num;
-		tree.remove(tree.size()-1);
-		seq.remove(tree.size()-1);
+		ans -= tree.get(tree.size() - 1).num;
+		tree.remove(tree.size() - 1);
+		seq.remove(tree.size() - 1);
 	}
-	
+
 	public static void main (String[] args) {
 		PalindromeTreeSimple m = new PalindromeTreeSimple();
 		m.addCharacter('a');

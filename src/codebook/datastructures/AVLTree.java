@@ -128,7 +128,8 @@ public class AVLTree {
 	}
 
 	private Node minV (Node n) {
-		while (n.left != null) ;
+		while (n.left != null)
+			;
 		n = n.left;
 		return n;
 	}

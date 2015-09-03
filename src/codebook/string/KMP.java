@@ -1,7 +1,7 @@
 package codebook.string;
 
 public class KMP {
-	
+
 	private String pattern;
 	private int[] LCP;
 
@@ -42,7 +42,7 @@ public class KMP {
 			// loop until we find a prefix whose next character matches the current character we are on
 			while (j > 0 && pattern.charAt(i) != pattern.charAt(j))
 				j = LCP[j - 1];
-			
+
 			if (pattern.charAt(i) == pattern.charAt(j))
 				j++;
 

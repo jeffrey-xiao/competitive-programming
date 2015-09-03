@@ -7,7 +7,7 @@ package codebook.datastructures;
 public class UnionFind {
 	private int[] id;
 	private int[] sz;
-	
+
 	public UnionFind (int n) {
 		id = new int[n];
 		sz = new int[n];

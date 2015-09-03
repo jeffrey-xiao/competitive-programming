@@ -46,7 +46,7 @@ public class SuffixArrayHash {
 			sa[i - 1] = i;
 		}
 		Arrays.sort(sa, new SuffixComparator());
-		for (int i = 0; i < len-1; i++)
+		for (int i = 0; i < len - 1; i++)
 			sa[i]--;
 	}
 

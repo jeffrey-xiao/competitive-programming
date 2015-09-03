@@ -35,7 +35,7 @@ public class SuffixTree {
 	public String getString () {
 		return input;
 	}
-	
+
 	private void initialize () {
 		this.len = input.length();
 		this.root = new Node(0, 0);

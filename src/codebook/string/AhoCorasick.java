@@ -108,6 +108,7 @@ public class AhoCorasick {
 			// recursively add the rest of the word
 			child[curr - SHIFT].addWord(s);
 		}
+
 		// auxiliary method to print out the words in the trie
 		public void printWord (String curr) {
 			if (isEnd)

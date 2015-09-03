@@ -43,7 +43,7 @@ public class ZAlgorithm {
 					z[i] = z[j];
 				// if the size of the prefix substring at j is larger than the boundary, then we have to extend it
 				else {
-				
+
 					l = i;
 					while (r < text.length() && text.charAt(r) == text.charAt(r - l))
 						r++;

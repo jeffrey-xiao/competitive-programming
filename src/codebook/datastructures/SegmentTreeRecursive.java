@@ -18,7 +18,7 @@ public class SegmentTreeRecursive {
 	SegmentTreeRecursive (int size) {
 		this(size, new int[size + 1]);
 	}
-	
+
 	SegmentTreeRecursive (int size, int[] val) {
 		this.size = size;
 		this.seg = new int[size * 4];
@@ -56,13 +56,13 @@ public class SegmentTreeRecursive {
 			lazy[n << 1] += lazy[n];
 			lazy[n << 1 | 1] += lazy[n];
 			seg[n << 1] += lazy[n] * (mid - lo + 1);
-			seg[n << 1 | 1] += lazy[n] * (hi - (mid + 1) + 1); 
+			seg[n << 1 | 1] += lazy[n] * (hi - (mid + 1) + 1);
 			lazy[n] = 0;
 		}
 		if (qhi <= mid)
 			update(n << 1, lo, mid, qlo, qhi, newVal);
 		else if (qlo > mid)
-			update(n << 1 | 1, mid+1, hi, qlo, qhi, newVal);
+			update(n << 1 | 1, mid + 1, hi, qlo, qhi, newVal);
 		else {
 			update(n << 1, lo, mid, qlo, mid, newVal);
 			update(n << 1 | 1, mid + 1, hi, mid + 1, qhi, newVal);
@@ -83,16 +83,17 @@ public class SegmentTreeRecursive {
 			lazy[n << 1] += lazy[n];
 			lazy[n << 1 | 1] += lazy[n];
 			seg[n << 1] += lazy[n] * (mid - lo + 1);
-			seg[n << 1 | 1] += lazy[n] * (hi - (mid + 1) + 1); 
+			seg[n << 1 | 1] += lazy[n] * (hi - (mid + 1) + 1);
 			lazy[n] = 0;
 		}
 		if (qhi <= mid)
 			return query(n << 1, lo, mid, qlo, qhi);
 		else if (qlo > mid)
-			return query(n << 1 | 1, mid+1, hi, qlo, qhi);
+			return query(n << 1 | 1, mid + 1, hi, qlo, qhi);
 		else
 			return query(n << 1, lo, mid, qlo, mid) + query(n << 1 | 1, mid + 1, hi, mid + 1, qhi);
 	}
+
 	public static void main (String[] args) {
 		SegmentTreeRecursive t = new SegmentTreeRecursive(10);
 		t.update(1, 5, 5);

@@ -34,14 +34,17 @@ public class TreapSimple {
 			priority = Math.random();
 		}
 	}
+
 	// object representing a pair of nodes of the tree
 	static class NodePair {
 		Node left, right;
+
 		NodePair (Node left, Node right) {
 			this.left = left;
 			this.right = right;
 		}
 	}
+
 	public void remove (Integer k) {
 		root = remove(root, k);
 	}
@@ -150,14 +153,14 @@ public class TreapSimple {
 		}
 		return newRoot;
 	}
-	
+
 	// auxiliary function to split
-	
+
 	private NodePair split (Node n, Integer key) {
 		NodePair res = new NodePair(null, null);
 		if (n == null)
 			return res;
-		
+
 		if (n.key > key) {
 			res = split(n.left, key);
 			n.left = res.right;
@@ -188,7 +191,7 @@ public class TreapSimple {
 				n.right = add(n.right, m);
 			else if (cmp > 0)
 				n.left = add(n.left, m);
-			else 
+			else
 				n.value = m.value;
 		}
 		return n;

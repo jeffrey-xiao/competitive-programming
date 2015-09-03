@@ -150,29 +150,31 @@ public class Treap {
 			n.right = add(n.right, k, v);
 			if (n.priority < n.right.priority)
 				n = rotateLeft(n);
-		} else 
+		} else
 			n.value = v;
 		return n;
 	}
-	
+
 	public Integer getFirst () {
 		return getFirst(root).value;
 	}
-	
+
 	public Integer getLast () {
 		return getLast(root).value;
 	}
-	
+
 	private Node getFirst (Node n) {
 		while (n.left != null)
 			n = n.left;
 		return n;
 	}
+
 	private Node getLast (Node n) {
 		while (n.right != null)
 			n = n.right;
 		return n;
 	}
+
 	// rotate left
 	private Node rotateLeft (Node n) {
 		Node x = n.right;
