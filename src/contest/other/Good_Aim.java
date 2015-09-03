@@ -71,7 +71,7 @@ public class Good_Aim {
 		pr.close();
 	}
 
-	private static void shuffle (Team[] s) {
+	static void shuffle (Team[] s) {
 		for (int i = 0; i < n - 1; i++) {
 			int j = (int) (Math.random() * (n - i - 1) + (i + 1));
 			Team temp = s[j];

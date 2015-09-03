@@ -38,7 +38,7 @@ public class TEST2 {
 	static Stack<Integer> curr;
 	static ArrayList<ArrayList<Edge>> adj;
 
-	private static void SCC () throws IOException {
+	static void SCC () throws IOException {
 		// initializing all variables
 		int n = readInt();
 		int[] index = new int[n];
@@ -80,7 +80,7 @@ public class TEST2 {
 	}
 
 	// women and men are labeled from 0 to n inclusive
-	private int[] marry (ArrayList<LinkedList<Integer>> m, ArrayList<LinkedList<Integer>> w, int n) {
+	int[] marry (ArrayList<LinkedList<Integer>> m, ArrayList<LinkedList<Integer>> w, int n) {
 		Queue<Integer> freeM = new LinkedList<Integer>();
 		// female match
 		int[] match = new int[n];
@@ -107,7 +107,7 @@ public class TEST2 {
 		return match;
 	}
 
-	private int find (int k, int beg, int end, int[] seq) {
+	int find (int k, int beg, int end, int[] seq) {
 		int i = median(seq, beg, end, k); // obtains the approximate median
 		// linear pass that shifts all the elements smaller than seq[i] to the
 		// left
@@ -119,7 +119,7 @@ public class TEST2 {
 		return find(k - (seq.length - i), beg, i, seq);
 	}
 
-	private int median (int[] seq, int beg, int end, int k) {
+	int median (int[] seq, int beg, int end, int k) {
 		// the median of medians starts by dividing the elements into groups of
 		// 5
 		// Sort the groups of 5 individually. From out knowledge of sorting, it
@@ -139,13 +139,13 @@ public class TEST2 {
 			if (right > end)
 				right = end;
 			int median = median(seq, left, right, 3);
-			// swap(seq[median], seq[i]);
+//			swap(seq[median], seq[i]);
 		}
 
 		return median(seq, 0, (end + 1) / 5, (end + 1) / 10);
 	}
 
-	private int g (int x, int n) {
+	int g (int x, int n) {
 		return (x * x + 1) % n;
 	}
 

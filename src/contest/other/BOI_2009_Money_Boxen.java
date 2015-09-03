@@ -35,12 +35,12 @@ public class BOI_2009_Money_Boxen {
 				rev.get(x).add(a);
 			}
 			boolean[] v = new boolean[n];
-			int count = 0;
+			// int count = 0;
 			for (int x = 0; x < n; x++) {
 				if (!v[x]) {
 					System.out.println(x);
 					dfs(x, v);
-					count++;
+					// count++;
 				}
 			}
 			// System.out.print(count + " ");

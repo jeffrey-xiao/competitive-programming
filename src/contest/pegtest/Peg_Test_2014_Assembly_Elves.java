@@ -19,7 +19,6 @@ public class Peg_Test_2014_Assembly_Elves {
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		int total = 0;
-		int i = 1;
 		used[1] = true;
 		while (!used[n]) {
 			int max = -1 << 30;

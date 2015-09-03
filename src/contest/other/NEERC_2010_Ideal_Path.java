@@ -54,7 +54,6 @@ public class NEERC_2010_Ideal_Path {
 		State curr = null;
 		while (!qq.isEmpty()) {
 			curr = qq.poll();
-			boolean[] v = new boolean[n];
 			int start = curr.curr;
 			// System.out.println(start);
 			ArrayList<State> nextStates = new ArrayList<State>();
@@ -94,6 +93,7 @@ public class NEERC_2010_Ideal_Path {
 			colors = new ArrayList<Integer>();
 		}
 
+		@SuppressWarnings ("unchecked")
 		State (State s) {
 			this.curr = s.curr;
 			colors = (ArrayList<Integer>) s.colors.clone();

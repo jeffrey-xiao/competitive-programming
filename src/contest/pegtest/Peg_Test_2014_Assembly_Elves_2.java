@@ -15,6 +15,7 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	@SuppressWarnings ("unchecked")
 	static TreeSet<Integer>[][] dp = new TreeSet[101][101];
 	static boolean[][] mem = new boolean[101][101];
 

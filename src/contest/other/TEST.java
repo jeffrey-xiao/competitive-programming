@@ -31,7 +31,7 @@ public class TEST extends Thread {
 		}
 	}
 
-	private static void update (int x, int y, int val) {
+	static void update (int x, int y, int val) {
 		update(tree1, x, val);
 		update(tree1, y + 1, -val);
 		update(tree2, x, val * (x - 1));
@@ -54,7 +54,7 @@ public class TEST extends Thread {
 	}
 
 	// return sum from x to y
-	private int query (int x, int y) {
+	int query (int x, int y) {
 		return query(y) - query(x - 1);
 	}
 
