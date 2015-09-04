@@ -1,6 +1,6 @@
 package codebook.string;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class PalindromeTreeSmart {
 

@@ -1,7 +1,11 @@
 package codebook.graph;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Hungarian {
 
@@ -14,7 +18,7 @@ public class Hungarian {
 	static boolean[][] adj;
 	static boolean[] v;
 	static int[] prev;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,8 +31,8 @@ public class Hungarian {
 		adj = new boolean[leftSize][rightSize];
 		prev = new int[rightSize];
 		for (int i = 0; i < edges; i++)
-			adj[readInt()-1][readInt()-1] = true;
-		
+			adj[readInt() - 1][readInt() - 1] = true;
+
 		int ans = 0;
 		for (int i = 0; i < leftSize; i++) {
 			v = new boolean[rightSize];
@@ -37,6 +41,7 @@ public class Hungarian {
 		out.println(ans);
 		out.close();
 	}
+
 	private static boolean match (int i) {
 		for (int j = 0; j < rightSize; j++) {
 			if (adj[i][j] && !v[j]) {
@@ -49,6 +54,7 @@ public class Hungarian {
 		}
 		return false;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +81,3 @@ public class Hungarian {
 		return br.readLine().trim();
 	}
 }
-

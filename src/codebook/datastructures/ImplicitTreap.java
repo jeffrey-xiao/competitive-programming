@@ -6,8 +6,8 @@
 package codebook.datastructures;
 
 import java.util.ArrayDeque;
-import java.util.TreeSet;
 import java.util.Queue;
+import java.util.TreeSet;
 
 class ImplicitTreap {
 	// root of the tree
