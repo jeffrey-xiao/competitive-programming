@@ -50,12 +50,6 @@ public class ACM_Foxling_Feeding_Frenzy {
 						dp[x][y] = sum;
 				}
 			}
-
-			// for(int x = 0; x <= n; x++){
-			// for(int y = 0; y <= m; y++)
-			// System.out.print(dp[x][y] + " ");
-			// System.out.println();
-			// }
 			System.out.println(dp[n][m] % MOD);
 		}
 	}

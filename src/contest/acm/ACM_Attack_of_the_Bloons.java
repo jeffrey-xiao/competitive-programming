@@ -23,10 +23,9 @@ public class ACM_Attack_of_the_Bloons {
 				course[Math.min(l - 1, center + radius - 1) + 1] -= damage;
 			}
 			int curr = 0;
-			for (int x = 0; x <= l; x++) {
+			for (int x = 0; x <= l; x++) 
 				course[x] = (curr += course[x]);
-				// System.out.println(course[x]);
-			}
+			
 			int m = readInt();
 			main : for (int x = 0; x < m; x++) {
 				int next = readInt();

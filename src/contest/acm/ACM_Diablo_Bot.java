@@ -45,8 +45,6 @@ public class ACM_Diablo_Bot {
 			} else if (isMagic) {
 				System.out.println("Magic");
 			}
-			// System.out.println(isRare + " " + isSet + " " +isMagic + " " +
-			// isNormal);
 		}
 	}
 

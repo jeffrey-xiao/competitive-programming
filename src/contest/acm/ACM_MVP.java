@@ -63,7 +63,6 @@ public class ACM_MVP {
 						for (int i = 0; i < 2; i++) {
 							int d1 = dist[i][curr.x][curr.y];
 							int d2 = dist[i][p.x][p.y];
-							// System.out.println(p.x + " " + p.y + " " + d2);
 							if (d2 < d1)
 								valid = true;
 						}

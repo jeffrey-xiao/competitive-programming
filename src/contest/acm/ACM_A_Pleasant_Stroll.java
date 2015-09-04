@@ -64,7 +64,6 @@ public class ACM_A_Pleasant_Stroll {
 		total += next;
 		dp[x][y1][y2] = total;
 		dp[x][y2][y1] = total;
-		// System.out.printf("X: %d, Y1: %d, Y2: %d, Count: %d\n",x,y1,y2,total);
 		return total;
 	}
 

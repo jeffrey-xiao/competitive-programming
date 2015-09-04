@@ -27,7 +27,6 @@ public class ACM_A_Frightening_Evening {
 			for (int x = 0; x <= numOfKey; x++) {
 				currFreight = 0;
 				totalTime = 0;
-				// System.out.println("ASDASDASD " + x);
 				for (int y = 1; y <= numOfKey; y++) {
 					if (currFreight >= leave)
 						break;
@@ -38,12 +37,10 @@ public class ACM_A_Frightening_Evening {
 						if (currFreight < 0)
 							currFreight = 0;
 					}
-					// System.out.println(currFreight + " " + totalTime);
 				}
 				if (currFreight >= holdHand && currFreight < leave)
 					totalTime += (min - moments[numOfKey][0]);
 				maxTime = Math.min(totalTime, maxTime);
-				// System.out.println(currFreight + " " + totalTime);
 			}
 			if (numOfKey == 0)
 				System.out.println(0);
