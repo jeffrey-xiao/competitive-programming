@@ -155,7 +155,6 @@ public class TreapSimple {
 	}
 
 	// auxiliary function to split
-
 	private NodePair split (Node n, Integer key) {
 		NodePair res = new NodePair(null, null);
 		if (n == null)

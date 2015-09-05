@@ -48,7 +48,6 @@ public class SegmentTreeRecursive {
 		if (lo == qlo && hi == qhi) {
 			seg[n] += newVal * (hi - lo + 1);
 			lazy[n] += newVal;
-			System.out.println(seg[n]);
 			return;
 		}
 		int mid = (lo + hi) >> 1;
