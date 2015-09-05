@@ -18,23 +18,24 @@ public class SegmentTreeNonrecursive {
 
 	SegmentTreeNonrecursive (int size, int[] val) {
 		this.size = size;
-		this.tree = new int[2*size];
-		this.lazy = new int[2*size];
-		this.sz = new int[2*size];
+		this.tree = new int[2 * size];
+		this.lazy = new int[2 * size];
+		this.sz = new int[2 * size];
 		for (int i = 0; i < size; i++) {
-			tree[size+i] = val[i];
-			sz[size+i] = 1;
+			tree[size + i] = val[i];
+			sz[size + i] = 1;
 		}
 		build();
 	}
 
 	private void build () {
 		// building the tree from the initial values and initializing the size of each segment
-		for (int i = 2*size-1; i > 1; i -= 2) {
+		for (int i = 2 * size - 1; i > 1; i -= 2) {
 			tree[i >> 1] = tree[i] + tree[i ^ 1];
 			sz[i >> 1] = sz[i] + sz[i ^ 1];
 		}
 	}
+
 	/*
 	public void update (int i, int val) {
 		tree[size + i] += val;
@@ -50,7 +51,7 @@ public class SegmentTreeNonrecursive {
 			if ((l & 1) > 0) {
 				tree[l] += val * sz[l];
 				lazy[l] += val;
-			} 
+			}
 			// if the right child is odd, it is contained in a segment higher above, so we can ignore it
 			if ((r & 1) == 0) {
 				tree[r] += val * sz[r];
@@ -58,21 +59,23 @@ public class SegmentTreeNonrecursive {
 			}
 		}
 		// updating the segments that contain the updated segment
-		pushUp(lo+size);
-		pushUp(hi+size);
+		pushUp(lo + size);
+		pushUp(hi + size);
 	}
+
 	public void pushUp (int i) {
 		// we add the values of the child segments, but we also have the add the lazy value for the entire segment length
 		for (; i > 1; i >>= 1)
-			tree[i>>1] = tree[i] + tree[i^1] + lazy[i>>1] * sz[i >> 1];	
+			tree[i >> 1] = tree[i] + tree[i ^ 1] + lazy[i >> 1] * sz[i >> 1];
 	}
+
 	public int query (int lo, int hi) {
 		int sum = 0;
 		for (lo += size, hi += size; lo <= hi; lo = (lo + 1) >> 1, hi = (hi - 1) >> 1) {
 			// if the left child is even, it is contained in a segment higher above, so we can ignore it
 			if ((lo & 1) > 0) {
 				sum += getValue(lo);
-			} 
+			}
 			// if the right child is odd, it is contained in a segment higher above, so we can ignore it
 			if ((hi & 1) == 0) {
 				sum += getValue(hi);
@@ -80,6 +83,7 @@ public class SegmentTreeNonrecursive {
 		}
 		return sum;
 	}
+
 	public int getValue (int i) {
 		// a lower segment might be modified by a upper segment, so we add the lazy values of the upper segments but traversing up the tree
 		int res = tree[i];
@@ -87,6 +91,7 @@ public class SegmentTreeNonrecursive {
 			res += lazy[j] * sz[i];
 		return res;
 	}
+
 	// zero indexed
 	public static void main (String[] args) {
 		SegmentTreeNonrecursive t = new SegmentTreeNonrecursive(10);
@@ -100,4 +105,3 @@ public class SegmentTreeNonrecursive {
 		System.out.println(t.query(1, 2));
 	}
 }
-
