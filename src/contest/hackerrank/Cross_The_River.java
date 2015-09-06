@@ -37,7 +37,7 @@ public class Cross_The_River {
 		int cnt = 1;
 		for (int i : ts)
 			id.put(i, cnt++);
-		tree = new State[cnt*3];
+		tree = new State[cnt*4];
 		buckets = new ArrayList<LinkedList<State>>();
 		for (int i = 0; i < cnt; i++) {
 			buckets.add(new LinkedList<State>());

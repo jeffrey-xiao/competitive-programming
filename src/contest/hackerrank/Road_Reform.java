@@ -12,9 +12,9 @@ public class Road_Reform {
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int n, m;
 	public static void main (String[] args) throws IOException {
-//		br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		 br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
@@ -28,20 +28,20 @@ public class Road_Reform {
 			adj.get(a).add(new Edge(b, c));
 			adj.get(b).add(new Edge(a, c));
 		}
-		int[] dist1 = getPath(1);
-		int[] dist2 = getPath(n);
+		long[] dist1 = getPath(1);
+		long[] dist2 = getPath(n);
 		Arrays.sort(dist2, 1, n+1);
-		int[] sum = new int[n+1];
+		long[] sum = new long[n+1];
 		for (int i = 1; i <= n; i++) {
 			sum[i] = dist2[i] + sum[i-1];
 		}
 		TreeSet<Vertex> ts = new TreeSet<Vertex>();
 		for (int i = 1; i <= n; i++)
 			ts.add(new Vertex(i, dist2[i]));
-		int shortestDist = dist1[n];
+		long shortestDist = dist1[n];
 		long ans = 0;
 		for (int i = 1; i <= n; i++) {
-			int target = shortestDist - dist1[i];
+			long target = shortestDist - dist1[i];
 			Vertex res = ts.lower(new Vertex(0, target));
 			if (res == null)
 				continue;
@@ -51,8 +51,8 @@ public class Road_Reform {
 		out.println(ans);
 		out.close();
 	}
-	static int[] getPath ( int start) {
-		int[] dist = new int[n+1];
+	static long[] getPath (int start) {
+		long[] dist = new long[n+1];
 		PriorityQueue<Vertex> pq = new PriorityQueue<Vertex>();
 		pq.offer(new Vertex(start, 0));
 		for (int i = 0; i <= n; i++)
@@ -70,22 +70,25 @@ public class Road_Reform {
 		return dist;
 	}
 	static class Edge {
-		int dest, cost;
-		Edge (int dest, int cost) {
+		int dest;
+        long cost;
+		Edge (int dest, long cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
 	static class Vertex implements Comparable<Vertex> {
-		int index, cost;
-		Vertex (int index, int cost) {
+		int index;
+        Long cost;
+		Vertex (int index, long cost) {
 			this.index = index;
 			this.cost = cost;
 		}
 		public int compareTo (Vertex n) {
-			if (cost == n.cost)
+            int cmp = cost.compareTo(n.cost);
+			if (cmp == 0)
 				return index - n.index;
-			return cost - n.cost;
+			return cmp;
 		}
 	}
 
