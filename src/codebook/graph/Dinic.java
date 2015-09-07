@@ -17,7 +17,7 @@ public class Dinic {
 
 	static Edge[] e;
 	static int[] last, dist;
-	static int n, m, cnt;
+	static int n, m, cnt, src, sink;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,6 +27,10 @@ public class Dinic {
 
 		n = readInt();
 		m = readInt();
+		
+		src = readInt();
+		sink = readInt();
+		
 		last = new int[n];
 		e = new Edge[2 * m];
 
@@ -58,8 +62,8 @@ public class Dinic {
 		for (int i = 0; i < n; i++)
 			dist[i] = -1;
 		Queue<Integer> q = new ArrayDeque<Integer>();
-		q.offer(0);
-		dist[0] = 0;
+		q.offer(src);
+		dist[src] = 0;
 		while (!q.isEmpty()) {
 			int curr = q.poll();
 			for (int i = last[curr]; i != -1; i = e[i].next) {
@@ -69,11 +73,11 @@ public class Dinic {
 				}
 			}
 		}
-		return dist[n - 1] != -1;
+		return dist[sink - 1] != -1;
 	}
 
 	static int dfs (int curr, int flow) {
-		if (curr == n - 1)
+		if (curr == sink - 1)
 			return flow;
 		for (int i = last[curr]; i != -1; i = e[i].next) {
 			if (e[i].cost > 0 && dist[e[i].dest] == dist[curr] + 1) {

@@ -16,7 +16,7 @@ public class FordFulkerson {
 	static Edge[] e;
 	static int[] last;
 	static boolean[] v;
-	static int n, m, cnt;
+	static int n, m, cnt, src, sink;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,6 +26,10 @@ public class FordFulkerson {
 
 		n = readInt();
 		m = readInt();
+		
+		src = readInt();
+		sink = readInt();
+		
 		last = new int[n];
 		e = new Edge[2 * m];
 
@@ -47,7 +51,7 @@ public class FordFulkerson {
 		int res = 0;
 		int curr = 0;
 		v = new boolean[n];
-		while ((curr = dfs(0, 1 << 30)) > 0) {
+		while ((curr = dfs(src, 1 << 30)) > 0) {
 			res += curr;
 			v = new boolean[n];
 		}
@@ -56,7 +60,7 @@ public class FordFulkerson {
 
 	static int dfs (int curr, int flow) {
 		v[curr] = true;
-		if (curr == n - 1)
+		if (curr == sink - 1)
 			return flow;
 		for (int i = last[curr]; i != -1; i = e[i].next) {
 			if (e[i].cost > 0 && !v[e[i].dest]) {

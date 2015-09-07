@@ -17,7 +17,7 @@ public class EdmondsKarp {
 
 	static Edge[] e;
 	static int[] last;
-	static int n, m, cnt;
+	static int n, m, cnt, src, sink;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,6 +27,10 @@ public class EdmondsKarp {
 
 		n = readInt();
 		m = readInt();
+		
+		src = readInt();
+		sink = readInt();
+		
 		last = new int[n];
 		e = new Edge[2 * m];
 
@@ -56,11 +60,11 @@ public class EdmondsKarp {
 		boolean[] v = new boolean[n];
 		int[] prev = new int[n];
 		int[] index = new int[n];
-		v[0] = true;
-		prev[0] = -1;
-		index[0] = -1;
+		v[src] = true;
+		prev[src] = -1;
+		index[src] = -1;
 		Queue<Integer> q = new ArrayDeque<Integer>();
-		q.offer(0);
+		q.offer(src);
 		while (!q.isEmpty()) {
 			int curr = q.poll();
 			for (int i = last[curr]; i != -1; i = e[i].next) {
@@ -72,15 +76,15 @@ public class EdmondsKarp {
 				q.offer(e[i].dest);
 			}
 		}
-		if (!v[n - 1])
+		if (!v[sink - 1])
 			return 0;
-		int currNode = n - 1;
+		int currNode = sink - 1;
 		int flow = 1 << 30;
 		while (prev[currNode] != -1) {
 			flow = Math.min(flow, e[index[currNode]].cost);
 			currNode = prev[currNode];
 		}
-		currNode = n - 1;
+		currNode = sink - 1;
 		while (prev[currNode] != -1) {
 			e[index[currNode]].cost -= flow;
 			e[index[currNode] ^ 1].cost += flow;
