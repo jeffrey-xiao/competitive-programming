@@ -53,8 +53,10 @@ public class BinaryIndexedTree2D {
 		update(tree4, idx + 1, idy + 1, val * idx * idy); 
 	}
 	public void update (int x1, int y1, int x2, int y2, int val) {
-		auxUpdate(x2 + 1, y2 + 1, val); auxUpdate(x1, y2 + 1, -val); 
-		auxUpdate(x2 + 1, y1, -val); auxUpdate(x1, y1, val); 
+		auxUpdate(x2 + 1, y2 + 1, val); 
+		auxUpdate(x1, y2 + 1, -val); 
+		auxUpdate(x2 + 1, y1, -val); 
+		auxUpdate(x1, y1, val); 
 	}
 	public void update (int x, int y, int val) { 
 		update(x, y, x, y, val); 
@@ -67,7 +69,8 @@ public class BinaryIndexedTree2D {
 			for (int y = idy; y > 0; y -= (y & -y)) { 
 				s1 += tree1[x][y]; 
 				s2 += tree2[x][y]; 
-				s3 += tree3[x][y]; s4 += tree4[x][y]; 
+				s3 += tree3[x][y]; 
+				s4 += tree4[x][y]; 
 			} 
 		} 
 		return s1 * idx * idy + s2 * idx + s3 * idy + s4; 
