@@ -61,7 +61,7 @@ public class Debug {
 				}
 			}
 		}
-//		out.println(bf());
+		out.println(bf());
 		dp = new ArrayList<HashMap<State, Long>>();
 		dp.add(new HashMap<State, Long>());
 		dp.add(new HashMap<State, Long>());
@@ -181,10 +181,10 @@ public class Debug {
 			for (int i = 0; i < m; i++)
 				hs.add(s.row[i]);
 			if (hs.size() <= 2) {
-				for (int i = 0; i < m; i++) {
-					out.print(s.row[i] + " ");
-				}
-				out.println("\n " + e.getValue());
+//				for (int i = 0; i < m; i++) {
+//					out.print(s.row[i] + " ");
+//				}
+//				out.println("\n " + e.getValue());
 				ans = (ans + e.getValue())%MOD;
 			}
 		}
