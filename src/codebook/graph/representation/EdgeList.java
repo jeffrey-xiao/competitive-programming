@@ -1,23 +1,27 @@
-package codebook.graph;
+/*
+ * An edge list is a data structure that represents a graph.
+ * Can be extended to directed graphs by only adding one edge in addEdge ()
+ * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
+ */
+
+package codebook.graph.representation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Prim {
+public class EdgeList {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n, m;
-	static ArrayList<ArrayList<Edge>> adj;
-	static boolean[] v;
+	static Edge[] edges;
+	static int[] last;
+	static int n, m, cnt;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,51 +29,45 @@ public class Prim {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		int m = readInt();
+		n = readInt();
+		m = readInt();
 
-		ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
-		v = new boolean[n];
+		edges = new Edge[m * 2];
+		last = new int[n];
 
 		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<Edge>());
+			last[i] = -1;
 
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			adj.get(a).add(new Edge(b, c));
-			adj.get(b).add(new Edge(a, c));
+			addEdge(a, b, c, c);
+		}
+		for (int i = 0; i < n; i++) {
+			out.print(i + " IS CONNECTED TO: ");
+			for (int j = last[i]; j != -1; j = edges[j].lastEdge)
+				out.print(edges[j].dest + " ");
+			out.println();
 		}
 
-		PriorityQueue<Edge> q = new PriorityQueue<Edge>();
-		q.offer(new Edge(0, 0));
-		int res = 0;
-		while (!q.isEmpty()) {
-			Edge curr = q.poll();
-			if (v[curr.dest])
-				continue;
-			v[curr.dest] = true;
-			res += curr.cost;
-			for (Edge next : adj.get(curr.dest))
-				if (!v[next.dest])
-					q.offer(next);
-		}
-		out.println(res);
 		out.close();
 	}
 
-	static class Edge implements Comparable<Edge> {
-		int dest, cost;
+	static void addEdge (int a, int b, int ab, int ba) {
+		edges[cnt] = new Edge(b, ab, last[a]);
+		last[a] = cnt++;
+		edges[cnt] = new Edge(a, ba, last[b]);
+		last[b] = cnt++;
+	}
 
-		Edge (int dest, int cost) {
+	static class Edge {
+		int dest, cost, lastEdge;
+
+		Edge (int dest, int cost, int lastEdge) {
 			this.dest = dest;
 			this.cost = cost;
-		}
-
-		@Override
-		public int compareTo (Edge o) {
-			return cost - o.cost;
+			this.lastEdge = lastEdge;
 		}
 	}
 

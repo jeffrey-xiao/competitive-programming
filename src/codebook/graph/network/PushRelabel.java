@@ -1,4 +1,4 @@
-package codebook.graph;
+package codebook.graph.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;

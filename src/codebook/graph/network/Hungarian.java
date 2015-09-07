@@ -1,25 +1,23 @@
-/*
- * An adjacency list is a data structure that represents a graph.
- */
-
-package codebook.graph;
+package codebook.graph.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class AdjacencyList {
+public class Hungarian {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
-	static int n, m;
+	static int leftSize, rightSize;
+	static int edges;
+	static boolean[][] adj;
+	static boolean[] v;
+	static int[] prev;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,36 +25,34 @@ public class AdjacencyList {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		n = readInt();
-		m = readInt();
+		leftSize = readInt();
+		rightSize = readInt();
+		edges = readInt();
+		adj = new boolean[leftSize][rightSize];
+		prev = new int[rightSize];
+		for (int i = 0; i < edges; i++)
+			adj[readInt() - 1][readInt() - 1] = true;
 
-		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<Edge>());
-
-		for (int i = 0; i < m; i++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			int c = readInt();
-			adj.get(a).add(new Edge(b, c));
-			adj.get(b).add(new Edge(a, c));
+		int ans = 0;
+		for (int i = 0; i < leftSize; i++) {
+			v = new boolean[rightSize];
+			ans += match(i) ? 1 : 0;
 		}
-
-		for (int i = 0; i < n; i++) {
-			out.print(i + " IS CONNECTED TO: ");
-			for (Edge j : adj.get(i))
-				out.print(j.dest + " ");
-			out.println();
-		}
+		out.println(ans);
 		out.close();
 	}
 
-	static class Edge {
-		int dest, cost;
-
-		Edge (int dest, int cost) {
-			this.dest = dest;
-			this.cost = cost;
+	private static boolean match (int i) {
+		for (int j = 0; j < rightSize; j++) {
+			if (adj[i][j] && !v[j]) {
+				v[j] = true;
+				if (prev[j] == -1 || match(prev[j])) {
+					prev[j] = i;
+					return true;
+				}
+			}
 		}
+		return false;
 	}
 
 	static String next () throws IOException {

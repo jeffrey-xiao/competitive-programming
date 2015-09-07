@@ -1,4 +1,4 @@
-package codebook.graph;
+package codebook.graph.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,14 +9,14 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class EdmondsKarp {
+public class Dinic {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static Edge[] e;
-	static int[] last;
+	static int[] last, dist;
 	static int n, m, cnt, src, sink;
 
 	public static void main (String[] args) throws IOException {
@@ -51,46 +51,45 @@ public class EdmondsKarp {
 	static int getFlow () {
 		int res = 0;
 		int curr = 0;
-		while ((curr = bfs()) > 0)
-			res += curr;
+		while (getPath())
+			while ((curr = dfs(0, 1 << 30)) > 0)
+				res += curr;
 		return res;
 	}
 
-	static int bfs () {
-		boolean[] v = new boolean[n];
-		int[] prev = new int[n];
-		int[] index = new int[n];
-		v[src] = true;
-		prev[src] = -1;
-		index[src] = -1;
+	static boolean getPath () {
+		dist = new int[n];
+		for (int i = 0; i < n; i++)
+			dist[i] = -1;
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		q.offer(src);
+		dist[src] = 0;
 		while (!q.isEmpty()) {
 			int curr = q.poll();
 			for (int i = last[curr]; i != -1; i = e[i].next) {
-				if (v[e[i].dest] || e[i].cost <= 0)
-					continue;
-				v[e[i].dest] = true;
-				prev[e[i].dest] = curr;
-				index[e[i].dest] = i;
-				q.offer(e[i].dest);
+				if (e[i].cost > 0 && dist[e[i].dest] == -1) {
+					dist[e[i].dest] = dist[curr] + 1;
+					q.offer(e[i].dest);
+				}
 			}
 		}
-		if (!v[sink - 1])
-			return 0;
-		int currNode = sink - 1;
-		int flow = 1 << 30;
-		while (prev[currNode] != -1) {
-			flow = Math.min(flow, e[index[currNode]].cost);
-			currNode = prev[currNode];
+		return dist[sink - 1] != -1;
+	}
+
+	static int dfs (int curr, int flow) {
+		if (curr == sink - 1)
+			return flow;
+		for (int i = last[curr]; i != -1; i = e[i].next) {
+			if (e[i].cost > 0 && dist[e[i].dest] == dist[curr] + 1) {
+				int res = dfs(e[i].dest, Math.min(flow, e[i].cost));
+				if (res > 0) {
+					e[i].cost -= res;
+					e[i ^ 1].cost += res;
+					return res;
+				}
+			}
 		}
-		currNode = sink - 1;
-		while (prev[currNode] != -1) {
-			e[index[currNode]].cost -= flow;
-			e[index[currNode] ^ 1].cost += flow;
-			currNode = prev[currNode];
-		}
-		return flow;
+		return 0;
 	}
 
 	static void addEdge (int x, int y, int xy, int yx) {

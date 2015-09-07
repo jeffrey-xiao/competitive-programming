@@ -1,26 +1,24 @@
-package codebook.graph;
+/*
+ * An adjacency matrix is a data structure that represents a graph.
+ */
+
+package codebook.graph.representation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class SPFA {
+public class AdjacencyMatrix {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n, m, orig, dest;
-	static int[] dist;
-	static ArrayList<ArrayList<Edge>> adj;
-	static Queue<Integer> q;
-	static boolean[] inQ;
+	static int[][] adj;
+	static int n, m;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,50 +28,30 @@ public class SPFA {
 
 		n = readInt();
 		m = readInt();
-		orig = readInt() - 1;
-		dest = readInt() - 1;
 
-		dist = new int[n];
-		inQ = new boolean[n];
-		adj = new ArrayList<ArrayList<Edge>>();
+		adj = new int[n][n];
 
-		for (int x = 0; x < n; x++) {
-			dist[x] = Integer.MAX_VALUE;
-			adj.add(new ArrayList<Edge>());
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				adj[i][j] = -1;
+			}
+			adj[i][i] = 0;
 		}
-		dist[orig] = 0;
-
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			adj.get(a).add(new Edge(b, c));
+			adj[a][b] = adj[b][a] = c;
 		}
 
-		q = new ArrayDeque<Integer>();
-		q.offer(orig);
-		while (!q.isEmpty()) {
-			Integer curr = q.poll();
-			for (Edge e : adj.get(curr)) {
-				if (dist[curr] + e.cost < dist[e.dest]) {
-					dist[e.dest] = dist[curr] + e.cost;
-					if (!q.contains(e.dest))
-						q.offer(e.dest);
-				}
-			}
+		for (int i = 0; i < n; i++) {
+			out.print(i + " IS CONNECTED TO: ");
+			for (int j = 0; j < n; j++)
+				if (adj[i][j] > 0)
+					out.print(j + " ");
+			out.println();
 		}
-
-		out.println(dist[dest]);
 		out.close();
-	}
-
-	static class Edge {
-		int dest, cost;
-
-		Edge (int dest, int cost) {
-			this.dest = dest;
-			this.cost = cost;
-		}
 	}
 
 	static String next () throws IOException {

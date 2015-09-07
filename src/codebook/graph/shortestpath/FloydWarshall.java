@@ -1,10 +1,4 @@
-/*
- * An edge list is a data structure that represents a graph.
- * Can be extended to directed graphs by only adding one edge in addEdge ()
- * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
- */
-
-package codebook.graph;
+package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,15 +7,14 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class EdgeList {
+public class FloydWarshall {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static Edge[] edges;
-	static int[] last;
-	static int n, m, cnt;
+	static int n, m, q;
+	static int[][] adj;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,44 +24,36 @@ public class EdgeList {
 
 		n = readInt();
 		m = readInt();
+		q = readInt();
 
-		edges = new Edge[m * 2];
-		last = new int[n];
+		adj = new int[n][n];
 
-		for (int i = 0; i < n; i++)
-			last[i] = -1;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++)
+				adj[i][j] = 1 << 29;
+			adj[i][i] = 0;
+		}
 
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			addEdge(a, b, c, c);
+			adj[a][b] = c;
 		}
-		for (int i = 0; i < n; i++) {
-			out.print(i + " IS CONNECTED TO: ");
-			for (int j = last[i]; j != -1; j = edges[j].lastEdge)
-				out.print(edges[j].dest + " ");
-			out.println();
+
+		for (int k = 0; k < n; k++)
+			for (int i = 0; i < n; i++)
+				for (int j = 0; j < n; j++)
+					adj[i][j] = Math.min(adj[i][j], adj[i][k] + adj[k][j]);
+
+		for (int i = 0; i < q; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			int res = adj[a][b];
+			out.println(res == 1 << 29 ? -1 : res);
 		}
 
 		out.close();
-	}
-
-	static void addEdge (int a, int b, int ab, int ba) {
-		edges[cnt] = new Edge(b, ab, last[a]);
-		last[a] = cnt++;
-		edges[cnt] = new Edge(a, ba, last[b]);
-		last[b] = cnt++;
-	}
-
-	static class Edge {
-		int dest, cost, lastEdge;
-
-		Edge (int dest, int cost, int lastEdge) {
-			this.dest = dest;
-			this.cost = cost;
-			this.lastEdge = lastEdge;
-		}
 	}
 
 	static String next () throws IOException {

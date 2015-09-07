@@ -1,23 +1,26 @@
-package codebook.graph;
+package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Hungarian {
+public class SPFA {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int leftSize, rightSize;
-	static int edges;
-	static boolean[][] adj;
-	static boolean[] v;
-	static int[] prev;
+	static int n, m, orig, dest;
+	static int[] dist;
+	static ArrayList<ArrayList<Edge>> adj;
+	static Queue<Integer> q;
+	static boolean[] inQ;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,34 +28,52 @@ public class Hungarian {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		leftSize = readInt();
-		rightSize = readInt();
-		edges = readInt();
-		adj = new boolean[leftSize][rightSize];
-		prev = new int[rightSize];
-		for (int i = 0; i < edges; i++)
-			adj[readInt() - 1][readInt() - 1] = true;
+		n = readInt();
+		m = readInt();
+		orig = readInt() - 1;
+		dest = readInt() - 1;
 
-		int ans = 0;
-		for (int i = 0; i < leftSize; i++) {
-			v = new boolean[rightSize];
-			ans += match(i) ? 1 : 0;
+		dist = new int[n];
+		inQ = new boolean[n];
+		adj = new ArrayList<ArrayList<Edge>>();
+
+		for (int x = 0; x < n; x++) {
+			dist[x] = Integer.MAX_VALUE;
+			adj.add(new ArrayList<Edge>());
 		}
-		out.println(ans);
-		out.close();
-	}
+		dist[orig] = 0;
 
-	private static boolean match (int i) {
-		for (int j = 0; j < rightSize; j++) {
-			if (adj[i][j] && !v[j]) {
-				v[j] = true;
-				if (prev[j] == -1 || match(prev[j])) {
-					prev[j] = i;
-					return true;
+		for (int i = 0; i < m; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			int c = readInt();
+			adj.get(a).add(new Edge(b, c));
+		}
+
+		q = new ArrayDeque<Integer>();
+		q.offer(orig);
+		while (!q.isEmpty()) {
+			Integer curr = q.poll();
+			for (Edge e : adj.get(curr)) {
+				if (dist[curr] + e.cost < dist[e.dest]) {
+					dist[e.dest] = dist[curr] + e.cost;
+					if (!q.contains(e.dest))
+						q.offer(e.dest);
 				}
 			}
 		}
-		return false;
+
+		out.println(dist[dest]);
+		out.close();
+	}
+
+	static class Edge {
+		int dest, cost;
+
+		Edge (int dest, int cost) {
+			this.dest = dest;
+			this.cost = cost;
+		}
 	}
 
 	static String next () throws IOException {

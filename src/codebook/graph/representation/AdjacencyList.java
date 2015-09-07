@@ -1,4 +1,8 @@
-package codebook.graph;
+/*
+ * An adjacency list is a data structure that represents a graph.
+ */
+
+package codebook.graph.representation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,16 +10,15 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Kruskal {
+public class AdjacencyList {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int[] id, sz;
+	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int n, m;
 
 	public static void main (String[] args) throws IOException {
@@ -27,61 +30,32 @@ public class Kruskal {
 		n = readInt();
 		m = readInt();
 
-		id = new int[n];
-		sz = new int[n];
+		for (int i = 0; i < n; i++)
+			adj.add(new ArrayList<Edge>());
+
+		for (int i = 0; i < m; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			int c = readInt();
+			adj.get(a).add(new Edge(b, c));
+			adj.get(b).add(new Edge(a, c));
+		}
 
 		for (int i = 0; i < n; i++) {
-			id[i] = i;
-			sz[i] = 1;
+			out.print(i + " IS CONNECTED TO: ");
+			for (Edge j : adj.get(i))
+				out.print(j.dest + " ");
+			out.println();
 		}
-
-		ArrayList<Edge> edges = new ArrayList<Edge>();
-		for (int i = 0; i < m; i++)
-			edges.add(new Edge(readInt() - 1, readInt() - 1, readInt()));
-
-		Collections.sort(edges);
-
-		int res = 0;
-
-		for (Edge e : edges) {
-			int rx = find(e.a);
-			int ry = find(e.b);
-			if (rx != ry) {
-				merge(rx, ry);
-				res += e.c;
-			}
-		}
-
-		out.println(res);
 		out.close();
 	}
 
-	static int find (int x) {
-		return x == id[x] ? x : (id[x] = find(id[x]));
-	}
+	static class Edge {
+		int dest, cost;
 
-	static void merge (int x, int y) {
-		if (sz[x] > sz[y]) {
-			sz[x] += sz[y];
-			id[y] = x;
-		} else {
-			sz[y] += sz[x];
-			id[x] = y;
-		}
-	}
-
-	static class Edge implements Comparable<Edge> {
-		int a, b, c;
-
-		Edge (int a, int b, int c) {
-			this.a = a;
-			this.b = b;
-			this.c = c;
-		}
-
-		@Override
-		public int compareTo (Edge o) {
-			return c - o.c;
+		Edge (int dest, int cost) {
+			this.dest = dest;
+			this.cost = cost;
 		}
 	}
 
