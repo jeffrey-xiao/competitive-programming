@@ -26,10 +26,10 @@ public class FordFulkerson {
 
 		n = readInt();
 		m = readInt();
-		
+
 		src = readInt();
 		sink = readInt();
-		
+
 		last = new int[n];
 		e = new Edge[2 * m];
 

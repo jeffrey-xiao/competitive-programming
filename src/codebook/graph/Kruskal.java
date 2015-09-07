@@ -17,7 +17,7 @@ public class Kruskal {
 
 	static int[] id, sz;
 	static int n, m;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,23 +26,23 @@ public class Kruskal {
 
 		n = readInt();
 		m = readInt();
-		
+
 		id = new int[n];
 		sz = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			id[i] = i;
 			sz[i] = 1;
 		}
-		
+
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		for (int i = 0; i < m; i++)
 			edges.add(new Edge(readInt() - 1, readInt() - 1, readInt()));
-		
+
 		Collections.sort(edges);
-		
+
 		int res = 0;
-		
+
 		for (Edge e : edges) {
 			int rx = find(e.a);
 			int ry = find(e.b);
@@ -51,7 +51,7 @@ public class Kruskal {
 				res += e.c;
 			}
 		}
-		
+
 		out.println(res);
 		out.close();
 	}

@@ -1,7 +1,14 @@
 package codebook.graph;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class SPFA {
 
@@ -14,7 +21,7 @@ public class SPFA {
 	static ArrayList<ArrayList<Edge>> adj;
 	static Queue<Integer> q;
 	static boolean[] inQ;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,34 +30,34 @@ public class SPFA {
 
 		n = readInt();
 		m = readInt();
-		orig = readInt()-1;
-		dest = readInt()-1;
+		orig = readInt() - 1;
+		dest = readInt() - 1;
 
 		dist = new int[n];
 		inQ = new boolean[n];
 		adj = new ArrayList<ArrayList<Edge>>();
-		
-		for(int x = 0; x < n; x++) {
+
+		for (int x = 0; x < n; x++) {
 			dist[x] = Integer.MAX_VALUE;
 			adj.add(new ArrayList<Edge>());
 		}
 		dist[orig] = 0;
-		
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj.get(a).add(new Edge(b, c));
 		}
-		
+
 		q = new ArrayDeque<Integer>();
 		q.offer(orig);
-		while(!q.isEmpty()){
+		while (!q.isEmpty()) {
 			Integer curr = q.poll();
-			for(Edge e : adj.get(curr)){
-				if(dist[curr] + e.cost < dist[e.dest]){
+			for (Edge e : adj.get(curr)) {
+				if (dist[curr] + e.cost < dist[e.dest]) {
 					dist[e.dest] = dist[curr] + e.cost;
-					if(!q.contains(e.dest))
+					if (!q.contains(e.dest))
 						q.offer(e.dest);
 				}
 			}
@@ -62,12 +69,13 @@ public class SPFA {
 
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -94,4 +102,3 @@ public class SPFA {
 		return br.readLine().trim();
 	}
 }
-

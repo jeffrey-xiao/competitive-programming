@@ -1,7 +1,12 @@
 package codebook.graph;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class LowestCommonAncestorEuler {
 
@@ -13,7 +18,7 @@ public class LowestCommonAncestorEuler {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int n, q, cnt, sz, num;
 	static int[] order;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,33 +29,33 @@ public class LowestCommonAncestorEuler {
 		n = readInt();
 		// number of queries
 		q = readInt();
-		sz = 2*n-1;
-		
+		sz = 2 * n - 1;
+
 		toId = new int[n];
 		toLabel = new int[n];
-		order = new int[2*sz];
+		order = new int[2 * sz];
 		first = new int[n];
 		for (int i = 0; i < n; i++) {
-			adj.add(new ArrayList<Integer>()); 
+			adj.add(new ArrayList<Integer>());
 			first[i] = -1;
 		}
-		
-		for (int i = 0; i < n-1; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+
+		for (int i = 0; i < n - 1; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
-		
+
 		dfs(0, -1);
-		
-		for (int i = 2*sz-2; i > 1; i -= 2)
-			order[i>>1] = Math.min(order[i], order[i^1]);
-		
+
+		for (int i = 2 * sz - 2; i > 1; i -= 2)
+			order[i >> 1] = Math.min(order[i], order[i ^ 1]);
+
 		for (int i = 0; i < q; i++) {
-			out.println(lca(readInt()-1, readInt()-1) + 1);
+			out.println(lca(readInt() - 1, readInt() - 1) + 1);
 		}
-		
+
 		out.close();
 	}
 
@@ -73,13 +78,13 @@ public class LowestCommonAncestorEuler {
 			if (j != prev) {
 				order[sz + cnt++] = curr;
 				if (first[curr] == -1)
-					first[curr] = cnt-1;
+					first[curr] = cnt - 1;
 				dfs(j, i);
 			}
 		}
 		order[sz + cnt++] = curr;
 		if (first[curr] == -1)
-			first[curr] = cnt-1;
+			first[curr] = cnt - 1;
 	}
 
 	static String next () throws IOException {
@@ -108,4 +113,3 @@ public class LowestCommonAncestorEuler {
 		return br.readLine().trim();
 	}
 }
-

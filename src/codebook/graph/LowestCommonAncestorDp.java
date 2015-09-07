@@ -1,7 +1,12 @@
 package codebook.graph;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class LowestCommonAncestorDp {
 
@@ -13,7 +18,7 @@ public class LowestCommonAncestorDp {
 	static int[] depth;
 	static int[][] pa;
 	static int n, q, ln;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,34 +29,34 @@ public class LowestCommonAncestorDp {
 		n = readInt();
 		// number of queries
 		q = readInt();
-		ln = (int)(Math.ceil(Math.log(n) / Math.log(2)));
-		
+		ln = (int) (Math.ceil(Math.log(n) / Math.log(2)));
+
 		depth = new int[n];
 		pa = new int[n][ln];
-		
+
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Integer>());
 			for (int j = 0; j < ln; j++)
 				pa[i][j] = -1;
 		}
-		
-		for (int i = 0; i < n-1; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+
+		for (int i = 0; i < n - 1; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
-		
+
 		dfs(0, 0, -1);
-		
+
 		for (int i = 1; i < ln; i++)
 			for (int j = 0; j < n; j++)
-				if (pa[j][i-1] != -1)
-					pa[j][i] = pa[pa[j][i-1]][i-1];
-		
+				if (pa[j][i - 1] != -1)
+					pa[j][i] = pa[pa[j][i - 1]][i - 1];
+
 		for (int i = 0; i < q; i++)
-			out.println(getLca(readInt()-1, readInt()-1) + 1);
-		
+			out.println(getLca(readInt() - 1, readInt() - 1) + 1);
+
 		out.close();
 	}
 
@@ -64,7 +69,7 @@ public class LowestCommonAncestorDp {
 		for (int k = ln - 1; k >= 0; k--)
 			if (pa[i][k] != -1 && depth[pa[i][k]] >= depth[j])
 				i = pa[i][k];
-		
+
 		if (i == j)
 			return i;
 		for (int k = ln - 1; k >= 0; k--)
@@ -74,15 +79,15 @@ public class LowestCommonAncestorDp {
 			}
 		return pa[i][0];
 	}
-	
+
 	static void dfs (int i, int d, int prev) {
 		depth[i] = d;
 		pa[i][0] = prev;
 		for (int j : adj.get(i))
 			if (j != prev)
-				dfs(j, d+1, i);
+				dfs(j, d + 1, i);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -109,4 +114,3 @@ public class LowestCommonAncestorDp {
 		return br.readLine().trim();
 	}
 }
-

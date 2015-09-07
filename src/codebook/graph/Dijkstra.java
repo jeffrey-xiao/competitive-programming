@@ -28,8 +28,8 @@ public class Dijkstra {
 		n = readInt();
 		m = readInt();
 
-		orig = readInt()-1;
-		dest = readInt()-1;
+		orig = readInt() - 1;
+		dest = readInt() - 1;
 
 		adj = new ArrayList<ArrayList<Edge>>();
 

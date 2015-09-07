@@ -1,7 +1,13 @@
 package codebook.graph;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class Prim {
 
@@ -12,7 +18,7 @@ public class Prim {
 	static int n, m;
 	static ArrayList<ArrayList<Edge>> adj;
 	static boolean[] v;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,13 +27,13 @@ public class Prim {
 
 		int n = readInt();
 		int m = readInt();
-		
+
 		ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 		v = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
-		
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
@@ -35,7 +41,7 @@ public class Prim {
 			adj.get(a).add(new Edge(b, c));
 			adj.get(b).add(new Edge(a, c));
 		}
-		
+
 		PriorityQueue<Edge> q = new PriorityQueue<Edge>();
 		q.offer(new Edge(0, 0));
 		int res = 0;
@@ -52,7 +58,7 @@ public class Prim {
 		out.println(res);
 		out.close();
 	}
-	
+
 	static class Edge implements Comparable<Edge> {
 		int dest, cost;
 
@@ -93,4 +99,3 @@ public class Prim {
 		return br.readLine().trim();
 	}
 }
-
