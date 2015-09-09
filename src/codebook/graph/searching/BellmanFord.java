@@ -1,4 +1,4 @@
-package codebook.graph.shortestpath;
+package codebook.graph.searching;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,18 +6,17 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Dijkstra {
+public class BellmanFord {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static int n, m, orig, dest;
-	static ArrayList<ArrayList<Edge>> adj;
-	static PriorityQueue<Vertex> pq;
+	static ArrayList<Edge> e;
+	static int[] dist;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,60 +26,38 @@ public class Dijkstra {
 
 		n = readInt();
 		m = readInt();
-
 		orig = readInt() - 1;
 		dest = readInt() - 1;
 
-		adj = new ArrayList<ArrayList<Edge>>();
+		dist = new int[n];
+		e = new ArrayList<Edge>();
 
-		int[] dist = new int[n];
-		for (int i = 0; i < n; i++) {
-			adj.add(new ArrayList<Edge>());
-			dist[i] = 1 << 30;
-		}
+		for (int i = 0; i < n; i++)
+			dist[i] = 1 << 29;
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			adj.get(a).add(new Edge(b, c));
-			adj.get(b).add(new Edge(a, c));
+			e.add(new Edge(a, b, c));
 		}
-		pq = new PriorityQueue<Vertex>();
+
 		dist[orig] = 0;
-		pq.offer(new Vertex(orig, 0));
-		while (!pq.isEmpty()) {
-			Vertex curr = pq.poll();
-			for (Edge next : adj.get(curr.index)) {
-				if (dist[next.dest] > curr.cost + next.cost) {
-					dist[next.dest] = curr.cost + next.cost;
-					pq.offer(new Vertex(next.dest, dist[next.dest]));
-				}
-			}
-		}
+		for (int i = 0; i < n - 1; i++)
+			for (Edge edge : e)
+				dist[edge.dest] = Math.min(dist[edge.dest], dist[edge.orig] + edge.cost);
+
 		out.println(dist[dest]);
 		out.close();
 	}
 
 	static class Edge {
-		int dest, cost;
+		int orig, dest, cost;
 
-		Edge (int dest, int cost) {
+		Edge (int orig, int dest, int cost) {
+			this.orig = orig;
 			this.dest = dest;
 			this.cost = cost;
-		}
-	}
-
-	static class Vertex implements Comparable<Vertex> {
-		int index, cost;
-
-		Vertex (int index, int cost) {
-			this.index = index;
-			this.cost = cost;
-		}
-
-		@Override
-		public int compareTo (Vertex o) {
-			return cost - o.cost;
 		}
 	}
 

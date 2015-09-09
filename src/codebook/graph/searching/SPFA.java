@@ -1,22 +1,26 @@
-package codebook.graph.shortestpath;
+package codebook.graph.searching;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BellmanFord {
+public class SPFA {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static int n, m, orig, dest;
-	static ArrayList<Edge> e;
 	static int[] dist;
+	static ArrayList<ArrayList<Edge>> adj;
+	static Queue<Integer> q;
+	static boolean[] inQ;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,32 +34,43 @@ public class BellmanFord {
 		dest = readInt() - 1;
 
 		dist = new int[n];
-		e = new ArrayList<Edge>();
+		inQ = new boolean[n];
+		adj = new ArrayList<ArrayList<Edge>>();
 
-		for (int i = 0; i < n; i++)
-			dist[i] = 1 << 29;
+		for (int x = 0; x < n; x++) {
+			dist[x] = Integer.MAX_VALUE;
+			adj.add(new ArrayList<Edge>());
+		}
+		dist[orig] = 0;
 
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			e.add(new Edge(a, b, c));
+			adj.get(a).add(new Edge(b, c));
 		}
 
-		dist[orig] = 0;
-		for (int i = 0; i < n - 1; i++)
-			for (Edge edge : e)
-				dist[edge.dest] = Math.min(dist[edge.dest], dist[edge.orig] + edge.cost);
+		q = new ArrayDeque<Integer>();
+		q.offer(orig);
+		while (!q.isEmpty()) {
+			Integer curr = q.poll();
+			for (Edge e : adj.get(curr)) {
+				if (dist[curr] + e.cost < dist[e.dest]) {
+					dist[e.dest] = dist[curr] + e.cost;
+					if (!q.contains(e.dest))
+						q.offer(e.dest);
+				}
+			}
+		}
 
 		out.println(dist[dest]);
 		out.close();
 	}
 
 	static class Edge {
-		int orig, dest, cost;
+		int dest, cost;
 
-		Edge (int orig, int dest, int cost) {
-			this.orig = orig;
+		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
