@@ -111,29 +111,27 @@ public class Counting_Permutations {
 			}
 		tree[i].size.put(prev, size);
 		if (hv.size() == 0)
-			tree[i].hash.put(prev, new StringBuilder());
+			tree[i].hash.put(prev, new StringBuilder("01"));
 		else if (hv.size() == 2) {
 			if (hv.get(0).toString().compareTo(hv.get(1).toString()) < 0) {
 				tree[i].hash.put(prev, new StringBuilder());
 				tree[i].hash.get(prev).append("0");
 				tree[i].hash.get(prev).append(hv.get(0));
-				tree[i].hash.get(prev).append("21");
 				tree[i].hash.get(prev).append(hv.get(1));
-				tree[i].hash.get(prev).append("2");
+				tree[i].hash.get(prev).append("1");
 			}
 			else {
 				tree[i].hash.put(prev, new StringBuilder());
 				tree[i].hash.get(prev).append("0");
 				tree[i].hash.get(prev).append(hv.get(1));
-				tree[i].hash.get(prev).append("21");
 				tree[i].hash.get(prev).append(hv.get(0));
-				tree[i].hash.get(prev).append("2");
+				tree[i].hash.get(prev).append("1");
 			}
 		} else {
 			tree[i].hash.put(prev, new StringBuilder());
 			tree[i].hash.get(prev).append("0");
 			tree[i].hash.get(prev).append(hv.get(0));
-			tree[i].hash.get(prev).append("2");
+			tree[i].hash.get(prev).append("1");
 		}
 	}
 
