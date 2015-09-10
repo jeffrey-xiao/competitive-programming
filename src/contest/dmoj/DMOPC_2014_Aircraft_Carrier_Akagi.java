@@ -1,9 +1,9 @@
-package contest.hackerrank;
+package contest.dmoj;
 
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2014_Aircraift_Carrier_Akagi {
+public class DMOPC_2014_Aircraft_Carrier_Akagi {
 
 	static BufferedReader br;
 	static PrintWriter out;
