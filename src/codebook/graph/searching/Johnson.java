@@ -1,25 +1,22 @@
 package codebook.graph.searching;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-public class Dijkstra {
+import codebook.graph.searching.Dijkstra.Edge;
+
+public class Johnson {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n, m, orig, dest;
+	static int n, m, q;
 	static ArrayList<ArrayList<Edge>> adj;
+	static int[] h;
+	static int[][] dist;
 	static PriorityQueue<Vertex> pq;
-	static int[] dist;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -28,62 +25,74 @@ public class Dijkstra {
 
 		n = readInt();
 		m = readInt();
-
-		orig = readInt() - 1;
-		dest = readInt() - 1;
+		q = readInt();
 
 		adj = new ArrayList<ArrayList<Edge>>();
-
-		dist = new int[n];
-		for (int i = 0; i < n; i++) {
+		h = new int[n + 1];
+		dist = new int[n + 1][n + 1];
+		for (int i = 0; i <= n; i++) {
 			adj.add(new ArrayList<Edge>());
-			dist[i] = 1 << 30;
+			h[i] = 1 << 29;
 		}
+		
+		for (int i = 1; i <= n; i++)
+			adj.get(0).add(new Edge(i, 0));
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
+			int a = readInt();
+			int b = readInt();
 			int c = readInt();
 			adj.get(a).add(new Edge(b, c));
 		}
-		pq = new PriorityQueue<Vertex>();
-		dist[orig] = 0;
-		pq.offer(new Vertex(orig, 0));
-		while (!pq.isEmpty()) {
-			Vertex curr = pq.poll();
-			for (Edge next : adj.get(curr.index)) {
-				if (dist[next.dest] > curr.cost + next.cost) {
-					dist[next.dest] = curr.cost + next.cost;
-					pq.offer(new Vertex(next.dest, dist[next.dest]));
-				}
-			}
+
+		h[0] = 0;
+		for (int i = 0; i < n-1; i++)
+			for (int j = 0; j <= n; j++)
+				for (Edge e : adj.get(j))
+					if (h[e.dest] > e.cost + h[j])
+						h[e.dest] = e.cost + h[j];
+		
+		for (int i = 1; i <= n; i++)
+			dist[i] = getPath(i);
+		for (int i = 0; i < q; i++) {
+			int a = readInt();
+			int b = readInt();
+			out.println(dist[a][b] - h[a] + h[b]);
 		}
-		out.println(dist[dest]);
 		out.close();
 	}
 
-	static class Edge {
-		int dest, cost;
-
-		Edge (int dest, int cost) {
-			this.dest = dest;
-			this.cost = cost;
+	static int[] getPath (int src) {
+		int[] dist = new int[n+1];
+		for (int i = 0; i <= n; i++)
+			dist[i] = 1 << 29;
+		dist[src] = 0;
+		pq = new PriorityQueue<Vertex>();
+		pq.offer(new Vertex(src, 0));
+		while (!pq.isEmpty()) {
+			Vertex curr = pq.poll();
+			for (Edge next : adj.get(curr.index)) {
+				if (dist[next.dest] <= curr.cost + next.cost + h[curr.index] - h[next.dest])
+					continue;
+				dist[next.dest] = curr.cost + next.cost + h[curr.index] - h[next.dest];
+				pq.offer(new Vertex(next.dest, dist[next.dest]));
+			}
 		}
+		return dist;
 	}
-
+	
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
-
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
-
 		@Override
 		public int compareTo (Vertex o) {
 			return cost - o.cost;
 		}
 	}
-
+	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -110,3 +119,4 @@ public class Dijkstra {
 		return br.readLine().trim();
 	}
 }
+
