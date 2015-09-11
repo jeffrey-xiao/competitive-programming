@@ -9,101 +9,88 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int[][] tree;
-	static int[][] sum;
-	static int[] maxD;
-	static int[] minD;
-	static int n, start;
-	static int[] in;
-	
+	static final int SIZE = 600001;
+	static int offset = 0;
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
+		long[] left = new long[SIZE];
+		long[] right = new long[SIZE];
+		long[] leftSum = new long[SIZE];
+		long[] rightSum = new long[SIZE];
+		int n = readInt();
+		int k = readInt();
+		int[] a = new int[n];
+		for (int i = 0; i < n; i++)
+			a[i] = readInt() + 300000;
+		long min = 1l << 60;
+		for (int i = 0; i < n; i++) {
+			offset--;
+			if (i % 2 == 0) {
+				update(left, (a[i - i/2] - i/2 - 1), 1);
+				update(right, (a[i - i/2] + i/2), -1);
 
-		n = readInt();
-		start = readInt();
-		in = new int[n+1];
-		for (int i = 1; i <= n; i++)
-			in[i] = readInt();
-		
-		tree = new int[n*4][0];
-		sum = new int[n*4][0];
-		maxD = new int[n*4];
-		minD = new int[n*4];
-		
-		build(1, 1, n);
-		
-		for (int i = 1; i <= n; i++) {
-			out.printf("Updating %d to %d\n", i-+(i-1)/2, i);
-			update(1, 1, n, i - (i-1)/2, i, -1);
-			if (i < start)
-				continue;
-			int lo = -200000;
-			int hi = 200000;
+				update(leftSum, (a[i - i/2] - i/2 - 1), (a[i - i/2] - i/2 - 1));
+				update(rightSum, (a[i - i/2] + i/2), -(a[i - i/2] + i/2));
+//				out.println("LEFT ADDED " + (a[i - i/2] - i/2 - 1));
+//				out.println("REMOVED " + (a[i - i/2] + i/2));
+			}
+//			out.println("ADDED " + (a[i] - (1 + offset)));
+			update(right, a[i] - (1 + offset), 1);
+			update(rightSum, a[i] - (1 + offset), a[i] - (1 + offset));
 			
+			if (i < k - 1 || (i + 1) % 2 == 0)
+				continue;
+			int lo = 1;
+			int hi = SIZE - 1;
+			int median = 1 << 30;
+			long leftSz = 0;
+			long rightSz = 0;
+			while (lo <= hi) {
+				int mid = (hi + lo)/2;
+				leftSz = query(left, mid) + query(right, mid - offset); 
+				rightSz = (i + 1) - leftSz;
+				if (leftSz == rightSz) {
+					median = mid;
+					break;
+				} else if (leftSz < rightSz)
+					lo = mid + 1;
+				else
+					hi = mid - 1;
+			}
+			
+			if (median == 1 << 30)
+				median = lo;
+			leftSz = query(left, median) + query(right, median - offset); 
+			rightSz = (i + 1) - leftSz;
+//			out.println((i+1) + " THE MEDIAN IS " + median);
+			
+			long smallRightSz = query(right, median - offset);
+			long bigRightSz = query(right, SIZE-1) - smallRightSz;
+			
+			long totalSmallerSum = query(leftSum, median) + query(rightSum, median - offset) + offset * smallRightSz;
+			long totalBiggerSum = query(leftSum, SIZE - 1) + query(rightSum, SIZE - 1) + offset * (smallRightSz + bigRightSz) - totalSmallerSum;
+			min = Math.min(min,  (leftSz) * median - totalSmallerSum + totalBiggerSum - median*(rightSz));
+			
+//			out.printf("small sum %d and big sum %d left size %d and right size %d\n", totalSmallerSum, totalBiggerSum, leftSz, rightSz);
+//			out.println("RES " + (leftSz * median - totalSmallerSum + totalBiggerSum - median*rightSz));
 		}
+		out.println(min == 1l << 60 ? -1 : min);
 		out.close();
 	}
-	static void update (int n, int l, int r, int ql, int qr, int val) {
-		if (l == ql && r == qr && maxD[n] == minD[n]) {
-			maxD[n] += val;
-			minD[n] += val;
-			return;
-		}
-		if (maxD[n] == minD[n]) {
-			maxD[n << 1] = maxD[n];
-			maxD[n << 1 | 1] = maxD[n];
-			minD[n << 1] = minD[n];
-			minD[n << 1 | 1] = minD[n];
-		}
-		
-		int mid = (r + l) >> 1;
-		if (qr <= mid)
-			update(n << 1, l, mid, ql, qr, val);
-		else if (ql > mid)
-			update(n << 1 | 1, mid + 1, r, ql, qr, val);
-		else {
-			update(n << 1, l, mid, ql, mid, val);
-			update(n << 1 | 1, mid+1, r, mid+1, qr, val);
-		}
-		maxD[n] = Math.max(maxD[n << 1], maxD[n << 1 | 1]);
-		minD[n] = Math.min(minD[n << 1], minD[n << 1 | 1]);
-		out.printf("%d TO %d has minD : %d and maxD : %d\n", l, r, minD[n], maxD[n]);
-	}
-	static void build (int n, int l, int r) {
-		tree[n] = new int[r - l + 3];
-		sum[n] = new int[r - l + 3];
-		if (l == r) {
-			tree[n][1] = in[l];
-			sum[n][1] = in[1];
-			return;
-		}
-		int mid = (r + l) >> 1;
-		build(n << 1, l, mid);
-		build(n << 1 | 1, mid+1, r);
 
-		int si = mid - l + 1;
-		int sj = r - (mid + 1) + 1;
-		int i = 1;
-		int j = 1;
-		for (int k = 1; k <= r - l + 1; k++) {
-			if (i > si)
-				tree[n][k] = tree[n << 1 | 1][j++];
-			else if (j > sj)
-				tree[n][k] = tree[n << 1][i++];
-			else if (tree[n << 1][i] < tree[n << 1 | 1][j])
-				tree[n][k] = tree[n << 1][i++];
-			else
-				tree[n][k] = tree[n << 1 | 1][j++];
-		}
-		for (i = 1; i <= r - l + 2; i++)
-			sum[n][i] = sum[n][i-1] + tree[n][i];
-		out.println(l + " to " + r);
-		for (i = 1; i <= r - l + 1; i++)
-			out.print(tree[n][i] + " ");
-		out.println();
+	static void update (long[] tree, int x, int val) {
+		for (int i = x; i < SIZE; i += (i & -i))
+			tree[i] += val;
+	}
+	
+	static long query (long[] tree, int x) {
+		long sum = 0;
+		for (int i = x; i > 0; i -= (i & -i))
+			sum += tree[i];
+		return sum;
 	}
 	
 	static String next () throws IOException {
