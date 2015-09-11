@@ -15,7 +15,7 @@ public class CCO_Prep_Escape_Maze {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
-	static Stack<Integer> s = new Stack<Integer>();
+	static Stack<Edge> s = new Stack<Edge>();
 	static ArrayList<ArrayList<Integer>> adj;
 	static int[] disc;
 	static int[] low;
@@ -23,11 +23,14 @@ public class CCO_Prep_Escape_Maze {
 	static boolean[] vi = new boolean[400];
 	static ArrayList<Integer> c;
 	static HashSet<Integer> art;
-
+	static long ansNum;
+	static long ansCount;
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		while (n != 0) {
 			s.clear();
+			ansNum = 0;
+			ansCount = 1;
 			art = new HashSet<Integer>();
 			c = new ArrayList<Integer>();
 			adj = new ArrayList<ArrayList<Integer>>();
@@ -92,18 +95,34 @@ public class CCO_Prep_Escape_Maze {
 					art.add(i);
 				}
 			}
-			for (int i = 0; i < 400; i++) {
-				if (!vi[i]) {
-					count = 0;
+			for (int i = 0; i < 400; i++)
+				if (!vi[i]) 
 					dfs(i, -1);
-				}
+
+			HashSet<Integer> currCom = new HashSet<Integer>();
+			while (!s.isEmpty()) {
+				currCom.add(s.peek().a);
+				currCom.add(s.peek().b);
+				s.pop();
 			}
-			long l = 1;
-			System.out.print(c.size() + " ");
-			for (Integer i : c) {
-				l *= i;
+			int cnt = 0;
+			int artCnt = 0;
+			for (int k : currCom) {
+				if (art.contains(k))
+					artCnt++;
+				else
+					cnt++;
 			}
-			System.out.println(l);
+//			System.out.println("HERE " + artCnt + " " + cnt);
+			if (artCnt == 0 && cnt != 0) {
+				ansNum += 2;
+				ansCount *= (cnt*(cnt - 1) / 2);
+			} else if (artCnt == 1 && cnt != 0) {
+				ansNum += 1;
+				ansCount *= cnt;
+			}
+			
+			System.out.println(ansNum + " " + ansCount);
 			n = readInt();
 		}
 
@@ -112,43 +131,54 @@ public class CCO_Prep_Escape_Maze {
 	private static void dfs (int i, int prev) {
 		disc[i] = low[i] = count++;
 		vi[i] = true;
-		s.push(i);
+		int children = 0;
 		for (Integer j : adj.get(i)) {
-			if (prev == j)
-				continue;
-			if (disc[j] == -1) {
+			if (!vi[j]) {
+				children++;
+				s.push(new Edge(i, j));
 				dfs(j, i);
 				low[i] = Math.min(low[i], low[j]);
-			} else if (s.contains(j)) {
-				low[i] = Math.min(low[i], disc[j]);
-			}
-		}
-		if (disc[i] == low[i]) {
-			System.out.println("HERE");
-			int count = 0;
-			boolean hasArt = false;
-			while (s.peek() != i) {
-				if (!art.contains(s.pop()))
-					count++;
-				else
-					hasArt = true;
-			}
+				if ((disc[i] == 0 && children > 1) || (disc[i] > 0 && low[j] >= disc[i])) {
 
-			if (!art.contains(s.pop()))
-				count++;
-			else
-				hasArt = true;
-			if (count != 0) {
-				if (!hasArt && count != 1) {
-					c.add(count * (count - 1) / 2);
-					c.add(1);
-				} else {
-					c.add(count);
+					HashSet<Integer> currCom = new HashSet<Integer>();
+					while (s.peek().a != i || s.peek().b != j) {
+						currCom.add(s.peek().a);
+						currCom.add(s.peek().b);
+						s.pop();
+					}
+					currCom.add(s.peek().a);
+					currCom.add(s.peek().b);
+					s.pop();
+					int cnt = 0;
+					int artCnt = 0;
+					for (int k : currCom) {
+						if (art.contains(k))
+							artCnt++;
+						else
+							cnt++;
+					}
+//					System.out.println("HERE " + artCnt + " " + cnt);
+					if (artCnt == 0) {
+						ansNum += 2;
+						ansCount *= (cnt*(cnt - 1) / 2);
+					} else if (artCnt == 1 && cnt != 0) {
+						ansNum += 1;
+						ansCount *= cnt;
+					}
 				}
+			} else if (j != prev && disc[j] < low[i]) {
+				low[i] = disc[j];
+				s.push(new Edge(i, j));
 			}
 		}
 	}
-
+	static class Edge {
+		int a, b;
+		Edge (int a, int b) {
+			this.a = a;
+			this.b = b;
+		}
+	}
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
