@@ -10,6 +10,7 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 	static StringTokenizer st;
 
 	static int[][] tree;
+	static int[][] sum;
 	static int[] maxD;
 	static int[] minD;
 	static int n, start;
@@ -27,7 +28,8 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 		for (int i = 1; i <= n; i++)
 			in[i] = readInt();
 		
-		tree = new int[n*4][n];
+		tree = new int[n*4][0];
+		sum = new int[n*4][0];
 		maxD = new int[n*4];
 		minD = new int[n*4];
 		
@@ -38,6 +40,8 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 			update(1, 1, n, i - (i-1)/2, i, -1);
 			if (i < start)
 				continue;
+			int lo = -200000;
+			int hi = 200000;
 			
 		}
 		out.close();
@@ -69,9 +73,11 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 		out.printf("%d TO %d has minD : %d and maxD : %d\n", l, r, minD[n], maxD[n]);
 	}
 	static void build (int n, int l, int r) {
-		tree[n] = new int[r - l + 2];
+		tree[n] = new int[r - l + 3];
+		sum[n] = new int[r - l + 3];
 		if (l == r) {
 			tree[n][1] = in[l];
+			sum[n][1] = in[1];
 			return;
 		}
 		int mid = (r + l) >> 1;
@@ -92,6 +98,8 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 			else
 				tree[n][k] = tree[n << 1 | 1][j++];
 		}
+		for (i = 1; i <= r - l + 2; i++)
+			sum[n][i] = sum[n][i-1] + tree[n][i];
 		out.println(l + " to " + r);
 		for (i = 1; i <= r - l + 1; i++)
 			out.print(tree[n][i] + " ");
