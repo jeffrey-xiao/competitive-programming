@@ -4,21 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class LowestCommonAncestorDp {
+public class LowestCommonAncestorHld {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static int[] depth;
-	static int[][] pa;
-	static int n, q, ln;
-
+	static int[] depth, parent, chain, size, head;
+	static int n, q, chainNum;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,15 +28,16 @@ public class LowestCommonAncestorDp {
 		n = readInt();
 		// number of queries
 		q = readInt();
-		ln = (int) (Math.ceil(Math.log(n) / Math.log(2)) + 1);
-
+		
 		depth = new int[n];
-		pa = new int[n][ln];
-
+		parent = new int[n];
+		chain = new int[n];
+		size = new int[n];
+		head = new int[n];
+		
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Integer>());
-			for (int j = 0; j < ln; j++)
-				pa[i][j] = -1;
+			head[i] = -1;
 		}
 
 		for (int i = 0; i < n - 1; i++) {
@@ -48,44 +48,54 @@ public class LowestCommonAncestorDp {
 		}
 
 		dfs(0, 0, -1);
-
-		for (int i = 1; i < ln; i++)
-			for (int j = 0; j < n; j++)
-				if (pa[j][i - 1] != -1)
-					pa[j][i] = pa[pa[j][i - 1]][i - 1];
-
+		getHld(0, -1);
+		
 		for (int i = 0; i < q; i++)
 			out.println(getLca(readInt() - 1, readInt() - 1) + 1);
-
+		
 		out.close();
 	}
 
 	static int getLca (int i, int j) {
-		if (depth[i] < depth[j]) {
-			int temp = i;
-			i = j;
-			j = temp;
+		while (chain[i] != chain[j]) {
+			if (depth[head[chain[i]]] < depth[head[chain[j]]])
+				j = parent[head[chain[j]]];
+			else
+				i = parent[head[chain[i]]];
 		}
-		for (int k = ln - 1; k >= 0; k--)
-			if (pa[i][k] != -1 && depth[pa[i][k]] >= depth[j])
-				i = pa[i][k];
-
-		if (i == j)
+		if (depth[i] < depth[j])
 			return i;
-		for (int k = ln - 1; k >= 0; k--)
-			if (pa[i][k] != -1 && pa[j][k] != -1 && pa[i][k] != pa[j][k]) {
-				i = pa[i][k];
-				j = pa[j][k];
-			}
-		return pa[i][0];
+		return j;
 	}
-
+	static void getHld (int i, int prev) {
+		if (head[chainNum] == -1) {
+			head[chainNum] = i;
+		}
+		chain[i] = chainNum;
+		int maxIndex = -1;
+		for (int j : adj.get(i))
+			if (j != prev && (maxIndex == -1 || size[maxIndex] < size[j]))
+				maxIndex = j;
+		if (maxIndex != -1)
+			getHld(maxIndex, i);
+		for (int j : adj.get(i))
+			if (j != prev && j != maxIndex) {
+				chainNum++;
+				getHld(j, i);
+			}
+		
+		
+	}
 	static void dfs (int i, int d, int prev) {
 		depth[i] = d;
-		pa[i][0] = prev;
-		for (int j : adj.get(i))
-			if (j != prev)
+		parent[i] = prev;
+		size[i] = 1;
+		for (int j : adj.get(i)) {
+			if (j != prev) {
 				dfs(j, d + 1, i);
+				size[i] += size[j];
+			}
+		}
 	}
 
 	static String next () throws IOException {
