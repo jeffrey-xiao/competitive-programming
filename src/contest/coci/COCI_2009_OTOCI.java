@@ -58,21 +58,16 @@ public class COCI_2009_OTOCI {
 			index = 1;
 			hld(i, -1, true);
 		}
-//		for (int j = 1; j <= n; j++)
-//			out.printf("node %d has index %d in chain %d with parent %d\n", j, chainIndex[j], chain[j], parent[j]);
 		int q = readInt();
 		for (int i = 0; i < q; i++) {
 			String command = next();
 			int a = readInt();
 			int b = readInt();
 			if (command.equals("excursion")) {
-//				out.println("EXCURSION " + a + " " + b);
 				if (find(a) != find(b))
 					out.println("impossible");
 				else {
 					int max = Math.max(getLen(a), getLen(b));
-//					out.println(getLen(a) + " " + getLen(b));
-					
 					if (max > sn) {
 						// remaking HLD
 						dfs(top, 0, -1);
@@ -80,14 +75,8 @@ public class COCI_2009_OTOCI {
 						chainNo = unusedChains.poll();
 						index = 1;
 						hld(top, -1, true);
-
-//						for (int j = 1; j <= n; j++)
-//							assert(chainIndex[j] <= chainSize[chain[j]]);
 					}
-					
-					
 					out.println(getSum(a, b));
-
 				}
 			} else if (command.equals("bridge")) {
 				if (find(a) == find(b))
@@ -112,25 +101,16 @@ public class COCI_2009_OTOCI {
 						hld(a, b, true);
 					}
 				} 
-//				out.println("NEW BRIDGE ADDED " + a + " " + b);
-//				for (int j = 1; j <= n; j++)
-//					out.printf("node %d has index %d in chain %d with parent %d\n", j, chainIndex[j], chain[j], parent[j]);
 			} else if (command.equals("penguins")) {
 				val[a] = b;
 				update(seg[chain[a]], 1, 1, chainSize[chain[a]], chainIndex[a], b);
 			}
-//			for (int j = 1; j <= n; j++)
-//				out.print(chainIndex[j] + " ");
-//				out.print(query(1, 1, n, chainIndex[j], chainIndex[j]) + " ");
-//			out.println();
 		}
 		
 		out.close();
 	}
 	static int getSum (int i, int j) {
 		int res = 0;
-//		out.println(i + " " + j);
-//		out.println(parent[head[chain[i]]] + " " + parent[head[chain[j]]]);
 		while (chain[i] != chain[j]) {
 			if (depth[head[chain[i]]] < depth[head[chain[j]]]) {
 				assert(chainIndex[head[chain[j]]] <= chainIndex[j]);
@@ -190,7 +170,6 @@ public class COCI_2009_OTOCI {
 			seg[chain[i]] = new int[chainIndex[i] * 4];
 			chainSize[chain[i]] = chainIndex[i];
 		}
-//		out.printf("UPDATEING SIZE %d i %d val %d\n", chainSize[chain[i]], chainIndex[i], val[i]);
 		update(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[i], val[i]);
 	}
 	
@@ -216,11 +195,8 @@ public class COCI_2009_OTOCI {
 		tree[n] = tree[n << 1] + tree[n << 1 | 1];
 	}
 	static int query (int[] tree, int n, int lo, int hi, int qlo, int qhi) {
-//		out.printf("%d %d %d %d\n", lo, hi, qlo, qhi);
-		if (lo == qlo && hi == qhi) {
-//			out.printf("QUERY COMPLETED %d %d %d %d %d\n", lo, qlo, hi, qhi, tree[n]);
+		if (lo == qlo && hi == qhi)
 			return tree[n];
-		}
 		int mid = (lo + hi) >> 1;
 		if (qhi <= mid)
 			return query(tree, n << 1, lo, mid, qlo, qhi);
