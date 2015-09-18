@@ -1,5 +1,5 @@
 /*
- * A randomized queue is a data structure that allows the insertion of elements and the removal/retrival of random elemnts.
+ * A randomized queue is a data structure that allows the insertion of elements and the removal/retrieval of random elements.
  * The underlying data structure used in this implementation is an array that is resized to fit the number of elements.
  */
 

@@ -3,7 +3,7 @@ package codebook.graph;
 import java.util.*;
 import java.io.*;
 
-public class TopologicalSortSimple {
+public class DfsCycleDetection {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -11,8 +11,10 @@ public class TopologicalSortSimple {
 
 	static int n, m;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static Queue<Integer> q = new ArrayDeque<Integer>(), order = new ArrayDeque<Integer>();
-	static int[] cnt;
+	
+	static boolean[] v;
+	static boolean[] done;
+	static Stack<Integer> order = new Stack<Integer>();
 	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,37 +26,32 @@ public class TopologicalSortSimple {
 		m = readInt();
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		cnt = new int[n];
-		
+		v = new boolean[n];
+		done = new boolean[n];
 		for (int i = 0; i < m; i++) {
 			int a = readInt()-1;
 			int b = readInt()-1;
 			adj.get(a).add(b);
-			cnt[b]++;
 		}
 		for (int i = 0; i < n; i++)
-			if (cnt[i] == 0) {
-				q.offer(i);
-				order.offer(i);
-			}
-		while (!q.isEmpty()) {
-			int curr = q.poll();
-			for (int next : adj.get(curr)) {
-				cnt[next]--;
-				if (cnt[next] == 0) {
-					q.offer(next);
-					order.offer(next);
-				}
-			}
-		}
-		if (order.size() != n) {
-			out.println("NOT A DIRECTED ACYCLIC GRAPH");
-		} else {
-			while (!order.isEmpty())
-				out.println(order.poll() + 1);
-		}
-		
+			if (!done[i])
+				dfs(i);
+		out.println("No cycle found!");
 		out.close();
+	}
+	static void dfs (int i) {
+		if (v[i]) {
+			out.println("Cycle found!");
+			out.close();
+			System.exit(0);
+		}
+		v[i] = true;
+		for (int j : adj.get(i))
+			if (!done[j])
+				dfs(j);
+		v[i] = false;
+		done[i] = true;
+		order.push(i);
 	}
 
 	static String next () throws IOException {

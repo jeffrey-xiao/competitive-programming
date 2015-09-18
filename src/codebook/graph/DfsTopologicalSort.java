@@ -3,7 +3,7 @@ package codebook.graph;
 import java.util.*;
 import java.io.*;
 
-public class TopologicalSortDfs {
+public class DfsTopologicalSort {
 
 	static BufferedReader br;
 	static PrintWriter out;
