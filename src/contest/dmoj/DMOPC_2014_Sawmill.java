@@ -16,13 +16,13 @@ public class DMOPC_2014_Sawmill {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int[] a = new int[n];
-		int[] b = new int[n];
+		Integer[] a = new Integer[n];
+		Integer[] b = new Integer[n];
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
 		for (int i = 0; i < n; i++)
 			b[i] = readInt();
-		int ans = 0;
+		long ans = 0;
 		Arrays.sort(a);
 		Arrays.sort(b);
 		for (int i = 0; i < n; i++)
