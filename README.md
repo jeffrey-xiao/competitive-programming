@@ -13,5 +13,5 @@ TODO LIST:
  - Min cost Max flow
  - Skip list
  - Link/Cut tree
- - Edmonds
+ - Edmonds/Blossom algorithm
  - R-tree
