@@ -24,85 +24,78 @@ public class MinArborescence {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
-		int t = readInt();
-		main : for (int qq = 1; qq <= t; qq++) {
-			n = readInt();
-			m = readInt();
-			id = new int[n];
-			e = new ArrayList<Edge>();
-			for (int i = 0; i < n; i++)
-				id[i] = i;
-			for (int i = 0; i < m; i++) {
-				int a = readInt();
-				int b = readInt();
-				int c = readInt();
-				e.add(new Edge(a, b, c));
-			}
-			int sz = n;
-			int res = 0;
-			while (true) {
-				Edge[] min = new Edge[n];
-				int[] prev = new int[n];
-				int edgesAdded = 0;
-				for (Edge edge : e) {
-					int rx = find(edge.a);
-					int ry = find(edge.b);
-					if (rx == ry || ry == find(0))
-						continue;
-					if (min[ry] == null || min[ry].c > edge.c) {
-						min[ry] = edge;
-						
-					}
-				}
-				adj = new ArrayList<ArrayList<Edge>>();
-				for (int i = 0; i < n; i++)
-					adj.add(new ArrayList<Edge>());
-				for (int i = 0; i < n; i++)
-					if (min[i] != null) {
-						// out.printf("NEW MIN EDGE FROM %d to %d with %d\n", min[i].a, min[i].b, min[i].c);
-						adj.get(find(min[i].a)).add(new Edge(find(min[i].a), find(min[i].b), min[i].c));
-						edgesAdded++;
-					}
-				if (edgesAdded < sz - 1) {
-					out.printf("Case #%d: Possums!\n", qq);
-					continue main;
-				}
-				v = new boolean[n];
-				curr = new boolean[n];
-				cycle = new boolean[n];
-				boolean cycleFound = false;
-				for (int i = 0; i < n; i++)
-					if (!v[find(i)])
-						if (dfs(find(i))) {
-							cycleFound = true;
-							break;
-						}
-				if (!cycleFound) {
-					for (int i = 0; i < n; i++)
-						if (min[i] != null)
-							res += min[i].c;
-					break;
-				}
-				for (int i = 0; i < e.size(); i++) {
-					if (!cycle[find(e.get(i).a)] && cycle[find(e.get(i).b)]) {
-						e.get(i).c -= min[find(e.get(i).b)].c;
-					}
-				}
-				for (int i = 0; i < n; i++) {
-					if (min[i] != null && cycle[find(min[i].a)] && cycle[find(min[i].b)]) {
-						// out.printf("MERGING %d and %d\n", min[i].a, min[i].b);
-						res += min[i].c;
-						if (find(min[i].a) != find(min[i].b)) {
-							merge(min[i].a, min[i].b);
-							sz--;
-						}
-					}
-				}
-				
-			}
-			out.printf("Case #%d: %d\n", qq, res);
+
+		n = readInt();
+		m = readInt();
+		id = new int[n];
+		e = new ArrayList<Edge>();
+		for (int i = 0; i < n; i++)
+			id[i] = i;
+		for (int i = 0; i < m; i++) {
+			int a = readInt();
+			int b = readInt();
+			int c = readInt();
+			e.add(new Edge(a, b, c));
 		}
-		
+		int sz = n;
+		int res = 0;
+		while (true) {
+			Edge[] min = new Edge[n];
+			int edgesAdded = 0;
+			for (Edge edge : e) {
+				int rx = find(edge.a);
+				int ry = find(edge.b);
+				if (rx == ry || ry == find(0))
+					continue;
+				if (min[ry] == null || min[ry].c > edge.c) {
+					min[ry] = edge;
+
+				}
+			}
+			adj = new ArrayList<ArrayList<Edge>>();
+			for (int i = 0; i < n; i++)
+				adj.add(new ArrayList<Edge>());
+			for (int i = 0; i < n; i++)
+				if (min[i] != null) {
+					adj.get(find(min[i].a)).add(new Edge(find(min[i].a), find(min[i].b), min[i].c));
+					edgesAdded++;
+				}
+			if (edgesAdded < sz - 1) {
+				out.printf("NO MINIMUM ARBORESCENCE FOUND\n");
+				return;
+			}
+			v = new boolean[n];
+			curr = new boolean[n];
+			cycle = new boolean[n];
+			boolean cycleFound = false;
+			for (int i = 0; i < n; i++)
+				if (!v[find(i)])
+					if (dfs(find(i))) {
+						cycleFound = true;
+						break;
+					}
+			if (!cycleFound) {
+				for (int i = 0; i < n; i++)
+					if (min[i] != null)
+						res += min[i].c;
+				break;
+			}
+			for (int i = 0; i < e.size(); i++) {
+				if (!cycle[find(e.get(i).a)] && cycle[find(e.get(i).b)]) {
+					e.get(i).c -= min[find(e.get(i).b)].c;
+				}
+			}
+			for (int i = 0; i < n; i++) {
+				if (min[i] != null && cycle[find(min[i].a)] && cycle[find(min[i].b)]) {
+					res += min[i].c;
+					if (find(min[i].a) != find(min[i].b)) {
+						merge(min[i].a, min[i].b);
+						sz--;
+					}
+				}
+			}
+		}
+		out.printf("The minimum arborescence is %d\n", res);
 		out.close();
 	}
 	static boolean dfs (int i) {
