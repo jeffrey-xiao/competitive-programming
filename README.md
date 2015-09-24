@@ -11,3 +11,7 @@ TODO LIST:
  - Stoer Wagner
  - Hungarian algorithm for min cost matching
  - Min cost Max flow
+ - Skip list
+ - Link/Cut tree
+ - Edmonds
+ - R-tree
