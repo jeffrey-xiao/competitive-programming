@@ -1,4 +1,4 @@
-package codebook.graph;
+package codebook.graph.mst;
 
 import java.io.BufferedReader;
 import java.io.IOException;
