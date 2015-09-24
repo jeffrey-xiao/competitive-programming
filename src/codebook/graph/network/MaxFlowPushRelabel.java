@@ -9,7 +9,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class PushRelabel {
+public class MaxFlowPushRelabel {
 
 	static BufferedReader br;
 	static PrintWriter out;

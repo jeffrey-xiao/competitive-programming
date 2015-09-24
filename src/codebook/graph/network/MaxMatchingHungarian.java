@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Hungarian {
+public class MaxMatchingHungarian {
 
 	static BufferedReader br;
 	static PrintWriter out;
