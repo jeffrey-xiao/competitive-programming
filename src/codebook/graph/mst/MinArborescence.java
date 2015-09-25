@@ -25,6 +25,7 @@ public class MinArborescence {
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
+		// precondition: You want the arborescence to start from vertex 0
 		n = readInt();
 		m = readInt();
 		id = new int[n];
