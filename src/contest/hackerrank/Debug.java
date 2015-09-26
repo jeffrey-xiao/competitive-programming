@@ -16,32 +16,32 @@ public class Debug {
 	static ArrayList<ArrayList<Integer>> indexes;
 	static boolean[][] v;
 	static int[] dsu;
+
 	public static void main (String[] args) throws IOException {
-//		long ans1 = 0;
-//		long ans2 = 0;
-//		while (ans1 == ans2) {
-//		PrintWriter o = new PrintWriter(new FileWriter("in.txt"));
-//		o.println(5);
-//		o.println(5);
-//		for (int i = 0; i < 5; i++) {
-//			String res = "";
-//			for (int j = 0; j < 5; j++) {
-//				int rand = (int)(Math.random()*3);
-//				if (rand == 0)
-//					res += '.';
-//				else if (rand == 1)
-//					res += '#';
-//				else
-//					res += '?';
-//			}
-//			o.println(res);
-//		}
-//		o.close();
-//		br = new BufferedReader(new InputStreamReader(System.in));
+		//		long ans1 = 0;
+		//		long ans2 = 0;
+		//		while (ans1 == ans2) {
+		//		PrintWriter o = new PrintWriter(new FileWriter("in.txt"));
+		//		o.println(5);
+		//		o.println(5);
+		//		for (int i = 0; i < 5; i++) {
+		//			String res = "";
+		//			for (int j = 0; j < 5; j++) {
+		//				int rand = (int)(Math.random()*3);
+		//				if (rand == 0)
+		//					res += '.';
+		//				else if (rand == 1)
+		//					res += '#';
+		//				else
+		//					res += '?';
+		//			}
+		//			o.println(res);
+		//		}
+		//		o.close();
+		//		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
 
 		n = readInt();
 		m = readInt();
@@ -67,8 +67,8 @@ public class Debug {
 		dp.add(new HashMap<State, Long>());
 		for (int i = 0; i < n; i++) {
 			int sz = indexes.get(i).size();
-			dp.get(i%2).clear();
-//			out.println(i);
+			dp.get(i % 2).clear();
+			//			out.println(i);
 			for (int j = 0; j < (1 << sz); j++) {
 				int[] newRow = new int[m];
 				for (int k = 0; k < m; k++)
@@ -80,19 +80,19 @@ public class Debug {
 				for (int k = 0; k < m; k++) {
 					if (newRow[k] == -1)
 						newRow[k] = id++;
-					if (k+1 < m && newRow[k] != 0 && newRow[k+1] == -1)
-						newRow[k+1] = newRow[k];
+					if (k + 1 < m && newRow[k] != 0 && newRow[k + 1] == -1)
+						newRow[k + 1] = newRow[k];
 				}
-				
+
 				if (i == 0) {
-//					out.println("NEW ROW");
-//					for (int k = 0; k < m; k++)
-//						out.print(newRow[k] + " ");
-//					out.println();
+					//					out.println("NEW ROW");
+					//					for (int k = 0; k < m; k++)
+					//						out.print(newRow[k] + " ");
+					//					out.println();
 					dp.get(i).put(new State(newRow, true), 1l);
 				} else {
 					int[] ogrow = Arrays.copyOf(newRow, newRow.length);
-					main : for (Map.Entry<State, Long> e : dp.get((i - 1)%2).entrySet()) {
+					main : for (Map.Entry<State, Long> e : dp.get((i - 1) % 2).entrySet()) {
 						newRow = Arrays.copyOf(ogrow, ogrow.length);
 						State s = e.getKey();
 						dsu = new int[m];
@@ -103,7 +103,7 @@ public class Debug {
 						}
 						for (int k = 0; k < m - 1; k++) {
 							if (newRow[k] == newRow[k + 1] && newRow[k] != 0)
-								merge(k, k+1);
+								merge(k, k + 1);
 						}
 						for (int k = 0; k < m; k++) {
 							for (int l = k + 1; l < m; l++) {
@@ -112,7 +112,7 @@ public class Debug {
 								}
 							}
 						}
-						
+
 						boolean hasCurr = false;
 						boolean hasPrev = false;
 						for (int k = 0; k < m; k++) {
@@ -141,7 +141,7 @@ public class Debug {
 						}
 						if (!hasCurr && hs.size() > 2)
 							continue main;
-						
+
 						for (int k = 0; k < m; k++)
 							if (newRow[k] != 0)
 								newRow[k] = find(k) + 1;
@@ -153,14 +153,14 @@ public class Debug {
 							if (newRow[k] != 0)
 								newRow[k] = convert.get(newRow[k]);
 						}
-//						out.println("OLD ROWWWW");
-//						for (int k = 0; k < m; k++)
-//							out.print(s.row[k] + " ");
-//						out.println();
-//						out.println("NEW ROW");
-//						for (int k = 0; k < m; k++)
-//							out.print(newRow[k] + " ");
-//						out.println();
+						//						out.println("OLD ROWWWW");
+						//						for (int k = 0; k < m; k++)
+						//							out.print(s.row[k] + " ");
+						//						out.println();
+						//						out.println("NEW ROW");
+						//						for (int k = 0; k < m; k++)
+						//							out.print(newRow[k] + " ");
+						//						out.println();
 						boolean canEmpty = false;
 						if (hasCurr)
 							canEmpty = true;
@@ -168,7 +168,7 @@ public class Debug {
 							canEmpty = false;
 						else if (!hasCurr && !hasPrev)
 							canEmpty = s.canEmpty;
-//						out.println(canEmpty);
+						//						out.println(canEmpty);
 						add(i % 2, new State(newRow, canEmpty), e.getValue());
 					}
 				}
@@ -181,27 +181,30 @@ public class Debug {
 			for (int i = 0; i < m; i++)
 				hs.add(s.row[i]);
 			if (hs.size() <= 2) {
-//				for (int i = 0; i < m; i++) {
-//					out.print(s.row[i] + " ");
-//				}
-//				out.println("\n " + e.getValue());
-				ans = (ans + e.getValue())%MOD;
+				//				for (int i = 0; i < m; i++) {
+				//					out.print(s.row[i] + " ");
+				//				}
+				//				out.println("\n " + e.getValue());
+				ans = (ans + e.getValue()) % MOD;
 			}
 		}
 		out.println(ans);
 		out.close();
-//		ans1 = ans;
-//		ans2 = bf();
-//		}
+		//		ans1 = ans;
+		//		ans2 = bf();
+		//		}
 	}
+
 	private static int find (int x) {
 		return x == dsu[x] ? x : (dsu[x] = find(dsu[x]));
 	}
+
 	private static void merge (int x, int y) {
 		int rx = find(x);
 		int ry = find(y);
 		dsu[rx] = ry;
 	}
+
 	private static int bf () {
 
 		ArrayList<Point> p = new ArrayList<Point>();
@@ -232,28 +235,30 @@ public class Debug {
 				}
 			}
 			if (cnt <= 1 && valid) {
-//				for (int k = 0; k < n; k++) {
-//					for (int l = 0; l < m; l++) {
-//						out.print(g[k][l] != 0 ? 1 : 0);
-//					}
-//					out.println();
-//				}
-//				out.println();
+				//				for (int k = 0; k < n; k++) {
+				//					for (int l = 0; l < m; l++) {
+				//						out.print(g[k][l] != 0 ? 1 : 0);
+				//					}
+				//					out.println();
+				//				}
+				//				out.println();
 				res++;
 			}
 		}
 		return res;
 
 	}
-	static int[] movex = {0,0,-1,1};
-	static int[] movey = {-1,1,0,0};
+
+	static int[] movex = {0, 0, -1, 1};
+	static int[] movey = {-1, 1, 0, 0};
+
 	static boolean dfs (int i, int j, int pi, int pj) {
 		v[i][j] = true;
 		boolean valid = true;
 		for (int z = 0; z < 4; z++) {
 			int ni = i + movex[z];
 			int nj = j + movey[z];
-//			out.println("NEXT " + ni + " " + nj);
+			//			out.println("NEXT " + ni + " " + nj);
 			if (ni < 0 || nj < 0 || ni >= n || nj >= m || (ni == pi && nj == pj) || g[ni][nj] == 0)
 				continue;
 			if (v[ni][nj]) {
@@ -261,37 +266,44 @@ public class Debug {
 				continue;
 			}
 			valid &= dfs(ni, nj, i, j);
-		}	
+		}
 		return valid;
 	}
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
+
 	static void add (int i, State s, long cnt) {
 		if (!dp.get(i).containsKey(s))
 			dp.get(i).put(s, 0l);
-		dp.get(i).put(s, (dp.get(i).get(s) + cnt)%MOD);
+		dp.get(i).put(s, (dp.get(i).get(s) + cnt) % MOD);
 	}
+
 	static class State {
 		int[] row;
 		boolean canEmpty;
+
 		State (int[] row, boolean canEmpty) {
 			this.row = Arrays.copyOf(row, row.length);
 			this.canEmpty = canEmpty;
 		}
+
 		public int hashCode () {
 			int res = 0;
 			for (int i = 0; i < row.length; i++)
 				res = (res * 31 + row[i]);
 			return res * 31 + (canEmpty ? 1 : 0);
 		}
+
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State)o;
+				State s = (State) o;
 				for (int i = 0; i < row.length; i++)
 					if (s.row[i] != row[i])
 						return false;
@@ -328,4 +340,3 @@ public class Debug {
 		return br.readLine().trim();
 	}
 }
-

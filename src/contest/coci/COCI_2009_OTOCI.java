@@ -14,7 +14,7 @@ public class COCI_2009_OTOCI {
 	static int[] id, size;
 	// HLD
 	static int[] parent, chainIndex, head, chain, subsize, depth;
-	
+
 	static Queue<Integer> unusedChains = new ArrayDeque<Integer>();
 	static Queue<Integer> unusedIndex = new ArrayDeque<Integer>();
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
@@ -25,6 +25,7 @@ public class COCI_2009_OTOCI {
 	static int n;
 	static int[][] seg;
 	static int[] chainSize;
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -32,18 +33,18 @@ public class COCI_2009_OTOCI {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		sn = (int)(Math.sqrt(n));
-		id = new int[n+1];
-		size = new int[n+1];
-		val = new int[n+1];
+		sn = (int) (Math.sqrt(n));
+		id = new int[n + 1];
+		size = new int[n + 1];
+		val = new int[n + 1];
 		seg = new int[n][1];
-		parent = new int[n+1];
-		chainSize = new int[n+1];
-		chainIndex = new int[n+1];
-		head = new int[n+1];
-		chain = new int[n+1];
-		subsize = new int[n+1];
-		depth = new int[n+1];
+		parent = new int[n + 1];
+		chainSize = new int[n + 1];
+		chainIndex = new int[n + 1];
+		head = new int[n + 1];
+		chain = new int[n + 1];
+		subsize = new int[n + 1];
+		depth = new int[n + 1];
 		adj.add(new ArrayList<Integer>());
 		chainSize[0] = 1;
 		for (int i = 1; i <= n; i++) {
@@ -100,24 +101,25 @@ public class COCI_2009_OTOCI {
 						index = 1;
 						hld(a, b, true);
 					}
-				} 
+				}
 			} else if (command.equals("penguins")) {
 				val[a] = b;
 				update(seg[chain[a]], 1, 1, chainSize[chain[a]], chainIndex[a], b);
 			}
 		}
-		
+
 		out.close();
 	}
+
 	static int getSum (int i, int j) {
 		int res = 0;
 		while (chain[i] != chain[j]) {
 			if (depth[head[chain[i]]] < depth[head[chain[j]]]) {
-				assert(chainIndex[head[chain[j]]] <= chainIndex[j]);
+				assert (chainIndex[head[chain[j]]] <= chainIndex[j]);
 				res += query(seg[chain[j]], 1, 1, chainSize[chain[j]], chainIndex[head[chain[j]]], chainIndex[j]);
 				j = parent[head[chain[j]]];
 			} else {
-				assert(chainIndex[head[chain[i]]] <= chainIndex[i]);
+				assert (chainIndex[head[chain[i]]] <= chainIndex[i]);
 				res += query(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[head[chain[i]]], chainIndex[i]);
 				i = parent[head[chain[i]]];
 			}
@@ -126,6 +128,7 @@ public class COCI_2009_OTOCI {
 			return res + query(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[i], chainIndex[j]);
 		return res + query(seg[chain[j]], 1, 1, chainSize[chain[j]], chainIndex[j], chainIndex[i]);
 	}
+
 	static int getLen (int a) {
 		int cnt = 0;
 		while (parent[head[chain[a]]] != -1) {
@@ -135,7 +138,7 @@ public class COCI_2009_OTOCI {
 		top = head[chain[a]];
 		return cnt;
 	}
-	
+
 	static void getUnused (int i, int prev, boolean newChain) {
 		if (newChain) {
 			unusedChains.offer(chain[i]);
@@ -145,6 +148,7 @@ public class COCI_2009_OTOCI {
 			if (j != prev)
 				getUnused(j, i, chain[i] != chain[j]);
 	}
+
 	static void hld (int i, int prev, boolean newChain) {
 		if (newChain)
 			head[chainNo] = i;
@@ -172,16 +176,16 @@ public class COCI_2009_OTOCI {
 		}
 		update(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[i], val[i]);
 	}
-	
+
 	static void dfs (int i, int d, int prev) {
 		parent[i] = prev;
 		subsize[i] = 1;
 		depth[i] = d;
 		for (int j : adj.get(i))
 			if (j != prev)
-				dfs(j, d+1, i);
+				dfs(j, d + 1, i);
 	}
-	
+
 	static void update (int[] tree, int n, int lo, int hi, int i, int val) {
 		if (lo == i && i == hi) {
 			tree[n] = val;
@@ -191,23 +195,25 @@ public class COCI_2009_OTOCI {
 		if (i <= mid)
 			update(tree, n << 1, lo, mid, i, val);
 		else
-			update(tree, n << 1 | 1, mid+1, hi, i, val);
+			update(tree, n << 1 | 1, mid + 1, hi, i, val);
 		tree[n] = tree[n << 1] + tree[n << 1 | 1];
 	}
+
 	static int query (int[] tree, int n, int lo, int hi, int qlo, int qhi) {
 		if (lo == qlo && hi == qhi)
 			return tree[n];
 		int mid = (lo + hi) >> 1;
 		if (qhi <= mid)
 			return query(tree, n << 1, lo, mid, qlo, qhi);
-		else if (qlo > mid)			
+		else if (qlo > mid)
 			return query(tree, n << 1 | 1, mid + 1, hi, qlo, qhi);
-		return query(tree, n << 1, lo, mid, qlo, mid) + query(tree, n << 1 | 1, mid+1, hi, mid+1, qhi);
+		return query(tree, n << 1, lo, mid, qlo, mid) + query(tree, n << 1 | 1, mid + 1, hi, mid + 1, qhi);
 	}
-	
+
 	static int find (int i) {
 		return i == id[i] ? i : (id[i] = find(id[i]));
 	}
+
 	static void merge (int i, int j) {
 		int rx = find(i);
 		int ry = find(j);
@@ -219,6 +225,7 @@ public class COCI_2009_OTOCI {
 			id[rx] = ry;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -245,4 +252,3 @@ public class COCI_2009_OTOCI {
 		return br.readLine().trim();
 	}
 }
-

@@ -34,7 +34,7 @@ public class Johnson {
 			adj.add(new ArrayList<Edge>());
 			h[i] = 1 << 29;
 		}
-		
+
 		for (int i = 1; i <= n; i++)
 			adj.get(0).add(new Edge(i, 0));
 
@@ -46,12 +46,12 @@ public class Johnson {
 		}
 
 		h[0] = 0;
-		for (int i = 0; i < n-1; i++)
+		for (int i = 0; i < n - 1; i++)
 			for (int j = 0; j <= n; j++)
 				for (Edge e : adj.get(j))
 					if (h[e.dest] > e.cost + h[j])
 						h[e.dest] = e.cost + h[j];
-		
+
 		for (int i = 1; i <= n; i++)
 			dist[i] = getPath(i);
 		for (int i = 0; i < q; i++) {
@@ -63,7 +63,7 @@ public class Johnson {
 	}
 
 	static int[] getPath (int src) {
-		int[] dist = new int[n+1];
+		int[] dist = new int[n + 1];
 		for (int i = 0; i <= n; i++)
 			dist[i] = 1 << 29;
 		dist[src] = 0;
@@ -80,19 +80,21 @@ public class Johnson {
 		}
 		return dist;
 	}
-	
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Vertex o) {
 			return cost - o.cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -119,4 +121,3 @@ public class Johnson {
 		return br.readLine().trim();
 	}
 }
-

@@ -15,7 +15,6 @@ public class DMOPC_2014_Apples_To_Oranges {
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-
 		HashMap<String, Integer> hm = new HashMap<String, Integer>();
 		int n = readInt();
 		int m = readInt();
@@ -44,9 +43,11 @@ public class DMOPC_2014_Apples_To_Oranges {
 			out.println("NAW");
 		out.close();
 	}
+
 	static class Edge {
 		int orig, dest;
 		double cost;
+
 		Edge (int orig, int dest, double cost) {
 			this.orig = orig;
 			this.dest = dest;
@@ -80,4 +81,3 @@ public class DMOPC_2014_Apples_To_Oranges {
 		return br.readLine().trim();
 	}
 }
-

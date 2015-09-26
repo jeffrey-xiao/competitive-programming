@@ -11,7 +11,7 @@ public class SparseTable {
 
 	static int n, q, ln;
 	static int[][] m;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,24 +20,23 @@ public class SparseTable {
 
 		n = readInt();
 		q = readInt();
-		ln = 1 + (int)(Math.ceil(Math.log(n) / Math.log(2)));
-		
+		ln = 1 + (int) (Math.ceil(Math.log(n) / Math.log(2)));
+
 		m = new int[n][ln];
-		
+
 		for (int i = 0; i < n; i++)
 			m[i][0] = readInt();
 		for (int i = 1; i < ln; i++)
 			for (int j = 0; j + (1 << i) - 1 < n; j++) {
-				m[j][i] = Math.min(m[j][i-1], m[j + (1 << (i - 1))][i-1]);
+				m[j][i] = Math.min(m[j][i - 1], m[j + (1 << (i - 1))][i - 1]);
 			}
 		for (int i = 0; i < q; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
-			int sz = (int)(Math.log(b - a + 1) / Math.log(2));
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			int sz = (int) (Math.log(b - a + 1) / Math.log(2));
 			out.println(Math.min(m[a][sz], m[b - (1 << sz) + 1][sz]));
 		}
-		
-		
+
 		out.close();
 	}
 
@@ -67,4 +66,3 @@ public class SparseTable {
 		return br.readLine().trim();
 	}
 }
-

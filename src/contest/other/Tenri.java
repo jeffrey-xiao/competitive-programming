@@ -73,7 +73,7 @@ public class Tenri {
 		dp[box][s] = res;
 		return res;
 	}
-	
+
 	static int count (int i) {
 		int c = 0;
 		for (int x = 0; x < n; x++)

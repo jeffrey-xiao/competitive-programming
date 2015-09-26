@@ -16,6 +16,7 @@ public class DfsBiconnectedComponents {
 	static boolean[] v, cutVertex;
 	static int count = 0;
 	static int n, m;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -31,8 +32,8 @@ public class DfsBiconnectedComponents {
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
@@ -60,10 +61,10 @@ public class DfsBiconnectedComponents {
 				if ((disc[i] == 0 && children > 1) || (disc[i] > 0 && low[j] >= disc[i])) {
 					cutVertex[i] = true;
 					while (s.peek().a != i || s.peek().b != j) {
-						out.printf("%d-%d ", s.peek().a+1, s.peek().b+1);
+						out.printf("%d-%d ", s.peek().a + 1, s.peek().b + 1);
 						s.pop();
 					}
-					out.printf("%d-%d\n", s.peek().a+1, s.peek().b+1);
+					out.printf("%d-%d\n", s.peek().a + 1, s.peek().b + 1);
 					s.pop();
 				}
 				if (low[j] > disc[i])
@@ -77,12 +78,13 @@ public class DfsBiconnectedComponents {
 
 	static class Edge {
 		int a, b;
+
 		Edge (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -109,4 +111,3 @@ public class DfsBiconnectedComponents {
 		return br.readLine().trim();
 	}
 }
-

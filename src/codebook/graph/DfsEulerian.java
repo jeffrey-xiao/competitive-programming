@@ -12,6 +12,7 @@ public class DfsEulerian {
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int n, m;
 	static int[] used;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,14 +25,15 @@ public class DfsEulerian {
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(new Edge(b, adj.get(b).size()));
-			adj.get(b).add(new Edge(a, adj.get(a).size()-1));
+			adj.get(b).add(new Edge(a, adj.get(a).size() - 1));
 		}
 		printEulerianPath();
 		out.close();
 	}
+
 	static void printEulerianPath () {
 		if (!isEulerianPath()) {
 			out.println("No Eulerian Path Exists");
@@ -44,7 +46,7 @@ public class DfsEulerian {
 				curr = i;
 		while (true) {
 			if (adj.get(curr).size() - used[curr] == 0) {
-				out.print(curr+1 + " ");
+				out.print(curr + 1 + " ");
 				if (order.size() == 0)
 					break;
 				curr = order.pop();
@@ -66,14 +68,15 @@ public class DfsEulerian {
 		}
 		out.println();
 	}
+
 	static boolean isEulerianPath () {
 		return getEuler() != -1;
 	}
-	
+
 	static boolean isEulerianCycle () {
 		return getEuler() == 0;
 	}
-	
+
 	static int getEuler () {
 		// assuming that all vertices are connected
 		int odd = 0;
@@ -82,17 +85,20 @@ public class DfsEulerian {
 				odd++;
 		if (odd > 2)
 			return -1;
-		return odd == 0 ? 0 : 1; 
+		return odd == 0 ? 0 : 1;
 	}
+
 	static class Edge {
 		int dest, index;
 		boolean used;
+
 		Edge (int dest, int index) {
 			this.dest = dest;
 			this.index = index;
 			this.used = false;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

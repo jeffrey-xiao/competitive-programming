@@ -11,6 +11,7 @@ public class Road_Reform {
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 	static int n, m;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -30,10 +31,10 @@ public class Road_Reform {
 		}
 		long[] dist1 = getPath(1);
 		long[] dist2 = getPath(n);
-		Arrays.sort(dist2, 1, n+1);
-		long[] sum = new long[n+1];
+		Arrays.sort(dist2, 1, n + 1);
+		long[] sum = new long[n + 1];
 		for (int i = 1; i <= n; i++) {
-			sum[i] = dist2[i] + sum[i-1];
+			sum[i] = dist2[i] + sum[i - 1];
 		}
 		TreeSet<Vertex> ts = new TreeSet<Vertex>();
 		for (int i = 1; i <= n; i++)
@@ -46,13 +47,14 @@ public class Road_Reform {
 			if (res == null)
 				continue;
 			//out.println(target + " " + res.index + " " + ((target-1) * res.index - sum[res.index]) + " " + sum[res.index]);
-			ans += (target-1) * res.index - sum[res.index];
+			ans += (target - 1) * res.index - sum[res.index];
 		}
 		out.println(ans);
 		out.close();
 	}
+
 	static long[] getPath (int start) {
-		long[] dist = new long[n+1];
+		long[] dist = new long[n + 1];
 		PriorityQueue<Vertex> pq = new PriorityQueue<Vertex>();
 		pq.offer(new Vertex(start, 0));
 		for (int i = 0; i <= n; i++)
@@ -69,23 +71,28 @@ public class Road_Reform {
 		}
 		return dist;
 	}
+
 	static class Edge {
 		int dest;
-        long cost;
+		long cost;
+
 		Edge (int dest, long cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
 	}
+
 	static class Vertex implements Comparable<Vertex> {
 		int index;
-        Long cost;
+		Long cost;
+
 		Vertex (int index, long cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		public int compareTo (Vertex n) {
-            int cmp = cost.compareTo(n.cost);
+			int cmp = cost.compareTo(n.cost);
 			if (cmp == 0)
 				return index - n.index;
 			return cmp;

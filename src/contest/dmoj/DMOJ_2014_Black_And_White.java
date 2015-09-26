@@ -15,15 +15,13 @@ public class DMOJ_2014_Black_And_White {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-
-
 		HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();
 		HashMap<Integer, Integer> toCoord = new HashMap<Integer, Integer>();
 		int n = readInt();
 		int m = readInt();
 		PriorityQueue<Event> pq = new PriorityQueue<Event>();
 		TreeSet<Integer> ys = new TreeSet<Integer>();
-		for(int x = 0; x < m; x++){
+		for (int x = 0; x < m; x++) {
 			int x1 = readInt();
 			int y1 = readInt();
 			int x2 = readInt() + x1;
@@ -34,52 +32,56 @@ public class DMOJ_2014_Black_And_White {
 			ys.add(y2);
 		}
 		int count = 1;
-		for(Integer i : ys){
+		for (Integer i : ys) {
 			toIndex.put(i, count);
 			toCoord.put(count, i);
 			count++;
 		}
-		long[] line = new long[count+1];
+		long[] line = new long[count + 1];
 		long totalArea = 0;
 		long lastx = Integer.MIN_VALUE;
-		while(!pq.isEmpty()){
+		while (!pq.isEmpty()) {
 			Event curr = pq.poll();
 			long currx = curr.x;
 			long currTotal = 0;
-			for(int x = 0; x < count; x++){
-				currTotal+=line[x];
-				if(lastx != Integer.MIN_VALUE && currTotal % 2 == 1 && x != count-1){
-					totalArea += (currx-lastx)*((long)toCoord.get(x+1)-(long)toCoord.get(x));
+			for (int x = 0; x < count; x++) {
+				currTotal += line[x];
+				if (lastx != Integer.MIN_VALUE && currTotal % 2 == 1 && x != count - 1) {
+					totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
 				}
 			}
 			lastx = currx;
-			line[toIndex.get(curr.y1)]+=curr.value;
-			line[toIndex.get(curr.y2)]-=curr.value;
-			while(!pq.isEmpty() && pq.peek().x == lastx){
+			line[toIndex.get(curr.y1)] += curr.value;
+			line[toIndex.get(curr.y2)] -= curr.value;
+			while (!pq.isEmpty() && pq.peek().x == lastx) {
 				curr = pq.poll();
-				line[toIndex.get(curr.y1)]+=curr.value;
-				line[toIndex.get(curr.y2)]-=curr.value;
+				line[toIndex.get(curr.y1)] += curr.value;
+				line[toIndex.get(curr.y2)] -= curr.value;
 			}
 		}
 		out.println(totalArea);
 		out.close();
 	}
-	static class Event implements Comparable<Event>{
+
+	static class Event implements Comparable<Event> {
 		int x;
 		int y1;
 		int y2;
 		int value;
-		Event(int x, int y1, int y2, int value){
+
+		Event (int x, int y1, int y2, int value) {
 			this.x = x;
 			this.y1 = y1;
 			this.y2 = y2;
 			this.value = value;
 		}
+
 		@Override
-		public int compareTo(Event o) {
-			return x-o.x;
+		public int compareTo (Event o) {
+			return x - o.x;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -106,4 +108,3 @@ public class DMOJ_2014_Black_And_White {
 		return br.readLine().trim();
 	}
 }
-

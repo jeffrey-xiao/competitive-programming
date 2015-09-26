@@ -14,7 +14,7 @@ public class MinCutStoerWagner {
 	static int[] weight;
 	static boolean[] used;
 	static boolean[] inContraction;
-	
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,7 +26,7 @@ public class MinCutStoerWagner {
 		weight = new int[n];
 		used = new boolean[n];
 		inContraction = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
 				adj[i][j] = readInt();
@@ -34,9 +34,10 @@ public class MinCutStoerWagner {
 		out.println(getMinCut());
 		out.close();
 	}
+
 	static int getMinCut () {
 		int minCut = 1 << 30;
-		for (int v = n-1; v >= 0; v--) {
+		for (int v = n - 1; v >= 0; v--) {
 			// initializing the weights of each node -- a weight of a node is the sum of the connects to the growing subgraph
 			// the initial subgraph will contain node 0
 			for (int i = 1; i < n; i++) {
@@ -67,6 +68,7 @@ public class MinCutStoerWagner {
 		}
 		return minCut;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -93,4 +95,3 @@ public class MinCutStoerWagner {
 		return br.readLine().trim();
 	}
 }
-

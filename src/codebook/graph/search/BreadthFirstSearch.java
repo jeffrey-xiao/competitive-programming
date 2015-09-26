@@ -13,7 +13,7 @@ public class BreadthFirstSearch {
 	static ArrayList<ArrayList<Integer>> adj;
 	static Queue<Integer> q;
 	static int[] dist;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -81,4 +81,3 @@ public class BreadthFirstSearch {
 		return br.readLine().trim();
 	}
 }
-

@@ -50,7 +50,7 @@ public class Uva_11183_Teen_Girl_Squad {
 						continue;
 					if (min[ry] == null || min[ry].c > edge.c) {
 						min[ry] = edge;
-						
+
 					}
 				}
 				adj = new ArrayList<ArrayList<Edge>>();
@@ -97,13 +97,14 @@ public class Uva_11183_Teen_Girl_Squad {
 						}
 					}
 				}
-				
+
 			}
 			out.printf("Case #%d: %d\n", qq, res);
 		}
-		
+
 		out.close();
 	}
+
 	static boolean dfs (int i) {
 		v[i] = true;
 		curr[i] = true;
@@ -120,22 +121,27 @@ public class Uva_11183_Teen_Girl_Squad {
 		curr[i] = false;
 		return ret;
 	}
-	static int find  (int x) {
+
+	static int find (int x) {
 		return id[x] == x ? x : (id[x] = find(id[x]));
 	}
+
 	static void merge (int x, int y) {
 		int rx = find(x);
 		int ry = find(y);
 		id[rx] = ry;
 	}
+
 	static class Edge {
 		int a, b, c;
+
 		Edge (int a, int b, int c) {
 			this.a = a;
 			this.b = b;
 			this.c = c;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

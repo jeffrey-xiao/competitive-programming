@@ -139,7 +139,7 @@ public class TEST2 {
 			if (right > end)
 				right = end;
 			int median = median(seq, left, right, 3);
-//			swap(seq[median], seq[i]);
+			//			swap(seq[median], seq[i]);
 		}
 
 		return median(seq, 0, (end + 1) / 5, (end + 1) / 10);

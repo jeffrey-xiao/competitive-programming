@@ -21,13 +21,14 @@ public class DMOPC_2014_Collecting_Dust {
 		int b = readInt();
 		int y = readInt();
 		int g = readInt();
-		
-		out.println(Math.max(0, c - f(r,4) - f(w,5) - f(b,4) - f(y, 3) - f(g, 6)));
-		
+
+		out.println(Math.max(0, c - f(r, 4) - f(w, 5) - f(b, 4) - f(y, 3) - f(g, 6)));
+
 		out.close();
 	}
+
 	static int f (int x, int y) {
-		return (x + y - 1)/y;
+		return (x + y - 1) / y;
 	}
 
 	static String next () throws IOException {
@@ -56,4 +57,3 @@ public class DMOPC_2014_Collecting_Dust {
 		return br.readLine().trim();
 	}
 }
-

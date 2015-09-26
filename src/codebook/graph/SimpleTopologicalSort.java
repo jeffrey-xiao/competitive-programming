@@ -13,7 +13,7 @@ public class SimpleTopologicalSort {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static Queue<Integer> q = new ArrayDeque<Integer>(), order = new ArrayDeque<Integer>();
 	static int[] cnt;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,10 +25,10 @@ public class SimpleTopologicalSort {
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		cnt = new int[n];
-		
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			cnt[b]++;
 		}
@@ -53,7 +53,7 @@ public class SimpleTopologicalSort {
 			while (!order.isEmpty())
 				out.println(order.poll() + 1);
 		}
-		
+
 		out.close();
 	}
 
@@ -83,4 +83,3 @@ public class SimpleTopologicalSort {
 		return br.readLine().trim();
 	}
 }
-

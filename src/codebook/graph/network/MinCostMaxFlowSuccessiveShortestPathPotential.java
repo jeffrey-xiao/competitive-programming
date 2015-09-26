@@ -14,7 +14,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 	static Edge[] e;
 	static int[] last;
 	static int cnt = 0;
-	
+
 	static int[] phi;
 	static int[] prev, dist, index;
 
@@ -30,18 +30,18 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		sink = readInt() - 1;
 
 		last = new int[n];
-		e = new Edge[m*2];
+		e = new Edge[m * 2];
 		dist = new int[n];
 		prev = new int[n];
 		index = new int[n];
 		phi = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			last[i] = -1;
-		
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int flow = readInt();
 			int cost = readInt();
 			addEdge(a, b, cost, -cost, flow, 0);
@@ -49,6 +49,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		out.println(getMinCostMaxFlow());
 		out.close();
 	}
+
 	@SuppressWarnings ("unused")
 	static int getMinCostMaxFlow () {
 		int flow = 0;
@@ -76,22 +77,25 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		}
 		return cost;
 	}
+
 	static void reduceCost () {
 		for (int i = 0; i < cnt; i += 2) {
 			e[i].cost += phi[e[i].orig] - phi[e[i].dest];
-			e[i^1].cost = 0;
+			e[i ^ 1].cost = 0;
 		}
 	}
+
 	static void bellmanFord () {
 		for (int i = 0; i < n; i++)
 			phi[i] = 1 << 25;
 		phi[src] = 0;
-		for (int j = 0; j < n-1; j++)
+		for (int j = 0; j < n - 1; j++)
 			for (int i = 0; i < cnt; i++)
 				if (e[i].flow > 0)
 					phi[e[i].dest] = Math.min(phi[e[i].dest], phi[e[i].orig] + e[i].cost);
-	
+
 	}
+
 	static boolean dijkstra () {
 		for (int i = 0; i < n; i++) {
 			dist[i] = 1 << 30;
@@ -114,26 +118,31 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		}
 		return dist[sink] != 1 << 30;
 	}
+
 	static void addEdge (int x, int y, int costxy, int costyx, int flowxy, int flowyx) {
 		e[cnt] = new Edge(x, y, costxy, flowxy, last[x]);
 		last[x] = cnt++;
 		e[cnt] = new Edge(y, x, costyx, flowyx, last[y]);
 		last[y] = cnt++;
 	}
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
-		
+
 		@Override
 		public int compareTo (Vertex v) {
 			return cost - v.cost;
 		}
 	}
+
 	static class Edge {
 		int orig, dest, origCost, cost, flow, last;
+
 		Edge (int orig, int dest, int cost, int flow, int last) {
 			this.orig = orig;
 			this.dest = dest;
@@ -170,4 +179,3 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		return br.readLine().trim();
 	}
 }
-

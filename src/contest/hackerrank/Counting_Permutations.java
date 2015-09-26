@@ -12,17 +12,18 @@ public class Counting_Permutations {
 	static Node[] tree;
 	static boolean[] dup;
 	static long[] F;
+
 	public static void main (String[] args) throws IOException {
-//		br = new BufferedReader(new InputStreamReader(System.in));
+		//		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 		F = new long[100001];
 		F[0] = 1;
 		for (int i = 1; i <= 100000; i++) {
-			F[i] = F[i-1]*i % MOD;
+			F[i] = F[i - 1] * i % MOD;
 		}
-		
+
 		int t = readInt();
 		for (int qq = 0; qq < t; qq++) {
 			int n = readInt();
@@ -31,8 +32,8 @@ public class Counting_Permutations {
 			for (int i = 0; i < n; i++)
 				tree[i] = new Node();
 			for (int i = 0; i < n - 1; i++) {
-				int a = readInt()-1;
-				int b = readInt()-1;
+				int a = readInt() - 1;
+				int b = readInt() - 1;
 				tree[a].child.add(b);
 				tree[b].child.add(a);
 			}
@@ -45,34 +46,37 @@ public class Counting_Permutations {
 			HashSet<String> v = new HashSet<String>();
 			long ans = 0;
 			for (int i = 0; i < n; i++) {
-//				out.println(i + " " + tree[i].hash.get(-1));
+				//				out.println(i + " " + tree[i].hash.get(-1));
 				if (tree[i].child.size() <= 2 && !v.contains(tree[i].hash.get(-1).toString())) {
-//					out.println("DP ON " + i + " " + tree[i].dp.get(-1));
-					ans = (ans + tree[i].dp.get(-1))%MOD;
+					//					out.println("DP ON " + i + " " + tree[i].dp.get(-1));
+					ans = (ans + tree[i].dp.get(-1)) % MOD;
 					v.add(tree[i].hash.get(-1).toString());
 				}
 			}
 			out.println(ans);
 		}
-		
-		
+
 		out.close();
 	}
+
 	private static long choose (int n, int k) {
-		return divMod(divMod(F[n], F[k]), F[n-k]);
+		return divMod(divMod(F[n], F[k]), F[n - k]);
 	}
+
 	private static long divMod (long i, long j) {
-		return i * pow(j, MOD-2)%MOD;
+		return i * pow(j, MOD - 2) % MOD;
 	}
+
 	private static long pow (long a, int b) {
 		if (b == 0)
 			return 1;
 		if (b == 1)
 			return a;
 		if (b % 2 == 0)
-			return pow(a*a % MOD, b/2);
-		return a*pow(a*a % MOD, b/2)%MOD;
+			return pow(a * a % MOD, b / 2);
+		return a * pow(a * a % MOD, b / 2) % MOD;
 	}
+
 	private static void dp (int i, int prev) {
 		if (tree[i].dp.containsKey(prev))
 			return;
@@ -86,21 +90,22 @@ public class Counting_Permutations {
 		if (dpv.size() == 0)
 			tree[i].dp.put(prev, 1l);
 		else if (dpv.size() == 1)
-			tree[i].dp.put(prev, 2*tree[dpv.get(0)].dp.get(i) % MOD);
+			tree[i].dp.put(prev, 2 * tree[dpv.get(0)].dp.get(i) % MOD);
 		else if (dpv.size() == 2) {
 			int a = tree[dpv.get(0)].size.get(i);
 			int b = tree[dpv.get(1)].size.get(i);
 			long dpa = tree[dpv.get(0)].dp.get(i);
 			long dpb = tree[dpv.get(1)].dp.get(i);
 			long pow = tree[dpv.get(0)].hash.get(i).toString().equals(tree[dpv.get(1)].hash.get(i).toString()) ? 1 : 2;
-			tree[i].dp.put(prev, (((choose(a+b, a) * dpa)%MOD * dpb)%MOD * pow) % MOD);
+			tree[i].dp.put(prev, (((choose(a + b, a) * dpa) % MOD * dpb) % MOD * pow) % MOD);
 		}
-			
+
 	}
+
 	private static void compute (int i, int prev) {
 		if (tree[i].hash.containsKey(prev))
 			return;
-//		System.out.println(i + " " + prev);
+		//		System.out.println(i + " " + prev);
 		int size = 1;
 		ArrayList<StringBuilder> hv = new ArrayList<StringBuilder>();
 		for (int j : tree[i].child)
@@ -119,8 +124,7 @@ public class Counting_Permutations {
 				tree[i].hash.get(prev).append(hv.get(0));
 				tree[i].hash.get(prev).append(hv.get(1));
 				tree[i].hash.get(prev).append("1");
-			}
-			else {
+			} else {
 				tree[i].hash.put(prev, new StringBuilder());
 				tree[i].hash.get(prev).append("0");
 				tree[i].hash.get(prev).append(hv.get(1));
@@ -140,6 +144,7 @@ public class Counting_Permutations {
 		HashMap<Integer, Long> dp;
 		HashMap<Integer, StringBuilder> hash;
 		HashMap<Integer, Integer> size;
+
 		Node () {
 			child = new ArrayList<Integer>();
 			dp = new HashMap<Integer, Long>();
@@ -147,7 +152,7 @@ public class Counting_Permutations {
 			size = new HashMap<Integer, Integer>();
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -174,4 +179,3 @@ public class Counting_Permutations {
 		return br.readLine().trim();
 	}
 }
-

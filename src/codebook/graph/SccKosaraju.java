@@ -20,7 +20,7 @@ public class SccKosaraju {
 	static int cnt;
 	static Stack<Integer> order = new Stack<Integer>();
 	static boolean[] v;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,17 +29,17 @@ public class SccKosaraju {
 
 		n = readInt();
 		m = readInt();
-		
+
 		id = new int[n];
 		v = new boolean[n];
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Integer>());
 			rev.add(new ArrayList<Integer>());
 		}
-		
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			rev.get(b).add(a);
 		}
@@ -55,7 +55,7 @@ public class SccKosaraju {
 			}
 		}
 		for (int i = 0; i < n; i++)
-			out.printf("vertex %d is in component %d\n", i+1, id[i]);
+			out.printf("vertex %d is in component %d\n", i + 1, id[i]);
 		out.close();
 	}
 
@@ -66,6 +66,7 @@ public class SccKosaraju {
 				dfs(j);
 		order.push(i);
 	}
+
 	static void mark (int i) {
 		v[i] = true;
 		id[i] = cnt;

@@ -52,6 +52,7 @@ public class AdjacencyList {
 
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;

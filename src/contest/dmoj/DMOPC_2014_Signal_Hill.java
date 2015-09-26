@@ -16,35 +16,38 @@ public class DMOPC_2014_Signal_Hill {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int q = readInt();	
+		int q = readInt();
 		Beacon[] b = new Beacon[n];
 		boolean[][] adj = new boolean[n][n];
 		for (int i = 0; i < n; i++)
 			b[i] = new Beacon(readInt(), readInt(), readInt());
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
-				if (sqr(b[i].x - b[j].x)+sqr(b[i].y - b[j].y) <= sqr(b[i].r))
+				if (sqr(b[i].x - b[j].x) + sqr(b[i].y - b[j].y) <= sqr(b[i].r))
 					adj[i][j] = true;
 		for (int k = 0; k < n; k++)
 			for (int i = 0; i < n; i++)
 				for (int j = 0; j < n; j++)
 					adj[i][j] |= adj[i][k] && adj[k][j];
 		for (int i = 0; i < q; i++)
-			out.println(adj[readInt()-1][readInt()-1] ? "YES" : "NO");
+			out.println(adj[readInt() - 1][readInt() - 1] ? "YES" : "NO");
 		out.close();
 	}
+
 	static int sqr (int x) {
-		return x*x;
+		return x * x;
 	}
+
 	static class Beacon {
 		int x, y, r;
+
 		Beacon (int x, int y, int r) {
 			this.x = x;
 			this.y = y;
 			this.r = r;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -71,4 +74,3 @@ public class DMOPC_2014_Signal_Hill {
 		return br.readLine().trim();
 	}
 }
-

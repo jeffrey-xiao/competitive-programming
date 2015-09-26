@@ -29,14 +29,14 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 		sink = readInt() - 1;
 
 		last = new int[n];
-		e = new Edge[m*2];
+		e = new Edge[m * 2];
 
 		for (int i = 0; i < n; i++)
 			last[i] = -1;
-		
+
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int flow = readInt();
 			int cost = readInt();
 			addEdge(a, b, cost, -cost, flow, 0);
@@ -44,6 +44,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 		out.println(getMinCostMaxFlow());
 		out.close();
 	}
+
 	@SuppressWarnings ("unused")
 	static int getMinCostMaxFlow () {
 		int flow = 0;
@@ -66,6 +67,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 		}
 		return cost;
 	}
+
 	static boolean bellmanFord () {
 		prev = new int[n];
 		dist = new int[n];
@@ -75,7 +77,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 			dist[i] = 1 << 25;
 		}
 		dist[src] = 0;
-		for (int j = 0; j < n-1; j++) {
+		for (int j = 0; j < n - 1; j++) {
 			for (int i = 0; i < cnt; i++) {
 				if (e[i].flow > 0 && dist[e[i].orig] + e[i].cost < dist[e[i].dest]) {
 					dist[e[i].dest] = dist[e[i].orig] + e[i].cost;
@@ -86,6 +88,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 		}
 		return dist[sink] != 1 << 25;
 	}
+
 	static void addEdge (int x, int y, int costxy, int costyx, int flowxy, int flowyx) {
 		e[cnt] = new Edge(x, y, costxy, flowxy, last[x]);
 		last[x] = cnt++;
@@ -95,6 +98,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 
 	static class Edge {
 		int orig, dest, cost, flow, last;
+
 		Edge (int orig, int dest, int cost, int flow, int last) {
 			this.orig = orig;
 			this.dest = dest;
@@ -130,4 +134,3 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 		return br.readLine().trim();
 	}
 }
-

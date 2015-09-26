@@ -11,11 +11,11 @@ public class DfsTopologicalSort {
 
 	static int n, m;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	
+
 	static boolean[] v;
 	static boolean[] done;
 	static Stack<Integer> order = new Stack<Integer>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,17 +29,18 @@ public class DfsTopologicalSort {
 		v = new boolean[n];
 		done = new boolean[n];
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 		}
 		for (int i = 0; i < n; i++)
 			if (!done[i])
 				dfs(i);
 		while (!order.isEmpty())
-			out.println(order.pop()+1);
+			out.println(order.pop() + 1);
 		out.close();
 	}
+
 	static void dfs (int i) {
 		if (v[i]) {
 			out.println("NOT A DIRECTED ACYCLIC GRAPH");
@@ -81,4 +82,3 @@ public class DfsTopologicalSort {
 		return br.readLine().trim();
 	}
 }
-

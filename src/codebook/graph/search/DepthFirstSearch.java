@@ -13,7 +13,7 @@ public class DepthFirstSearch {
 	static ArrayList<ArrayList<Integer>> adj;
 	static Queue<Integer> q;
 	static boolean[] v;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,10 +26,10 @@ public class DepthFirstSearch {
 		adj = new ArrayList<ArrayList<Integer>>();
 
 		v = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
@@ -41,12 +41,14 @@ public class DepthFirstSearch {
 				dfs(i);
 		out.close();
 	}
+
 	static void dfs (int i) {
 		v[i] = true;
 		for (Integer j : adj.get(i))
 			if (!v[j])
 				dfs(j);
-	} 
+	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -73,4 +75,3 @@ public class DepthFirstSearch {
 		return br.readLine().trim();
 	}
 }
-

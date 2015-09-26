@@ -15,6 +15,7 @@ public class Leftover_Eggnog {
 	static PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static int a, b, k;
+
 	public static void main (String[] args) throws IOException {
 		a = readInt();
 		b = readInt();
@@ -63,7 +64,7 @@ public class Leftover_Eggnog {
 			// fill x
 			if (!v.contains(new State(a, curr.y, curr))) {
 				v.add(new State(a, curr.y, curr));
-				q.offer(new State(a, curr.y, 	curr));
+				q.offer(new State(a, curr.y, curr));
 			}
 			// fill y
 			if (!v.contains(new State(curr.x, b, curr))) {
@@ -97,6 +98,7 @@ public class Leftover_Eggnog {
 	static class State {
 		int x, y;
 		State prev;
+
 		State (int x, int y, State prev) {
 			this.x = x;
 			this.y = y;

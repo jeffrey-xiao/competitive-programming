@@ -29,7 +29,7 @@ public class DMOPC_2014_MMORPG {
 			int x = readInt();
 			int y = readInt();
 			for (int j = 0; j < r; j++)
-				if (x1[j] <= x && x <x2[j] && y1[j] <= y && y < y2[j])
+				if (x1[j] <= x && x < x2[j] && y1[j] <= y && y < y2[j])
 					unlock[j] = true;
 		}
 		int cnt = 0;
@@ -66,4 +66,3 @@ public class DMOPC_2014_MMORPG {
 		return br.readLine().trim();
 	}
 }
-

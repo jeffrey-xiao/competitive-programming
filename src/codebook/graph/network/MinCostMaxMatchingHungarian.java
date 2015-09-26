@@ -14,8 +14,7 @@ public class MinCostMaxMatchingHungarian {
 	static boolean[] markedRow, markedCol;
 	static boolean[] assignedRow, assignedCol;
 	static boolean[][] assigned;
-	
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -68,8 +67,8 @@ public class MinCostMaxMatchingHungarian {
 			if (cnt == n)
 				break;
 			int min = 1 << 30;
-			for (int i = 0; i < n; i++) 
-				for (int j = 0; j < n; j++) 
+			for (int i = 0; i < n; i++)
+				for (int j = 0; j < n; j++)
 					if (!markedCol[j] && markedRow[i])
 						min = Math.min(aux[i][j], min);
 			for (int i = 0; i < n; i++) {
@@ -82,8 +81,8 @@ public class MinCostMaxMatchingHungarian {
 			}
 		}
 		int res = 0;
-		for (int i = 0; i < n; i++) 
-			for (int j = 0; j < n; j++) 
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < n; j++)
 				if (assigned[i][j])
 					res += matrix[i][j];
 		out.println(res);
@@ -106,7 +105,7 @@ public class MinCostMaxMatchingHungarian {
 				aux[i][j] -= min;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -133,4 +132,3 @@ public class MinCostMaxMatchingHungarian {
 		return br.readLine().trim();
 	}
 }
-

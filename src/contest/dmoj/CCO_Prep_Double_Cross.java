@@ -19,9 +19,9 @@ public class CCO_Prep_Double_Cross {
 	static int[][] right;
 	static int[][] up;
 	static int[][] down;
-	
+
 	static final int MOD = 1000000009;
-	
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -31,29 +31,29 @@ public class CCO_Prep_Double_Cross {
 		r = readInt();
 		c = readInt();
 
-		left = new int[r+2][c+2];
-		right = new int[r+2][c+2];
-		up = new int[r+2][c+2];
-		down = new int[r+2][c+2];
-		boolean[][] grid = new boolean[r+2][c+2];
-		for (int i = 0; i < r+2; i++)
-			for (int j = 0; j < c+2; j++)
+		left = new int[r + 2][c + 2];
+		right = new int[r + 2][c + 2];
+		up = new int[r + 2][c + 2];
+		down = new int[r + 2][c + 2];
+		boolean[][] grid = new boolean[r + 2][c + 2];
+		for (int i = 0; i < r + 2; i++)
+			for (int j = 0; j < c + 2; j++)
 				grid[i][j] = true;
 		int n = readInt();
 		for (int i = 0; i < n; i++)
 			grid[readInt()][readInt()] = false;
-//		for (int i = 1; i <= r; i++)
-//			for (int j = 1; j <= c; j++)
-//				grid[i][j] = readInt() == 1;
+		//		for (int i = 1; i <= r; i++)
+		//			for (int j = 1; j <= c; j++)
+		//				grid[i][j] = readInt() == 1;
 		for (int i = 1; i <= r; i++) {
 			for (int j = 1; j <= c; j++)
-				left[i][j] = !grid[i][j] ? 0 : 1 + left[i][j-1];
+				left[i][j] = !grid[i][j] ? 0 : 1 + left[i][j - 1];
 			for (int j = c; j >= 1; j--)
-				right[i][j] = !grid[i][j] ? 0 : 1 + right[i][j+1];
+				right[i][j] = !grid[i][j] ? 0 : 1 + right[i][j + 1];
 		}
 		for (int j = 1; j <= c; j++) {
 			for (int i = 1; i <= r; i++)
-				up[i][j] = !grid[i][j] ? 0 : 1 + up[i-1][j];
+				up[i][j] = !grid[i][j] ? 0 : 1 + up[i - 1][j];
 			for (int i = r; i >= 1; i--)
 				down[i][j] = !grid[i][j] ? 0 : 1 + down[i + 1][j];
 		}
@@ -62,7 +62,7 @@ public class CCO_Prep_Double_Cross {
 			int prev = 0;
 			int prevMul = 0;
 			int curr = 0;
-			
+
 			for (int i = 1; i <= r; i++) {
 				if (!grid[i][j]) {
 					prev = 0;
@@ -74,18 +74,18 @@ public class CCO_Prep_Double_Cross {
 					curr = Math.min(left[i][j], right[i][j]) - 1;
 					if (curr > 1) {
 						long totalCurr = 0;
-						totalCurr = (totalCurr + (query(cnt, SIZE-1) - query(cnt, curr - 2)) * (curr * (curr-1)/2));
-						totalCurr = (totalCurr + query(addSum, curr-2) * curr - query(subSum, curr-2));
-						res = (res + totalCurr * down[i+1][j] % MOD) % MOD;
+						totalCurr = (totalCurr + (query(cnt, SIZE - 1) - query(cnt, curr - 2)) * (curr * (curr - 1) / 2));
+						totalCurr = (totalCurr + query(addSum, curr - 2) * curr - query(subSum, curr - 2));
+						res = (res + totalCurr * down[i + 1][j] % MOD) % MOD;
 
-//						out.println(query(cnt, SIZE-1) + " " + query(cnt, curr - 2) + " " + down[i+1][j]);
-//						out.println(res + " " + query(addSum, curr-2) + " " + query(subSum, curr-2));
+						//						out.println(query(cnt, SIZE-1) + " " + query(cnt, curr - 2) + " " + down[i+1][j]);
+						//						out.println(res + " " + query(addSum, curr-2) + " " + query(subSum, curr-2));
 					}
 				}
 				add(prev, prevMul);
 				prev = curr;
-				prevMul = up[i-1][j];
-//				out.printf("at (%d, %d) is %d with res %d and up %d\n", i, j, curr, res, up[i][j]);
+				prevMul = up[i - 1][j];
+				//				out.printf("at (%d, %d) is %d with res %d and up %d\n", i, j, curr, res, up[i][j]);
 			}
 
 			while (!added.isEmpty())
@@ -95,34 +95,38 @@ public class CCO_Prep_Double_Cross {
 
 		out.close();
 	}
+
 	static class Pair {
 		int curr, mul;
+
 		Pair (int curr, int mul) {
 			this.curr = curr;
 			this.mul = mul;
 		}
 	}
+
 	static void add (int prev, int upVal) {
 		if (prev == 0 || upVal == 0)
 			return;
-//		out.println("UPDATED " + prev + " " + upVal);
+		//		out.println("UPDATED " + prev + " " + upVal);
 		added.offer(new Pair(prev, upVal));
 		update(cnt, prev, upVal);
 		update(addSum, prev, prev * upVal);
-		update(subSum, prev, prev*(prev+1)/2 * upVal);
+		update(subSum, prev, prev * (prev + 1) / 2 * upVal);
 	}
 
 	static void remove (Pair p) {
-//		out.println("CLEARED " + p.curr);
+		//		out.println("CLEARED " + p.curr);
 		update(cnt, p.curr, -p.mul);
 		update(addSum, p.curr, -p.curr * p.mul);
-		update(subSum, p.curr, -p.curr*(p.curr+1)/2 * p.mul);
+		update(subSum, p.curr, -p.curr * (p.curr + 1) / 2 * p.mul);
 	}
 
 	static void update (long[] tree, int x, int val) {
 		for (int i = x; i < SIZE; i += (i & -i))
 			tree[i] = (tree[i] + val) % MOD;
 	}
+
 	static long query (long[] tree, int x) {
 		long sum = 0;
 		for (int i = x; i > 0; i -= (i & -i))
@@ -156,4 +160,3 @@ public class CCO_Prep_Double_Cross {
 		return br.readLine().trim();
 	}
 }
-

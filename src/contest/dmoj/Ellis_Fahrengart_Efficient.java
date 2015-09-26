@@ -25,6 +25,7 @@ public class Ellis_Fahrengart_Efficient {
 	static int size = 0;
 	static long res = 0;
 	static int sz;
+
 	public static void main (String[] args) throws IOException {
 
 		n = readInt();
@@ -86,8 +87,8 @@ public class Ellis_Fahrengart_Efficient {
 
 		@Override
 		public int compareTo (Query o) {
-			if ((l-1)/sz != (o.l-1)/sz)
-				return (l-1)/sz - (o.l-1)/sz;
+			if ((l - 1) / sz != (o.l - 1) / sz)
+				return (l - 1) / sz - (o.l - 1) / sz;
 			return r - o.r;
 		}
 	}

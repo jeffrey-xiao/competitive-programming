@@ -10,10 +10,11 @@ public class CCO_Prep_Subsets {
 	static StringTokenizer st;
 
 	static final int MOD = 1000000001;
-	
+
 	static int n;
 	static ArrayList<Integer> row;
 	static int gln3;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,10 +23,10 @@ public class CCO_Prep_Subsets {
 
 		n = readInt();
 		row = new ArrayList<Integer>();
-		gln3 = (int)(Math.log(n) / Math.log(3)) + 1;
+		gln3 = (int) (Math.log(n) / Math.log(3)) + 1;
 		for (int i = 0; i < 1 << gln3; i++) {
 			boolean valid = true;
-			for (int j = 0; j < gln3-1; j++)
+			for (int j = 0; j < gln3 - 1; j++)
 				if ((i & 1 << j) > 0 && (i & 1 << (j + 1)) > 0)
 					valid = false;
 			if (valid)
@@ -40,11 +41,12 @@ public class CCO_Prep_Subsets {
 		out.println(ans);
 		out.close();
 	}
+
 	static int solve (int c) {
-		int ln2 = (int)(Math.log(n/c) / Math.log(2)) + 1;
+		int ln2 = (int) (Math.log(n / c) / Math.log(2)) + 1;
 		int[][] dp = new int[2][1 << gln3];
 		for (int i = 0; i < ln2; i++) {
-			dp[i%2] = new int[1 << gln3];
+			dp[i % 2] = new int[1 << gln3];
 			for (int j : row) {
 				long curr = c * 1 << i;
 				boolean valid = true;
@@ -60,20 +62,22 @@ public class CCO_Prep_Subsets {
 				else
 					for (int k : row)
 						if ((k & j) == 0)
-							dp[i%2][j] = mod(dp[i%2][j] + dp[(i-1)%2][k]);
-				
+							dp[i % 2][j] = mod(dp[i % 2][j] + dp[(i - 1) % 2][k]);
+
 			}
 		}
 		int ans = 0;
 		for (int j : row)
-			ans = mod(ans + dp[(ln2-1)%2][j]);
+			ans = mod(ans + dp[(ln2 - 1) % 2][j]);
 		return ans;
 	}
+
 	static int mod (int x) {
 		if (x > MOD)
 			x -= MOD;
 		return x;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -100,4 +104,3 @@ public class CCO_Prep_Subsets {
 		return br.readLine().trim();
 	}
 }
-

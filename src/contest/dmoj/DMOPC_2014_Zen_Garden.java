@@ -24,15 +24,15 @@ public class DMOPC_2014_Zen_Garden {
 		}
 		int m = readInt();
 		for (int i = 0; i < m; i++) {
-			int b = readInt()-1;
+			int b = readInt() - 1;
 			int d = readInt();
-			if (Math.min(a[b], a[b+1]) > d)
+			if (Math.min(a[b], a[b + 1]) > d)
 				sum -= d;
 			else
-				sum -= Math.min(a[b], a[b+1]);
+				sum -= Math.min(a[b], a[b + 1]);
 		}
 		out.println(sum);
-		
+
 		out.close();
 	}
 
@@ -62,4 +62,3 @@ public class DMOPC_2014_Zen_Garden {
 		return br.readLine().trim();
 	}
 }
-

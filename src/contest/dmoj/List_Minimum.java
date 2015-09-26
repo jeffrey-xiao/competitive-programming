@@ -51,4 +51,3 @@ public class List_Minimum {
 		return br.readLine().trim();
 	}
 }
-

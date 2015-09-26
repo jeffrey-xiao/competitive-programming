@@ -11,7 +11,7 @@ public class Breaking_The_Friend_Chain {
 
 	static ArrayList<HashSet<Integer>> adj = new ArrayList<HashSet<Integer>>();
 	static ArrayList<ArrayList<Integer>> prev = new ArrayList<ArrayList<Integer>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,18 +20,17 @@ public class Breaking_The_Friend_Chain {
 
 		int n = readInt();
 		int m = readInt();
-		
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new HashSet<Integer>());
 		for (int i = 0; i < m; i++) {
-			int x = readInt()-1;
-			int y = readInt()-1;
+			int x = readInt() - 1;
+			int y = readInt() - 1;
 			adj.get(x).add(y);
 			adj.get(y).add(x);
 		}
-		int a = readInt()-1;
-		int b = readInt()-1;
+		int a = readInt() - 1;
+		int b = readInt() - 1;
 		boolean[] v = new boolean[n];
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.offer(a);
@@ -75,4 +74,3 @@ public class Breaking_The_Friend_Chain {
 		return br.readLine().trim();
 	}
 }
-

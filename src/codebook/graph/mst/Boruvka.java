@@ -13,7 +13,7 @@ public class Boruvka {
 	static ArrayList<Edge> e;
 	static Edge[] min;
 	static int[] id, sz;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,21 +25,21 @@ public class Boruvka {
 
 		id = new int[n];
 		sz = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			id[i] = i;
 			sz[i] = 1;
 		}
 
 		e = new ArrayList<Edge>();
-		
+
 		for (int i = 0; i < m; i++) {
-			e.add(new Edge(readInt()-1, readInt()-1, readInt()));
+			e.add(new Edge(readInt() - 1, readInt() - 1, readInt()));
 		}
-		
+
 		int nodesLeft = n;
 		int res = 0;
-		
+
 		while (nodesLeft > 1) {
 			min = new Edge[n];
 			for (Edge edge : e) {
@@ -71,7 +71,7 @@ public class Boruvka {
 	static int find (int x) {
 		return x == id[x] ? x : (id[x] = find(id[x]));
 	}
-	
+
 	static void merge (int x, int y) {
 		if (sz[x] > sz[y]) {
 			sz[x] += sz[y];
@@ -81,16 +81,17 @@ public class Boruvka {
 			id[x] = y;
 		}
 	}
-	
+
 	static class Edge {
 		int a, b, cost;
+
 		Edge (int a, int b, int cost) {
 			this.a = a;
 			this.b = b;
 			this.cost = cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -117,4 +118,3 @@ public class Boruvka {
 		return br.readLine().trim();
 	}
 }
-

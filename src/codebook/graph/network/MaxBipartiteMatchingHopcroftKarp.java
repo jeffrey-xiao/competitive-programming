@@ -8,12 +8,13 @@ public class MaxBipartiteMatchingHopcroftKarp {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	static final int NULL = 0;
-	
+
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int leftSize, rightSize, n;
 	static int[] pair, dist;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -36,6 +37,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 		out.println(getMaxMatching());
 		out.close();
 	}
+
 	static int getMaxMatching () {
 		pair = new int[leftSize + rightSize + 1];
 		dist = new int[leftSize + rightSize + 1];
@@ -46,6 +48,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 					res += dfs(i) ? 1 : 0;
 		return res;
 	}
+
 	static boolean bfs () {
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		for (int i = 1; i <= leftSize; i++) {
@@ -66,11 +69,12 @@ public class MaxBipartiteMatchingHopcroftKarp {
 					dist[pair[next]] = dist[curr] + 1;
 					q.offer(pair[next]);
 				}
-					
+
 			}
 		}
 		return dist[NULL] != 1 << 30;
 	}
+
 	static boolean dfs (int i) {
 		if (i == NULL)
 			return true;
@@ -85,6 +89,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 		dist[i] = 1 << 30;
 		return false;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

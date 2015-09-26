@@ -13,8 +13,9 @@ public class Garden_Planning {
 	static int[][] g;
 	static final long MOD = 1000000007;
 	static ArrayList<HashMap<State, Long>> dp;
+
 	public static void main (String[] args) throws IOException {
-//		br = new BufferedReader(new InputStreamReader(System.in));
+		//		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
@@ -40,10 +41,10 @@ public class Garden_Planning {
 		dp = new ArrayList<HashMap<State, Long>>();
 		dp.add(new HashMap<State, Long>());
 		dp.add(new HashMap<State, Long>());
-		
+
 		for (int i = 0; i < n; i++) {
 			int sz = indexes.get(i).size();
-			dp.get(i%2).clear();
+			dp.get(i % 2).clear();
 
 			out.println(i);
 			for (int j = 0; j < (1 << sz); j++) {
@@ -56,8 +57,8 @@ public class Garden_Planning {
 				for (int k = 0; k < m; k++) {
 					if (newRow[k] == -1)
 						newRow[k] = id++;
-					if (k+1 < m && newRow[k] != 0 && newRow[k+1] == -1)
-						newRow[k+1] = newRow[k];
+					if (k + 1 < m && newRow[k] != 0 && newRow[k + 1] == -1)
+						newRow[k + 1] = newRow[k];
 				}
 				if (i == 0) {
 					out.println("NEW ROW");
@@ -66,7 +67,7 @@ public class Garden_Planning {
 					out.println();
 					dp.get(i).put(new State(newRow, true), 1l);
 				} else {
-					main : for (Map.Entry<State, Long> e : dp.get((i - 1)%2).entrySet()) {
+					main : for (Map.Entry<State, Long> e : dp.get((i - 1) % 2).entrySet()) {
 						State s = e.getKey();
 						HashSet<Integer> hs = new HashSet<Integer>();
 						for (int k = 0; k < m; k++)
@@ -77,10 +78,10 @@ public class Garden_Planning {
 									continue main;
 								if (s.row[k] != 0 && s.row[l] != 0 && s.row[k] != s.row[l] && (newRow[k] == 0 || newRow[l] == 0))
 									continue main;
-								
+
 							}
 						}
-						
+
 						id = 1;
 						for (int k = 0; k < m; k++)
 							if (newRow[k] != 0)
@@ -137,32 +138,37 @@ public class Garden_Planning {
 			for (int i = 0; i < m; i++)
 				hs.add(s.row[i]);
 			if (hs.size() <= 2)
-				ans = (ans + e.getValue())%MOD;
+				ans = (ans + e.getValue()) % MOD;
 		}
 		out.println(ans);
 		out.close();
 	}
+
 	static void add (int i, State s, long cnt) {
 		if (!dp.get(i).containsKey(s))
 			dp.get(i).put(s, 0l);
-		dp.get(i).put(s, (dp.get(i).get(s) + cnt)%MOD);
+		dp.get(i).put(s, (dp.get(i).get(s) + cnt) % MOD);
 	}
+
 	static class State {
 		int[] row;
 		boolean canEmpty;
+
 		State (int[] row, boolean canEmpty) {
 			this.row = Arrays.copyOf(row, row.length);
 			this.canEmpty = canEmpty;
 		}
+
 		public int hashCode () {
 			int res = 0;
 			for (int i = 0; i < row.length; i++)
 				res = (res * 31 + row[i]);
 			return res * 31 + (canEmpty ? 1 : 0);
 		}
+
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State)o;
+				State s = (State) o;
 				for (int i = 0; i < row.length; i++)
 					if (s.row[i] != row[i])
 						return false;
@@ -172,7 +178,7 @@ public class Garden_Planning {
 		}
 
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -199,4 +205,3 @@ public class Garden_Planning {
 		return br.readLine().trim();
 	}
 }
-

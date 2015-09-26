@@ -27,7 +27,7 @@ public class SccTarjan {
 
 		n = readInt();
 		m = readInt();
-		
+
 		disc = new int[n];
 		lo = new int[n];
 		id = new int[n];
@@ -35,17 +35,18 @@ public class SccTarjan {
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 		}
 		for (int i = 0; i < n; i++)
 			if (disc[i] == 0)
 				dfs(i);
 		for (int i = 0; i < n; i++)
-			out.printf("Vertex %d is in component %d\n", i+1, id[i]);
+			out.printf("Vertex %d is in component %d\n", i + 1, id[i]);
 		out.close();
 	}
+
 	static void dfs (int i) {
 		disc[i] = lo[i] = ++cnt;
 		inStack[i] = true;
@@ -67,6 +68,7 @@ public class SccTarjan {
 			id[s.pop()] = idCnt++;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

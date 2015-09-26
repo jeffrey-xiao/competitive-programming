@@ -80,18 +80,18 @@ public class BinaryHeap {
 			heapifyDown(index2);
 		}
 	}
-	
+
 	private void heapifyUp (int i) {
 		while (i > 0) {
-			if (heap[i].compareTo(heap[(i-1) >> 1]) < 0) {
+			if (heap[i].compareTo(heap[(i - 1) >> 1]) < 0) {
 				Integer temp = heap[i];
 				heap[i] = heap[(i - 1) >> 1];
-				heap[(i-1) >> 1] = temp;
+				heap[(i - 1) >> 1] = temp;
 			}
-			i = (i-1) >> 1;
+			i = (i - 1) >> 1;
 		}
 	}
-	
+
 	private void addSize () {
 		size *= 2;
 		Integer[] newQueue = new Integer[size];
@@ -107,10 +107,11 @@ public class BinaryHeap {
 			newQueue[x] = heap[x];
 		heap = newQueue;
 	}
+
 	public static void main (String[] args) {
 		BinaryHeap h = new BinaryHeap();
 		for (int x = 0; x < 100; x++)
-			h.add((int)(Math.random()*100));
+			h.add((int) (Math.random() * 100));
 		for (int x = 0; x < 100; x++) {
 			System.out.print(h.remove() + " ");
 		}

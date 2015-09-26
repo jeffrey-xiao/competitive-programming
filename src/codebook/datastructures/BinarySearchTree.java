@@ -126,6 +126,7 @@ public class BinarySearchTree {
 			n.value = v;
 		return n;
 	}
+
 	public static void main (String[] args) {
 		BinarySearchTree t = new BinarySearchTree();
 		long c = System.currentTimeMillis();

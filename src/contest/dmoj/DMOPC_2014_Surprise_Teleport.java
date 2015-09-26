@@ -16,7 +16,7 @@ public class DMOPC_2014_Surprise_Teleport {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int r = readInt();
-		int c = readInt();	
+		int c = readInt();
 		int sx = readInt();
 		int sy = readInt();
 		int ex = readInt();
@@ -43,7 +43,7 @@ public class DMOPC_2014_Surprise_Teleport {
 						continue;
 					int nx = curr.x + dx;
 					int ny = curr.y + dy;
-					if (nx < 0 || nx >= r || ny < 0 || ny >= c || g[nx][ny] == 'X' || dist[nx][ny] <= dist[curr.x][curr.y]+1)
+					if (nx < 0 || nx >= r || ny < 0 || ny >= c || g[nx][ny] == 'X' || dist[nx][ny] <= dist[curr.x][curr.y] + 1)
 						continue;
 					dist[nx][ny] = dist[curr.x][curr.y] + 1;
 					q.offer(new Point(nx, ny));
@@ -53,17 +53,20 @@ public class DMOPC_2014_Surprise_Teleport {
 		}
 		int max = 0;
 		for (int i = 0; i < t; i++)
-			max = Math.max(max, dist[ex][ey]-dist[tele[i].x][tele[i].y]);
+			max = Math.max(max, dist[ex][ey] - dist[tele[i].x][tele[i].y]);
 		out.println(max);
 		out.close();
 	}
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -90,4 +93,3 @@ public class DMOPC_2014_Surprise_Teleport {
 		return br.readLine().trim();
 	}
 }
-

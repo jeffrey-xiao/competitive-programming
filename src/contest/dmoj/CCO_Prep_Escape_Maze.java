@@ -25,6 +25,7 @@ public class CCO_Prep_Escape_Maze {
 	static HashSet<Integer> art;
 	static long ansNum;
 	static long ansCount;
+
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		while (n != 0) {
@@ -96,7 +97,7 @@ public class CCO_Prep_Escape_Maze {
 				}
 			}
 			for (int i = 0; i < 400; i++)
-				if (!vi[i]) 
+				if (!vi[i])
 					dfs(i, -1);
 
 			HashSet<Integer> currCom = new HashSet<Integer>();
@@ -113,15 +114,15 @@ public class CCO_Prep_Escape_Maze {
 				else
 					cnt++;
 			}
-//			System.out.println("HERE " + artCnt + " " + cnt);
+			//			System.out.println("HERE " + artCnt + " " + cnt);
 			if (artCnt == 0 && cnt != 0) {
 				ansNum += 2;
-				ansCount *= (cnt*(cnt - 1) / 2);
+				ansCount *= (cnt * (cnt - 1) / 2);
 			} else if (artCnt == 1 && cnt != 0) {
 				ansNum += 1;
 				ansCount *= cnt;
 			}
-			
+
 			System.out.println(ansNum + " " + ansCount);
 			n = readInt();
 		}
@@ -157,10 +158,10 @@ public class CCO_Prep_Escape_Maze {
 						else
 							cnt++;
 					}
-//					System.out.println("HERE " + artCnt + " " + cnt);
+					//					System.out.println("HERE " + artCnt + " " + cnt);
 					if (artCnt == 0) {
 						ansNum += 2;
-						ansCount *= (cnt*(cnt - 1) / 2);
+						ansCount *= (cnt * (cnt - 1) / 2);
 					} else if (artCnt == 1 && cnt != 0) {
 						ansNum += 1;
 						ansCount *= cnt;
@@ -172,13 +173,16 @@ public class CCO_Prep_Escape_Maze {
 			}
 		}
 	}
+
 	static class Edge {
 		int a, b;
+
 		Edge (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

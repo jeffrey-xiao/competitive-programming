@@ -17,7 +17,7 @@ public class LowestCommonAncestorHld {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int[] depth, parent, chain, size, head;
 	static int n, q, chainNum;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -28,13 +28,13 @@ public class LowestCommonAncestorHld {
 		n = readInt();
 		// number of queries
 		q = readInt();
-		
+
 		depth = new int[n];
 		parent = new int[n];
 		chain = new int[n];
 		size = new int[n];
 		head = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Integer>());
 			head[i] = -1;
@@ -49,10 +49,10 @@ public class LowestCommonAncestorHld {
 
 		dfs(0, 0, -1);
 		getHld(0, -1);
-		
+
 		for (int i = 0; i < q; i++)
 			out.println(getLca(readInt() - 1, readInt() - 1) + 1);
-		
+
 		out.close();
 	}
 
@@ -67,6 +67,7 @@ public class LowestCommonAncestorHld {
 			return i;
 		return j;
 	}
+
 	static void getHld (int i, int prev) {
 		if (head[chainNum] == -1) {
 			head[chainNum] = i;
@@ -83,9 +84,9 @@ public class LowestCommonAncestorHld {
 				chainNum++;
 				getHld(j, i);
 			}
-		
-		
+
 	}
+
 	static void dfs (int i, int d, int prev) {
 		depth[i] = d;
 		parent[i] = prev;
