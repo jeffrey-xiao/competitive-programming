@@ -1,4 +1,4 @@
-package codebook.graph.shortestpath;
+package codebook.graph.search;
 
 import java.util.*;
 import java.io.*;
