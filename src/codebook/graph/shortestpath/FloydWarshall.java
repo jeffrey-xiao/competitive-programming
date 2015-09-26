@@ -1,22 +1,20 @@
-package codebook.graph.searching;
+package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class BellmanFord {
+public class FloydWarshall {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n, m, orig, dest;
-	static ArrayList<Edge> e;
-	static int[] dist;
+	static int n, m, q;
+	static int[][] adj;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,39 +24,36 @@ public class BellmanFord {
 
 		n = readInt();
 		m = readInt();
-		orig = readInt() - 1;
-		dest = readInt() - 1;
+		q = readInt();
 
-		dist = new int[n];
-		e = new ArrayList<Edge>();
+		adj = new int[n][n];
 
-		for (int i = 0; i < n; i++)
-			dist[i] = 1 << 29;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++)
+				adj[i][j] = 1 << 29;
+			adj[i][i] = 0;
+		}
 
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			e.add(new Edge(a, b, c));
+			adj[a][b] = c;
 		}
 
-		dist[orig] = 0;
-		for (int i = 0; i < n - 1; i++)
-			for (Edge edge : e)
-				dist[edge.dest] = Math.min(dist[edge.dest], dist[edge.orig] + edge.cost);
+		for (int k = 0; k < n; k++)
+			for (int i = 0; i < n; i++)
+				for (int j = 0; j < n; j++)
+					adj[i][j] = Math.min(adj[i][j], adj[i][k] + adj[k][j]);
 
-		out.println(dist[dest]);
+		for (int i = 0; i < q; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
+			int res = adj[a][b];
+			out.println(res == 1 << 29 ? -1 : res);
+		}
+
 		out.close();
-	}
-
-	static class Edge {
-		int orig, dest, cost;
-
-		Edge (int orig, int dest, int cost) {
-			this.orig = orig;
-			this.dest = dest;
-			this.cost = cost;
-		}
 	}
 
 	static String next () throws IOException {

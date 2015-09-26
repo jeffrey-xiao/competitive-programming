@@ -1,9 +1,9 @@
-package codebook.graph.searching;
+package codebook.graph.shortestpath;
 
 import java.util.*;
 import java.io.*;
 
-import codebook.graph.searching.Dijkstra.Edge;
+import codebook.graph.shortestpath.Dijkstra.Edge;
 
 public class Johnson {
 
