@@ -3,7 +3,7 @@ package codebook.graph.network;
 import java.util.*;
 import java.io.*;
 
-public class MinCutKarger {
+public class MinRandomizedCutKarger {
 
 	static BufferedReader br;
 	static PrintWriter out;
