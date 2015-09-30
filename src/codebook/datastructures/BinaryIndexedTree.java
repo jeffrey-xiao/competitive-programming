@@ -47,7 +47,7 @@ public class BinaryIndexedTree {
 	*/
 
 	// Range updates and range queries
-	/*
+	
 	public void update (int[] tree, int idx, int val) { 
 		for (int x = idx; x < size; x += (x & -x)) 
 		tree[x] += val; 
@@ -69,5 +69,5 @@ public class BinaryIndexedTree {
 	public int query (int x1, int x2) { 
 		return query(x2) - query(x1-1); 
 	}
-	*/
+	
 }

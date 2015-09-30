@@ -35,7 +35,7 @@ public class BinaryIndexedTree2D {
 	}
 	*/
 	// range update and range query
-	/*
+	
 	private void update (int[][] tree, int idx, int idy, int val) { 
 		for (int x = idx; x < rows; x += (x & -x)) 
 			for (int y = idy; y < columns; y += (y & -y)) 
@@ -75,5 +75,5 @@ public class BinaryIndexedTree2D {
 		} 
 		return s1 * idx * idy + s2 * idx + s3 * idy + s4; 
 	}
-	*/
+	
 }
