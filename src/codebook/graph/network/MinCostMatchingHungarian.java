@@ -3,7 +3,7 @@ package codebook.graph.network;
 import java.util.*;
 import java.io.*;
 
-public class MinCostMaxMatchingHungarian {
+public class MinCostMatchingHungarian {
 
 	static BufferedReader br;
 	static PrintWriter out;
