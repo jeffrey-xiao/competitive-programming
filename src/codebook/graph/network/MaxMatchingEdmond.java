@@ -45,6 +45,7 @@ public class MaxMatchingEdmond {
 		Arrays.fill(match, -1);
 		
 		for (int i = 0; i < n; i++) {
+			// if it hasn't already been matched, we search to see if we can augment it
 			if (match[i] == -1) {
 				int v = getAugmentingPath(i);
 				while (v != -1) {
@@ -73,8 +74,10 @@ public class MaxMatchingEdmond {
 		while (!q.isEmpty()) {
 			int curr = q.poll();
 			for (int next : adj.get(curr)) {
+				// If the next node is in the same BFS tree or has already been matched, then we can skip it
 				if (id[curr] == id[next] || match[curr] == next)
 					continue;
+				// We found a blossom, or we need to modify an existing blossom
 				if (next == src || (match[next] != -1 && par[match[next]] != -1)) {
 					int newBase = lca(curr, next);
 					boolean[] blossom = new boolean[n];
@@ -90,7 +93,9 @@ public class MaxMatchingEdmond {
 							}
 						}
 					}
-				} else if (par[next] == -1) {
+				} 
+				// augmenting path found
+				else if (par[next] == -1) {
 					par[next] = curr;
 					if (match[next] == -1)
 						return next;
@@ -102,6 +107,7 @@ public class MaxMatchingEdmond {
 		}
 		return -1;
 	}	
+	// Auxiliary function that marks the blossom
 	static void markPath (boolean[] blossom, int i, int b, int j) {
 		for (; id[i] != b; i = par[match[i]]) {
 			blossom[id[i]] = blossom[id[match[i]]] = true;
@@ -109,6 +115,7 @@ public class MaxMatchingEdmond {
 			j = match[i];
 		}
 	}
+	// Auxiliary function that finds the lca in the BFS tree
 	static int lca (int i, int j) {
 		boolean[] v = new boolean[n];
 		while (true) {
