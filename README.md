@@ -10,5 +10,4 @@ Under the contest package, you will find my solutions to various programming con
 TODO LIST:
  - Skip list
  - Link/Cut tree
- - Edmonds/Blossom algorithm
  - R-tree
