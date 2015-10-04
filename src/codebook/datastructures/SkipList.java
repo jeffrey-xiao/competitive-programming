@@ -5,7 +5,7 @@ public class SkipList {
 	private Node head;
 	private int maxLevel;
 	
-	private static double PROBABILITY = 0.5;
+	private static final double PROBABILITY = 0.5;
 	
 	SkipList () {
 		this.head = new Node(null);
@@ -46,7 +46,7 @@ public class SkipList {
 		int newLevel = 0;
 		while (Math.random() < PROBABILITY)
 			newLevel++;
-		if (newLevel > maxLevel) {
+		while (newLevel > maxLevel) {
 			maxLevel++;
 			Node newNode = new Node(null);
 			newNode.right = new Node(null);
