@@ -8,6 +8,5 @@ Under the codebook package, you will find implementations of very common algorit
 Under the contest package, you will find my solutions to various programming contests and practice problems.
 
 TODO LIST:
- - Skip list
  - Link/Cut tree
  - R-tree
