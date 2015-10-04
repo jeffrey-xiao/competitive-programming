@@ -5,7 +5,7 @@
 package codebook.datastructures;
 
 public class RedBlackTree {
-	// constants for the colot
+	// constants for the color
 	private static final boolean RED = true;
 	private static final boolean BLACK = true;
 
