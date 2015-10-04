@@ -1,47 +1,86 @@
+// radix trie implementation that supports lower-case letters
+
 package codebook.string;
 
-import java.util.*;
-import java.io.*;
-
 public class RadixTrie {
+	private static final int SHIFT = 'a';
+	private Node root = new Node();
 
-	static BufferedReader br;
-	static PrintWriter out;
-	static StringTokenizer st;
-
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//out = new PrintWriter(new FileWriter("out.txt"));
-
-		out.close();
+	class Node {
+		private Node[] child;
+		private boolean isLeaf;
+		private String value;
+		
+		Node () {
+			child = new Node[26];
+			isLeaf = false;
+			value = "";
+		}
 	}
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
+	public void addWord (String word) {
+		if (word == null || word.length() == 0)
+			throw new IllegalArgumentException();
+		root.child[word.charAt(0) - SHIFT] = addWord(root.child[word.charAt(0) - SHIFT], word);
+	}
+	
+	private Node addWord (Node n, String word) {
+		if (n == null)
+			n = new Node();
+		if (word.length() == 0) {
+			n.isLeaf = true;
+			return n;
+		}
+		if (n.value.length() == 0) {
+			n.value = word;
+			n.isLeaf = true;
+			return n;
+		}
+		for (int i = 0; i < Math.min(n.value.length(), word.length()); i++) {
+			if (n.value.charAt(i) != word.charAt(i)) {
+				Node node = new Node();
+				node.value = n.value.substring(0, i);
+				node.child[n.value.charAt(i) - SHIFT] = n;
+				n.value = n.value.substring(i);
+				node.child[word.charAt(i) - SHIFT] = addWord(node.child[word.charAt(i) - SHIFT], word.substring(i));
+				node.isLeaf = false;
+				return node;
+			}
+		}
+		if (word.length() > n.value.length()) {
+			int i = word.charAt(n.value.length()) - SHIFT;
+			n.child[i] = addWord(n.child[i], word.substring(n.value.length()));
+		} else if (word.length() < n.value.length()) {
+			Node node = new Node();
+			node.value = n.value.substring(0, word.length());
+			n.value = n.value.substring(word.length());
+			node.isLeaf = true;
+			return node;
+		}
+		return n;
 	}
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
+	public void print () {
+		print(root, "");
 	}
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
+	private void print (Node n, String curr) {
+		if (n.isLeaf)
+			System.out.println(curr);
+		for (int i = 0; i < 26; i++)
+			if (n.child[i] != null) {
+				print(n.child[i], curr + n.child[i].value);
+			}
 	}
-
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
-
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
+	public static void main (String[] args) {
+		RadixTrie t = new RadixTrie ();
+		t.addWord("romane");
+		t.addWord("romanus");
+		t.addWord("romulus");
+		t.addWord("rubens");
+		t.addWord("ruber");
+		t.addWord("rubicon");
+		t.addWord("rubicundus");
+		t.print();
 	}
 }
-
