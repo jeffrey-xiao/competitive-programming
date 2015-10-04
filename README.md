@@ -10,3 +10,5 @@ Under the contest package, you will find my solutions to various programming con
 TODO LIST:
  - Link/Cut tree
  - R-tree
+ - suffix automaton
+ - dyanmic suffix array
