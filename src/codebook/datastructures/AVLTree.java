@@ -37,17 +37,17 @@ public class AVLTree {
 		return n == null ? -1 : n.height;
 	}
 
-	// in order traversal of tree
-	public void traverse (Node n) {
+	public void traverse () {
+		traverse(root);
+	}
+	
+	// auxiliary method for traverse
+	private void traverse (Node n) {
 		if (n == null)
 			return;
 		traverse(n.left);
 		System.out.println(n.key);
 		traverse(n.right);
-	}
-
-	public boolean contains (Integer k) {
-		return contains(root, k);
 	}
 
 	public Integer get (Integer k) {
@@ -65,7 +65,11 @@ public class AVLTree {
 			return get(n.right, k);
 		return n.value;
 	}
-
+	
+	public boolean contains (Integer k) {
+		return contains(root, k);
+	}
+	
 	// auxiliary method for contains
 	private boolean contains (Node n, Integer k) {
 		if (n == null)

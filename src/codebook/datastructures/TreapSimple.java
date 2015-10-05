@@ -11,6 +11,8 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.TreeSet;
 
+import codebook.datastructures.ImplicitTreap.Node;
+
 public class TreapSimple {
 	// root of the tree
 	Node root = null;
@@ -84,15 +86,15 @@ public class TreapSimple {
 	private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
 		if (n == null)
 			return;
-		if (n.key < loK)
-			range(n.right, loK, hiK, res);
-		if (loK <= n.key && n.key <= hiK) {
-			res.offer(n.key);
-			range(n.right, loK, hiK, res);
-			range(n.left, loK, hiK, res);
-		}
 		if (n.key > hiK)
 			range(n.left, loK, hiK, res);
+		if (loK <= n.key && n.key <= hiK) {
+			range(n.left, loK, hiK, res);
+			res.offer(n.key);
+			range(n.right, loK, hiK, res);
+		}
+		if (n.key < loK)
+			range(n.right, loK, hiK, res);
 	}
 
 	// auxiliary function for contains
@@ -143,13 +145,11 @@ public class TreapSimple {
 
 		Node newRoot = null;
 		if (t1.priority > t2.priority) {
-			t1.left = merge(t1.left, t1.right);
+			t1.right = merge(t1.right, t2);
 			newRoot = t1;
-			newRoot.right = t2;
 		} else {
-			t2.right = merge(t2.left, t2.right);
+			t2.left = merge(t1, t2.left);
 			newRoot = t2;
-			newRoot.left = t1;
 		}
 		return newRoot;
 	}
