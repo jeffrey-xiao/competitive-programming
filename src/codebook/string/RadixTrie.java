@@ -10,7 +10,7 @@ public class RadixTrie {
 		private Node[] child;
 		private boolean isLeaf;
 		private String value;
-		
+
 		Node () {
 			child = new Node[26];
 			isLeaf = false;
@@ -23,7 +23,7 @@ public class RadixTrie {
 			throw new IllegalArgumentException();
 		root.child[word.charAt(0) - SHIFT] = addWord(root.child[word.charAt(0) - SHIFT], word);
 	}
-	
+
 	private Node addWord (Node n, String word) {
 		if (n == null)
 			n = new Node();
@@ -72,8 +72,9 @@ public class RadixTrie {
 				print(n.child[i], curr + n.child[i].value);
 			}
 	}
+
 	public static void main (String[] args) {
-		RadixTrie t = new RadixTrie ();
+		RadixTrie t = new RadixTrie();
 		t.addWord("romane");
 		t.addWord("romanus");
 		t.addWord("romulus");

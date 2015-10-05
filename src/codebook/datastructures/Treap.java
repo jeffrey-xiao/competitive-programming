@@ -8,8 +8,8 @@
 package codebook.datastructures;
 
 import java.util.ArrayDeque;
-import java.util.HashSet;
 import java.util.Queue;
+import java.util.TreeSet;
 
 public class Treap {
 	// root of the tree
@@ -194,21 +194,28 @@ public class Treap {
 	public static void main (String[] args) {
 		Treap t = new Treap();
 		long c = System.currentTimeMillis();
-		HashSet<Integer> hs = new HashSet<Integer>();
-		for (int x = 0; x < 10; x++) {
-			int ran = (int) (Math.random() * (20)) + 5;
+		TreeSet<Integer> hs = new TreeSet<Integer>();
+		for (int x = 0; x < 100000; x++) {
+			int ran = (int) (Math.random() * (100000)) + 5;
 			hs.add(ran);
 			t.add(ran);
 		}
 		System.out.println(hs.size());
+		for (Integer i : hs)
+			System.out.print(i + " ");
+		System.out.println();
 		t.traverse(t.root);
 		System.out.println();
 		t.add(1);
-		System.out.println(t.contains(t.root, 1));
-		System.out.println(t.contains(t.root, 2));
+		assert(t.contains(t.root, 1));
+		assert(!t.contains(t.root, 2));
 		t.remove(1);
-		System.out.println(t.contains(t.root, 1));
+		assert(!t.contains(t.root, 1));
 		System.out.println(System.currentTimeMillis() - c);
-		System.out.println(t.range(10, 15));
+		for (Integer i : hs) {
+			t.remove(i);
+			assert(!t.contains(t.root, i));
+		}
+		System.out.println("SUCCESS");
 	}
 }

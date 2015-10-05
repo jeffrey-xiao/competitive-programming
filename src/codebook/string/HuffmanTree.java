@@ -3,7 +3,9 @@
 
 package codebook.string;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class HuffmanTree {
 
@@ -11,9 +13,10 @@ public class HuffmanTree {
 	HuffmanTree (Map<Character, Integer> map) {
 		buildTree(map);
 	}
+
 	private Node root = null;
 	private HashMap<Character, Node> leaves = new HashMap<Character, Node>();
-	
+
 	private void buildTree (Map<Character, Integer> map) {
 		PriorityQueue<Node> pq = new PriorityQueue<Node>();
 		for (Map.Entry<Character, Integer> entry : map.entrySet())
@@ -32,9 +35,11 @@ public class HuffmanTree {
 		}
 		root = pq.poll();
 	}
+
 	public void traverse () {
 		traverse(root);
 	}
+
 	private void traverse (Node n) {
 		if (n == null)
 			return;
@@ -48,9 +53,11 @@ public class HuffmanTree {
 		private Character value;
 		private Integer freq;
 		private Node left, right, par;
+
 		Node (Character value, Integer freq) {
 			this(value, freq, null, null);
 		}
+
 		Node (Character value, Integer freq, Node left, Node right) {
 			this.value = value;
 			this.freq = freq;
@@ -58,29 +65,29 @@ public class HuffmanTree {
 			this.right = right;
 			this.par = null;
 		}
+
 		@Override
 		public int compareTo (Node o) {
 			return freq - o.freq;
 		}
 	}
-	
+
 	public static void main (String[] args) {
 		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
-		hm.put('e', (int)(Math.random()*10));
-		hm.put('n', (int)(Math.random()*10));
-		hm.put('o', (int)(Math.random()*10));
-		hm.put('u', (int)(Math.random()*10));
-		hm.put('a', (int)(Math.random()*10));
-		hm.put('t', (int)(Math.random()*10));
-		hm.put('m', (int)(Math.random()*10));
-		hm.put('i', (int)(Math.random()*10));
-		hm.put('x', (int)(Math.random()*10));
-		hm.put('p', (int)(Math.random()*10));
-		hm.put('h', (int)(Math.random()*10));
-		hm.put('s', (int)(Math.random()*10));
-		hm.put('r', (int)(Math.random()*10));
+		hm.put('e', (int) (Math.random() * 10));
+		hm.put('n', (int) (Math.random() * 10));
+		hm.put('o', (int) (Math.random() * 10));
+		hm.put('u', (int) (Math.random() * 10));
+		hm.put('a', (int) (Math.random() * 10));
+		hm.put('t', (int) (Math.random() * 10));
+		hm.put('m', (int) (Math.random() * 10));
+		hm.put('i', (int) (Math.random() * 10));
+		hm.put('x', (int) (Math.random() * 10));
+		hm.put('p', (int) (Math.random() * 10));
+		hm.put('h', (int) (Math.random() * 10));
+		hm.put('s', (int) (Math.random() * 10));
+		hm.put('r', (int) (Math.random() * 10));
 		HuffmanTree tree = new HuffmanTree(hm);
 		tree.traverse();
 	}
 }
-

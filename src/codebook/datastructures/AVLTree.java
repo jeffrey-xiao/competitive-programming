@@ -40,7 +40,7 @@ public class AVLTree {
 	public void traverse () {
 		traverse(root);
 	}
-	
+
 	// auxiliary method for traverse
 	private void traverse (Node n) {
 		if (n == null)
@@ -65,11 +65,11 @@ public class AVLTree {
 			return get(n.right, k);
 		return n.value;
 	}
-	
+
 	public boolean contains (Integer k) {
 		return contains(root, k);
 	}
-	
+
 	// auxiliary method for contains
 	private boolean contains (Node n, Integer k) {
 		if (n == null)

@@ -1,7 +1,11 @@
 package contest.dmoj;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Power_Eggs {
 
@@ -17,15 +21,15 @@ public class Power_Eggs {
 		int n = 32;
 		int k = 32;
 		// n tries and k eggs
-		long[][] dp = new long[n+1][k+1];
-		for(int i = 0; i <= n; i++){
+		long[][] dp = new long[n + 1][k + 1];
+		for (int i = 0; i <= n; i++) {
 			dp[i][0] = 1;
 			dp[0][i] = 1;
 		}
 
-		for (int i = 1; i <= n; i++) 
+		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= n; j++)
-				dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+				dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
 		int t = readInt();
 		for (int qq = 1; qq <= t; qq++) {
 			int floors = readInt();
@@ -69,4 +73,3 @@ public class Power_Eggs {
 		return br.readLine().trim();
 	}
 }
-

@@ -47,27 +47,32 @@ public class BinaryIndexedTree {
 	*/
 
 	// Range updates and range queries
-	
-	public void update (int[] tree, int idx, int val) { 
-		for (int x = idx; x < size; x += (x & -x)) 
-		tree[x] += val; 
-	} 
-	public void update (int x1, int x2, int val) { 
-		update(tree1, x1, val); 
-		update(tree1, x2+1, -val);
-		update(tree2, x1, val * (x1-1)); 
-		update(tree2, x2+1, -val * x2); 
-	} 
-	public int query (int[] tree, int idx) { 
-		int sum = 0; 
-		for (int x = idx; x > 0; x -= (x & -x)) sum += tree[x]; 
-		return sum; 
-	} 
-	public int query (int x) {
-		return query(tree1, x) * x - query(tree2, x); 
-	} 
-	public int query (int x1, int x2) { 
-		return query(x2) - query(x1-1); 
+
+	public void update (int[] tree, int idx, int val) {
+		for (int x = idx; x < size; x += (x & -x))
+			tree[x] += val;
 	}
-	
+
+	public void update (int x1, int x2, int val) {
+		update(tree1, x1, val);
+		update(tree1, x2 + 1, -val);
+		update(tree2, x1, val * (x1 - 1));
+		update(tree2, x2 + 1, -val * x2);
+	}
+
+	public int query (int[] tree, int idx) {
+		int sum = 0;
+		for (int x = idx; x > 0; x -= (x & -x))
+			sum += tree[x];
+		return sum;
+	}
+
+	public int query (int x) {
+		return query(tree1, x) * x - query(tree2, x);
+	}
+
+	public int query (int x1, int x2) {
+		return query(x2) - query(x1 - 1);
+	}
+
 }

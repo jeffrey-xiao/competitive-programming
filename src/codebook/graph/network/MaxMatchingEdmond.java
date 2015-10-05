@@ -1,7 +1,15 @@
 package codebook.graph.network;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class MaxMatchingEdmond {
 
@@ -13,7 +21,7 @@ public class MaxMatchingEdmond {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static boolean[] mark, used;
 	static int[] match, par, id;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,13 +30,13 @@ public class MaxMatchingEdmond {
 
 		n = readInt();
 		m = readInt();
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		for (int j = 0; j < n; j++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
@@ -41,9 +49,9 @@ public class MaxMatchingEdmond {
 		par = new int[n];
 		id = new int[n];
 		used = new boolean[n];
-		
+
 		Arrays.fill(match, -1);
-		
+
 		for (int i = 0; i < n; i++) {
 			// if it hasn't already been matched, we search to see if we can augment it
 			if (match[i] == -1) {
@@ -61,8 +69,9 @@ public class MaxMatchingEdmond {
 		for (int i = 0; i < n; i++)
 			if (match[i] != -1)
 				res++;
-		return res/2;
+		return res / 2;
 	}
+
 	static int getAugmentingPath (int src) {
 		Arrays.fill(par, -1);
 		used = new boolean[n];
@@ -93,7 +102,7 @@ public class MaxMatchingEdmond {
 							}
 						}
 					}
-				} 
+				}
 				// augmenting path found
 				else if (par[next] == -1) {
 					par[next] = curr;
@@ -106,7 +115,8 @@ public class MaxMatchingEdmond {
 			}
 		}
 		return -1;
-	}	
+	}
+
 	// Auxiliary function that marks the blossom
 	static void markPath (boolean[] blossom, int i, int b, int j) {
 		for (; id[i] != b; i = par[match[i]]) {
@@ -115,6 +125,7 @@ public class MaxMatchingEdmond {
 			j = match[i];
 		}
 	}
+
 	// Auxiliary function that finds the lca in the BFS tree
 	static int lca (int i, int j) {
 		boolean[] v = new boolean[n];
@@ -132,6 +143,7 @@ public class MaxMatchingEdmond {
 			j = par[match[j]];
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -158,4 +170,3 @@ public class MaxMatchingEdmond {
 		return br.readLine().trim();
 	}
 }
-

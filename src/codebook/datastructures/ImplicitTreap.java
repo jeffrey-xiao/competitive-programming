@@ -78,18 +78,18 @@ class ImplicitTreap {
 	public void pushBack (Integer val) {
 		root = merge(root, new Node(val));
 	}
-	
+
 	public void add (Integer key, Integer val) {
 		NodePair n = split(root, key, 0);
 		Node newRoot = merge(n.left, new Node(val));
 		newRoot = merge(newRoot, n.right);
 		root = newRoot;
 	}
-	
+
 	public void modify (Integer key, Integer val) {
 		root = modify(root, key, val, 0);
 	}
-	
+
 	// auxiliary method for modify
 	private Node modify (Node n, Integer key, Integer val, Integer lowerCnt) {
 		Integer nKey = lowerCnt + getSize(n.left) + 1;
