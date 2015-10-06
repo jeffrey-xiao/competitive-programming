@@ -200,9 +200,9 @@ public class Rope {
 		}
 	}
 	public static void main (String[] args) {
-		Rope a = new Rope("HELLO ");
-		Rope b = new Rope("MY ");
-		Rope c = new Rope("NAME ");
+		Rope a = new Rope("HELLO+");
+		Rope b = new Rope("MY+");
+		Rope c = new Rope("NAME+");
 		Rope d = new Rope("JEFFREY");
 		a.concat(b);
 		a.concat(c);
