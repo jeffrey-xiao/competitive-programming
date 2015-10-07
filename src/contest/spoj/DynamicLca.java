@@ -1,20 +1,22 @@
-package codebook.datastructures;
+package contest.spoj;
 
-public class LinkCutTree {
-	private Node[] nodes;
-	LinkCutTree (int n) {
-		nodes = new Node[n];
-		for (int i = 0; i < n; i++)
-			nodes[i] = new Node();
-	}
+import java.util.*;
+import java.io.*;
 
-	private class Node {
+public class DynamicLca {
+	private static Node[] nodes;
+
+	private static class Node {
 		Node path_parent;
 		// tree pointers
 		Node parent, left, right;
+		Integer id;
+		Node (Integer id) {
+			this.id = id;
+		}
 	}
 	// precondition: n must be a root node, and n and m must be in different trees
-	public void link (Node n, Node m) {
+	public static void link (Node n, Node m) {
 		access(n);
 		access(m);
 
@@ -23,7 +25,7 @@ public class LinkCutTree {
 		m.path_parent = null;
 	}
 	// precondition: n is not a root node
-	public void cut (Node n) {
+	public static void cut (Node n) {
 		access(n);
 		if (n.left != null) {
 			n.left.parent = null;
@@ -32,7 +34,7 @@ public class LinkCutTree {
 		}
 	}
 
-	public Node getRoot (Node n) {
+	public static Node getRoot (Node n) {
 		access(n);
 		while (n.left != null)
 			n = n.left;
@@ -40,7 +42,7 @@ public class LinkCutTree {
 		return n;
 	}
 
-	public void access (Node n) {
+	public static void access (Node n) {
 		splay(n);
 		if (n.right != null) {
 			n.right.path_parent = n;
@@ -63,7 +65,7 @@ public class LinkCutTree {
 		}
 		splay(n);
 	}
-	private void splay (Node n) {
+	private static void splay (Node n) {
 		while (n.parent != null) {
 			Node p = n.parent;
 			Node pp = n.parent.parent;
@@ -78,7 +80,7 @@ public class LinkCutTree {
 			}
 		}
 	}
-	private void rotate (Node n) {
+	private static void rotate (Node n) {
 		Node p = n.parent;
 		Node pp = n.parent.parent;
 		if (p.left == n) {
@@ -105,7 +107,7 @@ public class LinkCutTree {
 		p.path_parent = null;
 	}
 
-	public Node lca (Node n, Node m) {
+	public static Node lca (Node n, Node m) {
 		if (getRoot(n) != getRoot(m))
 			return null;
 		access(m);
@@ -134,6 +136,64 @@ public class LinkCutTree {
 		}
 		splay(n);
 		return res;
+	}
+
+	static BufferedReader br;
+	static PrintWriter out;
+	static StringTokenizer st;
+	public static void main (String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
+		
+		int n = readInt();
+		int m = readInt();
+		nodes = new Node[n];
+		for (int i = 0; i < n; i++)
+			nodes[i] = new Node(i+1);
+		
+		for (int i = 0; i < m; i++) {
+			String command = next();
+			if (command.equals("link")) {
+				int j = readInt()-1;
+				int k = readInt()-1;
+				link(nodes[j], nodes[k]);
+			} else if (command.equals("cut")) {
+				int j = readInt()-1;
+				cut(nodes[j]);
+			} else {
+				int j = readInt()-1;
+				int k = readInt()-1;
+				Node lca = lca(nodes[j], nodes[k]);
+				out.println(lca.id);
+			}
+		}
+
+		out.close();
+	}
+	static String next () throws IOException {
+		while (st == null || !st.hasMoreTokens())
+			st = new StringTokenizer(br.readLine().trim());
+		return st.nextToken();
+	}
+
+	static long readLong () throws IOException {
+		return Long.parseLong(next());
+	}
+
+	static int readInt () throws IOException {
+		return Integer.parseInt(next());
+	}
+
+	static double readDouble () throws IOException {
+		return Double.parseDouble(next());
+	}
+
+	static char readCharacter () throws IOException {
+		return next().charAt(0);
+	}
+
+	static String readLine () throws IOException {
+		return br.readLine().trim();
 	}
 }
 
