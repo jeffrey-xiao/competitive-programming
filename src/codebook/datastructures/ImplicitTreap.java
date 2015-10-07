@@ -10,7 +10,7 @@ class ImplicitTreap {
 	Node root = null;
 
 	// object representing the nodes of the tree
-	static class Node {
+	class Node {
 		Integer size;
 		Integer value;
 		Double priority;
@@ -24,7 +24,7 @@ class ImplicitTreap {
 	}
 
 	// object representing a pair of nodes of the tree
-	static class NodePair {
+	class NodePair {
 		Node left, right;
 
 		NodePair (Node left, Node right) {

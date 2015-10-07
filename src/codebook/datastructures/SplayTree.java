@@ -10,7 +10,7 @@ public class SplayTree {
 	Node root = null;
 
 	// object representing a node of the tree
-	static class Node implements Comparable<Node> {
+	class Node implements Comparable<Node> {
 		int key;
 		int value;
 		Node left, right;

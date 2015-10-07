@@ -85,7 +85,7 @@ public class SkipList {
 		return current;
 	}
 
-	static class Node {
+	class Node {
 		Integer val;
 		Node down, right;
 

@@ -10,7 +10,7 @@ public class AVLTree {
 	Node root = null;
 
 	// object representing the nodes of the tree
-	static class Node {
+	class Node {
 		Integer key, value, height;
 		Node left, right;
 

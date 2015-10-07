@@ -16,7 +16,7 @@ public class Treap {
 	Node root = null;
 
 	// object representing the nodes of the tree
-	static class Node {
+	class Node {
 		Integer key;
 		Integer value;
 		Double priority;

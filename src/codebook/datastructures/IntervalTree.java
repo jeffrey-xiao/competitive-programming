@@ -146,7 +146,7 @@ public class IntervalTree {
 	}
 
 	// A node of the tree
-	static class Node {
+	class Node {
 		// children of the node
 		Node left, right;
 

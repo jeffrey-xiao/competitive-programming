@@ -10,7 +10,7 @@ public class BinarySearchTree {
 	Node root = null;
 
 	// object representing the nodes of the tree
-	static class Node {
+	class Node {
 		Integer key, value;
 		Node left, right;
 
