@@ -49,3 +49,5 @@ out.txt
 .project
 .classpath
 /.settings/
+*.o
+*.exe
