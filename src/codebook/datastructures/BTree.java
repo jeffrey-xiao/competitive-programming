@@ -1,7 +1,7 @@
 package codebook.datastructures;
 
 public class BTree {
-	// max children
+	// max child = M - 1
 	private int M;
 	private Node root;
 	private int height;
