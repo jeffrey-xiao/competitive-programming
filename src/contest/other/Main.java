@@ -1,8 +1,10 @@
 package contest.other;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Main {
@@ -31,22 +33,16 @@ public class Main {
 
 	}
 */
-	public static void main(String[] args)
-	{
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int q = sc.nextInt();
-		int[] x = new int[n+1];
-		for(int i = 1; i <= n; i++)
-			x[i] = x[i-1] + sc.nextInt();
-		int a, b, m;
-		for(int i = 0; i < q; i++)
-		{
-			a = sc.nextInt();
-			b = sc.nextInt();
-			m = (a+b)/2;
-			System.out.println(x[b]-x[m]-((a+b)%2==0?x[m-1]:x[m])+x[a-1]);
+	public static void main(String[] args) throws IOException	{
+		PrintWriter out = new PrintWriter(new FileWriter("Signup.csv"));
+		out.println("Name,Email");
+		String[] in = readLine().split(",");
+		for (String s : in) {
+			String[] line = s.split("<");
+			out.println(line[0]+","+line[1].substring(0,  line[1].length()-1));
 		}
+		out.close();
+		
 	}
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
