@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class DMOJ_2014_Black_And_White {
+public class DMOPC_2014_Black_And_White {
 
 	static BufferedReader br;
 	static PrintWriter out;

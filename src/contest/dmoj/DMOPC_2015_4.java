@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class DMOC_2014_Luxurious_Smores {
+public class DMOPC_2015_4 {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -16,24 +16,27 @@ public class DMOC_2014_Luxurious_Smores {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int k = readInt();
-		int l = readInt();
-		int[] a = new int[n];
-		for (int i = 0; i < n; i++)
-			a[i] = readInt();
+		int x = readInt();
 		int cnt = 0;
-		for (int i = 0; i < n; i++) {
-			int variance = 0;
-				variance = Math.max(variance, Math.abs(a[i] - a[(i-1 + n)%n]));
-				variance = Math.max(variance, Math.abs(a[i] - a[(i+1)%n]));
-			if (a[i] >= k ^ variance <= l)
-				cnt++;
+		for (int i = 2; i <= n; i++) {
+			if (isPrime(i)) {
+				if ((n-i) % x == 0) 
+					cnt += 2*((n-i)/x+1)-1;
+				else
+					cnt += 2*((n-i)/x+1);
+			}
 		}
 		out.println(cnt);
-		
 		out.close();
 	}
 
+	static boolean isPrime (int i) {
+		for (int j = 2; j*j <= i; j++)
+			if (i % j == 0)
+				return false;
+		return true;
+	}
+	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
