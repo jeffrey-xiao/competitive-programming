@@ -24,7 +24,7 @@ public class DMOPC_2014_Black_And_White {
 
 		HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();
 		HashMap<Integer, Integer> toCoord = new HashMap<Integer, Integer>();
-		int n = readInt();
+		readInt();
 		int m = readInt();
 		PriorityQueue<Event> pq = new PriorityQueue<Event>();
 		TreeSet<Integer> ys = new TreeSet<Integer>();

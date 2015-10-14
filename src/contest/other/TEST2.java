@@ -139,10 +139,15 @@ public class TEST2 {
 			if (right > end)
 				right = end;
 			int median = median(seq, left, right, 3);
-			//			swap(seq[median], seq[i]);
+			swap(seq, median, i);
 		}
 
 		return median(seq, 0, (end + 1) / 5, (end + 1) / 10);
+	}
+	void swap (int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
 	}
 
 	int g (int x, int n) {
