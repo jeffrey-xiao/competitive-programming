@@ -1,39 +1,125 @@
-/* package whatever; // don't place package name! */
+package codebook.algorithms;
 
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Sort {
+public class Sort {
+
+	public static void quickSort (int[] a) {
+		quickSort(a, 0, a.length-1);
+	}
 	
-	public static void mergeSort (int[] a, int[] aux, int lo, int hi) {
-		if (hi - lo <= 1)
+	private static void quickSort(int[] a, int lo, int hi){
+		if(hi <= lo)
+			return;
+		int x = partition(a,lo,hi);
+		quickSort(a,lo,x-1);
+		quickSort(a,x+1,hi);
+	}
+
+	private static int partition (int[] a, int lo, int hi) {
+		// random partition
+		int rand = (int)(Math.random() * (hi - lo + 1) + lo);
+		swap(a, rand, lo);
+		int x = lo;
+		int y = hi+1;
+		while(true){
+			while(a[++x] < a[lo])
+				if(x == hi)
+					break;
+			while(a[lo] < a[--y])
+				if(y == lo)
+					break;
+			if(x>=y)
+				break;
+			swap(a, x, y);
+		}
+		swap(a,lo,y);
+		return y;
+	}
+
+	public static void LSD (int[] a) {
+		int n = a.length;
+		int[] aux = new int[n];
+		for (int i = 1; i <= 1000000000; i *= 10) {
+			int[] count = new int[10];
+			for (int j = 0; j < n; j++)
+				count[(a[j]/i) % 10]++;
+			for (int j = 1; j < 10; j++)
+				count[j] += count[j-1];
+			for (int j = n-1; j >= 0; j--)
+				aux[--count[(a[j]/i) % 10]] = a[j];
+			for (int j = 0; j < n; j++)
+				a[j] = aux[j];
+		}
+	}
+
+	public static void MSD (int[] a){
+		int[] aux = new int[a.length];
+		MSD(a, aux, 0, a.length-1, 1000000000);
+	}
+	private static void MSD (int[] a, int[] aux, int lo, int hi, int d){
+		if(hi <= lo || d == 0)
+			return;
+		int[] count = new int[11];
+		int[] count2 = new int[11];
+		for(int i = lo; i <= hi; i++)
+			count[(a[i]/d) % 10 + 1]++;
+		for(int i = 1; i < 11; i++)
+			count[i] += count[i-1];
+		for (int i = 0; i < 11; i++)
+			count2[i] = count[i];
+		for(int i = hi; i >= lo; i--)
+			aux[count[(a[i]/d) % 10]++] = a[i];
+		for(int i = lo; i <= hi; i++)
+			a[i] = aux[i-lo];
+		for(int i = 0; i < 10; i++)
+			MSD(a, aux, lo + count2[i], lo + count2[i+1] - 1, d/10);	
+	}
+
+	public static void mergeSort1 (int[] a) {
+		mergeSort1(a, new int[a.length], 0, a.length-1);
+	}
+
+	public static void mergeSort2 (int[] a) {
+		int length = a.length;
+		int[] aux = new int[length];
+		for (int gap = 1; gap < length; gap*=2)
+			for (int low = 0; low < length-gap; low += gap*2)
+				merge(a, aux, low, low+gap-1, Math.min(length-1, low+gap+gap-1));
+	}
+
+	private static void mergeSort1 (int[] a, int[] aux, int lo, int hi) {
+		if (hi - lo <= 0)
 			return;
 		int mid = (hi + lo) >> 1;
-		mergeSort(a, aux, lo, mid);
-		mergeSort(a, aux, mid+1, hi);
+		mergeSort1(a, aux, lo, mid);
+		mergeSort1(a, aux, mid+1, hi);
+		merge(a, aux, lo, mid, hi);
+	}
+
+	private static void merge (int[] a, int[] aux, int lo, int mid, int hi) {
 		for (int i = lo; i <= mid; i++)
 			aux[i] = a[i];
 		for (int i = lo, j = mid+1, k = lo; k <= hi; k++) {
 			if (j == hi+1 || (i <= mid && aux[i] < a[j]))
 				a[k] = aux[i++];
 			else
-				a[k] = aux[j++];
+				a[k] = a[j++];
 		}
 	}
-	
+
 	public static void heapSort (int[] a) {
 		for (int i = a.length/2 - 1; i >= 0; i--)
-			pushDOwn(a, i, a.length);
-		for (int i = a.length - 1; i >= 0; i++) {
+			pushDown(a, i, a.length);
+		for (int i = a.length - 1; i >= 0; i--) {
 			swap(a, 0, i);
 			pushDown(a, 0, i);
 		}
 	}
-	
+
 	private static void pushDown (int[] a, int i, int n) {
 		while (true) {
-			int minChild = 2*pos+1;
+			int minChild = 2*i+1;
 			if (minChild >= n)
 				break;
 			if (minChild+1 < n && a[minChild+1] > a[minChild])
@@ -44,7 +130,7 @@ class Sort {
 			i = minChild;
 		}
 	}
-	
+
 	public static void bubbleSort (int[] a) {
 		for (int i = 0; i + 1 < a.length; i++)
 			for (int j = 0; j + 1 < a.length; j++)
@@ -53,9 +139,12 @@ class Sort {
 	}
 	public static void insertionSort (int[] a) {
 		for (int i = 1; i < a.length; i++)
-			for (int j = i-1; j >= 0; j--)
-				if (a[j] > a[i])
-					swap(a, j, i);
+			for (int j = i; j > 0; j--) {
+				if (a[j-1] > a[j])
+					swap(a, j-1, j);
+				else
+					break;
+			}
 	}
 	public static void countingSort (int[] a) {
 		int max = 0;
@@ -67,20 +156,20 @@ class Sort {
 		for (int i = 1; i < cnt.length; i++)
 			cnt[i] += cnt[i-1];
 		int[] b = new int[a.length];
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < a.length; i++)
 			b[--cnt[a[i]]] = a[i];
 		System.arraycopy(b, 0, a, 0, a.length);
 	}
 	public static void selectionSort (int[] a) {
 		int[] p = new int[a.length];
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < a.length; i++)
 			p[i] = i;
-		for (int i = 0; i < n-1; i++)
-			for (int j = i + 1; j < n; j++)
+		for (int i = 0; i < a.length-1; i++)
+			for (int j = i + 1; j < a.length; j++)
 				if (a[p[i]] > a[p[j]])
 					swap(p, i, j);
 		int[] b = new int[a.length];
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < a.length; i++)
 			b[i] = a[p[i]];
 		System.arraycopy(b, 0, a, 0, a.length);
 	}
@@ -89,18 +178,17 @@ class Sort {
 		a[i] = a[j];
 		a[j] = temp;
 	}
-	public static void main (String[] args) {
-		for (int i = 0; i < 1000; i++) {
-			int[] a = new int[1000];
-			int[] b = a.clone();
+	public static void main (String[] args) throws Exception {
+		for (int i = 0; i < 100; i++) {
+			int[] a = new int[10000];
+			int[] b = new int[10000];
+			for (int j = 0; j < 10; j++)
+				a[j] = (int)(Math.random()*10000);
+			System.arraycopy(a, 0, b, 0, a.length);
 			Arrays.sort(b);
-			for (int j = 0; j < 1000; j++)
-				a[j] = (int)(Math.random()*1000)
-			mergeSort(a, new int[1000], 0, 999);
-			if (!Arrays.equals(b, a))
-				System.out.println("I'M HOMO");
-			
+			mergeSort1(a);
+			if (!Arrays.equals(a, b))
+				throw new Exception();
 		}
-		
 	}	
 }
