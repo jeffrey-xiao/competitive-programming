@@ -9,17 +9,26 @@ Under the contest package, you will find my solutions to various programming con
 
 Under the cpp package, you will find C++ programs to various problems.
 TODO LIST:
+
 Divide and conquer
+
 Combinatorics
+
 Data structures
  - R-tree
  - Hashing Structures
+
 Data Compression
+
 DP
+
 geometry
+
 graphs
  - tree cnter and tree isomorphism
+
 linear algebra
+
 strings
  - DC3
  - expression parser
