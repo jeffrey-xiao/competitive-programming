@@ -17,21 +17,26 @@ Combinatorics
 
 Data structures
  - R-tree
- - Hashing Structures
+ - Persistent trees
 
 Data Compression
 
 DP
 
+optimization
+
 geometry
 
 graphs
- - tree cnter and tree isomorphism
+ - tree isomorphism
 
 linear algebra
 
 strings
  - DC3
- - expression parser
- - suffix automaton
- - dyanmic suffix array
+ - dynamic suffix array
+
+number theory
+
+numeric methods
+
