@@ -4,10 +4,36 @@ import java.util.*;
 
 public class Sort {
 
+	public int find (int k, int beg, int end, int[] seq){
+		int i = median(seq, beg, end, k);
+		if(i == k)
+			return seq[i];
+		else if(i < k)
+			return find(k, i+1, end, seq);
+		return find(k-(seq.length-i), beg, i, seq);
+	}
+	private int median(int[] seq, int beg, int end, int k){
+		if(end - beg + 1 <= 5){
+			Arrays.sort(seq, beg, end + 1);
+			return beg + k -1;
+		}
+
+		for(int i = 0; i < (end+1)/5; i++){
+			int left = 5*i;
+			int right = left + 4;
+			if(right > end)
+				right = end;
+			int median = median(seq, left, right, 3);
+			swap(seq, median, i);
+		}	
+		return median(seq, 0, (end+1)/5, (end+1)/10);
+	}
+
+
 	public static void quickSort (int[] a) {
 		quickSort(a, 0, a.length-1);
 	}
-	
+
 	private static void quickSort(int[] a, int lo, int hi){
 		if(hi <= lo)
 			return;
