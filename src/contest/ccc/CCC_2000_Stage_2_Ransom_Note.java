@@ -11,12 +11,12 @@ public class CCC_2000_Stage_2_Ransom_Note {
 
 	static StringBuilder in;
 	static int searchPos = 0;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
 		String search = readLine();
 		in = new StringBuilder("");
 		while (br.ready()) 
