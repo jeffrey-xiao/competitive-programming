@@ -19,19 +19,19 @@ public class DMOPC_2015_3 {
 		String s = next();
 		for (int i = 0; i < 26; i++) {
 			for (int j = 0; j < str.length; j++)
-				str[j] = (char)((str[j] - 'a' - 1 + 26) % 26 + 'a');
-			main : for (int j = 0; j < str.length - s.length()+1; j++) {
+				str[j] = (char) ((str[j] - 'a' - 1 + 26) % 26 + 'a');
+			main : for (int j = 0; j < str.length - s.length() + 1; j++) {
 				for (int k = 0; k < s.length(); k++) {
-					if (s.charAt(k) != str[j+k])
+					if (s.charAt(k) != str[j + k])
 						continue main;
 				}
-				out.println((i+1)%26);
+				out.println((i + 1) % 26);
 				out.println(new String(str));
 				out.close();
 				return;
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -61,4 +61,3 @@ public class DMOPC_2015_3 {
 		return br.readLine().trim();
 	}
 }
-

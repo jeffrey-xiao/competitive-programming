@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class Mine_And_Tree {
+public class Christmas_Mine_And_Tree {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -35,9 +35,9 @@ public class Mine_And_Tree {
 		chainPos = new int[n];
 		chain = new int[n];
 		head = new int[n];
-		a = new Node[n+1];
-		tree1 = new Node[n*4];
-		tree2 = new Node[n*4];
+		a = new Node[n + 1];
+		tree1 = new Node[n * 4];
+		tree2 = new Node[n * 4];
 
 		for (int i = 0; i < n; i++) {
 			head[i] = -1;
@@ -45,9 +45,9 @@ public class Mine_And_Tree {
 		}
 		for (int i = 0; i < n; i++)
 			a[i] = readNode();
-		for (int i = 0; i < n-1; i++) {
-			int x = readInt()-1;
-			int y = readInt()-1;
+		for (int i = 0; i < n - 1; i++) {
+			int x = readInt() - 1;
+			int y = readInt() - 1;
 			adj.get(x).add(y);
 			adj.get(y).add(x);
 		}
@@ -58,12 +58,12 @@ public class Mine_And_Tree {
 		for (int i = 0; i < m; i++) {
 			char command = readCharacter();
 			if (command == 'U') {
-				int u = readInt()-1;
+				int u = readInt() - 1;
 				a[u] = readNode();
 				update(1, 1, n, chainPos[u]);
 			} else {
-				int u = readInt()-1;
-				int v = readInt()-1;
+				int u = readInt() - 1;
+				int v = readInt() - 1;
 				Node start = new Node(0, readDouble(), readDouble(), 1);
 				int lca = lca(u, v);
 				Node res = merge(solve(u, lca, true, false), solve(v, lca, false, true));
@@ -73,8 +73,9 @@ public class Mine_And_Tree {
 			}
 		}
 		out.close();
-		
+
 	}
+
 	static int lca (int i, int j) {
 		while (chain[i] != chain[j]) {
 			if (depth[head[chain[i]]] < depth[head[chain[j]]])
@@ -86,6 +87,7 @@ public class Mine_And_Tree {
 			return i;
 		return j;
 	}
+
 	static Node solve (int u, int v, boolean isRev, boolean isInclude) {
 		Node res = new Node();
 		while (chain[u] != chain[v]) {
@@ -107,7 +109,7 @@ public class Mine_And_Tree {
 				res = merge(res, query(1, 1, n, chainPos[v] + 1, chainPos[u], isRev));
 			else
 				res = merge(query(1, 1, n, chainPos[v] + 1, chainPos[u], isRev), res);
-		} 
+		}
 		return res;
 	}
 
@@ -125,13 +127,13 @@ public class Mine_And_Tree {
 
 	static void build (int n, int l, int r) {
 		if (l == r) {
-			tree1[n] = a[toIndex[l]]; 
+			tree1[n] = a[toIndex[l]];
 			tree2[n] = a[toIndex[l]];
 			return;
 		}
 		int mid = (l + r) >> 1;
 		build(n << 1, l, mid);
-		build(n << 1 | 1, mid+1, r);
+		build(n << 1 | 1, mid + 1, r);
 		tree1[n] = merge(tree1[n << 1], tree1[n << 1 | 1]);
 		tree2[n] = merge(tree2[n << 1 | 1], tree2[n << 1]);
 	}
@@ -139,13 +141,13 @@ public class Mine_And_Tree {
 	static Node query (int n, int l, int r, int ql, int qr, boolean rev) {
 		if (l == ql && r == qr)
 			return rev ? tree2[n] : tree1[n];
-			int mid = (l + r) >> 1;
+		int mid = (l + r) >> 1;
 		if (qr <= mid)
 			return query(n << 1, l, mid, ql, qr, rev);
 		else if (ql > mid)
-			return query(n << 1 | 1, mid+1, r, ql, qr, rev);
+			return query(n << 1 | 1, mid + 1, r, ql, qr, rev);
 		Node n1 = query(n << 1, l, mid, ql, mid, rev);
-		Node n2 = query(n << 1 | 1, mid+1, r, mid+1, qr, rev);
+		Node n2 = query(n << 1 | 1, mid + 1, r, mid + 1, qr, rev);
 		return rev ? merge(n2, n1) : merge(n1, n2);
 	}
 
@@ -159,18 +161,18 @@ public class Mine_And_Tree {
 		if (x <= mid)
 			update(n << 1, l, mid, x);
 		else
-			update(n << 1 | 1, mid+1, r, x);
+			update(n << 1 | 1, mid + 1, r, x);
 		tree1[n] = merge(tree1[n << 1], tree1[n << 1 | 1]);
 		tree2[n] = merge(tree2[n << 1 | 1], tree2[n << 1]);
 	}
 
 	static void hld (int i, int par) {
-		if (head[currChain] == -1) 
+		if (head[currChain] == -1)
 			head[currChain] = i;
 		chain[i] = currChain;
 		toIndex[currPos] = i;
 		chainPos[i] = currPos++;
-		
+
 		int maxIndex = -1;
 		for (int j : adj.get(i))
 			if (j != par && (maxIndex == -1 || size[maxIndex] < size[j]))
@@ -190,13 +192,13 @@ public class Mine_And_Tree {
 		size[i] = 1;
 		for (int j : adj.get(i))
 			if (j != par)
-				size[i] += dfs(j, i, d+1);
+				size[i] += dfs(j, i, d + 1);
 		return size[i];
 	}
 
 	static Point rotate (Point p, double angle) {
-		double sin = Math.sin(angle/180*Math.PI);
-		double cos = Math.cos(angle/180*Math.PI);
+		double sin = Math.sin(angle / 180 * Math.PI);
+		double cos = Math.cos(angle / 180 * Math.PI);
 		double x = p.x * cos - p.y * sin;
 		double y = p.x * sin + p.y * cos;
 		return new Point(x, y);
@@ -211,7 +213,7 @@ public class Mine_And_Tree {
 		else {
 			double x = readInt();
 			double y = readInt();
-			double p = readInt()/100.0d;
+			double p = readInt() / 100.0d;
 			x *= (1 - p);
 			y *= (1 - p);
 			return new Node(0, x, y, p);
@@ -220,6 +222,7 @@ public class Mine_And_Tree {
 
 	static class Point {
 		double x, y;
+
 		Point (double x, double y) {
 			this.x = x;
 			this.y = y;
@@ -230,16 +233,19 @@ public class Mine_And_Tree {
 		double rotate;
 		Point dp;
 		double percent;
+
 		Node () {
 			this(0, 0, 0, 1);
 		}
+
 		Node (double rotate, double dx, double dy, double percent) {
 			this.rotate = rotate;
 			this.dp = new Point(dx, dy);
 			this.percent = percent;
 		}
+
 		public String toString () {
-			return String.format("(%f, %f) with %f and %f",dp.x, dp.y, rotate, percent);
+			return String.format("(%f, %f) with %f and %f", dp.x, dp.y, rotate, percent);
 		}
 	}
 
@@ -269,4 +275,3 @@ public class Mine_And_Tree {
 		return br.readLine().trim();
 	}
 }
-

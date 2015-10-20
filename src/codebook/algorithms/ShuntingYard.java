@@ -7,7 +7,7 @@ public class ShuntingYard {
 		return c == ' ';
 	}
 
-	private static boolean isOperator(char c) {
+	private static boolean isOperator (char c) {
 		return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
 	}
 
@@ -76,8 +76,8 @@ public class ShuntingYard {
 			operate(st, op.removeLast());
 		return st.get(0);
 	}
+
 	public static void main (String[] args) {
 		System.out.println(eval("(1+3)*((5+2)*3)"));
 	}
 }
-

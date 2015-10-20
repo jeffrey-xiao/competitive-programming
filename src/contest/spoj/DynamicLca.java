@@ -11,10 +11,12 @@ public class DynamicLca {
 		// tree pointers
 		Node parent, left, right;
 		Integer id;
+
 		Node (Integer id) {
 			this.id = id;
 		}
 	}
+
 	// precondition: n must be a root node, and n and m must be in different trees
 	public static void link (Node n, Node m) {
 		access(n);
@@ -24,6 +26,7 @@ public class DynamicLca {
 		m.parent = n;
 		m.path_parent = null;
 	}
+
 	// precondition: n is not a root node
 	public static void cut (Node n) {
 		access(n);
@@ -65,6 +68,7 @@ public class DynamicLca {
 		}
 		splay(n);
 	}
+
 	private static void splay (Node n) {
 		while (n.parent != null) {
 			Node p = n.parent;
@@ -80,6 +84,7 @@ public class DynamicLca {
 			}
 		}
 	}
+
 	private static void rotate (Node n) {
 		Node p = n.parent;
 		Node pp = n.parent.parent;
@@ -87,7 +92,7 @@ public class DynamicLca {
 			p.left = n.right;
 			n.right = p;
 			p.parent = n;
-			if (p.left != null)	
+			if (p.left != null)
 				p.left.parent = p;
 		} else if (p.right == n) {
 			p.right = n.left;
@@ -141,28 +146,29 @@ public class DynamicLca {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		
+
 		int n = readInt();
 		int m = readInt();
 		nodes = new Node[n];
 		for (int i = 0; i < n; i++)
-			nodes[i] = new Node(i+1);
-		
+			nodes[i] = new Node(i + 1);
+
 		for (int i = 0; i < m; i++) {
 			String command = next();
 			if (command.equals("link")) {
-				int j = readInt()-1;
-				int k = readInt()-1;
+				int j = readInt() - 1;
+				int k = readInt() - 1;
 				link(nodes[j], nodes[k]);
 			} else if (command.equals("cut")) {
-				int j = readInt()-1;
+				int j = readInt() - 1;
 				cut(nodes[j]);
 			} else {
-				int j = readInt()-1;
-				int k = readInt()-1;
+				int j = readInt() - 1;
+				int k = readInt() - 1;
 				Node lca = lca(nodes[j], nodes[k]);
 				out.println(lca.id);
 			}
@@ -170,6 +176,7 @@ public class DynamicLca {
 
 		out.close();
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -196,4 +203,3 @@ public class DynamicLca {
 		return br.readLine().trim();
 	}
 }
-

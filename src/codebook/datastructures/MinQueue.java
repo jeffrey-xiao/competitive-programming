@@ -5,7 +5,7 @@ import java.util.*;
 public class MinQueue {
 	ArrayDeque<Integer> q = new ArrayDeque<Integer>();
 	ArrayDeque<Integer> d = new ArrayDeque<Integer>();
-	
+
 	void push (Integer i) {
 		if (q.isEmpty()) {
 			q.offerLast(i);
@@ -17,6 +17,7 @@ public class MinQueue {
 			d.offerLast(i);
 		}
 	}
+
 	int remove () {
 		if (q.isEmpty())
 			throw new NoSuchElementException();
@@ -27,11 +28,13 @@ public class MinQueue {
 			return q.pollFirst();
 		}
 	}
+
 	int getMax () {
 		if (d.isEmpty())
 			throw new NoSuchElementException();
 		return d.peekFirst();
 	}
+
 	public static void main (String[] args) {
 		MinQueue mq = new MinQueue();
 		mq.push(3);
@@ -47,4 +50,3 @@ public class MinQueue {
 		System.out.println(mq.remove());
 	}
 }
-

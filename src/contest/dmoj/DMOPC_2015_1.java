@@ -57,4 +57,3 @@ public class DMOPC_2015_1 {
 		return br.readLine().trim();
 	}
 }
-

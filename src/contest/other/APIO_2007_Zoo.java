@@ -20,17 +20,17 @@ public class APIO_2007_Zoo {
 		int[][] dp = new int[n][1 << 5];
 		int[][] value = new int[n][1 << 5];
 		for (int i = 0; i < c; i++) {
-			int e = readInt()-1;
+			int e = readInt() - 1;
 			int f = readInt();
 			int l = readInt();
 			int fear = 0;
 			int love = 0;
 			for (int j = 0; j < f; j++)
-				fear |= 1 << ((readInt() - e - 1 + n)%n);
+				fear |= 1 << ((readInt() - e - 1 + n) % n);
 			for (int j = 0; j < l; j++)
-				love |= 1 << ((readInt() - e - 1 + n)%n);
-//			out.println(Integer.toString(fear, 2));
-//			out.println(Integer.toString(love, 2));
+				love |= 1 << ((readInt() - e - 1 + n) % n);
+			//			out.println(Integer.toString(fear, 2));
+			//			out.println(Integer.toString(love, 2));
 			for (int j = 0; j < 1 << 5; j++)
 				if ((j & fear) != fear || (j & love) != 0)
 					value[e][j]++;
@@ -41,7 +41,7 @@ public class APIO_2007_Zoo {
 				for (int k = 0; k < 1 << 5; k++) {
 					boolean valid = true;
 					for (int l = 0; l < 5; l++) {
-						int index = (j + l)%n; 
+						int index = (j + l) % n;
 						if (0 <= index && index <= 4 && (((k & (1 << l)) > 0) ^ ((i & (1 << index)) > 0)))
 							valid = false;
 					}
@@ -51,7 +51,7 @@ public class APIO_2007_Zoo {
 						dp[j][k] = value[j][k];
 					} else {
 						int prevState = (k & ((1 << 4) - 1)) << 1;
-						dp[j][k] = value[j][k] + Math.max(dp[j-1][prevState], dp[j-1][prevState + 1]);
+						dp[j][k] = value[j][k] + Math.max(dp[j - 1][prevState], dp[j - 1][prevState + 1]);
 						res = Math.max(dp[j][k], res);
 					}
 				}
@@ -87,4 +87,3 @@ public class APIO_2007_Zoo {
 		return br.readLine().trim();
 	}
 }
-

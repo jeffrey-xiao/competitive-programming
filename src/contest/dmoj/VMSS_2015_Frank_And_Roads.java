@@ -16,7 +16,7 @@ public class VMSS_2015_Frank_And_Roads {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
-		int n = readInt()+1;
+		int n = readInt() + 1;
 		int m = readInt();
 		int g = readInt();
 		ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
@@ -56,23 +56,27 @@ public class VMSS_2015_Frank_And_Roads {
 
 	static class Edge {
 		int cost, dest;
+
 		Edge (int dest, int cost) {
 			this.cost = cost;
 			this.dest = dest;
 		}
 	}
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Vertex v) {
 			return cost - v.cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -99,4 +103,3 @@ public class VMSS_2015_Frank_And_Roads {
 		return br.readLine().trim();
 	}
 }
-

@@ -8,7 +8,6 @@ public class BinaryExponentiation {
 			return b;
 		if (p % 2 == 0)
 			return modpow(b * b % m, p, m);
-		return b*modpow(b * b % m, p, m) % m;
+		return b * modpow(b * b % m, p, m) % m;
 	}
 }
-

@@ -2,6 +2,7 @@ package codebook.datastructures;
 
 public class LinkCutTree {
 	private Node[] nodes;
+
 	LinkCutTree (int n) {
 		nodes = new Node[n];
 		for (int i = 0; i < n; i++)
@@ -13,6 +14,7 @@ public class LinkCutTree {
 		// tree pointers
 		Node parent, left, right;
 	}
+
 	// precondition: n must be a root node, and n and m must be in different trees
 	public void link (Node n, Node m) {
 		access(n);
@@ -22,6 +24,7 @@ public class LinkCutTree {
 		m.parent = n;
 		m.path_parent = null;
 	}
+
 	// precondition: n is not a root node
 	public void cut (Node n) {
 		access(n);
@@ -63,6 +66,7 @@ public class LinkCutTree {
 		}
 		splay(n);
 	}
+
 	private void splay (Node n) {
 		while (n.parent != null) {
 			Node p = n.parent;
@@ -78,6 +82,7 @@ public class LinkCutTree {
 			}
 		}
 	}
+
 	private void rotate (Node n) {
 		Node p = n.parent;
 		Node pp = n.parent.parent;
@@ -85,7 +90,7 @@ public class LinkCutTree {
 			p.left = n.right;
 			n.right = p;
 			p.parent = n;
-			if (p.left != null)	
+			if (p.left != null)
 				p.left.parent = p;
 		} else if (p.right == n) {
 			p.right = n.left;
@@ -136,4 +141,3 @@ public class LinkCutTree {
 		return res;
 	}
 }
-

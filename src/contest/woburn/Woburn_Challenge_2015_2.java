@@ -26,10 +26,10 @@ public class Woburn_Challenge_2015_2 {
 		for (int i = 0; i < 8; i++) {
 			cards[i] -= min;
 		}
-//		for (int i = 0; i < 8; i++)
-//			System.out.print(cards[i] + " ");
-//		System.out.println();
-//		System.out.println(res);
+		//		for (int i = 0; i < 8; i++)
+		//			System.out.print(cards[i] + " ");
+		//		System.out.println();
+		//		System.out.println(res);
 		int lo = 0;
 		int hi = 100000000;
 		while (lo <= hi) {
@@ -49,7 +49,7 @@ public class Woburn_Challenge_2015_2 {
 		lo = 0;
 		hi = 100000000;
 		while (lo <= hi) {
-			int mid = (hi + lo) /2;
+			int mid = (hi + lo) / 2;
 			int needed = 0;
 			for (int i = 0; i < 8; i++) {
 				if (i == 1 || i == 5)
@@ -75,7 +75,7 @@ public class Woburn_Challenge_2015_2 {
 				cards[9]--;
 			}
 		}
-		
+
 		min = 1 << 30;
 		for (int i = 0; i < 8; i++) {
 			min = Math.min(min, cards[i]);
@@ -84,11 +84,11 @@ public class Woburn_Challenge_2015_2 {
 			cards[i] -= min;
 		}
 		res += min;
-		
+
 		lo = 0;
 		hi = 100000000;
 		while (lo <= hi) {
-			int mid = (hi + lo)/2;
+			int mid = (hi + lo) / 2;
 			int needed = 0;
 			for (int i = 0; i < 8; i++) {
 				needed += Math.max(0, mid - cards[i]);
@@ -100,9 +100,7 @@ public class Woburn_Challenge_2015_2 {
 		}
 		res += hi;
 		out.println(res);
-		
-		
-		
+
 		out.close();
 	}
 
@@ -132,4 +130,3 @@ public class Woburn_Challenge_2015_2 {
 		return br.readLine().trim();
 	}
 }
-

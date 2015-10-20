@@ -18,20 +18,20 @@ public class DMOPC_2015_2 {
 		int n = readInt();
 		int l = readInt();
 		int r = readInt();
-		int[] val = new int[n+1];
+		int[] val = new int[n + 1];
 		for (int i = 1; i <= n; i++)
 			val[i] = readInt();
 		int res = 0;
 		Arrays.sort(val);
-		for (int i = 1; i <= n/2; i++) {
+		for (int i = 1; i <= n / 2; i++) {
 			int temp = val[i];
-			val[i] = val[n-i+1];
-			val[n-i+1] = temp;
+			val[i] = val[n - i + 1];
+			val[n - i + 1] = temp;
 		}
 		for (int i = r; i <= n; i += l)
 			res += val[i];
 		out.println(res);
-		
+
 		out.close();
 	}
 
@@ -61,4 +61,3 @@ public class DMOPC_2015_2 {
 		return br.readLine().trim();
 	}
 }
-

@@ -11,7 +11,7 @@ public class PrefixSum {
 
 	static int n, q;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,17 +20,17 @@ public class PrefixSum {
 
 		n = readInt();
 		q = readInt();
-		a = new int[n+1];
-		
+		a = new int[n + 1];
+
 		for (int i = 1; i <= n; i++)
-			a[i] = readInt() + a[i-1];
-		
+			a[i] = readInt() + a[i - 1];
+
 		for (int i = 0; i < q; i++) {
 			int l = readInt();
 			int r = readInt();
-			out.println(a[r] - a[l-1]);
+			out.println(a[r] - a[l - 1]);
 		}
-		
+
 		out.close();
 	}
 
@@ -60,4 +60,3 @@ public class PrefixSum {
 		return br.readLine().trim();
 	}
 }
-

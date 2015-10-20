@@ -15,6 +15,7 @@ public class CCC_2015_Stage_2_Solar_Flight {
 	static ArrayList<LinkedList<Collision>> max = new ArrayList<LinkedList<Collision>>();
 	static PriorityQueue<Collision> col = new PriorityQueue<Collision>();
 	static long[] curr;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -38,15 +39,15 @@ public class CCC_2015_Stage_2_Solar_Flight {
 		}
 
 		for (int i = 0; i < n; i++) {
-			for (int j = i+1; j < n; j++) {
+			for (int j = i + 1; j < n; j++) {
 				if (a[i] > a[j]) {
 					col.add(new Collision(0.0, j, i));
 				} else if (a[j] > a[i]) {
 					col.add(new Collision(0.0, i, j));
 				}
-				double s1 = (double)(b[i] - a[i])/x;
-				double s2 = (double)(b[j] - a[j])/x;
-				double cx = (double)(a[j] - a[i])/(s1 - s2);
+				double s1 = (double) (b[i] - a[i]) / x;
+				double s2 = (double) (b[j] - a[j]) / x;
+				double cx = (double) (a[j] - a[i]) / (s1 - s2);
 				if (0 <= cx && cx <= x) {
 					if (b[i] > b[j])
 						col.offer(new Collision(cx, j, i));
@@ -57,7 +58,7 @@ public class CCC_2015_Stage_2_Solar_Flight {
 		}
 		ArrayList<Query> queries = new ArrayList<Query>();
 		for (int i = 0; i < q; i++)
-			queries.add(new Query(i, readInt()-1, readInt()));
+			queries.add(new Query(i, readInt() - 1, readInt()));
 		Collections.sort(queries);
 		long[] ans = new long[q];
 		for (Query query : queries) {
@@ -81,36 +82,44 @@ public class CCC_2015_Stage_2_Solar_Flight {
 
 		out.close();
 	}
+
 	static void add (Collision c, int plane) {
 		while (!max.get(plane).isEmpty() && (max.get(plane).getLast().val <= c.val || Math.abs(max.get(plane).getLast().pos - c.pos) < EPS))
 			max.get(plane).pollLast();
 		max.get(plane).addLast(c);
 	}
+
 	static class Query implements Comparable<Query> {
 		int index, plane, position;
+
 		Query (int index, int plane, int position) {
 			this.index = index;
 			this.plane = plane;
 			this.position = position;
 		}
+
 		@Override
 		public int compareTo (Query q) {
 			return position - q.position;
 		}
 	}
+
 	static class Collision implements Comparable<Collision> {
 		Double pos, end;
 		int inc, dec;
 		long val;
+
 		Collision (double pos, long val) {
 			this.pos = pos;
 			this.val = val;
 		}
+
 		Collision (double pos, int inc, int dec) {
 			this.pos = pos;
 			this.inc = inc;
 			this.dec = dec;
 		}
+
 		@Override
 		public int compareTo (Collision c) {
 			return pos.compareTo(c.pos);
@@ -143,4 +152,3 @@ public class CCC_2015_Stage_2_Solar_Flight {
 		return br.readLine().trim();
 	}
 }
-

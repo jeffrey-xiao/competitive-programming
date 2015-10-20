@@ -19,13 +19,13 @@ public class CCC_2000_Stage_2_Ransom_Note {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 		String search = readLine();
 		in = new StringBuilder("");
-		while (br.ready()) 
+		while (br.ready())
 			in.append(br.readLine() + "  ");
 		ArrayList<String> clips = new ArrayList<String>();
-		for (int i = 0; i < search.length(); ) {
+		for (int i = 0; i < search.length();) {
 			while (search.charAt(i) == ' ')
 				i++;
-			int lo = i+1;
+			int lo = i + 1;
 			int hi = search.length();
 			while (lo <= hi) {
 				int mid = (hi + lo) / 2;
@@ -40,39 +40,43 @@ public class CCC_2000_Stage_2_Ransom_Note {
 		out.println(clips.size());
 		for (String s : clips)
 			out.println(s);
-		
+
 		out.close();
 	}
+
 	static boolean equal (Character c1, Character c2) {
 		return Character.toLowerCase(c1) == Character.toLowerCase(c2);
 	}
+
 	static int[] buildLCP (String s) {
 		int[] prefix = new int[s.length()];
 		for (int i = 1; i < s.length(); i++) {
-			int j = prefix[i-1];
+			int j = prefix[i - 1];
 			while (j > 0 && !equal(s.charAt(j), s.charAt(i)))
-				j = prefix[j-1];
+				j = prefix[j - 1];
 			if (equal(s.charAt(j), s.charAt(i)))
 				j++;
 			prefix[i] = j;
 		}
 		return prefix;
 	}
+
 	static boolean search (String s) {
 		int j = 0;
 		int[] prefix = buildLCP(s);
 		for (int i = 0; i < in.length(); i++) {
 			while (j > 0 && !equal(s.charAt(j), in.charAt(i)))
-				j = prefix[j-1];
+				j = prefix[j - 1];
 			if (equal(s.charAt(j), in.charAt(i)))
 				j++;
 			if (j == s.length()) {
-				searchPos = i - s.length() + 1; 
+				searchPos = i - s.length() + 1;
 				return true;
 			}
 		}
 		return false;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -99,4 +103,3 @@ public class CCC_2000_Stage_2_Ransom_Note {
 		return br.readLine().trim();
 	}
 }
-

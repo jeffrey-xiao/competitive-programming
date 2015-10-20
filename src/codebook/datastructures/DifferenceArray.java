@@ -11,7 +11,7 @@ public class DifferenceArray {
 
 	static int n, q;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,11 +20,11 @@ public class DifferenceArray {
 
 		n = readInt();
 		q = readInt();
-		a = new int[n+1];
+		a = new int[n + 1];
 		// updates use zero-based indexed
 		for (int i = 0; i < q; i++) {
 			int l = readInt();
-			int r = readInt()+1;
+			int r = readInt() + 1;
 			int x = readInt();
 			a[l] += x;
 			a[r] -= x;
@@ -35,7 +35,7 @@ public class DifferenceArray {
 		for (int i = 0; i < n; i++)
 			out.print(a[i] + " ");
 		out.println();
-		
+
 		out.close();
 	}
 
@@ -65,4 +65,3 @@ public class DifferenceArray {
 		return br.readLine().trim();
 	}
 }
-

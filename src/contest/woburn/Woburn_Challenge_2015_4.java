@@ -22,13 +22,13 @@ public class Woburn_Challenge_2015_4 {
 
 		n = readInt();
 		k = readInt();
-		dp = new int[n][k+1];
+		dp = new int[n][k + 1];
 		flow = new int[n];
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
 		for (int i = 1; i < n; i++) {
 			flow[i] = readInt();
-			int a = readInt()-1;
+			int a = readInt() - 1;
 			int b = readInt();
 			adj.get(i).add(new Edge(a, b));
 			adj.get(a).add(new Edge(i, b));
@@ -44,17 +44,18 @@ public class Woburn_Challenge_2015_4 {
 				solve(next.dest, curr, next.cost);
 		for (Edge next : adj.get(curr))
 			if (next.dest != par)
-				for (int i = k; i >= 0; i--) 
-					for (int j = 0; j <= i; j++) 
-						dp[curr][i] = Math.max(dp[curr][i], dp[curr][i-j] + dp[next.dest][j]);
+				for (int i = k; i >= 0; i--)
+					for (int j = 0; j <= i; j++)
+						dp[curr][i] = Math.max(dp[curr][i], dp[curr][i - j] + dp[next.dest][j]);
 
 		for (int i = k; i >= 1; i--)
-			dp[curr][i] = Math.max(Math.min(flowOut, dp[curr][i] + flow[curr]), dp[curr][i-1] + flow[curr]);
+			dp[curr][i] = Math.max(Math.min(flowOut, dp[curr][i] + flow[curr]), dp[curr][i - 1] + flow[curr]);
 		dp[curr][0] = Math.min(flowOut, dp[curr][0] + flow[curr]);
 	}
 
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
@@ -87,4 +88,3 @@ public class Woburn_Challenge_2015_4 {
 		return br.readLine().trim();
 	}
 }
-

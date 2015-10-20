@@ -10,6 +10,7 @@ public class Woburn_Challenge_2015_3 {
 	static StringTokenizer st;
 	static int n, m, k;
 	static ArrayList<ArrayList<Edge>> adj;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,8 +27,8 @@ public class Woburn_Challenge_2015_3 {
 			adj.add(new ArrayList<Edge>());
 		}
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj.get(b).add(new Edge(a, c));
 		}
@@ -52,15 +53,15 @@ public class Woburn_Challenge_2015_3 {
 		long res = 0;
 		for (int i = 0; i < n; i++) {
 			if (diff.get(i).cost >= 0)
-				res += live[diff.get(i).index] * (long)path1[diff.get(i).index];
+				res += live[diff.get(i).index] * (long) path1[diff.get(i).index];
 			else {
 				int index = diff.get(i).index;
 				if (live[index] > k) {
-					res += k * (long)path2[index];
-					res += (live[index] - k) * (long)path1[index];
+					res += k * (long) path2[index];
+					res += (live[index] - k) * (long) path1[index];
 					k = 0;
 				} else {
-					res += live[index] * (long)path2[index];
+					res += live[index] * (long) path2[index];
 					k -= live[index];
 				}
 			}
@@ -68,7 +69,7 @@ public class Woburn_Challenge_2015_3 {
 		out.println(res);
 		out.close();
 	}
-	
+
 	public static int[] path (int s) {
 		int[] dist = new int[n];
 		for (int i = 0; i < n; i++)
@@ -87,21 +88,25 @@ public class Woburn_Challenge_2015_3 {
 		}
 		return dist;
 	}
-	
+
 	static class Vertex implements Comparable<Vertex> {
 		int index;
 		Integer cost;
+
 		Vertex (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Vertex v) {
 			return cost.compareTo(v.cost);
 		}
 	}
+
 	static class Edge {
 		int dest, cost;
+
 		Edge (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
@@ -134,4 +139,3 @@ public class Woburn_Challenge_2015_3 {
 		return br.readLine().trim();
 	}
 }
-

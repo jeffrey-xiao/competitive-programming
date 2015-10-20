@@ -24,13 +24,13 @@ public class DMOPC_2014_Luxurious_Smores {
 		int cnt = 0;
 		for (int i = 0; i < n; i++) {
 			int variance = 0;
-				variance = Math.max(variance, Math.abs(a[i] - a[(i-1 + n)%n]));
-				variance = Math.max(variance, Math.abs(a[i] - a[(i+1)%n]));
+			variance = Math.max(variance, Math.abs(a[i] - a[(i - 1 + n) % n]));
+			variance = Math.max(variance, Math.abs(a[i] - a[(i + 1) % n]));
 			if (a[i] >= k ^ variance <= l)
 				cnt++;
 		}
 		out.println(cnt);
-		
+
 		out.close();
 	}
 
@@ -60,4 +60,3 @@ public class DMOPC_2014_Luxurious_Smores {
 		return br.readLine().trim();
 	}
 }
-

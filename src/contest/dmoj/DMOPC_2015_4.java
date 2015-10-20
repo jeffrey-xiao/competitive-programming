@@ -20,10 +20,10 @@ public class DMOPC_2015_4 {
 		int cnt = 0;
 		for (int i = 2; i <= n; i++) {
 			if (isPrime(i)) {
-				if ((n-i) % x == 0) 
-					cnt += 2*((n-i)/x+1)-1;
+				if ((n - i) % x == 0)
+					cnt += 2 * ((n - i) / x + 1) - 1;
 				else
-					cnt += 2*((n-i)/x+1);
+					cnt += 2 * ((n - i) / x + 1);
 			}
 		}
 		out.println(cnt);
@@ -31,12 +31,12 @@ public class DMOPC_2015_4 {
 	}
 
 	static boolean isPrime (int i) {
-		for (int j = 2; j*j <= i; j++)
+		for (int j = 2; j * j <= i; j++)
 			if (i % j == 0)
 				return false;
 		return true;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -63,4 +63,3 @@ public class DMOPC_2015_4 {
 		return br.readLine().trim();
 	}
 }
-

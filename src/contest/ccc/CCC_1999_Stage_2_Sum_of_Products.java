@@ -19,10 +19,7 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 		for (int qq = 0; qq < n; qq++) {
 			StringBuilder in = new StringBuilder(readLine());
 			for (int i = in.length() - 1; i >= 1; i--) {
-				if ((in.charAt(i-1) == ')' && in.charAt(i) == '(') ||
-					(Character.isAlphabetic(in.charAt(i-1)) && in.charAt(i) == '(') ||
-					(in.charAt(i-1) == ')' && Character.isAlphabetic(in.charAt(i))) ||
-					(Character.isAlphabetic(in.charAt(i-1)) && Character.isAlphabetic(in.charAt(i))))
+				if ((in.charAt(i - 1) == ')' && in.charAt(i) == '(') || (Character.isAlphabetic(in.charAt(i - 1)) && in.charAt(i) == '(') || (in.charAt(i - 1) == ')' && Character.isAlphabetic(in.charAt(i))) || (Character.isAlphabetic(in.charAt(i - 1)) && Character.isAlphabetic(in.charAt(i))))
 					in.insert(i, '*');
 			}
 			LinkedList<Term> st = new LinkedList<Term>();
@@ -41,7 +38,7 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 					op.add(c);
 				} else {
 					Term add = new Term();
-					add.var.add(""+c);
+					add.var.add("" + c);
 					st.add(add);
 				}
 			}
@@ -54,18 +51,18 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 			}
 			Collections.sort(st.getFirst().var);
 			for (int i = 0; i < st.getFirst().var.size(); i++) {
-				out.print(st.getFirst().var.get(i) + (i < st.getFirst().var.size()-1 ? "+" : ""));
+				out.print(st.getFirst().var.get(i) + (i < st.getFirst().var.size() - 1 ? "+" : ""));
 			}
 			out.println();
 		}
-		
+
 		out.close();
 	}
-	
+
 	private static boolean isOperator (char c) {
 		return c == '+' || c == '*';
 	}
-	
+
 	private static void operate (LinkedList<Term> st, char op) {
 		Term r = st.removeLast();
 		Term l = st.removeLast();
@@ -82,8 +79,9 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 			}
 			st.add(add);
 		}
-		
+
 	}
+
 	private static int getPriority (char op) {
 		if (op == '+')
 			return 1;
@@ -92,13 +90,15 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 		else
 			return -1;
 	}
-	
+
 	static class Term {
 		ArrayList<String> var;
+
 		Term () {
 			var = new ArrayList<String>();
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -125,4 +125,3 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 		return br.readLine().trim();
 	}
 }
-

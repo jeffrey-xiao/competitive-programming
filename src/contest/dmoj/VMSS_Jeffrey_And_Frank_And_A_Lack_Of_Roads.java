@@ -18,8 +18,8 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 		int n = readInt();
 		int r = readInt();
 		int s = readInt();
-		int[][] dp = new int[r+1][s+1];
-		
+		int[][] dp = new int[r + 1][s + 1];
+
 		Apple[] a = new Apple[n];
 		for (int i = 0; i < n; i++)
 			a[i] = new Apple(next(), readInt(), readInt(), readInt());
@@ -30,14 +30,14 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 					dp[j + a[i].cost][k + a[i].volume] = Math.max(dp[j][k] + a[i].value, dp[j + a[i].cost][k + a[i].volume]);
 				}
 			}
-//			for (int j = 0; j <= r; j++) {
-//				for (int k = 0; k <= s; k++) {
-//					System.out.print(dp[i][j] + " ");
-//				}
-//				System.out.println();
-//			}
-//			System.out.println();
-//			System.out.println();
+			//			for (int j = 0; j <= r; j++) {
+			//				for (int k = 0; k <= s; k++) {
+			//					System.out.print(dp[i][j] + " ");
+			//				}
+			//				System.out.println();
+			//			}
+			//			System.out.println();
+			//			System.out.println();
 		}
 		int currR = r;
 		int currS = s;
@@ -57,26 +57,28 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 		}
 		out.println(dp[r][s]);
 		for (int i = 0; i < n; i++)
-//			if (cnt[i] > 0)
-				out.println(a[i].name + " " + cnt[i]);
+			//			if (cnt[i] > 0)
+			out.println(a[i].name + " " + cnt[i]);
 		out.close();
 	}
 
 	static class Apple implements Comparable<Apple> {
 		String name;
 		int value, cost, volume;
+
 		Apple (String name, int value, int cost, int volume) {
 			this.name = name;
 			this.value = value;
 			this.cost = cost;
 			this.volume = volume;
 		}
+
 		@Override
 		public int compareTo (Apple a) {
 			return name.compareTo(a.name);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -103,4 +105,3 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 		return br.readLine().trim();
 	}
 }
-

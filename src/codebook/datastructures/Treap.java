@@ -207,14 +207,14 @@ public class Treap {
 		t.traverse(t.root);
 		System.out.println();
 		t.add(1);
-		assert(t.contains(t.root, 1));
-		assert(!t.contains(t.root, 2));
+		assert (t.contains(t.root, 1));
+		assert (!t.contains(t.root, 2));
 		t.remove(1);
-		assert(!t.contains(t.root, 1));
+		assert (!t.contains(t.root, 1));
 		System.out.println(System.currentTimeMillis() - c);
 		for (Integer i : hs) {
 			t.remove(i);
-			assert(!t.contains(t.root, i));
+			assert (!t.contains(t.root, i));
 		}
 		System.out.println("SUCCESS");
 	}

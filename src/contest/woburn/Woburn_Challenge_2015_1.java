@@ -27,23 +27,27 @@ public class Woburn_Challenge_2015_1 {
 			if (currTime > a[i].due) {
 				res += currTime - a[i].due;
 				currTime = a[i].due;
-			} 
+			}
 		}
 		out.println(res);
-		
+
 		out.close();
 	}
+
 	static class Assignment implements Comparable<Assignment> {
 		int due, time;
+
 		Assignment (int due, int time) {
 			this.due = due;
 			this.time = time;
 		}
+
 		@Override
 		public int compareTo (Assignment a) {
 			return due - a.due;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -70,4 +74,3 @@ public class Woburn_Challenge_2015_1 {
 		return br.readLine().trim();
 	}
 }
-

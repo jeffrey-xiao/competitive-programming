@@ -11,7 +11,7 @@ public class DifferenceArray2D {
 
 	static int n, q;
 	static int[][] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,22 +20,22 @@ public class DifferenceArray2D {
 
 		n = readInt();
 		q = readInt();
-		
-		a = new int[n+2][n+2];
+
+		a = new int[n + 2][n + 2];
 		for (int i = 0; i < q; i++) {
 			int x1 = readInt();
 			int y1 = readInt();
-			int x2 = readInt()+1;
-			int y2 = readInt()+1;
+			int x2 = readInt() + 1;
+			int y2 = readInt() + 1;
 			int d = readInt();
 			a[x1][y1] += d;
 			a[x1][y2] -= d;
 			a[x2][y1] -= d;
 			a[x2][y2] += d;
 		}
-		for (int i = 1; i <= n; i++) 
+		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= n; j++)
-				a[i][j] += a[i-1][j] + a[i][j-1] - a[i-1][j-1];
+				a[i][j] += a[i - 1][j] + a[i][j - 1] - a[i - 1][j - 1];
 		for (int i = 1; i <= n; i++, out.println())
 			for (int j = 1; j <= n; j++)
 				out.print(a[i][j] + " ");
@@ -68,4 +68,3 @@ public class DifferenceArray2D {
 		return br.readLine().trim();
 	}
 }
-

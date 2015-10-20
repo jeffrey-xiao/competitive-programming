@@ -6,15 +6,17 @@
 package codebook.string;
 
 public class Rope {
-	
+
 	private Node root;
+
 	Rope () {
 		this.root = null;
 	}
+
 	Rope (Node n) {
 		this.root = n;
 	}
-	
+
 	Rope (String s) {
 		this.root = new Node(s);
 	}
@@ -25,17 +27,17 @@ public class Rope {
 			return "";
 		return report(1, root.weight);
 	}
-	
+
 	public String report (Integer i, Integer j) {
 		return report(root, i, j);
 	}
-	
+
 	// prints out the string from [i, j]. It uses one-based indexing
 	private String report (Node n, Integer i, Integer j) {
 		if (n == null)
 			return "";
 		if (n.value != null && n.weight >= i)
-			return n.value.substring(i-1, Math.min(n.value.length(), j));
+			return n.value.substring(i - 1, Math.min(n.value.length(), j));
 		String str = "";
 		if (getSize(n) >= i)
 			str += report(n.left, i, j);
@@ -43,27 +45,29 @@ public class Rope {
 			str += report(n.right, Math.max(1, i - getSize(n)), j - getSize(n));
 		return str;
 	}
-	
+
 	// Concatenates a rope to the end of the rope
 	public void concat (Rope n) {
 		root = merge(root, n.root);
 	}
+
 	// Inserts a rope at position i. 1 <= i <= size+1
 	public void insert (Rope r, Integer i) {
-		NodePair n = split(new NodePair(null, null), root, i-1);
+		NodePair n = split(new NodePair(null, null), root, i - 1);
 		root = merge(merge(n.n1, r.root), n.n2);
 	}
+
 	// Deletes the substring [i, j]. Uses one-based indexing
 	public void delete (Integer i, Integer j) {
 		NodePair n1 = split(new NodePair(null, null), root, j);
-		NodePair n2 = split(new NodePair(null, null), n1.n1, i-1);
+		NodePair n2 = split(new NodePair(null, null), n1.n1, i - 1);
 		root = merge(n2.n1, n1.n2);
 	}
 
 	public void traverse () {
 		traverse(root);
 	}
-	
+
 	private void traverse (Node n) {
 		if (n.left != null) {
 			System.out.println("LEFT");
@@ -75,19 +79,21 @@ public class Rope {
 			traverse(n.right);
 		}
 	}
+
 	// Gets the character at i. Uses one-based indexing
 	public Character indexAt (Integer i) {
 		return indexAt(root, i);
 	}
+
 	// one-based indexing
 	private Character indexAt (Node n, Integer i) {
 		if (getSize(n) < i)
 			return indexAt(n.right, i - getSize(n));
 		if (n.value != null)
-			return n.value.charAt(i-1);
+			return n.value.charAt(i - 1);
 		return indexAt(n.left, i);
 	}
-	
+
 	private Node merge (Node n1, Node n2) {
 		if (n1 == null)
 			return n2;
@@ -100,13 +106,13 @@ public class Rope {
 		par = balance(par);
 		return par;
 	}
-	
+
 	public NodePair split (Integer i) {
 		return split(new NodePair(null, null), root, i);
 	}
-	
+
 	private NodePair split (NodePair curr, Node n, Integer i) {
-//		System.out.println(getSize(n));
+		//		System.out.println(getSize(n));
 		if (n.value != null && n.weight <= i)
 			curr.n1 = merge(curr.n1, n);
 		else if (getSize(n) <= i) {
@@ -126,7 +132,7 @@ public class Rope {
 		}
 		return curr;
 	}
-	
+
 	private Node balance (Node n) {
 		Integer cmp1 = getHeight(n.left) - getHeight(n.right);
 		if (cmp1 >= 2) {
@@ -142,7 +148,7 @@ public class Rope {
 		}
 		return n;
 	}
-	
+
 	private Node rotateRight (Node n) {
 		Node x = n.left;
 		n.left = x.right;
@@ -151,8 +157,8 @@ public class Rope {
 		reset(x);
 		return x;
 	}
-	
-	private Node rotateLeft  (Node n) {
+
+	private Node rotateLeft (Node n) {
 		Node x = n.right;
 		n.right = x.left;
 		x.left = n;
@@ -160,45 +166,49 @@ public class Rope {
 		reset(x);
 		return x;
 	}
-	
+
 	private void reset (Node n) {
 		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 		n.weight = getWeights(n.right) + getWeights(n.left) + (n.value == null ? 0 : n.value.length());
 	}
-	
+
 	private Integer getWeights (Node n) {
 		return n == null ? 0 : n.weight;
 	}
-	
+
 	private Integer getHeight (Node n) {
 		return n == null ? -1 : n.height;
 	}
-	
+
 	private Integer getSize (Node n) {
 		return n.weight - (n.right == null ? 0 : n.right.weight);
 	}
-	
+
 	static class Node {
 		Node left, right;
 		String value;
 		Integer height, weight;
+
 		Node () {
 			this(null);
 		}
+
 		Node (String value) {
 			this.value = value;
 			this.height = 0;
 			this.weight = value == null ? 0 : value.length();
 		}
 	}
-	
+
 	static class NodePair {
 		Node n1, n2;
+
 		NodePair (Node n1, Node n2) {
 			this.n1 = n1;
 			this.n2 = n2;
 		}
 	}
+
 	public static void main (String[] args) {
 		Rope a = new Rope("HELLO+");
 		Rope b = new Rope("MY+");
@@ -207,26 +217,25 @@ public class Rope {
 		a.concat(b);
 		a.concat(c);
 		a.concat(d);
-//		a.traverse();
-//		for (int i = 1; i <= 21; i++)
-//			System.out.print(a.indexAt(i));
-//		System.out.println();
-//		NodePair n = a.split(10);
-//		Rope r1 = new Rope(n.n1);
-//		Rope r2 = new Rope(n.n2);
-//		System.out.println(r1);
-//		System.out.println(r2);
+		//		a.traverse();
+		//		for (int i = 1; i <= 21; i++)
+		//			System.out.print(a.indexAt(i));
+		//		System.out.println();
+		//		NodePair n = a.split(10);
+		//		Rope r1 = new Rope(n.n1);
+		//		Rope r2 = new Rope(n.n2);
+		//		System.out.println(r1);
+		//		System.out.println(r2);
 		for (int i = 1; i <= 22; i++) {
 			a.insert(new Rope("AAA"), i);
 			System.out.println(a);
-			a.delete(i, i+2);
+			a.delete(i, i + 2);
 		}
 		for (int i = 1; i <= 21; i++) {
 			for (int j = i; j <= 21; j++) {
 				System.out.println(a.report(i, j));
 			}
 		}
-		
+
 	}
 }
-

@@ -11,39 +11,41 @@ public class Main {
 	static int ans = 0;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-/*
-	public static void main (String[] args) throws IOException {
-		//		permute(new int[] {0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2}, 0);
-		//		System.out.println(ans);
-		int n = readInt();
-		int q = readInt();
-		int[] c = new int[n + 2], prefix = new int[n + 2], suffix = new int[n * 2];
-		for (int i = 1; i <= n; i++) {
-			c[i] = readInt();
-			prefix[i] = c[i] - c[1] + prefix[i - 1];
-		}
-		for (int i = n; i >= 1; i--)
-			suffix[i] = c[n] - c[i] + suffix[i + 1];
-		for (int i = 0; i < q; i++) {
-			int a = readInt();
-			int b = readInt();
-			int median = (a + b) / 2;
-			System.out.println(prefix[b] - prefix[median] - (c[median] - c[1]) * (b - median) + suffix[a] - suffix[median] - (c[n] - c[median]) * (median - a));
-		}
 
-	}
-*/
-	public static void main(String[] args) throws IOException	{
+	/*
+		public static void main (String[] args) throws IOException {
+			//		permute(new int[] {0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2}, 0);
+			//		System.out.println(ans);
+			int n = readInt();
+			int q = readInt();
+			int[] c = new int[n + 2], prefix = new int[n + 2], suffix = new int[n * 2];
+			for (int i = 1; i <= n; i++) {
+				c[i] = readInt();
+				prefix[i] = c[i] - c[1] + prefix[i - 1];
+			}
+			for (int i = n; i >= 1; i--)
+				suffix[i] = c[n] - c[i] + suffix[i + 1];
+			for (int i = 0; i < q; i++) {
+				int a = readInt();
+				int b = readInt();
+				int median = (a + b) / 2;
+				System.out.println(prefix[b] - prefix[median] - (c[median] - c[1]) * (b - median) + suffix[a] - suffix[median] - (c[n] - c[median]) * (median - a));
+			}
+
+		}
+	*/
+	public static void main (String[] args) throws IOException {
 		PrintWriter out = new PrintWriter(new FileWriter("Signup.csv"));
 		out.println("Name,Email");
 		String[] in = readLine().split(",");
 		for (String s : in) {
 			String[] line = s.split("<");
-			out.println(line[0]+","+line[1].substring(0,  line[1].length()-1));
+			out.println(line[0] + "," + line[1].substring(0, line[1].length() - 1));
 		}
 		out.close();
-		
+
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

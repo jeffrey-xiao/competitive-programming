@@ -43,7 +43,7 @@ public class RootedTreeIsomorphism {
 				}
 			}
 		}
-		for (int i = n-1; i >= 0; i--) {
+		for (int i = n - 1; i >= 0; i--) {
 			if (depth1.get(i).size() != depth2.get(i).size())
 				return false;
 			HashMap<String, String> hm = new HashMap<String, String>();
@@ -83,7 +83,7 @@ public class RootedTreeIsomorphism {
 		}
 		return true;
 	}
-	
+
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
@@ -101,15 +101,15 @@ public class RootedTreeIsomorphism {
 			t1.add(new ArrayList<Integer>());
 			t2.add(new ArrayList<Integer>());
 		}
-		for (int i = 0; i < n-1; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+		for (int i = 0; i < n - 1; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			t1.get(a).add(b);
 			t1.get(b).add(a);
 		}
-		for (int i = 0; i < n-1; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+		for (int i = 0; i < n - 1; i++) {
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			t2.get(a).add(b);
 			t2.get(b).add(a);
 		}
@@ -143,4 +143,3 @@ public class RootedTreeIsomorphism {
 		return br.readLine().trim();
 	}
 }
-
