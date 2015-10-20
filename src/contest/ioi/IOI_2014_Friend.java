@@ -23,12 +23,22 @@ public class IOI_2014_Friend {
 		protocol = new int[n];
 		for (int i = 0; i < n; i++)
 			confidence[i] = readInt();
-		for (int i = 0; i < n; i++) {
+		for (int i = 1; i < n; i++) {
 			host[i] = readInt();
 			protocol[i] = readInt();
 		}
-		for (int i = n-1; i >= 0; i--) {
+		int res = 0;
+		for (int i = n-1; i >= 1; i--) {
+			if (protocol[i] == 1)
+				confidence[host[i]] += confidence[i];
+			else if (protocol[i] == 2)
+				confidence[host[i]] = Math.max(confidence[host[i]], confidence[i]);
+			else {
+				res += confidence[i];
+				confidence[host[i]] = Math.max(0, confidence[host[i]] - confidence[i]);
+			}
 		}
+		out.println(res + confidence[0]);
 		
 		out.close();
 	}
@@ -60,4 +70,3 @@ public class IOI_2014_Friend {
 		return br.readLine().trim();
 	}
 }
-
