@@ -30,7 +30,6 @@ geometry
 linear algebra
 
 strings
- - DC3
  - dynamic suffix array
 
 number theory
