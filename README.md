@@ -27,9 +27,6 @@ optimization
 
 geometry
 
-graphs
- - tree isomorphism
-
 linear algebra
 
 strings

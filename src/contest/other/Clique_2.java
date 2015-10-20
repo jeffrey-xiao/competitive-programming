@@ -29,7 +29,7 @@ public class Clique_2 {
 		}
 		int szA = n / 2;
 		int szB = n - n / 2;
-		// largest clique including the following
+
 		int[] a = new int[1 << szA];
 		for (int i = 1; i < 1 << szA; i++) {
 			boolean valid = true;
@@ -43,7 +43,6 @@ public class Clique_2 {
 				for (int j = 0; j < szA; j++)
 					if ((i & 1 << j) > 0)
 						cnt++;
-				// System.out.println("A " + Integer.toString(i, 2));
 				a[i] = cnt;
 			} else {
 				for (int j = 0; j < szA; j++) {
@@ -72,12 +71,10 @@ public class Clique_2 {
 						}
 					}
 				}
-				// System.out.println(Integer.toString(i, 2) + " " +
-				// Integer.toString(bit, 2) + " " + a[bit] + " " + cnt);
 				max = Math.max(max, cnt + a[bit]);
 			}
 		}
-		System.out.println(max);
+		pr.println(max);
 
 		pr.close();
 	}
