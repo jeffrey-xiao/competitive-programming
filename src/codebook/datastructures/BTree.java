@@ -1,3 +1,8 @@
+/*
+ * A B-tree is a self-balancing tree data structure that keeps data stored and allows searches, accesses, insertions and deletions in logarithmic time.
+ * The B-tree is a generalization of a binary search tree in that a node can have more than two children.
+ */
+
 package codebook.datastructures;
 
 public class BTree {

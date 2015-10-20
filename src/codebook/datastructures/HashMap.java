@@ -1,3 +1,7 @@
+/*
+ * An implementation of a hash map using buckets.
+ */
+
 package codebook.datastructures;
 
 public class HashMap {

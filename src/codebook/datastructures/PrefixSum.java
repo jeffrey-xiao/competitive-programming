@@ -1,3 +1,7 @@
+/*
+ * A prefix sum allows offline point updates and range queries in O(1) time with O(N) preprocessingw
+ */
+
 package codebook.datastructures;
 
 import java.util.*;

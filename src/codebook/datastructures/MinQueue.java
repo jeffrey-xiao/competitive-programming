@@ -1,3 +1,7 @@
+/*
+ * An implementation of queue that can obtain the minimum in O(1) time
+ */
+
 package codebook.datastructures;
 
 import java.util.*;

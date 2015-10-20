@@ -1,3 +1,7 @@
+/* 
+ * A difference array allows for offline range updates and point queries in O(1) time and O(N) preprocessing. 
+ */
+
 package codebook.datastructures;
 
 import java.util.*;

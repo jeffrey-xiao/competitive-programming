@@ -1,3 +1,8 @@
+/*
+ * Link/cut trees divide each tree in the represented forest into vertex-disjoint paths, where each path is represented by an auxiliary tree.
+ * Link/cut trees facilitate cuts, joins, accesses, and path-based operations in logarithmic time.
+ */
+
 package codebook.datastructures;
 
 public class LinkCutTree {

@@ -1,3 +1,7 @@
+/*
+ * 2D implementation of prefix sum
+ */
+
 package codebook.datastructures;
 
 import java.util.*;

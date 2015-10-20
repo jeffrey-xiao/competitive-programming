@@ -1,6 +1,6 @@
 /*
  * An implicit treap is a treap that uses array indexes as its key and the value at that index as its value.
- * As a result, it can perform removal and deletion in O(log N)
+ * As a result, it can perform insertion and deletion in O(log N)
  */
 
 package codebook.datastructures;

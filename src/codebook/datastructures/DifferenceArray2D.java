@@ -1,3 +1,7 @@
+/*
+ * A 2D implementation of the difference array
+ */
+
 package codebook.datastructures;
 
 import java.util.*;

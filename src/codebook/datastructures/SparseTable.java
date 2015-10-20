@@ -1,4 +1,5 @@
-/* Implementation of a sparse table to compute the RMQ
+/* 
+ * Implementation of a sparse table to compute the RMQ
  */
 
 package codebook.datastructures;

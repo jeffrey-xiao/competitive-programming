@@ -1,3 +1,7 @@
+/*
+ * Kth Element Tree
+ */
+ 
 int tree[17][65536];
 void insert(int x) { 
 	for (int i=0; i<17; i++) { 

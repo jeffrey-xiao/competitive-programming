@@ -1,6 +1,6 @@
 /*
  * A segment tree is a tree data structure for storing intervals. Lazy propagation is used to ensure a O(log N) query and update time.
- * This implementation can update and query the sum of elements. Additionally, it dynamically creates nodes to conserve memory
+ * This implementation can update and query the sum of elements. Additionally, it dynamically creates nodes to conserve memory.
  */
 
 package codebook.datastructures;
