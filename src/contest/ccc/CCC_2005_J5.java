@@ -11,11 +11,11 @@ public class CCC_2005_J5 {
 			String inputWords = scan.next();
 			if ("X".equals(inputWords))
 				System.exit(0);
-			System.out.println(isMokeyLang(inputWords) ? "YES" : "NO");
+			System.out.println(isMonkeyLang(inputWords) ? "YES" : "NO");
 		}
 	}
 
-	public static boolean isMokeyLang (String words) {
+	public static boolean isMonkeyLang (String words) {
 		if (words.length() > 0) {
 			int indxN = words.indexOf("N");
 			if (indxN >= 0) {
@@ -23,7 +23,7 @@ public class CCC_2005_J5 {
 				boolean result = false;
 				for (int i = 0; i < words.length(); i++) {
 					if (words.charAt(i) == 'N') {
-						result = result || (isA_Word(words.substring(0, i)) && isMokeyLang(words.substring(i + 1)));
+						result = result || (isA_Word(words.substring(0, i)) && isMonkeyLang(words.substring(i + 1)));
 						if (result)
 							break;
 					}
@@ -44,7 +44,7 @@ public class CCC_2005_J5 {
 			if (words.equals("A"))
 				return true;
 			if (words.startsWith("B") && words.endsWith("S"))
-				return isMokeyLang(words.substring(1, indxS));
+				return isMonkeyLang(words.substring(1, indxS));
 		}
 		return false;
 	}
