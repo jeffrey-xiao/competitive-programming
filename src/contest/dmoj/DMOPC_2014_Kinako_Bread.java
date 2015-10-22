@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Kinako {
+public class DMOPC_2014_Kinako_Bread {
 
 	static BufferedReader br;
 	static PrintWriter pr;

@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Largest_Permutation {
+public class CCO_Mashup_Largest_Permutation {
 
 	static BufferedReader br;
 	static PrintWriter pr;

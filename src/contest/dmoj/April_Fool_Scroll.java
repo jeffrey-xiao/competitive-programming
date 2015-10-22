@@ -8,24 +8,14 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class STNBD_P2 {
+public class April_Fool_Scroll {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		char[] c1 = readLine().toCharArray();
-		char[] c2 = readLine().toCharArray();
-		int[] occ = new int[26];
-		for (int x = 0; x < c1.length; x++)
-			occ[c1[x] - 'a']++;
-		for (int x = 0; x < c2.length; x++)
-			occ[c2[x] - 'a']--;
-		int sum = 0;
-		for (int x = 0; x < 26; x++)
-			sum += Math.abs(occ[x]);
-		System.out.println(sum);
+		System.out.println("Can sample output exist without sample input? If a tree falls in a forest and no one is around to hear it, does it make a sound? Is the previous question even relevant?");
 	}
 
 	static String next () throws IOException {

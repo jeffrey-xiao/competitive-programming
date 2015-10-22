@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Leftover_Eggnog {
+public class New_Year_Leftover_Eggnog {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;

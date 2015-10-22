@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Yokan_Random {
+public class DMOPC_2014_Yokan {
 
 	static BufferedReader br;
 	static PrintWriter pr;

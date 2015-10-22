@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Yokan {
+public class CCO_Mashup_Largest_Permutation_2 {
 
 	static BufferedReader br;
 	static PrintWriter pr;
@@ -20,36 +20,29 @@ public class Yokan {
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int m = readInt();
-		int[] in = new int[n];
-		for (int i = 0; i < n; i++) {
-			in[i] = readInt();
+		int k = readInt();
+		int[] a = new int[n + 1];
+		int[] ind = new int[n + 1];
+		for (int i = 1; i <= n; i++) {
+			a[i] = readInt();
+			ind[a[i]] = i;
 		}
-		int q = readInt();
-		for (int i = 0; i < q; i++) {
-			int l = readInt() - 1;
-			int r = readInt() - 1;
-			int cnt = 0;
-
-			double v = ((r - l + 1) / 3.0d);
-			// if ((r - l + 1)/3 == 0) {
-			// System.out.println("YES");
-			// continue;
-			// }
-
-			for (int k = 1; k <= m; k++) {
-				int curr = 0;
-				for (int j = l; j <= r; j++) {
-					if (in[j] == k)
-						curr++;
-				}
-				cnt += (int) (curr / v);
-			}
-			if (cnt >= 2)
-				System.out.println("YES");
-			else
-				System.out.println("NO");
+		int swaps = 0;
+		for (int i = 1; i <= n && swaps < k; i++) {
+			if (a[i] == n - i + 1)
+				continue;
+			int j = ind[n - i + 1];
+			int temp = ind[n - i + 1];
+			ind[n - i + 1] = ind[a[i]];
+			ind[a[i]] = temp;
+			temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+			swaps++;
 		}
+		for (int i = 1; i <= n; i++)
+			System.out.print(a[i] + " ");
+		pr.close();
 	}
 
 	static String next () throws IOException {

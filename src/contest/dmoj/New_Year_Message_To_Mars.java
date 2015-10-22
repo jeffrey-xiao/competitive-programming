@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Message_To_Mars {
+public class New_Year_Message_To_Mars {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;

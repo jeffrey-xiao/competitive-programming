@@ -6,16 +6,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class Ellis_Fahrengart {
+public class STNBD_Ellis_Fahrengart_Efficient {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
@@ -27,6 +24,7 @@ public class Ellis_Fahrengart {
 	static int[] prefix = new int[SIZE], suffix = new int[SIZE];
 	static int size = 0;
 	static long res = 0;
+	static int sz;
 
 	public static void main (String[] args) throws IOException {
 
@@ -47,60 +45,34 @@ public class Ellis_Fahrengart {
 		for (int i = 0; i < m; i++)
 			q.add(new Query(readInt(), readInt(), i));
 		long[] ans = new long[m];
-		int sz = (int) Math.sqrt(n);
-		for (int i = 0; i < (n - 1) / sz + 1; i++) {
-			int start = i * sz + 1;
-			int end = Math.min((i + 1) * sz, n);
-			// System.out.println("HERE " + start + " " + end);
-			ArrayList<Query> curr = new ArrayList<Query>();
-			for (Iterator<Query> it = q.iterator(); it.hasNext();) {
-				Query x = it.next();
-				if (start <= x.l && x.l <= end) {
-					curr.add(x);
-					it.remove();
-				}
+		sz = (int) Math.sqrt(n);
+		int l = 1, r = 0;
+		Collections.sort(q);
+		for (Query x : q) {
+			while (r > x.r) {
+				res -= size - query(a[r]);
+				update(a[r], -1);
+				r--;
 			}
-			Collections.sort(curr, new Comparator<Query>() {
-				@Override
-				public int compare (Query o1, Query o2) {
-					return o1.r - o2.r;
-				}
-			});
-			init();
-			res = 0;
-			int l = start;
-			int r = start - 1;
-			for (Query x : curr) {
-				System.out.println(x.l + " " + x.r + " " + l + " " + r);
-				while (r < x.r) {
-					r++;
-					res += size - query(a[r]);
-					// System.out.println(a[r] + " " + query(a[r]) +
-					// " RIGHT QUERY");
-					update(a[r], 1);
-					System.out.println(res);
-				}
-				while (l < x.l) {
-					res -= query(a[l] - 1);
-					update(a[l], -1);
-					l++;
-					System.out.println(res);
-				}
-				while (l > x.l) {
-					l--;
-					res += query(a[l] - 1);
-					// System.out.println(a[l] + " " + query(a[l]-1) +
-					// " LEFT QUERY" );
-					update(a[l], 1);
-					System.out.println(res);
-				}
-				ans[x.index] = res;
-
+			while (r < x.r) {
+				r++;
+				res += size - query(a[r]);
+				update(a[r], 1);
 			}
+			while (l < x.l) {
+				res -= query(a[l] - 1);
+				update(a[l], -1);
+				l++;
+			}
+			while (l > x.l) {
+				l--;
+				res += query(a[l] - 1);
+				update(a[l], 1);
+			}
+			ans[x.index] = res;
 		}
-
-		// for (int i = 0; i < m; i++)
-		// ps.println(ans[i]);
+		for (int i = 0; i < m; i++)
+			ps.println(ans[i]);
 		ps.close();
 	}
 
@@ -115,7 +87,9 @@ public class Ellis_Fahrengart {
 
 		@Override
 		public int compareTo (Query o) {
-			return l - o.l;
+			if ((l - 1) / sz != (o.l - 1) / sz)
+				return (l - 1) / sz - (o.l - 1) / sz;
+			return r - o.r;
 		}
 	}
 

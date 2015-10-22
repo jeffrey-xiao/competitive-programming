@@ -6,56 +6,63 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class STNBD_P3 {
+public class FHC_Lazy_Sort {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	static final int MOD = 1000000007;
-
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
-		int m = readInt();
-		int[] indegree = new int[n];
-		ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-		for (int x = 0; x < n; x++)
-			adj.add(new ArrayList<Integer>());
-		for (int x = 0; x < m; x++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			adj.get(a).add(b);
-			indegree[b]++;
-		}
-		Queue<Integer> start = new LinkedList<Integer>();
-		boolean[] v = new boolean[n];
-		long[] count = new long[n];
-		long[] sum = new long[n];
-		for (int x = 0; x < n; x++)
-			if (indegree[x] == 0) {
-				start.add(x);
-				count[x] = 1;
-				v[x] = true;
+		int t = readInt();
+		for (int q = 1; q <= t; q++) {
+			int n = readInt();
+			LinkedList<Integer> res = new LinkedList<Integer>();
+			boolean valid = false;
+			int[] a = new int[n];
+			int l = 0, r = n - 1;
+			for (int i = 0; i < n; i++) {
+				a[i] = readInt();
 			}
-		long total = 0;
-		while (!start.isEmpty()) {
-			int curr = start.poll();
-			for (Integer i : adj.get(curr)) {
-				indegree[i]--;
-				count[i] += (count[curr]) % MOD;
-				sum[i] += (count[curr] + sum[curr]) % MOD;
-				if (indegree[i] == 0)
-					start.add(i);
+			res.add(a[l++]);
+			while (l <= r) {
+				if (res.peekFirst() == a[l] + 1)
+					res.addFirst(a[l++]);
+				else if (res.peekLast() == a[l] - 1)
+					res.addLast(a[l++]);
+				else if (res.peekFirst() == a[r] + 1)
+					res.addFirst(a[r--]);
+				else if (res.peekLast() == a[r] - 1)
+					res.addLast(a[r--]);
+				else {
+					break;
+				}
 			}
-			if (adj.get(curr).size() == 0)
-				total = (total + sum[curr]) % MOD;
+			if (l > r)
+				valid = true;
+			l = 0;
+			r = n - 1;
+			res.clear();
+			res.add(a[r--]);
+			while (l <= r) {
+				if (res.peekFirst() == a[l] + 1)
+					res.addFirst(a[l++]);
+				else if (res.peekLast() == a[l] - 1)
+					res.addLast(a[l++]);
+				else if (res.peekFirst() == a[r] + 1)
+					res.addFirst(a[r--]);
+				else if (res.peekLast() == a[r] - 1)
+					res.addLast(a[r--]);
+				else {
+					break;
+				}
+			}
+			if (l > r)
+				valid = true;
+			System.out.printf("Case #%d: %s\n", q, valid ? "yes" : "no");
 		}
-		System.out.println(total % MOD);
 	}
 
 	static String next () throws IOException {

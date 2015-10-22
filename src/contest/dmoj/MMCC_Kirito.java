@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class Kirito {
+public class MMCC_Kirito {
 
 	static BufferedReader br;
 	static PrintWriter out;

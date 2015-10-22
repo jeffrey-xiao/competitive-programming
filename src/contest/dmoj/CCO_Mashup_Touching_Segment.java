@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class Touching_Segment {
+public class CCO_Mashup_Touching_Segment {
 
 	static BufferedReader br;
 	static PrintWriter pr;

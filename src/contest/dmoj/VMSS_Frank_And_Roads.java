@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class VMSS_2015_Frank_And_Roads {
+public class VMSS_Frank_And_Roads {
 
 	static BufferedReader br;
 	static PrintWriter out;

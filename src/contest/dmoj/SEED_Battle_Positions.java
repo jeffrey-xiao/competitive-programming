@@ -8,22 +8,38 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class SAOJ2 {
+public class SEED_Battle_Positions {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+	static BufferedReader br;
+	static PrintWriter pr;
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		int N = readInt();
-		System.out.println("#include <bits/stdc++.h>");
+		br = new BufferedReader(new InputStreamReader(System.in));
+		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
 
-		System.out.println("using namespace std;");
-
-		System.out.println("int main () {");
-		System.out.println("\tprintf(\"%lld\\n\"," + N + "ll*(" + N + "ll+1ll)/2ll);");
-		System.out.println("\treturn 0;");
-		System.out.println("}");
+		int n = readInt();
+		int m = readInt();
+		int q = readInt();
+		int[] sum = new int[n + 1];
+		for (int i = 0; i < q; i++) {
+			int a = readInt() - 1;
+			int b = readInt();
+			int c = readInt();
+			sum[a] += c;
+			sum[b] -= c;
+		}
+		int curr = 0;
+		int cnt = 0;
+		for (int i = 0; i < n; i++) {
+			sum[i] = (curr += sum[i]);
+			if (sum[i] < m)
+				cnt++;
+		}
+		pr.println(cnt);
+		pr.close();
 	}
 
 	static String next () throws IOException {
