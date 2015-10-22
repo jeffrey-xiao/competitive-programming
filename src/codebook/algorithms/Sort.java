@@ -4,6 +4,13 @@ import java.util.*;
 
 public class Sort {
 
+	public static void shell (int[] a) {
+		for (int x = 0; x < a.length; x++)
+			for (int y = x + 4; y < a.length; y += 4)
+				if (a[x] > a[y])
+					swap(a, x, y);
+	}
+	
 	public int find (int k, int beg, int end, int[] seq) {
 		int i = median(seq, beg, end, k);
 		if (i == k)
