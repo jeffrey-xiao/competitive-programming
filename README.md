@@ -11,8 +11,6 @@ Under the cpp package, you will find C++ programs to various problems.
 
 TODO LIST:
 
-Divide and conquer
-
 Combinatorics
 
 Data structures
@@ -21,16 +19,14 @@ Data structures
 
 Data Compression
 
-DP
-
 optimization
 
 geometry
 
-linear algebra
-
 strings
  - dynamic suffix array
+
+linear algebra
 
 number theory
 
