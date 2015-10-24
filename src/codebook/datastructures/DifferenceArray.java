@@ -33,9 +33,8 @@ public class DifferenceArray {
 			a[l] += x;
 			a[r] -= x;
 		}
-		int curr = 0;
-		for (int i = 0; i < n; i++)
-			a[i] = (curr += a[i]);
+		for (int i = 1; i < n; i++)
+			a[i] += a[i-1];
 		for (int i = 0; i < n; i++)
 			out.print(a[i] + " ");
 		out.println();
