@@ -110,31 +110,12 @@ public class AVLTree {
 				return n;
 			}
 		}
-		resetHeight(n);
-		int diff1 = getHeight(n.left) - getHeight(n.right);
-		// rotating right
-		if (diff1 >= 2) {
-			int diff2 = getHeight(n.left.right) - getHeight(n.left.left);
-			// rotating left
-			if (diff2 > 0)
-				n.left = rotateLeft(n.left);
-			n = rotateRight(n);
-		}
-		// rotating left
-		else if (diff1 <= -2) {
-			int diff2 = getHeight(n.right.left) - getHeight(n.right.right);
-			// rotating right
-			if (diff2 > 0)
-				n.right = rotateRight(n.right);
-			n = rotateLeft(n);
-		}
-		return n;
+		return balance(n);
 	}
 
 	private Node minV (Node n) {
 		while (n.left != null)
-			;
-		n = n.left;
+			n = n.left;
 		return n;
 	}
 
@@ -157,6 +138,11 @@ public class AVLTree {
 			n.right = add(n.right, k, v);
 		else
 			n.value = v;
+		return balance(n);
+	}
+
+	// auxiliary function to rebalance the tree
+	private Node balance (Node n) {
 		resetHeight(n);
 		int diff1 = getHeight(n.left) - getHeight(n.right);
 		// rotating right
@@ -177,7 +163,7 @@ public class AVLTree {
 		}
 		return n;
 	}
-
+	
 	// rotate left
 	private Node rotateLeft (Node n) {
 		Node x = n.right;
