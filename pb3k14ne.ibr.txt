@@ -1,0 +1,12 @@
+﻿Added suboptimal solution that somehow gets 97/100
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	new file:   src/contest/ioi/IOI_2006_Pyramid.java
+#
+
