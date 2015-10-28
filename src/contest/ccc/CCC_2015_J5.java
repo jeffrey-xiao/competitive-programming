@@ -11,11 +11,11 @@ import java.util.StringTokenizer;
 public class CCC_2015_J5 {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+	static PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	static int n, m;
-	static int[][][] dp = new int[251][251][251];
+	static int n, m; 								// n represents the number of pies, m represents the number of people
+	static int[][][] dp = new int[251][251][251]; 	// memoization array: dp[i][j][k] where i is the number of pies left, j is the number of people left, and k is the previous pie given
 
 	public static void main (String[] args) throws IOException {
 		n = readInt();
@@ -24,24 +24,27 @@ public class CCC_2015_J5 {
 			for (int j = 0; j <= 250; j++)
 				for (int k = 0; k <= 250; k++)
 					dp[i][j][k] = -1;
-		System.out.println(compute(0, n, 1));
+		out.println(compute(n, m, 1));
+		out.close();
 	}
 
 	private static int compute (int i, int j, int prev) {
+		// if the previous value has been computed, we return the "cached" value
 		if (dp[i][j][prev] != -1)
 			return dp[i][j][prev];
-		if (i == m - 1) {
-			if (j >= prev)
-				dp[i][j][prev] = 1;
-			else
-				dp[i][j][prev] = 0;
-			return dp[i][j][prev];
-		}
-		int sum = 0;
-		for (int next = prev; next <= j; next++) {
-			sum += compute(i + 1, j - next, next);
-		}
-		return dp[i][j][prev] = sum;
+		// if we are out of people to give pies to and we are out of pies to give, then it is one way we can allocate pies
+		if (i == 0 && j == 0)
+			return dp[i][j][prev] = 1;
+		// if we are out of people to give pies, but we have more pies to give or
+		//    we are out of pies to give, but we have more people to give to
+		// then we return 0, because it is not a valid allocation
+		if (i == 0 || j == 0)
+			return dp[i][j][prev] = 0;
+		// computing the value of dp[i][j][prev] using the recurrence
+		dp[i][j][prev] = 0;
+		for (int next = prev; next <= i; next++)
+			dp[i][j][prev] += compute(i - next, j - 1, next);
+		return dp[i][j][prev];
 	}
 
 	static String next () throws IOException {
