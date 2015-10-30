@@ -1,7 +1,11 @@
 package codebook.dp;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class MinMatrixChainMultiplication {
 
@@ -14,7 +18,7 @@ public class MinMatrixChainMultiplication {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int n = readInt();
 		int[] p = new int[n + 1];
 		for (int i = 0; i <= n; i++)

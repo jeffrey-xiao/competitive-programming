@@ -1,7 +1,11 @@
 package codebook.dp;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class Knapsack {
 
@@ -19,11 +23,11 @@ public class Knapsack {
 		int n = readInt();
 		// size of knapsack
 		int m = readInt();
-		
-		int[] weight = new int[n+1];
-		int[] value = new int[n+1];
-		int[] dp = new int[m+1];
-		
+
+		int[] weight = new int[n + 1];
+		int[] value = new int[n + 1];
+		int[] dp = new int[m + 1];
+
 		for (int i = 1; i <= n; i++) {
 			weight[i] = readInt();
 			value[i] = readInt();
@@ -63,4 +67,3 @@ public class Knapsack {
 		return br.readLine().trim();
 	}
 }
-

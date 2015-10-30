@@ -1,6 +1,6 @@
 package codebook.algorithms;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class Sort {
 
@@ -10,7 +10,7 @@ public class Sort {
 				if (a[x] > a[y])
 					swap(a, x, y);
 	}
-	
+
 	public int find (int k, int beg, int end, int[] seq) {
 		int i = median(seq, beg, end, k);
 		if (i == k)

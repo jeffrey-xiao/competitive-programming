@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 public class IOI_2007_Pairs {
 
@@ -13,6 +20,7 @@ public class IOI_2007_Pairs {
 	static int[][][] bit2;
 	static int b, n, d, m, size;
 	static long ans;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,7 +37,7 @@ public class IOI_2007_Pairs {
 				a[i] = readInt();
 			Arrays.sort(a);
 			TreeMap<Integer, Integer> tm = new TreeMap<Integer, Integer>();
-			for (int i = n-1; i >= 0; i--) {
+			for (int i = n - 1; i >= 0; i--) {
 				Integer j = tm.floorKey(a[i] + d);
 				if (j != null)
 					ans += tm.get(j) - i;
@@ -38,8 +46,8 @@ public class IOI_2007_Pairs {
 			}
 			out.println(ans);
 		} else if (b == 2) {
-			size = m*2;
-			bit = new int[size+1];
+			size = m * 2;
+			bit = new int[size + 1];
 			Point[] a = new Point[n];
 			for (int i = 0; i < n; i++) {
 				int x = readInt();
@@ -82,14 +90,14 @@ public class IOI_2007_Pairs {
 			 * c = x - y + z
 			 * d = x + y - z
 			 */
-			size = 4*m;
-			bit2 = new int[size+1][size+1][size+1];
+			size = 4 * m;
+			bit2 = new int[size + 1][size + 1][size + 1];
 			Point[] a = new Point[n];
 			for (int i = 0; i < n; i++) {
 				int x = readInt();
 				int y = readInt();
 				int z = readInt();
-				a[i] = new Point(x + y + z, - x + y + z + m, x - y + z + m, x + y - z + m);
+				a[i] = new Point(x + y + z, -x + y + z + m, x - y + z + m, x + y - z + m);
 			}
 			Arrays.sort(a);
 			ArrayDeque<Point> dq = new ArrayDeque<Point>();
@@ -104,21 +112,21 @@ public class IOI_2007_Pairs {
 			}
 			out.println(ans);
 		}
-		
+
 		out.close();
 	}
 
 	static int query (int x1, int y1, int z1, int x2, int y2, int z2) {
 		return query(x2, y2, z2) - query(x1, y2, z2) - query(x2, y1, z2) - query(x2, y2, z1) + query(x1, y1, z2) + query(x1, y2, z1) + query(x2, y1, z1) - query(x1, y1, z1);
 	}
-	
+
 	static void update (int x, int y, int z, int val) {
 		for (int i = x; i <= size; i += (i & -i))
 			for (int j = y; j <= size; j += (j & -j))
 				for (int k = z; k <= size; k += (k & -k))
 					bit2[i][j][k] += val;
 	}
-	
+
 	static int query (int x, int y, int z) {
 		int sum = 0;
 		for (int i = Math.min(size, x); i > 0; i -= (i & -i))
@@ -127,35 +135,40 @@ public class IOI_2007_Pairs {
 					sum += bit2[i][j][k];
 		return sum;
 	}
-	
+
 	static void update (int x, int val) {
 		for (int i = x; i <= size; i += (i & -i))
 			bit[i] += val;
 	}
+
 	static int query (int x) {
 		int sum = 0;
 		for (int i = Math.min(size, x); i > 0; i -= (i & -i))
 			sum += bit[i];
 		return sum;
 	}
+
 	static class Point implements Comparable<Point> {
 		int a, b, c, d;
+
 		Point (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
+
 		Point (int a, int b, int c, int d) {
 			this.a = a;
 			this.b = b;
 			this.c = c;
 			this.d = d;
 		}
+
 		@Override
 		public int compareTo (Point p) {
 			return a - p.a;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -182,4 +195,3 @@ public class IOI_2007_Pairs {
 		return br.readLine().trim();
 	}
 }
-

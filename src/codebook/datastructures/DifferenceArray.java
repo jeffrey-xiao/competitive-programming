@@ -4,8 +4,12 @@
 
 package codebook.datastructures;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class DifferenceArray {
 
@@ -34,7 +38,7 @@ public class DifferenceArray {
 			a[r] -= x;
 		}
 		for (int i = 1; i < n; i++)
-			a[i] += a[i-1];
+			a[i] += a[i - 1];
 		for (int i = 0; i < n; i++)
 			out.print(a[i] + " ");
 		out.println();

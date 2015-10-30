@@ -163,7 +163,7 @@ public class AVLTree {
 		}
 		return n;
 	}
-	
+
 	// rotate left
 	private Node rotateLeft (Node n) {
 		Node x = n.right;

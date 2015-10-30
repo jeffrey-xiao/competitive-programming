@@ -1,7 +1,11 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class IOI_2006_The_Valley_Of_Mexico {
 
@@ -12,6 +16,7 @@ public class IOI_2006_The_Valley_Of_Mexico {
 	static int n, m;
 	static boolean[][] adj;
 	static int[][][] dp;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,8 +30,8 @@ public class IOI_2006_The_Valley_Of_Mexico {
 		dp = new int[n][n][2];
 
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj[a][b] = adj[b][a] = true;
 		}
 		for (int i = 0; i < n; i++)
@@ -42,19 +47,21 @@ public class IOI_2006_The_Valley_Of_Mexico {
 		out.println(-1);
 		out.close();
 	}
+
 	static void print (int l, int r, int type) {
 		if (type > 0)
-			out.println(r+1);
+			out.println(r + 1);
 		else
-			out.println(l+1);
+			out.println(l + 1);
 		if (l == (r + 1) % n)
-			return ;
+			return;
 		if (dp[l][r][type] == 1)
-			print((l - 1 + n)%n, r, 0);
+			print((l - 1 + n) % n, r, 0);
 		else
-			print(l, (r + 1)%n, 1);
-		
+			print(l, (r + 1) % n, 1);
+
 	}
+
 	static int isPossible (int l, int r, int type) {
 		if (l == (r + 1) % n)
 			return 1;
@@ -76,6 +83,7 @@ public class IOI_2006_The_Valley_Of_Mexico {
 		else
 			return dp[l][r][type] = (res2 > 0) ? 2 : 0;
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -102,4 +110,3 @@ public class IOI_2006_The_Valley_Of_Mexico {
 		return br.readLine().trim();
 	}
 }
-

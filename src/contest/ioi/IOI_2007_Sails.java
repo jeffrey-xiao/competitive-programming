@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class IOI_2007_Sails {
 
@@ -30,8 +37,8 @@ public class IOI_2007_Sails {
 			m[i] = new Mast(readInt(), readInt());
 
 		Arrays.sort(m);
-		root = add(root, new Node(1, m[n-1].height));
-		diff = new long[m[n-1].height + 2];
+		root = add(root, new Node(1, m[n - 1].height));
+		diff = new long[m[n - 1].height + 2];
 		Queue<Node> q = new ArrayDeque<Node>();
 		for (int i = 0; i < n; i++) {
 			int left = m[i].height - m[i].cnt + 1;
@@ -40,7 +47,7 @@ public class IOI_2007_Sails {
 			root = splitFirst(root, left, right);
 			if (toAdd != null) {
 				diff[toAdd.l]++;
-				diff[toAdd.r+1]--;
+				diff[toAdd.r + 1]--;
 				left += toAdd.r - toAdd.l + 1;
 				q.offer(toAdd);
 			}
@@ -48,13 +55,13 @@ public class IOI_2007_Sails {
 			root = splitLast(root, left, right);
 			if (toAdd != null) {
 				diff[toAdd.l]++;
-				diff[toAdd.r+1]--;
+				diff[toAdd.r + 1]--;
 				right = toAdd.l - 1;
 				q.offer(toAdd);
 			}
 			if (left <= right) {
 				diff[left]++;
-				diff[right+1]--;
+				diff[right + 1]--;
 			}
 			while (!q.isEmpty())
 				root = add(root, q.poll());
@@ -62,14 +69,14 @@ public class IOI_2007_Sails {
 				merge(left, right);
 		}
 		long sum = 0;
-		for (int i = 1; i <= m[n-1].height; i++) {
-			diff[i] += diff[i-1];
-			sum += (diff[i] * (diff[i]-1))/2;
+		for (int i = 1; i <= m[n - 1].height; i++) {
+			diff[i] += diff[i - 1];
+			sum += (diff[i] * (diff[i] - 1)) / 2;
 		}
 		out.println(sum);
 		out.close();
 	}
-	
+
 	static void traverse (Node n) {
 		if (n == null)
 			return;
@@ -77,19 +84,20 @@ public class IOI_2007_Sails {
 		out.println("IN TRAVERSE " + n.l + " " + n.r);
 		traverse(n.right);
 	}
-	
+
 	static void merge (int left, int right) {
 		if (diff[left] == 0) {
 			removed = null;
 			root = remove(root, left);
 			root = add(root, removed);
 		}
-		if (diff[right+1] == 0 && right + 1 <= m[n-1].height) {
+		if (diff[right + 1] == 0 && right + 1 <= m[n - 1].height) {
 			removed = null;
-			root = remove(root, right+1);
+			root = remove(root, right + 1);
 			root = add(root, removed);
 		}
 	}
+
 	static Node splitLast (Node n, int left, int right) {
 		if (n == null || n.r == right || left > right)
 			return n;
@@ -129,10 +137,12 @@ public class IOI_2007_Sails {
 
 	static class Mast implements Comparable<Mast> {
 		int height, cnt;
+
 		Mast (int height, int cnt) {
 			this.height = height;
 			this.cnt = cnt;
 		}
+
 		@Override
 		public int compareTo (Mast m) {
 			return height - m.height;
@@ -191,6 +201,7 @@ public class IOI_2007_Sails {
 	static class Node {
 		int l, r, height;
 		Node left, right;
+
 		Node (int l, int r) {
 			this.l = l;
 			this.r = r;
@@ -266,4 +277,3 @@ public class IOI_2007_Sails {
 		return br.readLine().trim();
 	}
 }
-

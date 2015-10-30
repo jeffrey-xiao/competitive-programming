@@ -4,7 +4,8 @@
 
 package codebook.datastructures;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.NoSuchElementException;
 
 public class MinQueue {
 	ArrayDeque<Integer> q = new ArrayDeque<Integer>();

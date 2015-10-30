@@ -1,7 +1,13 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
 
 public class IOI_1994_The_Buses {
 
@@ -15,7 +21,7 @@ public class IOI_1994_The_Buses {
 	static ArrayList<Schedule> minS = new ArrayList<Schedule>();
 	static ArrayList<Schedule> curr = new ArrayList<Schedule>();
 	static ArrayList<Schedule> candidates = new ArrayList<Schedule>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,7 +33,7 @@ public class IOI_1994_The_Buses {
 		for (int i = 0; i < n; i++)
 			freq[readInt()]++;
 		for (int i = 0; i <= 59; i++)
-			for (int j = i+1; j <= 60 - i; j++) {
+			for (int j = i + 1; j <= 60 - i; j++) {
 				boolean valid = true;
 				for (int k = i; k <= 59; k += j)
 					if (freq[k] == 0)
@@ -42,7 +48,7 @@ public class IOI_1994_The_Buses {
 			out.println(s.start + " " + s.interval);
 		out.close();
 	}
-	
+
 	static void solve (int i) {
 		if (min == 17)
 			return;
@@ -58,7 +64,7 @@ public class IOI_1994_The_Buses {
 		for (Schedule s : candidates) {
 			if (s.occ > i)
 				continue;
-			if ((i + s.occ - 1)/s.occ + curr.size() >= min)
+			if ((i + s.occ - 1) / s.occ + curr.size() >= min)
 				return;
 			boolean valid = true;
 			for (int j = s.start; j <= 59; j += s.interval)
@@ -67,10 +73,10 @@ public class IOI_1994_The_Buses {
 			if (valid) {
 				for (int j = s.start; j <= 59; j += s.interval)
 					freq[j]--;
-				
+
 				curr.add(s);
 				solve(i - s.occ);
-				curr.remove(curr.size()-1);
+				curr.remove(curr.size() - 1);
 				for (int j = s.start; j <= 59; j += s.interval)
 					freq[j]++;
 			}
@@ -79,17 +85,19 @@ public class IOI_1994_The_Buses {
 
 	static class Schedule implements Comparable<Schedule> {
 		int start, interval, occ;
+
 		Schedule (int start, int interval) {
 			this.start = start;
 			this.interval = interval;
 			this.occ = (59 - start) / interval + 1;
 		}
+
 		@Override
 		public int compareTo (Schedule s) {
 			return s.occ - occ;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -116,4 +124,3 @@ public class IOI_1994_The_Buses {
 		return br.readLine().trim();
 	}
 }
-

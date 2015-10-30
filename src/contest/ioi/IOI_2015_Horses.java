@@ -1,9 +1,13 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
-public class IOI_2015_Horses  {
+public class IOI_2015_Horses {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -17,7 +21,7 @@ public class IOI_2015_Horses  {
 	static double[] lazy;
 	static long[] mult;
 	static long[] x, y;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,15 +29,15 @@ public class IOI_2015_Horses  {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		x = new long[n+1];
-		y = new long[n+1];
-		a = new double[n+1];
-		tree = new double[4*n];
-		lazy = new double[4*n];
-		mult = new long[4*n];
-		max = new int[4*n];
-		for (int i = 1; i <= n; i++) 
-			a[i] = Math.log(x[i] = readLong()) + a[i-1];
+		x = new long[n + 1];
+		y = new long[n + 1];
+		a = new double[n + 1];
+		tree = new double[4 * n];
+		lazy = new double[4 * n];
+		mult = new long[4 * n];
+		max = new int[4 * n];
+		for (int i = 1; i <= n; i++)
+			a[i] = Math.log(x[i] = readLong()) + a[i - 1];
 		for (int i = 1; i <= n; i++)
 			a[i] += Math.log(y[i] = readLong());
 		build1(1, 1, n);
@@ -58,6 +62,7 @@ public class IOI_2015_Horses  {
 		}
 		out.close();
 	}
+
 	static void build2 (int n, int l, int r) {
 		if (l == r) {
 			mult[n] = x[l];
@@ -65,9 +70,10 @@ public class IOI_2015_Horses  {
 		}
 		int mid = (l + r) >> 1;
 		build2(n << 1, l, mid);
-		build2(n << 1 | 1, mid+1, r);
-		mult[n] = (mult[n << 1] * mult[n << 1 | 1])%MOD;
+		build2(n << 1 | 1, mid + 1, r);
+		mult[n] = (mult[n << 1] * mult[n << 1 | 1]) % MOD;
 	}
+
 	static void update2 (int n, int l, int r, int i) {
 		if (l == i && r == i) {
 			mult[n] = x[i];
@@ -77,9 +83,10 @@ public class IOI_2015_Horses  {
 		if (i <= mid)
 			update2(n << 1, l, mid, i);
 		else
-			update2(n << 1 | 1, mid+1, r, i);
-		mult[n] = (mult[n << 1] * mult[n << 1 | 1])%MOD;
+			update2(n << 1 | 1, mid + 1, r, i);
+		mult[n] = (mult[n << 1] * mult[n << 1 | 1]) % MOD;
 	}
+
 	static long query2 (int n, int l, int r, int ql, int qr) {
 		if (l == ql && r == qr)
 			return mult[n];
@@ -87,9 +94,10 @@ public class IOI_2015_Horses  {
 		if (qr <= mid)
 			return query2(n << 1, l, mid, ql, qr);
 		else if (ql > mid)
-			return query2(n << 1 | 1, mid+1, r, ql, qr);
-		return (query2(n << 1, l, mid, ql, mid) * query2(n << 1 | 1, mid+1, r, mid+1, qr))%MOD;
+			return query2(n << 1 | 1, mid + 1, r, ql, qr);
+		return (query2(n << 1, l, mid, ql, mid) * query2(n << 1 | 1, mid + 1, r, mid + 1, qr)) % MOD;
 	}
+
 	static void build1 (int n, int l, int r) {
 		if (l == r) {
 			tree[n] = a[l];
@@ -98,7 +106,7 @@ public class IOI_2015_Horses  {
 		}
 		int mid = (l + r) >> 1;
 		build1(n << 1, l, mid);
-		build1(n << 1 | 1, mid+1, r);
+		build1(n << 1 | 1, mid + 1, r);
 		if (tree[n << 1] > tree[n << 1 | 1]) {
 			tree[n] = tree[n << 1];
 			max[n] = max[n << 1];
@@ -107,6 +115,7 @@ public class IOI_2015_Horses  {
 			max[n] = max[n << 1 | 1];
 		}
 	}
+
 	static void update1 (int n, int l, int r, int ql, int qr, double val) {
 		if (l == ql && r == qr) {
 			tree[n] += val;
@@ -124,10 +133,10 @@ public class IOI_2015_Horses  {
 		if (qr <= mid)
 			update1(n << 1, l, mid, ql, qr, val);
 		else if (ql > mid)
-			update1(n << 1 | 1, mid+1, r, ql, qr, val);
+			update1(n << 1 | 1, mid + 1, r, ql, qr, val);
 		else {
 			update1(n << 1, l, mid, ql, mid, val);
-			update1(n << 1 | 1, mid+1, r, mid+1, qr, val);
+			update1(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
 		}
 		if (tree[n << 1] > tree[n << 1 | 1]) {
 			tree[n] = tree[n << 1];
@@ -137,12 +146,13 @@ public class IOI_2015_Horses  {
 			max[n] = max[n << 1 | 1];
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
-	
+
 	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}

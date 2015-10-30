@@ -1,9 +1,16 @@
 package contest.woburn;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
-public class Woburn_Challenge_2015_3 {
+public class Woburn_Challenge_2015_Contest_Sites {
 
 	static BufferedReader br;
 	static PrintWriter out;

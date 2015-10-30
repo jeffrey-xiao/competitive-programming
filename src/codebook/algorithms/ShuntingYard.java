@@ -1,6 +1,6 @@
 package codebook.algorithms;
 
-import java.util.*;
+import java.util.LinkedList;
 
 public class ShuntingYard {
 	private static boolean isDelim (char c) {

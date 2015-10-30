@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 public class IOI_2000_Walls {
 
@@ -13,6 +20,7 @@ public class IOI_2000_Walls {
 	static ArrayList<ArrayList<Integer>> townsToRegions = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<Integer> towns = new ArrayList<Integer>();
 	static int[][] adj;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -30,18 +38,18 @@ public class IOI_2000_Walls {
 			adj[i][i] = 0;
 		}
 		for (int i = 0; i < l; i++)
-			towns.add(readInt()-1);
+			towns.add(readInt() - 1);
 		for (int i = 0; i < n; i++)
 			townsToRegions.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
 			int k = readInt();
 			int[] a = new int[k];
 			for (int j = 0; j < k; j++) {
-				a[j] = readInt()-1;
+				a[j] = readInt() - 1;
 				townsToRegions.get(a[j]).add(i);
 			}
 			for (int j = 0; j < k; j++) {
-				Pair p = new Pair(a[j], a[(j + 1)%k]);
+				Pair p = new Pair(a[j], a[(j + 1) % k]);
 				if (!hm.containsKey(p))
 					hm.put(p, new ArrayList<Integer>());
 				hm.get(p).add(i);
@@ -72,30 +80,33 @@ public class IOI_2000_Walls {
 				minIndex = region + 1;
 			}
 		}
-		out.println(min+"\n"+minIndex);
+		out.println(min + "\n" + minIndex);
 		out.close();
 	}
 
-	static class Pair{
+	static class Pair {
 		int x, y;
+
 		Pair (int x, int y) {
 			this.x = Math.min(x, y);
 			this.y = Math.max(x, y);
 		}
+
 		@Override
 		public int hashCode () {
-			return x+y;
+			return x + y;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Pair) {
-				Pair p = (Pair)o;
+				Pair p = (Pair) o;
 				return x == p.x && y == p.y;
 			}
 			return false;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -122,4 +133,3 @@ public class IOI_2000_Walls {
 		return br.readLine().trim();
 	}
 }
-
