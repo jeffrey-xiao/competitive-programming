@@ -27,11 +27,9 @@ public class IOI_2010_Quality_Of_Living {
 		int high = max * 2;
 		int mid = 0;
 		main : while (low != high) {
-			// System.out.println();
 			mid = (low + high) / 2;
 			int[][] newGrid = new int[r + 1][c + 1];
 			boolean justRight = false;
-			// System.out.println(low + " " + high + " " + mid);
 			for (int x = 1; x <= r; x++) {
 				for (int y = 1; y <= c; y++) {
 					if (grid[x][y] == mid)
@@ -41,22 +39,16 @@ public class IOI_2010_Quality_Of_Living {
 					else
 						newGrid[x][y] = 1;
 					newGrid[x][y] = newGrid[x][y] - newGrid[x - 1][y - 1] + newGrid[x - 1][y] + newGrid[x][y - 1];
-					// System.out.printf("%3d ",newGrid[x][y]);
 					if (x > h && y > w) {
 						int sum = newGrid[x][y] + newGrid[x - h - 1][y - w - 1] - newGrid[x][y - w - 1] - newGrid[x - h - 1][y];
-						// System.out.println(sum + " " + x + " " + y);
 						if (sum < 0) {
 							high = mid;
 							continue main;
 						}
-						if (sum == 0) {
+						if (sum == 0)
 							justRight = true;
-							// System.out.println("ASD " + x + " " + y);
-						}
 					}
-
 				}
-				// System.out.println();
 			}
 			if (justRight) {
 				System.out.println(mid);
