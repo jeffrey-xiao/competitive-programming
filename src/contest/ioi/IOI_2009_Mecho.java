@@ -48,16 +48,10 @@ public class IOI_2009_Mecho {
 				moves.add(new int[] {newX, newY, curr[2] + speed});
 			}
 		}
-		/*
-		 * for(int x = 0; x < n; x++){ for(int y = 0; y < n; y++){
-		 * System.out.printf("%3d ",steps[x][y]); } System.out.println(); }
-		 */
-		// System.out.println(startx + " " + starty);
 		int min = -1;
 		int max = n * n;
 		while (max - min > 1) {
 			int mid = (min + max) >> 1;
-			// System.out.println("MID   " + mid + " " + min + " " + max);
 			if (bfs(grid, steps, mid * speed, startx, starty)) {
 				min = mid;
 			} else {
@@ -77,8 +71,6 @@ public class IOI_2009_Mecho {
 			int[] curr = moves.poll();
 			if (grid[curr[0]][curr[1]] == 'D')
 				return true;
-			// System.out.println(curr[0] + " " + curr[1] + " " + curr[2]);
-
 			for (int z = 0; z < 4; z++) {
 				int newX = curr[0] + movex[z];
 				int newY = curr[1] + movey[z];

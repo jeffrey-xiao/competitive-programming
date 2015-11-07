@@ -68,8 +68,6 @@ public class IOI_2013_Robots {
 			int size = curr.size();
 			for (int j = 0; j < size; j++) {
 				if (weak.get(i) > curr.peek().weight) {
-					// System.out.println("OFFERED " + curr.peek().weight + " "
-					// + curr.peek().size);
 					pq.offer(curr.poll());
 				} else {
 					break;
@@ -77,8 +75,6 @@ public class IOI_2013_Robots {
 			}
 			size = Math.min(t, pq.size());
 			for (int k = 0; k < size; k++) {
-				// System.out.println("REMOVED " + pq.peek().weight + " " +
-				// pq.peek().size);
 				pq.poll();
 			}
 		}

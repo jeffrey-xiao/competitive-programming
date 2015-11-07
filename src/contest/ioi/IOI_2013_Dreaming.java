@@ -43,12 +43,10 @@ public class IOI_2013_Dreaming {
 				max = end = -1;
 				getEnd(x);
 				ends.add(end);
-				// System.out.println("START " + end);
 			}
 		}
 		ArrayList<Integer> diameters = new ArrayList<Integer>();
 		ArrayList<Integer> starts = new ArrayList<Integer>();
-		// START DEBUG
 		for (int x = 0; x < n; x++)
 			prev[x] = -1;
 		visited = new boolean[n];
@@ -57,19 +55,14 @@ public class IOI_2013_Dreaming {
 			max = end = -1;
 			diameters.add(getPath(i));
 			starts.add(end);
-			// System.out.println("END " + end);
 		}
 		ArrayList<Integer> radii = new ArrayList<Integer>();
 		visited = new boolean[n];
 		for (int x = 0; x < starts.size(); x++)
 			radii.add(getRadius(starts.get(x), diameters.get(x)));
-		// for(int x = 0; x < starts.size(); x++)
-		// System.out.println(x + ": " + diameters.get(x) + " " + radii.get(x));
 		int size = starts.size();
 		Collections.sort(diameters, Collections.reverseOrder());
 		Collections.sort(radii, Collections.reverseOrder());
-		// for(int x = 0; x < starts.size(); x++)
-		// System.out.println(x + ": " + diameters.get(x) + " " + radii.get(x));
 		int minDist = diameters.get(0);
 		if (size >= 2) {
 			minDist = Math.max(minDist, radii.get(0) + l + radii.get(1));

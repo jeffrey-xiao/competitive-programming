@@ -47,8 +47,6 @@ public class IOI_1994_Clocks {
 											int g1 = g + moves[0][6] * x1 + moves[1][6] * x2 + moves[2][6] * x3 + moves[3][6] * x4 + moves[4][6] * x5 + moves[5][6] * x6 + moves[6][6] * x7 + moves[7][6] * x8 + moves[8][6] * x9;
 											int h1 = h + moves[0][7] * x1 + moves[1][7] * x2 + moves[2][7] * x3 + moves[3][7] * x4 + moves[4][7] * x5 + moves[5][7] * x6 + moves[6][7] * x7 + moves[7][7] * x8 + moves[8][7] * x9;
 											int i1 = i + moves[0][8] * x1 + moves[1][8] * x2 + moves[2][8] * x3 + moves[3][8] * x4 + moves[4][8] * x5 + moves[5][8] * x6 + moves[6][8] * x7 + moves[7][8] * x8 + moves[8][8] * x9;
-											// System.out.printf("%d %d %d %d %d %d %d %d %d ||| ",a1%4,b1%4,c1%4,d1%4,e1%4,f1%4,g1%4,h1%4,i1%4);
-											// System.out.printf("%d %d %d %d %d %d %d %d %d\n",x1,x2,x3,x4,x5,x6,x7,x8,x9);
 											if (a1 % 4 + b1 % 4 + c1 % 4 + d1 % 4 + e1 % 4 + f1 % 4 + g1 % 4 + h1 % 4 + i1 % 4 == 27) {
 												s = "" + x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9;
 												break main;

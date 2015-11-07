@@ -16,9 +16,7 @@ public class IOI_2000_Palindrome {
 					dp[x % 2][y] = dp[(x - 1) % 2][y - 1] + 1;
 				else
 					dp[x % 2][y] = Math.max(dp[(x - 1) % 2][y], dp[x % 2][y - 1]);
-				// System.out.print(dp[x%2][y] + " ");
 			}
-			// System.out.println();
 		}
 		System.out.println(length - dp[length % 2][length]);
 	}

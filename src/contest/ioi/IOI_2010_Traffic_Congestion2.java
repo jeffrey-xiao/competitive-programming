@@ -48,9 +48,7 @@ public class IOI_2010_Traffic_Congestion2 {
 			}
 		}
 		while (!bottom.isEmpty()) {
-
 			int[] curr = bottom.pop();
-			// System.out.println(curr[0]);
 			int total = sum[curr[0]];
 			dp[curr[0]] = 0;
 			for (int x = 0; x < adjlist.get(curr[0]).size(); x++) {
@@ -68,7 +66,6 @@ public class IOI_2010_Traffic_Congestion2 {
 		int index = 0;
 		for (int x = 0; x < n; x++) {
 			dp[x] = Math.max(dp[x], sum[0] - sum[x]);
-			// System.out.println(sum[x] + " " + x);
 			if (dp[x] < min) {
 				min = dp[x];
 				index = x;

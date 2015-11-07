@@ -1,9 +1,9 @@
 package contest.ioi;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -26,10 +26,10 @@ public class IOI_2011_Race {
 	static ArrayList<Node> inTree = new ArrayList<Node>();
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
-		//out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		out = new PrintWriter(new FileWriter("out.txt"));
+		br = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
+		//br = new BufferedReader(new FileReader("in.txt"));
+		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
 		k = readInt();

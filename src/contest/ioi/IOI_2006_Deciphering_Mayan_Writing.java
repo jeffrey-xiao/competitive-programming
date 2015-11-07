@@ -34,12 +34,10 @@ public class IOI_2006_Deciphering_Mayan_Writing {
 			} else {
 				while (charsInSeq[index] > charsInGlyph[index]) {
 					char charToRemove = sequence[indexOfSeq++];
-
 					int indexToRemove = (charToRemove) - 65 > 25 ? (charToRemove) - 71 : (charToRemove) - 65;
 					charsInSeq[indexToRemove]--;
 				}
 			}
-			// System.out.println(indexOfSeq + " " + x);
 			if (x - indexOfSeq + 1 == g)
 				occurences++;
 		}
@@ -65,7 +63,6 @@ public class IOI_2006_Deciphering_Mayan_Writing {
 		try {
 			s = br.readLine().trim();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return s;

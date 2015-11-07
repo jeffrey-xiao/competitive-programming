@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class IOI_2012_Jousting_Tournament {
 
@@ -11,12 +18,13 @@ public class IOI_2012_Jousting_Tournament {
 
 	static int n, c, r;
 	static int[] k;
-	
+
 	static int[] bit;
 	static Tournament[] nodes;
 	static int[] dp;
 	static Queue<Node> delete = new ArrayDeque<Node>();
 	static Node root;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,21 +34,21 @@ public class IOI_2012_Jousting_Tournament {
 		n = readInt();
 		c = readInt();
 		r = readInt();
-		
-		dp = new int[n+c];
+
+		dp = new int[n + c];
 		nodes = new Tournament[n + c];
 		k = new int[n];
-		bit = new int[n+1];
+		bit = new int[n + 1];
 		for (int i = 1; i < n; i++) {
-			k[i] = (readInt() > r ? 1 : 0) + k[i-1];
+			k[i] = (readInt() > r ? 1 : 0) + k[i - 1];
 		}
 		TreeSet<Integer> left = new TreeSet<Integer>();
 		for (int i = 0; i < n; i++) {
-			nodes[i] = new Tournament(i+1, i+1, i, -1);
+			nodes[i] = new Tournament(i + 1, i + 1, i, -1);
 			root = add(root, new Node(i));
-			left.add(i+1);
-			update(i+1, 1);
-		}		
+			left.add(i + 1);
+			update(i + 1, 1);
+		}
 		for (int i = 0; i < c; i++) {
 			int l = readInt() + 1;
 			int r = readInt() + 1;
@@ -48,7 +56,7 @@ public class IOI_2012_Jousting_Tournament {
 			int lo = 1;
 			int hi = n;
 			while (lo <= hi) {
-				int mid = (hi + lo)/2;
+				int mid = (hi + lo) / 2;
 				if (query(mid) < l)
 					lo = mid + 1;
 				else
@@ -58,7 +66,7 @@ public class IOI_2012_Jousting_Tournament {
 			lo = 1;
 			hi = n;
 			while (lo < hi) {
-				int mid = (hi + lo + 1)/2;
+				int mid = (hi + lo + 1) / 2;
 				if (query(mid) <= r)
 					lo = mid;
 				else
@@ -67,8 +75,8 @@ public class IOI_2012_Jousting_Tournament {
 			r = hi;
 			for (Integer j : left.subSet(l + 1, true, r, true))
 				update(j, -1);
-			left.subSet(l+1, true, r, true).clear();
-			nodes[i+n] = new Tournament(l, r);
+			left.subSet(l + 1, true, r, true).clear();
+			nodes[i + n] = new Tournament(l, r);
 			search(root, new Node(i + n));
 			while (!delete.isEmpty())
 				root = remove(root, delete.poll());
@@ -76,9 +84,9 @@ public class IOI_2012_Jousting_Tournament {
 		}
 		int max = 0;
 		int maxIndex = 0;
-		for (int i = n+c-1; i >= 0; i--) {
+		for (int i = n + c - 1; i >= 0; i--) {
 			if (k[nodes[i].r - 1] - k[nodes[i].l - 1] == 0) {
-				dp[i] = 1 + (nodes[i].advance != -1 ? dp[nodes[i].advance]: 0);
+				dp[i] = 1 + (nodes[i].advance != -1 ? dp[nodes[i].advance] : 0);
 			}
 			if (nodes[i].indexLeft != -1) {
 				if (dp[i] > max) {
@@ -91,25 +99,27 @@ public class IOI_2012_Jousting_Tournament {
 		out.println(maxIndex);
 		out.close();
 	}
-	
+
 	static void update (int i, int val) {
 		for (int x = i; x <= n; x += (x & -x))
 			bit[x] += val;
 	}
-	
+
 	static int query (int i) {
 		int sum = 0;
 		for (int x = i; x > 0; x -= (x & -x))
 			sum += bit[x];
 		return sum;
 	}
-	
+
 	static class Tournament {
 		int l, r;
 		int indexLeft, advance;
+
 		Tournament (int l, int r) {
 			this(l, r, -1, -1);
 		}
+
 		Tournament (int l, int r, int indexLeft, int advance) {
 			this.l = l;
 			this.r = r;
@@ -117,6 +127,7 @@ public class IOI_2012_Jousting_Tournament {
 			this.indexLeft = indexLeft;
 		}
 	}
+
 	private static Node remove (Node n, Node remove) {
 		if (n == null)
 			return n;
@@ -141,7 +152,7 @@ public class IOI_2012_Jousting_Tournament {
 		}
 		return balance(n);
 	}
-	
+
 	private static void search (Node n, Node insert) {
 		if (n == null)
 			return;
@@ -149,7 +160,7 @@ public class IOI_2012_Jousting_Tournament {
 			nodes[n.index].advance = insert.index;
 			if (nodes[n.index].l == nodes[n.index].r && (nodes[insert.index].indexLeft == -1 || nodes[n.index].l < nodes[insert.index].indexLeft))
 				nodes[insert.index].indexLeft = nodes[n.index].l;
-				
+
 			delete.offer(n);
 		}
 		if (nodes[n.index].r < nodes[insert.index].r) {
@@ -159,11 +170,13 @@ public class IOI_2012_Jousting_Tournament {
 			search(n.left, insert);
 		}
 	}
+
 	private static Node minV (Node n) {
 		while (n.left != null)
 			n = n.left;
 		return n;
 	}
+
 	private static Node add (Node n, Node insert) {
 		if (n == null)
 			return insert;
@@ -191,6 +204,7 @@ public class IOI_2012_Jousting_Tournament {
 		}
 		return n;
 	}
+
 	private static Node rotateLeft (Node n) {
 		Node x = n.right;
 		n.right = x.left;
@@ -199,6 +213,7 @@ public class IOI_2012_Jousting_Tournament {
 		resetHeight(x);
 		return x;
 	}
+
 	private static Node rotateRight (Node n) {
 		Node x = n.left;
 		n.left = x.right;
@@ -207,6 +222,7 @@ public class IOI_2012_Jousting_Tournament {
 		resetHeight(x);
 		return x;
 	}
+
 	static class Node {
 		int index, height;
 		Node left, right;
@@ -216,6 +232,7 @@ public class IOI_2012_Jousting_Tournament {
 			this.height = 0;
 		}
 	}
+
 	private static void resetHeight (Node n) {
 		n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 	}
@@ -224,7 +241,6 @@ public class IOI_2012_Jousting_Tournament {
 		return n == null ? -1 : n.height;
 	}
 
-	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -251,4 +267,3 @@ public class IOI_2012_Jousting_Tournament {
 		return br.readLine().trim();
 	}
 }
-

@@ -18,22 +18,16 @@ public class IOI_2004_Phidias {
 		for (int x = 1; x < slabs.length; x++) {
 			slabs[x][0] = scan.nextInt();
 			slabs[x][1] = scan.nextInt();
-			// System.out.println(slabs[x][0] + " " + slabs[x][1]);
 		}
 		for (int y = 1; y < dp.length; y++) {
 			for (int x = 1; x < dp[y].length; x++) {
 				for (int z = 1; z < slabs.length; z++) {
-					// System.out.println(x +" "+y + " " + slabs[z][0] + " " +
-					// slabs[z][1]);
 					if (x >= slabs[z][0] && y >= slabs[z][1]) {
-
 						int x1 = slabs[z][0];
 						int y1 = slabs[z][1];
 						int a = dp[y - y1][x] + dp[y1][x - x1] + x1 * y1;
 						int b = dp[y][x - x1] + dp[y - y1][x1] + x1 * y1;
 						dp[y][x] = Math.max(Math.max(a, b), dp[y][x]);
-						// System.out.println(dp[y][x] + " " + x +" "+y + " " +
-						// x1 + " "+ y1);
 					} else {
 						int a = dp[y - 1][x];
 						int b = dp[y][x - 1];
@@ -43,10 +37,6 @@ public class IOI_2004_Phidias {
 				}
 			}
 		}
-		/*
-		 * for(int[] x:dp){ for(int y:x) System.out.printf("%3d ",y);
-		 * System.out.println(); }
-		 */
 		System.out.println(-dp[height][width] + height * width);
 	}
 }

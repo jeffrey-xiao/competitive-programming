@@ -58,13 +58,6 @@ public class IOI_2009_Museum {
 			}
 
 		});
-		/*
-		 * for(int x = 0; x < vases.size(); x++){ for(int y = x+2; y <
-		 * vases.size(); y++){ for(int z = x+1; z< y; z++){
-		 * if(vases.get(x)+vases.get(y) == vases.get(z)*2)
-		 * System.out.printf("%d %d %d \n"
-		 * ,vases.get(x),vases.get(y),vases.get(z)); } } }
-		 */
 		for (int i : vases) {
 			System.out.println(i);
 		}
@@ -92,10 +85,3 @@ public class IOI_2009_Museum {
 		return br.readLine().trim();
 	}
 }
-/*
- * for(int x = (int)Math.pow(2,(int)(Math.log(n)/Math.log(2))); x >= 2; x/=2){
- * for(int y = x; y <= n; y+=x){ for(int z = n; z >= 1; z--){
- * if(!vases.contains(z) && z%y == 0){ System.out.println(z); vases.add(z); }
- * else if(!vases.contains(z) && z%y == 1){ odd.add(z); vases.add(z); } } } }
- */
-

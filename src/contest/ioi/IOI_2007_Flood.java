@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class IOI_2007_Flood {
 
@@ -13,11 +20,9 @@ public class IOI_2007_Flood {
 	static Point[] p;
 	static int[] sum;
 	static Edge[][] map; // 0 = north, 1 = east, 2 = south, 3 = west
-	static int[][] dir = {{1, 0, 3, 2},
-						  {2, 1, 0, 3},
-						  {3, 2, 1, 0},
-						  {0, 3, 2, 1}};
+	static int[][] dir = { {1, 0, 3, 2}, {2, 1, 0, 3}, {3, 2, 1, 0}, {0, 3, 2, 1}};
 	static TreeSet<Point> active = new TreeSet<Point>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,15 +32,15 @@ public class IOI_2007_Flood {
 		n = readInt();
 		map = new Edge[n][4];
 		p = new Point[n];
-		
+
 		for (int i = 0; i < n; i++)
 			active.add(p[i] = new Point(readInt(), readInt(), i));
-		
+
 		m = readInt();
 		sum = new int[m];
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			// west-east relation
 			if (p[a].x < p[b].x) {
 				map[a][1] = new Edge(a, b, i);
@@ -84,49 +89,53 @@ public class IOI_2007_Flood {
 		ArrayList<Integer> ans = new ArrayList<Integer>();
 		for (int i = 0; i < m; i++)
 			if (sum[i] == 2)
-				ans.add(i+1);
+				ans.add(i + 1);
 		out.println(ans.size());
 		for (int x : ans)
 			out.println(x);
 		out.close();
 	}
-	
+
 	static void remove (Edge e) {
 		sum[e.index]++;
 		for (int i = 0; i < 4; i++)
-			if (map[e.a][i] != null && map[e.a][i].b == e.b) 
+			if (map[e.a][i] != null && map[e.a][i].b == e.b)
 				map[e.a][i] = null;
-		for (int i = 0; i < 4; i++) 
+		for (int i = 0; i < 4; i++)
 			if (map[e.b][i] != null && map[e.b][i].b == e.a)
 				map[e.b][i] = null;
 	}
-	
+
 	static class Edge {
 		int a, b, index;
+
 		Edge (int a, int b, int index) {
 			this.a = a;
 			this.b = b;
 			this.index = index;
 		}
 	}
-	
+
 	static class Point implements Comparable<Point> {
 		int x, y, index;
+
 		Point (int x, int y, int index) {
 			this.x = x;
 			this.y = y;
 			this.index = index;
 		}
+
 		@Override
 		public int compareTo (Point p) {
 			if (x == p.x)
 				return y - p.y;
 			return x - p.x;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point)o;
+				Point p = (Point) o;
 				return p.x == x && p.y == y;
 			}
 			return false;
@@ -159,4 +168,3 @@ public class IOI_2007_Flood {
 		return br.readLine().trim();
 	}
 }
-

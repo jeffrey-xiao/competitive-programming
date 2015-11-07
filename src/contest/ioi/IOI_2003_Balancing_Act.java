@@ -62,10 +62,8 @@ public class IOI_2003_Balancing_Act {
 
 	private static int update (Node node) {
 		int size = 1;
-		for (int x = 0; x < node.child.size(); x++) {
-			// System.out.println(node.child.get(x).id);
+		for (int x = 0; x < node.child.size(); x++)
 			size += update(node.child.get(x));
-		}
 		node.size = size;
 		return size;
 	}

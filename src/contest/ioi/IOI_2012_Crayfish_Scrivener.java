@@ -37,10 +37,6 @@ public class IOI_2012_Crayfish_Scrivener {
 				int depth = fs.nextInt();
 				pr.println(getCharacter(state[currState], depth + 1));
 			}
-			// System.out.print(state[currState].depth + " ");
-			// printWord(state[currState]);
-			// System.out.println();
-
 		}
 		pr.close();
 	}

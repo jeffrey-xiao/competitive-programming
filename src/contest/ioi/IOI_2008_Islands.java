@@ -1,7 +1,13 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class IOI_2008_Islands {
 
@@ -18,31 +24,31 @@ public class IOI_2008_Islands {
 	static Edge[] e;
 	static int[] last;
 	static int cnt;
-	
+
 	static Stack<Integer> s = new Stack<Integer>();
 	static ArrayList<Integer> currCycle;
-	
+
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		
+
 		inCycle = new boolean[n];
 		sz = new long[n];
 		disc = new int[n];
 		lo = new int[n];
-		used = new boolean[2*n];
-		e = new Edge[2*n];
+		used = new boolean[2 * n];
+		e = new Edge[2 * n];
 		last = new int[n];
 		nextDist = new long[n];
-		
+
 		for (int i = 0; i < n; i++)
 			disc[i] = last[i] = -1;
 		for (int i = 0; i < n; i++) {
-			int j = readInt()-1;
+			int j = readInt() - 1;
 			int dist = readInt();
 			addEdge(i, j, dist);
 		}
@@ -60,7 +66,7 @@ public class IOI_2008_Islands {
 					for (int k = last[currCycle.get(j)]; k != -1; k = e[k].prev)
 						if (e[k].dest == currCycle.get((j + 1) % currCycle.size()) && used[k]) {
 							currDist += nextDist[currCycle.get(j)] = e[k].cost;
-							used[k] = used[k^1] = false;
+							used[k] = used[k ^ 1] = false;
 							break;
 						}
 				}
@@ -94,14 +100,14 @@ public class IOI_2008_Islands {
 		}
 		return res;
 	}
-	
+
 	static long computeSizes (int i, int prev) {
 		for (int j = last[i]; j != -1; j = e[j].prev)
 			if (!inCycle[e[j].dest] && e[j].dest != prev)
 				sz[i] = Math.max(sz[i], computeSizes(e[j].dest, i) + e[j].cost);
 		return sz[i];
 	}
-	
+
 	static void dfs (int i) {
 		disc[i] = lo[i] = cnt++;
 		s.push(i);
@@ -128,32 +134,34 @@ public class IOI_2008_Islands {
 			}
 		}
 	}
-	
+
 	static void addEdge (int i, int j, int dist) {
 		e[cnt] = new Edge(j, dist, last[i]);
 		last[i] = cnt++;
 		e[cnt] = new Edge(i, dist, last[j]);
 		last[j] = cnt++;
 	}
-	
+
 	static class Edge {
 		int dest, cost, prev;
+
 		Edge (int dest, int cost, int prev) {
 			this.dest = dest;
 			this.cost = cost;
 			this.prev = prev;
 		}
 	}
-	
+
 	static class State {
 		int index;
 		long value;
+
 		State (int index, long value) {
 			this.index = index;
 			this.value = value;
-		}	
+		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -180,4 +188,3 @@ public class IOI_2008_Islands {
 		return br.readLine().trim();
 	}
 }
-

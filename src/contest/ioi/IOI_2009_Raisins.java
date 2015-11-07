@@ -26,7 +26,6 @@ public class IOI_2009_Raisins {
 				long raisins = readLong();
 				dp[x][x][y][y] = raisins;
 				sum[x + 1][y + 1] = raisins - sum[x][y] + sum[x + 1][y] + sum[x][y + 1];
-				// System.out.println((x+1) + " " + (y+1) + " " +sum[x+1][y+1]);
 			}
 		}
 		for (int gx = 0; gx < r; gx++) {
@@ -36,21 +35,12 @@ public class IOI_2009_Raisins {
 				for (int x = 0; x < r - gx; x++) {
 					for (int y = 0; y < c - gy; y++) {
 						for (int dx = x; dx <= x + gx && dx + 1 < r; dx++) {
-
-							// x, diffx, diffx+1, x+gapx
-
 							long a = dp[x][dx][y][y + gy] + dp[dx + 1][x + gx][y][y + gy] + freq(x, x + gx + 1, y, y + gy + 1);
 							dp[x][x + gx][y][y + gy] = Math.min(dp[x][x + gx][y][y + gy], a);
-							// System.out.println(dx);
-							// System.out.println(x + " " + (x+gx) + " " + y +
-							// " " + (y+gy) + " " + dp[x][x+gx][y][y+gy]);
 						}
 						for (int dy = y; dy <= y + gy && dy + 1 < c; dy++) {
 							long a = dp[x][x + gx][y][dy] + dp[x][x + gx][dy + 1][y + gy] + freq(x, x + gx + 1, y, y + gy + 1);
 							dp[x][x + gx][y][y + gy] = Math.min(dp[x][x + gx][y][y + gy], a);
-							// System.out.println(dy);
-							// System.out.println(x + " " + (x+gx) + " " + y +
-							// " " + (y+gy) + " " + dp[x][x+gx][y][y+gy]);
 						}
 					}
 				}

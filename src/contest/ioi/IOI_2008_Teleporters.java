@@ -1,7 +1,14 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class IOI_2008_Teleporters {
 
@@ -14,7 +21,7 @@ public class IOI_2008_Teleporters {
 	static int[] start, end;
 	static int[] sorted;
 	static boolean[] v;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,28 +30,28 @@ public class IOI_2008_Teleporters {
 
 		n = readInt();
 		m = readInt();
-		
-		sorted = new int[2*n];
+
+		sorted = new int[2 * n];
 		start = new int[n];
 		end = new int[n];
-		to = new int[2*n+1];
-		v = new boolean[2*n+1];
-		
+		to = new int[2 * n + 1];
+		v = new boolean[2 * n + 1];
+
 		for (int i = 0; i < n; i++) {
 			start[i] = readInt();
 			end[i] = readInt();
-			sorted[i*2] = start[i];
-			sorted[i*2+1] = end[i];
+			sorted[i * 2] = start[i];
+			sorted[i * 2 + 1] = end[i];
 		}
 		Arrays.sort(sorted);
 		for (int i = 0; i < n; i++) {
-			to[toIndex(start[i])] = toIndex(end[i])+1;
-			to[toIndex(end[i])] = toIndex(start[i])+1;
+			to[toIndex(start[i])] = toIndex(end[i]) + 1;
+			to[toIndex(end[i])] = toIndex(start[i]) + 1;
 		}
-		to[2*n] = -1;
+		to[2 * n] = -1;
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
 		int ans = bfs(0) - 1;
-		for (int i = 0; i <= 2*n; i++)
+		for (int i = 0; i <= 2 * n; i++)
 			if (!v[i])
 				pq.offer(bfs(i));
 		for (int i = 0; i < m; i++) {
@@ -60,21 +67,21 @@ public class IOI_2008_Teleporters {
 	}
 
 	static int toIndex (int i) {
-	    int lo = 0;
-	    int hi = 2*n-1;
-	    while (lo <= hi) {
-	        int mid = (lo + hi) >> 1;
-	        if (sorted[mid] < i) {
-	            lo = mid + 1;
-	        } else if (sorted[mid] > i) {
-	            hi = mid - 1;
-	        } else {
-	            return mid;
-	        }
-	    }
-	    return -1;
+		int lo = 0;
+		int hi = 2 * n - 1;
+		while (lo <= hi) {
+			int mid = (lo + hi) >> 1;
+			if (sorted[mid] < i) {
+				lo = mid + 1;
+			} else if (sorted[mid] > i) {
+				hi = mid - 1;
+			} else {
+				return mid;
+			}
+		}
+		return -1;
 	}
-	
+
 	static int bfs (int i) {
 		int cnt = 0;
 		v[i] = true;
@@ -85,7 +92,7 @@ public class IOI_2008_Teleporters {
 		}
 		return cnt + 1;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -112,4 +119,3 @@ public class IOI_2008_Teleporters {
 		return br.readLine().trim();
 	}
 }
-

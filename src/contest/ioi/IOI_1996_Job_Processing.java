@@ -59,7 +59,6 @@ public class IOI_1996_Job_Processing {
 			int[] curr = moves.poll();
 			maxB = Math.max(curr[0] + curr[1], maxB);
 			finishTimesB.add(curr[0] + curr[1]);
-			// System.out.println(curr[0] + curr[1]);
 			moves.offer(new int[] {curr[0] + curr[1], curr[1]});
 		}
 		Collections.reverse(finishTimesB);

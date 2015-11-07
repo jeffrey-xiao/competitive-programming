@@ -49,9 +49,6 @@ public class IOI_1998_Magic_Squares {
 		v[toIndex.get(p)] = true;
 		while (!q.isEmpty()) {
 			State curr = q.poll();
-			// for(int x = 0; x < 8; x++)
-			// System.out.print(curr.p.num[x] + " ");
-			// System.out.println();
 			if (curr.p.equals(e)) {
 				System.out.println(curr.s.length());
 				for (int x = 0; x < curr.s.length(); x++) {
@@ -114,11 +111,7 @@ public class IOI_1998_Magic_Squares {
 	private static void generate (int i, Perm p) {
 
 		if (i == SIZE - 1) {
-			// for(int x = 0; x < SIZE; x++)
-			// System.out.print(p.num[x] + " ");
-			// System.out.println();
 			toIndex.put(p, count);
-			// System.out.println(count);
 			count++;
 			return;
 		}

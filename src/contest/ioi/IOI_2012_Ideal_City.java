@@ -1,7 +1,16 @@
 package contest.ioi;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class IOI_2012_Ideal_City {
 
@@ -17,17 +26,16 @@ public class IOI_2012_Ideal_City {
 	static int[] size, subtreeSize;
 	static int cnt = 0;
 
-	static int[] movex = {-1,1,0,0};
-	static int[] movey = {0,0,-1,1};
+	static int[] movex = {-1, 1, 0, 0};
+	static int[] movey = {0, 0, -1, 1};
 
 	static Queue<Point> q = new ArrayDeque<Point>();
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
 
 		long n = readInt();
 		int x = 0, y = 0;
@@ -103,6 +111,7 @@ public class IOI_2012_Ideal_City {
 			cnt++;
 		}
 	}
+
 	static void dfs (Point point, boolean isHorizontal) {
 		v.add(point);
 		Stack<Point> s = new Stack<Point>();
@@ -135,6 +144,7 @@ public class IOI_2012_Ideal_City {
 
 	static class Edge {
 		int from, to;
+
 		Edge (int from, int to) {
 			this.from = from;
 			this.to = to;
@@ -143,22 +153,26 @@ public class IOI_2012_Ideal_City {
 
 	static class Point {
 		Integer x, y, prev;
+
 		Point (Integer x, Integer y) {
 			this(x, y, -1);
 		}
+
 		Point (Integer x, Integer y, Integer prev) {
 			this.x = x;
 			this.y = y;
 			this.prev = prev;
 		}
+
 		@Override
 		public int hashCode () {
-			return x.hashCode()*31 + y.hashCode();
+			return x.hashCode() * 31 + y.hashCode();
 		}
+
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point)o;
-				return p.x.compareTo(x) == 0 && p.y.compareTo(y) == 0; 
+				Point p = (Point) o;
+				return p.x.compareTo(x) == 0 && p.y.compareTo(y) == 0;
 			}
 			return false;
 		}
@@ -190,4 +204,3 @@ public class IOI_2012_Ideal_City {
 		return br.readLine().trim();
 	}
 }
-

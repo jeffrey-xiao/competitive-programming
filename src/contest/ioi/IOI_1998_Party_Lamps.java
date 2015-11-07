@@ -45,12 +45,8 @@ public class IOI_1998_Party_Lamps {
 					for (int b4 = 0; b4 < 2; b4++) {
 						if (b4 == 1)
 							flip(4, lights);
-						// print(lights);
-						// System.out.println(b1+"" +b2+"" +b3+"" +b4);
 						if (b1 + b2 + b3 + b4 <= numOfButtons && check(lights, on, off)) {
 							s.add(print(lights));
-							// System.out.println(print(lights));
-							// System.out.println(b1+"" +b2+"" +b3+"" +b4);
 							possible = true;
 						}
 

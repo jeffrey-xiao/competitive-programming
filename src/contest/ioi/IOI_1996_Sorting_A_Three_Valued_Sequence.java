@@ -23,7 +23,6 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
 			else if (seq[x] == 2)
 				numOfTwo++;
 		}
-		// System.out.println(numOfOne + " " + numOfTwo);
 		int indexOne = 0;
 		int count = 0;
 		ArrayList<String> output = new ArrayList<String>();
@@ -53,10 +52,6 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
 				}
 			}
 		}
-		/*
-		 * System.out.println(); for(int x: seq) System.out.print(x + " ");
-		 * System.out.println();
-		 */
 		int indexTwo = indexOne;
 		for (int x = num - 1; numOfTwo > 0 && x > indexTwo; x--) {
 			if (seq[x] == 2) {
@@ -77,9 +72,6 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
 		System.out.println(count);
 		for (String s : output)
 			System.out.println(s);
-		/*
-		 * System.out.println(); for(int x: seq) System.out.print(x + " ");
-		 */
 	}
 
 	static String next () throws IOException {

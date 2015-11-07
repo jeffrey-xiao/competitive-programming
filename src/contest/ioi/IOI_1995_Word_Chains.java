@@ -18,7 +18,6 @@ public class IOI_1995_Word_Chains {
 			s = next();
 		}
 		tn.printWords("");
-		// tn.debug("");
 	}
 
 	class TrieNode {
@@ -34,7 +33,6 @@ public class IOI_1995_Word_Chains {
 		}
 
 		int addWord (String s) {
-			// System.out.println(s + " " + num);
 			if (s.length() == 0) {
 				totalWords++;
 				return totalWords;
@@ -61,7 +59,6 @@ public class IOI_1995_Word_Chains {
 						if (numOfWords > max)
 							max = numOfWords;
 					}
-					// System.out.println("NEW:"+s+" "+ isEnd);
 					break;
 				}
 			}

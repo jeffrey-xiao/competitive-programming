@@ -43,11 +43,9 @@ class IOI_2015_Boxes {
 		for (int i = n; i >= 1; i--) {
 			if (i + k <= n) {
 				dp2[i] = dp2[i + k] + Math.min(2 * (l - pos[i]), l);
-
 			} else {
 				dp2[i] = Math.min(2 * (l - pos[i]), l);
 			}
-			//out.println(dp1[i] + " " + dp2[i]);
 		}
 		long ans = 1l << 60;
 		for (int i = 0; i <= n; i++)

@@ -23,17 +23,11 @@ public class IOI_2001_Mobile_Phones {
 				int y = readInt() + 1;
 				int a = readInt();
 				update(x, y, a);
-				// for(int[] j: tree){
-				// for(int i: j)
-				// System.out.print(i + " ");
-				// System.out.println();
-				// }
 			} else {
 				int x1 = readInt();
 				int y1 = readInt();
 				int x2 = readInt() + 1;
 				int y2 = readInt() + 1;
-				// System.out.printf("%d %d %d %d\n",freqTo(x2,y2),freqTo(x1,y1),freqTo(x1,y2),freqTo(x2,y1));
 				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2) - freqTo(x2, y1);
 				System.out.println(total);
 			}

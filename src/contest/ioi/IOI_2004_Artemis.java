@@ -38,7 +38,6 @@ public class IOI_2004_Artemis {
 			int exit = 0; // Marks trees left of current tree
 			for (int y = 0; y < x - k + 2; y++) {
 				int sum = Math.abs(trees[x] + trees[y] - exit - down[y]) + 1;
-				// System.out.println(sum);
 				if (sum >= k && sum < min) {
 					min = sum;
 					first = p[x].id;

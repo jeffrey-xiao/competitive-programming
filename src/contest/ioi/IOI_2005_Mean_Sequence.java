@@ -24,11 +24,9 @@ public class IOI_2005_Mean_Sequence {
 				prevLowerBound = 2 * prev - curr;
 				prevUpperBound = prev;
 				min = Math.min(prevUpperBound - (prevLowerBound) + 1, min);
-				// System.out.println(prevLowerBound + " " + prevUpperBound);
 			}
 			lowerBound = Math.max(prev, 2 * prev - prevUpperBound);
 			upperBound = Math.min(curr, 2 * prev - prevLowerBound);
-			// System.out.println(lowerBound + " " + upperBound + " " + curr);
 			min = Math.min(upperBound - lowerBound + 1, min);
 			prev = curr;
 			prevLowerBound = lowerBound;

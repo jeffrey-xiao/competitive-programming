@@ -39,16 +39,9 @@ public class IOI_1994_The_Castle {
 			}
 		}
 		counter = -counter - 1;
-		/*
-		 * for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++){
-		 * System.out.print(grid[x][y] + " "); } System.out.println(); } for(int
-		 * i: sizes) System.out.print(i + " ");
-		 */
 		for (int y = 0; y < c; y++) {
 			for (int x = r - 1; x >= 0; x--) {
 				if (x - 1 >= 0 && grid[x][y] != grid[x - 1][y]) {
-					// System.out.println(x+1 + " " +(y+1)+ " " +
-					// (sizes.get(-grid[x][y]-1)+sizes.get(-grid[x-1][y]-1)) );
 					if (sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x - 1][y] - 1) > maxCombo) {
 						maxCombo = sizes.get(-grid[x][y] - 1) + sizes.get(-grid[x - 1][y] - 1);
 						x1 = x + 1;
@@ -70,10 +63,8 @@ public class IOI_1994_The_Castle {
 	}
 
 	private static int fillGrid (int x, int y, int[][] g, int c, boolean[][] v) {
-
 		if (v[x][y])
 			return 0;
-		// System.out.println(x + " " + y + " " + g[x][y]);
 		v[x][y] = true;
 		int size = 1;
 		if (g[x][y] < 8) {
