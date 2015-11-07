@@ -86,7 +86,6 @@ public class IOI_2013_Dreaming {
 	}
 
 	private static int getPath (int i) {
-		// System.out.println(i);
 		Stack<State> s = new Stack<State>();
 		s.push(new State(i, 0, 0));
 		while (!s.isEmpty()) {

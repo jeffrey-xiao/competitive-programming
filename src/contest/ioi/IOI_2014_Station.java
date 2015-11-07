@@ -31,9 +31,6 @@ public class IOI_2014_Station {
 				}
 			}
 		}
-		/*
-		 * for(int x :days) System.out.print(x+" "); System.out.println("\n");
-		 */
 		System.out.println(days[days.length - 1]);
 	}
 }

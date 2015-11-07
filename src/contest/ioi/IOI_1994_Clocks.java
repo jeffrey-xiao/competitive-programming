@@ -20,13 +20,6 @@ public class IOI_1994_Clocks {
 		int g = readInt() / 3 - 1;
 		int h = readInt() / 3 - 1;
 		int i = readInt() / 3 - 1;
-		/*
-		 * int a = readInt()-1; int b = readInt()-1; int c = readInt()-1; int d
-		 * = readInt()-1; int e = readInt()-1; int f = readInt()-1; int g =
-		 * readInt()-1; int h = readInt()-1; int i = readInt()-1; a = a<0?a+4:a;
-		 * b = b<0?b+4:b; c = c<0?c+4:c; d = d<0?d+4:d; e = e<0?e+4:e; f =
-		 * f<0?f+4:f; g = g<0?g+4:g; h = h<0?h+4:h; i = i<0?i+4:i;
-		 */
 		byte[][] moves = new byte[][] { {1, 1, 0, 1, 1, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 1, 1, 0, 0, 0}, {1, 0, 0, 1, 0, 0, 1, 0, 0}, {0, 1, 0, 1, 1, 1, 0, 1, 0}, {0, 0, 1, 0, 0, 1, 0, 0, 1}, {0, 0, 0, 1, 1, 0, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 1, 1, 1}, {0, 0, 0, 0, 1, 1, 0, 1, 1}};
 		String s = "";
 		main : for (int x1 = 0; x1 < 4; x1++) {
