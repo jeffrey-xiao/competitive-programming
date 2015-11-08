@@ -1,4 +1,6 @@
-// Branch and bound concept: IOI 1994 Buses
+/* Branch and bound concept
+ * Reference problem: IOI 1994 Buses
+ */
 
 package codebook.algorithms;
 
