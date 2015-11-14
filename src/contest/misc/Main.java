@@ -4,12 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
 	static int ans = 0;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 
 	/*
@@ -35,15 +38,67 @@ public class Main {
 		}
 	*/
 	public static void main (String[] args) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter("Signup.csv"));
-		out.println("Name,Email");
-		String[] in = readLine().split(",");
-		for (String s : in) {
-			String[] line = s.split("<");
-			out.println(line[0] + "," + line[1].substring(0, line[1].length() - 1));
+		br = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
+		//br = new BufferedReader(new FileReader("in.txt"));
+		//out = new PrintWriter(new FileWriter("out.txt"));
+
+		int t = readInt();
+		for (int qq = 1; qq <= t; qq++) {
+			long n = readLong();
+			long m = readLong();
+			long cnt = 1;
+			if (m != 0)
+				cnt = n*m / gcf(n, m) / m;
+			if (cnt == n)
+				out.println("Yes");
+			else
+				out.println("No " + cnt);
+			boolean flag = true;
+			long count = 1;
+			long a[] = new long[(int) (n + 1)];
+			Arrays.fill(a, 0);
+			long pos = m + 1;
+			long x = 0;
+			a[(int) pos] = 1;
+
+			while ( flag ) {
+				x = m + pos;
+				if ((x > n) && (x != n)) {
+					x = Math.abs(x - n);
+					if (a[(int) x] == 1) {
+						break;
+					}
+					pos = x;
+				} else {
+					if (x < n) {
+						if (a[(int) x] == 1) {
+							break;
+						}
+						pos = x;
+					} else {
+						if (x == n) {
+							if (a[(int) x] == 1) {
+								break;
+							}
+							pos = x;
+						}
+					}
+				}
+				count++;
+			}
+			if (count == n) {
+				out.println("Yes");
+
+			} else {
+				out.println("No " + count);
+			}
+			out.flush();
 		}
 		out.close();
-
+	}
+	static long gcf (long a, long b) {
+		return b == 0 ? a : gcf(b, a % b);
 	}
 
 	static String next () throws IOException {
