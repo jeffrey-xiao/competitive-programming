@@ -15,7 +15,7 @@ public class DMOPC_2014_Cutting_Logs {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
+		readInt();
 		String[] res = readLine().split("X");
 		int sz = 0;
 		StringBuilder ans = new StringBuilder();
