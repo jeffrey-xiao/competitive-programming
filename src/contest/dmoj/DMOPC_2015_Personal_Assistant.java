@@ -41,19 +41,20 @@ public class DMOPC_2015_Personal_Assistant {
 			ans = Math.max(ans, bestValue);
 		}
 		out.println(ans);
-		
+
 		out.close();
 	}
-	
+
 	static class Anime {
 		long start, end, val;
+
 		Anime (long start, long end, long val) {
 			this.start = start;
 			this.end = end;
 			this.val = val;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -80,4 +81,3 @@ public class DMOPC_2015_Personal_Assistant {
 		return br.readLine().trim();
 	}
 }
-

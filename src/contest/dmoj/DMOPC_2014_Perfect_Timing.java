@@ -54,4 +54,3 @@ public class DMOPC_2014_Perfect_Timing {
 		return br.readLine().trim();
 	}
 }
-

@@ -18,8 +18,8 @@ public class DMOPC_2014_Tiles {
 		int n = readInt();
 		int m = readInt();
 		int s = readInt();
-		out.println((n/s) * (m/s));
-		
+		out.println((n / s) * (m / s));
+
 		out.close();
 	}
 
@@ -49,4 +49,3 @@ public class DMOPC_2014_Tiles {
 		return br.readLine().trim();
 	}
 }
-

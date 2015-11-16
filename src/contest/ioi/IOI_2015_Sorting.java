@@ -12,9 +12,9 @@ public class IOI_2015_Sorting {
 	static int n, m;
 	static int[] val, index, x, y;
 	static int[] sorted;
-	
+
 	static HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>(); // val to index
-	
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,13 +22,13 @@ public class IOI_2015_Sorting {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		
+
 		val = new int[n];
-		index = new int[n];	// element at index i has "real" index index[i]
-		
+		index = new int[n]; // element at index i has "real" index index[i]
+
 		for (int i = 0; i < n; i++) {
 			val[i] = readInt();
-			index[i] = i; 
+			index[i] = i;
 			toIndex.put(val[i], i);
 		}
 		sorted = Arrays.copyOf(val, n);
@@ -40,14 +40,14 @@ public class IOI_2015_Sorting {
 			x[i] = readInt();
 			y[i] = readInt();
 		}
-		int lo = 0, hi = n-1;
+		int lo = 0, hi = n - 1;
 		ArrayList<Integer> s1 = new ArrayList<Integer>();
 		ArrayList<Integer> s2 = new ArrayList<Integer>();
 		while (lo <= hi) {
 			int mid = (hi + lo) / 2;
 			for (int i = mid - 1; i >= 0; i--)
 				swap(index, x[i], y[i]);
-			
+
 			int cnt = 0;
 			for (int j = 0; j < n; j++) {
 				if (sorted[index[j]] != val[j]) {
@@ -61,24 +61,24 @@ public class IOI_2015_Sorting {
 				}
 			}
 
-			for (int i = s1.size()-1; i >= 0; i--) {
+			for (int i = s1.size() - 1; i >= 0; i--) {
 				swap(val, s1.get(i), s2.get(i));
 				toIndex.put(val[s2.get(i)], s2.get(i));
 				toIndex.put(val[s1.get(i)], s1.get(i));
 			}
-			
+
 			for (int i = 0; i < mid; i++)
 				swap(index, x[i], y[i]);
-			
+
 			if (cnt <= mid)
 				hi = mid - 1;
 			else
 				lo = mid + 1;
-			
+
 			s1.clear();
 			s2.clear();
 		}
-		
+
 		// rebuilding sequence
 
 		ArrayList<Integer> ans1 = new ArrayList<Integer>();
@@ -98,24 +98,24 @@ public class IOI_2015_Sorting {
 				toIndex.put(val[toSwap], toSwap);
 			}
 		}
-		
-		for (int i = s1.size()-1; i >= 0; i--) {
+
+		for (int i = s1.size() - 1; i >= 0; i--) {
 			swap(val, s1.get(i), s2.get(i));
 			toIndex.put(val[s2.get(i)], s2.get(i));
 			toIndex.put(val[s1.get(i)], s1.get(i));
 		}
-		
+
 		for (int i = 0; i < lo; i++)
 			swap(index, x[i], y[i]);
-		
+
 		for (int i = 0; i < lo; i++) {
 			swap(val, x[i], y[i]);
 			toIndex.put(val[x[i]], x[i]);
 			toIndex.put(val[y[i]], y[i]);
-			
+
 			if (i >= ans1.size())
 				continue;
-			
+
 			int si = toIndex.get(ans1.get(i));
 			int sj = toIndex.get(ans2.get(i));
 			ans1.set(i, si);
@@ -134,13 +134,14 @@ public class IOI_2015_Sorting {
 		}
 		out.close();
 	}
+
 	// changing the indexes
 	static void swap (int[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];
 		a[j] = temp;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -167,4 +168,3 @@ public class IOI_2015_Sorting {
 		return br.readLine().trim();
 	}
 }
-

@@ -21,7 +21,7 @@ public class Woburn_Challenge_2015_Jazz_Concert {
 		for (int i = 0; i < n; i++)
 			sum += song[i] = readInt();
 		Arrays.sort(song);
-		sum += song[n-1] + song[n-2] + 10;
+		sum += song[n - 1] + song[n - 2] + 10;
 		out.println(sum);
 		out.close();
 	}
@@ -52,4 +52,3 @@ public class Woburn_Challenge_2015_Jazz_Concert {
 		return br.readLine().trim();
 	}
 }
-

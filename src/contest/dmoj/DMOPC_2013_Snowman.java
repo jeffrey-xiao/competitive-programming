@@ -41,27 +41,27 @@ public class DMOPC_2013_Snowman {
 				if (i + sz[k] <= m) {
 					canAdd = true;
 					for (int l = 0; l < sz[k]; l++)
-						canAdd &= g[i+l][j] == '0';
+						canAdd &= g[i + l][j] == '0';
 					if (canAdd) {
 						for (int l = 0; l < sz[k]; l++)
-							g[i+l][j] = '1';
-						if (solve(k+1))
+							g[i + l][j] = '1';
+						if (solve(k + 1))
 							return true;
 						for (int l = 0; l < sz[k]; l++)
-							g[i+l][j] = '0';
+							g[i + l][j] = '0';
 					}
 				}
 				if (j + sz[k] <= n) {
 					canAdd = true;
 					for (int l = 0; l < sz[k]; l++)
-						canAdd &= g[i][j+l] == '0';
+						canAdd &= g[i][j + l] == '0';
 					if (canAdd) {
 						for (int l = 0; l < sz[k]; l++)
-							g[i][j+l] = '1';
-						if (solve(k+1))
+							g[i][j + l] = '1';
+						if (solve(k + 1))
 							return true;
 						for (int l = 0; l < sz[k]; l++)
-							g[i][j+l] = '0';
+							g[i][j + l] = '0';
 					}
 				}
 			}
@@ -95,4 +95,3 @@ public class DMOPC_2013_Snowman {
 		return br.readLine().trim();
 	}
 }
-

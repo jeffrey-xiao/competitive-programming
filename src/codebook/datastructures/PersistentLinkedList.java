@@ -9,28 +9,31 @@ import java.util.*;
 public class PersistentLinkedList {
 	private ArrayList<Node> versions;
 	private int versionNumber;
+
 	private class Node {
 		private Integer value;
 		private Node next;
+
 		Node (Integer value) {
 			this.value = value;
 		}
+
 		@Override
 		public String toString () {
 			return value + (next == null ? "" : (", " + next.toString()));
 		}
 	}
-	
+
 	PersistentLinkedList () {
 		versions = new ArrayList<Node>();
 		versions.add(null);
 		versionNumber = 0;
 	}
-	
+
 	public void insert (Integer val, int index) {
 		versions.add(insert(versions.get(versionNumber++), 0, val, index));
 	}
-	
+
 	private Node insert (Node curr, int i, Integer val, int j) {
 		if (i == j) {
 			Node ret = new Node(val);
@@ -38,14 +41,14 @@ public class PersistentLinkedList {
 			return ret;
 		}
 		Node ret = new Node(curr.value);
-		ret.next = insert(curr.next, i+1, val, j);
+		ret.next = insert(curr.next, i + 1, val, j);
 		return ret;
 	}
-	
+
 	public void delete (int index) {
 		versions.add(delete(versions.get(versionNumber++), 0, index));
 	}
-	
+
 	private Node delete (Node curr, int i, int j) {
 		if (i == j) {
 			if (curr.next == null)
@@ -55,9 +58,10 @@ public class PersistentLinkedList {
 			return ret;
 		}
 		Node ret = new Node(curr.value);
-		ret.next = delete(curr.next, i+1, j);
+		ret.next = delete(curr.next, i + 1, j);
 		return ret;
-	} 
+	}
+
 	@Override
 	public String toString () {
 		StringBuilder res = new StringBuilder();
@@ -69,6 +73,7 @@ public class PersistentLinkedList {
 		}
 		return res.toString();
 	}
+
 	public static void main (String[] args) {
 		PersistentLinkedList l = new PersistentLinkedList();
 		l.insert(1, 0);
@@ -84,4 +89,3 @@ public class PersistentLinkedList {
 		System.out.println(l);
 	}
 }
-

@@ -17,13 +17,13 @@ public class Woburn_Challenge_2015_Grouping_Recruits {
 
 		int n = readInt();
 		int m = readInt();
-		
-		int sz = n/m;
+
+		int sz = n / m;
 		int leftOver = n % m;
 		if (leftOver != 0)
 			out.printf("%d group(s) of %d\n", leftOver, sz + 1);
 		out.printf("%d group(s) of %d", m - leftOver, sz);
-		
+
 		out.close();
 	}
 
@@ -53,4 +53,3 @@ public class Woburn_Challenge_2015_Grouping_Recruits {
 		return br.readLine().trim();
 	}
 }
-

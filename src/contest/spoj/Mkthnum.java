@@ -12,7 +12,7 @@ public class Mkthnum {
 	static int[][] tree;
 	static int[] a;
 	static int n, q;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,7 +22,7 @@ public class Mkthnum {
 		n = readInt();
 		q = readInt();
 		a = new int[n];
-		tree = new int[4*n][];
+		tree = new int[4 * n][];
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
 		build(1, 1, n);
@@ -47,19 +47,19 @@ public class Mkthnum {
 		}
 		return res;
 	}
-	
+
 	static void build (int n, int l, int r) {
 		tree[n] = new int[(r - l) + 1];
 		if (l == r) {
-			tree[n][0] = a[l-1];
+			tree[n][0] = a[l - 1];
 			return;
 		}
 		int mid = (l + r) >> 1;
 		build(n << 1, l, mid);
-		build(n << 1 | 1, mid+1, r);
+		build(n << 1 | 1, mid + 1, r);
 		tree[n] = merge(tree[n << 1], tree[n << 1 | 1]);
 	}
-	
+
 	static int query (int l, int r, int k) {
 		int lo = -1000000000, hi = 1000000000;
 		while (lo <= hi) {
@@ -71,7 +71,7 @@ public class Mkthnum {
 		}
 		return lo;
 	}
-	
+
 	static int query (int n, int l, int r, int ql, int qr, int val) {
 		if (ql == l && qr == r) {
 			int lo = 0, hi = r - l;
@@ -88,11 +88,11 @@ public class Mkthnum {
 		if (qr <= mid)
 			return query(n << 1, l, mid, ql, qr, val);
 		else if (ql > mid)
-			return query(n << 1 | 1, mid+1, r, ql, qr, val);
+			return query(n << 1 | 1, mid + 1, r, ql, qr, val);
 		else
-			return query(n << 1, l, mid, ql, mid, val) + query(n << 1 | 1, mid+1, r, mid+1, qr, val);
+			return query(n << 1, l, mid, ql, mid, val) + query(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -119,4 +119,3 @@ public class Mkthnum {
 		return br.readLine().trim();
 	}
 }
-

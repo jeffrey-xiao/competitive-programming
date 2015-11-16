@@ -26,7 +26,7 @@ public class DMOPC_2014_Cutting_Logs {
 			}
 		out.println(sz);
 		out.println(ans);
-			
+
 		out.close();
 	}
 
@@ -56,4 +56,3 @@ public class DMOPC_2014_Cutting_Logs {
 		return br.readLine().trim();
 	}
 }
-

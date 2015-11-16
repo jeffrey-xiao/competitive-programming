@@ -9,7 +9,6 @@ public class DMOPC_2015_Grumpy_Dwarf {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,7 +26,7 @@ public class DMOPC_2015_Grumpy_Dwarf {
 			swords %= k;
 		}
 		out.println(ans);
-		
+
 		out.close();
 	}
 
@@ -57,4 +56,3 @@ public class DMOPC_2015_Grumpy_Dwarf {
 		return br.readLine().trim();
 	}
 }
-

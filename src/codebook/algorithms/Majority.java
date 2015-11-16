@@ -11,7 +11,7 @@ public class Majority {
 
 	static int n;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,10 +20,10 @@ public class Majority {
 
 		n = readInt();
 		a = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
-		
+
 		int candidate = 0, cnt = 0;
 		for (int i = 0; i < n; i++) {
 			if (cnt == 0) {
@@ -35,17 +35,17 @@ public class Majority {
 				cnt--;
 			}
 		}
-		
+
 		cnt = 0;
 		for (int i = 0; i < n; i++)
 			if (a[i] == a[candidate])
 				cnt++;
-		
+
 		if (cnt < (n + 1) / 2)
 			out.println(-1);
 		else
 			out.println(a[candidate]);
-		
+
 		out.close();
 	}
 
@@ -75,4 +75,3 @@ public class Majority {
 		return br.readLine().trim();
 	}
 }
-

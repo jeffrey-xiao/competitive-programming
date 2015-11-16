@@ -5,12 +5,15 @@ import java.util.*;
 public class PersistentBinarySearchTree {
 	private ArrayList<Node> versions;
 	private int versionNumber;
+
 	private class Node {
 		private Integer value;
 		private Node left, right;
+
 		Node (Integer value) {
 			this.value = value;
 		}
+
 		@Override
 		public String toString () {
 			StringBuilder res = new StringBuilder("");
@@ -22,7 +25,7 @@ public class PersistentBinarySearchTree {
 			return res.toString();
 		}
 	}
-	
+
 	PersistentBinarySearchTree () {
 		versions = new ArrayList<Node>();
 		versions.add(null);
@@ -32,7 +35,7 @@ public class PersistentBinarySearchTree {
 	public void add (Integer val) {
 		versions.add(add(versions.get(versionNumber++), val));
 	}
-	
+
 	private Node add (Node curr, Integer val) {
 		if (curr == null)
 			return new Node(val);
@@ -50,11 +53,11 @@ public class PersistentBinarySearchTree {
 		}
 		return ret;
 	}
-	
+
 	public void remove (Integer val) {
 		versions.add(remove(versions.get(versionNumber++), val));
 	}
-	
+
 	private Node remove (Node curr, Integer val) {
 		if (curr == null)
 			return null;
@@ -80,11 +83,13 @@ public class PersistentBinarySearchTree {
 		}
 		return ret;
 	}
+
 	private Node getMin (Node curr) {
 		while (curr.left != null)
 			curr = curr.left;
 		return curr;
 	}
+
 	@Override
 	public String toString () {
 		StringBuilder res = new StringBuilder();
@@ -92,10 +97,11 @@ public class PersistentBinarySearchTree {
 			if (n == null)
 				res.append("\n");
 			else
-				res.append(n.toString() +"\n");
+				res.append(n.toString() + "\n");
 		}
 		return res.toString();
 	}
+
 	public static void main (String[] args) {
 		PersistentBinarySearchTree bst = new PersistentBinarySearchTree();
 		bst.add(5);
@@ -113,4 +119,3 @@ public class PersistentBinarySearchTree {
 		System.out.println(bst);
 	}
 }
-

@@ -24,7 +24,7 @@ public class DMOPC_2015_Origami {
 			cnt++;
 		}
 		if (curr < n)
-			cnt += (n - curr + k - 1)/k;
+			cnt += (n - curr + k - 1) / k;
 		out.println(cnt);
 		out.close();
 	}
@@ -55,4 +55,3 @@ public class DMOPC_2015_Origami {
 		return br.readLine().trim();
 	}
 }
-

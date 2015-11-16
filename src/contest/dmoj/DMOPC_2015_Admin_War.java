@@ -65,4 +65,3 @@ public class DMOPC_2015_Admin_War {
 		return br.readLine().trim();
 	}
 }
-

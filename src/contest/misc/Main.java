@@ -49,7 +49,7 @@ public class Main {
 			long m = readLong();
 			long cnt = 1;
 			if (m != 0)
-				cnt = n*m / gcf(n, m) / m;
+				cnt = n * m / gcf(n, m) / m;
 			if (cnt == n)
 				out.println("Yes");
 			else
@@ -62,7 +62,7 @@ public class Main {
 			long x = 0;
 			a[(int) pos] = 1;
 
-			while ( flag ) {
+			while (flag) {
 				x = m + pos;
 				if ((x > n) && (x != n)) {
 					x = Math.abs(x - n);
@@ -97,6 +97,7 @@ public class Main {
 		}
 		out.close();
 	}
+
 	static long gcf (long a, long b) {
 		return b == 0 ? a : gcf(b, a % b);
 	}

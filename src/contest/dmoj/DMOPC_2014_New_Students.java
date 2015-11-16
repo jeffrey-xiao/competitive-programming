@@ -22,9 +22,9 @@ public class DMOPC_2014_New_Students {
 		int m = readInt();
 		for (int i = 0; i < m; i++) {
 			sum += readInt();
-			out.printf("%.3f\n", sum / (double)(n + i + 1));
+			out.printf("%.3f\n", sum / (double) (n + i + 1));
 		}
-		
+
 		out.close();
 	}
 
@@ -54,4 +54,3 @@ public class DMOPC_2014_New_Students {
 		return br.readLine().trim();
 	}
 }
-

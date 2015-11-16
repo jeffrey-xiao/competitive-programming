@@ -54,4 +54,3 @@ public class Woburn_Challenge_2015_Do_You_Know_Your_Woburn_Colors {
 		return br.readLine().trim();
 	}
 }
-

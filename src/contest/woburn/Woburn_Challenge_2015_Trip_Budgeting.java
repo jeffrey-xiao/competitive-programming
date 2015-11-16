@@ -19,7 +19,7 @@ public class Woburn_Challenge_2015_Trip_Budgeting {
 		int tbase = readInt();
 		int hbase = readInt();
 		int fbase = readInt();
-		
+
 		int n = readInt();
 		int[] e = new int[n], t = new int[n], h = new int[n], f = new int[n];
 		for (int i = 0; i < n; i++) {
@@ -74,4 +74,3 @@ public class Woburn_Challenge_2015_Trip_Budgeting {
 		return br.readLine().trim();
 	}
 }
-

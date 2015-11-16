@@ -57,4 +57,3 @@ public class DMOPC_2014_Sawmill {
 		return br.readLine().trim();
 	}
 }
-

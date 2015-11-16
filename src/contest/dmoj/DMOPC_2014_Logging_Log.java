@@ -56,4 +56,3 @@ public class DMOPC_2014_Logging_Log {
 		return br.readLine().trim();
 	}
 }
-
