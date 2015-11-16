@@ -37,7 +37,6 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 		computeColors(nodes[0]);
 		int curr = nodes[0].numWhite - nodes[0].numBlack;
 		int diff = d - curr;
-		// System.out.println(diff);
 		minPrune = new int[n][Math.abs(diff) + 1];
 		for (int x = 0; x < n; x++)
 			for (int y = 0; y < Math.abs(diff) + 1; y++)
@@ -47,12 +46,9 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 
 	private static int search (Node node, int diff) {
 		int total = -node.numWhite + node.numBlack;
-		// System.out.println("Current Node: " + node.index +
-		// "; Current difference: " + diff + "; Total: " + total);
 		if (diff == 0)
 			return 0;
 		if (total == diff) {
-			// System.out.println("Can prune here!");
 			return 1;
 		}
 		if (minPrune[node.index][Math.abs(diff)] != -2)
@@ -63,9 +59,6 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 			for (int x = 0; x <= Math.abs(diff); x++) {
 				int a = search(nodes[node.left], diff < 0 ? -x : x);
 				int b = search(nodes[node.right], diff < 0 ? -(-diff - x) : diff - x);
-				// System.out.println(diff < 0 ? -x:x);
-				// System.out.println(diff < 0 ? -(-diff-x):diff-x);
-				// System.out.println("A " + a + "; B " + b);
 				if (a != -1 && b != -1)
 					min = Math.min(min, a + b);
 			}

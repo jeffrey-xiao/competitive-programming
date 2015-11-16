@@ -15,7 +15,6 @@ public class CCC_2007_S1 {
 			int year = readInt();
 			int month = readInt();
 			int day = readInt();
-			// System.out.println(2007-year + " "+(2-month) + " " + (27-day));
 			if (2007 - year > 18) {
 				System.out.println("Yes");
 			} else if (2007 - year == 18 && 2 - month > 0) {

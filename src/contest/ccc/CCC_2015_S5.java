@@ -44,8 +44,6 @@ public class CCC_2015_S5 {
 
 	// b = 0 means can eat, b = 1 means cannot eat
 	private static int compute (int i, int j1, int j2, int b) {
-		// System.out.printf("%d %d %d %d\n", i, j1, j2, b);
-		// System.out.println(j1 + " " + j2);
 		if (i == n + 1 && j1 > j2)
 			return 0;
 		if (dp[i][j1][j2][b] != -1)

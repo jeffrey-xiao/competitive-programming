@@ -32,16 +32,8 @@ class CCC_2005_J4 {
 			}
 			break;
 		}
-		// System.out.println(location.getX() + " " + location.getY());
 		String direction = "right";
 		for (int z = steps; z > 0; z--) {
-			// System.out.println(location.getX() + " " +location.getY() + " " +
-			// board.length);
-			/*
-			 * for(int x= 0; x < board.length; x++){ for(int y=0; y <
-			 * board[0].length; y++){ System.out.print(board[x][y]); }
-			 * System.out.println(); }
-			 */
 			if (direction.equals("right")) {
 				// UP
 				if (location.getY() - 1 >= 0 && board[(int) location.getY() - 1][(int) location.getX()] == 1) {

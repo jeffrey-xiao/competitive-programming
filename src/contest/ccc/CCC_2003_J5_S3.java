@@ -16,7 +16,6 @@ class CCC_2003_J5_S3 {
 		int flooring = scan.nextInt();
 		rows = scan.nextInt();
 		cols = scan.nextInt();
-		// System.out.println(flooring + " " + rows + " " + cols);
 		scan.nextLine();
 		house = new char[rows][];
 		for (int x = 0; x < rows; x++) {
@@ -30,8 +29,7 @@ class CCC_2003_J5_S3 {
 				}
 			}
 		}
-		Collections.sort(roomSizes);// COLLECTION SORT SORTS ARRAYLIST IN
-									// NATURAL ORDER, SMALLEST TO GREATEST
+		Collections.sort(roomSizes);
 
 		for (int x = roomSizes.size() - 1; x >= 0; x--) {
 			if (flooring - roomSizes.get(x) >= 0) {

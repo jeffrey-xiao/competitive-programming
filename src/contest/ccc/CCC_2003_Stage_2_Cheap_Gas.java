@@ -44,20 +44,11 @@ public class CCC_2003_Stage_2_Cheap_Gas {
 				double c = readDouble();
 				cost[a][b] = Math.min(cost[a][b], c);
 			}
-			// for (int x = 0; x < n; x++) {
-			// for (int y = 0; y < m; y++) {
-			// System.out.printf("%5.2f ", cost[x][y] == 1 << 30 ? -1 :
-			// cost[x][y]);
-			// }
-			// System.out.println();
-			// }
 			Queue<State> q = new LinkedList<State>();
 			q.offer(new State(0, 0, f, 0));
 			dp[0][0][f] = 0;
 			while (!q.isEmpty()) {
 				State curr = q.poll();
-				// System.out.println(curr.x + " " + curr.y + " " + curr.fuel +
-				// " " + curr.cost);
 				if (dp[curr.x][curr.y][curr.fuel] < curr.cost)
 					continue;
 				for (int z = 0; z < 4; z++) {

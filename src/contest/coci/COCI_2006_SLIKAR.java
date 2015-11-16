@@ -57,11 +57,6 @@ public class COCI_2006_SLIKAR {
 				moves.offer(new Point(x, y, curr.time + 1));
 				visited[x][y] = true;
 			}
-			/*
-			 * for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++){
-			 * System.out.printf("%3d ",min[x][y] == Integer.MAX_VALUE ?
-			 * 0:min[x][y]); } System.out.println(); }
-			 */
 		}
 
 		visited = new boolean[r][c];

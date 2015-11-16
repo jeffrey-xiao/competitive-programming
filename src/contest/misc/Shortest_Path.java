@@ -20,10 +20,6 @@ public class Shortest_Path {
 		for (int x = 1; x < vertices.length; x++)
 			vertices[x][0] = Integer.MAX_VALUE;
 		while (vertices[n - 1][1] == 0) {
-			/*
-			 * for(int[] x: vertices) System.out.print(x[0] + " ");
-			 * System.out.println();
-			 */
 			int smallestValue = Integer.MAX_VALUE;
 			int smallestIndex = 0;
 			for (int x = 0; x < vertices.length; x++) {

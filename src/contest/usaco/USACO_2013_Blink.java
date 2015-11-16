@@ -22,35 +22,23 @@ public class USACO_2013_Blink {
 		}
 		turtle = Arrays.copyOf(start, start.length);
 		rabbit = Arrays.copyOf(start, start.length);
-		// int end = 0;
 		do {
 			nextState(turtle);
-
 			b--;
 			nextState(rabbit);
 			nextState(rabbit);
-			/*
-			 * for(int x = 0; x < n; x++) System.out.print((turtle[x]?"1":"0") +
-			 * " "); System.out.println();
-			 */
 		} while (!equals(turtle, rabbit));
-		// System.out.println("Checkpoint");
+		
 		int cycle = 0;
+		
 		do {
 			cycle++;
 			nextState(rabbit);
-
-			/*
-			 * for(int x = 0; x < n; x++) System.out.print((rabbit[x]?"1":"0") +
-			 * " "); System.out.println();
-			 */
 		} while (!equals(turtle, rabbit));
 
-		// System.out.println(cycle + " " + end);
 		b %= cycle;
 		if (b < 0)
 			b += cycle;
-		// System.out.println(b);
 		for (long x = 0; x < b; x++) {
 			nextState(rabbit);
 		}

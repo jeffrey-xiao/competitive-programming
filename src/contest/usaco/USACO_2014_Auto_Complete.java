@@ -29,31 +29,15 @@ public class USACO_2014_Auto_Complete {
 				return s1.length() - s2.length();
 			}
 		});
-		/*
-		 * for(int x = 0; x < entries.length; x++)
-		 * System.out.println(entries[x].word);
-		 */
 		for (int x = 0; x < m; x++) {
 			int position = readInt();
 			String s = next();
-
 			int firstPos = binarySearch(s, entries);
-			// System.out.println(firstPos);
 			if (firstPos + position - 1 >= n || entries[firstPos + position - 1].word.indexOf(s) != 0)
 				System.out.println(-1);
 			else {
-				// System.out.println();
-				// System.out.println(firstPos);
-				// System.out.println(entries[firstPos+position-1].word);
 				System.out.println(entries[firstPos + position - 1].pos);
 			}
-			/*
-			 * int count = 0; boolean found = false; for(int y = firstPos; y <
-			 * n; y++){ if(entries[y].word.indexOf(s) == 0) count++; if(count ==
-			 * position){ System.out.println(entries[y].pos); found = true;
-			 * break; } if(count > 0 && entries[y].word.indexOf(s) != 0 ) break;
-			 * } if(!found) System.out.println(-1);
-			 */
 		}
 	}
 

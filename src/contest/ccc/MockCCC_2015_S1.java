@@ -23,8 +23,6 @@ public class MockCCC_2015_S1 {
 		HashSet<Ratio> hs = new HashSet<Ratio>();
 		for (int x = 1; x * (R1 + R2) <= U; x++) {
 			// 2 : 1
-			// System.out.println(R1*x + " " + R2*x);
-			// System.out.println(R1 + " " + R2 + " " + ((U - (R1+R2)*x)));
 			int L = (U - (R1 + R2) * x);
 			if (R1 * x * 2 + R2 * x * 1 + L * -1 == P)
 				hs.add(new Ratio(R1 * x, R2 * x, L));

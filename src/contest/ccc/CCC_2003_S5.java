@@ -36,9 +36,6 @@ public class CCC_2003_S5 {
 
 		boolean[] visited = new boolean[numOfCities];
 		int[] destinations = new int[citiesThatSell];
-		/*
-		 * for(int x = 1; x < cities.length; x++) cities[x][0] = -1;
-		 */
 		for (citiesThatSell -= 1; citiesThatSell >= 0; citiesThatSell--)
 			destinations[citiesThatSell] = nextInt() - 1;
 		cities[0] = 0;
@@ -65,7 +62,6 @@ public class CCC_2003_S5 {
 			int currDest = curr[0];
 			if (visited[currDest])
 				continue;
-			// System.out.println(cities[currDest]+" "+(curr[1]));
 			cities[currDest] = Math.min(cities[currDest], curr[1]);
 			visited[currDest] = true;
 			for (int x = 0; x < adjlist.get(currDest).size(); x++) {

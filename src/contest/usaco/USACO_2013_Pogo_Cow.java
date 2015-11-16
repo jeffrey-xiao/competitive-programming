@@ -57,10 +57,6 @@ public class USACO_2013_Pogo_Cow {
 			}
 			ans = Math.max(ans, targets[x][1] + maxValue);
 		}
-		/*
-		 * for(int x = 0; x < n; x++){ for(int y = 0; y < n; y++){
-		 * System.out.printf("%3d ", dp[x][y]); } System.out.println(); }
-		 */
 		System.out.println(ans);
 	}
 

@@ -17,20 +17,7 @@ public class CCC_2008_Stage_2_Moving_Day {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
-	/*
-	 * 3 Pierre 51 43 Guy 28 83 Marie 43 28
-	 * 
-	 * Guy Marie Pierre
-	 */
 	public static void main (String[] args) throws IOException {
-		/*
-		 * L Empty list where we put the sorted elements Q Set of all nodes with
-		 * no incoming edges while Q is non-empty do remove a node n from Q
-		 * insert n into L for each node m with an edge e from n to m do remove
-		 * edge e from the graph if m has no other incoming edges then insert m
-		 * into Q if graph has edges then output error message (graph has a
-		 * cycle) else output message (proposed topologically sorted order: L)
-		 */
 		int n = readInt();
 		Map<Integer, String> map = new HashMap<Integer, String>();
 		Map<Integer, Integer> incoming = new HashMap<Integer, Integer>();
@@ -58,7 +45,6 @@ public class CCC_2008_Stage_2_Moving_Day {
 
 			order.add(next);
 			q.offer(incoming.get(next));
-			// System.out.println(next + " " + q.size() + " " + q.peek());
 			incoming.remove(next);
 		}
 		if (incoming.size() > 0)

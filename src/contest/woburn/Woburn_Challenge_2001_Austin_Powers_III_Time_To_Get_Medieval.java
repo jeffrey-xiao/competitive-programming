@@ -11,7 +11,7 @@ public class Woburn_Challenge_2001_Austin_Powers_III_Time_To_Get_Medieval {
 			int numOfTimes = scan.nextInt();
 			int numOfEdges = scan.nextInt();
 			int[][] cost = new int[numOfTimes][numOfTimes];
-			int[][] times = new int[numOfTimes][2];// 0 is cost, 1 is visited
+			int[][] times = new int[numOfTimes][2]; // 0 is cost, 1 is visited
 			for (int x = 0; x < times.length; x++)
 				times[x][0] = init;
 			for (int x = 0; x < numOfEdges; x++) {
@@ -39,10 +39,6 @@ public class Woburn_Challenge_2001_Austin_Powers_III_Time_To_Get_Medieval {
 						index = x;
 					}
 				}
-				/*
-				 * for(int x = 0; x < cost.length; x++)
-				 * System.out.print(times[x][0] + " "); System.out.println();
-				 */
 				curr = index;
 				times[index][1] = 1;
 

@@ -51,13 +51,11 @@ public class Round_142B {
 					last = in;
 				} else {
 					p.get(i).add(new Interval(start, last));
-					// System.out.println(start + " " + last);
 					start = last = in;
 				}
 			}
 			if (len > 0) {
 				p.get(i).add(new Interval(start, last));
-				// System.out.println(start + " " + last);
 			}
 		}
 		int[] min = new int[n];

@@ -28,10 +28,6 @@ public class USACO_2012_Scrambled_Letters {
 		}
 		Arrays.sort(alpha);
 		Arrays.sort(rev);
-		/*
-		 * for(int x = 0; x < n; x++){ System.out.println(alpha[x] + " " +
-		 * rev[x]); }
-		 */
 		for (int x = 0; x < n; x++) {
 			char[] curr = words[x].toCharArray();
 			Arrays.sort(curr);

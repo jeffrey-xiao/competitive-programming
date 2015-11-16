@@ -35,9 +35,6 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
 				if (result == -1)
 					continue;
-				// System.out.println("INDEX: " + x + " " + boxes[x].inter.x +
-				// " " + boxes[x].inter.y + " " + boxes[x].minDist + " " +
-				// result);
 				if (boxes[x].minDist < minDist) {
 
 					minDist = boxes[x].minDist;
@@ -57,8 +54,6 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 				dir = new Point(dir.x, -dir.y);
 			else
 				dir = new Point(-dir.x, dir.y);
-			// System.out.println("NEXT START " + s.x + " " + s.y);
-			// System.out.println("NEXT DIRECTION " + dir.x + " " + dir.y);
 		}
 	}
 

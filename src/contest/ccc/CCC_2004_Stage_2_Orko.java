@@ -40,9 +40,6 @@ public class CCC_2004_Stage_2_Orko {
 				num += s[i].charAt(1) - '1';
 				isA[num] = true;
 			}
-			// for (int i = 0; i < 20; i++) {
-			// System.out.print(isA[i]?1:0);
-			// }
 			System.out.println(compute((1 << 20) - 1, true, (byte) 10));
 			in = readLine();
 		}
@@ -51,19 +48,15 @@ public class CCC_2004_Stage_2_Orko {
 	static int count = 0;
 
 	private static byte compute (int i, boolean isATurn, byte size) {
-
 		if (size == 0)
 			return 0;
 		if (dp[i][isATurn ? 1 : 0] != -1)
 			return dp[i][isATurn ? 1 : 0];
 		byte best = 0;
-		// System.out.println(Integer.toString(i, 2) + " " + (count++) + " " +
-		// size);
 		for (int j = 0; j < 20; j++) {
 			if ((i & 1 << j) != 0 && isA[j] == isATurn) {
 				byte min = 10;
 				i ^= 1 << j;
-				// System.out.println(min);
 				// playing same suit
 				boolean valid = false;
 				for (int k = 0; k < 5; k++) {
@@ -73,10 +66,8 @@ public class CCC_2004_Stage_2_Orko {
 						i ^= 1 << next;
 						// other player wins
 						if (k > j % 5) {
-							// System.out.println("LOST " + j + " " + next);
 							min = (byte) Math.min(min, size - 1 - compute(i, !isATurn, (byte) (size - 1)));
 						} else {
-							// System.out.println("WON " + j + " " + next);
 							min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
 						}
 						i ^= 1 << next;
@@ -84,11 +75,7 @@ public class CCC_2004_Stage_2_Orko {
 				}
 				// playing different suit
 				if (!valid) {
-					// System.out.println("INVALID");
-					// System.out.println(Integer.toString(i, 2) + " " + isATurn
-					// + " " + j);
 					for (int k = 0; k < 20; k++) {
-
 						if ((i & 1 << k) != 0 && isA[k] != isATurn) {
 							i ^= (1 << k);
 							min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
@@ -98,7 +85,6 @@ public class CCC_2004_Stage_2_Orko {
 					}
 				}
 				i ^= 1 << j;
-				// System.out.println(min);
 				best = (byte) Math.max(best, min);
 			}
 		}

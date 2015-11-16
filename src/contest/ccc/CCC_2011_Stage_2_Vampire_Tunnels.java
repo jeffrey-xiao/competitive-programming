@@ -26,7 +26,6 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
 			int b = readInt();
 			int c = readInt();
 			int d = readInt() == 1 ? c : 0;
-			// System.out.println(c + " " + d);
 			adjlist.get(a).add(new Edge(b, c, d));
 			adjlist.get(b).add(new Edge(a, c, d));
 		}

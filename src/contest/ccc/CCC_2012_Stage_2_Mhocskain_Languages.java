@@ -46,7 +46,6 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
 				for (char c : vs)
 					for (char p : mapV.get(c - 'A'))
 						if (str[i] == p) {
-							// System.out.println(c + " IS TRUE");
 							dp[c - 'A'][1][i] = true;
 						}
 			for (int len = 2; len <= str.length; len++) {

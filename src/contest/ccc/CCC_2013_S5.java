@@ -14,13 +14,11 @@ public class CCC_2013_S5 {
 					int factor = n / x;
 					n -= factor;
 					cost += n / factor;
-					// System.out.println(cost + " " + n);
 					continue main;
 				}
 			}
 			n -= 1;
 			cost += n;
-			// System.out.println(cost + " " + n);
 		}
 		System.out.println(cost);
 	}

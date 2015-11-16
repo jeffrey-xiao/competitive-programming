@@ -1,15 +1,10 @@
-/*
-ID: jeffrey40
-LANG: JAVA
-TASK: grass
- */
 package contest.usaco;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -33,9 +28,10 @@ public class USACO_2015_Grass_Cownoisseur {
 	static int count = 0;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new FileReader("grass.in"));
-		br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new FileReader("grass.in"));
 		pr = new PrintWriter(new BufferedWriter(new FileWriter("grass.out")));
+		// br = new BufferedReader(new InputStreamReader(System.in));
+		// pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 
 		int n = readInt();
 		int m = readInt();

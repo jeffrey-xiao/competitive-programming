@@ -52,7 +52,6 @@ public class CCC_2009_Stage_2_Parade {
 
 	@SuppressWarnings ("unused")
 	private static byte[][] query (int l, int r, int n) {
-		// System.out.println("HERE " + l + " " + r + " " + n);
 		if (tree[n].left == l && tree[n].right == r)
 			return tree[n].p;
 		int mid = m(tree[n].left, tree[n].right);
@@ -110,10 +109,6 @@ public class CCC_2009_Stage_2_Parade {
 	}
 
 	private static void swap (byte[][] p, byte[][] np, int r, int c, int r2, int c2) {
-		// byte temp = p[r][c];
-		// p[r][c] = p[r2][c2];
-		// p[r2][c2] = temp;
-		// System.out.println(p[r][c]);
 		np[r2][c2] = p[r][c];
 	}
 

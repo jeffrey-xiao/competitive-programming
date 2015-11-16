@@ -45,8 +45,6 @@ public class CCC_2007_Stage_2_Road_Construction {
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
-		// if(b==1)
-		// leaves--;
 		for (int x = 0; x < n; x++) {
 			if (!visited[x])
 				dfs(x);
@@ -59,8 +57,6 @@ public class CCC_2007_Stage_2_Road_Construction {
 		}
 		for (int x = 0; x < numOfComponents; x++)
 			tree.add(new HashSet<Integer>());
-		// for(Entry<Integer, Integer> e: nodeToCom.entrySet())
-		// System.out.println(e.getKey()+1 + " " + e.getValue());
 		for (int x = 0; x < n; x++)
 			for (int y = 0; y < adj.get(x).size(); y++) {
 				a = nodeToCom.get(x);
@@ -98,7 +94,7 @@ public class CCC_2007_Stage_2_Road_Construction {
 				parent[next] = x;
 				dfs(next);
 				if (low[next] >= low[x])
-					print(x);
+					addComponent(x);
 				low[x] = Math.min(low[next], low[x]);
 			} else if (parent[x] != next && d[next] < d[x]) {
 				s.push(x);
@@ -107,9 +103,7 @@ public class CCC_2007_Stage_2_Road_Construction {
 		}
 	}
 
-	private static void print (Integer x) {
-		// System.out.println("NEW COMPONENT");
-		// System.out.println("VERTEX " + x);
+	private static void addComponent (Integer x) {
 		if (s.isEmpty())
 			return;
 		Integer e = s.pop();
@@ -117,7 +111,6 @@ public class CCC_2007_Stage_2_Road_Construction {
 			return;
 		nodeToCom.put(e, numOfComponents);
 		while (!s.isEmpty() && (e != x)) {
-			// System.out.println(e);
 			e = s.pop();
 			nodeToCom.put(e, numOfComponents);
 		}

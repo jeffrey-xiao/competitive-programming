@@ -14,12 +14,7 @@ public class CCC_1996_Stage_2_Quadtrees {
 		for (int t = readInt(); t > 0; t--) {
 			Quadtree qt = new Quadtree();
 			qt.insert(0, new StringBuilder(next()));
-			// System.out.println(qt.child[0].child[2].node+"WTF");
-			// int first = qt.getTotalValue(1024);
-			// System.out.println(first);
-			// System.out.println("Second");
 			qt.insert(0, new StringBuilder(next()));
-			// System.out.println(qt.child[0].child[2].node+"WTF");
 			System.out.printf("There are %d black pixels.\n", qt.getTotalValue(1024));
 		}
 	}
@@ -38,7 +33,6 @@ public class CCC_1996_Stage_2_Quadtrees {
 		Quadtree (int depth, char v) {
 			this.node = v;
 			this.depth = depth;
-			// child = new Quadtree[4];
 		}
 
 		Quadtree (int depth) {
@@ -49,7 +43,6 @@ public class CCC_1996_Stage_2_Quadtrees {
 
 		private void insert (int depth, StringBuilder value) {
 			if (value.charAt(0) == 'p' && node != 'f') {
-				// System.out.println("THE DEPTH IS " + depth);
 				node = value.charAt(0);
 				this.depth = depth;
 				value.deleteCharAt(0);
@@ -65,8 +58,6 @@ public class CCC_1996_Stage_2_Quadtrees {
 			currChild = 0;
 			for (int x = 0; x < value.length();) {
 				if (value.charAt(x) == 'p') {
-					// System.out.println(value + " " + x);
-
 					int end = x + 5;
 					for (int y = x + 1; y < Math.min(end, value.length()); y++) {
 						if (value.charAt(y) == 'p') {
@@ -75,7 +66,6 @@ public class CCC_1996_Stage_2_Quadtrees {
 					}
 
 					end = Math.max(end, x + 5);
-					// System.out.println(end + " " + value.substring(x, end));
 					if (node != 'f') {
 						if (child[currChild] == null)
 							child[currChild] = new Quadtree();
@@ -83,15 +73,10 @@ public class CCC_1996_Stage_2_Quadtrees {
 					}
 					x = end;
 					currChild++;
-					// System.out.println(x);
 				} else {
-					if (value.charAt(x) == 'f') {
-						// System.out.println(depth + " DEPTH" + currChild);
-
+					if (value.charAt(x) == 'f') 
 						child[currChild] = new Quadtree(depth + 1, 'f');
-						// System.out.println(child[2]==null);
-					}
-					// System.out.println(value.charAt(x));
+
 					currChild++;
 					x++;
 				}
@@ -99,18 +84,14 @@ public class CCC_1996_Stage_2_Quadtrees {
 		}
 
 		private int getTotalValue (int squareValue) {
-			if (node == 'f') {
-				// System.out.println(depth + " " + node +" " + squareValue);
+			if (node == 'f') 
 				return squareValue;
-			}
+			
 			int total = 0;
-			for (int x = 0; x < 4; x++) {
-				// System.out.println(depth + " " + x + " ");
-				// System.out.println(node);
+			for (int x = 0; x < 4; x++) 
 				if (child[x] != null)
 					total += child[x].getTotalValue(squareValue / 4);
-			}
-			// System.out.println(depth + " " + node +" " + total);
+
 			return total;
 		}
 	}

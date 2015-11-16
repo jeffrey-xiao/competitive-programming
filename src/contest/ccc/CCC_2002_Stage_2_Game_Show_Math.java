@@ -36,7 +36,6 @@ public class CCC_2002_Stage_2_Game_Show_Math {
 					poss[x % 2][y] = false;
 				for (int y = 0; y < K; y++) {
 					if (poss[(x - 1) % 2][y]) {
-						// System.out.println(x + " " + y);
 						next = (y - S) + nums[x] + S;
 						if (next >= 0 && next < K) {
 							poss[x % 2][next] = true;

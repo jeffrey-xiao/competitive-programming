@@ -20,12 +20,6 @@ public class Directed_Acyclic_Path {
 					adjlist.get(x).add(y);
 			}
 		}
-		/*
-		 * for(int x = 0; x < adjlist.size(); x++){ System.out.print("HRRE:" + x
-		 * + " "); for(int y = 0; y < adjlist.get(x).size(); y++){
-		 * System.out.print(adjlist.get(x).get(y) +" "); } System.out.println();
-		 * }
-		 */
 		boolean[] vertex = new boolean[edges];
 		vertex[0] = true;
 		System.out.println(isDAG(0, vertex, adjlist) ? "YES" : "NO");

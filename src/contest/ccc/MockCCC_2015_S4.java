@@ -37,15 +37,12 @@ public class MockCCC_2015_S4 {
 			int time = Integer.MAX_VALUE;
 			int index = 0;
 			for (int x = 0; x < n; x++) {
-				// System.out.println(x + " " + left[x] + " " + right[x] + " " +
-				// p[x].d);
 				if ((leftD[x] + rightD[x] > max || (leftD[x] + rightD[x] == max && p[x].d < time)) && p[x].d != 0) {
 					max = leftD[x] + rightD[x];
 					time = p[x].d;
 					index = x;
 				}
 			}
-			// System.out.println("SELECTED " + index);
 			int currWeight = p[index].w;
 			for (int x = index + 1; x < n; x++) {
 				if (currWeight < p[x].d) {
@@ -68,10 +65,6 @@ public class MockCCC_2015_S4 {
 			}
 			total += p[index].d;
 			p[index].d = p[index].w = 0;
-			// for(int x = 0; x < n; x++){
-			// System.out.printf("%d %d\n", p[x].d, p[x].w);
-			// }
-			// System.out.println();
 		}
 		System.out.println(total);
 	}

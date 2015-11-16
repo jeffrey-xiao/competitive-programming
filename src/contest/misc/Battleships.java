@@ -24,18 +24,9 @@ public class Battleships {
 					int b1 = Math.min(y, n - 1);
 					int b2 = Math.min(c - 1 - y, n - 1);
 					sum += ((((a1 + a2 + 1)) - n + 1) * (((b1 + b2 + 1) - n + 1)));
-					/*
-					 * System.out.println(x+" " + y);
-					 * System.out.println(((((a1+a2
-					 * +1))-n+1)*(((b1+b2+1)-n+1)))); System.out.println(a1+" "
-					 * +a2+" "+b1+" "+b2);
-					 */
 				}
 			}
 		}
-		/*
-		 * System.out.println(sum); System.out.println(d);
-		 */
 		System.out.println(sum / d);
 	}
 }

@@ -83,7 +83,6 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
 		d = true;
 		e = true;
 		for (int z = 0; z < s.length(); z++) {
-			// System.out.println(z+x + " " + (z+y));
 			if (x + z >= r || y + z >= c || grid[x + z][y + z] != s.charAt(z))
 				a = false;
 			if (y + z >= c || grid[x][y + z] != s.charAt(z))

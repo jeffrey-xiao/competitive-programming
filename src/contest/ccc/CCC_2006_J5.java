@@ -9,19 +9,14 @@ class CCC_2006_J5 {
 		String input = scan.nextLine();
 		String[] inputarr = input.split(" ");
 		char config = inputarr[0].charAt(0);
-		// System.out.println(config + " " + Integer.parseInt(inputarr[1]));
-		CCC_2006_J5.Othello_Board board = new CCC_2006_J5().new Othello_Board(config);
-		// System.out.println(inputarr[1]);
-		for (int x = 2; x < (Integer.parseInt(inputarr[1]) * 2) + 2; x = x + 2) {
+		Othello_Board board = new Othello_Board(config);
+		for (int x = 2; x < (Integer.parseInt(inputarr[1]) * 2) + 2; x = x + 2)
 			board.move(Integer.parseInt(inputarr[x]), Integer.parseInt(inputarr[x + 1]));
-			// board.printArray();
-		}
-		// board.printArray();
 		board.countPieces();
 		System.out.println(board.getnumOfBlack() + " " + board.getnumOfWhite());
 	}
 
-	class Othello_Board {
+	static class Othello_Board {
 		private int[][] array = { {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};;
 		private char config;
 		private int numOfBlack;
@@ -61,25 +56,17 @@ class CCC_2006_J5 {
 		public void move (int x, int y) {
 			x--;
 			y--;
-			// System.out.println(x + " " + y);
 			int pieceNum = blackToMove ? 2 : 1;
 			int sameNum = !blackToMove ? 2 : 1;
 			for (int a = 0; a < 8; a++) {
 				int ymove = 0;
 				int xmove = 0;
-				// System.out.println((x+movex[a]+xmove) + " " +
-				// (y+movey[a]+ymove));
 				while (x + movex[a] + xmove >= 0 && x + movex[a] + xmove <= 7 && y + movey[a] + ymove >= 0 && y + movey[a] + ymove <= 7 && array[x + movex[a] + xmove][y + movey[a] + ymove] == pieceNum) {
-
-					// System.out.println(a);
-					// System.out.println("DONE IT");
 					ymove += movey[a];
 					xmove += movex[a];
 				}
 
 				if ((x + movex[a] + xmove) < 0 || (x + movex[a] + xmove) > 7 || (y + movey[a] + ymove) < 0 || (y + movey[a] + ymove) > 7) {
-					// System.out.println((x+movex[a]+xmove) + " " +
-					// (y+movey[a]+ymove));
 					continue;
 				}
 				if (array[x + movex[a] + xmove][y + movey[a] + ymove] != 0 && array[x + movex[a] + xmove][y + movey[a] + ymove] != pieceNum) {
@@ -90,11 +77,7 @@ class CCC_2006_J5 {
 							xmove -= movex[a];
 						array[x + movex[a] + xmove][y + movey[a] + ymove] = sameNum;
 					}
-					// System.out.println("sameNum: " + sameNum + " pieceNum:" +
-					// pieceNum);
 					array[x][y] = sameNum;
-
-					// System.out.println(blackToMove);
 				}
 			}
 			blackToMove = blackToMove ? false : true;

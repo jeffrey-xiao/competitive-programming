@@ -49,13 +49,6 @@ public class USACO_2012_Tractor {
 
 			}
 		}
-		/*
-		 * for(x = 0; x < 20; x++){ for(y = 0; y < 20; y++){
-		 * System.out.print(min[x][y] + " "); } System.out.println(); }
-		 * System.out.println(); for(x = 0; x < 20; x++){ for(y = 0; y < 20;
-		 * y++){ System.out.print(isHay[x][y]?"1 ":"0 "); }
-		 * System.out.println(); }
-		 */
 		System.out.println(min[0][0] - 1);
 	}
 

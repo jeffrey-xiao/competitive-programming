@@ -19,8 +19,6 @@ public class CCC_2010_S3 {
 		for (int x = 0; x < n; x++)
 			h[x] = readInt();
 		Arrays.sort(h);
-		// for(Integer i : h)
-		// System.out.println(i);
 		int k = readInt();
 		int lo = 0;
 		int hi = LEN;
@@ -31,7 +29,6 @@ public class CCC_2010_S3 {
 			} else
 				hi = mid - 1;
 		}
-		// System.out.println("HERE " + poss(500));
 		System.out.println(lo);
 	}
 
@@ -48,10 +45,8 @@ public class CCC_2010_S3 {
 				return 1;
 			int end = h[x + 1];
 			curr++;
-			// System.out.println("START " + y);
 			while (y < size) {
 				if (h[y] > end + d) {
-					// System.out.println("END UPDATED " + h[y]);
 					end = h[y];
 					curr++;
 				}

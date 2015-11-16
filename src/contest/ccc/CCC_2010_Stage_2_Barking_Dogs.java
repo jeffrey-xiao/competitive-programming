@@ -38,7 +38,6 @@ public class CCC_2010_Stage_2_Barking_Dogs {
 				continue;
 			bark[curr.id] = 0;
 			total[curr.id]++;
-			// System.out.println(curr.id+1 + " " + curr.time);
 			for (int x = 0; x < adjlist.get(curr.id).size(); x++) {
 				int next = adjlist.get(curr.id).get(x);
 				if ((bark[next] != 0 && curr.time + dogs[next] > bark[next]))

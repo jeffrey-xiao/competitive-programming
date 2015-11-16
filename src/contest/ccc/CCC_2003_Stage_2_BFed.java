@@ -24,8 +24,6 @@ public class CCC_2003_Stage_2_BFed {
 		char[] commands = c.toCharArray();
 		short[] v = new short[30001];
 		for (int x = 0; x < commands.length;) {
-			// System.out.println("CURR CELL " + currCell + " CURRENT VAL " +
-			// v[currCell]);
 			if (commands[x] == '+')
 				v[currCell] = (short) ((v[currCell] + 257) % 256);
 			else if (commands[x] == '-')

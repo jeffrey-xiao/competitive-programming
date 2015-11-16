@@ -39,9 +39,6 @@ public class CCC_2014_Stage_2_King_Gruff {
 		}
 		int[] s = shortestPath(adjlist, start);
 		int[] d = shortestPath(revlist, finish);
-		// for(int x = 0; x < n; x++){
-		// System.out.println(s[x] + " " + d[x]);
-		// }
 		ArrayList<Edge> sorted = new ArrayList<Edge>();
 		for (int x = 0; x < m; x++) {
 			int source = edges.get(x).source;
@@ -50,24 +47,18 @@ public class CCC_2014_Stage_2_King_Gruff {
 				continue;
 			int length = s[source] + d[dest] + edges.get(x).dist;
 			sorted.add(new Edge(length, edges.get(x).cost));
-			// System.out.printf("From %d to %d: Length is %d with cost %d AND CURR SIZE %d\n",source,
-			// dest, length, edges.get(x).cost, sorted.size());
 		}
 		int[] sums = new int[m + 1];
 		int count = 1;
 		Collections.sort(sorted);
-		// System.out.println("Size " + sorted.size());
 		for (Edge e : sorted) {
-
 			sums[count] = sums[count - 1] + e.cost;
-			// System.out.println(e.cost + " " + e.dist);
 			count++;
 
 		}
 		for (int q = readInt(); q > 0; q--) {
 			int distance = readInt();
 			int index = bsearch(sorted, distance);
-			// System.out.println("Index: " + index);
 			System.out.println(sums[index]);
 		}
 	}
@@ -76,9 +67,7 @@ public class CCC_2014_Stage_2_King_Gruff {
 		int lower = 0;
 		int higher = edges.size() - 1;
 		while (lower <= higher) {
-
 			int mid = lower + (higher - lower) / 2;
-			// System.out.printf("Lower: %d; Higher: %d; Mid: %d\n",lower,higher,mid);
 			if (edges.get(mid).dist > dist)
 				higher = mid - 1;
 			else
@@ -107,7 +96,6 @@ public class CCC_2014_Stage_2_King_Gruff {
 				if (min[next.dest] <= node.cost + next.cost)
 					continue;
 				min[next.dest] = node.cost + next.cost;
-				// moves.remove(new Node(next.dest,0));
 				moves.offer(new Node(next.dest, min[next.dest]));
 			}
 		}

@@ -35,15 +35,12 @@ public class Round_299A {
 				long largest = b * (mid - l - 1);
 
 				long sum = (a + (l - 1) * b) * (mid - l) + largest * ((mid - l) / 2) + ((mid - l) % 2 == 1 ? largest / 2 : 0);
-				// System.out.println((l) + " " + (mid-1) + " " + max + " " +
-				// sum + " " + largest);
 				if (max <= t && sum <= m * t) {
 					lo = mid + 1;
 				} else {
 					hi = mid - 1;
 				}
 			}
-			// System.out.println(hi);
 			if (hi <= l)
 				System.out.println(-1);
 			else

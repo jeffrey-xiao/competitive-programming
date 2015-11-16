@@ -1,8 +1,3 @@
-/*
-ID: jeffrey40
-LANG: JAVA
-TASK: movie
- */
 package contest.usaco;
 
 import java.io.BufferedReader;

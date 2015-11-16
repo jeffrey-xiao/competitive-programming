@@ -30,8 +30,6 @@ public class MockCCC_2015_S3 {
 		v[0] = true;
 		compute(0);
 		System.out.println(count / 2);
-		// System.out.println(new Line(new Point(2, 5), new
-		// Point(2,1)).intersect(new Line(new Point(2, 2), new Point(3, 3))));
 	}
 
 	public static void compute (int i) {
@@ -59,10 +57,6 @@ public class MockCCC_2015_S3 {
 					return;
 			}
 			curr.add(nl);
-			// for(Line l : curr){
-			// System.out.println(l.p1 + " " + l.p2);
-			// }
-			// System.out.println("ASDA");
 			count++;
 			curr.remove(nl);
 		}
@@ -117,9 +111,6 @@ public class MockCCC_2015_S3 {
 			}
 			double x = (l.B * C - B * l.C) / delta;
 			double y = (A * l.C - l.A * C) / delta;
-			// System.out.println(p1 + " " + p2 + " " + x + " " + y);
-			// System.out.println(l.p1 + " " + l.p2);
-			// System.out.println(x + " " + y);
 			if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1) || p2.equals(l.p2))
 				return false;
 			if (Math.min(p1.x, p2.x) <= x && x <= Math.max(p1.x, p2.x) && Math.min(p1.y, p2.y) <= y && y <= Math.max(p1.y, p2.y) && Math.min(l.p1.x, l.p2.x) <= x && x <= Math.max(l.p1.x, l.p2.x) && Math.min(l.p1.y, l.p2.y) <= y && y <= Math.max(l.p1.y, l.p2.y))

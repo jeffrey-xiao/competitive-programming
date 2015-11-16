@@ -30,16 +30,13 @@ public class CCC_2005_S5_2 {
 			if (ranks[x - 1].score != ranks[x - 2].score)
 				count++;
 			indexes[ranks[x - 1].index] = count;
-			// System.out.println(count);
 		}
-		// System.out.println(n + " " + count);
 		double f = 0;
 		for (int x = 0; x < n; x++) {
 			update(indexes[x], +1);
 
 			f += freqTo(indexes[x]) - freq[indexes[x]];
 			freq[indexes[x]]++;
-			// System.out.println(freqTo(indexes[x]) + " " + indexes[x]);
 		}
 		f /= n;
 		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)

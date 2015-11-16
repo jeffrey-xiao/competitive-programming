@@ -28,8 +28,6 @@ public class CCC_2004_Stage_2_Scribble {
 				int count = 0;
 				String temp = word;
 				count = word.length() - temp.replace("" + (char) y, "").length();
-				// System.out.println(word + " " + (char)y + " " + count +
-				// temp.replace(""+(char)y, ""));
 				if (letters[y - 97] >= count)
 					points += values[y - 97] * count;
 				else

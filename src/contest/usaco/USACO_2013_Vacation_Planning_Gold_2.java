@@ -38,11 +38,6 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 		ArrayList<Integer> hubs = new ArrayList<Integer>();
 		for (int x = 0; x < k; x++)
 			hubs.add(readInt() - 1);
-		/*
-		 * for(int x = 0; x < n; x++){ for(int y = 0; y < k; y++)
-		 * if(x!=hubs.get(y)){ minDistanceTo[x][y] = Integer.MAX_VALUE;
-		 * minDistanceFrom[x][y] = Integer.MAX_VALUE; } }
-		 */
 		for (int y = 0; y < k; y++) {
 			shortest_path(hubs.get(y), reverse, y, true);
 			shortest_path(hubs.get(y), straight, y, false);
@@ -67,18 +62,9 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 		}
 		System.out.println(count);
 		System.out.println(totalCost);
-		/*
-		 * System.out.println(); for(int x = 0; x < n; x++){ for(int y = 0; y <
-		 * k; y++){ System.out.print(minDistanceTo[x][y] + " "); }
-		 * System.out.println(); } System.out.println(); for(int x = 0; x < n;
-		 * x++){ for(int y = 0; y < k; y++){
-		 * System.out.print(minDistanceFrom[x][y] + " "); }
-		 * System.out.println(); }
-		 */
 	}
 
 	private static void shortest_path (int i, ArrayList<ArrayList<int[]>> adjlist, int index, boolean isStraight) {
-		// System.out.println("ASLHFLASKJFAS");
 		int[] min = new int[n];
 		for (int x = 0; x < n; x++)
 			if (x != i)
@@ -95,11 +81,8 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 				minDistanceFrom[curr.index][index] = curr.cost;
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {
 				Vertex next = new Vertex(adjlist.get(curr.index).get(x)[0], adjlist.get(curr.index).get(x)[1] + curr.cost);
-				// System.out.println(curr.index + " " + next.index + " " +
-				// next.cost);
 				if (min[next.index] > next.cost) {
 					min[next.index] = next.cost;
-					// pq.remove(next);
 					pq.add(next);
 				}
 			}

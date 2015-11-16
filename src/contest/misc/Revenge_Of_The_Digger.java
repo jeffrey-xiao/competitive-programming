@@ -50,10 +50,6 @@ public class Revenge_Of_The_Digger {
 		int[] augmented = Arrays.copyOf(flow, flow.length);
 		while (bfs(augmented))
 			;
-		/*
-		 * for(int x = 0; x < augmented.length; x++){
-		 * System.out.print(augmented[x] + " "); } System.out.println();
-		 */
 		return augmented;
 	}
 
@@ -66,7 +62,6 @@ public class Revenge_Of_The_Digger {
 		while (!moves.isEmpty()) {
 
 			int curr = moves.poll();
-			// System.out.println(curr+1 + " " + end);
 			if (curr == end)
 				break;
 			for (int x = 0; x < adjlist.get(curr).size(); x++) {
@@ -74,7 +69,6 @@ public class Revenge_Of_The_Digger {
 
 				if (visited[next] || augmented[next] == 0)
 					continue;
-				// System.out.println("NEXT " +(next+1));
 				visited[next] = true;
 				moves.add(next);
 				prev[next] = curr;
@@ -88,7 +82,6 @@ public class Revenge_Of_The_Digger {
 			augmentValue = Math.min(augmentValue, augmented[curr]);
 			curr = prev[curr];
 		}
-		// System.out.println(augmentValue);
 		curr = end;
 		;
 		while (curr != -1) {

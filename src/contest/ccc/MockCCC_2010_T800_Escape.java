@@ -26,7 +26,6 @@ public class MockCCC_2010_T800_Escape {
 		// 0 is r, 1 is c, 2 is moves, 3 is k
 		Queue<int[]> moves = new LinkedList<int[]>();
 		moves.add(new int[] {r1, c1, 0, k});
-		// System.out.println(grid.length + " " + grid[0].length);
 		while (!moves.isEmpty()) {
 			int[] curr = moves.poll();
 
@@ -36,8 +35,6 @@ public class MockCCC_2010_T800_Escape {
 				visited[curr[0]][curr[1]] = false;
 				continue;
 			}
-			// System.out.printf("%d %d %d %d\n", curr[0], curr[1], curr[2],
-			// curr[3]);
 			visited[curr[0]][curr[1]] = true;
 			if (grid[curr[0]][curr[1]] == 'E') {
 				System.out.println(curr[2]);

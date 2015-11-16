@@ -42,7 +42,6 @@ public class CCC_2008_Stage_2_Mobile {
 	}
 
 	private static boolean compare (Node n1, Node n2) {
-		// System.out.println(n1.value + " " + n2.value);
 		if (n1.value != n2.value)
 			return false;
 		if (n1.value != NAN && n2.value != NAN)
@@ -71,11 +70,6 @@ public class CCC_2008_Stage_2_Mobile {
 			Node temp = n.left;
 			n.left = n.right;
 			n.right = temp;
-		} else if (n.left.v < n.right.v) {
-
-		} else {
-			// System.out.println(n.left.minValue + " " + n.right.minValue);
-			// System.out.println("WE FUCKED UP");
 		}
 	}
 

@@ -42,7 +42,6 @@ public class CCC_1998_C {
 	private static void move () {
 		int x = curr[0];
 		int y = curr[1];
-		// System.out.println(x + " " + y);
 		if (x < 0 && y < 0) {
 			if (dir == 0) {
 				System.out.println("2\n1\n" + Math.abs(y));

@@ -31,14 +31,12 @@ public class MockCCC_2014_S4 {
 		for (int x = 1; x < shortestPath.size(); x++) {
 			int a = shortestPath.get(x);
 			int b = shortestPath.get(x - 1);
-			// System.out.println(a + " " + b + " WTFFFF");
 			int index1 = adj.get(a).indexOf(new Edge(b, 2));
 			int index2 = adj.get(b).indexOf(new Edge(a, 2));
 			adj.get(a).set(index1, new Edge(b, 2));
 			adj.get(b).set(index2, new Edge(a, 2));
 		}
 		int s2 = shortestPath(1, false);
-		// System.out.println(s1 + " " + s2);
 		if (s1 != s2 && s1 != -1 && s2 != -1)
 			System.out.println("Yes");
 		else

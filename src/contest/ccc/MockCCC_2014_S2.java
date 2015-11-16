@@ -28,7 +28,6 @@ public class MockCCC_2014_S2 {
 			}
 			if (currSeqLength > maxSequence && currSeqLength >= 3 && stage == 1)
 				maxSequence = currSeqLength;
-			// System.out.println(currSeqLength);
 			prevNum = currNum;
 		}
 		System.out.println(maxSequence);

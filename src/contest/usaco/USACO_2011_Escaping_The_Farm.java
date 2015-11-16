@@ -66,14 +66,3 @@ public class USACO_2011_Escaping_The_Farm {
 		return br.readLine().trim();
 	}
 }
-/*
- * int[][] dp = new int[numOfCows][2];//0 is num, 1 is num of nums for(int x =
- * 0; x < numOfCows; x++){ dp[x][0] = readInt(); dp[x][1] = 1; int temp =
- * dp[x][0]; for(int y = 0; y < x; y++){ if(isValid(dp[y][0], temp)){
- * if(dp[y][1]+1 > dp[x][1]){ dp[x][1] = dp[y][1]+1; dp[x][0] = temp+dp[y][0]; }
- * }
- * 
- * }System.out.println(dp[x][0] + " " + dp[x][1]); } int max = 1; for(int x = 0;
- * x < numOfCows; x++) max = Math.max(dp[x][1],max); System.out.println(max);
- */
-

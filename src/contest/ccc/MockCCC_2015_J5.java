@@ -51,7 +51,6 @@ public class MockCCC_2015_J5 {
 				if (xC.get(x) != null) {
 					Integer c1 = bs(xC.get(x), Math.max(ny, y), true);
 					Integer c2 = bs(xC.get(x), Math.min(ny, y), false);
-					// System.out.println("y " + c1 + " " + c2);
 					res += c1 - Math.max(0, c2) + 1;
 				}
 
@@ -59,7 +58,6 @@ public class MockCCC_2015_J5 {
 				if (yC.get(y) != null) {
 					Integer c1 = bs(yC.get(y), Math.max(nx, x), true);
 					Integer c2 = bs(yC.get(y), Math.min(nx, x), false);
-					// System.out.println("x " + c1 + " " + c2);
 					res += c1 - Math.max(0, c2) + 1;
 				}
 

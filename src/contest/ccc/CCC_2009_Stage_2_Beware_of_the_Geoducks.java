@@ -68,7 +68,6 @@ public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
 				System.out.println("YES");
 				return;
 			}
-			// System.out.println(matrix[pathS[si]][pathS[si+1]]);
 			if (si != pathS.length - 1)
 				sd += 0.5;
 			if (mi != pathM.length - 1)
@@ -81,7 +80,6 @@ public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
 				md = 0;
 				mi++;
 			}
-			// System.out.println(sd + " " + md + " " + si + " " + mi);
 		}
 		System.out.println("NO");
 	}

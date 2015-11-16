@@ -52,7 +52,6 @@ public class CCC_2000_J5_S3 {
 
 					System.out.println("Link from " + from + " to " + to);
 					adjlist.get(rm.get(from)).add(rm.get(to));
-					// System.out.println(rm.get(from) + " " + rm.get(to));
 					i = s.indexOf("<A HREF=", j);
 				}
 				s = readLine();
@@ -62,10 +61,7 @@ public class CCC_2000_J5_S3 {
 		String s1 = readLine();
 		String s2 = readLine();
 		while (!s1.equals("The End")) {
-			// System.out.println(s1 + " " + s2);
 			System.out.printf("%s surf from %s to %s\n", bfs(rm.get(s1), rm.get(s2)) ? "Can" : "Can't", s1, s2);
-
-			// System.out.println(rm.get(s1) + " " + rm.get(s2));
 			s1 = readLine();
 			if (br.ready())
 				s2 = readLine();

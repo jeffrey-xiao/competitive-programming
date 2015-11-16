@@ -48,13 +48,6 @@ public class CCC_2010_S4 {
 				adj.get(s).add(new Edge(f, c));
 			}
 		}
-		// for(int x = 0; x < adj.size(); x++){
-		// System.out.println("Curr: " + x + "; ");
-		// for(Edge i : adj.get(x)){
-		// System.out.print(i.dest + " ");
-		// }
-		// System.out.println();
-		// }
 		int i = Math.min(prim(0), prim(1));
 		System.out.println(i);
 	}

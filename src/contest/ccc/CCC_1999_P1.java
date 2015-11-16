@@ -47,7 +47,6 @@ public class CCC_1999_P1 {
 		int pointsB = 0;
 		for (int x = 0; x < 52; x++) {
 			int points = 0;
-			// System.out.println(cards[x]);
 			if (cards[x] == 1)
 				points = checkHigh(x, 4) ? 4 : 0;
 			else if (cards[x] == 13)

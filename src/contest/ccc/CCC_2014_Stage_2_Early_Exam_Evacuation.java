@@ -45,20 +45,15 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
 			int area = 0;
 			if (y <= 3) {
 				area += getArea(x, y, x, 3);
-				// System.out.println("LEFT: " + getValue(x,3));
 				if (getValue(x, 3) != 0)
 					area--;
 			} else {
 				area += getArea(x, 4, x, y);
-				// System.out.println("RIGHT: " + getValue(x,4));
 				if (getValue(x, 4) != 0)
 					area--;
 			}
-
-			// System.out.println("AREA " + area);
 			up[z] = area + getArea(1, 3, x, 4);
 			down[z] = area + getArea(x, 3, nx, 4);
-			// System.out.println(down[z] + " " + up[z]);
 		}
 		Arrays.sort(index, new StudentCompare());
 		long topCount = 0;
@@ -70,12 +65,8 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
 			topCount++;
 		}
 		topCount--;
-		// System.out.println(total);
 		for (int x = 0; x < n; x++) {
 			int curr = index[x];
-			// System.out.println(index[x] + " " + down[curr] + " " + up[curr]);
-			// System.out.println(down[curr]*a + bottomCount*b + " "
-			// +(up[curr]*a + topCount*b));
 			long d = down[curr] * a + (bottomCount) * b;
 			long u = up[curr] * a + (topCount) * b;
 			if (d <= u) {
@@ -83,11 +74,9 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
 				total += d;
 				bottomCount++;
 				topCount--;
-				// System.out.println("DOWN");
 			} else {
 			}
 		}
-		// System.out.println(topCount + " " + bottomCount);
 		System.out.println(total);
 	}
 

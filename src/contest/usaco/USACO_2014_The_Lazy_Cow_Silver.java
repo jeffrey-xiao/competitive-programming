@@ -16,23 +16,12 @@ public class USACO_2014_The_Lazy_Cow_Silver {
 		int newSize = n * 2 - 1;
 		int[][] dp = new int[newSize][newSize];
 		int mid = newSize / 2;
-		/*
-		 * for(int x = 0; x < newSize; x++){ int pivot = x > mid?newSize-x-1:x;
-		 * for(int y = mid-pivot; y <=mid+pivot ; y+=2){
-		 * 
-		 * dp[x][y] = readInt(); System.out.print(dp[x][y] + " "); }
-		 * System.out.println(); }
-		 */
 		for (int x = 0; x < n; x++) {
 			int y = mid - x;
 			for (int z = 0; z < n; z++) {
 				dp[z + x][y + z] = readInt();
 			}
 		}
-		/*
-		 * for(int[] i: dp){ for(int l:i) System.out.printf("%3d ",l);
-		 * System.out.println(); }
-		 */
 
 		for (int x = 0; x < newSize; x++) {
 			for (int y = 0; y < newSize; y++) {
@@ -46,9 +35,7 @@ public class USACO_2014_The_Lazy_Cow_Silver {
 				if (x - 1 >= 0 && y - 1 >= 0)
 					c = dp[x - 1][y - 1];
 				dp[x][y] += a + b - c;
-				// System.out.print(dp[x][y] + " ");
 			}
-			// System.out.println();
 		}
 		int max = 0;
 		int size = k * 2 >= newSize ? newSize - 1 : k * 2;

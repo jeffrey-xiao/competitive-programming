@@ -1,7 +1,5 @@
 package contest.woburn;
 
-//UNFINISHED
-
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +21,6 @@ public class Woburn_Challenge_1998_Y2K {
 				index = x;
 			}
 		}
-		// swapping to get lowest y coord first
 		Point temp = points[index];
 		points[index] = points[0];
 		points[0] = temp;
@@ -44,11 +41,6 @@ public class Woburn_Challenge_1998_Y2K {
 					p.remove(x);
 			}
 		}
-		// points[points.length-1] = points[0];
-		/*
-		 * for(Point x: p){ System.out.println("x:"+x.getX() + " y:"+x.getY());
-		 * }
-		 */
 		ArrayList<Point> convexHull = new ArrayList<Point>();
 		convexHull.add(p.get(0));
 		convexHull.add(p.get(1));
@@ -80,9 +72,3 @@ public class Woburn_Challenge_1998_Y2K {
 		return p1.getX() * p2.getY() + p2.getX() * startPoint.getY() + startPoint.getX() * p1.getY() - p2.getY() * startPoint.getX() - startPoint.getY() * p1.getX() - p1.getY() * p2.getX() > 0 ? -1 : 1;
 	}
 }
-/*
- * if(p1.getY() == 0 && p1.getX()>0) return -1; if(p2.getY() == 0 &&
- * p2.getX()>0) return 1; if(p1.getY() > 0 && p2.getY()<0) return -1;
- * if(p1.getY() < 0 && p2.getY()>0) return 1; return
- * (crossProduct(p1,p2))>0?-1:1;
- */

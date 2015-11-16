@@ -34,8 +34,6 @@ public class CCC_2004_S3 {
 
 					}
 				}
-				// System.out.println(values[x][y]);
-				// System.out.println(mod[x][y]);
 			}
 		}
 		boolean change = false;
@@ -50,10 +48,8 @@ public class CCC_2004_S3 {
 					while (st.hasMoreTokens()) {
 						count += 3;
 						String n = st.nextToken();
-						// System.out.println(n);
 						int x1 = n.charAt(0) - 48;
 						int y1 = n.charAt(1) - 48;
-						// System.out.println(n + " "+ mod[x1][y1]);
 
 						if (mod[x1][y1].length() == 0) {
 							values[x][y] += values[x1][y1];

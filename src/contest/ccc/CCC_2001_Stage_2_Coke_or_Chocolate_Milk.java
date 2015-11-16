@@ -1,8 +1,8 @@
 package contest.ccc;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -35,9 +35,9 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 	static int cnt = 0, comNum = 0;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		toIndex.clear();
@@ -121,11 +121,6 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 				}
 			}
 			n = toIndex.size();
-			// for (int i = 0; i < 2*n; i++) {
-			// for (int j : adj.get(i)) {
-			// System.out.println(i + "->" + j);
-			// }
-			// }
 			// generate all the connected components
 			for (int i = 0; i < 2 * n; i++)
 				if (disc[i] == -1)
@@ -133,7 +128,6 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 			// checking if assignment is valid
 			boolean valid = true;
 			for (int i = 0; i < 2 * n; i += 2) {
-				// System.out.println(com[i] + " " + com[i+1] + " " + comNum);
 				if (com[i] == com[i + 1]) {
 					valid = false;
 				} else {
@@ -170,7 +164,6 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
 				}
 			}
 			for (Map.Entry<String, Integer> e : toIndex.entrySet()) {
-				// System.out.println(e.getKey() + " " + e.getValue());
 				if (idCom[com[e.getValue() * 2]] == 0) {
 					idCom[com[e.getValue() * 2]] = 1;
 					idCom[negcom[com[e.getValue() * 2]]] = -1;

@@ -28,12 +28,14 @@ public class CCC_2004_S4 {
 			if (turn == 'U') {
 				x = z;
 				z = -nx;
-			}// if direction changes to down then z is also changed so swap x
-				// and z but reverse
+			}
+			// if direction changes to down then z is also changed so swap x
+			// and z but reverse
 			else if (turn == 'D') {
 				x = -z;
 				z = nx;
-			}// same thing with r and l
+			}
+			// same thing with r and l
 			else if (turn == 'R') {
 				x = -y;
 				y = nx;

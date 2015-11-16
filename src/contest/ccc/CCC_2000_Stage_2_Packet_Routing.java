@@ -25,10 +25,6 @@ public class CCC_2000_Stage_2_Packet_Routing {
 			int target = scan.nextInt() - 1;
 			vertices[start][0] = 0;
 			while (vertices[target][1] == 0) {
-				/*
-				 * for(int[] x: vertices) System.out.print(x[0] + " ");
-				 * System.out.println();
-				 */
 				int smallestValue = Integer.MAX_VALUE;
 				int smallestIndex = 0;
 				for (int x = 0; x < vertices.length; x++) {

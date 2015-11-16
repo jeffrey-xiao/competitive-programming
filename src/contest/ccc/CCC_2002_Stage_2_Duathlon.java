@@ -25,21 +25,17 @@ public class CCC_2002_Stage_2_Duathlon {
 		double distance = 0;
 
 		for (double x = 0; x <= dist; x += 0.001) {
-			// for(double x = 49; x <= 51; x += 0.001){
 			x = Math.round(x * 1000.0) / 1000.0;
 			double cheatTime = getTime(x, dist - x, cheaterSpeed1, cheaterSpeed2);
 			double maxOtherTime = Integer.MAX_VALUE;
 			for (int y = 0; y < speeds.length; y++) {
 				double otherTime = getTime(x, dist - x, speeds[y][0], speeds[y][1]);
 				maxOtherTime = Math.min(otherTime, maxOtherTime);
-				// System.out.println(otherTime);
 			}
 			if (cheatTime <= maxOtherTime && maxOtherTime - cheatTime > maxTime) {
 				maxTime = Math.max(maxOtherTime - cheatTime, 0);
-				// System.out.println(maxTime);
 				distance = x;
 			}
-			// System.out.println(x+ " " + maxOtherTime + " " + cheatTime);
 		}
 		if (maxTime >= 0)
 			System.out.printf("The cheater can win by %d seconds with r = %.2fkm and k = %.2fkm.", (int) Math.round(maxTime * 60 * 60), distance, dist - distance);

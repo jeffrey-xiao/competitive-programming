@@ -34,20 +34,14 @@ public class Round_301D {
 					// rock
 					if (i > 0 && k > 0) {
 						prob[i - 1][j][k] += prob[i][j][k] * (pr / total);
-						// System.out.println((i-1) + " " + j + " " + k + " " +
-						// prob[i-1][j][k]);
 					}
 					// scissors
 					if (j > 0 && i > 0) {
 						prob[i][j - 1][k] += prob[i][j][k] * (rs / total);
-						// System.out.println(i + " " + (j-1) + " " + k + " " +
-						// prob[i][j-1][k]);
 					}
 					// paper
 					if (k > 0 && j > 0) {
 						prob[i][j][k - 1] += prob[i][j][k] * (sp / total);
-						// System.out.println(i + " " + j + " " + (k-1) + " " +
-						// prob[i][j][k-1]);
 					}
 				}
 			}

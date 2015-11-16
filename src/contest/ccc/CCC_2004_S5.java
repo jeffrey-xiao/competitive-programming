@@ -68,10 +68,6 @@ public class CCC_2004_S5 {
 						dp[y][x] = Math.max(currentValues2[y], currentValues1[y]);
 				}
 			}
-			/*
-			 * for(int[] x:dp){ for(int y:x) System.out.printf("%3d ",y);
-			 * System.out.println(); }
-			 */
 			System.out.println(dp[dp.length - 1][dp[0].length - 1]);
 			width = scan.nextInt();
 			scan.nextLine();

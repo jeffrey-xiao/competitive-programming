@@ -34,17 +34,9 @@ public class USACO_2014_Dueling_GPS {
 			reverseB.get(b).add(new Edge(a, d));
 			newList.get(a).add(new Edge(b, 2));
 		}
-		// System.out.println();
 		shortestPath(n - 1, 0, reverseA);
-		// System.out.println();
 		shortestPath(n - 1, 0, reverseB);
-		// ystem.out.println();
 		printShortestPath(0, n - 1, newList);
-		/*
-		 * for(int x = 0; x < newList.size(); x++){ for(int y = 0; y <
-		 * newList.get(x).size(); y++){ Edge e = newList.get(x).get(y);
-		 * System.out.printf("%d %d %d\n",x+1,e.dest+1,e.cost); } }
-		 */
 	}
 
 	private static void shortestPath (int s, int d, ArrayList<ArrayList<Edge>> currList) {
@@ -57,7 +49,6 @@ public class USACO_2014_Dueling_GPS {
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
 			min[curr.index] = curr.cost;
-			// System.out.println(curr.index+1 + " " + (curr.prev+1));
 			if (curr.prev != -1) {
 				int index = newList.get(curr.index).indexOf(new Edge(curr.prev, 0));
 				newList.get(curr.index).get(index).cost--;
@@ -65,8 +56,6 @@ public class USACO_2014_Dueling_GPS {
 			for (int x = 0; x < currList.get(curr.index).size(); x++) {
 				Edge e = currList.get(curr.index).get(x);
 				Vertex next = new Vertex(e.dest, e.cost + curr.cost, curr.index);
-				// System.out.println(curr.index + " " + next.index + " " +
-				// next.cost);
 				if (min[next.index] > next.cost) {
 					min[next.index] = next.cost;
 					pq.add(next);
@@ -88,12 +77,9 @@ public class USACO_2014_Dueling_GPS {
 			min[curr.index] = curr.cost;
 			if (curr.index == d)
 				break;
-			// System.out.println(curr.index+1 + " " + (curr.prev+1));
 			for (int x = 0; x < currList.get(curr.index).size(); x++) {
 				Edge e = currList.get(curr.index).get(x);
 				Vertex next = new Vertex(e.dest, e.cost + curr.cost, curr.index);
-				// System.out.println(curr.index + " " + next.index + " " +
-				// next.cost);
 				if (visited[next.index])
 					continue;
 				if (min[next.index] > next.cost) {

@@ -30,15 +30,10 @@ public class USACO_2014_Fair_Photography {
 		int[] totalSum = new int[n + 1];
 		for (int x = 1; x <= n; x++) {
 			totalSum[x] = totalSum[x - 1] + cows[x - 1][1];
-			// System.out.println(totalSum[x]);
 		}
-		// int lower = 0;
-		// int upper = n;
 		int max = 0;
 		for (int mid = 2; mid <= n; mid += 2) {
-			// System.out.println(mid);
 			for (int x = 0, y = x + mid; y <= n; y++, x++) {
-				// System.out.println(totalSum[y] + " " + totalSum[x]);
 				if (totalSum[y] - totalSum[x] >= 0 && (totalSum[y] - totalSum[x]) % 2 == 0) {
 					max = Math.max(max, cows[y - 1][0] - cows[x][0]);
 				}
@@ -70,19 +65,3 @@ public class USACO_2014_Fair_Photography {
 		return br.readLine().trim();
 	}
 }
-/*
- * while(upper <= n){ if(totalSum[upper]-totalSum[lower] < 0){ if(upper-lower ==
- * 1){ lower++; upper++; }else lower++; }else{
- * if((totalSum[upper]-totalSum[lower])%2 ==0){
- * 
- * max = Math.max(max,cows[upper-1][0]-cows[lower][0]);
- * //System.out.println(cows[upper-1][0] + " " + cows[lower][0]); } upper++; } }
- *//*
-* int lower = 0; int upper = n; int max = 0; main:while(upper-lower > 1){
-* int mid = (upper+lower)/2; if(mid%2 == 1){ upper++; lower++; mid =
-* (upper+lower)/2; } boolean poss = false; //System.out.println(mid);
-* for(int x = 0, y = x+mid; y <= n; y++, x++){ if(totalSum[y]-totalSum[x]
-* >= 0 && (totalSum[y]-totalSum[x])%2 ==0){ poss = true; max =
-* Math.max(max,cows[y-1][0]-cows[x][0]); } } if(poss){ lower = mid; }else{
-* upper = mid; } }
-*/

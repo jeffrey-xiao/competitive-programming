@@ -29,16 +29,10 @@ public class USACO_2013_Vacation_Planning_2 {
 		for (int x = 0; x < n; x++) {
 			for (int y = 0; y < n; y++) {
 				for (int z = 0; z < n; z++) {
-					// if(dist[x][z] != Integer.MAX_VALUE && dist[y][x] !=
-					// Integer.MAX_VALUE)
 					dist[y][z] = Math.min(dist[y][z], dist[x][z] + dist[y][x]);
 				}
 			}
 		}
-		/*
-		 * for(int x = 0; x < n; x++){ for(int y = 0; y < n; y++){
-		 * System.out.print(dist[x][y] + " "); } System.out.println(); }
-		 */
 		int count = 0;
 		long total = 0;
 		for (int x = 0; x < paths; x++) {
@@ -46,8 +40,6 @@ public class USACO_2013_Vacation_Planning_2 {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			for (int y = 0; y <= hubNum; y++) {
-				// if(dist[a][y] != Integer.MAX_VALUE && dist[y][b] !=
-				// Integer.MAX_VALUE)
 				value = Math.min(value, dist[a][y] + dist[y][b]);
 			}
 			if (value != 500000000) {

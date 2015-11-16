@@ -25,7 +25,6 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
 			int r = readInt();
 			int c = readInt();
 			Point p = getPoint(new Point(r, c));
-			// System.out.println(p.r + " " + p.c);
 			if (ch == 'E') {
 				if (r <= 1500) {
 					update(p.r, p.c, 1);
@@ -88,7 +87,6 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
 		return sum;
 	}
 
-	// x is col and y is row
 	static Point getPoint (Point p) {
 		return new Point(p.r - p.c + 1500, p.r + p.c);
 	}

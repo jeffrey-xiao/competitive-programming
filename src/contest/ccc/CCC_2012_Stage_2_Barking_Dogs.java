@@ -34,9 +34,6 @@ public class CCC_2012_Stage_2_Barking_Dogs {
 		int t = readInt();
 		for (int x = 0; x <= t; x++) {
 			justChanged = new boolean[n];
-			// for(int y = 0; y < n; y++)
-			// System.out.printf("%3d ",(coolDown[y] > 100 ? -1 : coolDown[y]));
-			// System.out.println();
 			for (int y = 0; y < n; y++) {
 				if (coolDown[y] == 0 && !justChanged[y]) {
 					for (Integer i : adj.get(y)) {

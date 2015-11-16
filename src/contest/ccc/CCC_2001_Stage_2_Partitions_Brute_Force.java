@@ -45,7 +45,6 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
 						s += x + ",";
 						if (sum == n)
 							break main;
-						// System.out.println(index);
 						break;
 					}
 				}

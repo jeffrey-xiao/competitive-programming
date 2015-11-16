@@ -28,11 +28,6 @@ public class Checkerboard_Summation {
 				sum[x][y] = grid[x][y] - sum[x - 1][y - 1] + sum[x - 1][y] + sum[x][y - 1];
 			}
 		}
-		/*
-		 * for(int x = 1; x <= r; x++){ for(int y = 1; y <= c; y++){
-		 * 
-		 * System.out.print(sum[x][y] + " "); } System.out.println(); }
-		 */
 
 		int x1 = readInt();
 		int y1 = readInt();

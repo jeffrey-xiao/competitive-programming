@@ -37,9 +37,7 @@ public class CCC_2012_J5 {
 			q.offer(new Pos(toIndex(start), 0));
 			while (!q.isEmpty()) {
 				Pos curr = q.poll();
-				// System.out.println("CURR " + curr.curr + " " + curr.moves);
 				State c = toState(curr.curr);
-				// System.out.println(c + " HERE");
 				if (curr.curr == end) {
 					System.out.println(curr.moves);
 					possible = true;
@@ -73,9 +71,7 @@ public class CCC_2012_J5 {
 						}
 						c.move(x + 1, x);
 					} else if (c.s[x].peek() > c.s[x + 1].peek()) {
-						// System.out.println(c);
 						c.move(x + 1, x);
-						// System.out.println(c);
 						int ni = toIndex(c);
 						if (!v.contains(ni)) {
 							v.add(ni);
@@ -113,9 +109,7 @@ public class CCC_2012_J5 {
 
 	static State toState (Integer i) {
 		State res = new State();
-		// System.out.println(i);
 		for (int x = n; x >= 1; x--) {
-			// System.out.println(i + " " + RADIX + " " + x);
 			res.s[i / (int) (Math.pow(RADIX, x)) - 1].push(x);
 			i %= (int) (Math.pow(RADIX, x));
 		}
@@ -137,7 +131,6 @@ public class CCC_2012_J5 {
 
 		@Override
 		public String toString () {
-
 			String st = "";
 			for (int x = 0; x < n; x++) {
 				for (Integer i : s[x])

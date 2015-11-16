@@ -36,7 +36,6 @@ public class CCC_2009_J4 {
 				currWords++;
 			}
 		}
-		// System.out.println("ASD " +currWords + " " + (n-currLength));
 		int[] gaps = getGap(currWords, n - currLength);
 		for (int y = 0; y < currLine.size(); y++) {
 			System.out.print(currLine.get(y) + getDot(gaps[y]));

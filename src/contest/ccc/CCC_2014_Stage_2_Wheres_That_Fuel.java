@@ -34,9 +34,6 @@ public class CCC_2014_Stage_2_Wheres_That_Fuel {
 				return 0;
 			}
 		});
-		/*
-		 * for(Integer[] z:planets) System.out.println(z[0] + " " +z[1] + " ");
-		 */
 		int numOfPlanets = 1;
 		for (int x = planets.size() - 1; x >= 0; x--) {
 			if (planets.get(x)[0] >= 0 && startingGas >= planets.get(x)[1]) {

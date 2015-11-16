@@ -96,14 +96,9 @@ public class DWITE_2007_Velociraptor_Maze {
 		float[][] numMoves = new float[r][c];
 		dfs(numMoves, new Point(ex, ey), prevh);
 		check(numMoves, new Point(ex, ey), prevv);
-		/*
-		 * for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++){
-		 * System.out.print(prevv[x][y] + " "); } System.out.println(); }
-		 */
 		if (flag && numMoves[ex][ey] > fast) {
 			lastMove = (int) numMoves[ex][ey];
 			flag = false;
-			// System.out.println("ENTER");
 		}
 		if (flag)
 			System.out.println("escape");

@@ -18,7 +18,6 @@ public class CCC_2005_S5 {
 			int next = readInt();
 			int temp = t.add(next);
 			total += temp + 1;
-			// System.out.println(temp+1);
 		}
 		float f = total / (float) n;
 		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
@@ -47,9 +46,7 @@ public class CCC_2005_S5 {
 			} else {
 				Node next = root;
 				while (true) {
-					// System.out.println(next.score +" "+ next.rank);
 					if (score < next.score) {
-						// System.out.println("LEFT");
 						rank += next.rank + 1;
 						if (next.left == null) {
 							next.left = new Node(score);
@@ -57,7 +54,6 @@ public class CCC_2005_S5 {
 						} else
 							next = next.left;
 					} else if (score >= next.score) {
-						// System.out.println("RIGHT");
 						next.rank++;
 						if (next.right == null) {
 							next.right = new Node(score);

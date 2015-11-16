@@ -32,14 +32,9 @@ public class CCC_2005_S3 {
 					result[x][y] = a[x / bx][y / by] * b[x % bx][y % by];
 			bx *= ax;
 			by *= ay;
-			for (int x = 0; x < bx; x++) {
-				for (int y = 0; y < by; y++) {
+			for (int x = 0; x < bx; x++) 
+				for (int y = 0; y < by; y++) 
 					b[x][y] = result[x][y];
-					// System.out.print(b[x][y] + " ");
-				}
-				// System.out.println();
-			}
-			// System.out.println("NEXT");
 		}
 		int maxe = Integer.MIN_VALUE;
 		int mine = Integer.MAX_VALUE;

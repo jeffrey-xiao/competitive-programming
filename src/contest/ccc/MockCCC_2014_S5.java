@@ -30,7 +30,6 @@ public class MockCCC_2014_S5 {
 			for (int y = 0; y < l; y++) {
 				if (gcf(left[y], curr) > 1) {
 					adj[y][x] = true;
-					// System.out.println("GCF " + left[y] + " " + curr);
 				}
 			}
 		}

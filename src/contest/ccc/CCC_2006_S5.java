@@ -53,30 +53,19 @@ public class CCC_2006_S5 {
 				isEden[ni] = false;
 		}
 		int res = 1 << 30;
-		for (int i = 0; i < (1 << (m * n)); i++) {
-
-			if (isEden[i] && steps[i] != -1) {
-				// System.out.println("NEXT");
+		for (int i = 0; i < (1 << (m * n)); i++) 
+			if (isEden[i] && steps[i] != -1)
 				res = Math.min(res, steps[i]);
-				// print(getState(i));
-				// System.out.println(steps[i]);
-				// print(nextState(getState(i)));
-				// System.out.println(steps[getIndex(nextState(getState(i)))]);
-			}
-		}
+		
 		System.out.println(res == 1 << 30 ? -1 : res);
 	}
 
 	static int compute (int s, boolean b) {
 		v[s] = true;
-		if (s == end) {
-			// print(getState(s));
+		if (s == end) 
 			return steps[s] = 0;
-		}
+		
 		int ns = getIndex(nextState(getState(s)));
-		// print(getState(s));
-		// print(getState(ns));
-		// System.out.println("DONE");
 		if (v[ns]) {
 			if (steps[ns] == -1)
 				return steps[s] = -1;

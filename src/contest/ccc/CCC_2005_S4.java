@@ -23,9 +23,7 @@ public class CCC_2005_S4 {
 			for (int x = 0; x < n; x++) {
 				curr = curr.addNode(messages[x], curr);
 			}
-			// System.out.println(root.child.get(0).curr);
 			int newTime = (root.traverse() - 20);
-			// System.out.println(newTime);
 			System.out.println((n * 10) - newTime);
 		}
 	}
@@ -45,15 +43,12 @@ public class CCC_2005_S4 {
 		}
 
 		Node addNode (String node, Node currentNode) {
-			// System.out.println(node + " " + parent.curr + " " + curr);
-			if (node.equalsIgnoreCase(parent.curr)) {
-				// System.out.println("ENTER");
+			if (node.equalsIgnoreCase(parent.curr))
 				return parent;
-			}
+			
 			Node n = new Node(currentNode, node);
 			int index = child.indexOf(n);
 			if (index == -1) {
-				// System.out.println(node);
 				child.add(n);
 				return n;
 			}
@@ -62,12 +57,8 @@ public class CCC_2005_S4 {
 
 		int traverse () {
 			int total = 0;
-			for (int x = 0; x < child.size(); x++) {
-
+			for (int x = 0; x < child.size(); x++)
 				total = Math.max(child.get(x).traverse(), total);
-				// System.out.println(child.get(x).curr + " " + total + " " +
-				// curr);
-			}
 			return total + 20;
 		}
 

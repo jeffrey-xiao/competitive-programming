@@ -109,9 +109,7 @@ public class CCC_2012_S4 {
 
 	static State toState (Integer i) {
 		State res = new State();
-		//		System.out.println(i);
 		for (int x = n; x >= 1; x--) {
-			//			System.out.println(i + " " + RADIX + " " + x);
 			res.s[i / (int) (Math.pow(RADIX, x)) - 1].push(x);
 			i %= (int) (Math.pow(RADIX, x));
 		}

@@ -24,8 +24,6 @@ public class CCC_1996_Stage_2_Safebreaker {
 
 			}
 			String code = "";
-			// System.out.println(getMisplaced(new int[]{3,4,1,1},3383));
-
 			for (int a = 0; a <= 9; a++) {
 				for (int b = 0; b <= 9; b++) {
 					for (int c = 0; c <= 9; c++) {
@@ -35,11 +33,6 @@ public class CCC_1996_Stage_2_Safebreaker {
 								int misplace = guesses[x][1];
 								int numCorrect = getCorrect(new int[] {a, b, c, d}, nums[x]);
 								int numMisplaced = getMisplaced(new int[] {a, b, c, d}, nums[x]);
-								/*
-								 * if(a==3&&b==4&&c==1&&(d==0||d==1)){
-								 * System.out.println(numCorrect + " " +
-								 * numMisplaced); }
-								 */
 								if (correct != numCorrect || misplace != numMisplaced - numCorrect) {
 									continue inner;
 								}
@@ -71,9 +64,7 @@ public class CCC_1996_Stage_2_Safebreaker {
 
 		}
 		return count;
-	}/*
-		* 6 9793 0/1 2384 0/2 6264 0/1 3383 1/0 2795 0/0 0218 1/0
-		*/
+	}
 
 	private static int getMisplaced (int[] guess, String i) {
 		StringBuilder s = new StringBuilder(i);

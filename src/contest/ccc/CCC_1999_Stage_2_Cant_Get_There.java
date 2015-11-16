@@ -43,7 +43,6 @@ public class CCC_1999_Stage_2_Cant_Get_There {
 			int count = 0;
 			HashSet<Point> v = new HashSet<Point>();
 			while (true) {
-				// System.out.println(x + " " + y + " " + dir);
 				if (v.contains(new Point(x, y, dir))) {
 					System.out.println("B cannot be reached from A.");
 					break;

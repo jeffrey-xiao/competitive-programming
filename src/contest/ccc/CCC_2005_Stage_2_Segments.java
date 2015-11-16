@@ -20,7 +20,6 @@ public class CCC_2005_Stage_2_Segments {
 		}
 		int costLL = n - l[n].lo;
 		int costLR = (l[n].hi - l[n].lo) + (n - l[n].lo);
-		// System.out.println(costLL + " " + costLR);
 		for (int x = n - 1; x >= 1; x--) {
 			int a = Math.min(Math.abs(l[x + 1].lo - l[x].hi) + costLL, Math.abs(l[x + 1].hi - l[x].hi) + costLR);
 			int b = Math.min(Math.abs(l[x + 1].lo - l[x].lo) + costLL, Math.abs(l[x + 1].hi - l[x].lo) + costLR);
@@ -28,7 +27,6 @@ public class CCC_2005_Stage_2_Segments {
 			int costL = c + a;
 			costLR = c + b;
 			costLL = costL;
-			// System.out.println(costLR + " " + costLL + " " + a + " " + b);
 		}
 		System.out.println(Math.min(costLL + l[1].lo - 1, costLR + l[1].hi - 1));
 	}

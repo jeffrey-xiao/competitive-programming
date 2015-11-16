@@ -29,11 +29,6 @@ public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
 				curr /= x;
 			}
 			ArrayList<Long> copy = new ArrayList<Long>(value);
-			// System.out.println(x);
-			/*
-			 * for(long z: copy) System.out.print(z + " ");
-			 * System.out.println();
-			 */
 			Collections.reverse(value);
 			if (value.equals(copy))
 				num.add(x);

@@ -40,14 +40,9 @@ public class CCC_1996_Stage_2_Hoppers {
 				}
 			}
 
-			// for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++){
-			// System.out.print((grid[x][y]?1:0) + " "); } System.out.println();
-			// }
-			// System.out.println(startx + " " + starty);
 			Queue<int[]> q = new LinkedList<int[]>();
 			q.add(new int[] {startx, starty, 0, 0, 0});
 			while (!q.isEmpty()) {
-
 				int[] next = q.poll();
 				int x = next[0];
 				int y = next[1];
@@ -57,15 +52,15 @@ public class CCC_1996_Stage_2_Hoppers {
 
 				if (x < 0 || y < 0 || x >= r || y >= c || sx > 3 || sx < -3 || sy > 3 || sy < -3 || grid[x][y])
 					continue;
+				
 				if (visited[x][y][sx + 3][sy + 3])
 					continue;
-				// System.out.println(x + " " + y + " " + sx + " " + sy);
+				
 				if (x == endx && endy == y) {
-
 					System.out.printf("Optimal solution takes %d hop(s).\n", moves);
 					continue main;
-					// break;
 				}
+				
 				visited[x][y][sx + 3][sy + 3] = true;
 				for (int z = 0; z < 9; z++) {
 					int nextsx = sx + movex[z];

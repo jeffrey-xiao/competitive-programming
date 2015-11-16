@@ -14,9 +14,6 @@ public class USACO_2013_Party_Invitation {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		/*
-		 * 10 4 2 1 3 2 3 4 6 1 2 3 4 6 7 4 4 3 2 1
-		 */
 		int n = readInt();
 		ArrayList<ArrayList<Integer>> inverse = new ArrayList<ArrayList<Integer>>();
 		for (int x = 0; x < n; x++)

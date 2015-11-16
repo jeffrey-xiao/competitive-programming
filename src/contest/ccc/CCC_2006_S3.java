@@ -24,10 +24,8 @@ public class CCC_2006_S3 {
 			ps[points] = ps[0];
 			for (int y = 0; y < points; y++) {
 				Line next = ps[y].getLine(ps[y + 1]);
-				// System.out.println(ps[y] + " " + ps[y+1]);
 				if (checkIntersection(l, next, a, b, ps[y], ps[y + 1])) {
 					count++;
-					// System.out.println(ps[y] + " " + ps[y+1] + " " + x);
 					continue main;
 				}
 			}
@@ -46,7 +44,6 @@ public class CCC_2006_S3 {
 		int x2 = Math.max(w.x, x.x);
 		int x3 = Math.min(y.x, z.x);
 		int x4 = Math.max(y.x, z.x);
-		// System.out.println(a.m + " " + b.m);
 		if (a.m == Double.POSITIVE_INFINITY || b.m == Double.POSITIVE_INFINITY) {
 			double yy = 0;
 			if (a.m == Double.POSITIVE_INFINITY) {
@@ -54,19 +51,14 @@ public class CCC_2006_S3 {
 			} else {
 				yy = a.m * y.x + a.b;
 			}
-			// System.out.println(yy);
 			return y1 <= yy && yy <= y2 && y3 <= yy && yy <= y4;
 		}
 		double xx = (b.b - a.b) / (a.m - b.m);
 
 		double yy1 = (a.m) * xx + a.b;
 		double yy2 = (b.m) * xx + b.b;
-		// System.out.println(yy1 + " " + yy2 + " " + xx);
 		if (yy1 != yy2)
 			return false;
-		// System.out.println(xx);
-		// System.out.println(yy1 + " " + yy2);
-
 		return y1 <= yy1 && yy2 <= y2 && y3 <= yy2 && yy2 <= y4 && x1 <= xx && xx <= x2 && x3 <= xx && xx <= x4;
 
 	}

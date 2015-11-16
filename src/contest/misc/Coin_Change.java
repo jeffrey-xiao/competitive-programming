@@ -31,11 +31,6 @@ public class Coin_Change {
 					}
 				}
 			}
-			/*
-			 * for(int[] a: table)
-			 * System.out.printf("%3d,%3d    ",a[0]<-1?0:a[0],a[1]);
-			 * System.out.println();
-			 */
 		}
 
 		System.out.println(table[amount][1]);

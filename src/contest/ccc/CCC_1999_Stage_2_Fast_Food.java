@@ -33,21 +33,16 @@ public class CCC_1999_Stage_2_Fast_Food {
 					} else {
 						int next = Integer.MAX_VALUE;
 						int nextPrev = -1;
-						// System.out.println("CURRENT " + x + " " + y);
 						if (x == 1) {
 							next = r[y] - r[0];
 						} else
 							for (int z = y - 1; z >= 0; z--) {
-								// System.out.println("NEXT: " + z + " " +
-								// cost(z,y));
-								// System.out.println(dp[x-1][z]);
 								int a = Math.max(dp[x - 1][z], cost(z, y));
 								if (next > a) {
 									next = a;
 									nextPrev = z;
 								}
 							}
-						// System.out.println("FINISHED: " + next);
 						dp[x][y] = next;
 						prev[x][y] = nextPrev;
 					}

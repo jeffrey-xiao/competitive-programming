@@ -17,7 +17,6 @@ public class CCC_2003_Stage_2_Longest_Substring {
 		Queue<Integer> q = new LinkedList<Integer>();
 		ArrayList<Integer> seq = new ArrayList<Integer>();
 		boolean[] nums = new boolean[80000];
-		// Queue<Integer> copy = null;
 		int s = readInt();
 		long max = 0;
 		int index = 0;

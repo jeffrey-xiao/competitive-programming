@@ -28,16 +28,6 @@ public class CCC_1998_E {
 			int start = grid[0][0];
 			boolean[][] visited = new boolean[n][n];
 			compute(start, 0, 0, grid, visited);
-			/*
-			 * for(int x = 0; x < n; x++){ for(int y = 0; y < n; y++){
-			 * System.out.printf("%3d ", dp[x][y]>=1000000?-1:dp[x][y]); }
-			 * System.out.println(); }
-			 */
-			/*
-			 * System.out.println(); for(int x = 0; x < n; x++){ for(int y = 0;
-			 * y < n; y++){ System.out.printf("%3d ",
-			 * dp[x][y]>=1000000?-1:grid[x][y]); } System.out.println(); }
-			 */
 			System.out.println();
 			System.out.println(dp[0][0] == 1000000 ? "CANNOT MAKE THE TRIP" : dp[0][0]);
 		}
@@ -45,10 +35,9 @@ public class CCC_1998_E {
 
 	private static int compute (int s, int x, int y, int[][] g, boolean[][] v) {
 		v[x][y] = true;
-		// System.out.println(x + " " + y + " " + o);
-		if (x == n - 1 && y == n - 1) {
+		if (x == n - 1 && y == n - 1)
 			return 0;
-		}
+		
 		int min = 1000000;
 		for (int z = 0; z < 4; z++) {
 			int newx = movex[z] + x;
@@ -56,11 +45,10 @@ public class CCC_1998_E {
 			if (newx < 0 || newy < 0 || newx >= n || newy >= n || v[newx][newy] || Math.abs(g[newx][newy] - g[x][y]) > 2)
 				continue;
 			int extraOxygen = g[newx][newy] > s || g[x][y] > s ? 1 : 0;
-			if (dp[newx][newy] == 1000000 || (dp[x][y] - extraOxygen < dp[newx][newy] && dp[newx][newy] < 1000000)) {
+			
+			if (dp[newx][newy] == 1000000 || (dp[x][y] - extraOxygen < dp[newx][newy] && dp[newx][newy] < 1000000))
 				dp[newx][newy] = compute(s, newx, newy, g, cloneArray(v)) + extraOxygen;
-			}
-			// System.out.printf("X: %d Y: %d VALUE: %d\n",newx,newy,
-			// dp[newx][newy]);
+			
 			min = Math.min(min, dp[newx][newy]);
 		}
 		dp[x][y] = Math.min(dp[x][y], min);

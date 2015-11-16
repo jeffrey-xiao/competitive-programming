@@ -40,7 +40,6 @@ public class MockCCC_2015_S4_2 {
 			left[x] = leftB[x - 1] - Math.min(Math.max(0, p[x - 1].d - p[x - 2].w), p[x].w) + p[x].d;
 			left[x] = Math.min(left[x], left[x - 1] + p[x].d);
 			leftB[x] = Math.min(left[x - 1], leftB[x - 1]) + Math.max(0, p[x].d - p[x - 1].w);
-			// System.out.println(left[x] + " " + leftB[x]);
 		}
 		for (int x = n - 1; x >= 1; x--) {
 			right[x] = rightB[x + 1] - Math.min(Math.max(0, p[x + 1].d - p[x + 2].w), p[x].w) + p[x].d;

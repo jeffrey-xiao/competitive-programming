@@ -15,7 +15,6 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 	static int m;
 
 	public static void main (String[] args) throws IOException {
-		// long l = System.currentTimeMillis();
 		ArrayList<ArrayList<Edge>> adjlist = new ArrayList<ArrayList<Edge>>();
 		ArrayList<ArrayList<Edge>> revlist = new ArrayList<ArrayList<Edge>>();
 		ArrayList<Edge> edges = new ArrayList<Edge>();
@@ -35,20 +34,15 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 		}
 		int[] s = shortestPath(adjlist, 0, n - 1);
 		int[] d = shortestPath(revlist, n - 1, 0);
-		// for(int x = 0; x < n; x++){
-		// System.out.println(s[x] + " " + d[x]);
-		// }
 		long min = Integer.MAX_VALUE;
 		int shortest = s[n - 1];
 		for (int x = 0; x < edges.size(); x++) {
 			Edge e = edges.get(x);
 			long cost = (long) s[e.source] + d[e.dest] + e.cost;
-			// System.out.println(cost + " " + min);
 			if (cost < min && cost > shortest)
 				min = cost;
 		}
 		System.out.println(min == Integer.MAX_VALUE ? -1 : min);
-		// System.out.println(System.currentTimeMillis()-l);
 	}
 
 	private static int[] shortestPath (ArrayList<ArrayList<Edge>> l, int s, int d) {
@@ -58,9 +52,7 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 				min[x] = Integer.MAX_VALUE;
 		}
 		PriorityQueue<Node> moves = new PriorityQueue<Node>();
-
 		moves.offer(new Node(s, 0));
-
 		while (!moves.isEmpty()) {
 			Node node = moves.poll();
 			int size = l.get(node.index).size();
@@ -69,7 +61,6 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 				if (min[next.dest] <= node.cost + next.cost)
 					continue;
 				min[next.dest] = node.cost + next.cost;
-				// moves.remove(new Node(next.dest,0));
 				moves.offer(new Node(next.dest, min[next.dest]));
 			}
 		}

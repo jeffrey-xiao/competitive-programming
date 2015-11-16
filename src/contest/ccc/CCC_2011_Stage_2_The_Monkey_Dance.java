@@ -27,14 +27,11 @@ public class CCC_2011_Stage_2_The_Monkey_Dance {
 				int cycleLength = 0;
 				while (!visited[curr]) {
 					visited[curr] = true;
-
 					curr = to[curr];
-					// System.out.println(visited[curr]);
 					cycleLength++;
 				}
 				if (cycleLength != 0)
 					maxCycle = lcm(maxCycle, cycleLength);
-				// System.out.println(cycleLength + " " + x);
 			}
 			System.out.println(maxCycle);
 			n = readInt();

@@ -55,7 +55,6 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
 		int curr = 0;
 		double totalCost = 0;
 		for (int x = 0; x < n - 1; x++) {
-			// System.out.println(curr);
 			visited[curr] = true;
 			for (int y = 0; y < n; y++) {
 				if (visited[y])
@@ -70,12 +69,10 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
 			if (moves.size() == 0)
 				return -1;
 			Edge next = moves.poll();
-			// System.out.println(next.cost);
 			totalCost += next.cost;
 			if (next.cost != 0)
 				conn.add(new Connection(curr, next.dest));
 			curr = next.dest;
-			// System.out.println(next.dest);
 		}
 		return totalCost;
 	}

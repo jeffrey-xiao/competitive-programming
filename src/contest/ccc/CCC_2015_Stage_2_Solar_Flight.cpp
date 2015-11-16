@@ -100,9 +100,6 @@ int main () {
                 add(collision(next.startPos, curr[next.dec]), next.dec);
             }
         }
-        //for (collision co : maxState[qu.plane]) {
-        //    printf("(%f, %d) ", co.startPos, co.val);
-        //}
         while (maxState[qu.plane].size() > 1 && maxState[qu.plane][0].endPos <= qu.position)
             maxState[qu.plane].pop_front();
         ans[qu.index] = maxState[qu.plane].front().val;

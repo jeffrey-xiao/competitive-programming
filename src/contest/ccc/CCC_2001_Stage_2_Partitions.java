@@ -27,7 +27,6 @@ public class CCC_2001_Stage_2_Partitions {
 				nums.add(x);
 				if (compute(x, k - x, nums))
 					continue main;
-				// System.out.println(totalSum);
 			}
 			System.out.println("Too big");
 		}

@@ -43,7 +43,6 @@ public class CCC_2009_Stage_2_Dinner_DP {
 		for (int x = i; x < j; x++) {
 			res = Math.min(res, Math.min(solve(i, x, 0, 0), solve(i, x, 0, 1)) + solve(x + 1, j, l, m));
 		}
-		// System.out.println(i + " " + j + " " + l + " " + m + " " + res);
 		return dp[i][j][l][m] = res;
 	}
 

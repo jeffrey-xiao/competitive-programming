@@ -30,9 +30,6 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
 					for (int z = k; z > 0; z--) {
 						int ny = (int) (y / Math.pow(n, z - 1));
 						int nx = (int) (x / Math.pow(n, z - 1));
-						// I is y and J is x
-						// System.out.println(j + " " + i + " " + ny + " " +
-						// nx);
 						if (grid[ny][nx] == '.') {
 							next = ' ';
 							break;

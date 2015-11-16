@@ -10,10 +10,7 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static ArrayList<ArrayList<int[]>> p = new ArrayList<ArrayList<int[]>>();// 0
-																				// cost,
-																				// 1
-																				// value
+	static ArrayList<ArrayList<int[]>> p = new ArrayList<ArrayList<int[]>>(); // 0 = cost; 1 = value
 	static int[][] dp;
 	static boolean[][] visited;
 

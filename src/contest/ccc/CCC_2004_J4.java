@@ -22,7 +22,6 @@ public class CCC_2004_J4 {
 		for (int x = 0; x < preEncode.size(); x++) {
 			int indexPreEncode = alphabet.indexOf(preEncode.get(x));
 			int moveLength = alphabet.indexOf(encodeKey[counter]);
-			// System.out.println(x +":x " +indexPreEncode+" " + moveLength);
 
 			postEncode.add((alphabet.charAt((indexPreEncode + moveLength) % 26)));
 			counter = (counter + 1) % encodeKey.length;

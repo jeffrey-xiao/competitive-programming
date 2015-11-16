@@ -59,10 +59,6 @@ class CCC_2009_J5_S3 {
 				else
 					System.out.println(degrees.get(0));
 				degrees.clear();
-				/*
-				 * for(int x = 0; x < degrees.size(); x++){
-				 * System.out.println(degrees.get(x)); }
-				 */
 			}
 			input = scan.next();
 		}
@@ -110,8 +106,6 @@ class CCC_2009_J5_S3 {
 		for (int x = 0; x < friends.get(person).size(); x++) {
 
 			if (friends.get(person).get(x).equals(target)) {
-				// System.out.println("PERSON " + person + " TARGET " + target +
-				// " DEGREE " + degree);
 				degrees.add(degree);
 				break;
 			}

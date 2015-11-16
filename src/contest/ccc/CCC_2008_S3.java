@@ -20,9 +20,7 @@ public class CCC_2008_S3 {
 			// 0,1 = x,y, 2 is moves
 			moves.add(new int[] {0, 0, 1});
 			while (!moves.isEmpty()) {
-
 				int[] curr = moves.poll();
-				// System.out.println(curr[0] + " " + curr[1]);
 				if (curr[0] < 0 || curr[0] >= r || curr[1] < 0 || curr[1] >= c || grid[curr[0]][curr[1]] == '*' || visited[curr[0]][curr[1]])
 					continue;
 				visited[curr[0]][curr[1]] = true;

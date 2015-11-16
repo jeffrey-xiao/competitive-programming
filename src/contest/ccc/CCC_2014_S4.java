@@ -43,23 +43,15 @@ public class CCC_2014_S4 {
 		while (!pq.isEmpty()) {
 			Event curr = pq.poll();
 			long currx = curr.x;
-			// System.out.println(currx + " " + curr.y1 + " " + curr.y2);
 			long currTotal = 0;
 			for (int x = 0; x < count; x++) {
 				currTotal += line[x];
-				// System.out.print(currTotal + " ");
 				if (lastx != Integer.MIN_VALUE && currTotal >= minTint && x != count - 1) {
-					// System.out.println("INCREASE " + currx + " " + lastx
-					// +" "+ toCoord.get(x+1)+" " + toCoord.get(x));
 					totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
-					// System.out.println("TOTAL AREA " + totalArea);
 				}
 
 			}
-			// System.out.println();
 			lastx = currx;
-			// System.out.println(toIndex.get(curr.y1) + " " +
-			// toIndex.get(curr.y2) + " " + curr.value);
 			line[toIndex.get(curr.y1)] += curr.value;
 			line[toIndex.get(curr.y2)] -= curr.value;
 			while (!pq.isEmpty() && pq.peek().x == lastx) {

@@ -105,14 +105,7 @@ public class CCC_2013_Stage_2_LHC {
 
 				currTotal += (add) * currPaths;
 				currPaths += add;
-				// System.out.println(currSum + " " + currTotal);
 			}
-
-			// for(int y = 0; y < subtrees.size(); y++){
-			// for(int z = y+1; z < subtrees.size(); z++){
-			// currSum += (subtrees.get(y)*subtrees.get(z));
-			// }
-			// }
 			sum = currTotal;
 		} else {
 			for (int x = 0; x < centers.size(); x++) {

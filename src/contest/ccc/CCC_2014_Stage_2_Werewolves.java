@@ -55,7 +55,6 @@ public class CCC_2014_Stage_2_Werewolves {
 			for (int x = 0; x < adj.get(c).size(); x++) {
 				Edge next = adj.get(c).get(x);
 				ingoing[next.dest]--;
-				// System.out.println(next.dest);
 				if (ingoing[next.dest] == 0) {
 					curr.offer(next.dest);
 					sorted.push(next.dest);
@@ -64,7 +63,6 @@ public class CCC_2014_Stage_2_Werewolves {
 		}
 		while (!sorted.isEmpty()) {
 			int c = sorted.pop();
-			// System.out.println(c);
 			dp[c][0][0] = dp[c][1][1] = 1;
 			for (Edge e : adj.get(c)) {
 				for (int y = w; y >= 0; y--) {

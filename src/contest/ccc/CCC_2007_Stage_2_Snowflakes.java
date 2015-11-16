@@ -37,9 +37,6 @@ public class CCC_2007_Stage_2_Snowflakes {
 						minS = Arrays.copyOf(curr, curr.length);
 				}
 			}
-			// for(int y = 0; y < 6; y++)
-			// System.out.print(minS[y] + " ");
-			// System.out.println();
 			snowflakes[x] = Arrays.copyOf(minS, minS.length);
 		}
 		Arrays.sort(snowflakes, new Comparator<int[]>() {

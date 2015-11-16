@@ -2,8 +2,8 @@ package contest.ccc;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -28,10 +28,10 @@ public class CCC_2006_Stage_2_Dominoes {
 	static final int INF = 1 << 30;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
 		for (int q = 1; q <= t; q++) {
@@ -69,7 +69,6 @@ public class CCC_2006_Stage_2_Dominoes {
 				if (cnt > 0)
 					s.add(new State(i, se, so));
 			}
-			// System.out.println("STATES ADDED");
 			System.out.println(s.size());
 			int oddcount = 0;
 			for (int i = 0; i < SIZE; i++)
@@ -98,7 +97,6 @@ public class CCC_2006_Stage_2_Dominoes {
 					}
 				}
 			}
-			// System.out.println("EDGES ADDED");
 			Collections.sort(e);
 			ArrayList<Pair> ps = new ArrayList<Pair>();
 			for (Edge edge : e) {
@@ -126,7 +124,6 @@ public class CCC_2006_Stage_2_Dominoes {
 					degree[edge.b] += edge.addo2;
 				}
 			}
-			// System.out.println("MST COMPLETED");
 			ArrayList<Integer> odd = new ArrayList<Integer>();
 			for (int i = 0; i < SIZE; i++) {
 				if (degree[i] > 0 && degree[i] % 2 == 1)

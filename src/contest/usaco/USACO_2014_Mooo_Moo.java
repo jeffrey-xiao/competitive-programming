@@ -30,7 +30,6 @@ public class USACO_2014_Mooo_Moo {
 			prevVolume = curr;
 			volumes.add(fieldVolume);
 			largest = Math.max(largest, fieldVolume);
-			// System.out.println(fieldVolume);
 		}
 		int[] fieldSolutions = solve(largest, cows);
 		for (Integer i : volumes)
@@ -39,8 +38,6 @@ public class USACO_2014_Mooo_Moo {
 	}
 
 	private static int[] solve (int fieldVolume, int[] cows) {
-
-		// System.out.println("ENTERED " + fieldVolume);
 		int[] field = new int[fieldVolume + 1];
 		for (int x = 1; x < field.length; x++)
 			field[x] = Integer.MAX_VALUE - 50000;
@@ -48,11 +45,6 @@ public class USACO_2014_Mooo_Moo {
 			for (int y = 0; y + cows[x] <= fieldVolume; y++) {
 				field[y + cows[x]] = Math.min(field[y + cows[x]], field[y] + 1);
 			}
-			/*
-			 * for(int a: field) System.out.print(a + " ");
-			 * System.out.println();
-			 */
-
 		}
 		return field;
 	}

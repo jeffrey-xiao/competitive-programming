@@ -20,10 +20,9 @@ public class CCC_2006_Stage_2_R_And_J {
 		int n = readInt();
 		int count = 0;
 		for (int x = 0; x < n; x++)
-			if (checkIntersection(a, b, new Point(readInt(), readInt(), readInt()), readInt())) {
+			if (checkIntersection(a, b, new Point(readInt(), readInt(), readInt()), readInt())) 
 				count++;
-				// System.out.println(x);
-			}
+		
 		System.out.println(count);
 	}
 

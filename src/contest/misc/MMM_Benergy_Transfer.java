@@ -83,15 +83,3 @@ public class MMM_Benergy_Transfer {
 		return br.readLine().trim();
 	}
 }
-/*
- * while(higher-lower > 0.00005f){ float mid = (lower+higher)/2; float[] currB =
- * setDistance(initialB, speedB, mid); float[] currS = setDistance(initialS,
- * speedS, mid); double distance = getDistance(currB, currS);
- * System.out.println(distance + " " +lower +" "+ higher); if(distance <= min){
- * higher = mid; min = distance; prevSmaller =true;
- * System.out.println("MOTHERFUCKER"); } else{ if(!prevSmaller){ higher = mid;
- * prevSmaller = false; } else lower = mid; }
- * 
- * }
- */
-

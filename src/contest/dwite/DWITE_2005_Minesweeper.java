@@ -31,11 +31,6 @@ public class DWITE_2005_Minesweeper {
 					boolean[][] visited = new boolean[16][30];
 					int squares = floodFill(x, y, visited);
 					System.out.printf("NO MINE - %d SQUARES REVEALED\n", squares);
-					/*
-					 * for(int x1 = 0; x1 < 16; x1++){ for(int y1 = 0;y1< 30;
-					 * y1++){ System.out.print(grid1[x1][y1]); }
-					 * System.out.println(); }
-					 */
 				}
 			}
 		}

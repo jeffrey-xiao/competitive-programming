@@ -43,12 +43,6 @@ public class CCC_1999_P4 {
 			boolean stale = false;
 			int staleMoves = 0;
 			int winMoves = 0;
-			/*
-			 * for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++)
-			 * System.out.print(grid[x][y] + " "); System.out.println();
-			 * 
-			 * }
-			 */
 			for (int x = pr - 1; x >= 0; x--) {
 				int time = pr - x;
 				if (grid[x][pc] == 0)
@@ -84,9 +78,6 @@ public class CCC_1999_P4 {
 		}
 	}
 
-	/*
-	 * 99 2 1 1 3 1
-	 */
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -37,15 +37,18 @@ public class USACO_2014_Cross_Country_Skiing {
 		}
 		startx = waypoints.get(0)[0];
 		starty = waypoints.get(0)[1];
-		// System.out.println(startx + " " + starty);
+		
 		Queue<int[]> moves = new LinkedList<int[]>();
 		moves.offer(new int[] {startx, starty, 0});
+		
 		while (!moves.isEmpty()) {
+			
 			int[] curr = moves.poll();
-			// System.out.println(curr[0] + " " + curr[1] + " " + curr[2]);
 			if (curr[2] >= dist[curr[0]][curr[1]])
 				continue;
+			
 			dist[curr[0]][curr[1]] = curr[2];
+			
 			if (!visited[curr[0]][curr[1]]) {
 				visited[curr[0]][curr[1]] = true;
 				if (curr[0] + 1 < r)
@@ -58,11 +61,6 @@ public class USACO_2014_Cross_Country_Skiing {
 					moves.add(new int[] {curr[0], curr[1] - 1, Math.abs(grid[curr[0]][curr[1] - 1] - grid[curr[0]][curr[1]])});
 			}
 		}
-		/*
-		 * for(int x = 0; x < r; x++){ for(int y = 0; y < c; y++){
-		 * System.out.print(dist[x][y] + " "); } System.out.println(); }
-		 */
-
 		long max = Integer.MIN_VALUE;
 		for (int[] i : waypoints) {
 			max = Math.max(max, dist[i[0]][i[1]]);

@@ -15,7 +15,6 @@ public class CCC_2012_S2 {
 		int total = 0;
 		for (int x = 0; x < input.length; x += 2) {
 			int curr = toNum(input[x + 1]);
-			// System.out.println(curr + " " + input[x]);
 			if (x + 2 >= input.length || (x + 2 < input.length && curr >= toNum(input[x + 3])))
 				total += (input[x] - 48) * curr;
 			else

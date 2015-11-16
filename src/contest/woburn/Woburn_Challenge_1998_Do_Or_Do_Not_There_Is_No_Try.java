@@ -29,7 +29,6 @@ public class Woburn_Challenge_1998_Do_Or_Do_Not_There_Is_No_Try {
 			while (!q.isEmpty() && visited[y2][x2] == 5000005) {
 				int[] p = q.poll();
 				for (int x = -maxJump; x <= maxJump; x++) {
-					// int range = maxJump-Math.abs(x);
 					for (int y = -maxJump; y <= maxJump; y++) {
 						if (Math.sqrt(x * x + y * y) > maxJump)
 							continue;
@@ -39,12 +38,6 @@ public class Woburn_Challenge_1998_Do_Or_Do_Not_There_Is_No_Try {
 						}
 					}
 				}
-				/*
-				 * for(int x = 0; x < visited.length; x++){ for(int y = 0; y <
-				 * visited[0].length; y++)
-				 * System.out.print((visited[x][y]==5000005?-1:visited[x][y])
-				 * +" "); System.out.println(); } System.out.println();
-				 */
 			}
 			System.out.println(visited[y2][x2] == 5000005 ? "THERE IS NO TRY" : visited[y2][x2]);
 			y1 = scan.nextInt() - 1;

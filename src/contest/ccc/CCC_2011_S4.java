@@ -10,7 +10,7 @@ public class CCC_2011_S4 {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	// 0 1 2 3 4 5 6 7
+	// 0  1  2  3  4  5  6   7
 	// O- O+ A- A+ B- B+ AB- AB+
 	static int[] b = new int[8];
 	static int[] p = new int[8];

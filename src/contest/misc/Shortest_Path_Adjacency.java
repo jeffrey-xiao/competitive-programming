@@ -23,10 +23,6 @@ public class Shortest_Path_Adjacency {
 				}
 			}
 		}
-		/*
-		 * for(int x = 0; x < size; x++){ for(int y = 0; y < size; y++){
-		 * System.out.print(table[x][y]); } System.out.println(); }
-		 */
 		System.out.println(table[0][size - 1]);
 	}
 }

@@ -87,8 +87,6 @@ public class CCC_2008_Stage_2_King_And_Weber {
 			}
 			count += 2;
 		}
-		// for(int x = 0; x < types.length; x++)
-		// System.out.println(types[x]);
 		return false;
 	}
 

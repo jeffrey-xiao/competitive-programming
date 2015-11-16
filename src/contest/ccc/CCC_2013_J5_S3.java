@@ -79,13 +79,10 @@ public class CCC_2013_J5_S3 {
 
 	private static void check (int[] scores) {
 		int scoreOfFav = scores[favTeam];
-		for (int x = 0; x < scores.length; x++) {
-			// System.out.print(scores[x] + " ");
+		for (int x = 0; x < scores.length; x++)
 			if (x != favTeam)
 				if (scoreOfFav <= scores[x])
 					return;
-		}
-		// System.out.println();
 		count++;
 	}
 

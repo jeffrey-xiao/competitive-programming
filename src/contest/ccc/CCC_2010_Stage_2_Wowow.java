@@ -2,9 +2,8 @@ package contest.ccc;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class CCC_2010_Stage_2_Wowow {
 	static int count;
 
 	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new FileReader(new File("C:/Documents and Settings/Jeffrey/workspace/Contest_4/src/ccc/test.txt")));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		int n = readInt();
 		Command[] c = new Command[n];
 		ArrayList<Integer> id = new ArrayList<Integer>();

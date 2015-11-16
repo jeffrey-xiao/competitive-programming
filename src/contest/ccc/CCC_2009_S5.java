@@ -22,23 +22,14 @@ public class CCC_2009_S5 {
 			int b = readInt();
 			int s = Math.max(0, x - rd);
 			int f = Math.min(r - 1, x + rd);
-			// System.out.println(y + " " + x + " " + rd + " " + b);
 			for (int i = s; i <= f; i++) {
 				int d = Math.abs((x - i));
-				// int start = Math.max(0,y-d);
-				// int end = Math.min(c,y+d+1);
 				int hori = (int) Math.sqrt(rd * rd - d * d);
 				int start = Math.max(0, y - hori);
 				int end = Math.min(c, y + hori + 1);
 				grid[i][start] += b;
 				grid[i][end] -= b;
 			}
-			// for(int x1 = 0; x1 < r; x1++){
-			// for(int y1 = 0; y1 < c+1; y1++){
-			// System.out.printf("%3d ",grid[x1][y1]);
-			// }
-			// System.out.println();
-			// }
 		}
 		int count = 0;
 		int max = 0;
@@ -52,9 +43,7 @@ public class CCC_2009_S5 {
 					count = 1;
 				} else if (grid[x][y] == max)
 					count++;
-				// System.out.printf("%3d ",grid[x][y]);
 			}
-			// System.out.println();
 		}
 		System.out.println(max + "\n" + count);
 	}

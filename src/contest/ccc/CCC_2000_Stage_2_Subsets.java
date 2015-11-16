@@ -25,7 +25,7 @@ public class CCC_2000_Stage_2_Subsets {
 			link.add(new ArrayList<Integer>());
 		}
 		setsToPrint = new TreeSet<Integer>();
-		int n = readInt();// 65, 97
+		int n = readInt();
 		Queue<Integer> moves = new LinkedList<Integer>();
 		for (int x = 0; x < n; x++) {
 			int set = next().charAt(0) - 65;

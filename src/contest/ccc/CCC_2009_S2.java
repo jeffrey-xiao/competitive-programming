@@ -13,7 +13,7 @@ public class CCC_2009_S2 {
 
 	public static void main (String[] args) throws IOException {
 		int r = readInt();
-		String[] lights = new String[r];// 0 is 0 and 1 is 1
+		String[] lights = new String[r];
 		for (int x = 0; x < r; x++) {
 			lights[x] = readLine().replaceAll("\\s", "");
 
@@ -29,9 +29,6 @@ public class CCC_2009_S2 {
 			poss = new LinkedHashSet<String>(newPoss);
 
 		}
-		/*
-		 * for(String s: poss){ System.out.println(s); }
-		 */
 		System.out.println(poss.size());
 	}
 

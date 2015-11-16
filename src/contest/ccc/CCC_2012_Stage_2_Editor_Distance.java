@@ -27,7 +27,6 @@ public class CCC_2012_Stage_2_Editor_Distance {
 		visited[s.x][s.y] = true;
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
-			// System.out.println(curr.x + " " + curr.y + " " + curr.count);
 			if (curr.x == e.x && curr.y == e.y) {
 				System.out.println(curr.count);
 				return;
