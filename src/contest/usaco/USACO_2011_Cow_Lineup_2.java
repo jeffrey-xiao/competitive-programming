@@ -26,7 +26,6 @@ public class USACO_2011_Cow_Lineup_2 {
 					curr++;
 				if (curr > max)
 					max = curr;
-				// System.out.println(x + " " + y + " " +curr);
 			}
 		}
 		System.out.println(max);

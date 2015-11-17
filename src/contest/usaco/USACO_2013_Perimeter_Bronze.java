@@ -30,8 +30,6 @@ public class USACO_2013_Perimeter_Bronze {
 			if (x < 0 || y < 0 || x >= 102 || y >= 102)
 				continue;
 			if (grid[x][y]) {
-				// if(curr.px != 0 && curr.px != 101 && curr.py != 0 && curr.py
-				// != 101)
 				count++;
 				continue;
 			}

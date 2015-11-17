@@ -39,11 +39,9 @@ public class USACO_2012_Horseshoes {
 
 			if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n || v[nextx][nexty])
 				continue;
-			// System.out.println(x + " " + y + " " + nextx + " " + nexty);
 			if (g[nextx][nexty] == '(' && !onOpen)
 				continue;
 			else if (g[nextx][nexty] == '(' && onOpen) {
-				// System.out.println("ASDASDAS");
 				compute(nextx, nexty, v, g, open + 1, close, true);
 			} else if (g[nextx][nexty] == ')')
 				compute(nextx, nexty, v, g, open, close + 1, false);

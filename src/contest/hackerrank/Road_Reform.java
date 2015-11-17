@@ -54,7 +54,6 @@ public class Road_Reform {
 			Vertex res = ts.lower(new Vertex(0, target));
 			if (res == null)
 				continue;
-			//out.println(target + " " + res.index + " " + ((target-1) * res.index - sum[res.index]) + " " + sum[res.index]);
 			ans += (target - 1) * res.index - sum[res.index];
 		}
 		out.println(ans);

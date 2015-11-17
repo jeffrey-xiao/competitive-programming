@@ -30,10 +30,6 @@ public class Woburn_Challenge_2015_Wildcat_Wildcards {
 		for (int i = 0; i < 8; i++) {
 			cards[i] -= min;
 		}
-		//		for (int i = 0; i < 8; i++)
-		//			System.out.print(cards[i] + " ");
-		//		System.out.println();
-		//		System.out.println(res);
 		int lo = 0;
 		int hi = 100000000;
 		while (lo <= hi) {

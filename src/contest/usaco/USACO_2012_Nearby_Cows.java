@@ -43,9 +43,7 @@ public class USACO_2012_Nearby_Cows {
 				if (x != 1)
 					minus = dp[y][x - 2] * (adj.get(y).size() - 1);
 				dp[y][x] += total - minus;
-				// System.out.println(dp[y][x]);
 			}
-			// System.out.println("NEXT");
 		}
 		for (int y = 0; y < n; y++) {
 			System.out.println(dp[y][k]);

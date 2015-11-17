@@ -30,7 +30,6 @@ public class USACO_2014_Guard_Mark {
 		for (int x = 0; x < 1 << n; x++) {
 			if (dp[x].height >= h)
 				ans = Math.max(ans, dp[x].safe);
-			// System.out.println(Integer.toString(x, 2));
 			for (int y = 0; y < n; y++) {
 				if ((x & 1 << y) == 0) {
 					int next = x | 1 << y;

@@ -15,7 +15,6 @@ public class USACO_2014_Odometer_Bronze {
 		long l = readLong();
 		String s;
 		int count = 0;
-		// ArrayList<Integer> q = new ArrayList<Integer>();
 		for (int y = 0; y < 10; y++) {
 			s = "";
 			for (int x = 0; x < Long.toString(l).length(); x++) {
@@ -32,7 +31,6 @@ public class USACO_2014_Odometer_Bronze {
 								long num = Long.parseLong(newS.toString());
 								if (num <= l && num >= n) {
 									count++;
-									// q.add(num);
 								}
 
 							}

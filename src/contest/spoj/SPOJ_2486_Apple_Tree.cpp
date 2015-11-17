@@ -16,7 +16,6 @@ int v[SIZE];
 int dp[SIZE][SIZE*2][2];
 
 void dfs (int u, int prev) {
-//    printf("HERE %d %d\n", u, prev);
     for (int i = 0; i <= k; i++) {
         dp[u][i][0] = dp[u][i][1] = v[u];
     }

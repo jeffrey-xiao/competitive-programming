@@ -24,14 +24,11 @@ public class June_2015_B {
 			int r = readInt();
 			int s = readInt();
 			double firstS = (double) (r) / (double) (s);
-			// System.out.println(firstS + " " + (int)(firstS));
 			if (firstS - (int) (firstS) > 1.0 / 4.0) {
 				System.out.println((int) ((Math.ceil(firstS)) * s) + " 0/1");
 			} else {
 				long top = r % s;
 				long bot = s;
-				// top = top * lca / bot - 1 * lca / 4;
-				// bot = lca;
 				long gcf = gcf(top, bot);
 				top /= gcf;
 				bot /= gcf;

@@ -41,8 +41,6 @@ public class USACO_2015_Stampede {
 		for (int x = 0; x < e.size(); x++) {
 			Integer e1 = xV.lower(e.get(x).l);
 			Integer e2 = xV.lower(e.get(x).r);
-			// System.out.println(e1 + " " + e2 + " " + e.get(x).l + " " +
-			// e.get(x).r);
 			if (e1 == null || e2 == null)
 				continue;
 			if (!e1.equals(e2)) {

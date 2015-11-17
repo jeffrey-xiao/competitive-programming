@@ -37,13 +37,6 @@ public class DWITE_2006_Connect_4 {
 						}
 					}
 				}
-				// for(int x1 = 5; x1 >= 0; x1--){
-				// for(int y1 = 0; y1 < 7; y1++){
-				// System.out.print(grid[x1][y1]);
-				// }
-				// System.out.println();
-				// }
-				// System.out.println();
 				red = !red;
 			}
 		}

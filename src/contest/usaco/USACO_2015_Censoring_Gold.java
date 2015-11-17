@@ -52,12 +52,9 @@ public class USACO_2015_Censoring_Gold {
 			startState.child[curr - SHIFT] = currState;
 			Node other = currState;
 			if (other.endDepth != -1) {
-				// System.out.println("Length is " + other.depth + " at " + i);
 				currState = dp[end - other.endDepth];
 
 				end = (end - other.endDepth);
-				// System.out.println(currState.depth + " " + currState.index +
-				// " " + res);
 			}
 			other = other.fall;
 			dp[end] = currState;
@@ -79,7 +76,6 @@ public class USACO_2015_Censoring_Gold {
 			// if the fall has already been computed then skip the current node
 			if (curr.fall != null)
 				continue;
-			//
 			Node fall = curr.parent.fall;
 			while (fall.child[curr.index] == null && fall != root)
 				fall = fall.fall;

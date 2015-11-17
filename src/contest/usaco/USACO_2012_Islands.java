@@ -40,7 +40,6 @@ public class USACO_2012_Islands {
 				numOfIslands--;
 			if (x < n - 1 && islands[x + 1][0] == islands[x][0])
 				continue;
-			// System.out.println(numOfIslands);
 			max = Math.max(max, numOfIslands);
 		}
 		System.out.println(max);

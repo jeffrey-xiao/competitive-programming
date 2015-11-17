@@ -49,7 +49,6 @@ public class Peg_Test_2014_C_2spooky4me {
 				curr += next.cost;
 			}
 			diff[toIndex.get(next.x)] = curr;
-			// System.out.println(diff[toIndex.get(next.x)] + " " + next.x);
 		}
 		int c = 0;
 		for (int x = 0; x < m.size() - 1; x++)

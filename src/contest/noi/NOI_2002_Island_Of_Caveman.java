@@ -43,25 +43,18 @@ public class NOI_2002_Island_Of_Caveman {
 
 					extended(a, -b);
 
-					// System.out.println(a + " " + b + " " + c + " " + x1 + " "
-					// + y1 + " " + d);
 					if (c % d != 0) {
-						// System.out.println(x + " " + y + " " + b + " WORKS");
 						continue;
 					}
 					int lcm = Math.abs(lcm(a, b));
 					x1 = x1 * (c / d);
 					y1 = y1 * (c / d);
-					// System.out.println(a*x1 + " " + (b*y1) + " " + c);
 					int amount = a < 0 ? (-lcm / a) : (lcm / a);
 					while (x1 < 0) {
 						x1 += amount;
 					}
 					while (x1 - amount > 0)
 						x1 -= amount;
-					// System.out.println(a*x1 + " " + (b*y1) + " " + c);
-					// System.out.printf("A: %d; B: %d; C: %d; X: %d; Y: %d; Life1: %d; Life2: %d\n",
-					// a, b, c, x1, y1, life[x], life[y]);
 					if (x1 <= life[x] && x1 <= life[y])
 						continue main;
 				}

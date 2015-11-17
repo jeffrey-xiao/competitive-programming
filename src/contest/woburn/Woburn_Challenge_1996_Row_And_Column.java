@@ -29,7 +29,6 @@ public class Woburn_Challenge_1996_Row_And_Column {
 					index++;
 				} else
 					count = 1;
-				// System.out.println(count);
 				for (; count > 0; count--, x++) {
 					grid[x][y] = s.charAt(index);
 				}
@@ -39,19 +38,12 @@ public class Woburn_Challenge_1996_Row_And_Column {
 					y++;
 				}
 			}
-			// for(char[] ca: grid){
-			// for(char cc: ca){
-			// System.out.print(cc);
-			// }
-			// System.out.println();
-			// }
 			String result = "";
 			for (x = 0; x < r; x++) {
 				char curr = ' ';
 				int count = 1;
 				for (y = 0; y < c; y++) {
 					if (grid[x][y] != curr || curr == ' ') {
-						// System.out.println(count + " " + curr);
 						result += (count == 1 ? "" : "" + count) + (curr == ' ' ? "" : curr);
 						curr = grid[x][y];
 						count = 1;

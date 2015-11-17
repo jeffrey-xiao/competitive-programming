@@ -1,12 +1,10 @@
 package contest.misc;
 
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -43,58 +41,36 @@ public class Main {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int t = readInt();
-		for (int qq = 1; qq <= t; qq++) {
-			long n = readLong();
-			long m = readLong();
-			long cnt = 1;
-			if (m != 0)
-				cnt = n * m / gcf(n, m) / m;
-			if (cnt == n)
-				out.println("Yes");
-			else
-				out.println("No " + cnt);
-			boolean flag = true;
-			long count = 1;
-			long a[] = new long[(int) (n + 1)];
-			Arrays.fill(a, 0);
-			long pos = m + 1;
-			long x = 0;
-			a[(int) pos] = 1;
-
-			while (flag) {
-				x = m + pos;
-				if ((x > n) && (x != n)) {
-					x = Math.abs(x - n);
-					if (a[(int) x] == 1) {
-						break;
-					}
-					pos = x;
-				} else {
-					if (x < n) {
-						if (a[(int) x] == 1) {
-							break;
-						}
-						pos = x;
-					} else {
-						if (x == n) {
-							if (a[(int) x] == 1) {
-								break;
-							}
-							pos = x;
-						}
-					}
+		int n = 8;
+		int[] degree = new int[n];
+		int[] a = new int[n * (n - 1) / 2];
+		int[] b = new int[n * (n - 1) / 2];
+		int cnt = 0;
+		for (int i = 0; i < n; i++)
+			for (int j = i + 1; j < n; j++) {
+				a[cnt] = i;
+				b[cnt] = j;
+				cnt++;
+			}
+		cnt = 0;
+		for (int i = 0; i < 1 << (n * (n - 1) / 2); i++) {
+			for (int j = 0; j < (n * (n - 1) / 2); j++)
+				if ((i & 1 << j) > 0) {
+					degree[a[j]]++;
+					degree[b[j]]++;
 				}
-				count++;
-			}
-			if (count == n) {
-				out.println("Yes");
-
-			} else {
-				out.println("No " + count);
-			}
-			out.flush();
+			boolean valid = true;
+			for (int j = 0; j < n; j++)
+				valid &= degree[j] % 2 == 0;
+			if (valid)
+				cnt++;
+			for (int j = 0; j < (n * (n - 1) / 2); j++)
+				if ((i & 1 << j) > 0) {
+					degree[a[j]]--;
+					degree[b[j]]--;
+				}
 		}
+		out.println(cnt);
 		out.close();
 	}
 

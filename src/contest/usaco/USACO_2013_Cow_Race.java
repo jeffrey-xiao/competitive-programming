@@ -39,8 +39,6 @@ public class USACO_2013_Cow_Race {
 			curr += times[x];
 			times[x] = curr;
 			distance += times[x];
-			// System.out.println(times[x] + " " + distance);
-			// System.out.print(times[x] + " ");
 			if (distance == 0)
 				continue;
 			if (state == 0) {

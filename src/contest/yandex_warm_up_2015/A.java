@@ -63,7 +63,6 @@ public class A {
 				if (adj[i][j])
 					pr.println(i + 1 + " " + (j + 1));
 			}
-			// System.out.println(counter[i]);
 		}
 		pr.close();
 	}

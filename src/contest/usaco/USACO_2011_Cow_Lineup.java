@@ -37,17 +37,11 @@ public class USACO_2011_Cow_Lineup {
 		int index2 = 0;
 		int min = Integer.MAX_VALUE;
 		while (index2 < n) {
-			// System.out.println("ASD");
 			while (index2 < n && m.size() < numOfIds) {
-				// System.out.println(index1 + " " + index2);
 				add(cows[index2][1]);
 				index2++;
 			}
 			while (index1 < n && m.size() == numOfIds) {
-				// System.out.println("DELETE "+index1 + " " + index2);
-				// System.out.println("REMOVING: " + cows[index1][1] + " " +
-				// m.get(cows[index1][1]));
-				// System.out.println("SIZE: " + m.size());
 				min = Math.min(min, cows[index2 - 1][0] - cows[index1][0]);
 				remove(cows[index1][1]);
 

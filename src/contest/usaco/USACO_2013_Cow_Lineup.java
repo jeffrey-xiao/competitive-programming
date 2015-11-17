@@ -30,8 +30,6 @@ public class USACO_2013_Cow_Lineup {
 				remove(nextToRemove);
 			}
 			int curr = lineup.get(nextCow);
-			// if(curr == 6)
-			// System.out.println(nextCow);
 			max = Math.max(curr, max);
 		}
 		System.out.println(max);

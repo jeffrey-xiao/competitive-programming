@@ -81,8 +81,6 @@ public class Woburn_Challenge_1999_The_Wedding_Juicer {
 					}
 					if (res > 0 && min != 1 << 30) {
 						System.out.println("MIN " + min + " " + res);
-						// System.out.println(res * (min - ls[i].h) + " " +
-						// ls[i].x + " " + ls[i].y);
 						ans += res * (min - ls[i].h);
 					}
 				}

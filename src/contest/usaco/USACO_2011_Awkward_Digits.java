@@ -15,7 +15,6 @@ public class USACO_2011_Awkward_Digits {
 					n1.setCharAt(x, (char) a1);
 					int a2 = (n2.charAt(y) + z - '0') % 3 + '0';
 					n2.setCharAt(y, (char) a2);
-					// System.out.println(n1 + " " + n2);
 					if (Integer.valueOf(n1.toString(), 2).equals(Integer.valueOf(n2.toString(), 3))) {
 						System.out.println(Integer.valueOf(n1.toString(), 2));
 						System.exit(0);

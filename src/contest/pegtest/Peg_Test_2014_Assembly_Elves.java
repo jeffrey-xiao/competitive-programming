@@ -30,7 +30,6 @@ public class Peg_Test_2014_Assembly_Elves {
 						continue;
 
 					int nextCount = count(next & n);
-					// System.out.println(x + " " + y + " " + nextCount);
 					if ((nextCount > bitCount && !used[next])) {
 						max = next;
 						bitCount = nextCount;

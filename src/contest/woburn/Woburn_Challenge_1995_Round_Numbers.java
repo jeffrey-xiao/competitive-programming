@@ -26,25 +26,25 @@ public class Woburn_Challenge_1995_Round_Numbers {
 		}
 		int sum = 0;
 		int length = (int) (Math.log(n) / Math.log(2)) + 1;
-		// System.out.println(length);
+		
 		for (int x = 1; x < length; x++) {
 			for (int y = (x + 1) / 2; y < x; y++) {
 				sum += dp[x - 1][y];
-				// System.out.println(x + " " + y + " " + dp[x][y]);
 			}
 		}
 
 		int totalOne = 0;
 		int currZero = 0;
+		
 		for (int x = 0; x <= length; x++)
 			if ((n & 1 << x) > 0)
 				totalOne++;
+		
 		boolean first = true;
-		// System.out.println("ADD HERE");
 		if (totalOne <= (length) / 2) {
 			sum++;
 		}
-		// System.out.println("CHOOSE " + C(3, 3));
+		
 		for (int x = length - 1; x >= 0; x--) {
 			if ((n & 1 << x) > 0) {
 				if (first) {
@@ -56,8 +56,6 @@ public class Woburn_Challenge_1995_Round_Numbers {
 				for (int y = digits; y <= digits; y++) {
 					for (int z = 0; z <= y; z++) {
 						if (currZero + 1 + z >= (length + 1) / 2) {
-							// System.out.println(digits + " " + y + " " + z +
-							// " " + currZero + " " + dp[y][z]);
 							sum += dp[y][z];
 						}
 					}

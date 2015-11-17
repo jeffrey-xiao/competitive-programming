@@ -34,8 +34,6 @@ public class Woburn_Challenge_2001_Cool_Runnings {
 				pq.offer(new State(0, 0, 0, z));
 			while (!pq.isEmpty()) {
 				State curr = pq.poll();
-				// System.out.println(curr.x + " " + curr.y + " " + curr.p + " "
-				// + curr.dir);
 				for (int z = 0; z < 8; z++) {
 					int nx = curr.x + movex[z];
 					int ny = curr.y + movey[z];

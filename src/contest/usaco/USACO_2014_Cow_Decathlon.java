@@ -46,10 +46,8 @@ public class USACO_2014_Cow_Decathlon {
 	}
 
 	// k is previous cow added
-
 	public static int compute (boolean[] s, int k, int prev) {
 		int i = toIndex(s);
-		// System.out.println(i + " " + prev);
 		if (i == ((1 << n) - 1))
 			return prev;
 		if (dp[i][k] != -1)
@@ -70,7 +68,6 @@ public class USACO_2014_Cow_Decathlon {
 				s[x] = false;
 			}
 		}
-		// System.out.println(max);
 		dp[i][k] = max;
 		return max;
 	}

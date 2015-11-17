@@ -34,7 +34,6 @@ public class USACO_2015_Cow_Routing_Silver {
 				for (int z = 0; z < y; z++) {
 					if (cost < adj[curr[z]][curr[y]] || (cost == adj[curr[z]][curr[y]] && y - z < moves[curr[z]][curr[y]])) {
 						adj[curr[z]][curr[y]] = cost;
-						// System.out.println(cost);
 						moves[curr[z]][curr[y]] = y - z;
 					}
 				}

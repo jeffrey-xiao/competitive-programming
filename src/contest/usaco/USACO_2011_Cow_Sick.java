@@ -39,12 +39,9 @@ public class USACO_2011_Cow_Sick {
 				Collections.sort(copy);
 
 				int diff = copy.get(0) - badNotes[0];
-				// System.out.println(diff);
 				for (int y = 1; y < m; y++) {
-					// System.out.println(copy.get(y) + " " + badNotes[y]);
 					if (copy.get(y) - diff != badNotes[y]) {
 						isBad = false;
-						// break;
 					}
 				}
 				if (isBad) {

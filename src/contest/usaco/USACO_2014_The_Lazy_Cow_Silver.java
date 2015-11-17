@@ -54,9 +54,7 @@ public class USACO_2014_The_Lazy_Cow_Silver {
 				int sum = c + dp[x + size][y + size] - b - a;
 				if (max < sum)
 					max = sum;
-				// System.out.print(sum+ " ");
 			}
-			// System.out.println();
 		}
 		System.out.println(max);
 	}

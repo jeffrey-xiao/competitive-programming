@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class USACO_2013_Fuel_Economy2 {
+public class USACO_2013_Fuel_Economy_2 {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
@@ -23,23 +23,19 @@ public class USACO_2013_Fuel_Economy2 {
 		Arrays.sort(stations);
 		int[] nextSmall = new int[n];
 		Stack<Integer> s = new Stack<Integer>();
-		// int pos = n-1;
 		for (int x = n - 1; x >= 0; x--) {
 			while (!s.isEmpty() && (stations[s.peek()].cost > stations[x].cost)) {
 				s.pop();
-				// pos--;
 			}
 			if (s.isEmpty())
 				nextSmall[x] = -1;
 			else
 				nextSmall[x] = s.peek();
-			// System.out.println(nextSmall[x]);
 			s.push(x);
 		}
 		curr -= stations[0].pos;
 		long cost = 0;
 		for (int x = 0; x < n; x++) {
-			// System.out.println(x + " " + curr + " " + cost);
 			if (curr < 0) {
 				System.out.println("-1");
 				return;

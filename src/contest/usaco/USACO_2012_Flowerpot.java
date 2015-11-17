@@ -43,7 +43,6 @@ public class USACO_2012_Flowerpot {
 		while (true) {
 			int min = p.first().y;
 			int max = p.last().y;
-			// System.out.println(min + " " + max);
 			if (max - min >= d) {
 				minWidth = Math.min(minWidth, pots[hi].x - pots[lo].x);
 				p.remove(pots[lo++]);

@@ -90,9 +90,6 @@ public class USACO_2015_Grass_Cownoisseur {
 				}
 			}
 		}
-		// for(int x = 0; x < n; x++)
-		// System.out.print(id[x] + " ");
-		// System.out.println();
 		getReachable(id[0], revG);
 		precompute(id[0], 0);
 		solve(id[0], 0);

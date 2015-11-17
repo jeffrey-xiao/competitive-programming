@@ -45,7 +45,6 @@ public class USACO_2013_Luxury {
 				x--;
 				repeat %= cycleCount;
 
-				// System.out.println(repeat);
 				repeat += cycleCount;
 				totallyDone = true;
 				continue;

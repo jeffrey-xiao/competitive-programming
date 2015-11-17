@@ -1,8 +1,8 @@
 package contest.hackerrank;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ public class Counting_Permutations {
 	static long[] F;
 
 	public static void main (String[] args) throws IOException {
-		//		br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 		F = new long[100001];
 		F[0] = 1;
@@ -53,9 +53,7 @@ public class Counting_Permutations {
 			HashSet<String> v = new HashSet<String>();
 			long ans = 0;
 			for (int i = 0; i < n; i++) {
-				//				out.println(i + " " + tree[i].hash.get(-1));
 				if (tree[i].child.size() <= 2 && !v.contains(tree[i].hash.get(-1).toString())) {
-					//					out.println("DP ON " + i + " " + tree[i].dp.get(-1));
 					ans = (ans + tree[i].dp.get(-1)) % MOD;
 					v.add(tree[i].hash.get(-1).toString());
 				}
@@ -112,7 +110,6 @@ public class Counting_Permutations {
 	private static void compute (int i, int prev) {
 		if (tree[i].hash.containsKey(prev))
 			return;
-		//		System.out.println(i + " " + prev);
 		int size = 1;
 		ArrayList<StringBuilder> hv = new ArrayList<StringBuilder>();
 		for (int j : tree[i].child)

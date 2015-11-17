@@ -33,7 +33,6 @@ public class USACO_2013_Wormholes {
 				if (x == y)
 					continue;
 				if ((next[x] == -1 || p[next[x]].x > p[y].x) && p[x].y == p[y].y && p[x].x < p[y].x) {
-					// System.out.println("MATCHING " + x + " " + y);
 					next[x] = y;
 				}
 			}

@@ -25,8 +25,6 @@ public class USACO_2012_Rope_Folding {
 		int count = 0;
 		n--;
 		for (int x = 0; x < n - 1; x++) {
-			// System.out.println(0 + " " + x);
-			// System.out.println(n-1-x + " " + (n-1));
 			if (checkPalin(0, x, diff))
 				count++;
 			if (checkPalin(n - 1 - x, n - 1, diff))
@@ -43,7 +41,6 @@ public class USACO_2012_Rope_Folding {
 			if (diff[start + y] != diff[end - y])
 				return false;
 		}
-		// System.out.println("TRUE: " + start+" " + end);
 		return true;
 	}
 

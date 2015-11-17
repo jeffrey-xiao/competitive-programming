@@ -45,11 +45,8 @@ public class B {
 							dfs(i, j, k, n);
 							count++;
 						}
-						// System.out.print(cube[i][j][k]);
 					}
-					// System.out.println();
 				}
-				// System.out.println();
 			}
 			pr.println(count == hs.size() ? "Yes" : "No");
 		}

@@ -28,7 +28,7 @@ public class Matrix {
 		int n = readInt();
 		int m = readInt();
 		dp = new int[n][2];
-		// 1 = something, 0 = nothin
+		// 1 = something, 0 = nothing
 		isMachine = new boolean[n];
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());

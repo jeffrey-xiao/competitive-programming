@@ -29,8 +29,6 @@ public class USACO_2013_Bessie_Slows_Down {
 				else
 					slowTime = false;
 			}
-			// System.out.println((d.peek()-currentD)/(1.0/speed) + " " +
-			// (t.peek()-currentT));
 			if (slowTime) {
 				int time = t.poll();
 				currentD += (time - currentT) * (1.0 / speed);

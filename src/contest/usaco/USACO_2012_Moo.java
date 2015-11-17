@@ -19,12 +19,9 @@ public class USACO_2012_Moo {
 			next++;
 		}
 		compute(curr, next - 1, n);
-		// System.out.println(curr);
-
 	}
 
 	private static void compute (int curr, int next, int n) {
-		// System.out.println(curr + " " + next + " " + n);
 		if (next == 0) {
 			if (n == 1)
 				System.out.println("m");

@@ -7,14 +7,12 @@ public class USACO_2014_Secret_Code_Silver {
 
 	public static void main (String[] args) {
 		String input = scan.nextLine();
-		// int half = (input.length()+1)/2;
 		int ways = count(input);
 
 		System.out.println(ways);
 	}
 
 	private static int count (String s) {
-		// System.out.println(s);
 		if (s.length() % 2 == 0 || s.length() == 1)
 			return 0;
 

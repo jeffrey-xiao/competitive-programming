@@ -29,7 +29,6 @@ public class USACO_2012_Bookshelf_Silver {
 				sum += books[x + y][1];
 				height = Math.max(books[x + y][0], height);
 				dp[x + y] = Math.min(dp[x + y], dp[x] + height);
-				// System.out.println(sum+" " + height);
 			}
 		}
 		System.out.println(dp[n]);

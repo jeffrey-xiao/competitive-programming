@@ -34,7 +34,6 @@ public class USACO_2013_Perimeter_Silver {
 		moves.push(new Point(sx, sy));
 		while (!moves.isEmpty()) {
 			Point curr = moves.pop();
-			// System.out.println(curr.x + " " + curr.y);
 			if (points.contains(curr)) {
 				count++;
 				continue;

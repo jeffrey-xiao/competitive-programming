@@ -1,8 +1,8 @@
 package contest.hackerrank;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,9 +24,9 @@ public class Cross_The_River {
 	static ArrayList<LinkedList<State>> buckets;
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
@@ -59,7 +59,6 @@ public class Cross_The_River {
 		Arrays.sort(r);
 		LinkedList<Update> list = new LinkedList<Update>();
 		for (int i = 0; i < N; i++) {
-			//			out.println(r[i].x + " " + r[i].y + " " + r[i].points);
 			Integer lo = ts.ceiling(r[i].x - DW);
 			Integer hi = ts.floor(r[i].x + DW);
 			if (lo == null || hi == null || (lo > hi)) {
@@ -68,18 +67,15 @@ public class Cross_The_River {
 			} else {
 				lo = id.get(lo);
 				hi = id.get(hi);
-				//				out.println("SEARCHING " + lo + " TO " + hi);
 				State max = query(1, 1, cnt - 1, lo, hi);
 				while (max.y - r[i].y > DH) {
 					remove(max.index);
 					update(1, max.index, 1, cnt - 1);
 					max = query(1, 1, cnt - 1, lo, hi);
 				}
-				//				out.println(max.points + r[i].points + " AT " + id.get(r[i].x));
 				int nextPoints = max.points == -1 << 27 ? max.points : (max.points + r[i].points);
 				list.add(new Update(id.get(r[i].x), new State(r[i].y, nextPoints, id.get(r[i].x))));
 				if (i == N - 1 || (r[i].y != r[i + 1].y)) {
-					//					out.println("UPDATING");
 					while (!list.isEmpty()) {
 						Update u = list.pollFirst();
 						add(u.x, u.s);

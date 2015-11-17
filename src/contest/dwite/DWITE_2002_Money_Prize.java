@@ -34,15 +34,11 @@ public class DWITE_2002_Money_Prize {
 					dp[x][y][0] = grid[x][y] + dp[x][y - 1][0];
 				else {
 					ArrayList<Integer> possible = new ArrayList<Integer>();
-					// System.out.println(x + " " + y);
 					for (int z = 0; z < 5; z++) {
 						if (dp[x][y - 1][z] != -1)
 							possible.add(grid[x][y] + dp[x][y - 1][z]);
 						if (dp[x + 1][y][z] != -1)
 							possible.add(grid[x][y] + dp[x + 1][y][z]);
-
-						// System.out.println(grid[x][y] + dp[x+1][y][z]);
-						// System.out.println(grid[x][y] + dp[x][y-1][z]);
 					}
 					Collections.sort(possible, new Comparator<Integer>() {
 

@@ -22,7 +22,6 @@ public class USACO_2013_Cow_Baseball {
 			for (int y = x + 1; y < n - 1; y++) {
 				for (int z = y + 1; z < n; z++) {
 					if (cows[y] - cows[x] <= cows[z] - cows[y] && (cows[z] - cows[y]) <= 2 * (cows[y] - cows[x])) {
-						// System.out.println(x + " " + y + " " + z);
 						total++;
 					}
 				}

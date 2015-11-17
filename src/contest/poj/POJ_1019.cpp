@@ -33,11 +33,9 @@ int main () {
         }
         j--;
         int sz = 0;
-//        printf("%d\n", j);
         for (int k = 1;; k++) {
             sz += len(k);
             if (sz >= n - dp[j+1]) {
-//                printf("PRINTING DIGIT %d\n", k);
                 printf("%d\n", digit(sz - (n - dp[j+1]), k));
                 break;
             }

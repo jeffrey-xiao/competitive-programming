@@ -42,18 +42,15 @@ public class USACO_2014_Learning_By_Example {
 			int start = c.get(x).weight;
 			int end = c.get(x + 1).weight;
 			int mid = (start + end) / 2;
-			// System.out.println(start + " " + end + " " + mid);
 			if (c.get(x).spot) {
 				int is = Math.max(a, start + 1);
 				int ie = Math.min(b, mid);
-				// System.out.println(ie-is+1);
 				if (ie >= is)
 					count += ie - is + 1;
 			}
 			if (c.get(x + 1).spot) {
 				int is = Math.max(a, mid + 1);
 				int ie = Math.min(b, end);
-				// System.out.println(ie-is+1);
 				if (ie >= is)
 					count += ie - is + 1;
 			}

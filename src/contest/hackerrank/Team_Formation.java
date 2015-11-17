@@ -36,13 +36,11 @@ public class Team_Formation {
 			int prev = -1;
 			int prevIndex = 0;
 			for (int i = 0; i < n; i++) {
-				//				System.out.println(a[i]);
 				if (a[i] != prev) {
 					prev = a[i];
 					prevIndex = list.size() - 1;
 				}
 				if (list.size() == 0 || prevIndex < 0 || list.get(prevIndex).end != a[i] - 1) {
-					//					System.out.println("NEW LIST");
 					list.add(new State(a[i], 1));
 					prevIndex = list.size() - 1;
 				} else {

@@ -31,7 +31,6 @@ public class NOI_2004_The_Depressed_Cashier {
 				if (k < minWage)
 					continue;
 				update(k - delta, 1);
-				// System.out.println("ADDING " + (k-delta));
 				employees++;
 			} else if (c == 'A') {
 				delta += k;
@@ -41,25 +40,23 @@ public class NOI_2004_The_Depressed_Cashier {
 				int lower = freq(minWage - 1 - delta);
 				employees -= lower;
 				left += lower;
-				// System.out.println("LOWERING " + k + " LEAVES " + left);
-				// System.out.println("FROM 1 TO " + (minWage - 1 - delta));
+				
 				for (int y = 1; y <= minWage - 1 - delta; y++) {
 					update(y, -tree[y]);
 				}
 			} else if (c == 'F') {
 				int lo = 1;
 				int hi = SIZE - 1;
+				
 				if (k > employees) {
 					System.out.println(-1);
 					continue;
 				}
+				
 				k = employees - k + 1;
-				// System.out.println("FINDING " + k);
+				
 				while (lo <= hi) {
-
 					int mid = lo + (hi - lo) / 2;
-					// System.out.println("BINARY SEARCH " + mid + " " +
-					// freq(mid));
 					if (freq(mid) < k)
 						lo = mid + 1;
 					else

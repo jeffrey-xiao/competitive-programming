@@ -46,12 +46,6 @@ public class Crab_Graphs {
 				addEdge(0, i * 2 - 1, f, 0);
 				addEdge(i * 2, 2 * n + 1, 1, 0);
 			}
-			//			for (int i = 0; i < 2*n+2; i++) {
-			//				out.println(i + " IS CONNECTED TO ");
-			//				for (int j = last[i]; j != -1; j = e[j].next) {
-			//					out.println("\t " +e[j].dest + " WITH " + e[j].cost);
-			//				}
-			//			}
 			out.println(getFlow());
 		}
 

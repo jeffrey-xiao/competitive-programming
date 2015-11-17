@@ -31,11 +31,6 @@ public class USACO_2013_Island_Travels_2 {
 		grid = new char[r][];
 		for (int x = 0; x < r; x++)
 			grid[x] = readLine().toCharArray();
-		// for(int x = 0; x < r; x++){
-		// for(int y = 0; y < c; y++)
-		// System.out.printf("%3c",grid[x][y] == 'S'?'~':grid[x][y]);
-		// System.out.println();
-		// }
 		for (int x = 0; x < r; x++)
 			for (int y = 0; y < c; y++)
 				if (grid[x][y] == 'X') {
@@ -49,12 +44,6 @@ public class USACO_2013_Island_Travels_2 {
 		for (int x = 0; x < count; x++)
 			bfs(x);
 
-		// for(int x = 0; x < count; x++){
-		// for(int y = 0; y < count; y++){
-		// System.out.printf("%3d", adj[x][y]);
-		// }
-		// System.out.println();
-		// }
 		int size = (int) (Math.pow(2, count));
 		dp = new int[count][size];
 		for (int y = 0; y < count; y++)

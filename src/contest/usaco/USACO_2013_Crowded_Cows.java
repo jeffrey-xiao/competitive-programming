@@ -39,20 +39,15 @@ public class USACO_2013_Crowded_Cows {
 		int count = 0;
 		int lo = 0, hi = 0;
 		for (int c = 0; c < n; c++) {
-			// System.out.println(cows[c].height + " " + cows[c].pos);
 			while (hi < n && cows[hi].pos <= cows[c].pos + d) {
 				hiSeg.add(cows[hi]);
 				hi++;
 			}
 			while (cows[lo].pos < cows[c].pos - d) {
-				// System.out.println("REMOVING " + cows[lo].height);
 				loSeg.remove(cows[lo]);
 				lo++;
 			}
 			loSeg.add(cows[c]);
-			// System.out.println("HERE C: " + c + " " +loSeg.size());
-			// System.out.println(loSeg.last().height + " " +
-			// hiSeg.last().height + " " + cows[c].height);
 			if (loSeg.last().height >= 2 * cows[c].height && hiSeg.last().height >= 2 * cows[c].height)
 				count++;
 			hiSeg.remove(cows[c]);

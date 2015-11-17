@@ -35,7 +35,6 @@ public class USACO_2014_Decorating_The_Pastures {
 			moves.add(new int[] {y, -1});
 			while (!moves.isEmpty()) {
 				int[] curr = moves.poll();
-				// System.out.println(curr[0]);
 				if (vertices[curr[0]] != 0)
 					continue;
 

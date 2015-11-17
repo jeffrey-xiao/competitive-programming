@@ -30,7 +30,6 @@ public class DWITE_2009_Trailing_Bears {
 
 		double slope1 = ym1 / xm1;
 		double slope2 = ym2 / xm2;
-		// System.out.println(slope1 + " " + slope2);
 		if (slope1 == Double.POSITIVE_INFINITY)
 			return new Point((B.x + C.x) / 2, (B.y + C.y) / 2);
 		else if (slope2 == Double.POSITIVE_INFINITY)

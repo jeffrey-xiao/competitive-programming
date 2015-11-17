@@ -42,12 +42,9 @@ public class USACO_2012_Overplanting_Bronze {
 				sum = 0;
 				for (int y = lines[index][1]; y < lines[index][2]; y++) {
 					strip[y + 10000] += add;
-					// System.out.print(strip[y+10000]);
-
 				}
 				for (int y = 0; y < 20001; y++)
 					sum += strip[y] > 0 ? 1 : 0;
-				// System.out.println(" " + lines[index][0] + sum);
 				index++;
 			}
 			while (index < n * 2 && lines[index][0] == curr) {
@@ -55,15 +52,12 @@ public class USACO_2012_Overplanting_Bronze {
 				sum = 0;
 				for (int y = lines[index][1]; y < lines[index][2]; y++) {
 					strip[y + 10000] += add;
-					// System.out.print(strip[y+10000]);
 				}
 				for (int y = 0; y < 20001; y++)
 					sum += strip[y] > 0 ? 1 : 0;
-				// System.out.println(" " + lines[index][0] + sum);
 				index++;
 			}
 			total += sum;
-			// System.out.println(total);
 		}
 		System.out.println(total);
 	}

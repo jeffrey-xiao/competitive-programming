@@ -1,8 +1,8 @@
 package contest.usaco;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Comparator;
@@ -19,9 +19,9 @@ public class USACO_2015_Trapped_In_The_Haybales {
 	static Seg seg[];
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
@@ -53,31 +53,23 @@ public class USACO_2015_Trapped_In_The_Haybales {
 			int curr = pq.poll();
 			if (seg[curr].area == 0)
 				continue;
-			// System.out.println("CURRENT SEG " + seg[curr].l + " " +
-			// seg[curr].r + " " + seg[curr].lm + " " + seg[curr].rm + " " +
-			// seg[curr].area);
 			int len = seg[curr].r - seg[curr].l;
 			if (len <= seg[curr].lm && len <= seg[curr].rm) {
 				ans += seg[find(curr)].area;
 				seg[find(curr)].area = 0;
-				// System.out.println("DEAD");
 			} else if (len > seg[curr].lm) {
-				// System.out.println("MERGE LEFT");
 				if (seg[curr].l == p[0]) {
 					seg[find(curr)].area = 0;
 				} else {
-					// System.out.println("NO ESCAPE");
 					int rl = find(seg[curr].li);
 					int rr = find(curr);
 					merge(rl, rr);
 					pq.offer(find(rl));
 				}
 			} else if (len > seg[curr].rm) {
-				// System.out.println("MERGE RIGHT");
 				if (seg[curr].r == p[n - 1]) {
 					seg[find(curr)].area = 0;
 				} else {
-					// System.out.println("NO ESCAPE");
 					int rl = find(curr);
 					int rr = find(seg[curr].ri);
 					merge(rl, rr);

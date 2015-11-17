@@ -25,11 +25,7 @@ public class DWITE_2006_Points_On_A_line {
 			int count = 0;
 			for (int x = 0; x < p.size(); x++) {
 				Point curr = p.get(x);
-				// System.out.println(p1 + " " + p2 + " " + curr);
-				// System.out.println(getSlope(p1, curr) + " " + getSlope(curr,
-				// p2));
 				if (getSlope(p1, curr) == getSlope(curr, p2)) {
-
 					count++;
 				}
 			}

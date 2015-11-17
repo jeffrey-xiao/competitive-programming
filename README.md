@@ -1,5 +1,5 @@
 # Competitive-Programming
-Compilation of all the programs for practice and contests
+Compilation of all the programs for practice and contests	
 
 Under the codebook package, you will find implementations of very common algorithms and data structures.
 

@@ -38,8 +38,6 @@ public class USACO_2012_Distant_Pastures {
 		int starty = y;
 		PriorityQueue<Point> moves = new PriorityQueue<Point>();
 		boolean[][] visited = new boolean[n][n];
-		// int finalx = 0;
-		// int finaly = 0;
 		int max = 0;
 		moves.add(new Point(x, y, 0));
 		while (!moves.isEmpty()) {
@@ -47,14 +45,11 @@ public class USACO_2012_Distant_Pastures {
 			x = curr.x;
 			y = curr.y;
 			int time = curr.time;
-			// System.out.println(x + " " + y + " " + time);
 			if (visited[x][y])
 				continue;
 			visited[x][y] = true;
 			if (time > max) {
 				max = time;
-				// finalx = x;
-				// finaly = y;
 			}
 			for (int z = 0; z < 4; z++) {
 				int nextx = x + movex[z];

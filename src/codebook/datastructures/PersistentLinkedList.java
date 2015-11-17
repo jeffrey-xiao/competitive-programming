@@ -4,7 +4,7 @@
 
 package codebook.datastructures;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class PersistentLinkedList {
 	private ArrayList<Node> versions;

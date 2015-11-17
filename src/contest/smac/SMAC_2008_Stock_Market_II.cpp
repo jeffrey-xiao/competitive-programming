@@ -20,7 +20,6 @@ int main () {
     for (int i = n; i >= 1; i--) {
         bestBuy = max(bestBuy, bestSell - price[i]);
         bestSell = max(bestSell, bestBuy + price[i] - 2*m);
-        //printf("%d %d %d\n", i, prevSell - price[i] - m, prevBuy + price[i] - m);
     }
     printf("%lld", bestBuy);
     return 0;

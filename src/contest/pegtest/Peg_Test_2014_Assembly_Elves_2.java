@@ -29,15 +29,17 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 	}
 
 	private static TreeSet<Integer> compute (int i, TreeSet<Integer> prev, int with) {
-		// System.out.println(i);
 		if (mem[i][with])
 			return (TreeSet<Integer>) dp[i][with].headSet(i, true);
+		
 		TreeSet<Integer> curr = new TreeSet<Integer>();
 		curr.addAll(prev);
+		
 		if (i == 1) {
 			curr.add(i);
 			return curr;
 		}
+		
 		if (i % 2 == 0) {
 			curr.add(i);
 			curr.addAll(compute(i / 2, curr, with));
@@ -46,26 +48,22 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 			int size = Integer.MAX_VALUE;
 			prev.addAll(curr);
 			prev.add(i);
-			// System.out.println(i + " " + prev);
 			TreeSet<Integer> next = new TreeSet<Integer>();
 			for (int x = 1; x <= i / 2; x++) {
 				next.addAll(prev);
-				// System.out.println("NEXT " + i + " " + x);
-				// System.out.println(next);
 				next.addAll(compute(x, next, 0));
-				// System.out.println(next + " " + (x));
 				next.addAll(compute(i - x, next, x));
-				// System.out.println(next + " " + (i-x));
+				
 				if (next.size() < size) {
-					// System.out.println("ADDED " + x + " " + (i-x));
-					// System.out.println(next);
 					curr = new TreeSet<Integer>();
 					curr.addAll(next);
 					size = next.size();
 				}
+				
 				next.clear();
 			}
 		}
+		
 		mem[i][with] = true;
 		curr.add(i);
 		dp[i][with] = curr;

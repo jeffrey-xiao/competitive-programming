@@ -58,10 +58,7 @@ public class USACO_2013_Luxury_River_Cruise {
 			else
 				rPort = ports[rPort][0];
 		} while (tPort != rPort);
-		// int cycleLength = rIndex-tIndex;
-		// System.out.println(cycleLength);
 		int currPort = 0;
-		// (repeat*seqLength)%cycleLength
 		int amountToCycle = 0;
 		for (int x = 0; x < repeat * seqLength; x++) {
 			if (cycle.contains(currPort)) {

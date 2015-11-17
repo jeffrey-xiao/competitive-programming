@@ -1,8 +1,8 @@
 package contest.hackerrank;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,29 +27,9 @@ public class Debug {
 	static int[] dsu;
 
 	public static void main (String[] args) throws IOException {
-		//		long ans1 = 0;
-		//		long ans2 = 0;
-		//		while (ans1 == ans2) {
-		//		PrintWriter o = new PrintWriter(new FileWriter("in.txt"));
-		//		o.println(5);
-		//		o.println(5);
-		//		for (int i = 0; i < 5; i++) {
-		//			String res = "";
-		//			for (int j = 0; j < 5; j++) {
-		//				int rand = (int)(Math.random()*3);
-		//				if (rand == 0)
-		//					res += '.';
-		//				else if (rand == 1)
-		//					res += '#';
-		//				else
-		//					res += '?';
-		//			}
-		//			o.println(res);
-		//		}
-		//		o.close();
-		//		br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
@@ -77,7 +57,6 @@ public class Debug {
 		for (int i = 0; i < n; i++) {
 			int sz = indexes.get(i).size();
 			dp.get(i % 2).clear();
-			//			out.println(i);
 			for (int j = 0; j < (1 << sz); j++) {
 				int[] newRow = new int[m];
 				for (int k = 0; k < m; k++)
@@ -94,10 +73,6 @@ public class Debug {
 				}
 
 				if (i == 0) {
-					//					out.println("NEW ROW");
-					//					for (int k = 0; k < m; k++)
-					//						out.print(newRow[k] + " ");
-					//					out.println();
 					dp.get(i).put(new State(newRow, true), 1l);
 				} else {
 					int[] ogrow = Arrays.copyOf(newRow, newRow.length);
@@ -162,14 +137,6 @@ public class Debug {
 							if (newRow[k] != 0)
 								newRow[k] = convert.get(newRow[k]);
 						}
-						//						out.println("OLD ROWWWW");
-						//						for (int k = 0; k < m; k++)
-						//							out.print(s.row[k] + " ");
-						//						out.println();
-						//						out.println("NEW ROW");
-						//						for (int k = 0; k < m; k++)
-						//							out.print(newRow[k] + " ");
-						//						out.println();
 						boolean canEmpty = false;
 						if (hasCurr)
 							canEmpty = true;
@@ -177,7 +144,6 @@ public class Debug {
 							canEmpty = false;
 						else if (!hasCurr && !hasPrev)
 							canEmpty = s.canEmpty;
-						//						out.println(canEmpty);
 						add(i % 2, new State(newRow, canEmpty), e.getValue());
 					}
 				}
@@ -190,18 +156,11 @@ public class Debug {
 			for (int i = 0; i < m; i++)
 				hs.add(s.row[i]);
 			if (hs.size() <= 2) {
-				//				for (int i = 0; i < m; i++) {
-				//					out.print(s.row[i] + " ");
-				//				}
-				//				out.println("\n " + e.getValue());
 				ans = (ans + e.getValue()) % MOD;
 			}
 		}
 		out.println(ans);
 		out.close();
-		//		ans1 = ans;
-		//		ans2 = bf();
-		//		}
 	}
 
 	private static int find (int x) {
@@ -244,13 +203,6 @@ public class Debug {
 				}
 			}
 			if (cnt <= 1 && valid) {
-				//				for (int k = 0; k < n; k++) {
-				//					for (int l = 0; l < m; l++) {
-				//						out.print(g[k][l] != 0 ? 1 : 0);
-				//					}
-				//					out.println();
-				//				}
-				//				out.println();
 				res++;
 			}
 		}
@@ -267,7 +219,6 @@ public class Debug {
 		for (int z = 0; z < 4; z++) {
 			int ni = i + movex[z];
 			int nj = j + movey[z];
-			//			out.println("NEXT " + ni + " " + nj);
 			if (ni < 0 || nj < 0 || ni >= n || nj >= m || (ni == pi && nj == pj) || g[ni][nj] == 0)
 				continue;
 			if (v[ni][nj]) {

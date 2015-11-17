@@ -38,7 +38,6 @@ public class D {
 			}
 		}
 		int exceed = max - (f.length + 1) / 2;
-		// System.out.println(max);
 		if (exceed > 0)
 			max = f.length - exceed * 2 - (f.length % 2 == 1 ? 1 : 0);
 		else

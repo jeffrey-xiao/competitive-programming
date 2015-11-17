@@ -51,10 +51,6 @@ public class USACO_2012_Relocation {
 				for (int z = 0; z < k; z++) {
 					if (y != z) {
 						minValue = Math.min(minValue, min.get(z)[x] + min.get(y)[x] + paths[y][z]);
-						// System.out.println(x + " " + y + " " + z + " " +
-						// paths[y][z]);
-						// System.out.println(min.get(y)[x] + " " +
-						// min.get(z)[x]);
 					}
 				}
 			}
@@ -65,13 +61,9 @@ public class USACO_2012_Relocation {
 	private static void permute (int i, int c, ArrayList<Integer> a) {
 		if (c == 0) {
 			int sum = 0;
-			// for(int x = 0; x < a.size(); x++)
-			// System.out.print(a.get(x) + " ");
-			// System.out.println();
 			for (int x = 0; x < a.size() - 1; x++)
 				sum += min.get(a.get(x))[markets[a.get(x + 1)]];
 			paths[a.get(0)][a.get(a.size() - 1)] = sum;
-			// System.out.println(sum);
 			return;
 		}
 		for (int x = 0; x < i; x++) {

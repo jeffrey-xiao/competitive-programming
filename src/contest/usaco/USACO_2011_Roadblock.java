@@ -55,8 +55,6 @@ public class USACO_2011_Roadblock {
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {
 				Edge e = adjlist.get(curr.index).get(x);
 				Vertex next = new Vertex(e.dest, e.cost + curr.cost, curr.index);
-				// System.out.println(curr.index + " " + next.index + " " +
-				// next.cost);
 				if (visited[next.index])
 					continue;
 				if (min[next.index] == 0 || min[next.index] > next.cost) {

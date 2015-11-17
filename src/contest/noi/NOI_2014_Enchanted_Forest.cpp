@@ -74,7 +74,6 @@ int main () {
             pi a = minA[curr];
             pi b = minB[curr];
             pi t = minT[curr];
-    //        printf("%d\n %d %d %d %d\n", curr,  a.first, a.second, b.first, b.second);
             for (pair<int, pi> next : adj[curr]) {
                 pi na = minA[next.first];
                 pi nb = minB[next.first];

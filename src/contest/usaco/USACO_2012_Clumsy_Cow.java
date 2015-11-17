@@ -19,7 +19,6 @@ public class USACO_2012_Clumsy_Cow {
 				curr++;
 			else
 				curr--;
-			// System.out.println(curr);
 			if (curr < 0) {
 				curr += 2;
 				count++;

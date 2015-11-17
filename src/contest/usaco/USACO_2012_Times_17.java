@@ -15,8 +15,6 @@ public class USACO_2012_Times_17 {
 		StringBuilder s2 = new StringBuilder(s1.toString().concat("0000"));
 		s1.reverse();
 		s2.reverse();
-		// System.out.println(s1);
-		// System.out.println(s2);
 		String result = "";
 		int carry = 0;
 		for (int x = 0; x < s2.length(); x++) {

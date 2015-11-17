@@ -27,13 +27,11 @@ public class USACO_2011_Simplifying_The_Farm {
 		int totalCost = 0;
 		Arrays.sort(edges);
 		for (int x = 0; x < m && q.count > 1;) {
-			// System.out.println(x);
 			int y = x;
 			int count = 0;
 			int total = 0;
 			HashSet<Edge> e = new HashSet<Edge>();
 			for (; y < m && edges[x].cost == edges[y].cost; y++) {
-				// System.out.println(y);
 				Edge curr = edges[y];
 				int roota = q.root(curr.source);
 				int rootb = q.root(curr.dest);
@@ -46,7 +44,6 @@ public class USACO_2011_Simplifying_The_Farm {
 				}
 			}
 			int size = e.size();
-			// System.out.println(size);
 			for (; x < y; x++) {
 				count += q.union(edges[x].source, edges[x].dest) ? 1 : 0;
 			}
@@ -62,7 +59,6 @@ public class USACO_2011_Simplifying_The_Farm {
 			// one works and there are two edges
 			else if (total == 2 && count == 1)
 				counter = (counter * 2) % 1000000007;
-			// System.out.println(counter);
 		}
 		System.out.println(totalCost + " " + counter % 1000000007);
 	}

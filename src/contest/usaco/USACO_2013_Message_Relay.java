@@ -27,7 +27,6 @@ public class USACO_2013_Message_Relay {
 				dfs(x, copy, adjlist);
 				for (int z = 0; z < copy.length; z++)
 					visited[z] = visited[z] || copy[z];
-				// System.out.println(x);
 			}
 			if (loopy[x])
 				counter++;

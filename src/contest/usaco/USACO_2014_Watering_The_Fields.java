@@ -32,7 +32,6 @@ public class USACO_2014_Watering_The_Fields {
 				if (value < c)
 					value = 0;
 				matrix[x][y] = value;
-				// matrix[y][x] = value;
 			}
 		}
 		System.out.println(prim());
@@ -61,7 +60,6 @@ public class USACO_2014_Watering_The_Fields {
 			if (moves.size() == 0)
 				return -1;
 			Edge next = moves.poll();
-			// System.out.println(next.cost);
 			totalCost += next.cost;
 			curr = next.dest;
 		}

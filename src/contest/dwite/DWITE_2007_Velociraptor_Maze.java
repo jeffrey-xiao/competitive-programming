@@ -116,15 +116,11 @@ public class DWITE_2007_Velociraptor_Maze {
 	}
 
 	private static float check (float[][] numMoves, Point p, Point[][] prev) {
-		// System.out.println(p.x + " " + p.y);
 		if (p.x == -1 && p.y == -1)
 			return -0.5f;
 
 		float value = check(numMoves, prev[p.x][p.y], prev) + 0.5f;
 
-		// System.out.println(numMoves[p.x][p.y] + " " + value);
-		// System.out.println(p.x + " " + p.y + " " + value + " "
-		// +numMoves[p.x][p.y]);
 		if (path[p.x][p.y] && flag && numMoves[p.x][p.y] == Math.ceil(value)) {
 			flag = false;
 

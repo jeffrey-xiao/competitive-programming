@@ -41,7 +41,6 @@ public class USACO_2014_Fair_Photography_Silver {
 				next = odd.floor(new Pair(0, sum[x]));
 			}
 			if (next != null) {
-				// System.out.println(dist + " " + next.dist);
 				largest = Math.max(dist - next.dist, largest);
 			}
 

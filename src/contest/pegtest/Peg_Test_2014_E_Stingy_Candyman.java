@@ -25,8 +25,6 @@ public class Peg_Test_2014_E_Stingy_Candyman {
 		if (i == n) {
 			for (Integer x : b)
 				System.out.println(x);
-			// for(int x = 0; x < b.length; x++)
-			// System.out.println(toTen(nums[x], b[x]));
 			return true;
 		}
 		main : for (int x = 2; x <= 10; x++) {

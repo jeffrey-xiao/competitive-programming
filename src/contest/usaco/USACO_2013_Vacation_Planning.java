@@ -43,7 +43,6 @@ public class USACO_2013_Vacation_Planning {
 	}
 
 	private static int getMinCost (int o, int d, boolean[] v, int cost, boolean hubPassed) {
-		// System.out.println(o+1 + " " + (d+1) + " " + cost);
 		if (cost == Integer.MAX_VALUE)
 			return cost;
 		v[o] = true;
@@ -53,12 +52,9 @@ public class USACO_2013_Vacation_Planning {
 			return cost;
 		else if (!hubPassed && o == d)
 			return Integer.MAX_VALUE;
-		// Arrays.copyOf(v,v.length)
 		int min = Integer.MAX_VALUE;
 		for (int x = 0; x < con.get(o).size(); x++) {
 			int[] connection = con.get(o).get(x);
-			// System.out.println("RIGHT HERE " + x + " " + (connection[0]+1) +
-			// " " + (o+1));
 			if (!v[connection[0]])
 				min = Math.min(min, getMinCost(connection[0], d, Arrays.copyOf(v, v.length), cost + connection[1], hubPassed));
 		}

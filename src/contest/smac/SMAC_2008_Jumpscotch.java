@@ -2,8 +2,8 @@ package contest.smac;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -18,9 +18,9 @@ public class SMAC_2008_Jumpscotch {
 	static int[] dp = new int[1000001];
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
+		// br = new BufferedReader(new FileReader("test.txt"));
 		// ps = new PrintWriter("output.txt");
 
 		int n = readInt();
@@ -38,7 +38,6 @@ public class SMAC_2008_Jumpscotch {
 			while (r > l && dp[i] <= dp[min[r]])
 				r--;
 			min[++r] = i;
-			// System.out.println(dp[i] + " " + min[l]);
 		}
 
 		ps.println(dp[n - 1]);

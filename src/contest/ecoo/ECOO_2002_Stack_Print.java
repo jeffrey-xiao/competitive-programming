@@ -30,37 +30,29 @@ public class ECOO_2002_Stack_Print {
 					process.push(jobs[count]);
 					count++;
 				}
+
 				Job curr = process.pop();
 				if (!lessThan(curr, times)) {
 					times[0] = curr.hours;
 					times[1] = curr.minutes;
 					times[2] = curr.seconds;
 				}
-				// System.out.printf("%d:%d:%d %s starts\n",times[0],
-				// times[1],times[2], curr.name);
+				
 				times[2] += curr.taken;
 				adjust(times);
-				// System.out.printf("%d:%d:%d %s ends\n",times[0],
-				// times[1],times[2], curr.name);
+				
 				finished++;
+				
 				int hours = times[0] % 24;
-				// if(hours == 0)
-				// hours+=24;
+				
 				if (finished == 5)
 					System.out.printf("job  5 completed at %02d:%02d:%02d for %s\n", hours, times[1], times[2], curr.name);
 				else if (finished == n)
 					System.out.printf("job %d completed at %02d:%02d:%02d for %s\n", n, hours, times[1], times[2], curr.name);
-				// if(finished == n)
-				// System.out.printf("%02d %02d %02d",n ,(times[0]+1)%13,
-				// times[1], times[2]);
-
-				// System.out.printf("%d:%d:%d %s finishes\n",times[0],
-				// times[1], times[2], curr.name);
+				
 				while (count < n && lessThan(jobs[count], times)) {
 					process.push(jobs[count]);
-					// System.out.printf("%s on stack\n", jobs[count].name);
 					count++;
-
 				}
 			}
 			System.out.println();

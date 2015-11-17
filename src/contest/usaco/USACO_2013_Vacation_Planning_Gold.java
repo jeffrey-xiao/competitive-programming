@@ -41,9 +41,6 @@ public class USACO_2013_Vacation_Planning_Gold {
 		for (int x = 0; x < k; x++) {
 			distHubsA[x] = shortestPath(adjlist, hubs[x], 0);
 			distHubsB[x] = shortestPath(revlist, hubs[x], 0);
-			// for(int y = 0; y < n; y++){
-			// System.out.println(distHubsA[x][y] + " " + distHubsB[x][y]);
-			// }
 		}
 		int count = 0;
 		long totalCost = 0;
@@ -54,10 +51,8 @@ public class USACO_2013_Vacation_Planning_Gold {
 			for (int y = 0; y < k; y++) {
 				long dist1 = distHubsA[y][b];
 				long dist2 = distHubsB[y][a];
-				// System.out.println(dist1 + " " + dist2);
 				min = Math.min(min, dist1 + dist2);
 			}
-			// System.out.println(min);
 			if (min < Integer.MAX_VALUE) {
 				totalCost += min;
 				count++;
@@ -84,7 +79,6 @@ public class USACO_2013_Vacation_Planning_Gold {
 				if (min[next.dest] <= node.cost + next.cost)
 					continue;
 				min[next.dest] = node.cost + next.cost;
-				// moves.remove(new Node(next.dest,0));
 				moves.offer(new Node(next.dest, min[next.dest]));
 			}
 		}

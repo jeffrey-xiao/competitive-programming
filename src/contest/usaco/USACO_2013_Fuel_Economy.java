@@ -23,24 +23,20 @@ public class USACO_2013_Fuel_Economy {
 		Arrays.sort(stations);
 		int[] nextSmall = new int[n];
 		Stack<Integer> s = new Stack<Integer>();
-		// int pos = n-1;
 		for (int x = n - 1; x >= 0; x--) {
 			while (!s.isEmpty() && (stations[s.peek()].cost > stations[x].cost)) {
 				s.pop();
-				// pos--;
 			}
 			if (s.isEmpty())
 				nextSmall[x] = -1;
 			else
 				nextSmall[x] = s.peek();
-			// System.out.println(nextSmall[x]);
 			s.push(x);
 		}
 		curr -= stations[0].pos;
 		long cost = 0;
 		int currPos = 0;
 		while (currPos != n - 1) {
-			System.out.println(currPos + " " + curr + " " + cost + " " + nextSmall[currPos]);
 			int nextPos = 0;
 			int nextGas = 0;
 			if (nextSmall[currPos] == -1 || stations[nextSmall[currPos]].pos - stations[currPos].pos > maxGas) {

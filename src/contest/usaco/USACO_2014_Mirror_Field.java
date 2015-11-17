@@ -35,9 +35,7 @@ public class USACO_2014_Mirror_Field {
 
 	private static int getPath (int dir, int x, int y) {
 		int num = 0;
-		// System.out.println();
 		while ((x >= 0 && x < r) && (y >= 0 && y < c)) {
-			// System.out.println(dir + " " + x + " " + y);
 			if (grid[x][y] == '\\')
 				dir = dir2[dir];
 			else

@@ -28,14 +28,6 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
 					if (c != -1)
 						adj.get(x).add(new Edge(y, c));
 				}
-			// int m = readInt();
-			// for(int x = 0; x < m; x++){
-			// int a = readInt()-1;
-			// int b = readInt()-1;
-			// int c = readInt();
-			// adj.get(a).add(new Edge(b,c));
-			// adj.get(b).add(new Edge(a,c));
-			// }
 			for (int x = 0; x < n; x++) {
 				boolean[] visited = new boolean[n];
 				start = x;

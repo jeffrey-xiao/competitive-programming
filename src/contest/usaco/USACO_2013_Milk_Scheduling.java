@@ -44,7 +44,6 @@ public class USACO_2013_Milk_Scheduling {
 			while (index < numOfCows && cows[index][1] >= n) {
 
 				maxGall.offer(cows[index][0]);
-				// System.out.println(cows[index][0] + " " + n);
 				index++;
 
 			}

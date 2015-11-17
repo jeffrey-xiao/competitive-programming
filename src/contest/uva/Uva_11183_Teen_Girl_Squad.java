@@ -59,7 +59,6 @@ public class Uva_11183_Teen_Girl_Squad {
 					adj.add(new ArrayList<Edge>());
 				for (int i = 0; i < n; i++)
 					if (min[i] != null) {
-						// out.printf("NEW MIN EDGE FROM %d to %d with %d\n", min[i].a, min[i].b, min[i].c);
 						adj.get(find(min[i].a)).add(new Edge(find(min[i].a), find(min[i].b), min[i].c));
 						edgesAdded++;
 					}
@@ -90,7 +89,6 @@ public class Uva_11183_Teen_Girl_Squad {
 				}
 				for (int i = 0; i < n; i++) {
 					if (min[i] != null && cycle[find(min[i].a)] && cycle[find(min[i].b)]) {
-						// out.printf("MERGING %d and %d\n", min[i].a, min[i].b);
 						res += min[i].c;
 						if (find(min[i].a) != find(min[i].b)) {
 							merge(min[i].a, min[i].b);

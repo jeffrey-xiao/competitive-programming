@@ -34,7 +34,6 @@ public class USACO_2011_Cow_Photography {
 			public int compare (Integer id1, Integer id2) {
 				int count = 0;
 				for (int x = 0; x < 5; x++) {
-					// System.out.println(x + " " + id1 + " " + id2);
 					if (map.get(new Photo(x, id1)) < map.get(new Photo(x, id2)))
 						count++;
 				}

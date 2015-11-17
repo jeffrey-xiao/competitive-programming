@@ -39,7 +39,6 @@ public class Kth_Ancestor {
 			}
 			tree[root] = dfs(tree[root]);
 			int q = readInt();
-			//			System.out.println("HERE " + tree[3].par[1].index);
 			for (int i = 0; i < q; i++) {
 				int command = readInt();
 				if (command == 0) {
@@ -54,7 +53,6 @@ public class Kth_Ancestor {
 					int a = readInt();
 					tree[a] = new Node(a);
 				} else {
-					//					out.println("Here");
 					int a = readInt();
 					int k = readInt();
 					out.println(tree[a].getParent(k));
@@ -98,12 +96,10 @@ public class Kth_Ancestor {
 		}
 
 		int getParent (int k) {
-			//			out.println(k + " " + index);
 			if (k == 0)
 				return index;
 			for (int i = 13; i >= 0; i--) {
 				if (k >= 1 << i) {
-					//					out.println("PARENT " + i);
 					if (par[i] == null) {
 						return 0;
 					} else

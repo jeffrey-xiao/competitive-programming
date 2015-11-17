@@ -41,7 +41,6 @@ public class USACO_2013_Tractor {
 				upper = mid;
 			else
 				lower = mid;
-			// System.out.println("mid "+mid+" " + max);
 		}
 		boolean[][] visited = new boolean[n][n];
 		int max = 0;

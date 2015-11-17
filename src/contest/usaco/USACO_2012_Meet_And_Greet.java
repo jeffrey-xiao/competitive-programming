@@ -55,7 +55,6 @@ public class USACO_2012_Meet_And_Greet {
 			timesN[x] = currA;
 			prevDistanceA = distanceA;
 			distanceA += timesN[x];
-			// System.out.println(timesN[x] + " " + timesM[x]);
 			currB += timesM[x];
 			timesN[x] = currB;
 			prevDistanceB = distanceB;

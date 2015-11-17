@@ -1,8 +1,8 @@
 package contest.codejam;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public class R1B_C {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int t = readInt();
@@ -40,7 +40,6 @@ public class R1B_C {
 			}
 			long timefast = (360 + (360 - hikers.get(0).pos)) * hikers.get(0).speed;
 			long timeslow = (360 - hikers.get(1).pos) * hikers.get(1).speed;
-			// System.out.println(timefast + " " + timeslow);
 			if (timeslow < timefast) {
 				pr.printf("Case #%d: %d\n", qq, 0);
 			} else

@@ -32,7 +32,6 @@ public class USACO_2014_Ski_Course_Design {
 					if (x > max)
 						cost += (x - max) * (x - max) * hills[x];
 
-				// System.out.println(lowerBound + " " + max + " " + cost);
 				if (cost < minCost)
 					minCost = cost;
 			}

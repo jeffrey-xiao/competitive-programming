@@ -26,7 +26,6 @@ public class USACO_2014_Sabotage {
 		double hi = Integer.MAX_VALUE;
 		while (Math.round(lo * 1000) / 1000.0d != Math.round(hi * 1000) / 1000.0d) {
 			double mid = (lo + hi) / 2;
-			// System.out.println(mid);
 			if (isValid(mid))
 				hi = mid;
 			else
@@ -48,7 +47,6 @@ public class USACO_2014_Sabotage {
 			curr = curr + cows[x] - mid;
 			max = Math.max(max, curr);
 		}
-		// System.out.println(max);
 		return max >= total - mid * n;
 	}
 

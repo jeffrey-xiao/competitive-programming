@@ -50,11 +50,9 @@ public class USACO_2013_Whats_Up_With_Gravity {
 		int best = Integer.MAX_VALUE;
 		while (!moves.isEmpty()) {
 			Point p = moves.poll();
-			// System.out.println(p.x + " " + p.y + " " + p.time);
 			if (grid[p.x][p.y] == 'D') {
 				best = Math.min(p.time, best);
 				continue;
-				// System.out.println("entered");
 			}
 			for (int x = -1; x <= 1; x++) {
 				if (x == 0) {
@@ -62,7 +60,6 @@ public class USACO_2013_Whats_Up_With_Gravity {
 					if (z[0] == -1 || min[z[0]][z[1]] <= p.time + 1 || grid[p.x][p.y + x] == '#')
 						continue;
 					min[z[0]][z[1]] = p.time + 1;
-					// System.out.println(p.x + " " + p.y + " " + p.time);
 					moves.offer(new Point(z[0], z[1], p.time + 1, !p.regGrav));
 				} else {
 					if (p.y + x < 0 || p.y + x >= c || grid[p.x][p.y + x] == '#')
@@ -72,8 +69,6 @@ public class USACO_2013_Whats_Up_With_Gravity {
 					if (z[0] == -1 || min[z[0]][z[1]] <= p.time)
 						continue;
 					min[z[0]][z[1]] = p.time;
-					// System.out.println(p.x + " " + p.y + " " + p.time + " " +
-					// z[0] + " " +z[1]);
 					moves.offer(new Point(z[0], z[1], p.time, p.regGrav));
 				}
 			}

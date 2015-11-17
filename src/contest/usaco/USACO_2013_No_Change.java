@@ -37,7 +37,6 @@ public class USACO_2013_No_Change {
 				if ((x & (1 << y)) > 0) {
 					x ^= (1 << y);
 					Integer next = ts.floor(dp[x] + c[y]);
-					// System.out.println(next + " " + Integer.toString(x, 2));
 					if (next != null && next > best)
 						best = next;
 					x ^= (1 << y);
@@ -46,7 +45,6 @@ public class USACO_2013_No_Change {
 				}
 			}
 			dp[x] = best;
-			// System.out.println("HERE " + left + " " + best);
 			if (best == sum)
 				res = Math.max(res, left);
 		}

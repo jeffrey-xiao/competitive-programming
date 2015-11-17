@@ -28,7 +28,6 @@ public class USACO_2014_The_Lazy_Cow_Bronze {
 			line[x] += line[x - 1];
 			if (x >= k) {
 				max = Math.max(max, line[x] - line[x - k]);
-				// System.out.println(line[x]-line[x-k]);
 			}
 		}
 		System.out.println(max);
