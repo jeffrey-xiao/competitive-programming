@@ -29,7 +29,6 @@ public class COCI_2007_CUDAK {
 		long hi = Long.MAX_VALUE;
 		while (lo <= hi) {
 			long mid = lo + (hi - lo) / 2l;
-			// System.out.println(mid + " " + dp2(new State(mid, n)));
 			if (dp2(new State(mid, n)) - ans2 >= 1) {
 				hi = mid - 1;
 			} else {
@@ -52,12 +51,9 @@ public class COCI_2007_CUDAK {
 		long res = 0;
 		for (int i = st.s; i >= st.s - firstD + 1; i--) {
 			res += dp1(new State(len - 1, i));
-			// System.out.println(st.l + " " + st.s + " " + dp1(new State(len-1,
-			// i)) + " " + (len-1) + " " + i);
 		}
 		res += dp2(new State(st.l - firstD * (long) Math.pow(10, len - 1), st.s - firstD));
 		hm2.put(st, res);
-		// System.out.println(st.l + " " + st.s + " " + res);
 		return res;
 	}
 

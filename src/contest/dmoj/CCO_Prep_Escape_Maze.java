@@ -114,7 +114,6 @@ public class CCO_Prep_Escape_Maze {
 				else
 					cnt++;
 			}
-			//			System.out.println("HERE " + artCnt + " " + cnt);
 			if (artCnt == 0 && cnt != 0) {
 				ansNum += 2;
 				ansCount *= (cnt * (cnt - 1) / 2);
@@ -158,7 +157,6 @@ public class CCO_Prep_Escape_Maze {
 						else
 							cnt++;
 					}
-					//					System.out.println("HERE " + artCnt + " " + cnt);
 					if (artCnt == 0) {
 						ansNum += 2;
 						ansCount *= (cnt * (cnt - 1) / 2);

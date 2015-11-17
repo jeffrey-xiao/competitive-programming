@@ -31,15 +31,15 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 	private static TreeSet<Integer> compute (int i, TreeSet<Integer> prev, int with) {
 		if (mem[i][with])
 			return (TreeSet<Integer>) dp[i][with].headSet(i, true);
-		
+
 		TreeSet<Integer> curr = new TreeSet<Integer>();
 		curr.addAll(prev);
-		
+
 		if (i == 1) {
 			curr.add(i);
 			return curr;
 		}
-		
+
 		if (i % 2 == 0) {
 			curr.add(i);
 			curr.addAll(compute(i / 2, curr, with));
@@ -53,17 +53,17 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 				next.addAll(prev);
 				next.addAll(compute(x, next, 0));
 				next.addAll(compute(i - x, next, x));
-				
+
 				if (next.size() < size) {
 					curr = new TreeSet<Integer>();
 					curr.addAll(next);
 					size = next.size();
 				}
-				
+
 				next.clear();
 			}
 		}
-		
+
 		mem[i][with] = true;
 		curr.add(i);
 		dp[i][with] = curr;

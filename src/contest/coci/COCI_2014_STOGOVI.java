@@ -2,8 +2,8 @@ package contest.coci;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -21,10 +21,10 @@ public class COCI_2014_STOGOVI {
 	static int LN = 19;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter("out.txt");
 
 		int n = readInt();
 		prev = new int[n + 1];
@@ -49,7 +49,6 @@ public class COCI_2014_STOGOVI {
 				size[i] = size[prev[i]];
 				prev[i] = prev[prev[i]];
 				compress[i] = compress[prev[v]];
-				// System.out.println("HERE: " + prev[v] + " " + v);
 			} else {
 				int v = compress[readInt()];
 				int w = compress[readInt()];
@@ -59,8 +58,6 @@ public class COCI_2014_STOGOVI {
 				compress[i] = v;
 				q.add(new Query(w, v));
 			}
-			// System.out.println(element[i] + " " + size[i] + " " + prev[i] +
-			// " " + compress[i]);
 		}
 		pa = new int[n + 1][LN];
 		for (int i = 0; i <= n; i++)

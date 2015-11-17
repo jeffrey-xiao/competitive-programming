@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -19,6 +18,9 @@ public class NEERC_2010_Ideal_Path {
 	static StringTokenizer st;
 
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
+	static int[] dist;
+	static int[] color;
+	static int[] prev;
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
@@ -32,90 +34,44 @@ public class NEERC_2010_Ideal_Path {
 			adj.get(a).add(new Edge(b, c));
 			adj.get(b).add(new Edge(a, c));
 		}
-		Queue<Integer> q = new LinkedList<Integer>();
-		int[] dist = new int[n];
-		for (int x = 0; x < n; x++)
+		dist = new int[n];
+		color = new int[n];
+		prev = new int[n];
+		for (int x = 0; x < n; x++) {
 			dist[x] = 1 << 30;
-		dist[n - 1] = 0;
-		q.offer(n - 1);
+			color[x] = 1 << 30;
+			prev[x] = -1;
+		}
+		dist[0] = 0;
+		color[0] = -1;
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.offer(0);
 		while (!q.isEmpty()) {
 			Integer curr = q.poll();
 			for (Edge e : adj.get(curr)) {
-				if (dist[e.dest] <= dist[curr] + 1)
-					continue;
-				dist[e.dest] = dist[curr] + 1;
-				q.offer(e.dest);
+
+				int nextDist = dist[curr] + 1;
+				int nextColor = e.color;
+				if (e.dest == 28) {
+					System.out.println("HERE " + curr + " " + color[curr] + " " + nextDist + " " + nextColor);
+				}
+				boolean equal = (nextDist == dist[e.dest] && nextColor == color[e.dest]);
+				if ((nextDist < dist[e.dest] || (nextDist == dist[e.dest] && nextColor < color[e.dest])) || (equal && (prev[e.dest] == -1 || color[prev[e.dest]] > color[curr]))) {
+					dist[e.dest] = nextDist;
+					color[e.dest] = nextColor;
+					prev[e.dest] = curr;
+					q.offer(e.dest);
+				}
 			}
 		}
-
-		PriorityQueue<State> qq = new PriorityQueue<State>();
-		qq.offer(new State(0));
-		State best = null;
-		State curr = null;
-		while (!qq.isEmpty()) {
-			curr = qq.poll();
-			int start = curr.curr;
-			// System.out.println(start);
-			ArrayList<State> nextStates = new ArrayList<State>();
-			best = null;
-			if (start == n - 1)
-				break;
-			for (Edge e : adj.get(start)) {
-				if (dist[e.dest] >= dist[start])
-					continue;
-				curr.curr = e.dest;
-				curr.add(e.color);
-
-				int com = curr.compareTo(best);
-				if (com < 0) {
-					best = new State(curr);
-					nextStates.clear();
-					nextStates.add(new State(curr));
-				} else if (com == 0)
-					nextStates.add(new State(curr));
-				curr.colors.remove(curr.colors.size() - 1);
-			}
-			for (State s : nextStates)
-				qq.offer(s);
-		}
-		System.out.println(curr.colors.size());
-		for (Integer i : curr.colors) {
-			System.out.print(i + " ");
-		}
+		System.out.println(dist[n - 1]);
+		print(n - 1);
 	}
 
-	static class State implements Comparable<State> {
-		int curr;
-		ArrayList<Integer> colors;
-
-		State (int curr) {
-			this.curr = curr;
-			colors = new ArrayList<Integer>();
-		}
-
-		@SuppressWarnings ("unchecked")
-		State (State s) {
-			this.curr = s.curr;
-			colors = (ArrayList<Integer>) s.colors.clone();
-		}
-
-		void add (int color) {
-			colors.add(color);
-		}
-
-		@Override
-		public int compareTo (State o) {
-			if (o == null)
-				return -1;
-			if (colors.size() != o.colors.size())
-				return colors.size() - o.colors.size();
-			for (int x = 0; x < colors.size(); x++) {
-				if (colors.get(x) < o.colors.get(x))
-					return -1;
-				else if (colors.get(x) > o.colors.get(x))
-					return 1;
-			}
-			return 0;
+	private static void print (int i) {
+		if (i != 0) {
+			print(prev[i]);
+			System.out.println(i + " " + color[i] + " " + dist[i]);
 		}
 	}
 

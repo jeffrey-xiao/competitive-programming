@@ -52,15 +52,15 @@ public class CCC_1996_Stage_2_Hoppers {
 
 				if (x < 0 || y < 0 || x >= r || y >= c || sx > 3 || sx < -3 || sy > 3 || sy < -3 || grid[x][y])
 					continue;
-				
+
 				if (visited[x][y][sx + 3][sy + 3])
 					continue;
-				
+
 				if (x == endx && endy == y) {
 					System.out.printf("Optimal solution takes %d hop(s).\n", moves);
 					continue main;
 				}
-				
+
 				visited[x][y][sx + 3][sy + 3] = true;
 				for (int z = 0; z < 9; z++) {
 					int nextsx = sx + movex[z];

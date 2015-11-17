@@ -66,7 +66,6 @@ public class Christmas_Tree_Cutting {
 		min[sx][sy] = 0;
 		while (!pq.isEmpty()) {
 			State curr = pq.poll();
-			// System.out.println(curr.x + " " + curr.y + " " + curr.moves);
 			if (curr.x == ex && curr.y == ey) {
 				System.out.println(curr.trees - 1);
 				return;

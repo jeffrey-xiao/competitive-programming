@@ -2,8 +2,8 @@ package contest.coci;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.math.BigInteger;
@@ -20,16 +20,15 @@ public class COCI_2014_ZGODAN {
 	static BigInteger target;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// ps = new PrintWriter("out.txt");
 
 		String in = next();
 		target = new BigInteger(in);
 		char[] n = in.toCharArray();
 		compute(n, 0);
-		// System.out.println(diff.toString());
 		if (s2.equals("-1"))
 			System.out.println(s1);
 		else
@@ -37,7 +36,6 @@ public class COCI_2014_ZGODAN {
 	}
 
 	private static void compute (char[] n, int i) {
-		// System.out.println(new String(n) + " " + i);
 		if (i == n.length)
 			return;
 		if (i == 0) {
@@ -47,21 +45,16 @@ public class COCI_2014_ZGODAN {
 				if (c < '0' || c > '9')
 					continue;
 				n[i] = c;
-				// System.out.println("START " + new String(n));
 				compute(n, i + 1);
 				n[i] = org;
-				// System.out.println("END " + new String(n));
 			}
 		} else {
 			if (n[i] % 2 != n[i - 1] % 2)
 				compute(n, i + 1);
 			else {
-				// System.out.println(i + " " + (i+1) + " " + n[i] + " " +
-				// n[i+1]);
 				char[] org = new char[n.length];
 				for (int j = 0; j < n.length; j++)
 					org[j] = n[j];
-				// System.out.println("orginal " + new String(org));
 				char c = n[i];
 				if (c - 1 >= '0') {
 					n[i] = (char) (c - 1);
@@ -72,7 +65,6 @@ public class COCI_2014_ZGODAN {
 							n[j] = '8';
 					}
 					replace(n);
-					// System.out.println("new string " + new String(n));
 				}
 				if (c + 1 <= '9') {
 					n[i] = (char) (c + 1);
@@ -83,7 +75,6 @@ public class COCI_2014_ZGODAN {
 							n[j] = '0';
 					}
 					replace(n);
-					// System.out.println("new string " + new String(n));
 				}
 				for (int j = 0; j < n.length; j++)
 					n[j] = org[j];
@@ -95,10 +86,7 @@ public class COCI_2014_ZGODAN {
 		BigInteger next = new BigInteger(new String(n));
 		BigInteger d = target.subtract(next).abs();
 		int cmp = d.compareTo(diff);
-		// System.out.println(diff.equals(new BigInteger("-1")));
-		// System.out.println("ENTERED WITH " + new String(n));
 		if (diff.equals(new BigInteger("-1"))) {
-			// System.out.println("DIFFERENCE " + new String(n));
 			diff = d;
 			s1 = new String(n);
 		} else if (cmp < 0) {

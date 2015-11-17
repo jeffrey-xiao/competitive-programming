@@ -13,13 +13,13 @@ public class CCC_2014_S5 {
 
 	public static void main (String[] args) throws IOException {
 		int n = nextInt();
-		
+
 		int[][] points = new int[n + 1][];
 		points[0] = new int[] {0, 0};
-		
+
 		int counter = 0;
 		int[][] pairs = new int[n * (n + 1) / 2][];
-		
+
 		for (int x = 1; x < n + 1; x++) {
 			if (x != 0)
 				points[x] = new int[] {nextInt(), nextInt()};
@@ -37,27 +37,27 @@ public class CCC_2014_S5 {
 				return arg0[2] - arg1[2];
 			}
 		});
-		
+
 		int[] bestDist = new int[n + 1];
 		int[] prevbestNum = new int[n + 1];
 		int[] bestNum = new int[n + 1];
-		
+
 		for (int x = 0; x < pairs.length; x++) {
 			int[] next = pairs[x];
-			
+
 			if (next[2] > bestDist[next[0]]) {
 				bestDist[next[0]] = next[2];
 				prevbestNum[next[0]] = bestNum[next[0]];
 			}
-			
+
 			if (next[2] > bestDist[next[1]]) {
 				bestDist[next[1]] = next[2];
 				prevbestNum[next[1]] = bestNum[next[1]];
 			}
-			
+
 			// adding necessary previous row memorization in order to calc curr
 			// row
-			
+
 			if (next[0] == 0) {
 				bestNum[next[0]] = Math.max(bestNum[next[0]], prevbestNum[next[1]]);
 			} else {

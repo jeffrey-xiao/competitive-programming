@@ -30,8 +30,6 @@ public class COCI_2008_CVJETICI {
 				ans += ls + rs;
 				update(l, l, -ls);
 				update(r, r, -rs);
-				// System.out.println(l + " " + query(l) + " " + r + " " +
-				// query(r));
 			} else {
 				int ls = query(l);
 				ans += ls;

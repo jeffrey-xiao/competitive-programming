@@ -33,8 +33,6 @@ public class APIO_2007_Zoo {
 				fear |= 1 << ((readInt() - e - 1 + n) % n);
 			for (int j = 0; j < l; j++)
 				love |= 1 << ((readInt() - e - 1 + n) % n);
-			//			out.println(Integer.toString(fear, 2));
-			//			out.println(Integer.toString(love, 2));
 			for (int j = 0; j < 1 << 5; j++)
 				if ((j & fear) != fear || (j & love) != 0)
 					value[e][j]++;

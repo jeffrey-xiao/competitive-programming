@@ -44,7 +44,6 @@ public class Pie_Shop {
 		}
 		int[][] dp = new int[r][1 << c];
 		int[][] cnt = new int[r][1 << c];
-		// System.out.println(s.size());
 		for (int i = 0; i < r; i++) {
 			for (int j : s) {
 				int sum = 0;
@@ -59,9 +58,6 @@ public class Pie_Shop {
 					for (int k : s) {
 						boolean valid = (k & j) == 0;
 
-						// System.out.println(Integer.toString(k, 2));
-						// System.out.println(Integer.toString(j, 2));
-						// System.out.println();
 						if (valid) {
 							if (dp[i - 1][k] + sum == dp[i][j]) {
 								cnt[i][j] += cnt[i - 1][k];

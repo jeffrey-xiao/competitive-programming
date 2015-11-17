@@ -44,8 +44,6 @@ public class COCI_2006_BOND {
 			}
 			compute(i + 1, n, v, next);
 			v.remove(x);
-			// System.out.println(compute(i+1,n,v)*(prob[i][x]/100.0d));
-
 		}
 	}
 

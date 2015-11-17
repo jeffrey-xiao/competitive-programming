@@ -38,7 +38,6 @@ public class COCI_2008_NAJKRACI {
 			int b = readInt() - 1;
 			int c = readInt();
 			adj.get(a).add(new Edge(b, c, i));
-			// adj.get(b).add(new Edge(a, c, i));
 		}
 		for (int i = 0; i < n; i++)
 			dijkstras(i);
@@ -47,7 +46,6 @@ public class COCI_2008_NAJKRACI {
 	}
 
 	private static void dijkstras (int s) {
-		// System.out.println("NEW " + s);
 		for (int i = 0; i < n; i++) {
 			dist[i] = 1 << 30;
 			from[i] = to[i] = 0;
@@ -60,7 +58,6 @@ public class COCI_2008_NAJKRACI {
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
 			if (dist[curr.index] < curr.cost) {
-				// System.out.println("LEFT");
 				continue;
 			}
 			process.push(curr.index);
@@ -71,16 +68,13 @@ public class COCI_2008_NAJKRACI {
 				if (dist[e.dest] > nextCost) {
 					dist[e.dest] = nextCost;
 					to[e.dest] = 0;
-					// System.out.println("PUSH " + e.dest);
 					pq.offer(new Vertex(e.dest, nextCost));
 				}
 				to[e.dest] = (to[e.dest] + to[curr.index]) % MOD;
 			}
-			// System.out.println(to[curr.index]);
 		}
 		while (!process.isEmpty()) {
 			int curr = process.pop();
-			// System.out.println("CURRENT " + curr);
 			from[curr] = 1;
 			for (Edge e : adj.get(curr)) {
 				if (dist[e.dest] < e.cost + dist[curr])

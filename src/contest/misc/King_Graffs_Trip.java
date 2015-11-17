@@ -54,18 +54,12 @@ public class King_Graffs_Trip {
 
 		while (!moves.isEmpty()) {
 			Vertex curr = moves.poll();
-			// System.out.println(curr.index+1 + " " + curr.time + " " +
-			// curr.maxStretch + " " + curr.currStretch);
-			// if(curr.index == d)
-			// return curr.maxStretch;
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {
 				Edge next = adjlist.get(curr.index).get(x);
 
 				long shrineTime = curr.currStretch + next.cost;
 				long nextTime = curr.time + next.cost;
 				long maxShrineTime = Math.max(curr.maxStretch, shrineTime);
-				// System.out.println("NEXT: " + shrineTime + " " +
-				// maxShrineTime + " " +nextTime +" "+(next.dest+1));
 				if (nextTime > maxLength)
 					continue;
 

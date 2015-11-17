@@ -30,7 +30,6 @@ public class COCI_2009_DOBRA_2 {
 
 	private static void compute (int x, int size, long m) {
 		if (x == size) {
-			// System.out.println(s);
 			if (s.indexOf("L") == -1)
 				return;
 			for (int y = 1; y < s.length() - 1; y++) {

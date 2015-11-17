@@ -2,8 +2,8 @@ package contest.coci;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -15,10 +15,10 @@ public class COCI_2014_PROSJEK {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter("out.txt");
 
 		int n = readInt();
 		int k = readInt();
@@ -30,7 +30,6 @@ public class COCI_2014_PROSJEK {
 		while (hi - lo > 0.000000001) {
 
 			double mid = lo + (hi - lo) / 2;
-			// System.out.println(mid);
 			boolean valid = false;
 			for (int i = 1; i <= n; i++)
 				prefix[i] = a[i] + prefix[i - 1] - mid;
@@ -38,7 +37,6 @@ public class COCI_2014_PROSJEK {
 			for (int i = k; i <= n; i++) {
 				if (prefix[i] >= min)
 					valid = true;
-				// System.out.println(prefix[i] + " " + min);
 				min = Math.min(min, prefix[i - k + 1]);
 			}
 			if (valid)

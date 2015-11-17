@@ -35,11 +35,9 @@ public class BOI_2009_Diamonds {
 			int z2 = Integer.parseInt(next.nextToken());
 			int y2 = Integer.parseInt(next.nextToken());
 			int x2 = Integer.parseInt(next.nextToken());
-			// System.out.printf("%d %d %d %d %d %d\n",x1,y1,z1,x2,y2,z2);
 			int sum = grid[x2][y2][z2] - grid[x1][y2][z2] - grid[x2][y1][z2] - grid[x2][y2][z1] + grid[x1][y1][z2] + grid[x2][y1][z1] + grid[x1][y2][z1] - grid[x1][y1][z1];
 			pr.print(sum + "\n");
 		}
-		// System.out.println(grid[N][M][L]);
 	}
 
 	static String next () throws IOException {

@@ -40,21 +40,21 @@ public class NOI_2004_The_Depressed_Cashier {
 				int lower = freq(minWage - 1 - delta);
 				employees -= lower;
 				left += lower;
-				
+
 				for (int y = 1; y <= minWage - 1 - delta; y++) {
 					update(y, -tree[y]);
 				}
 			} else if (c == 'F') {
 				int lo = 1;
 				int hi = SIZE - 1;
-				
+
 				if (k > employees) {
 					System.out.println(-1);
 					continue;
 				}
-				
+
 				k = employees - k + 1;
-				
+
 				while (lo <= hi) {
 					int mid = lo + (hi - lo) / 2;
 					if (freq(mid) < k)

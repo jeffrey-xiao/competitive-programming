@@ -24,7 +24,6 @@ public class Non_space_separated {
 	}
 
 	private static void getSums (String s, BigInteger i) {
-		// System.out.println(s + " " + i);
 		if (s.length() == 0) {
 			if (m.get(i) == null)
 				m.put(i, 1);

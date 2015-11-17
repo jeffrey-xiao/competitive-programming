@@ -32,8 +32,6 @@ public class COCI_2007_PRAVOKUTNI {
 			Arrays.sort(sort);
 			System.out.println();
 			System.out.printf("Current x: %d; y: %d\n", p[i].x, p[i].y);
-			// for (int j = 0; j < N; j++) {
-			// System.out.printf("X: %d; Y: %d\n", sort[j].x, sort[j].y);
 			// System.out.println(angle(curr, sort[j]));
 			// }
 			int lo = 1;

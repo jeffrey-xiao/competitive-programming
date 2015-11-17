@@ -40,7 +40,6 @@ public class COCI_2007_POKLON {
 				dp[i] = dp[query] + 1;
 				prev[i] = query;
 			}
-			// System.out.println(dp[i] + " " + prev[i]);
 			update(r[i].r, i);
 			if (dp[i] > dp[ans])
 				ans = i;

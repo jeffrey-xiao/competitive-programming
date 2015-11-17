@@ -20,13 +20,13 @@ public class DMOPC_2014_Deforestation {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int[] a = new int[n+1];
+		int[] a = new int[n + 1];
 		for (int i = 1; i <= n; i++)
-			a[i] = readInt() + a[i-1];
+			a[i] = readInt() + a[i - 1];
 		int q = readInt();
 		for (int i = 0; i < q; i++)
-			out.println(- a[readInt()] + a[readInt() + 1]);
-		
+			out.println(-a[readInt()] + a[readInt() + 1]);
+
 		out.close();
 	}
 
@@ -56,4 +56,3 @@ public class DMOPC_2014_Deforestation {
 		return br.readLine().trim();
 	}
 }
-

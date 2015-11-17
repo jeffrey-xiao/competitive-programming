@@ -27,7 +27,6 @@ public class COCI_2007_JEDNAKOST_2 {
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j <= target; j++)
 				dp[i][j] = -1;
-		// System.out.println(target);
 		print(0, target);
 	}
 

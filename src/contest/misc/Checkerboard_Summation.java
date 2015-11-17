@@ -36,7 +36,6 @@ public class Checkerboard_Summation {
 		while (x1 != 0) {
 			int k = (x1 + y1) % 2 == 0 ? 1 : -1;
 			long ans = sum[x1 - 1][y1 - 1] - sum[x1 - 1][y2] - sum[x2][y1 - 1] + sum[x2][y2];
-			// System.out.println(k);
 			System.out.println(ans * k);
 			x1 = readInt();
 			y1 = readInt();

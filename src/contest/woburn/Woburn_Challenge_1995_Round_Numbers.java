@@ -26,7 +26,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
 		}
 		int sum = 0;
 		int length = (int) (Math.log(n) / Math.log(2)) + 1;
-		
+
 		for (int x = 1; x < length; x++) {
 			for (int y = (x + 1) / 2; y < x; y++) {
 				sum += dp[x - 1][y];
@@ -35,16 +35,16 @@ public class Woburn_Challenge_1995_Round_Numbers {
 
 		int totalOne = 0;
 		int currZero = 0;
-		
+
 		for (int x = 0; x <= length; x++)
 			if ((n & 1 << x) > 0)
 				totalOne++;
-		
+
 		boolean first = true;
 		if (totalOne <= (length) / 2) {
 			sum++;
 		}
-		
+
 		for (int x = length - 1; x >= 0; x--) {
 			if ((n & 1 << x) > 0) {
 				if (first) {

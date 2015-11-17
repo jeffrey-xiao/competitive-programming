@@ -32,22 +32,22 @@ public class MockCCC_2014_J5 {
 		moves.add(new int[] {0, r1, c1, 0});
 		while (!moves.isEmpty()) {
 			int[] curr = moves.poll();
-			
+
 			if (curr[1] < 0 || curr[1] >= r || curr[2] < 0 || curr[2] >= c || states[curr[3]][curr[1]][curr[2]] == 'X' || visited[curr[3]][curr[1]][curr[2]]) {
 				continue;
 			}
-			
+
 			if (states[curr[3]][curr[1]][curr[2]] == 'B') {
 				System.out.println(curr[0]);
 				return;
 			}
-			
+
 			visited[curr[3]][curr[1]][curr[2]] = true;
 			moves.add(new int[] {curr[0] + 1, curr[1] + 1, curr[2], curr[3]});
 			moves.add(new int[] {curr[0] + 1, curr[1] - 1, curr[2], curr[3]});
 			moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1, curr[3]});
 			moves.add(new int[] {curr[0] + 1, curr[1], curr[2] - 1, curr[3]});
-			
+
 			for (int x = 0; x < t; x++)
 				if (x != curr[3])
 					moves.add(new int[] {curr[0] + 1, curr[1], curr[2], x});

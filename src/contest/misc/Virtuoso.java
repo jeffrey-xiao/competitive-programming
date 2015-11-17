@@ -35,7 +35,6 @@ public class Virtuoso {
 				for (int z = 0; z < slides; z++) {
 					for (int i = 0; i <= 2; i++) {
 						dp[x][s[z]][i].moves = dp[x][s[z]][i].turns = 0;
-						// System.out.println(x + " " + s[z]);
 					}
 				}
 			else {
@@ -57,17 +56,12 @@ public class Virtuoso {
 							if (dp[x][s[z]][nextDir].moves > nextMoves || (dp[x][s[z]][nextDir].moves == nextMoves && nextTurns < dp[x][s[z]][nextDir].turns)) {
 								dp[x][s[z]][nextDir].moves = nextMoves;
 								dp[x][s[z]][nextDir].turns = nextTurns;
-								// System.out.println(x + " " + (s[z]+1) + " " +
-								// (y+1) + " " + nextMoves + " " + nextDir + " "
-								// + nextTurns);
 							}
 						}
 					}
 				}
 			}
 		}
-		// 6 5 4 5 5 5 6 7 7 7
-		//
 		int minMoves = INF;
 		int minTurns = INF;
 		for (int y = 0; y < 7; y++) {

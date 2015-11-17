@@ -21,9 +21,9 @@ public class DMOPC_2014_Spacetime_Convergence_Cannons {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
+
 		int n = readInt();
 		int X = readInt();
 		ArrayList<Pair> sorted = new ArrayList<Pair>();

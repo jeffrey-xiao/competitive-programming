@@ -1,8 +1,8 @@
 package contest.coci;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ public class COCI_2008_KRTICA {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 		for (int i = 0; i < SIZE; i++) {
 			adj.add(new ArrayList<Integer>());
@@ -41,7 +41,6 @@ public class COCI_2008_KRTICA {
 		solve(0, -1, 0);
 		int ans = 1 << 30;
 		for (int i = 0; i < n; i++) {
-			// System.out.println(i + " " + up[i] + " " + down[i]);
 			dist2[i] = Math.max(0, dist2[i]);
 			dist3[i] = Math.max(0, dist3[i]);
 		}
@@ -74,8 +73,6 @@ public class COCI_2008_KRTICA {
 				}
 			}
 			ans = Math.min(ans, Math.max((d1 + 1) / 2 + 1 + (d2 + 1) / 2, Math.max(d1, d2)));
-			// System.out.println(ans + " " + (a[i]+1) + " " + (b[i]+1) + " " +
-			// up[b[i]]);
 		}
 		ans = Math.min(ans, dist1[0] + dist2[0]);
 		System.out.println(ans);
@@ -138,8 +135,6 @@ public class COCI_2008_KRTICA {
 		}
 		if (!hasNext)
 			dist1[i] = 0;
-		// System.out.println("HERE " + (i+1) + " " + dist1[i] + " " + dist2[i]
-		// + " " + dist3[i]);
 	}
 
 	static String next () throws IOException {

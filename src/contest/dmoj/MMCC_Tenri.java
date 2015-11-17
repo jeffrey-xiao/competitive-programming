@@ -38,10 +38,9 @@ public class MMCC_Tenri {
 	}
 
 	public static int compute (int box, int s) {
-		// System.out.println(i + " " + box + " " + s);
 		if (dp[box][s] != -1)
 			return dp[box][s];
-		// w = min(wi×wj , (m+s)^2) + s
+
 		int res = 0;
 		for (int x = 0; x < n; x++) {
 			if ((box & (1 << x)) > 0)
@@ -59,10 +58,7 @@ public class MMCC_Tenri {
 				for (int a = 0; a <= s; a++) {
 					for (int b = 0; b <= s - a; b++) {
 						int c = s - a - b;
-						// System.out.println(Integer.toString(currsets.get(y),2)+" "+Integer.toString(box
-						// & (~currsets.get(y)),2));
 						int next = compute(p.x, a) * compute(p.y, b);
-						// System.out.println("Next is " + next);
 						int curr = (boxes[x] + c) * (boxes[x] + c);
 						res = Math.max(res, Math.min(next, curr) + c);
 					}

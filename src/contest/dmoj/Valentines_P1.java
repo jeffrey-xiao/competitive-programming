@@ -42,8 +42,6 @@ public class Valentines_P1 {
 		ArrayList<Group> poss = new ArrayList<Group>();
 		int curr = 0;
 		for (int x = 0; x < g.size(); x++) {
-			// System.out.println(g.get(x).time + " " + g.get(x).size + " " +
-			// g.get(x).index);
 			if (g.get(x).time >= curr + 1) {
 				poss.add(g.get(x));
 				curr++;

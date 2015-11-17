@@ -59,7 +59,6 @@ public class Glenforest_Hide_n_Seek {
 				Point p = q.poll();
 				if (g[p.x][p.y] >= 0 && g[p.x][p.y] <= t) {
 					dist[i][g[p.x][p.y]] = p.time;
-					// dist[g[p.x][p.y]][i] = p.time;
 				}
 				for (int j = 0; j < 4; j++) {
 					int nx = p.x + movex[j];
@@ -71,12 +70,6 @@ public class Glenforest_Hide_n_Seek {
 				}
 			}
 		}
-		// for (int i = 0; i <= t; i++) {
-		// for (int j = 0; j <= t; j++) {
-		// System.out.print(dist[i][j] + " ");
-		// }
-		// System.out.println();
-		// }
 		vis = new boolean[t + 1];
 		vis[0] = true;
 		System.out.println(compute(0, 0, t));

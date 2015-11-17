@@ -75,7 +75,6 @@ public class Good_Celebration {
 				}
 			}
 			for (int i = 0; i <= M; i++) {
-				// System.out.println("MAXTASTY " + maxTasty[i]);
 				for (int j = 0; j <= i; j++) {
 					dp[u][i] = Math.max(dp[u][i], b[u] + m[u] * (j + maxTasty[i - j]));
 				}

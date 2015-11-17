@@ -48,7 +48,6 @@ public class COCI_2007_KUHAR {
 				int amountNeeded = (mid * needed[i] - have[i]);
 				totalCost += cost(amountNeeded, i);
 			}
-			// System.out.println(totalCost + " " + mid);
 			if (totalCost <= m)
 				lo = mid + 1;
 			else
@@ -63,7 +62,6 @@ public class COCI_2007_KUHAR {
 			int next = (a - j * sm[i] + sv[i] - 1) / sv[i];
 			if (next < 0)
 				break;
-			// System.out.println(next);
 			res = Math.min(res, next * pv[i] + j * pm[i]);
 		}
 		return res;

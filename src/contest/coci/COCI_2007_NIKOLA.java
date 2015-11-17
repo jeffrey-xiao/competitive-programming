@@ -31,7 +31,6 @@ public class COCI_2007_NIKOLA {
 		if (dp[sq][jump] != 0)
 			return dp[sq][jump];
 		int currCost = row[sq];
-		// System.out.println(sq + " " + jump);
 		int min = Math.min(compute(sq + jump + 1, jump + 1), 10000000);
 		if (jump != 0)
 			min = Math.min(compute(sq - jump, jump), min);

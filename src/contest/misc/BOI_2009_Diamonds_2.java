@@ -39,11 +39,9 @@ public class BOI_2009_Diamonds_2 {
 			int z2 = Integer.parseInt(next.nextToken());
 			int y2 = Integer.parseInt(next.nextToken());
 			int x2 = Integer.parseInt(next.nextToken());
-			// System.out.printf("%d %d %d %d %d %d\n",x1,y1,z1,x2,y2,z2);
 			int sum = grid[i(x2, y2, z2)] - grid[i(x1, y2, z2)] - grid[i(x2, y1, z2)] - grid[i(x2, y2, z1)] + grid[i(x1, y1, z2)] + grid[i(x2, y1, z1)] + grid[i(x1, y2, z1)] - grid[i(x1, y1, z1)];
 			pr.print(sum + "\n");
 		}
-		// System.out.println(grid[N][M][L]);
 	}
 
 	static int i (int x, int y, int z) {

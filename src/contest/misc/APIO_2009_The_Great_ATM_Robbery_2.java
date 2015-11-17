@@ -80,10 +80,8 @@ public class APIO_2009_The_Great_ATM_Robbery_2 {
 		}
 		if (disc[x] == low[x]) {
 			while (SCC.peek() != x) {
-				System.out.println(SCC.peek() + " " + count);
 				id[SCC.pop()] = count;
 			}
-			System.out.println(SCC.peek() + " " + count);
 			id[SCC.pop()] = count++;
 		}
 	}
@@ -97,7 +95,6 @@ public class APIO_2009_The_Great_ATM_Robbery_2 {
 		while (!moves.isEmpty()) {
 			Vertex curr = moves.poll();
 			if (ends.contains(curr.index)) {
-				// System.out.println(curr.value + " " + curr.index);
 				ans = Math.max(ans, curr.value);
 			}
 			for (Integer i : g.get(curr.index)) {

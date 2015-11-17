@@ -22,16 +22,13 @@ public class Scansion {
 		for (int x = 4; x < dp.length; x++) {
 			long count = dp[x - 2] + dp[x - 3];
 			if (x >= 4) {
-				// System.out.println(four.contains(s.substring(x-3,x+1)));
 				if (x == 4 && four.contains(s.substring(x - 3, x + 1)))
 					count += 1;
 				else if (x != 4 && four.contains(s.substring(x - 3, x + 1)))
 					count += dp[x - 4];
 			}
 			dp[x] = count % 10007;
-			// System.out.print(dp[x] + " ");
 		}
-		// System.out.println();
 		System.out.println(dp[dp.length - 1]);
 	}
 

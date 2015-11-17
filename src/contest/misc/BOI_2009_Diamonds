@@ -14,7 +14,6 @@ int main()
                 scanf("%d", &d);
 		        grid[x][y][z] = d+grid[x-1][y][z]+grid[x][y-1][z]+grid[x][y][z-1]
 			        -grid[x-1][y-1][z]-grid[x-1][y][z-1]-grid[x][y-1][z-1]+grid[x-1][y-1][z-1];
-                //cout << grid[x][y][z]<<"\n";
 		    }  
 	    }
 	}

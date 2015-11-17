@@ -20,8 +20,8 @@ public class SMAC_2008_Jumpscotch {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		// br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter("out.txt");
 
 		int n = readInt();
 		int d = readInt();

@@ -45,8 +45,6 @@ public class Glenforest_Mostly_Talking {
 		pq.offer(new Vertex(0, 0, 0));
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
-			// System.out.println(curr.index+1 + " " + curr.cost + " " +
-			// curr.type);
 			for (Edge e : adj.get(curr.index)) {
 				int nextCost = curr.cost + e.cost;
 				if (!e.secret && min[e.dest][curr.type] > nextCost) {

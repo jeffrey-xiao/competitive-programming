@@ -38,9 +38,7 @@ public class COCI_2007_MUZICARI {
 					dp[i][j] = true;
 					index[i][j] = i;
 				}
-				// System.out.print((dp[i][j] ? 1 : 0) + " ");
 			}
-			// System.out.println();
 		}
 		int curr = 0;
 		for (int i = t; i > 0; i--) {
@@ -50,13 +48,11 @@ public class COCI_2007_MUZICARI {
 			}
 		}
 		while (curr != 0) {
-			// System.out.println(curr + " " + index[n][curr]);
 			time[index[n][curr]] = curr - m[index[n][curr]];
 			curr -= m[index[n][curr]];
 		}
 		curr = 0;
 		for (int i = 1; i <= n; i++) {
-			// System.out.print(time[i] + " ");
 			if (time[i] == -1) {
 				time[i] = curr;
 				curr += m[i];

@@ -1,8 +1,8 @@
 package contest.dmoj;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -28,9 +28,9 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
 	static Stack<Integer> s = new Stack<Integer>();
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 		int n = readInt();
 		int m = readInt();
@@ -75,8 +75,6 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
 		}
 
 		for (int i = 0; i < n; i++) {
-
-			// System.out.println(i+1+" " + id[i]);
 			for (Edge j : adj.get(i)) {
 				if (id[i] == id[j.dest]) {
 					sum[id[i]] += j.cost;
@@ -130,23 +128,16 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
 
 	private static void dfs (int i, int prev) {
 		low[i] = disc[i] = cnt++;
-		// System.out.println("HERE IS " + (i+1) + " " + disc[i]);
 		s.push(i);
 		for (Edge j : adj.get(i)) {
 			if (j.dest == prev)
 				continue;
 			if (disc[j.dest] == -1) {
 				dfs(j.dest, i);
-				// System.out.println("VISITED " + (j.dest+1) + " " +
-				// low[j.dest] + " FROM " + (i+1));
 				if (low[j.dest] > disc[i]) {
-					// System.out.println("BRIDGE IS " + (j.dest+1));
 					bridge[j.dest] = true;
 				}
-				// System.out.println("HERE " + low[j.dest] + " " + low[i] + " "
-				// + (j.dest+1) + " " + (i+1));
 				if (low[j.dest] >= disc[i]) {
-					// System.out.println(s + " " + i);
 					while (s.peek() != j.dest)
 						id[s.pop()] = num;
 					id[s.pop()] = num;
@@ -159,7 +150,6 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
 				low[i] = Math.min(low[i], disc[j.dest]);
 			}
 		}
-		// System.out.println("LOW OF " + (i+1) + " : " + low[i]);
 	}
 
 	static class Vertex implements Comparable<Vertex> {

@@ -49,7 +49,6 @@ public class COCI_2008_SKAKAVAC_2 {
 		int total = 0;
 		for (int x = 0; x < n * n; x = y) {
 			for (y = x; y < n * n && p[x].p == p[y].p; y++) {
-				// System.out.println(p[y].x + " " + p[y].y);
 				short max = p[y].dp;
 				if (p[y].x > 0)
 					max = (short) Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
@@ -66,15 +65,6 @@ public class COCI_2008_SKAKAVAC_2 {
 				update(br, p[y].x, p[y]);
 				update(bc, p[y].y, p[y]);
 			}
-			// for(int z = 0; z < n; z++){
-			// System.out.print(br[z][0].dp + " ");
-			// }
-			// System.out.println();
-			// for(int z = 0; z < n; z++){
-			// System.out.print(bc[z][0].dp + " ");
-			// }
-			// System.out.println();
-			// System.out.println();
 		}
 		System.out.println(total);
 	}

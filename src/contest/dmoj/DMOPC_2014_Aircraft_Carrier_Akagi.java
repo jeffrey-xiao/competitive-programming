@@ -1,8 +1,8 @@
 package contest.dmoj;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -17,9 +17,9 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 	static int offset = 0;
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 		long[] left = new long[SIZE];
 		long[] right = new long[SIZE];
@@ -39,10 +39,7 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 
 				update(leftSum, (a[i - i / 2] - i / 2 - 1), (a[i - i / 2] - i / 2 - 1));
 				update(rightSum, (a[i - i / 2] + i / 2), -(a[i - i / 2] + i / 2));
-				//				out.println("LEFT ADDED " + (a[i - i/2] - i/2 - 1));
-				//				out.println("REMOVED " + (a[i - i/2] + i/2));
 			}
-			//			out.println("ADDED " + (a[i] - (1 + offset)));
 			update(right, a[i] - (1 + offset), 1);
 			update(rightSum, a[i] - (1 + offset), a[i] - (1 + offset));
 
@@ -70,7 +67,6 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 				median = lo;
 			leftSz = query(left, median) + query(right, median - offset);
 			rightSz = (i + 1) - leftSz;
-			//			out.println((i+1) + " THE MEDIAN IS " + median);
 
 			long smallRightSz = query(right, median - offset);
 			long bigRightSz = query(right, SIZE - 1) - smallRightSz;
@@ -78,9 +74,6 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 			long totalSmallerSum = query(leftSum, median) + query(rightSum, median - offset) + offset * smallRightSz;
 			long totalBiggerSum = query(leftSum, SIZE - 1) + query(rightSum, SIZE - 1) + offset * (smallRightSz + bigRightSz) - totalSmallerSum;
 			min = Math.min(min, (leftSz) * median - totalSmallerSum + totalBiggerSum - median * (rightSz));
-
-			//			out.printf("small sum %d and big sum %d left size %d and right size %d\n", totalSmallerSum, totalBiggerSum, leftSz, rightSz);
-			//			out.println("RES " + (leftSz * median - totalSmallerSum + totalBiggerSum - median*rightSz));
 		}
 		out.println(min == 1l << 60 ? -1 : min);
 		out.close();

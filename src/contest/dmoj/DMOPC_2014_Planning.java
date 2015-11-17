@@ -22,7 +22,6 @@ public class DMOPC_2014_Planning {
 	}
 
 	static long pow (long a, long b) {
-		// System.out.println(a + " " + b);
 		if (b == 0)
 			return 1;
 		if (b == 1)

@@ -1,8 +1,8 @@
 package contest.dmoj;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,9 +23,9 @@ public class CCO_Mashup_Touching_Segment {
 	static Node[] seg;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 		int tt = readInt();
 		for (int qq = 1; qq <= tt; qq++) {
@@ -61,16 +61,12 @@ public class CCO_Mashup_Touching_Segment {
 			for (int i = 1; i <= ts.size(); i++) {
 				while (j < n && s[j].a <= i) {
 					update(s[j].a, s[j].b, 1, -1);
-					// System.out.println(i + " ADDED " + s[j].a + " " +
-					// s[j].b);
 					pq.offer(s[j]);
 					j++;
 				}
 				while (!pq.isEmpty() && pq.peek().b < i)
 					pq.poll();
 				ans = Math.max(ans, pq.size() + query(i + 1, ts.size(), 1));
-				// System.out.println(pq.size() + " " + query(i+1, ts.size(), 1)
-				// + " " + i);
 			}
 			pr.printf("Case %d: %d\n", qq, ans);
 		}

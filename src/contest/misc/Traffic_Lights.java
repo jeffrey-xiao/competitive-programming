@@ -41,7 +41,6 @@ public class Traffic_Lights {
 		moves.offer(new Vertex(0, 0));
 		while (!moves.isEmpty()) {
 			Vertex curr = moves.poll();
-			// System.out.println(curr.index+1 + " " + curr.time);
 			if (curr.index == m - 1)
 				return curr.time;
 			for (int x = 0; x < adjlist.get(curr.index).size(); x++) {

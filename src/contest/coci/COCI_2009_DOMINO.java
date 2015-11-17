@@ -11,10 +11,6 @@ public class COCI_2009_DOMINO {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		// int sum = 0;
-		// for(int x = readInt(); x > 0; x--)
-		// sum+= (x*(x+1)+(x+1)*(x)/2);
-		// System.out.println(sum);
 		int n = readInt();
 		System.out.println((n) * (n + 1) * (n + 2) / 2);
 	}

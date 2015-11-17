@@ -32,7 +32,6 @@ public class Checkerboard_Summation_Hard {
 				int y1 = readInt() - 1;
 				int x2 = readInt();
 				int y2 = readInt();
-				// System.out.printf("%d %d %d %d\n",freqTo(x2,y2),freqTo(x1,y1),freqTo(x1,y2),freqTo(x2,y1));
 
 				int total = freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x1, y2) - freqTo(x2, y1);
 				if ((x1 + y1) % 2 != 0)
@@ -56,7 +55,6 @@ public class Checkerboard_Summation_Hard {
 			idxy = y;
 			while (idxy <= ny) {
 				tree[idxx][idxy] += val;
-				// System.out.printf("UPDATE %d AT %d, %d\n",val,idxx,idxy);
 				idxy += (idxy & -idxy);
 			}
 			idxx += (idxx & -idxx);

@@ -66,7 +66,6 @@ public class COCI_2008_SLIKAR {
 		// memoizing the best computed value for the mixed piece
 		s.type[2] = bestV;
 		int n = (x2 - x1 + 1) / 2;
-		// System.out.println(best[0] + " " + best[1]);
 		// placing the new characters into the array
 		for (int r = 0; r < n; r++) {
 			for (int c = 0; c < n; c++) {
@@ -74,8 +73,6 @@ public class COCI_2008_SLIKAR {
 				ng[x1 + (best[1] >> 1) * n + r][y1 + (best[1] & 1) * n + c] = '1';
 			}
 		}
-		// System.out.println(x1 + " " + x2 + " " + y1 + " " + y2 + " " +
-		// s.type[0] + " " + s.type[1] + " " + s.type[2]);
 		return s;
 	}
 

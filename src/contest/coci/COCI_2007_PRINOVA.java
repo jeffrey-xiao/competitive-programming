@@ -31,7 +31,6 @@ public class COCI_2007_PRINOVA {
 				checkMax((kids[x] + kids[y]) / 2 - 1);
 				checkMax((kids[x] + kids[y]) / 2);
 				checkMax((kids[x] + kids[y]) / 2 + 1);
-				// System.out.println((kids[x]+kids[y])/2);
 			}
 		}
 		System.out.println(max);

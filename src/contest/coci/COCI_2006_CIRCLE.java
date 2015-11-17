@@ -30,7 +30,6 @@ public class COCI_2006_CIRCLE {
 		ArrayList<State> curr = new ArrayList<State>();
 		ArrayList<State> next = new ArrayList<State>();
 		curr.add(s);
-		// System.out.println(s.s);
 		for (int i = 0; i < k; i++) {
 			for (State state : curr) {
 				prevState(state.s);

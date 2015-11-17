@@ -35,8 +35,6 @@ public class COCI_2006_DVAPUT {
 			hs.add(hash);
 			boolean success = false;
 			for (int i = mid; i < str.length; i++) {
-				// System.out.println(26*hash + " " + pow*(long)str[i-mid] + " "
-				// + (long)str[i]);
 				hash = (26 * hash - (pow * (long) (str[i - mid] - 'a')) + (long) (str[i] - 'a')) % MOD;
 				if (hs.contains(hash)) {
 					success = true;
@@ -44,7 +42,6 @@ public class COCI_2006_DVAPUT {
 				}
 				hs.add(hash);
 			}
-			// System.out.println(mid + " " + success);
 			if (success) {
 				lo = mid + 1;
 			} else {

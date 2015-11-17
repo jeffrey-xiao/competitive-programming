@@ -51,7 +51,6 @@ public class STNBD_Ellis_Fahrengart {
 		for (int i = 0; i < (n - 1) / sz + 1; i++) {
 			int start = i * sz + 1;
 			int end = Math.min((i + 1) * sz, n);
-			// System.out.println("HERE " + start + " " + end);
 			ArrayList<Query> curr = new ArrayList<Query>();
 			for (Iterator<Query> it = q.iterator(); it.hasNext();) {
 				Query x = it.next();
@@ -71,36 +70,28 @@ public class STNBD_Ellis_Fahrengart {
 			int l = start;
 			int r = start - 1;
 			for (Query x : curr) {
-				System.out.println(x.l + " " + x.r + " " + l + " " + r);
 				while (r < x.r) {
 					r++;
 					res += size - query(a[r]);
-					// System.out.println(a[r] + " " + query(a[r]) +
-					// " RIGHT QUERY");
 					update(a[r], 1);
-					System.out.println(res);
 				}
 				while (l < x.l) {
 					res -= query(a[l] - 1);
 					update(a[l], -1);
 					l++;
-					System.out.println(res);
 				}
 				while (l > x.l) {
 					l--;
 					res += query(a[l] - 1);
-					// System.out.println(a[l] + " " + query(a[l]-1) +
-					// " LEFT QUERY" );
 					update(a[l], 1);
-					System.out.println(res);
 				}
 				ans[x.index] = res;
 
 			}
 		}
 
-		// for (int i = 0; i < m; i++)
-		// ps.println(ans[i]);
+		for (int i = 0; i < m; i++)
+			ps.println(ans[i]);
 		ps.close();
 	}
 

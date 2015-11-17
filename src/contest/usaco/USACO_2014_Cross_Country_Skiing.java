@@ -37,18 +37,18 @@ public class USACO_2014_Cross_Country_Skiing {
 		}
 		startx = waypoints.get(0)[0];
 		starty = waypoints.get(0)[1];
-		
+
 		Queue<int[]> moves = new LinkedList<int[]>();
 		moves.offer(new int[] {startx, starty, 0});
-		
+
 		while (!moves.isEmpty()) {
-			
+
 			int[] curr = moves.poll();
 			if (curr[2] >= dist[curr[0]][curr[1]])
 				continue;
-			
+
 			dist[curr[0]][curr[1]] = curr[2];
-			
+
 			if (!visited[curr[0]][curr[1]]) {
 				visited[curr[0]][curr[1]] = true;
 				if (curr[0] + 1 < r)

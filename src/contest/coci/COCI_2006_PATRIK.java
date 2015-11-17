@@ -31,11 +31,6 @@ public class COCI_2006_PATRIK {
 			count += (c += pre);
 
 			s.push(new Person(h, pre));
-			// System.out.println(h + " " + pre + " " + c);
-			// System.out.print("STACK: ");
-			// for(Person i: s)
-			// System.out.print(i.height + " ");
-			// System.out.println();
 		}
 		System.out.println(count);
 	}

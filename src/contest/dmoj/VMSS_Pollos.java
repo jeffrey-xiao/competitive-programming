@@ -29,7 +29,6 @@ public class VMSS_Pollos {
 		int lo = 0, hi = 1 << 30;
 		while (lo <= hi) {
 			int mid = lo + (hi - lo) / 2;
-			// System.out.println(mid);
 			if (getMoves(mid) <= k) {
 				hi = mid - 1;
 			} else {

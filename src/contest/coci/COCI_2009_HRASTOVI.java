@@ -39,12 +39,7 @@ public class COCI_2009_HRASTOVI {
 		});
 		for (int i = 0; i < m; i++) {
 			sum[i] += search(true, r[i].x2, r[i].y2, false) - search(true, r[i].x2, r[i].y1, true);
-			// System.out.println(search(true, r[i].x2, r[i].y2, false) + " " +
-			// search(true, r[i].x2, r[i].y1, true));
 			sum[i] += search(true, r[i].x1, r[i].y2, false) - search(true, r[i].x1, r[i].y1, true);
-			// System.out.println(search(true, r[i].x1, r[i].y2, false) + " " +
-			// search(true, r[i].x1, r[i].y1, true));
-			// System.out.println();
 		}
 		Arrays.sort(p, new Comparator<Point>() {
 			@Override
@@ -57,10 +52,6 @@ public class COCI_2009_HRASTOVI {
 		for (int i = 0; i < m; i++) {
 			sum[i] += search(false, r[i].y2, r[i].x2, false) - search(false, r[i].y2, r[i].x1, true);
 			sum[i] += search(false, r[i].y1, r[i].x2, false) - search(false, r[i].y1, r[i].x1, true);
-			// System.out.println(search(false, r[i].y2, r[i].x2, false) +" "+
-			// search(false, r[i].y2, r[i].x1, true));
-			// System.out.println(search(false, r[i].y1, r[i].x2, false) +" "+
-			// search(false, r[i].y1, r[i].x1, true));
 			System.out.println(sum[i]);
 		}
 	}
@@ -69,11 +60,9 @@ public class COCI_2009_HRASTOVI {
 		int lo = 0;
 		int hi = n - 1;
 		while (lo <= hi) {
-			// System.out.println(lo + " " + hi);
 			int mid = lo + (hi - lo) / 2;
 			int cmp1 = isX ? v.compareTo(p[mid].x) : v.compareTo(p[mid].y);
 			int cmp2 = !isX ? u.compareTo(p[mid].x) : u.compareTo(p[mid].y);
-			// System.out.println(cmp1 + " " + cmp2 + " " + mid);
 			if (cmp1 > 0) {
 				lo = mid + 1;
 			} else if (cmp1 == 0) {

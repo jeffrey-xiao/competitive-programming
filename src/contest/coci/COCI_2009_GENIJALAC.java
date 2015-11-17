@@ -38,7 +38,6 @@ public class COCI_2009_GENIJALAC {
 		for (int i = 0 + c; i < n - d; i++) {
 			lcm = lcm(cycle[i], lcm);
 		}
-		// System.out.println(lcm);
 		System.out.println((b + lcm - 1) / (lcm) - (a + lcm - 2) / lcm);
 	}
 

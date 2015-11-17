@@ -2,8 +2,8 @@ package contest.dmoj;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.PriorityQueue;
@@ -18,9 +18,9 @@ public class DMOPC_2014_Golden_Lily {
 	static int[] movey = {1, 0, 0};
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int l = readInt();
@@ -34,11 +34,7 @@ public class DMOPC_2014_Golden_Lily {
 				grid[i][j] = readInt();
 			}
 		}
-		// for (int i = 0; i < d; i++) {
-		// for (int j = 0; j < l; j++)
-		// pr.print(grid[i][j] + " ");
-		// pr.println();
-		// }
+
 		int x = readInt();
 		int y = readInt();
 		min[0][0] = grid[0][0];
@@ -47,7 +43,6 @@ public class DMOPC_2014_Golden_Lily {
 		pq.offer(new State(0, 0, min[0][0]));
 		while (!pq.isEmpty()) {
 			State curr = pq.poll();
-			// System.out.printf("%d %d %d\n", curr.x, curr.y, curr.min);
 			for (int z = 0; z < 3; z++) {
 				int nx = curr.x + movex[z];
 				int ny = curr.y + movey[z];
@@ -57,11 +52,6 @@ public class DMOPC_2014_Golden_Lily {
 				}
 			}
 		}
-		// for (int i = 0; i < d; i++) {
-		// for (int j = 0; j < l; j++)
-		// pr.print(min[i][j] + " ");
-		// pr.println();
-		// }
 		pr.println(min[y][x]);
 		pr.close();
 	}

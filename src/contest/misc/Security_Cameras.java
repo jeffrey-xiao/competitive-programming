@@ -46,12 +46,6 @@ public class Security_Cameras {
 				}
 			}
 		}
-		// for(int x = 0; x < l; x++) {
-		// for (int y = 0; y < r; y++) {
-		// System.out.print(adj[x][y]?"1 ":"0 ");
-		// }
-		// System.out.println();
-		// }
 		int count = 0;
 		for (int x = 0; x < r; x++)
 			prev[x] = -1;

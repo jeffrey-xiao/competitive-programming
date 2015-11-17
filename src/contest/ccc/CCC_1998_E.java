@@ -37,7 +37,7 @@ public class CCC_1998_E {
 		v[x][y] = true;
 		if (x == n - 1 && y == n - 1)
 			return 0;
-		
+
 		int min = 1000000;
 		for (int z = 0; z < 4; z++) {
 			int newx = movex[z] + x;
@@ -45,10 +45,10 @@ public class CCC_1998_E {
 			if (newx < 0 || newy < 0 || newx >= n || newy >= n || v[newx][newy] || Math.abs(g[newx][newy] - g[x][y]) > 2)
 				continue;
 			int extraOxygen = g[newx][newy] > s || g[x][y] > s ? 1 : 0;
-			
+
 			if (dp[newx][newy] == 1000000 || (dp[x][y] - extraOxygen < dp[newx][newy] && dp[newx][newy] < 1000000))
 				dp[newx][newy] = compute(s, newx, newy, g, cloneArray(v)) + extraOxygen;
-			
+
 			min = Math.min(min, dp[newx][newy]);
 		}
 		dp[x][y] = Math.min(dp[x][y], min);

@@ -52,9 +52,6 @@ public class The_Fox_And_The_Wolf {
 		v[sx1][sy1][sx2][sy2][0][0][0] = true;
 		while (!q.isEmpty()) {
 			State curr = q.poll();
-			// System.out.println(curr.x1 + " " + curr.y1 + " " + curr.x2 + " "
-			// + curr.y2 + " " + curr.time + " " + curr.b1 + " " + curr.b2 + " "
-			// + curr.c);
 			if (curr.x1 == ex1 && curr.y1 == ey1 && curr.x2 == ex2 && curr.y2 == ey2) {
 				System.out.println(curr.time);
 				return;

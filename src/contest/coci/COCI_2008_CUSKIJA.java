@@ -51,8 +51,6 @@ public class COCI_2008_CUSKIJA {
 				boolean prev = false, next = false, isZero = true;
 				;
 				while (i < zero.size() || j < one.size()) {
-					// System.out.println(i + " " + j + " " + zero.size() + " "
-					// + one.size() + " " + prev + " " + next);
 					if (isZero) {
 						next = j < one.size() && one.get(j) % 3 == 0;
 						if (!prev && !next && i < zero.size())

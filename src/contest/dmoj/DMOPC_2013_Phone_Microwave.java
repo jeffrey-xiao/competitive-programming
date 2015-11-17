@@ -18,23 +18,17 @@ public class DMOPC_2013_Phone_Microwave {
 
 	public static void main (String[] args) throws IOException {
 		Calendar c = Calendar.getInstance();
-		// TimeZone.setDefault(TimeZone.getTimeZone("Vietnam"));
 		int i = readInt();
-		// System.out.println(i);
 		String[] in1 = next().split("/");
 		String[] in2 = next().split(":");
 		c.set(i(in1[0]), i(in1[1]) - 1, i(in1[2]), i(in2[0]), i(in2[1]), i(in2[2]));
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		// System.out.println(df.format(c.getTime()));
-		// c.add(Calendar.HOUR_OF_DAY, -5);
 		int j = 0;
 		for (; j + 24 < i; j += 24) {
 			c.add(Calendar.HOUR_OF_DAY, -24);
 
 		}
-		// System.out.println(j);
 		c.set(Calendar.HOUR_OF_DAY, i(in2[0]));
-		// System.out.println(df.format(c.getTime()));
 		c.add(Calendar.HOUR_OF_DAY, -(i - j));
 		System.out.println(df.format(c.getTime()));
 

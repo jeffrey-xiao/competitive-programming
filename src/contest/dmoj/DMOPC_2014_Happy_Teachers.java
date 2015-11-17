@@ -54,20 +54,11 @@ public class DMOPC_2014_Happy_Teachers {
 					}
 				}
 			}
-			// for(int z = 0; z <= time; z++){
-			// if(dp[x%2][z] == null){
-			// System.out.print("(-1) ");
-			// continue;
-			// }
-			// System.out.printf("(%d, %d) ",dp[x%2][z].happy, dp[x%2][z].time);
-			// }
-			// System.out.println();
 		}
 		int maxHappy = 0;
 		int minTime = 0;
 		for (int x = 0; x <= time; x++) {
 			if (dp[n % 2][x] == null) {
-				// System.out.print("(-1) ");
 				continue;
 			}
 			if (dp[n % 2][x].happy > maxHappy) {
@@ -75,7 +66,6 @@ public class DMOPC_2014_Happy_Teachers {
 				minTime = dp[n % 2][x].time;
 			} else if (dp[n % 2][x].happy == maxHappy && dp[n % 2][x].time < minTime)
 				minTime = dp[n % 2][x].time;
-			// System.out.printf("(%d, %d) ",dp[n%2][x].happy, dp[n%2][x].time);
 		}
 		System.out.println(maxHappy + "\n" + minTime);
 	}

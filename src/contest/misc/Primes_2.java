@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Primes_Again2 {
+public class Primes_2 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
@@ -45,8 +45,9 @@ public class Primes_Again2 {
 
 		for (int x = 0; x < sieve2.length; x++) {
 			if (sieve2[x] == false)
-				System.out.println(start + x + 1);
+				ps.println(start + x + 1);
 		}
+		ps.close();
 	}
 
 	static String next () throws IOException {

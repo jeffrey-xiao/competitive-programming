@@ -56,8 +56,6 @@ public class COCI_2008_SLICICE {
 			adj.get(x).add(new Edge(p + n + 1, cards[x - p - 1]));
 			adj.get(p + n + 1).add(new Edge(x, 0));
 		}
-		// for(int x = 0; x < adj.size(); x++)
-		// System.out.println(x + ": " + adj.get(x));
 		System.out.println(p);
 		maxFlow();
 	}
@@ -102,8 +100,6 @@ public class COCI_2008_SLICICE {
 			augment = bfs();
 		}
 		int[] nums = new int[n];
-		// for(int x = 0; x < adj.size(); x++)
-		// System.out.println(x + ": " + adj.get(x));
 		main : for (int x = 1; x <= p; x++) {
 			if (x <= m) {
 				int flow = Integer.MAX_VALUE - adj.get(x).get(adj.get(x).indexOf(new Edge(input[x][0], 0))).cost;
@@ -136,9 +132,6 @@ public class COCI_2008_SLICICE {
 				System.out.println();
 			}
 		}
-		// for(Integer i: nums)
-		// System.out.print(i + " ");
-		// System.out.println();
 		return true;
 	}
 
@@ -177,7 +170,7 @@ public class COCI_2008_SLICICE {
 		while (prev[c] != -1) {
 			int index = adj.get(prev[c]).indexOf(new Edge(c, 0));
 			int index1 = adj.get(c).indexOf(new Edge(prev[c], 0));
-			// System.out.println(c + " " + prev[c]);
+
 			int cost = adj.get(prev[c]).get(index).cost;
 			int cost1 = adj.get(c).get(index1).cost;
 

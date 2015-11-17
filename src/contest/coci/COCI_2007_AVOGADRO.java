@@ -18,12 +18,8 @@ public class COCI_2007_AVOGADRO {
 	static StringTokenizer st;
 
 	static int N;
-	static ArrayList<LinkedList<Integer>> col = new ArrayList<LinkedList<Integer>>(); // first
-																						// is
-																						// number,
-																						// second
-																						// are
-																						// columns
+	// first is number, second is columns
+	static ArrayList<LinkedList<Integer>> col = new ArrayList<LinkedList<Integer>>();
 	static int[][] g;
 	static int[][] occ; // first is number, second is row
 	static boolean[] v;
@@ -49,8 +45,6 @@ public class COCI_2007_AVOGADRO {
 		for (int i = 0; i < N; i++)
 			if (occ[i][0] == 0 || occ[i][1] == 0 || occ[i][2] == 0) {
 				process.offer(i);
-				// System.out.println(i + " " + occ[i][0] + " " + occ[i][1] +
-				// " " + occ[i][2]);
 			}
 		while (!process.isEmpty()) {
 			Integer next = process.poll();

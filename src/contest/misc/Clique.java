@@ -1,99 +1,82 @@
 package contest.misc;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class Clique {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+	static BufferedReader br;
+	static PrintWriter pr;
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		pr = new PrintWriter(new OutputStreamWriter(System.out));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// pr = new PrintWriter(new FileWriter("out.txt"));
+
 		int n = readInt();
 		int m = readInt();
-		ArrayList<HashSet<Integer>> adj = new ArrayList<HashSet<Integer>>();
-		for (int x = 0; x < n; x++)
-			adj.add(new HashSet<Integer>());
-		for (int x = 0; x < m; x++) {
+		int[][] adj = new int[n][n];
+		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
-			adj.get(a).add(b);
-			adj.get(b).add(a);
+			adj[a][b] = adj[b][a] = 1;
 		}
-		int sizeA = n / 2;
-		int sizeB = n - sizeA;
-		boolean[] dp = new boolean[1 << sizeA];
-		boolean[] dp2 = new boolean[1 << sizeB];
-		int max = 0;
-		dp[0] = true;
-		dp2[0] = true;
-		for (int x = 0; x < 1 << sizeA; x++) {
-			if (dp[x]) {
-				HashSet<Integer> set = new HashSet<Integer>();
-				for (int y = 0; y < sizeA; y++)
-					if ((x & 1 << y) > 0)
-						set.add(y);
-				main : for (int y = 0; y < sizeA; y++)
-					if ((x & 1 << y) == 0) {
-						for (Integer i : set)
-							if (!adj.get(y).contains(i))
-								continue main;
-						dp[x | (1 << y)] = true;
-					}
-				max = Math.max(max, Integer.bitCount(x));
+		int szA = n / 2;
+		int szB = n - n / 2;
+
+		int[] a = new int[1 << szA];
+		for (int i = 1; i < 1 << szA; i++) {
+			boolean valid = true;
+			for (int j = 0; j < szA; j++)
+				for (int k = j + 1; k < szA; k++) {
+					if ((i & 1 << j) > 0 && (i & 1 << k) > 0 && adj[j][k] == 0)
+						valid = false;
+				}
+			if (valid) {
+				int cnt = 0;
+				for (int j = 0; j < szA; j++)
+					if ((i & 1 << j) > 0)
+						cnt++;
+				a[i] = cnt;
+			} else {
+				for (int j = 0; j < szA; j++) {
+					if ((i & 1 << j) > 0)
+						a[i] = Math.max(a[i], a[i ^ 1 << j]);
+				}
 			}
 		}
-		for (int x = 0; x < 1 << sizeB; x++) {
-			if (dp2[x]) {
-				HashSet<Integer> set = new HashSet<Integer>();
-				HashSet<Integer> otherSet = new HashSet<Integer>();
-				int[] count = new int[sizeA];
-				for (int y = 0; y < sizeB; y++)
-					if ((x & 1 << y) > 0) {
-						set.add(y + sizeA);
-						for (Integer i : adj.get(y + sizeA)) {
-							if (i < sizeA)
-								count[i]++;
+		int max = 0;
+		for (int i = 1; i < 1 << szB; i++) {
+			boolean valid = true;
+			for (int j = 0; j < szB; j++)
+				for (int k = j + 1; k < szB; k++) {
+					if ((i & 1 << j) > 0 && (i & 1 << k) > 0 && adj[j + szA][k + szA] == 0)
+						valid = false;
+				}
+			if (valid) {
+				int cnt = 0;
+				int bit = (1 << szA) - 1;
+				for (int j = 0; j < szB; j++) {
+					if ((i & 1 << j) > 0) {
+						cnt++;
+						for (int k = 0; k < szA; k++) {
+							if (adj[j + szA][k] == 0)
+								bit = bit & ~(1 << k);
 						}
 					}
-				int size = Integer.bitCount(x);
-				for (int y = 0; y < sizeA; y++)
-					if (count[y] == size)
-						otherSet.add(y);
-				// System.out.println("HERE " + Integer.toBinaryString(x));
-				// System.out.println("BITSET " + otherSet);
-				int check = toBinary(otherSet);
-				if (dp[check]) {
-					max = Math.max(max, Integer.bitCount(check) + Integer.bitCount(x));
-					if (Integer.bitCount(check) + Integer.bitCount(x) == 14)
-						System.out.println(Integer.toBinaryString(check) + " " + Integer.toBinaryString(x));
 				}
-				main : for (int y = 0; y < sizeB; y++)
-					if ((x & 1 << y) == 0) {
-						for (Integer i : set)
-							if (!adj.get(y + sizeA).contains(i))
-								continue main;
-						dp2[x | (1 << y)] = true;
-					}
-				max = Math.max(max, Integer.bitCount(x));
+				max = Math.max(max, cnt + a[bit]);
 			}
 		}
-		System.out.println(max);
-	}
+		pr.println(max);
 
-	private static int toBinary (HashSet<Integer> otherSet) {
-		int ret = 0;
-		for (Integer i : otherSet)
-			ret = ret | 1 << i;
-		return ret;
+		pr.close();
 	}
 
 	static String next () throws IOException {

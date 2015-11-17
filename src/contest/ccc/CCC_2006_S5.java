@@ -53,18 +53,18 @@ public class CCC_2006_S5 {
 				isEden[ni] = false;
 		}
 		int res = 1 << 30;
-		for (int i = 0; i < (1 << (m * n)); i++) 
+		for (int i = 0; i < (1 << (m * n)); i++)
 			if (isEden[i] && steps[i] != -1)
 				res = Math.min(res, steps[i]);
-		
+
 		System.out.println(res == 1 << 30 ? -1 : res);
 	}
 
 	static int compute (int s, boolean b) {
 		v[s] = true;
-		if (s == end) 
+		if (s == end)
 			return steps[s] = 0;
-		
+
 		int ns = getIndex(nextState(getState(s)));
 		if (v[ns]) {
 			if (steps[ns] == -1)

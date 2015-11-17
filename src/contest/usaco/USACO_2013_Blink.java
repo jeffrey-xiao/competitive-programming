@@ -28,9 +28,9 @@ public class USACO_2013_Blink {
 			nextState(rabbit);
 			nextState(rabbit);
 		} while (!equals(turtle, rabbit));
-		
+
 		int cycle = 0;
-		
+
 		do {
 			cycle++;
 			nextState(rabbit);

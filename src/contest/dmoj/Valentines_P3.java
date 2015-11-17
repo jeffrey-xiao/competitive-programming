@@ -37,8 +37,6 @@ public class Valentines_P3 {
 				System.out.println(curr.moves);
 				return;
 			}
-			// System.out.println(curr.x + " " + curr.y + " " + curr.z + " " +
-			// curr.moves);
 			for (int k = 0; k < 6; k++) {
 				int nx = curr.x + movex[k];
 				int ny = curr.y + movey[k];

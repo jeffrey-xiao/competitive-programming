@@ -25,7 +25,6 @@ public class COCI_2007_JEDNAKOST {
 		target = Integer.parseInt(input[1]);
 		n = a.length;
 		solve(1, target, a[0] - '0');
-		// System.out.print(a[0]);
 		print(1, target, "" + a[0]);
 	}
 
@@ -35,8 +34,6 @@ public class COCI_2007_JEDNAKOST {
 			System.out.print(sum + "=" + target);
 			return;
 		}
-		// System.out.println(dp.get(new State(i+1, t-j, a[i] - '0')) + " " +
-		// (i+1) + " " + t + " " + j);
 		if (j * 10 + a[i] - '0' > t || (t - j >= 0 && dp.get(new State(i + 1, t - j, a[i] - '0')) < dp.get(new State(i + 1, t, j * 10 + a[i] - '0')))) {
 			System.out.print(sum + "+");
 			print(i + 1, t - j, "" + a[i]);
@@ -46,7 +43,6 @@ public class COCI_2007_JEDNAKOST {
 	}
 
 	private static int solve (int i, int t, int currSum) {
-		// System.out.println(i + " " + t + " " + currSum);
 		if (i == n) {
 			if (t == currSum) {
 				dp.put(new State(i, t, currSum), 0);
@@ -64,11 +60,8 @@ public class COCI_2007_JEDNAKOST {
 		int res = 1 << 30;
 		if (currSum * 10 + a[i] - '0' <= t) {
 			res = Math.min(res, solve(i + 1, t, currSum * 10 + a[i] - '0'));
-			// System.out.println(dp.get(new State(i+1, t, currSum*10+a[i] -
-			// '0')));
 		}
 		res = Math.min(res, solve(i + 1, t - currSum, a[i] - '0') + 1);
-		// System.out.println(dp.get(new State(i+1, t-currSum, a[i]-'0')));
 		dp.put(new State(i, t, currSum), res);
 		return res;
 	}

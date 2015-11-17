@@ -20,7 +20,6 @@ public class Glenforest_Stalactites {
 	public static void main (String[] args) throws IOException {
 		N = readInt();
 		bit = new long[N + 1][N + 1][N + 1];
-		// v = new long[N+1][N+1][N+1];
 		int Q = readInt();
 		long res = 0;
 		for (int i = 0; i < Q; i++) {
@@ -38,9 +37,7 @@ public class Glenforest_Stalactites {
 				int x2 = readInt();
 				int y2 = readInt();
 				int z2 = readInt();
-				// System.out.println(query(x2, y2, z2));
 				res += query(x1, y1, z1, x2, y2, z2);
-				// System.out.println(res);
 			}
 		}
 		System.out.println(res);

@@ -70,8 +70,6 @@ public class DMOPC_2014_Chemistry_Homework {
 				} else if (((size[i] == 4 && size[x] == 1) || size[i] == 1 && size[x] == 4) && adj[i][x] == 1) {
 					energy += 413;
 				} else {
-					// isPossible = false;
-					// return;
 				}
 			}
 		}

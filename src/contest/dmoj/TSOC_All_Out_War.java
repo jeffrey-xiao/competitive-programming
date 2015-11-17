@@ -2,8 +2,8 @@ package contest.dmoj;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -18,9 +18,9 @@ public class TSOC_All_Out_War {
 	static int[] a = new int[30001];
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
@@ -36,15 +36,11 @@ public class TSOC_All_Out_War {
 			update(a, b, 1, c);
 			System.out.printf("%d %d\n", query(a, b, 1), query(1, n, 1));
 		}
-		// for (int i = 1; i <= n; i++)
-		// System.out.print(query(i, i, 1) + " ");
-		// System.out.println();
 		pr.close();
 	}
 
 	static void build (int l, int r, int n) {
 		tree[n] = new Node(l, r);
-		// System.out.println("CREATED FROM " + l + " " + r + " " + n);
 		if (l == r) {
 			tree[n].min = a[l];
 			return;
@@ -56,8 +52,6 @@ public class TSOC_All_Out_War {
 	}
 
 	static void update (int l, int r, int n, int a) {
-		// System.out.println(l + " " + r + " " + n + " " + tree[n].l + " " +
-		// tree[n].r);
 		if (tree[n].l == l && tree[n].r == r) {
 			tree[n].p += a;
 			tree[n].min = Math.max(0, tree[n].min - a);

@@ -20,7 +20,7 @@ public class COCI_2014_PIRAMIDA {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
-		//ps = new PrintWriter(new FileWriter("in.txt"));
+		//ps = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readLong();
 
@@ -46,10 +46,6 @@ public class COCI_2014_PIRAMIDA {
 					suffix[j] = suffix[j + 1] + (input[j] == qs[i].c ? 1 : 0);
 
 				}
-				for (int j = 1; j <= N; j++) {
-					// System.out.print(suffix[j] + " " );
-				}
-				// System.out.println();
 				prevChar = qs[i].c;
 			}
 			long l = qs[i].line;
@@ -63,18 +59,10 @@ public class COCI_2014_PIRAMIDA {
 				right = (int) ((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
 			}
 
-			// System.out.println(hi - lo + " " + diff);
-			// System.out.println(left + " " + right + " " + left1 + " " +
-			// right1 + " " + N + " " + l);
-			// if (hi - lo != diff || left != left1 || right != right1)
-			// break;
 			long num = ((diff + 1 + N - 1)) / N;
 			if (left > right)
 				num++;
-			// System.out.println(prefix[N] + " " + prefix[left -1] + " " +
-			// suffix[right+1]);
 			long res = num * prefix[N] - prefix[left - 1] - suffix[right + 1];
-			// System.out.println(res);
 			ans[qs[i].index] = res;
 		}
 

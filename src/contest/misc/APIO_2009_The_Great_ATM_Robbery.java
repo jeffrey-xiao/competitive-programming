@@ -73,9 +73,6 @@ public class APIO_2009_The_Great_ATM_Robbery {
 			ends.add(id[readInt() - 1]);
 
 		System.out.println(maxValue(id[start], cValues, g, ends));
-		// for(int x = 0; x < n; x++){
-		// System.out.println(x + ": " + id[x]);
-		// }
 	}
 
 	private static int maxValue (int start, int[] values, ArrayList<HashSet<Integer>> g, HashSet<Integer> ends) {
@@ -87,7 +84,6 @@ public class APIO_2009_The_Great_ATM_Robbery {
 		while (!moves.isEmpty()) {
 			Vertex curr = moves.poll();
 			if (ends.contains(curr.index)) {
-				// System.out.println(curr.value + " " + curr.index);
 				ans = Math.max(ans, curr.value);
 			}
 			for (Integer i : g.get(curr.index)) {

@@ -21,9 +21,6 @@ public class DMOPC_2014_Not_Enough_Personnel {
 		for (int x = 0; x < n; x++)
 			ts.add(new Employee(next(), readInt(), x));
 		int q = readInt();
-		// for(Employee e : ts){
-		// System.out.println(e.name + " " + e.skill);
-		// }
 		for (int x = 0; x < q; x++) {
 			int skill = readInt();
 			int d = readInt();

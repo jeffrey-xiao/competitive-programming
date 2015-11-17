@@ -27,12 +27,9 @@ public class VMSS_Tree_Planting {
 			Point np = getPoint(r, c);
 			if (j == 1) {
 				update(np.x, np.y, t);
-				// System.out.println(np.x + " " + np.y);
 			} else {
 				Point p1 = getPoint(r - t - 1, c + t + 1);
 				Point p2 = getPoint(r, c);
-				// System.out.println(p2.x + " " + p2.y + " " + p1.x + " " +
-				// p1.y);
 				ans = (ans + sum(p2.x, p2.y) - sum(p1.x, p1.y)) % MOD;
 			}
 		}

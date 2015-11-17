@@ -55,7 +55,6 @@ public class DMOPC_2014_Exam_Delay {
 			delay += s[c].prevE.dist / ((s[c].prevE.speed) * 0.75);
 			count++;
 			c = s[c].prev;
-			// System.out.println(c);
 		}
 		System.out.println(count);
 		System.out.println((int) (Math.round(60 * (delay - s[v - 1].time))));

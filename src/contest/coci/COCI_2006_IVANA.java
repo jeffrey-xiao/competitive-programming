@@ -62,8 +62,6 @@ public class COCI_2006_IVANA {
 			}
 		}
 		dp[l][r][s] = res;
-		// if (l == r && r == s)
-		// System.out.println(l + " " + r + " " + s +" "+res);
 		return res;
 	}
 

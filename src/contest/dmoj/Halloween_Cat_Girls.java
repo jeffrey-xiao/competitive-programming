@@ -35,8 +35,6 @@ public class Halloween_Cat_Girls {
 						lo = mid + 1;
 					}
 				}
-				// System.out.println(width[i] - width[lo] + " " + i + " " +
-				// lo);
 				max[i] = Math.max(max[i - 1], cute[i] - cute[lo]);
 				ps.println(max[i]);
 				i++;

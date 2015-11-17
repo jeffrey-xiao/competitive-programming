@@ -44,9 +44,7 @@ public class COCI_2008_MRAVOJED {
 					x1 = x;
 					y1 = y;
 				}
-				// System.out.print(dp[x][y] + " ");
 			}
-			// System.out.println();
 		}
 		System.out.println((x1 + 1) + " " + (y1 + 1) + " " + max);
 		grid[x1][y1] = '.';
@@ -74,9 +72,7 @@ public class COCI_2008_MRAVOJED {
 					x2 = x;
 					y2 = y;
 				}
-				// System.out.print(dp[x][y] + " ");
 			}
-			// System.out.println();
 		}
 		System.out.println((x2 + 1) + " " + (y2 + 1) + " " + max);
 	}

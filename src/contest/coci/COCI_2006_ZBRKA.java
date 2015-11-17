@@ -29,7 +29,6 @@ public class COCI_2006_ZBRKA {
 				cumulativeSum += dp[(x - 1) % 2][y];
 				cumulativeSum %= MOD;
 				dp[x % 2][y] = cumulativeSum;
-				// System.out.print(dp[x%2][y] + " ");
 			}
 			for (int y = x; y <= k; y++) {
 				cumulativeSum += dp[(x - 1) % 2][y];
@@ -37,9 +36,7 @@ public class COCI_2006_ZBRKA {
 				cumulativeSum -= dp[(x - 1) % 2][y - x];
 				cumulativeSum = (cumulativeSum + MOD) % MOD;
 				dp[x % 2][y] = cumulativeSum;
-				// System.out.println(dp[x%2][y] + " ");
 			}
-			// System.out.println();
 		}
 		System.out.println(dp[n % 2][k]);
 	}

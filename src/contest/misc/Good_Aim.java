@@ -63,7 +63,6 @@ public class Good_Aim {
 				int lo = bs(org[id], false) - 1;
 				org[id].x = x;
 				org[id].y = y;
-				// System.out.println(hi + " " + lo);
 				pr.println(sorted[hi].sz - (lo == -1 ? 0 : sorted[lo].sz));
 			}
 
@@ -85,7 +84,6 @@ public class Good_Aim {
 		int hi = n - 1;
 		while (lo <= hi) {
 			int mid = lo + (hi - lo) / 2;
-			// System.out.println(mid + " " + t.compareTo(sorted[mid]));
 			int cmp = t.compareTo(sorted[mid]);
 			if (cmp > 0)
 				lo = mid + 1;

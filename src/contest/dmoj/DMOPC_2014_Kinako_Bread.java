@@ -1,8 +1,8 @@
 package contest.dmoj;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -20,9 +20,9 @@ public class DMOPC_2014_Kinako_Bread {
 	static int[] d;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 		int n = readInt();
 		int lk = readInt();
@@ -74,8 +74,6 @@ public class DMOPC_2014_Kinako_Bread {
 					sumK++;
 				else
 					sumC++;
-				// System.out.println(i+1 + " "+(j+1) + " " + sumK + " " +
-				// sumC);
 				if (lk <= sumK && sumK <= rk && lc <= sumC && sumC <= rc) {
 					cnt++;
 				}

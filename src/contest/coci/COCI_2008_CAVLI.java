@@ -76,16 +76,12 @@ public class COCI_2008_CAVLI {
 			}
 			if (s.charAt(k) == 'L') {
 				points.remove(l.get(lowXI));
-				// System.out.println(l.get(lowXI));
 			} else if (s.charAt(k) == 'R') {
 				points.remove(l.get(highXI));
-				// System.out.println(l.get(highXI));
 			} else if (s.charAt(k) == 'U') {
 				points.remove(l.get(highYI));
-				// System.out.println(l.get(highYI));
 			} else {
 				points.remove(l.get(lowYI));
-				// System.out.println(l.get(lowYI));
 			}
 		}
 	}

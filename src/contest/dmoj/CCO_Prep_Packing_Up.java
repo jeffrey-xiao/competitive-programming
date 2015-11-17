@@ -2,8 +2,8 @@ package contest.dmoj;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -20,10 +20,10 @@ public class CCO_Prep_Packing_Up {
 	static int[] li = new int[2000010];
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter("out.txt");
 
 		n = readInt();
 		L = readInt() + 1;
@@ -42,9 +42,6 @@ public class CCO_Prep_Packing_Up {
 			}
 			dp[i] = dp[li[l]] + sqr(s[i] - s[li[l]] - L);
 
-			// System.out.println(dp[i]);
-			// System.out.println(dp[i] + " " + dp[l.getFirst()] +" "+ sqr(s[i]
-			// - s[l.getFirst()] - L));
 			while (r - l >= 1) {
 				if (f(li[r - 1], li[r]) > f(li[r], i))
 					r--;
@@ -52,9 +49,6 @@ public class CCO_Prep_Packing_Up {
 					break;
 			}
 			li[++r] = i;
-			// System.out.println(li[l] + " " + dp[li[l]] + " " + s[i] + " " +
-			// s[li[l]]);
-			// System.out.println(i + " " + dp[i]);
 		}
 		ps.println(dp[n]);
 		ps.close();

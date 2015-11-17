@@ -23,12 +23,10 @@ public class Good_Strategy {
 		for (int x = 0; x < M; x++) {
 			int team = readInt();
 			int problem = readInt() - 1;
-			// System.out.println(problems.size());
 			if (team == 1) {
 				problems.remove(new Problem(problem, diff[problem]));
 				solvedProblems.add(problem);
 			} else if (team == 2 && !solvedProblems.contains(problem)) {
-				// System.out.println("ASD " + x + " " + problem);
 
 				problems.remove(new Problem(problem, diff[problem]));
 				diff[problem]++;

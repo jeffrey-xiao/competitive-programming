@@ -20,24 +20,13 @@ public class DMOPC_2014_Revenge_Of_The_Bins {
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
 		int ans = 0;
-		//		int[] count = new int[n];
 		build(1, n, 1);
 		for (int i = 0; i < n / 2; i++) {
 			update(1, a[i], 1, 2);
 			update(1, a[i * 2], 1, -1);
 			update(1, a[i * 2 + 1], 1, -1);
 
-			//			for (int k = 0; k < a[i]; k++)
-			//				count[k] += 2;
-			//			for (int k = 0; k < a[i*2]; k++)
-			//				count[k]--;
-			//			for (int k = 0; k < a[i*2+1]; k++)
-			//				count[k]--;
 			int minimum = tree[1].min;
-			//			int minimum = Integer.MAX_VALUE;
-			//			for (int j = 0; j < n; j++) {
-			//				minimum = Math.min(minimum, count[j]);
-			//			}
 			if (minimum < 0)
 				continue;
 			ans = i + 1;

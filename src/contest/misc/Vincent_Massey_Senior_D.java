@@ -58,9 +58,7 @@ public class Vincent_Massey_Senior_D {
 		dp[n + 1] = 0;
 		for (int x = n + 1; x >= 0; x--) {
 			dp[x] += states[x].cost;
-			// System.out.println(dp[x]);
 			for (Integer i : prev.get(x)) {
-				// System.out.println("HERE " + i);
 				if (states[i].side != states[x].side) {
 					if (x == n + 1)
 						dp[i] = Math.max(dp[x], dp[i]);

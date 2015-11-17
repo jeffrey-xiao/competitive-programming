@@ -36,8 +36,6 @@ public class ACSL_Reversi {
 	}
 
 	private static boolean makeMove (int i, int j, boolean isXMove, int move) {
-
-		// byte other = (byte) (isXMove?1:2);
 		byte same = (byte) (isXMove ? 2 : 1);
 		if (i < 0 || j < 0 || i > 7 || j > 7)
 			return false;

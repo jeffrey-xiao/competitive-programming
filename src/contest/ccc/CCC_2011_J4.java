@@ -85,7 +85,7 @@ class CCC_2011_J4 {
 					for (int j = (int) positions.get(x - 1).getX() - 1; j > positions.get(x).getX(); j--) {
 						totalPositions.add(new Point(j, (int) positions.get(x).getY()));
 					}
-				// Y positions
+					// Y positions
 				} else if (positions.get(x).getY() > positions.get(x - 1).getY()) {
 
 					for (int j = (int) positions.get(x - 1).getY() + 1; j > positions.get(x).getY(); j++) {

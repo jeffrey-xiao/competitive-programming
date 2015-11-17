@@ -35,11 +35,9 @@ public class COCI_2007_SREDNJI {
 		int[] r = new int[2 * n + 1];
 		for (int x = 1; x <= i; x++) {
 			l[sum[i] - sum[x - 1] + n]++;
-			// System.out.println(sum[i] - sum[x-1]);
 		}
 		for (int x = i; x <= n; x++) {
 			r[-(sum[x] - sum[i - 1]) + n]++;
-			// System.out.println(sum[x] - sum[i-1]);
 		}
 		int total = 0;
 		for (int x = 0; x < 2 * n + 1; x++)

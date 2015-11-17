@@ -35,14 +35,6 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 					dp[j + a[i].cost][k + a[i].volume] = Math.max(dp[j][k] + a[i].value, dp[j + a[i].cost][k + a[i].volume]);
 				}
 			}
-			//			for (int j = 0; j <= r; j++) {
-			//				for (int k = 0; k <= s; k++) {
-			//					System.out.print(dp[i][j] + " ");
-			//				}
-			//				System.out.println();
-			//			}
-			//			System.out.println();
-			//			System.out.println();
 		}
 		int currR = r;
 		int currS = s;
@@ -62,7 +54,6 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
 		}
 		out.println(dp[r][s]);
 		for (int i = 0; i < n; i++)
-			//			if (cnt[i] > 0)
 			out.println(a[i].name + " " + cnt[i]);
 		out.close();
 	}

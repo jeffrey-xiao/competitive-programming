@@ -44,7 +44,6 @@ public class COCI_2006_STOL {
 					}
 				}
 				currMax = Math.max(currMax, curr);
-				// System.out.println(c1 + " " + c2 + " " + currMax);
 				if (currMax > 0 && currMax * 2 + (c2 - c1 + 1) * 2 > max)
 					max = currMax * 2 + (c2 - c1 + 1) * 2;
 			}

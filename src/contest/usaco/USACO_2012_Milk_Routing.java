@@ -51,18 +51,18 @@ public class USACO_2012_Milk_Routing {
 			Node curr = pq.poll();
 			for (int x = 0; x < adjlist.get(curr.curr).size(); x++) {
 				Edge next = adjlist.get(curr.curr).get(x);
-				
+
 				if (next.capacity < currCost)
 					continue;
-				
+
 				float f = curr.latency + next.latency + ((float) milk) / (Math.min(curr.capacity, next.capacity));
-				
+
 				if (minCost[next.dest] < f)
 					continue;
 
 				minCost[next.dest] = (int) f;
 				visited[next.dest] = true;
-				
+
 				pq.add(new Node(next.dest, curr.latency + next.latency, Math.min(curr.capacity, next.capacity)));
 			}
 		}

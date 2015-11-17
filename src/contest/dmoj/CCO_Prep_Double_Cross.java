@@ -1,8 +1,8 @@
 package contest.dmoj;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayDeque;
@@ -29,10 +29,10 @@ public class CCO_Prep_Double_Cross {
 	static final int MOD = 1000000009;
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		//out = new PrintWriter(new FileWriter("out.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		r = readInt();
 		c = readInt();
@@ -48,9 +48,7 @@ public class CCO_Prep_Double_Cross {
 		int n = readInt();
 		for (int i = 0; i < n; i++)
 			grid[readInt()][readInt()] = false;
-		//		for (int i = 1; i <= r; i++)
-		//			for (int j = 1; j <= c; j++)
-		//				grid[i][j] = readInt() == 1;
+
 		for (int i = 1; i <= r; i++) {
 			for (int j = 1; j <= c; j++)
 				left[i][j] = !grid[i][j] ? 0 : 1 + left[i][j - 1];
@@ -84,21 +82,17 @@ public class CCO_Prep_Double_Cross {
 						totalCurr = (totalCurr + query(addSum, curr - 2) * curr - query(subSum, curr - 2));
 						res = (res + totalCurr * down[i + 1][j] % MOD) % MOD;
 
-						//						out.println(query(cnt, SIZE-1) + " " + query(cnt, curr - 2) + " " + down[i+1][j]);
-						//						out.println(res + " " + query(addSum, curr-2) + " " + query(subSum, curr-2));
 					}
 				}
 				add(prev, prevMul);
 				prev = curr;
 				prevMul = up[i - 1][j];
-				//				out.printf("at (%d, %d) is %d with res %d and up %d\n", i, j, curr, res, up[i][j]);
 			}
 
 			while (!added.isEmpty())
 				remove(added.poll());
 		}
 		out.println(res);
-
 		out.close();
 	}
 
@@ -114,7 +108,6 @@ public class CCO_Prep_Double_Cross {
 	static void add (int prev, int upVal) {
 		if (prev == 0 || upVal == 0)
 			return;
-		//		out.println("UPDATED " + prev + " " + upVal);
 		added.offer(new Pair(prev, upVal));
 		update(cnt, prev, upVal);
 		update(addSum, prev, prev * upVal);
@@ -122,7 +115,6 @@ public class CCO_Prep_Double_Cross {
 	}
 
 	static void remove (Pair p) {
-		//		out.println("CLEARED " + p.curr);
 		update(cnt, p.curr, -p.mul);
 		update(addSum, p.curr, -p.curr * p.mul);
 		update(subSum, p.curr, -p.curr * (p.curr + 1) / 2 * p.mul);

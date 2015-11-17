@@ -74,7 +74,7 @@ public class CCC_1996_Stage_2_Quadtrees {
 					x = end;
 					currChild++;
 				} else {
-					if (value.charAt(x) == 'f') 
+					if (value.charAt(x) == 'f')
 						child[currChild] = new Quadtree(depth + 1, 'f');
 
 					currChild++;
@@ -84,11 +84,11 @@ public class CCC_1996_Stage_2_Quadtrees {
 		}
 
 		private int getTotalValue (int squareValue) {
-			if (node == 'f') 
+			if (node == 'f')
 				return squareValue;
-			
+
 			int total = 0;
-			for (int x = 0; x < 4; x++) 
+			for (int x = 0; x < 4; x++)
 				if (child[x] != null)
 					total += child[x].getTotalValue(squareValue / 4);
 

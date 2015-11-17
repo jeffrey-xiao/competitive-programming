@@ -20,8 +20,8 @@ public class CCC_2014_Stage_2_Troyangles {
 			}
 		}
 		int sum = 0;
-		for (int[] x : solution) 
-			for (int y : x) 
+		for (int[] x : solution)
+			for (int y : x)
 				sum += y;
 		System.out.println(sum);
 	}

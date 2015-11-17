@@ -56,7 +56,6 @@ public class COCI_2006_BICIKLI {
 			int i = sorted.get(x);
 			if (x == 0)
 				total[i] = 1;
-			// System.out.println(i);
 			for (Integer c : adj.get(i)) {
 				if (total[c] + total[i] >= M)
 					pad = true;

@@ -46,9 +46,9 @@ public class COCI_2006_SLIKAR {
 			visited[moves.peek().x][moves.peek().y] = true;
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
-			// System.out.println(curr.x + " " + curr.y);
 
 			min[curr.x][curr.y] = curr.time;
+
 			for (int z = 0; z < 4; z++) {
 				int x = curr.x + movex[z];
 				int y = curr.y + movey[z];
@@ -65,8 +65,6 @@ public class COCI_2006_SLIKAR {
 		visited[moves.peek().x][moves.peek().y] = true;
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
-			// System.out.println(curr.x);
-			// System.out.println(curr.x + " " + curr.y);
 			if (grid[curr.x][curr.y] == 'D') {
 				System.out.println(curr.time);
 				return;

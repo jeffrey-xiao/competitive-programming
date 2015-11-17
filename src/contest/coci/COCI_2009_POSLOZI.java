@@ -50,12 +50,7 @@ public class COCI_2009_POSLOZI {
 		int[] end = null;
 		while (!q.isEmpty()) {
 			State curr = q.poll();
-			// for (int i = 0; i < n; i++) {
-			// System.out.print(curr.s[i] + " ");
-			// }
-			// System.out.println(curr.isStart);
 			if ((curr.isStart && ve.containsKey(toIndex(curr.s)) || (!curr.isStart && vs.containsKey(toIndex(curr.s))))) {
-				// System.out.println("HERE");
 				end = Arrays.copyOf(curr.s, curr.s.length);
 				break;
 			}
@@ -99,9 +94,6 @@ public class COCI_2009_POSLOZI {
 			swap(c, A[j], B[j]);
 		}
 		System.out.println(steps.size());
-		// for (int i : steps) {
-		// System.out.println(i+1);
-		// }
 	}
 
 	static class State {

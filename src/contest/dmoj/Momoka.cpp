@@ -79,7 +79,6 @@ long long Type (char letter) {
         }
         tree[next].smart[s[i - tree[tree[next].fail].len - 1] - 'a'] = tree[next].fail;
         tree[next].num = tree[tree[next].fail].num + 1;
-        //printf("%lld %d %d\n", tree[next].num, tree[next].len, tree[next].next[0]);
         ans += tree[next].num;
         suff = next;
         lastState.push(state(next, lastState.top().curr));

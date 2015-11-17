@@ -32,11 +32,7 @@ public class COCI_2008_SVADA {
 
 			int sumA = get(m1, mid);
 			int sumB = get(m2, t - mid);
-			// System.out.println(mid + " " + sumA + " " + sumB);
-			// if(sumA == sumB){
-			// System.out.println(mid);
-			// break;
-			// }
+
 			if (sumA <= sumB)
 				lo = mid + 1;
 			else

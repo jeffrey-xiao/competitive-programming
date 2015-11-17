@@ -45,7 +45,7 @@ public class CCC_2005_S4 {
 		Node addNode (String node, Node currentNode) {
 			if (node.equalsIgnoreCase(parent.curr))
 				return parent;
-			
+
 			Node n = new Node(currentNode, node);
 			int index = child.indexOf(n);
 			if (index == -1) {

@@ -35,9 +35,7 @@ public class DMOPC_2014_Kittans_Dilemma_2 {
 		long[] sumS = new long[strong.size() + 1];
 		for (int i = 1; i <= weak.size(); i++) {
 			sumW[i] = weak.get(i - 1) + sumW[i - 1];
-			// System.out.print(sumW[i] + " ");
 		}
-		// System.out.println();
 
 		for (int i = 1; i <= strong.size(); i++) {
 			sumS[i] = strong.get(i - 1) + sumS[i - 1];
@@ -50,9 +48,7 @@ public class DMOPC_2014_Kittans_Dilemma_2 {
 			int lo = 0;
 			int hi = weak.size();
 			while (lo <= hi) {
-
 				int mid = lo + (hi - lo) / 2;
-				// System.out.println(sumW[mid] + " " + spaceLeft);
 				if (sumW[mid] <= spaceLeft) {
 					lo = mid + 1;
 				} else {

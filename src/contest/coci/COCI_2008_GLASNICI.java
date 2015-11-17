@@ -37,7 +37,6 @@ public class COCI_2008_GLASNICI {
 	}
 
 	private static boolean isPossible (double mid) {
-		// System.out.println(mid);
 		double nextDist = m[0] + mid;
 		for (int x = 1; x < n; x++) {
 			if (m[x] > nextDist + k + mid)

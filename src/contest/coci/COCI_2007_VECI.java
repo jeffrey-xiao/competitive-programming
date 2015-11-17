@@ -16,17 +16,6 @@ public class COCI_2007_VECI {
 
 	public static void main (String[] args) throws IOException {
 		n = readInt();
-		// for(int x = n+1; x < Math.pow(10, (int)Math.log(n)); x++){
-		// char[] c1 = Integer.toString(n).toCharArray();
-		// char[] c2 = Integer.toString(x).toCharArray();
-		// Arrays.sort(c1);
-		// Arrays.sort(c2);
-		// if(equals(c1, c2)){
-		// System.out.println(x);
-		// return;
-		// }
-		// }
-		// System.out.println(0);
 		ch = Integer.toString(n).toCharArray();
 		Arrays.sort(ch);
 		if (!permute(ch.length, ch.length, new ArrayList<Integer>()))

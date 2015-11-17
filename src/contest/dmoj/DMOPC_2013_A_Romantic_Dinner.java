@@ -42,14 +42,10 @@ public class DMOPC_2013_A_Romantic_Dinner {
 						dp[j][k][i] = Math.max(dp[j][k][i], dp[j][k - 1][i]);
 
 					if (j - m[i] >= 0 && k - u[i] >= 0 && dp[j - m[i]][k - u[i]][i - 1] != -1) {
-						// System.out.println(j + " " + k + " " + i);
 						dp[j][k][i] = Math.max(dp[j][k][i], dp[j - m[i]][k - u[i]][i - 1] + v[i]);
 					}
-					// System.out.print(dp[j][k][i] + " ");
 				}
-				// System.out.println();
 			}
-			// System.out.println();
 		}
 		System.out.println(dp[M][U][R]);
 	}

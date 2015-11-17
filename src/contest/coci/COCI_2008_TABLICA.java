@@ -31,10 +31,8 @@ public class COCI_2008_TABLICA {
 				Y[count] = a % n;
 				count++;
 			}
-			// System.out.println(X[i] + " " + Y[i]);
 			m[i] = new Move(a, readInt() - 1, readInt() - 1);
 		}
-		// System.out.println(count);
 		for (int i = 0; i < k; i++) {
 			int index = hm.get(m[i].i);
 			int diffX = m[i].x - X[index];

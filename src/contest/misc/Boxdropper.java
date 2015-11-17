@@ -45,12 +45,6 @@ public class Boxdropper {
 				pr.printf("%.3f\n", d[readInt() - 1][readInt() - 1]);
 			}
 		}
-		// for (int i = 0; i < index; i++) {
-		// for (int j = 0; j < index; j++) {
-		// System.out.printf("%8.2f ",d[i][j]);
-		// }
-		// System.out.println();
-		// }
 		pr.close();
 	}
 

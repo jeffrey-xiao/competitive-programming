@@ -25,11 +25,9 @@ public class Geometric_Sequence {
 		for (int x = 0; x < nums.length - 1; x++) {
 			if (maxRatio == 0) {
 				maxRatio = nums[x + 1] / nums[x];
-				// System.out.println(nums[x+1] + " " + nums[x]);
 				continue;
 			}
 			double log = Math.log(Math.abs(maxRatio)) / Math.log(Math.abs(nums[x + 1] / nums[x]));
-			// System.out.println(maxRatio);
 			if (log < 1)
 				log = 1.0 / log;
 			if (log % 1.0 == 0 && Math.abs(nums[x + 1] / nums[x]) < Math.abs(maxRatio))

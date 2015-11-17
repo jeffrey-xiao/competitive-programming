@@ -18,16 +18,14 @@ public class COCI_2009_DOBRA {
 		int sum = 0;
 
 		int indexOf_ = s.indexOf('_');
+
 		if (indexOf_ == -1 && !b)
 			return 0;
-
-		else if (indexOf_ == -1) {
-			// System.out.println(s);
+		else if (indexOf_ == -1)
 			return 1;
-		}
+
 		for (int x = 1; x < indexOf_ - 1; x++) {
 			if ((vowels.indexOf(s.charAt(x)) != -1 && vowels.indexOf(s.charAt(x - 1)) != -1 && vowels.indexOf(s.charAt(x + 1)) != -1) || (consonants.indexOf(s.charAt(x)) != -1 && consonants.indexOf(s.charAt(x - 1)) != -1 && consonants.indexOf(s.charAt(x + 1)) != -1)) {
-				// System.out.println("DELTED " + s);
 				return 0;
 			}
 		}

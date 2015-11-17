@@ -38,10 +38,8 @@ void merge (int i, int j) {
 }
 
 void update (int n, int lo, int hi, int i, int val) {
-//    printf("%d %d %d\n", lo, hi, i);
     if (lo == i && i == hi) {
         tree[n] = val;
-//        printf("updating %d %d\n", n, val);
         return;
     }
     int mid = (hi + lo) >> 1;
@@ -52,7 +50,6 @@ void update (int n, int lo, int hi, int i, int val) {
     tree[n] = tree[n << 1] + tree[n << 1 | 1];
 }
 int query (int n, int lo, int hi, int qlo, int qhi) {
-//    printf("%d %d %d %d\n", lo, hi, qlo, qhi);
     if (lo == qlo && hi == qhi)
         return tree[n];
     int mid = (hi + lo) >> 1;

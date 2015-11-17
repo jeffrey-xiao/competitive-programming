@@ -57,7 +57,6 @@ bool do_inter(int a1 , int a2 , int b1 , int b2)
     ld X = (B2*C1 - B1*C2) / det;
     ld Y = (A1*C2 - A2*C1) / det;
     if ( X > min(x[a1] , x[a2]) && X < max(x[a1] , x[a2]) && X > min(x[b1] , x[b2]) && X < max(x[b1] , x[b2]))
-//        if ( Y > min(y[a1] , y[a2]) && Y < max(y[a1] , y[a2]) && Y > min(y[b1] , y[b2]) && Y < max(y[b1] , y[b2]))
             return 1;
     return 0;
 
@@ -89,15 +88,10 @@ int main()
         }
         if (can)
         {
-            //trace(a);
-            //trace(b);
-            //cout << endl;
-//            cout << "CAN ADD" << endl;
-            graph.pb(mp(a,b));
+           graph.pb(mp(a,b));
             mat[a][b] = mat[b][a] = 1;
         } else {
-//            cout << "CANNOT ADD" << endl;
-        }
+      }
 
 
 

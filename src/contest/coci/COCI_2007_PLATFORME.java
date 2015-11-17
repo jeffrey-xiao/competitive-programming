@@ -44,7 +44,6 @@ public class COCI_2007_PLATFORME {
 					x2 = platforms[x][0] - platforms[y][0];
 				}
 			}
-			// System.out.println(x1+" " + x2);
 			count += x1 + x2;
 		}
 		System.out.println(count);

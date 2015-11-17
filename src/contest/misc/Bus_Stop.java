@@ -26,7 +26,6 @@ public class Bus_Stop {
 		for (int x = 0; x < s + 1; x++) {
 			curr += stops[x];
 			stops[x] = curr;
-			// System.out.println(stops[x]);
 			if (stops[x] > c)
 				total += (stops[x] - c) * 5 + c;
 			else

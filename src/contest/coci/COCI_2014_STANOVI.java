@@ -2,8 +2,8 @@ package contest.coci;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -19,9 +19,9 @@ public class COCI_2014_STANOVI {
 	static int[][][][][][] dp;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("in.txt"));
+		// br = new BufferedReader(new FileReader("in.txt"));
 		// pr = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
@@ -58,7 +58,6 @@ public class COCI_2014_STANOVI {
 			}
 		}
 		dp[N][M][i][j][k][l] = res;
-		// System.out.println(N+" " + M + " " + dp[N][M][i][j][k][l]);
 		return res;
 	}
 

@@ -24,7 +24,6 @@ public class DMOPC_2014_Bus_Jam {
 		int count = 0;
 		for (int i = n - 2; i >= 0; i--) {
 			int time = bus[i + 1] - bus[i] - h;
-			// System.out.println(time);
 			if (time >= 0) {
 				int add = (bus[i + 1] - bus[i] - h + m + 1) / m;
 				count += add;

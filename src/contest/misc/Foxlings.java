@@ -1,46 +1,108 @@
 package contest.misc;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class Foxlings {
-	static Scanner scan = new Scanner(System.in);
 
-	public static void main (String[] args) {
-		ArrayList<ArrayList<Integer>> foxes = new ArrayList<ArrayList<Integer>>();
-		int n = scan.nextInt();
-		boolean[] visited = new boolean[n];
-		for (int x = 0; x < n; x++)
-			foxes.add(new ArrayList<Integer>());
-		int m = scan.nextInt();
-		for (int x = 0; x < m; x++) {
-			int a = scan.nextInt() - 1;
-			int b = scan.nextInt() - 1;
-			foxes.get(Math.min(a, b)).add(Math.max(a, b));
-		}
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	static HashMap<Integer, Integer> hs = new HashMap<Integer, Integer>();
+
+	public static void main (String[] args) throws IOException {
+		int n = readInt();
+		WeightedQuickUnion qu = new WeightedQuickUnion(200000);
 		int count = 0;
-		Queue<Integer> moves = new LinkedList<Integer>();
-		for (int x = 0; x < n; x++) {
-			if (visited[x])
-				continue;
-			visited[x] = true;
-			count++;
-			int next = x;
-			moves.add(next);
-			while (!moves.isEmpty()) {
-				next = moves.poll();
-				for (int y = 0; y < foxes.get(next).size(); y++) {
-					int curr = foxes.get(next).get(y);
-					if (visited[curr])
-						count--;
-					visited[curr] = true;
-					moves.add(curr);
+		for (int x = readInt(); x > 0; x--) {
+			int a = readInt();
+			int b = readInt();
+			if (!hs.containsKey(a)) {
+				hs.put(a, count);
+				a = count;
+				count++;
+			} else
+				a = hs.get(a);
+			if (!hs.containsKey(b)) {
+				hs.put(b, count);
+				b = count;
+				count++;
+			} else
+				b = hs.get(b);
+			qu.union(a, b);
+		}
+		System.out.println(n - qu.total);
+	}
 
-				}
+	static class WeightedQuickUnion {
+		private int[] id;
+		private int total;
+		private int count;
+
+		public WeightedQuickUnion (int n) {
+			id = new int[n];
+			count = n;
+			for (int x = 0; x < n; x++) {
+				id[x] = x;
 			}
 		}
-		System.out.println(count);
+
+		public int find (int i) {
+			while (i != id[i]) {
+				id[i] = id[id[i]];
+				i = id[i];
+			}
+			return i;
+		}
+
+		public boolean connected (int x, int y) {
+			return find(x) == find(y);
+		}
+
+		public int count () {
+			return count;
+		}
+
+		public void union (int x, int y) {
+			int rootx = find(x);
+			int rooty = find(y);
+			if (rootx == rooty)
+				return;
+			count--;
+			id[rootx] = id[rooty];
+			id[rooty] = id[rootx];
+			total++;
+		}
+
+		public void print () {
+			for (int i : id)
+				System.out.print(i + " ");
+			System.out.println();
+		}
+
+	}
+
+	static String next () throws IOException {
+		while (st == null || !st.hasMoreTokens())
+			st = new StringTokenizer(br.readLine().trim());
+		return st.nextToken();
+	}
+
+	static long readLong () throws IOException {
+		return Long.parseLong(next());
+	}
+
+	static int readInt () throws IOException {
+		return Integer.parseInt(next());
+	}
+
+	static double readDouble () throws IOException {
+		return Double.parseDouble(next());
+	}
+
+	static String readLine () throws IOException {
+		return br.readLine().trim();
 	}
 }

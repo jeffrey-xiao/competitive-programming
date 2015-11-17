@@ -41,8 +41,6 @@ public class MMCC_Esdeath {
 		getDepth(0, 1);
 		Arrays.sort(nodes);
 		for (int x = 0; x < n; x++) {
-			// System.out.println(nodes[x].id + " " +nodes[x].depth + " " +
-			// nodes[x].parent);
 			index[nodes[x].id] = x;
 		}
 		int lo = 0, hi = 2500;
@@ -56,19 +54,15 @@ public class MMCC_Esdeath {
 			}
 		}
 		System.out.println(lo);
-		// System.out.println(isPossible(3));
 	}
 
 	private static int isPossible (int r) {
 		tv = new boolean[n];
-		// System.out.println("RADIUS " + r);
 		int count = 0;
 		for (int x = 0; x < n; x++) {
 			if (!tv[nodes[x].id]) {
 				v = new boolean[n];
-				// System.out.println("START " + (nodes[x].id+1));
 				int i = findCenter(nodes[x].id, r);
-				// System.out.println("end: " + (i+1));
 				markNodes(i, r);
 				count++;
 			}
@@ -87,8 +81,6 @@ public class MMCC_Esdeath {
 	}
 
 	private static int findCenter (int x, int r) {
-		// System.out.println("HERE " + (x+1) + " " +
-		// (nodes[index[x]].parent+1));
 		if (r == 0)
 			return x;
 		return findCenter(nodes[index[x]].parent, r - 1);

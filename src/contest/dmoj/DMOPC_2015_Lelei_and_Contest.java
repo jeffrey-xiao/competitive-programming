@@ -75,7 +75,6 @@ public class DMOPC_2015_Lelei_and_Contest {
 			lazy[n] += add;
 			return;
 		}
-		//		System.out.println(l + " " + r + " " + ql + " " + qr);
 		int mid = (l + r) >> 1;
 		if (lazy[n] != 0) {
 			lazy[n << 1] += lazy[n];

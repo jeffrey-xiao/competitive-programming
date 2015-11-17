@@ -43,7 +43,6 @@ public class UTS_Open_2014_Second_MST_V {
 			int a = readInt();
 			int b = readInt();
 			int c = readInt();
-			// System.out.println(a + " " + b + " " + c + " " + (x+2));
 			a--;
 			b--;
 			edges.add(new Edge(a, b, c));
@@ -62,11 +61,9 @@ public class UTS_Open_2014_Second_MST_V {
 			for (int x = 0; x < VSIZE; x++)
 				now[x] = last[x];
 			int nextV = e.c - dfs(e.a, e.b, 0, -1);
-			// System.out.println(nextV);
 			if (nextV != 0)
 				minV = Math.min(minV, nextV);
 		}
-		// ps.println(totalCost);
 		if (m < n - 1 || minV == 1 << 30)
 			ps.println(-1);
 		else
@@ -75,7 +72,6 @@ public class UTS_Open_2014_Second_MST_V {
 	}
 
 	private static int dfs (int x, int y, int m, int prev) {
-		// System.out.printf("%d %d %d %d\n", x, y, m, prev);
 		if (x == y)
 			return m;
 		for (int e = now[x]; e != -1; e = nextE[e]) {

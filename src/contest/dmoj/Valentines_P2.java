@@ -31,11 +31,8 @@ public class Valentines_P2 {
 				dp[x][y] = Math.max(dp[x][y], dp[x - 1][y]);
 				if (y - c[x].t >= 0 && dp[x - 1][y - c[x].t] != -1) {
 					dp[x][y] = Math.max(dp[x][y], dp[x - 1][y - c[x].t] + c[x].p);
-					// System.out.println("HERE " + x + " " +y + " " + c[x].p);
 				}
-				// System.out.print(dp[x][y] + " ");
 			}
-			// System.out.println();
 		}
 		int max = 0;
 		for (int y = 0; y <= k; y++) {

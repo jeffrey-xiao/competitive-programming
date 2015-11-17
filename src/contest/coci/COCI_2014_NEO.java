@@ -2,8 +2,8 @@ package contest.coci;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Stack;
@@ -18,10 +18,10 @@ public class COCI_2014_NEO {
 	static int[][] a;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		br = new BufferedReader(new FileReader("test.txt"));
-		// ps = new PrintWriter("output.txt");
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// ps = new PrintWriter("out.txt");
 
 		int r = readInt();
 		int c = readInt();
@@ -33,9 +33,7 @@ public class COCI_2014_NEO {
 				if (i > 0 && j > 0)
 					if (a[i - 1][j - 1] + a[i][j] <= a[i - 1][j] + a[i][j - 1])
 						dp[i][j] = 1;
-				// System.out.print(dp[i][j] + " ");
 			}
-			// System.out.println();
 		}
 		int ans = 0;
 		for (int i = 1; i < r; i++) {

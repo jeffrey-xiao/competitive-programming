@@ -61,7 +61,6 @@ public class COCI_2007_GEORGE {
 		min[a] = 0;
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
-			// System.out.println(curr.index+1 + " " + curr.cost);
 			if (curr.index == b) {
 				System.out.println(curr.cost);
 				break;
@@ -69,8 +68,6 @@ public class COCI_2007_GEORGE {
 			for (Edge e : adj.get(curr.index)) {
 				int nextDest = e.dest;
 				int nextCost = curr.cost + e.cost;
-				// System.out.println("HERE " + reach[curr.index][nextDest] +
-				// " " + curr.cost + " " + curr.index);
 				if (reach[curr.index][nextDest] != -1) {
 					if (curr.cost + k >= reach[curr.index][nextDest]) {
 						nextCost += Math.max(0, e.cost - (curr.cost + k - reach[curr.index][nextDest]));
