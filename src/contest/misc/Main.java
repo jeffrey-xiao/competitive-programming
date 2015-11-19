@@ -41,36 +41,8 @@ public class Main {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = 8;
-		int[] degree = new int[n];
-		int[] a = new int[n * (n - 1) / 2];
-		int[] b = new int[n * (n - 1) / 2];
-		int cnt = 0;
-		for (int i = 0; i < n; i++)
-			for (int j = i + 1; j < n; j++) {
-				a[cnt] = i;
-				b[cnt] = j;
-				cnt++;
-			}
-		cnt = 0;
-		for (int i = 0; i < 1 << (n * (n - 1) / 2); i++) {
-			for (int j = 0; j < (n * (n - 1) / 2); j++)
-				if ((i & 1 << j) > 0) {
-					degree[a[j]]++;
-					degree[b[j]]++;
-				}
-			boolean valid = true;
-			for (int j = 0; j < n; j++)
-				valid &= degree[j] % 2 == 0;
-			if (valid)
-				cnt++;
-			for (int j = 0; j < (n * (n - 1) / 2); j++)
-				if ((i & 1 << j) > 0) {
-					degree[a[j]]--;
-					degree[b[j]]--;
-				}
-		}
-		out.println(cnt);
+		
+		
 		out.close();
 	}
 
