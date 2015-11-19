@@ -1,3 +1,7 @@
+/*
+ * O(N (log N)^2) construction of a suffix array using hashes.
+ */
+
 package codebook.string;
 
 import java.io.IOException;

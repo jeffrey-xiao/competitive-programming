@@ -1,3 +1,7 @@
+/*
+ * Object that supports arithmetic operations for big numbers
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <vector>

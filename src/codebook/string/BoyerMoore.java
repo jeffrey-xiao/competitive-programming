@@ -1,3 +1,9 @@
+/*
+ * Boyer-Moore string search algorithm is an efficient string searching algorithm.
+ * The algorithm preprocesses the string being searched for, but not the string being searched in.
+ * It uses the information gathered in the preprocessing step to skip sections of the text.
+ */
+
 package codebook.string;
 
 public class BoyerMoore {

@@ -1,3 +1,7 @@
+/*
+ * Implementation of various sorting and selection algorithm.
+ */
+
 package codebook.algorithms;
 
 import java.util.Arrays;

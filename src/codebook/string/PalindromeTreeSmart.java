@@ -1,3 +1,9 @@
+/*
+ * The Palindrome Tree counts the number of palindromes within a certain string. This implementation uses smart links to speed up the add operation.
+ * Adding a character takes O(1) time.
+ * Deleting a character takes O(1) time.
+ */
+
 package codebook.string;
 
 import java.util.ArrayList;

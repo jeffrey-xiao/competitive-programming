@@ -1,3 +1,7 @@
+/*
+ * Computes the b^p % m and b^p in O(log P) time.
+ */
+
 package codebook.algorithms;
 
 public class BinaryExponentiation {
@@ -9,5 +13,14 @@ public class BinaryExponentiation {
 		if (p % 2 == 0)
 			return modpow(b * b % m, p, m);
 		return b * modpow(b * b % m, p, m) % m;
+	}
+	public long pow (long b, long p) {
+		if (p == 0)
+			return 1;
+		if (p == 1)
+			return b;
+		if (p % 2 == 0)
+			return pow(b * b, p);
+		return b * pow(b * b, p);
 	}
 }

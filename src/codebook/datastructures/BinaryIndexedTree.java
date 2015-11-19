@@ -1,5 +1,5 @@
 /*
- * A binary indexed tree is a data structure that provides efficient calculation and manipulation of prefix sums.
+ * A binary indexed tree is a data structure that provides efficient calculation and manipulation of prefix sums. It relates a specific prefix to its binary value.
  */
 
 package codebook.datastructures;

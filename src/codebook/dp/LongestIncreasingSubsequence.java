@@ -1,3 +1,7 @@
+/*
+ * Dynamic programming algorithm that computes the longest increasing subsequence.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

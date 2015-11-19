@@ -1,3 +1,7 @@
+/*
+ * O(N) construction of a suffix array.
+ */
+
 #include <stdio.h>
 #include <string.h>
 

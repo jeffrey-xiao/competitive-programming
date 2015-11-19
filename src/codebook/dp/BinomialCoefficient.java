@@ -1,3 +1,7 @@
+/*
+ * Implementation of a dp table that contains binomial coefficients.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

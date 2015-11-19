@@ -1,3 +1,7 @@
+/*
+ * Implementation of a persistent binary search tree.
+ */
+
 package codebook.datastructures;
 
 import java.util.ArrayList;

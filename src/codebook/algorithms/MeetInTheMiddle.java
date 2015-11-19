@@ -1,4 +1,8 @@
 /*
+ * Meet in the Middle: It is a search technique that divides the input into two, brute forces the two parts, and then combines the solutions.
+ * 
+ * Reference Problem:
+ * 
  * A bunch of people on Facebook would like to find out the largest clique among them.
 
  * A clique is defined as a group of people where everyone is friends with everyone else. 

@@ -1,3 +1,7 @@
+/*
+ * Manacher algorithm computes the longest palindrome in O(N) time.
+ */
+
 package codebook.string;
 
 public class Manacher {

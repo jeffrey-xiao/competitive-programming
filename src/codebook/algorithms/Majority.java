@@ -1,3 +1,7 @@
+/*
+ * The Boyer-Moore majority vote algorithm determines if there is an majority element and returns the element in O(N) time.
+ */
+
 package codebook.algorithms;
 
 import java.io.BufferedReader;

@@ -1,3 +1,8 @@
+/*
+ * Bitset dynamic programming solution that finds the shortest hamiliton path.
+ */
+
+
 package codebook.dp;
 
 import java.io.BufferedReader;

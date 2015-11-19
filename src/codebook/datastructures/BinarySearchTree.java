@@ -1,6 +1,6 @@
 /* 
  * A binary search tree is a tree in which elements to the left of a node will be smaller than it and elements to the right of a node will be greater than it.
- * The left subtree and right subtree of a node must also maintain this invariant
+ * The left subtree and right subtree of a node must also maintain this invariant.
  */
 
 package codebook.datastructures;

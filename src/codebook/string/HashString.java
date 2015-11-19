@@ -1,4 +1,6 @@
-// 1-indexed hash string
+/*
+ * Implementation to hash a string. Uses one-based indexing.
+ */
 
 package codebook.string;
 

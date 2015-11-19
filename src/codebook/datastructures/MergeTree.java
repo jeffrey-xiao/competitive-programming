@@ -1,3 +1,9 @@
+/*
+ * A merge tree is a variation of the segment tree where each node contains the elements [a, b] in sorted order.
+ * It uses the concept of merge sort to build the tree in O(N log N) time. This specific implementation can retrieve the
+ * kth element in O((log N)^3) time.
+ */
+
 package codebook.datastructures;
 
 import java.util.Arrays;

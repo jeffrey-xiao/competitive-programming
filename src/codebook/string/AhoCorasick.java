@@ -1,3 +1,9 @@
+/*
+ * Aho-Corasick algorithm is a string searching algorithm that searches for elements of a finite set of strings with in an input text.
+ * Searching takes O(N) time where N is the length of the input text.
+ * Adding a word into the dictionary takes O(N) time where N is the length of the word. 
+ */
+
 package codebook.string;
 
 import java.util.ArrayList;
@@ -68,11 +74,17 @@ public class AhoCorasick {
 			Node other = currState;
 			while (other != root) {
 				if (other.isEnd) {
-					System.out.println("Length is " + other.depth + " at " + i);
+					System.out.println(printWord(other) + " at " + i);
 				}
 				other = other.fall;
 			}
 		}
+	}
+	
+	private String printWord (Node n) {
+		if (n != root)
+			return printWord(n.parent) + (char)(n.index + 'a');
+		return "";
 	}
 
 	class Node {
@@ -124,6 +136,6 @@ public class AhoCorasick {
 		tree.addWord("apple");
 		tree.addWord("banana");
 		tree.computeFall();
-		tree.search("askfjasjfklasjfasfjpasfjawofjoawjfopjapapple");
+		tree.search("askfjasjfklasjfasfjpabananasfjawofjoawjfopjapapple");
 	}
 }

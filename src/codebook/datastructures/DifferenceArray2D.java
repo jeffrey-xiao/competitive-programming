@@ -1,5 +1,5 @@
 /*
- * A 2D implementation of the difference array
+ * A 2D implementation of the difference array.
  */
 
 package codebook.datastructures;

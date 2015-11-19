@@ -1,3 +1,8 @@
+/*
+ * Dynamic programming algorithm that computes the number of trials to determine which floor out of K floors will an egg break withing N eggs.
+ * Eggs cannot be reused if they are broken.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

@@ -1,4 +1,6 @@
-// radix trie implementation that supports lower-case letters
+/*
+ * A radix trie is a memory optimized trie where each node can represent more than one character. It supports lowercase letters.
+ */
 
 package codebook.string;
 

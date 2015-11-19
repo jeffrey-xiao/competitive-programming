@@ -1,3 +1,7 @@
+/*
+ * O(N) online construction of a suffix tree using Ukkonen's algorithm.
+ */
+
 package codebook.string;
 
 public class SuffixTree {

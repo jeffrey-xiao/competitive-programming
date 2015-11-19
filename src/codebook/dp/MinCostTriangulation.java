@@ -1,3 +1,7 @@
+/*
+ * Dynamic programming algorithm that finds the minimum cost of the triangulation of n points. The cost of a triangulation is the length of the edges that form the triangulations.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

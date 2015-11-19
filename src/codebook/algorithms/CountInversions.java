@@ -1,3 +1,8 @@
+/*
+ * Algorithm that finds the number of inversions in a string in O(N log N) time.
+ * It uses the concept behind merge sort to efficiently count the inversions.
+ */
+
 package codebook.algorithms;
 
 import java.io.BufferedReader;

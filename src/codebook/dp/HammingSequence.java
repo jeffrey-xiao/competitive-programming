@@ -1,3 +1,7 @@
+/*
+ * Dynamic programming algorithm that finds the mth term of the sequence that evenly divide powers of N.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

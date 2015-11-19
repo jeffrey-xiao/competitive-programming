@@ -1,3 +1,7 @@
+/*
+ * Dynamic programming algorithm that finds the minimum cost of multiplying a series of matrices.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

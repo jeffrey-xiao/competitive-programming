@@ -5,15 +5,12 @@ Under the codebook package, you will find implementations of very common algorit
 
 Under the contest package, you will find my solutions to various programming contests and practice problems.
 
-Under the cpp package, you will find C++ programs to various problems.
-
 TODO LIST:
 
 Combinatorics
 
 Data structures
  - R-tree
- - Persistent trees
 
 Data Compression
 

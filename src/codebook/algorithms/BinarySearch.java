@@ -1,3 +1,7 @@
+/*
+ * Finds an element in a sorted array in O(log N) time.
+ */
+
 package codebook.algorithms;
 
 public class BinarySearch {

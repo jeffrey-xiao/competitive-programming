@@ -1,5 +1,5 @@
 /*
- * 2D implementation of prefix sum
+ * 2D implementation of prefix sum.
  */
 
 package codebook.datastructures;

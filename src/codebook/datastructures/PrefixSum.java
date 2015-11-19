@@ -1,5 +1,5 @@
 /*
- * A prefix sum allows offline point updates and range queries in O(1) time with O(N) preprocessingw
+ * A prefix sum allows offline point updates and range queries in O(1) time with O(N) preprocessing.
  */
 
 package codebook.datastructures;

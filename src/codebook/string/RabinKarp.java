@@ -1,3 +1,7 @@
+/*
+ * The Rabin-Karp string searching algorithm searches for occurrences of a word within a main text using hashing.
+ */
+
 package codebook.string;
 
 public class RabinKarp {

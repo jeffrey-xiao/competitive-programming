@@ -1,3 +1,8 @@
+/*
+ * Dynamic programming solution that computes the edit distance of two strings. The edit distance is the number of operations to transform the first string to the second string.
+ * The possible operations are the insertion of a character, the modification of a character, and the deletion of a character.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

@@ -1,3 +1,7 @@
+/*
+ * The shunting yard algorithm is a method of parsing mathematical expressions. It is stack-based.
+ */
+
 package codebook.algorithms;
 
 import java.util.LinkedList;

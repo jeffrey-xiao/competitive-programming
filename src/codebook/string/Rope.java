@@ -1,4 +1,5 @@
-/* A rope is a data structure that is able to manipulate strings very efficiently. It is essentially a balanced binary search tree that is composed
+/* 
+ * A rope is a data structure that is able to manipulate strings very efficiently. It is essentially a balanced binary search tree that is composed
  * of a series of smaller strings. Unfortunately, it relies on the assumption that substring takes O(1) time. As Java 1.7u6, String.substring()
  * takes O(N) time making the entire process inefficient.
  */

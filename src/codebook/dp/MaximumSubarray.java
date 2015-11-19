@@ -1,3 +1,7 @@
+/*
+ * Dynamic programming solution that finds the maximum subarray. There is an assumption that there is at least one positive element in the array.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

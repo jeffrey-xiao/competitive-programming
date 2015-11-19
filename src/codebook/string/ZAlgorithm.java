@@ -1,3 +1,8 @@
+/*
+ * The Z algorithm produces an array Z where Z[i] is the length of the longest substring starting from S[i] which is also a prefix of S.
+ * I.E. the maximum k such that S[i + j] = S[i] for all 0 <= j < k
+ */
+
 package codebook.string;
 
 public class ZAlgorithm {

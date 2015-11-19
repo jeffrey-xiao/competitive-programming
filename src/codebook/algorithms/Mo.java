@@ -1,4 +1,6 @@
 /*
+ * Mo's algorithm: Offline algorithm that reorders the queries to efficiently solve them in O(N sqrt(N)) time.
+ * 
  * Using Mo's algorithm to determining the number of distinct numbers in a subsequence.
  * Reference problem: http://www.spoj.com/problems/DQUERY/
  */

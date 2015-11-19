@@ -1,5 +1,5 @@
 /*
- * Data structure in such a node must be greater than or equal to/less than or equal to its children.
+ * Data structure in which a node must be greater than or equal to/less than or equal to its children.
  */
 
 package codebook.datastructures;

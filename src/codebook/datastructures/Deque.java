@@ -1,5 +1,5 @@
 /*
- * A deque is a data structure that allows in the deletion and insertion of elements from both sides.
+ * A deque is a data structure that allows the deletion and insertion of elements from both sides.
  */
 
 package codebook.datastructures;

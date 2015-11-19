@@ -1,3 +1,7 @@
+/*
+ * Bitset dynamic programming solution that finds the shortest hamiliton cycle.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

@@ -1,3 +1,8 @@
+/*
+ * Dynamic programming algorithm that computes the maximum value that you can obtain from putting n elements (each with integral value and weight) in a knapsack that can fit
+ * a total of n weight.
+ */
+
 package codebook.dp;
 
 import java.io.BufferedReader;

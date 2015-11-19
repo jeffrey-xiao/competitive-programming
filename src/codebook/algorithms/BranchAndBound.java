@@ -1,4 +1,10 @@
-/* Branch and bound concept
+/* 
+ * Branch and bound: Algorithm design paradigm for discrete and combinatorial optimization problems.
+ * The algorithm consists of a systematic enumeration of candidate solutions by means of state space search.
+ * The algorithm explores the different branches of the solution. Before enumerating candidate solutions
+ * of a branch, the branch is checked against the upper and lower bounds of the optimal solution and discarded
+ * if it cannot produce a better solution than the best one found so far by the algorithm.
+ * 
  * Reference problem: IOI 1994 Buses
  */
 
