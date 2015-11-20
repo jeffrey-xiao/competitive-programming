@@ -1,5 +1,9 @@
 /* 
  * Implementation of a sparse table to compute the RMQ.
+ *
+ * Time complexity:
+ *  - Build: O(N log N)
+ *  - Get min: O(1)
  */
 
 package codebook.datastructures;

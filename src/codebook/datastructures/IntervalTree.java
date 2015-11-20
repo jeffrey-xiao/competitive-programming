@@ -1,6 +1,12 @@
 /*
  * An interval tree is a data structure that represents a series of ranges. It stores these ranges and facilitates searching for those ranges
  * There is an assumption that all left end-points are unique and the underlying BBST in this implementation is an AVL tree.
+ *
+ * Time complexity:
+ *  - Remove: O(log N)
+ *  - Insertion: O(log N)
+ *  - Search: O(log N)
+ *  - Access: O(log N)
  */
 
 package codebook.datastructures;

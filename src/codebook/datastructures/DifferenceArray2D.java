@@ -1,5 +1,9 @@
 /*
  * A 2D implementation of the difference array.
+ *
+ * Time complexity: 
+ * - Query: O(1) 
+ * - Build: O(N^2)
  */
 
 package codebook.datastructures;

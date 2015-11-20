@@ -1,5 +1,7 @@
 /*
- * Mo's algorithm: Offline algorithm that reorders the queries to efficiently solve them in O(N sqrt(N)) time.
+ * Mo's algorithm: Offline algorithm that reorders the queries to efficiently solve them.
+ *
+ * Time complexity: O(M sqrt(N) * cost) where M is the number of queries, N is the length of the array, and cost is the cost of each operation.
  * 
  * Using Mo's algorithm to determining the number of distinct numbers in a subsequence.
  * Reference problem: http://www.spoj.com/problems/DQUERY/

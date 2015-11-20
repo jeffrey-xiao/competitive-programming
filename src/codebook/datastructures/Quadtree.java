@@ -1,6 +1,10 @@
 /*
  * A quadtree is a tree data structure where every internal node has four children.
- * It is used to partition a two dimensional space into quadrants
+ * It is used to partition a two dimensional space into quadrants.
+ *
+ * Time complexity:
+ *  - Insert: O(N)
+ *  - Query: O(N)
  */
 
 package codebook.datastructures;

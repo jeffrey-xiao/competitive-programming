@@ -1,5 +1,7 @@
 /*
- * Computes the b^p % m and b^p in O(log P) time.
+ * Computes the b^p % m and b^p.
+ *
+ * Time complexity: O(log p) where p is the power.
  */
 
 package codebook.algorithms;

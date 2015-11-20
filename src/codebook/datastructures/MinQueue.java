@@ -1,5 +1,12 @@
 /*
  * An implementation of queue that can obtain the minimum in O(1) time
+ *
+ * Time complexity:
+ *  - Remove: O(1)
+ *  - Insertion: O(1)
+ *  - Search: O(N)
+ *  - Access: O(N)
+ *  - Get min: O(1)
  */
 
 package codebook.datastructures;

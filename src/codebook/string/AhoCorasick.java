@@ -1,7 +1,9 @@
 /*
  * Aho-Corasick algorithm is a string searching algorithm that searches for elements of a finite set of strings with in an input text.
- * Searching takes O(N) time where N is the length of the input text.
- * Adding a word into the dictionary takes O(N) time where N is the length of the word. 
+ *
+ * Time complexity:
+ *  - Add word: O(N)
+ *  - Search text: O(N)
  */
 
 package codebook.string;

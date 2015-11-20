@@ -1,5 +1,12 @@
-// Centroid decomposition of a tree based on: IOI 2011 Race
-
+/*
+ * Centroid decomposition: A variation of the divide and conquer paradigm that is used on trees.
+ * Find the centroid of the tree and mark it. After running an algorithm on the entire tree,
+ * remove the centroid. The original tree will decompose into a number of different trees.
+ * Recursively run the algorithm and continue to divide up the trees.
+ *
+ * Reference problem: IOI 2011 Race
+ */
+ 
 #include <bits/stdc++.h>
 
 #define mp make_pair

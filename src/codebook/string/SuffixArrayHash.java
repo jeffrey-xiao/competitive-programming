@@ -1,5 +1,7 @@
 /*
- * O(N (log N)^2) construction of a suffix array using hashes.
+ * Suffix array construction using hashing.
+ *
+ * Time complexity: O(N (log N) ^ 2)
  */
 
 package codebook.string;

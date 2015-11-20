@@ -1,7 +1,14 @@
 /* 
  * A skip list is a probabilistic data structure that facilitates insertion, deletion, look up in approximately O(log N) time.
  * The skip list at its core is implemented with a number of linked lists. For each element, it starts at level 0 and there is a 1/2 chance
- * that the element will belong to the next level. Because of the variance in levels, some elements are skipped when searching in upper levels leading to the approximate time complexity.
+ * that the element will belong to the next level. Because of the variance in levels, some elements are skipped when searching in upper levels 
+ * leading to the approximate time complexity.
+ *
+ * Time complexity:
+ *  - Remove: O(log N)
+ *  - Insertion: O(log N)
+ *  - Search: O(log N)
+ *  - Access: O(log N)
  */
 
 package codebook.datastructures;

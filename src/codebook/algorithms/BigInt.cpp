@@ -1,5 +1,5 @@
 /*
- * Object that supports arithmetic operations for big numbers
+ * Arbitrary precision integer implementation
  */
 
 #include <iostream>

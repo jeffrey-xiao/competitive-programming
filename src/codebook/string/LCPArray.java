@@ -1,5 +1,7 @@
 /*
- * O(N) time complexity to generate the LCP array of a string. Dependent on the suffix array.
+ * LCP Algorithm is a string algorithm that contructs the LCP array of a string using its suffix array.
+ *
+ * Time complexity: O(N)
  */
 package codebook.string;
 

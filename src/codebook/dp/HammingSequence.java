@@ -1,5 +1,7 @@
 /*
  * Dynamic programming algorithm that finds the mth term of the sequence that evenly divide powers of N.
+ *
+ * Time complexity: O(NM) where N is the number of elements to find, and M is the number of factors.
  */
 
 package codebook.dp;

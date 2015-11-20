@@ -1,5 +1,7 @@
 /*
  * Dynamic programming algorithm that finds the minimum cost of multiplying a series of matrices.
+ *
+ * Time complexity: O(N^2) where N is the number of matrices
  */
 
 package codebook.dp;

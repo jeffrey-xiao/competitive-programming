@@ -1,5 +1,7 @@
 /*
- * O(N) construction of a suffix array.
+ * DC3 Algorithm to construct a suffix array
+ *
+ * Time complexity: O(N)
  */
 
 #include <stdio.h>

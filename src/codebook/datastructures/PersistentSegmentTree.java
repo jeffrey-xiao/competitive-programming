@@ -1,6 +1,11 @@
 /* 
  * Persistent Segment Tree implementation
  * Reference problem: http://www.spoj.com/problems/MKTHNUM/
+ *
+ * Time complexity:
+ *  - Update: O(log N)
+ *  - Query: O(log N)
+ *  - Add element: O(log N)
  */
 
 package codebook.datastructures;

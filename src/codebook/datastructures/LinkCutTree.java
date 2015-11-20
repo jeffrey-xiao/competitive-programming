@@ -1,6 +1,12 @@
 /*
  * Link/cut trees divide each tree in the represented forest into vertex-disjoint paths, where each path is represented by an auxiliary tree.
  * Link/cut trees facilitate cuts, joins, accesses, and path-based operations in logarithmic time.
+ *
+ * Time complexity:
+ *  - Cut: O(log N)
+ *  - Join: O(log N)
+ *  - Access: O(log N)
+ *  - Path-based operation: O(log N)
  */
 
 package codebook.datastructures;

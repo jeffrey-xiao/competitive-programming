@@ -1,5 +1,9 @@
 /*
  * 2D implementation of prefix sum.
+ *
+ * Time complexity: 
+ * - Query: O(1) 
+ * - Build: O(N^2)
  */
 
 package codebook.datastructures;

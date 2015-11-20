@@ -1,6 +1,12 @@
 /* 
  * An AA Tree is a balanced binary search tree that is a variation of the red-black tree with an additional restriction.
  * Unlike red-black trees, no red node can be left subchild. This results in the simulation of 2-3 tree instead of a 2-3-4 tree.
+ *
+ * Time complexity:
+ *  - Remove: O(log N)
+ *  - Insertion: O(log N)
+ *  - Search: O(log N)
+ *  - Access: O(log N)
  */
 
 package codebook.datastructures;
@@ -59,6 +65,21 @@ public class AATree {
 		return n.level;
 	}
 
+	public boolean contains (int key) {
+		return contains(root, key);
+	}
+
+	private boolean contains (Node n, int key) {
+		if (n == null)
+			return false;
+		if (key < n.key)
+			return contains(n.left, key);
+		else if (key > n.key)
+			return contains(n.right, key);
+		else
+			return true;
+	}
+
 	public Integer get (int key) {
 		return get(root, key);
 	}
@@ -70,7 +91,8 @@ public class AATree {
 			get(n.left, key);
 		else if (key > n.key)
 			get(n.right, key);
-		return n.value;
+		else
+			return n.value;
 	}
 
 	public void add (int key, int value) {

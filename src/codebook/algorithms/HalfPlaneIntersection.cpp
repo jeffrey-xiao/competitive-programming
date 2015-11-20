@@ -1,7 +1,18 @@
+/*
+ * Implementation of half plane intersection algorithm
+ *
+ * Reference Problem: https://dmoj.ca/problem/ccoprep3p3
+ */
+
+
 #include <bits/stdc++.h>
+
 using namespace std;
+
 const int maxn = 100000; const double eps = 1e-15;
+
 int n;
+
 struct Point{
     double x,y;
     Point(double x = 0.0,double y = 0.0): x(x),y(y)	{}
@@ -11,19 +22,24 @@ struct Point{
     double operator * (const Point &b)	const{return x * b.y - b.x * y;}
     double operator ^ (const Point &b)	const{return x * b.x + y * b.y;}
 };
+
 struct Line{
     Point p,v; double rad;
     Line()	{}
     Line(const Point &p,const Point &v)	: p(p),v(v){rad = atan2(v.y,v.x);}
     bool operator < (const Line &b)	const{return rad < b.rad;}
 };
+
 vector<Line> Ln,L;
+
 inline bool OnLeft(const Line &l,const Point &p){return l.v * (p - l.p)>eps;}
+
 inline Point GetLineIntersection(const Line &a,const Line &b){
     Point u = a.p - b.p;
     double t = (b.v * u) / (a.v * b.v);
     return a.p + a.v * t;
 }
+
 bool HalfplaneIntersection(int n){
     static Point p[maxn << 1]; static Line q[maxn << 1];
     sort(L.begin(), L.end());
@@ -39,11 +55,13 @@ bool HalfplaneIntersection(int n){
     while(front < rear && !OnLeft(q[front],p[rear - 1]))	-- rear;
     return (rear - front) > 1;
 }
+
 bool check(int n){
     L.clear();
     for(int i = 0; i < (n << 1); i ++)	L.push_back(Ln[i]);
     return HalfplaneIntersection(n << 1);
 }
+
 int main(){
     scanf("%d",&n);
     for(int i = 1, x, y1, y2; i <= n; i ++){

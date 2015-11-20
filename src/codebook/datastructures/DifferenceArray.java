@@ -1,5 +1,9 @@
 /* 
- * A difference array allows for offline range updates and point queries in O(1) time and O(N) preprocessing. 
+ * A difference array allows for offline range updates and point queries.
+ *
+ * Time complexity: 
+ * - Query: O(1) 
+ * - Build: O(N)
  */
 
 package codebook.datastructures;

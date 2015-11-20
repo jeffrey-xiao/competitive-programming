@@ -1,6 +1,14 @@
 /*
  * A kd tree is a space partitioning data structure for organizing points in a k-dimensional space.
  * This implementation deals with the second dimension.
+ *
+ * Time complexity:
+ *  - Remove: O(log N)
+ *  - Insertion: O(log N)
+ *  - Search: O(log N)
+ *  - Access: O(log N)
+ *  - Nearest neighbour: O(log N)
+ *  - Range query: O(log N + K)
  */
 
 package codebook.datastructures;

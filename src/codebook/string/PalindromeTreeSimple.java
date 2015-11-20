@@ -1,7 +1,10 @@
 /*
  * The Palindrome Tree counts the number of palindromes within a certain string.
- * Adding a character takes O(n) time in the worst case.
- * Deleting a character takes O(1) time.
+ * 
+ * Time complexity:
+ *  - Add character: O(N)
+ *  - Count palindromes: O(1)
+ *  - Delete character: O(1)
  */
 
 package codebook.string;

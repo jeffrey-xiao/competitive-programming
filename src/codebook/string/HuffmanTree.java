@@ -1,5 +1,7 @@
 /* 
  * A Huffman tree is used to data compression where elements which occur more often are assigned a shorter compressed value.
+ *
+ * Time complexity: O(N log N)
  */
 
 package codebook.string;

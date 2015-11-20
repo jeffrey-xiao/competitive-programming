@@ -1,6 +1,9 @@
 /*
  * A trie is an ordered tree data structure that is used to store a set of dynamic set or associative array where the keys are usually strings.
  * All the descendants of a node have a common prefix of the string associated with that node, and the root is initialized with an empty string.
+ *
+ * Time complexity:
+ *  - Add word: O(N)
  */
 
 package codebook.string;

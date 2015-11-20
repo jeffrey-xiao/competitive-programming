@@ -11,7 +11,9 @@
  * Points in the range [x1, x2] will be the leaves in the right subtrees in the search path of x1
  * and leaves in the left subtrees in the search path of x2
  *
- * The complexity for returning a range is O(log N ^ d + k) where d is the number of dimensions and k is the number of points returned
+ * Time complexity:
+ *  - Insertion: O(log N)
+ *  - Query: O((log N)^d + k) where d is the number of dimensions, and k is the number of points in the range.
  */
 
 package codebook.datastructures;

@@ -1,5 +1,7 @@
 /*
- * The Boyer-Moore majority vote algorithm determines if there is an majority element and returns the element in O(N) time.
+ * The Boyer-Moore majority vote algorithm determines if there is an majority element and returns the element.
+ *
+ * Time complexity: O(N) where N is the length of the array.
  */
 
 package codebook.algorithms;

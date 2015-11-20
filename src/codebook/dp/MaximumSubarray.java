@@ -1,5 +1,7 @@
 /*
  * Dynamic programming solution that finds the maximum subarray. There is an assumption that there is at least one positive element in the array.
+ *
+ * Time complexity: O(N) where N is the length of the array
  */
 
 package codebook.dp;

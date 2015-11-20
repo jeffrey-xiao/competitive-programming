@@ -1,6 +1,11 @@
 /*
  * A randomized queue is a data structure that allows the insertion of elements and the removal/retrieval of random elements.
  * The underlying data structure used in this implementation is an array that is resized to fit the number of elements.
+ *
+ * Time complexity:
+ *  - Enqueue: O(1)
+ *  - Dequeue: O(1)
+ *  - Sample: O(1)
  */
 
 package codebook.datastructures;

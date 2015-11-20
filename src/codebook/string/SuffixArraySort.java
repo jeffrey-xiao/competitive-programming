@@ -1,6 +1,8 @@
 /*
  * O (N log N log N) construction of a suffix array. The time complexity can be shortened to O (N log N) if radix sort is used.
  * This implementation is very simple to code and it's only handful of lines. Can be used if the time limit isn't very tight.
+ *
+ * Time complexity: O(N (log N)^2)
  */
 package codebook.string;
 

@@ -1,5 +1,9 @@
 /*
  * The Rabin-Karp string searching algorithm searches for occurrences of a word within a main text using hashing.
+ *
+ * Time complexity:
+ *  - Preprocessing: O(N)
+ *  - Searching: O(N)
  */
 
 package codebook.string;

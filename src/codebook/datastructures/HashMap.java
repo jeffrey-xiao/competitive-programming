@@ -1,5 +1,10 @@
 /*
  * An implementation of a hash map using buckets.
+ *
+ * Time complexity:
+ *  - Remove: O(1)
+ *  - Insertion: O(1)
+ *  - Search: O(N)
  */
 
 package codebook.datastructures;

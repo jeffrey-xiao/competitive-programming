@@ -1,5 +1,9 @@
 /*
  * Implementation to hash a string. Uses one-based indexing.
+ *
+ * Time complexity:
+ *  - Preprocessing: O(N)
+ *  - Hash of substring O(1)
  */
 
 package codebook.string;

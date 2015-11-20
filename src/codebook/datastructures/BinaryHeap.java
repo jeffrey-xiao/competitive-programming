@@ -1,5 +1,10 @@
 /*
  * Data structure in which a node must be greater than or equal to/less than or equal to its children.
+ *
+ * Time complexity:
+ *  - Remove max O(log N)
+ *  - Get max: O(log N)
+ *  - Search: O(N)
  */
 
 package codebook.datastructures;

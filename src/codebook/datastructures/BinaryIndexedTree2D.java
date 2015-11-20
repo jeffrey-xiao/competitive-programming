@@ -1,5 +1,9 @@
 /*
  * A 2D implementation of a binary indexed tree.
+ *
+ * Time complexity:
+ *  - Update: O((log N)^2)
+ *  - Query: O((log N)^2)
  */
 
 package codebook.datastructures;

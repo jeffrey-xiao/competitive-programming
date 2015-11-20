@@ -1,5 +1,7 @@
 /*
- * Finds an element in a sorted array in O(log N) time.
+ * Finds an element in a sorted array.
+ *
+ * Time complexity: O(log N) where N is the length of the array.
  */
 
 package codebook.algorithms;

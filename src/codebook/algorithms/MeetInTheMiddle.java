@@ -1,5 +1,6 @@
 /*
  * Meet in the Middle: It is a search technique that divides the input into two, brute forces the two parts, and then combines the solutions.
+ * It reduces the time complexity from O(N^M) to O(2 * N ^ (M/2))
  * 
  * Reference Problem:
  * 

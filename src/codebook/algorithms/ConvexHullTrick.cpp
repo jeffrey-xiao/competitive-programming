@@ -1,4 +1,16 @@
-// IOI 2002 Batch Scheduling solution using convex hull trick
+/*
+ * Convex Hull Trick is a technique used to determine efficiently, after preprocessing,
+ * which member of a set of linear functions in which one variable attains an extremal value
+ * for a given value of the independent variable.
+ *
+ * Suppose you have a set of lines yi = ai*x + bi and you want to find the smallest yi for given x.
+ * Naively you could evaluate all yi for this x and choose the smallest one.
+ * But if you want to evaluate a series of values for x, then you can determine where yi intersects
+ * and then for each interval between the intersections determine which yi is the smallest.
+ * Then, given any x, you choose the corresponding interval and only evaluate the yi that is smallest on that interval.
+ *
+ * Reference problem: IOI 2002 Batch Scheduling
+ */
 
 #include <bits/stdc++.h>
 

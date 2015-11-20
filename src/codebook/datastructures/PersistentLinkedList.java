@@ -1,5 +1,11 @@
 /*
  * Implementation of a persistent singly linked list.
+ *
+ * Time complexity:
+ *  - Remove: O(N)
+ *  - Insertion: O(N)
+ *  - Search: O(N)
+ *  - Access: O(N)
  */
 
 package codebook.datastructures;

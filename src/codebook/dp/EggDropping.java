@@ -1,6 +1,8 @@
 /*
  * Dynamic programming algorithm that computes the number of trials to determine which floor out of K floors will an egg break withing N eggs.
  * Eggs cannot be reused if they are broken.
+ *
+ * Time complexity: O(NK) where N is the number of eggs and K is the number of floors.
  */
 
 package codebook.dp;

@@ -1,5 +1,7 @@
 /*
  * Dynamic programming algorithm that computes the longest increasing subsequence.
+ *
+ * Time complexity: O(N^2) where N is the length of the array
  */
 
 package codebook.dp;

@@ -1,5 +1,7 @@
 /*
  * The shunting yard algorithm is a method of parsing mathematical expressions. It is stack-based.
+ *
+ * Time complexity: O(N) where N is the length of the sequence to evaluate.
  */
 
 package codebook.algorithms;

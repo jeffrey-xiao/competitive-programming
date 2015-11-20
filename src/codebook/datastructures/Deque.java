@@ -1,5 +1,11 @@
 /*
  * A deque is a data structure that allows the deletion and insertion of elements from both sides.
+ *
+ * Time complexity:
+ *  - Remove: O(1)
+ *  - Insertion: O(1)
+ *  - Search: O(N)
+ *  - Access: O(N)
  */
 
 package codebook.datastructures;

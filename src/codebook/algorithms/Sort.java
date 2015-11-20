@@ -1,5 +1,17 @@
 /*
  * Implementation of various sorting and selection algorithm.
+ * 
+ * Time complexities:
+ *  - Shell Sort: O(N^(3/2)) 
+ *  - Quick Select: O(N) 
+ *  - Quick Sort: O(N log N) 
+ *  - Radix Sort (MSD, LSD): O(NK) where K is the number of digits.
+ *  - Merge Sort: O(N log N) 
+ *  - Counting Sort: O(NK) where K is the largest integer.
+ *  - Bubble Sort: O(N^2) 
+ *  - Insertion Sort: O(N^2) 
+ *  - Heap Sort: O(N log N) 
+ *  - Selection Sort: O(N^2) 
  */
 
 package codebook.algorithms;

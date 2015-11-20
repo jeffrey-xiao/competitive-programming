@@ -1,5 +1,8 @@
 /*
  * A radix trie is a memory optimized trie where each node can represent more than one character. It supports lowercase letters.
+ *
+ * Time complexity:
+ *  - Add word: O(N)
  */
 
 package codebook.string;

@@ -1,6 +1,8 @@
 /*
- * Algorithm that finds the number of inversions in a string in O(N log N) time.
- * It uses the concept behind merge sort to efficiently count the inversions.
+ * Algorithm that finds the number of inversions in a string.
+ * It uses the concept behind merge sort (divide and conquer) to efficiently count the inversions.
+ *
+ * Time complexity: O(N log N) where N is the length of the array.
  */
 
 package codebook.algorithms;

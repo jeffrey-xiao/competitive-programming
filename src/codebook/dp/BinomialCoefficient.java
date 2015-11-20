@@ -1,5 +1,7 @@
 /*
  * Implementation of a dp table that contains binomial coefficients.
+ *
+ * Time complexity: O(N^2)
  */
 
 package codebook.dp;

@@ -1,6 +1,12 @@
 /*
  * A red-black tree is a balanced binary tree that simulates a 2-3-4 tree.
  * This implementation is a particular form of the red-black tree called the left leaning red-black tree
+ *
+ * Time complexity:
+ *  - Remove: O(log N)
+ *  - Insertion: O(log N)
+ *  - Search: O(log N)
+ *  - Access: O(log N)
  */
 
 package codebook.datastructures;
@@ -45,6 +51,21 @@ public class RedBlackTree {
 			get(n.right, key);
 		}
 		return balance(n);
+	}
+
+	public boolean contains (int key) {
+		return contains(root, key);
+	}
+
+	private boolean contains (Node n, int key) {
+		if (n == null)
+			return false;
+		if (key < n.key)
+			return contains(n.left, key);
+		else if (key > n.key)
+			return contains(n.right, key);
+		else
+			return true;
 	}
 
 	public Integer get (int key) {

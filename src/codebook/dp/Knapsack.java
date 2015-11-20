@@ -1,6 +1,8 @@
 /*
  * Dynamic programming algorithm that computes the maximum value that you can obtain from putting n elements (each with integral value and weight) in a knapsack that can fit
  * a total of n weight.
+ *
+ * Time complexity: O(NM) where N is the number of items and the M is the size of the knapsack
  */
 
 package codebook.dp;

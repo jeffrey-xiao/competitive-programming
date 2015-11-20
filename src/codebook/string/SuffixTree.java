@@ -1,5 +1,9 @@
 /*
- * O(N) online construction of a suffix tree using Ukkonen's algorithm.
+ * Online construction of a suffix tree using Ukkonen's algorithm
+ *
+ * Time complexity:
+ *  - Add character: O(1)
+ *  - Add string: O(N)
  */
 
 package codebook.string;
