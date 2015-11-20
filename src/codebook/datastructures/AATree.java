@@ -88,9 +88,9 @@ public class AATree {
 		if (n == null)
 			return null;
 		if (key < n.key)
-			get(n.left, key);
+			return get(n.left, key);
 		else if (key > n.key)
-			get(n.right, key);
+			return get(n.right, key);
 		else
 			return n.value;
 	}
