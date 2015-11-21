@@ -1,3 +1,9 @@
+/*
+ * An application of depth-first search to topologically sort the graph. If the graph is not a directed acyclic graph (DAG), the program will exit.
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

@@ -1,3 +1,9 @@
+/*
+ * Kuhn's algorithm finds the maximal matching of a bipartite graph.
+ * 
+ * Time complexity: O(V^3)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

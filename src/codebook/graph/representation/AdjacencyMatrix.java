@@ -1,5 +1,5 @@
 /*
- * An adjacency matrix is a data structure that represents a graph.
+ * An adjacency matrix is a data structure that represents a graph. Good for dense graphs.
  */
 
 package codebook.graph.representation;

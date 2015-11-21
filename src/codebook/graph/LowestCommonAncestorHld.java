@@ -1,3 +1,11 @@
+/*
+ * An algorithm to find the lowest common ancestor (LCA) of two nodes in a tree using heavy light decomposition (HLD).
+ * 
+ * Time complexity:
+ *  - Preprocessing: O(V + E)
+ *  - Query: O(log V)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

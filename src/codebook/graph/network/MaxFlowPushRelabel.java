@@ -1,3 +1,11 @@
+/*
+ * The push-relabel algorithm computes the maximal flow in a flow network using two basic operations. The algorithm maintains a preflow
+ * and gradually converts it into a maximal flow by moving the flow locally between neighboring vertices using "push" operations
+ * under the guidance of an admissible network maintained by "relabel" operations.
+ * 
+ * Time complexity: O(EV^2)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

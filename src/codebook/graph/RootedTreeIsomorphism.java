@@ -1,3 +1,9 @@
+/*
+ * An algorithm to determine if two rooted trees are isomorphic.
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

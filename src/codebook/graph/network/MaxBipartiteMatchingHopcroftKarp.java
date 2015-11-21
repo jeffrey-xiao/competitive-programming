@@ -1,3 +1,9 @@
+/*
+ * The Hopcroft-Karp algorithm finds the maximal matching in a given bipartite graph using augmenting paths.
+ * 
+ * Time complexity: O(E sqrt(V))
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

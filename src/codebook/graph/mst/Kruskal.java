@@ -1,3 +1,11 @@
+/*
+ * Kruskal's algorithm is an algorithm for finding a minimum spamming tree.
+ *
+ * Time complexity: O(E log E + E alpha(V))
+ *
+ * If the edges are already sorted: O(E alpha (V)) -> practically linear time
+ */
+
 package codebook.graph.mst;
 
 import java.io.BufferedReader;

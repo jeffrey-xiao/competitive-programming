@@ -1,3 +1,9 @@
+/*
+ * Modification of Tarjan's Strongly Connected Components (SCC) algorithm to work with biconnected components
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

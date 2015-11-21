@@ -1,3 +1,9 @@
+/*
+ * The Ford-Fulkerson algorithm finds the maximal flow in a flow network using augmenting paths.
+ * 
+ * Time complexity: O(Ef) where f is the maximal flow in the graph.
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

@@ -1,3 +1,9 @@
+/*
+ * An intuitive algorithm that topologically sorts a graph. If the graph is not a directed acyclic graph (DAG), no ordering will be outputed.
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

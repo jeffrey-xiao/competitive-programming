@@ -1,5 +1,7 @@
 /*
- * Maximum size anti-chain in N^3 time using Kuhn's algorithm and Dilworth's Theorem
+ * Finding the maximum sized anti-chain in a directed acyclic graph (DAG) using Kuhn's algorithm and Dilworth's Theorem
+ * 
+ * Time complexity: O(V^3)
  */
 
 package codebook.graph.network;

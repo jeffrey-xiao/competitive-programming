@@ -1,3 +1,9 @@
+/*
+ * The Edmonds-Karp algorithm finds the maximum flow in a flow network by augmenting the shortest augmenting path.
+ * 
+ * Time complexity: O(VE^2)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

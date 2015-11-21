@@ -1,3 +1,9 @@
+/*
+ * Implementation of depth-first search (DFS)
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph.search;
 
 import java.io.BufferedReader;

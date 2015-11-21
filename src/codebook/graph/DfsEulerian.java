@@ -1,3 +1,9 @@
+/*
+ * An application of depth-first search (DFS) to determine if a given graph is a Eulerian cycle or path, and prints out the Eulerian path
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

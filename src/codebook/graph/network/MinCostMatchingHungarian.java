@@ -1,3 +1,9 @@
+/*
+ * The Hungarian algorithm is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
+ * 
+ * Time complexity: O(N^3)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;
@@ -22,7 +28,7 @@ public class MinCostMatchingHungarian {
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader	(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		// precondition: a square matrix where the rows represent workers and the columns represents jobs

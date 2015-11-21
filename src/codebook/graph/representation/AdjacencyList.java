@@ -1,5 +1,5 @@
 /*
- * An adjacency list is a data structure that represents a graph.
+ * An adjacency list is a data structure that represents a graph. Good for sparse graphs.
  */
 
 package codebook.graph.representation;

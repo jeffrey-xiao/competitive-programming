@@ -1,3 +1,9 @@
+/*
+ * Implementation of breadth-first search (BFS)
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph.search;
 
 import java.io.BufferedReader;

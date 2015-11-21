@@ -1,3 +1,11 @@
+/*
+ * A dynamic programming algorithm to find the lowest common ancestor (LCA) of two nodes in a tree.
+ *
+ * Time complexity:
+ *  - Preprocessing: O(V + E + V log V)
+ *  - Query: O(log V)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

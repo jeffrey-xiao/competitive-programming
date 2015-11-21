@@ -1,3 +1,9 @@
+/*
+ * Dijkstra's algorithm solves the single-source shortest path (SSSP) problem. It does not work with negative edge weights.
+ *
+ * Time complexity: O(E + V log V)
+ */
+
 package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;

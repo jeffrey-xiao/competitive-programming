@@ -1,3 +1,7 @@
+/*
+ * Minimum-cost maximum-flow using successive shortest paths and potentials. 
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

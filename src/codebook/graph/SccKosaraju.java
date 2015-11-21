@@ -1,3 +1,9 @@
+/*
+ * Kosaraju's algorithm to find the strongly connected components (SCC) of a graph using the properties of the reverse graph.
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

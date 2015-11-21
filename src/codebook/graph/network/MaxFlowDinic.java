@@ -1,3 +1,9 @@
+/*
+ * Dinic's algorithm finds the maximal flow in a flow network using the concepts of level graph and blocking flow.
+ * 
+ * Time complexity: O(EV^2)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

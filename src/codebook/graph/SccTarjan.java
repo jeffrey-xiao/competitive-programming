@@ -1,3 +1,9 @@
+/*
+ * Tarjan's algorithm to find the strongly connected components (SCC) of a graph using depth-first search (DFS)
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;

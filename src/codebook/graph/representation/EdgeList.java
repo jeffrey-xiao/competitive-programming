@@ -1,5 +1,5 @@
 /*
- * An edge list is a data structure that represents a graph.
+ * An edge list is a data structure that represents a graph. Good for sparse graphs.
  * Can be extended to directed graphs by only adding one edge in addEdge ()
  * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
  */

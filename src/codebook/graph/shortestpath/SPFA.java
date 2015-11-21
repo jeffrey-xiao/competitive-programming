@@ -1,3 +1,11 @@
+/*
+ * Shortest Path Faster Algorithm solves the single-source shortestd path (SSSP) problem. It is an improvement of the Bellman-Ford algorithm.
+ *
+ * Time complexity:
+ *  - Average: O(E)
+ *  - Worst: O(VE)
+ */
+
 package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;

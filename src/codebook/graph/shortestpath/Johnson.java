@@ -1,3 +1,10 @@
+/*
+ * Johnson's algorithm solves the all-pairs shortest path (APSP) problems. It works with negative edge weights by using the Bellman-Ford algorithm to reweight the vertices.
+ * After reweighting the edges, the algorithm runs Djikstra's algorithm on every vertex.
+ *
+ * Time complexity: O(V^2 log V + EV)
+ */
+
 package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;

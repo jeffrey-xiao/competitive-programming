@@ -1,3 +1,9 @@
+/*
+ * Bellman-Ford algorithm solves the single-source shortest path (SSSP) problem. It supports negative edge weights and it will report when a negative cycle has been found.
+ *
+ * Time complexity: O(VE)
+ */
+
 package codebook.graph.shortestpath;
 
 import java.io.BufferedReader;

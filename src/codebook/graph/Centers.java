@@ -1,3 +1,12 @@
+/*
+ * Tree algorithms that compute the center, centroid, and the diamter of a tree.
+ *
+ * Time complexity:
+ *  - getCenters: O(V + E)
+ *  - getCentroid: O(V + E)
+ *  - getDiameter: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.util.ArrayList;
@@ -51,7 +60,7 @@ public class Centers {
 		}
 	}
 
-	public static int diameter (ArrayList<ArrayList<Integer>> adj) {
+	public static int getDiameter (ArrayList<ArrayList<Integer>> adj) {
 		int far = dfs(adj, 0, -1, 0).node;
 		return dfs(adj, far, -1, 0).depth;
 	}

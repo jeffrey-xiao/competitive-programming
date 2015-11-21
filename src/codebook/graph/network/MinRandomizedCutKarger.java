@@ -1,3 +1,10 @@
+/*
+ * Karger's algorithm is a randomized algorithm that computes the minimum cut of a connected graph.
+ * The probability for success is 1 / (N choose 2)
+ * 
+ * Time complexity: O(E)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

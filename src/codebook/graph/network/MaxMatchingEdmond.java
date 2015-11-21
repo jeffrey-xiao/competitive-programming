@@ -1,3 +1,9 @@
+/*
+ * The blossom algorithm (Edmonds's algorithm) finds the maximal matching for general graphs by contracting blossoms (odd-length cycles) into a single vertex.
+ * 
+ * Time complexity: O(V^4)
+ */
+
 package codebook.graph.network;
 
 import java.io.BufferedReader;

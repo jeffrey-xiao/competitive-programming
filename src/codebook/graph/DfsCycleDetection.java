@@ -1,3 +1,9 @@
+/*
+ * An application of depth-first search (DFS) to find any cycles in a graph
+ *
+ * Time complexity: O(V + E)
+ */
+
 package codebook.graph;
 
 import java.io.BufferedReader;
