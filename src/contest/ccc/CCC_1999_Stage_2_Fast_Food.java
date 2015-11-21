@@ -25,8 +25,8 @@ public class CCC_1999_Stage_2_Fast_Food {
 			for (int x = 0; x <= k; x++)
 				for (int y = 0; y < n; y++)
 					prev[x][y] = -1;
-			for (int x = 1; x <= k; x++) { // WAREHOUSES LEFT
-				for (int y = 0; y < n; y++) { // CURRENT RESTAURANT
+			for (int x = 1; x <= k; x++) { 		// WAREHOUSES LEFT
+				for (int y = 0; y < n; y++) { 	// CURRENT RESTAURANT
 					if (x > y) {
 						dp[x][y] = 0;
 						prev[x][y] = y - 1;
