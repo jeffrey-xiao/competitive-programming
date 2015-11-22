@@ -1,7 +1,13 @@
 package contest.misc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Stack;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class Good_Inflation {
 
@@ -99,7 +105,7 @@ public class Good_Inflation {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Line) {
-				Line l = (Line)o;
+				Line l = (Line) o;
 				return s == l.s && m == l.m && x.compareTo(l.x) == 0;
 			}
 			return false;
@@ -132,4 +138,3 @@ public class Good_Inflation {
 		return br.readLine().trim();
 	}
 }
-

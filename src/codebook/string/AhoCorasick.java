@@ -82,10 +82,10 @@ public class AhoCorasick {
 			}
 		}
 	}
-	
+
 	private String printWord (Node n) {
 		if (n != root)
-			return printWord(n.parent) + (char)(n.index + 'a');
+			return printWord(n.parent) + (char) (n.index + 'a');
 		return "";
 	}
 

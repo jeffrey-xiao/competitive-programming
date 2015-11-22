@@ -1,7 +1,12 @@
 package contest.misc;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class Good_Code_2 implements Runnable {
 
@@ -25,18 +30,18 @@ public class Good_Code_2 implements Runnable {
 		m = readLong();
 
 		state = new int[n + 1];
-		cnt = new int[n+1];
+		cnt = new int[n + 1];
 		isCycle = new boolean[n + 1];
-		v = new boolean[n+1];
+		v = new boolean[n + 1];
 
 		for (int i = 1; i <= n; i++) {
 			String s = readLine();
 			if (s.equals("c++;"))
 				state[i] = -1;
-			else if (s.charAt(s.length()-1) == ':')
-				labelToLine.put(Integer.parseInt(s.substring(0, s.length()-1)), i);
+			else if (s.charAt(s.length() - 1) == ':')
+				labelToLine.put(Integer.parseInt(s.substring(0, s.length() - 1)), i);
 			else
-				state[i] = Integer.parseInt(s.substring(5, s.length()-1));
+				state[i] = Integer.parseInt(s.substring(5, s.length() - 1));
 		}
 
 		Thread t = new Thread(null, new Good_Code_2(), "", 1 << 27);
@@ -123,4 +128,3 @@ public class Good_Code_2 implements Runnable {
 		return br.readLine().trim();
 	}
 }
-

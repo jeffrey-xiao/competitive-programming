@@ -41,8 +41,6 @@ public class Main {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		
-		
 		out.close();
 	}
 

@@ -11,17 +11,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.StringTokenizer;
 
 public class Nim {
-	
+
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static int n, sum;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -30,25 +30,25 @@ public class Nim {
 
 		n = readInt();
 		a = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			sum += a[i] = readInt();
-		
+
 		boolean computerTurn = getSum() != 0;
-		
+
 		while (sum > 0) {
-			
+
 			out.print("Current piles: ");
 			for (int i = 0; i < n; i++)
 				out.print(a[i] + " ");
 			out.println();
-			
+
 			if (!computerTurn) {
 				out.print("Enter the pile to take from: ");
 				int pile = readInt();
 				out.print("Enter the number of coins to take: ");
 				int coins = readInt();
-				
+
 				a[pile] -= coins;
 				sum -= coins;
 			} else {
@@ -72,7 +72,7 @@ public class Nim {
 					}
 				}
 				out.printf("The computer removes %d coins from pile %d\n", taken, pile);
-			
+
 				a[pile] -= taken;
 				sum -= taken;
 			}
@@ -80,7 +80,7 @@ public class Nim {
 		}
 		out.close();
 	}
-	
+
 	static int getSum () {
 		int sum = 0;
 		for (int i = 0; i < 32; i++) {
@@ -92,7 +92,7 @@ public class Nim {
 		}
 		return sum;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -118,5 +118,5 @@ public class Nim {
 	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
-	
+
 }

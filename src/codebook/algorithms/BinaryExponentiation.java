@@ -16,6 +16,7 @@ public class BinaryExponentiation {
 			return modpow(b * b % m, p, m);
 		return b * modpow(b * b % m, p, m) % m;
 	}
+
 	public long pow (long b, long p) {
 		if (p == 0)
 			return 1;

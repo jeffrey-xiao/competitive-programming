@@ -6,8 +6,14 @@
 
 package codebook.graph.network;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.StringTokenizer;
 
 public class DilworthTheorem {
 
@@ -19,34 +25,33 @@ public class DilworthTheorem {
 	static ArrayList<HashSet<Integer>> adj;
 	static int[] prev;
 	static boolean[] v;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		n = readInt();
 		m = readInt();
 
 		prev = new int[n];
 		v = new boolean[n];
-		
+
 		adj = new ArrayList<HashSet<Integer>>();
-		
+
 		for (int i = 0; i < n; i++) {
 			adj.add(new HashSet<Integer>());
 			prev[i] = -1;
 		}
-		
+
 		for (int i = 0; i < m; i++)
 			adj.get(readInt() - 1).add(readInt() - 1);
 
-		
 		for (int i = 0; i < n; i++)
 			if (!v[i])
 				build(i);
-		
+
 		int ans = 0;
 		for (int i = 0; i < n; i++) {
 			v = new boolean[n];
@@ -55,7 +60,7 @@ public class DilworthTheorem {
 		out.println(n - ans);
 		out.close();
 	}
-	
+
 	static boolean match (int i) {
 		for (int j : adj.get(i))
 			if (!v[j]) {
@@ -67,7 +72,7 @@ public class DilworthTheorem {
 			}
 		return false;
 	}
-	
+
 	static void build (int i) {
 		v[i] = true;
 		HashSet<Integer> toAdd = new HashSet<Integer>();
@@ -105,4 +110,3 @@ public class DilworthTheorem {
 		return br.readLine().trim();
 	}
 }
-
