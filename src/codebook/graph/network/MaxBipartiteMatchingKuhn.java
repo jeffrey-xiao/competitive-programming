@@ -36,6 +36,10 @@ public class MaxBipartiteMatchingKuhn {
 		edges = readInt();
 		adj = new boolean[leftSize][rightSize];
 		prev = new int[rightSize];
+		
+		for (int i = 0; i < rightSize; i++)
+			prev[i] = -1;
+		
 		for (int i = 0; i < edges; i++)
 			adj[readInt() - 1][readInt() - 1] = true;
 
