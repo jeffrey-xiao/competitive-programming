@@ -3,7 +3,7 @@
  *
  * Time complexity:
  *  - Remove max O(log N)
- *  - Get max: O(log N)
+ *  - Get max: O(1)
  *  - Search: O(N)
  */
 
