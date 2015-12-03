@@ -1,6 +1,7 @@
 package contest.misc;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -36,11 +37,24 @@ public class Main {
 		}
 	*/
 	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
+		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
+		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
+		int cnt = 0;
+		String in = readLine();
+		for (int i = 0; i < in.length(); i++) {
+			if (in.charAt(i) == '(')
+				cnt++;
+			else
+				cnt--;
+			if (cnt == -1) {
+				out.println(i+1);
+				break;
+			}
+		}
+		
 		out.close();
 	}
 

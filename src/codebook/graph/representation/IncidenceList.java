@@ -1,5 +1,7 @@
 /*
- * An edge list is a data structure that represents a graph. Good for sparse graphs.
+ * An incidence list is a data structure that represents a graph. Good for sparse graphs.
+ * Can be extended to directed graphs by only adding one edge in addEdge ()
+ * Notice that when using this implementation, the reverse edge of edges[i] is edges[i ^ 1]
  */
 
 package codebook.graph.representation;
@@ -11,14 +13,15 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class EdgeList {
+public class IncidenceList {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static Edge[] edges;
-	static int n, m;
+	static int[] last;
+	static int n, m, cnt;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,28 +32,42 @@ public class EdgeList {
 		n = readInt();
 		m = readInt();
 
-		edges = new Edge[m];
+		edges = new Edge[m * 2];
+		last = new int[n];
 
+		for (int i = 0; i < n; i++)
+			last[i] = -1;
 
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			edges[i] = new Edge(a, b, c);
+			addEdge(a, b, c, c);
 		}
-		for (int i = 0; i < m; i++)
-			out.print(edges[i].orig + " IS CONNECTED TO: " + edges[i].dest);
+		for (int i = 0; i < n; i++) {
+			out.print(i + " IS CONNECTED TO: ");
+			for (int j = last[i]; j != -1; j = edges[j].lastEdge)
+				out.print(edges[j].dest + " ");
+			out.println();
+		}
 
 		out.close();
 	}
 
-	static class Edge {
-		int orig, dest, cost;
+	static void addEdge (int a, int b, int ab, int ba) {
+		edges[cnt] = new Edge(b, ab, last[a]);
+		last[a] = cnt++;
+		edges[cnt] = new Edge(a, ba, last[b]);
+		last[b] = cnt++;
+	}
 
-		Edge (int orig, int dest, int cost) {
-			this.orig = orig;
+	static class Edge {
+		int dest, cost, lastEdge;
+
+		Edge (int dest, int cost, int lastEdge) {
 			this.dest = dest;
 			this.cost = cost;
+			this.lastEdge = lastEdge;
 		}
 	}
 

@@ -1,6 +1,6 @@
 /*
  * Meet in the Middle: It is a search technique that divides the input into two, brute forces the two parts, and then combines the solutions.
- * It reduces the time complexity from O(N^M) to O(2 * N ^ (M/2))
+ * It reduces the time complexity from O(2^N) to O((N/2) * 2 ^ (N/2)). However the memory is increased to O(2 ^ (N/2)).
  * 
  * Reference Problem:
  * 

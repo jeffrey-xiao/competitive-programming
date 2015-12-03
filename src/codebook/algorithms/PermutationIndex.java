@@ -1,36 +1,49 @@
 /*
- * Implementation of a dynamic programming table that contains binomial coefficients.
- *
+ * This algorithm determines the index of a permutation of the first N natural numbers.
+ * 
  * Time complexity: O(N^2)
  */
 
-package codebook.dp;
+package codebook.algorithms;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-public class BinomialCoefficient {
+public class PermutationIndex {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static int n;
+	static int[] a;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		long[][] binomial = new long[n + 1][n + 1];
-		for (int i = 0; i <= n; i++)
-			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
-
+		n = readInt();
+		a = new int[n];
+		
+		for (int i = 0; i < n; i++)
+			a[i] = readInt();
+		
+		int index = 0;
+		int position = 2;
+		int factor = 1;
+		for (int i = n - 2; i >= 0; i--) {
+			int cnt = 0;
+			for (int j = i + 1; j < n; j++)
+				if (a[i] > a[j])
+					cnt++;
+			index += cnt * factor;
+			factor *= position;
+			position++;
+		}
+		out.println(index+1);
+		
 		out.close();
 	}
 
@@ -60,3 +73,4 @@ public class BinomialCoefficient {
 		return br.readLine().trim();
 	}
 }
+
