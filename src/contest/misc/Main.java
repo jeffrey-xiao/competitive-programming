@@ -1,13 +1,11 @@
 package contest.misc;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.math.*;
+import java.util.*;
+import java.io.*;
+import java.security.*;
 
+@SuppressWarnings ("unused")
 public class Main {
 	static int ans = 0;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,30 +34,61 @@ public class Main {
 
 		}
 	*/
-	public static void main (String[] args) throws IOException {
+	public static void main (String[] args) throws IOException, NoSuchAlgorithmException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
+	
 		int cnt = 0;
-		String in = readLine();
-		for (int i = 0; i < in.length(); i++) {
-			if (in.charAt(i) == '(')
+		while (br.ready()) {
+			String in = readLine();
+			if (isValid(in)) {
 				cnt++;
-			else
-				cnt--;
-			if (cnt == -1) {
-				out.println(i+1);
-				break;
 			}
 		}
-		
+		out.println(cnt);
 		out.close();
 	}
-
-	static long gcf (long a, long b) {
-		return b == 0 ? a : gcf(b, a % b);
+	static boolean isValid (String s) {
+		boolean repeated = false;
+		boolean between = false;
+		for (int i = 0; i < s.length() - 1; i++) {
+			String substring = s.substring(i, i+2);
+			int cnt = 0;
+			for (int k = 0; k < s.length()-1;) {
+				if (s.substring(k, k+2).equals(substring)) {
+					cnt++;
+					k += 2;
+				} else
+					k++;
+			}
+			if (cnt >= 2) {
+				repeated |= cnt >= 2;
+			}
+		}
+		for (int i = 0; i < s.length()-2; i++)
+			if (s.charAt(i) == s.charAt(i+2))
+				between = true;
+		return repeated && between;
+	}
+	static class Point {
+		Integer x, y;
+		Point (int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+		@Override
+		public boolean equals (Object o) {
+			if (o instanceof Point) {
+				Point p = (Point)o;
+				return x == p.x && y == p.y;
+			}
+			return false;
+		}
+		public int hashCode () {
+			return x.hashCode() + y.hashCode()*31;
+		}
 	}
 
 	static String next () throws IOException {
