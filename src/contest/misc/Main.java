@@ -35,19 +35,15 @@ public class Main {
 		}
 	*/
 	public static void main (String[] args) throws IOException, NoSuchAlgorithmException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-	
-		int cnt = 0;
-		while (br.ready()) {
-			String in = readLine();
-			if (isValid(in)) {
-				cnt++;
-			}
+		out.println(50000 + " " + 0);
+		for (int i = 1; i <= 49999; i++) {
+			out.println(i + " " + (i + 1));
 		}
-		out.println(cnt);
+		
 		out.close();
 	}
 	static boolean isValid (String s) {
