@@ -1,8 +1,7 @@
 /*
- * Johnson's algorithm solves the all-pairs shortest path (APSP) problems. It works with negative edge weights by using the Bellman-Ford algorithm to reweight the vertices.
- * After reweighting the edges, the algorithm runs Djikstra's algorithm on every vertex.
+ * Dijkstra's algorithm solves the single-source shortest path (SSSP) problem. It does not work with negative edge weights.
  *
- * Time complexity: O(V^2 log V + EV)
+ * Time complexity: O(E + V log V)
  */
 
 package codebook.graph.shortestpath;
@@ -16,19 +15,16 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-import codebook.graph.shortestpath.DijkstraHeap.Edge;
-
-public class Johnson {
+public class DijkstraHeap {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n, m, q;
+	static int n, m, orig, dest;
 	static ArrayList<ArrayList<Edge>> adj;
-	static int[] h;
-	static int[][] dist;
 	static PriorityQueue<Vertex> pq;
+	static int[] dist;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,60 +34,46 @@ public class Johnson {
 
 		n = readInt();
 		m = readInt();
-		q = readInt();
+
+		orig = readInt() - 1;
+		dest = readInt() - 1;
 
 		adj = new ArrayList<ArrayList<Edge>>();
-		h = new int[n + 1];
-		dist = new int[n + 1][n + 1];
-		for (int i = 0; i <= n; i++) {
+
+		dist = new int[n];
+		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Edge>());
-			h[i] = 1 << 29;
+			dist[i] = 1 << 30;
 		}
-
-		for (int i = 1; i <= n; i++)
-			adj.get(0).add(new Edge(i, 0));
-
 		for (int i = 0; i < m; i++) {
-			int a = readInt();
-			int b = readInt();
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			int c = readInt();
 			adj.get(a).add(new Edge(b, c));
 		}
-
-		h[0] = 0;
-		for (int i = 0; i < n - 1; i++)
-			for (int j = 0; j <= n; j++)
-				for (Edge e : adj.get(j))
-					if (h[e.dest] > e.cost + h[j])
-						h[e.dest] = e.cost + h[j];
-
-		for (int i = 1; i <= n; i++)
-			dist[i] = getPath(i);
-		for (int i = 0; i < q; i++) {
-			int a = readInt();
-			int b = readInt();
-			out.println(dist[a][b] - h[a] + h[b]);
-		}
-		out.close();
-	}
-
-	static int[] getPath (int src) {
-		int[] dist = new int[n + 1];
-		for (int i = 0; i <= n; i++)
-			dist[i] = 1 << 29;
-		dist[src] = 0;
 		pq = new PriorityQueue<Vertex>();
-		pq.offer(new Vertex(src, 0));
+		dist[orig] = 0;
+		pq.offer(new Vertex(orig, 0));
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
 			for (Edge next : adj.get(curr.index)) {
-				if (dist[next.dest] <= curr.cost + next.cost + h[curr.index] - h[next.dest])
-					continue;
-				dist[next.dest] = curr.cost + next.cost + h[curr.index] - h[next.dest];
-				pq.offer(new Vertex(next.dest, dist[next.dest]));
+				if (dist[next.dest] > curr.cost + next.cost) {
+					dist[next.dest] = curr.cost + next.cost;
+					pq.offer(new Vertex(next.dest, dist[next.dest]));
+				}
 			}
 		}
-		return dist;
+		out.println(dist[dest]);
+		out.close();
+	}
+
+	static class Edge {
+		int dest, cost;
+
+		Edge (int dest, int cost) {
+			this.dest = dest;
+			this.cost = cost;
+		}
 	}
 
 	static class Vertex implements Comparable<Vertex> {
