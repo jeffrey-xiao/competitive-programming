@@ -1,21 +1,23 @@
-package contest.woburn;
+package contest.dmoj;
 
 import java.util.*;
 import java.io.*;
 
-public class Woburn_Challenge_2015_3 implements Runnable {
+public class DMOPC_2015_Dimethylbenzene {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static int n, m;
-	
+	static boolean[] v;
+	static int[] curr;
+
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static int[] color;
-	static int sz = 0;
-	static int color1 = 0;
-	public static void main (String[] args) throws IOException, InterruptedException {
+	
+	static boolean valid = false;
+	
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
@@ -23,57 +25,37 @@ public class Woburn_Challenge_2015_3 implements Runnable {
 
 		n = readInt();
 		m = readInt();
-	
-		color = new int[n];
+		
+		v = new boolean[n];
+		curr = new int[n];
+		
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
 			int a = readInt()-1;
 			int b = readInt()-1;
 			adj.get(a).add(b);
-			adj.get(b).add(a);
 		}
-
-		Thread t = new Thread(null, new Woburn_Challenge_2015_2(), "Main", 1 << 28);
-		t.start();
-		t.join();
+		
+		for (int i = 0; i < n; i++)
+			if (!v[i])
+				dfs(i, 0);
+		out.println(valid ? "YES" : "NO");
 		out.close();
 	}
 	
-	public void run () {
-		solve();
-	}
-	static void solve () {
-		double total = n*n;
-		double ways = 0;
-		for (int i = 0; i < n; i++) {
-			if (color[i] == 0) {
-				sz = 0;
-				color1 = 0;
-				boolean isbipartite = dfs(i, 1);
-				if (!isbipartite)
-					ways += sz * sz;
-				else
-					ways += (color1)*(color1) + (sz - color1) * (sz - color1);
-			}
-		}
-		System.out.println(ways /total);
-	}
-	static boolean dfs (int i, int c) {
-		color[i] = c;
-		if (c == 1)
-			color1++;
-		sz++;
-		boolean res = true;
+	static void dfs (int i, int depth) {
+		v[i] = true;
+		curr[i] = depth;
 		for (int j : adj.get(i)) {
-			if (color[j] == 0) {
-				if (!dfs(j, -c))
-					res = false;
-			} else if (color[j] == c) {
-				res = false;
+			if (curr[j] != -1 && depth - curr[j] == 5) {
+				valid = true;
+			}
+			if (!v[j]) {
+				dfs(j, depth+1);
 			}
 		}
-		return res;
+		curr[i] = -1;
 	}
 
 	static String next () throws IOException {

@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2015_Kinako_Bread_2 {
+public class DMOPC_2014_Kinako_Bread_2 {
 
 	static BufferedReader br;
 	static PrintWriter out;

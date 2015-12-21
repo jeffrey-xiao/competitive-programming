@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2015_2 {
+public class DMOPC_2015_Cheesecake_Distribution {
 
 	static BufferedReader br;
 	static PrintWriter out;

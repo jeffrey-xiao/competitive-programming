@@ -1,36 +1,41 @@
-/*
- * Implementation of a dynamic programming table that contains binomial coefficients.
- *
- * Time complexity: O(N^2)
- */
+package contest.dmoj;
 
-package codebook.dp;
+import java.util.*;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
-public class BinomialCoefficient {
+public class VMSS_Head_Data_Slave_Applications {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static final int MOD = 1000000007;
+	static int n;
+	static int[] a;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		long[][] binomial = new long[n + 1][n + 1];
-		for (int i = 0; i <= n; i++)
+		long[][] binomial = new long[501][501];
+		for (int i = 0; i <= 500; i++)
 			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0 || i <= 1) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
-
+				binomial[i][j] = (j == 0 || i <= 1) ? 1 : (binomial[i - 1][j - 1] + binomial[i - 1][j]) % MOD;
+		
+		n = readInt();
+		a = new int[n];
+		for (int i = 0; i < n; i++)
+			a[i] = readInt();
+		long totalWays = 1;
+		int totalCnt = 0;
+		for (int i = 0; i < n; i++) {
+			totalWays = (totalWays * binomial[totalCnt + a[i] - 1][a[i] - 1])%MOD;
+			totalCnt += a[i];
+		}
+		
+		out.println(totalWays % MOD);
 		out.close();
 	}
 
@@ -60,3 +65,4 @@ public class BinomialCoefficient {
 		return br.readLine().trim();
 	}
 }
+

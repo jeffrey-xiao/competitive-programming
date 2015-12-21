@@ -1,36 +1,40 @@
-/*
- * Implementation of a dynamic programming table that contains binomial coefficients.
- *
- * Time complexity: O(N^2)
- */
+package contest.coci;
 
-package codebook.dp;
+import java.util.*;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
-public class BinomialCoefficient {
+public class COCI_2015_DEATHSTAR {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static int n;
+	static int[] a;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		long[][] binomial = new long[n + 1][n + 1];
-		for (int i = 0; i <= n; i++)
-			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0 || i <= 1) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
-
+		n = readInt();
+		
+		a = new int[n + 1];
+		
+		
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n; j++) {
+				int val = readInt();
+				if (j > i) {
+					a[i] |= val;
+					a[j] |= val;
+				}
+			}
+		}
+		for (int i = 1; i <= n; i++)
+			out.print(a[i] + " ");
+		out.println();
 		out.close();
 	}
 
@@ -60,3 +64,4 @@ public class BinomialCoefficient {
 		return br.readLine().trim();
 	}
 }
+

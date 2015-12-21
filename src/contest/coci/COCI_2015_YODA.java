@@ -1,9 +1,9 @@
-package contest.dmoj;
+package contest.coci;
 
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2015_1 {
+public class COCI_2015_YODA {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -15,16 +15,23 @@ public class DMOPC_2015_1 {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int a = readInt();
-		int b = readInt();
-		int c = readInt();
-		int d = readInt();
-		
-		if (Math.max(0, Math.min(b, d) - Math.max(a, c)) > 0)
-			out.println("YES");
-		else
-			out.println("NO");
-		
+		int n = readInt();
+		int m = readInt();
+		String resN = "";
+		String resM = "";
+		while (n != 0 || m != 0) {
+			if (n % 10 == m % 10) {
+				resN = n % 10 + resN;
+				resM = n % 10 + resM;
+			} else if (n % 10 > m % 10) {
+				resN = n % 10 + resN;
+			} else if (n % 10 < m % 10) {
+				resM = m % 10 + resM;
+			}
+			n /= 10;
+			m /= 10;
+		}
+		out.println((resN == "" ? "YODA" : Integer.parseInt(resN)) + "\n" + (resM == "" ? "YODA" : Integer.parseInt(resM)));
 		out.close();
 	}
 

@@ -1,9 +1,7 @@
 package contest.ccc;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
 public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
@@ -31,12 +29,10 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 			for (int x = 0; x < n; x++) {
 				if (visited[x])
 					continue;
-				int result = boxes[x].checkIntersection(s, new Point(s.x, s.y));
-
+				int result = boxes[x].checkIntersection(s, new Point(s.x + dir.x, s.y + dir.y), false);
 				if (result == -1)
 					continue;
 				if (boxes[x].minDist < minDist) {
-
 					minDist = boxes[x].minDist;
 					type = result;
 					index = x;
@@ -79,7 +75,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 		Point inter;
 		double minDist;
 
-		public int checkIntersection (Point s, Point dir) {
+		public int checkIntersection (Point s, Point dir, boolean print) {
 			Point closest = null;
 			double dist = Integer.MAX_VALUE;
 			int index = -1;
@@ -96,18 +92,23 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 					if (next.x > maxX || next.x < minX)
 						continue;
 				}
-				if (dir.x > s.x)
-					if (next.x <= s.x)
+				
+				if (dir.x - s.x > 0) {
+					if (next.x < s.x)
 						continue;
-					else if (dir.x < s.x)
-						if (next.x >= s.x)
-							continue;
-				if (dir.y > s.y)
-					if (next.y <= s.y)
+				} else if (dir.x - s.x < 0) {
+					if (next.x > s.x)
 						continue;
-					else if (dir.y < s.y)
-						if (next.y >= s.y)
-							continue;
+				}	
+
+				if (dir.y - s.y > 0) {
+					if (next.y < s.y)
+						continue;
+				} else if (dir.y - s.y < 0) {
+					if (next.y > s.y)
+						continue;
+				}
+				
 				double nextDist = getDist(s, next);
 				if (nextDist < dist) {
 					dist = nextDist;

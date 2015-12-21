@@ -1,39 +1,62 @@
-/*
- * Implementation of a dynamic programming table that contains binomial coefficients.
- *
- * Time complexity: O(N^2)
- */
+package contest.dmoj;
 
-package codebook.dp;
+import java.util.*;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
-public class BinomialCoefficient {
+public class VMSS_Tomb_Robbing {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static int r, c;
+	static char[][] g;
+	static boolean[][] v;
+
+	static int[] mover = {0,0,-1,1};
+	static int[] movec = {-1,1,0,0};
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		long[][] binomial = new long[n + 1][n + 1];
-		for (int i = 0; i <= n; i++)
-			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0 || i <= 1) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
-
+		r = readInt();
+		c = readInt();
+		
+		g = new char[r][c];
+		v = new boolean[r][c];
+		
+		for (int i = 0; i < r; i++)
+			g[i] = readLine().toCharArray();
+		
+		int cnt = 0;
+		for (int i = 0; i < r; i++) {
+			for (int j = 0; j < c; j++) {
+				if (!v[i][j] && g[i][j] == '.') {
+					cnt++;
+					dfs(i, j);
+				}
+					
+			}
+		}
+		out.println(cnt);
 		out.close();
 	}
 
+	static void dfs (int i, int j) {
+		v[i][j] = true;
+		for (int k = 0; k < 4; k++) {
+			int newi = i + mover[k];
+			int newj = j + movec[k];
+			
+			if (newi < 0 || newi >= r || newj < 0 || newj >= c || v[newi][newj] || g[newi][newj] == 'X')
+				continue;
+			dfs(newi, newj);
+		}
+	}
+	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -60,3 +83,4 @@ public class BinomialCoefficient {
 		return br.readLine().trim();
 	}
 }
+

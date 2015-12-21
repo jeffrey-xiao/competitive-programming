@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class DMOPC_2014_Kittans_Dilemma {
@@ -17,34 +19,45 @@ public class DMOPC_2014_Kittans_Dilemma {
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		int m = readInt();
-		Man[] men = new Man[n + 1];
-		for (int i = 1; i <= n; i++) {
-			men[i] = new Man(readInt(), readInt());
+		ArrayList<Integer> weak = new ArrayList<Integer>();
+		ArrayList<Integer> strong = new ArrayList<Integer>();
+		for (int i = 0; i < n; i++) {
+			int a = readInt();
+			int b = readInt();
+			if (b == 1)
+				weak.add(a);
+			else
+				strong.add(a);
 		}
-		int[][] dp = new int[2][m + 1];
-		for (int i = 0; i <= 1; i++) {
-			for (int j = 1; j <= m; j++)
-				dp[i][j] = -1;
+		Collections.sort(weak);
+		Collections.sort(strong);
+		long[] sumW = new long[weak.size() + 1];
+		long[] sumS = new long[strong.size() + 1];
+		for (int i = 1; i <= weak.size(); i++) {
+			sumW[i] = weak.get(i - 1) + sumW[i - 1];
 		}
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				dp[i % 2][j] = Math.max(dp[(i - 1) % 2][j], dp[i % 2][j - 1]);
-				if (j - men[i].space >= 0) {
-					dp[i % 2][j] = Math.max(dp[i % 2][j], dp[(i - 1) % 2][j - men[i].space] + (men[i].protection ? 2 : 1));
+
+		for (int i = 1; i <= strong.size(); i++) {
+			sumS[i] = strong.get(i - 1) + sumS[i - 1];
+		}
+		int max = 0;
+		for (int i = 0; i <= strong.size(); i++) {
+			long spaceLeft = m - sumS[i];
+			if (spaceLeft < 0)
+				break;
+			int lo = 0;
+			int hi = weak.size();
+			while (lo <= hi) {
+				int mid = lo + (hi - lo) / 2;
+				if (sumW[mid] <= spaceLeft) {
+					lo = mid + 1;
+				} else {
+					hi = mid - 1;
 				}
 			}
+			max = Math.max(i * 2 + hi, max);
 		}
-		System.out.println(dp[n % 2][m]);
-	}
-
-	static class Man {
-		int space;
-		boolean protection;
-
-		Man (int space, int protection) {
-			this.space = space;
-			this.protection = protection == 2;
-		}
+		System.out.println(max);
 	}
 
 	static String next () throws IOException {

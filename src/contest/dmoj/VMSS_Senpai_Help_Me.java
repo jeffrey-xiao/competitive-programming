@@ -1,19 +1,9 @@
-/*
- * Implementation of a dynamic programming table that contains binomial coefficients.
- *
- * Time complexity: O(N^2)
- */
+package contest.dmoj;
 
-package codebook.dp;
+import java.util.*;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
-public class BinomialCoefficient {
+public class VMSS_Senpai_Help_Me {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -26,11 +16,11 @@ public class BinomialCoefficient {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		long[][] binomial = new long[n + 1][n + 1];
-		for (int i = 0; i <= n; i++)
-			for (int j = 0; j <= i; j++)
-				binomial[i][j] = (j == 0 || i <= 1) ? 1 : binomial[i - 1][j - 1] + binomial[i - 1][j];
-
+		for (int x = (int)Math.sqrt(n); x >= 1; x--)
+			if (n % x == 0) {
+				out.println(x*2 + n / x * 2);
+				break;
+			}
 		out.close();
 	}
 
@@ -60,3 +50,4 @@ public class BinomialCoefficient {
 		return br.readLine().trim();
 	}
 }
+
