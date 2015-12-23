@@ -11,6 +11,8 @@
 
 package codebook.datastructures;
 
+import java.util.TreeSet;
+
 public class AATree {
 	// represents the root of the tree
 	private Node root;
@@ -95,6 +97,10 @@ public class AATree {
 			return n.value;
 	}
 
+	public void add (int key) {
+		root = add(root, key, key);
+	}
+	
 	public void add (int key, int value) {
 		root = add(root, key, value);
 	}
@@ -116,6 +122,8 @@ public class AATree {
 	private Node skew (Node n) {
 		if (n == null)
 			return null;
+		if (n.left == null)
+			return n;
 		if (n.left.level == n.level)
 			n = rotateRight(n);
 		return n;
@@ -124,6 +132,8 @@ public class AATree {
 	private Node split (Node n) {
 		if (n == null)
 			return null;
+		if (n.right == null || n.right.right == null)
+			return n;
 		if (n.right.right.level == n.level) {
 			n = rotateLeft(n);
 			n.level++;
@@ -159,6 +169,15 @@ public class AATree {
 		return curr;
 	}
 
+	// in order traversal of nodes
+	public void traverse (Node n) {
+		if (n == null)
+			return;
+		traverse(n.left);
+		System.out.print(n.key + " ");
+		traverse(n.right);
+	}
+	
 	// object representing the nodes of the tree
 	private class Node {
 		int key, value;
@@ -171,4 +190,33 @@ public class AATree {
 			this.level = 1;
 		}
 	}
+	
+	public static void main (String[] args) {
+		AATree t = new AATree();
+		long c = System.currentTimeMillis();
+		TreeSet<Integer> hs = new TreeSet<Integer>();
+		for (int x = 0; x < 100000; x++) {
+			int ran = (int) (Math.random() * (100000)) + 5;
+			hs.add(ran);
+			t.add(ran);
+		}
+		System.out.println(hs.size());
+		for (Integer i : hs)
+			System.out.print(i + " ");
+		System.out.println();
+		t.traverse(t.root);
+		System.out.println();
+		t.add(1);
+		assert (t.contains(t.root, 1));
+		assert (!t.contains(t.root, 2));
+		t.remove(1);
+		assert (!t.contains(t.root, 1));
+		System.out.println(System.currentTimeMillis() - c);
+		for (Integer i : hs) {
+			t.remove(i);
+			assert (!t.contains(t.root, i));
+		}
+		System.out.println("SUCCESS");
+	}
+	
 }
