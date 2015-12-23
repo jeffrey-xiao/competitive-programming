@@ -1,3 +1,10 @@
+/*
+ * Given two strings, find the longest common subsequence
+ * 
+ * Time complexity: O(N*M) where N is the length of the first string and M is the length of the second string
+ * 
+ */
+
 package codebook.dp;
 
 import java.util.*;
