@@ -13,8 +13,8 @@ public class BinaryExponentiation {
 		if (p == 1)
 			return b;
 		if (p % 2 == 0)
-			return modpow(b * b % m, p, m);
-		return b * modpow(b * b % m, p, m) % m;
+			return modpow(b * b % m, p / 2, m);
+		return b * modpow(b * b % m, p / 2, m) % m;
 	}
 
 	public long pow (long b, long p) {
@@ -23,7 +23,7 @@ public class BinaryExponentiation {
 		if (p == 1)
 			return b;
 		if (p % 2 == 0)
-			return pow(b * b, p);
-		return b * pow(b * b, p);
+			return pow(b * b, p / 2);
+		return b * pow(b * b, p / 2);
 	}
 }
