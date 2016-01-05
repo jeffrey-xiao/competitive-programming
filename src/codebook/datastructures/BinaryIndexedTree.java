@@ -23,29 +23,54 @@ public class BinaryIndexedTree {
 	// Point updates and range queries
 	/*
 	public void update (int idx, int val) { 
-		for (int x = idx; x < size; x += (x & -x)) tree1[x] += val; 
+		for (int x = idx; x < size; x += (x & -x)) 
+			tree1[x] += val; 
 	} 
+	
 	public int query (int idx) { 
 		int res = 0;
-		for (int x = idx; x > 0; x -= (x & -x)) res += tree1[x]; 
+		for (int x = idx; x > 0; x -= (x & -x)) 
+			res += tree1[x]; 
 		return res; 
 	}
+	
 	public int query (int x1, int x2) { 
 		return query(x2) - query(x1 - 1); 
 	}
+	
+	// xth element (MPOW is maximum power of 2)
+	public int get (int x) {
+		int MPOW = 1;
+		while (MPOW << 2 < size)
+			MPOW <<= 2;
+		int sum = 0;
+		int ret = 0;
+		for (int i = MPOW; i > 0 && ret + (i - 1) < size; i >>= 1) {
+			if (sum + tree1[ret + (i - 1)] < x) {
+				sum += tree1[ret + (i - 1)];
+				ret += i;
+			}
+		}
+		return ret;
+	}
 	*/
+	
 	// Range updates and point queries
 	/*
 	public void update (int idx, int val) { 
-		for (int x = idx; x < size; x += (x & -x)) tree1[x] += val; 
+		for (int x = idx; x < size; x += (x & -x)) 
+			tree1[x] += val; 
 	} 
+	
 	public void update (int x1, int x2, int val) { 
-		update(x1, val); update(x2+1, -val); 
-	} 
+		update(x1, val); 
+		update(x2+1, -val); 
+	}
+	 
 	public int query (int idx) {
 		int sum = 0; 
 		for (int x = idx; x > 0; x -= (x & -x)) 
-		sum += tree1[x]; 
+			sum += tree1[x]; 
 		return sum; 
 	}
 	*/

@@ -1,4 +1,4 @@
-package codebook.math;
+package codebook.geometry;
 
 public class TriangleCenters {
 	
