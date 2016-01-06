@@ -1,4 +1,13 @@
-package contest.ccc;
+/*
+ * 2-SAT problem solved using Tarjan's SCC algorithm.
+ * 
+ * Reference problem: CCC 2001 Stage 2 Coke or Chocolate Milk
+ * 
+ * Time Complexity: O(N + M) where N is the number of vertices and M is the number of edges
+ * 
+ */
+
+package codebook.algorithms;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +22,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
+public class TwoSat {
 
 	static BufferedReader br;
 	static PrintWriter pr;
