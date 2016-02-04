@@ -21,6 +21,10 @@ public class April_Fool_SAOJ {
 		
 		long ans = 0;
 		
+		for (long i = 1; i <= n; i++)
+			ans = (ans + i*i % MOD * i % MOD * i % MOD * i % MOD * i % MOD) % MOD;
+		
+		out.println(ans);
 		out.close();
 	}
 
