@@ -34,7 +34,7 @@ public class Woburn_Challenge_2015_3 implements Runnable {
 			adj.get(b).add(a);
 		}
 
-		Thread t = new Thread(null, new Woburn_Challenge_2015_2(), "Main", 1 << 28);
+		Thread t = new Thread(null, new Woburn_Challenge_2015_3(), "Main", 1 << 28);
 		t.start();
 		t.join();
 		out.close();
