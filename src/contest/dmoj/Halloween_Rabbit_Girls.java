@@ -1,11 +1,11 @@
-package contest.misc;
+package contest.dmoj;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Halloween_A {
+public class Halloween_Rabbit_Girls {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
