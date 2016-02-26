@@ -1,12 +1,14 @@
-/*
- * Arbitrary precision integer implementation
- */
-
+#include <vector>
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
-#include <vector>
+#include <string>
+#include <complex>
+#include <ctime>
+#include <cstdio>
 using namespace std;
 
+// base and base_digits must be consistent
 const int base = 1000000000;
 const int base_digits = 9;
 
@@ -35,6 +37,7 @@ struct bigint {
         sign = 1;
         if (v < 0)
             sign = -1, v = -v;
+        a.clear();
         for (; v > 0; v = v / base)
             a.push_back(v % base);
     }
@@ -84,6 +87,19 @@ struct bigint {
             carry = (int) (cur / base);
             a[i] = (int) (cur % base);
             //asm("divl %%ecx" : "=a"(carry), "=d"(a[i]) : "A"(cur), "c"(base));
+            /*
+             int val;
+             __asm {
+             lea esi, cur
+             mov eax, [esi]
+             mov edx, [esi+4]
+             mov ecx, base
+             div ecx
+             mov carry, eax
+             mov val, edx;
+             }
+             a[i] = val;
+             */
         }
         trim();
     }
@@ -195,7 +211,7 @@ struct bigint {
     }
 
     void trim() {
-        while (!a.empty() && !a.back())
+        while (!a.empty() && a.back() == 0)
             a.pop_back();
         if (a.empty())
             sign = 1;
@@ -283,8 +299,87 @@ struct bigint {
             }
         }
         res.push_back((int) cur);
-        while (!res.empty() && !res.back())
+        while (!res.empty() && res.back() == 0)
             res.pop_back();
+        return res;
+    }
+
+    void fft(vector<complex<double> > & a, bool invert) const {
+        int n = (int) a.size();
+
+        for (int i = 1, j = 0; i < n; ++i) {
+            int bit = n >> 1;
+            for (; j >= bit; bit >>= 1)
+                j -= bit;
+            j += bit;
+            if (i < j)
+                swap(a[i], a[j]);
+        }
+
+        for (int len = 2; len <= n; len <<= 1) {
+            double ang = 2 * 3.14159265358979323846 / len * (invert ? -1 : 1);
+            complex<double> wlen(cos(ang), sin(ang));
+            for (int i = 0; i < n; i += len) {
+                complex<double> w(1);
+                for (int j = 0; j < len / 2; ++j) {
+                    complex<double> u = a[i + j];
+                    complex<double> v = a[i + j + len / 2] * w;
+                    a[i + j] = u + v;
+                    a[i + j + len / 2] = u - v;
+                    w *= wlen;
+                }
+            }
+        }
+        if (invert)
+            for (int i = 0; i < n; ++i)
+                a[i] /= n;
+    }
+
+    void multiply_fft(const vector<int> &a, const vector<int> &b, vector<int> &res) const {
+        vector<complex<double> > fa(a.begin(), a.end());
+        vector<complex<double> > fb(b.begin(), b.end());
+        int n = 1;
+        while (n < (int) max(a.size(), b.size()))
+            n <<= 1;
+        n <<= 1;
+        fa.resize(n);
+        fb.resize(n);
+
+        fft(fa, false);
+        fft(fb, false);
+        for (int i = 0; i < n; ++i)
+            fa[i] *= fb[i];
+        fft(fa, true);
+
+        res.resize(n);
+        for (int i = 0, carry = 0; i < n; ++i) {
+            res[i] = int(fa[i].real() + 0.5) + carry;
+            carry = res[i] / 1000;
+            res[i] %= 1000;
+        }
+    }
+
+    bigint operator*(const bigint &v) const {
+        bigint res;
+        res.sign = sign * v.sign;
+        multiply_fft(convert_base(a, base_digits, 3), convert_base(v.a, base_digits, 3), res.a);
+        res.a = convert_base(res.a, 3, base_digits);
+        res.trim();
+        return res;
+    }
+
+    bigint mul_simple(const bigint &v) const {
+        bigint res;
+        res.sign = sign * v.sign;
+        res.a.resize(a.size() + v.a.size());
+        for (int i = 0; i < (int) a.size(); ++i)
+            if (a[i])
+                for (int j = 0, carry = 0; j < (int) v.a.size() || carry; ++j) {
+                    long long cur = res.a[i + j] + (long long) a[i] * (j < (int) v.a.size() ? v.a[j] : 0) + carry;
+                    carry = (int) (cur / base);
+                    res.a[i + j] = (int) (cur % base);
+                }
+        res.trim();
         return res;
     }
 
@@ -329,7 +424,7 @@ struct bigint {
         return res;
     }
 
-    bigint operator*(const bigint &v) const {
+    bigint mul_karatsuba(const bigint &v) const {
         vector<int> a6 = convert_base(this->a, base_digits, 6);
         vector<int> b6 = convert_base(v.a, base_digits, 6);
         vll a(a6.begin(), a6.end());
@@ -354,13 +449,16 @@ struct bigint {
     }
 };
 
+bigint getRandomBigint(int len) {
+    string s;
+    for (int i = 0; i < len; i++)
+        s += rand() % 10 + '0';
+    return bigint(s);
+}
+
 int main () {
-    int t;
-    cin >> t;
-    for (int i = 0; i < t; i++) {
-        string s1, s2;
-        cin >> s1;
-        cin >> s2;
-        cout << bigint(s1) + bigint(s2) << endl;
-    }
+    string s1, s2;
+    cin >> s1;
+    cin >> s2;
+    cout << bigint(s1).mul_simple(bigint(s2)) << endl;
 }
