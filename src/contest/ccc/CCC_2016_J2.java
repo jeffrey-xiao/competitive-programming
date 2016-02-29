@@ -25,10 +25,10 @@ public class CCC_2016_J2 {
 				colSum[j] += val;
 			}
 		if (rowSum[0] == rowSum[1] && rowSum[1] == rowSum[2] && rowSum[2] == rowSum[3] && 
-			colSum[0] == colSum[1] && colSum[1] == colSum[2] && colSum[2] == colSum[3])
-			out.println("not magic");
-		else
+			colSum[0] == colSum[1] && colSum[1] == colSum[2] && colSum[2] == colSum[3] && rowSum[0] == colSum[0])
 			out.println("magic");
+		else
+			out.println("not magic");
 		
 		out.close();
 	}
