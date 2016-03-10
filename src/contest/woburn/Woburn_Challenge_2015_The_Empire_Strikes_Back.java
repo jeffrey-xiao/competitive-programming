@@ -3,7 +3,7 @@ package contest.woburn;
 import java.util.*;
 import java.io.*;
 
-public class Woburn_Challenge_2015_1 {
+public class Woburn_Challenge_2015_The_Empire_Strikes_Back {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -16,31 +16,16 @@ public class Woburn_Challenge_2015_1 {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		int[] a = new int[n];
-		for (int i = 0; i < n; i++)
-			a[i] = readInt();
-		for (int i = 0; i < n; i++) {
-			if (i > 0 && a[i] == 0) {
-				for (int j = 1; j <= 4; j++) {
-					if (a[i-1] != j  && (i + 1 >= a.length || a[i+1] != j)) {
-						a[i] = j;
-						break;
-					}
-				}
-			}
-			if (i == 0 && a[i] == 0) {
-				if (a.length == 1)
-					a[i] = 1;
-				if (a[i+1] == 1)
-					a[i] = 2;
-				else
-					a[i] = 1;
-			}
-		}
-		for (int i = 0; i < n; i++)
-			out.print(a[i]);
-		out.println();
+		int m = readInt();
 		
+		int ans = 0;
+		for (int i = 0; i < n; i++) {
+			int val = readInt();
+			if (val <= m)
+				ans += val;
+		}
+
+		out.println(ans);
 		out.close();
 	}
 

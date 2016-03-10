@@ -3,7 +3,7 @@ package contest.woburn;
 import java.util.*;
 import java.io.*;
 
-public class Woburn_Challenge_2015_3 implements Runnable {
+public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -34,7 +34,7 @@ public class Woburn_Challenge_2015_3 implements Runnable {
 			adj.get(b).add(a);
 		}
 
-		Thread t = new Thread(null, new Woburn_Challenge_2015_3(), "Main", 1 << 28);
+		Thread t = new Thread(null, new Woburn_Challenge_2015_Rescue_Mission(), "Main", 1 << 28);
 		t.start();
 		t.join();
 		out.close();
