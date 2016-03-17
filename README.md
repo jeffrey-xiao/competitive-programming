@@ -6,8 +6,6 @@ Under the codebook package, you will find Java, C++, and pseudocode implementati
 Under the contest package, you will find my Java and C++ solutions to various programming contests and practice problems. The solutions are oganized by the origin of the problem (E.G. CCC, USACO, COCI, Codeforces, Topcoder, Hackerrank).
 ## TODO LIST:
 
-Combinatorics
-
 Data structures
  - R-tree
 
@@ -29,7 +27,9 @@ numeric methods
 
 
 sieve of Atkin
+
 Miller-Rabin Primality 
+
 Pollard's rho Algorithm
 
 
