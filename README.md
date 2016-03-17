@@ -24,12 +24,3 @@ linear algebra
 number theory
 
 numeric methods
-
-
-sieve of Atkin
-
-Miller-Rabin Primality 
-
-Pollard's rho Algorithm
-
-
