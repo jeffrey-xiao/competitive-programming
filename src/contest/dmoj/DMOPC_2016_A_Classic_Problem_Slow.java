@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2016_5 {
+public class DMOPC_2016_A_Classic_Problem_Slow {
 
 	static BufferedReader br;
 	static PrintWriter out;
