@@ -1,7 +1,9 @@
+package contest.ccc;
+
 import java.io.*;
 import java.util.*;
 
-public class C {
+public class CCOQR_2016_P3 {
 
 	static BufferedReader br;
 	static PrintWriter out;
