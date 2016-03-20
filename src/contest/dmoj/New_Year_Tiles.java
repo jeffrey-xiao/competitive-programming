@@ -23,7 +23,6 @@ public class New_Year_Tiles {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-
 		n = readInt();
 		m = readInt();
 
@@ -37,17 +36,17 @@ public class New_Year_Tiles {
 			if (valid)
 				states.add(i);
 		}
-		dp = new long[m+1][Math.min(n, m) + 1][Math.min(2*m - 1, n) + 1][32];
+		dp = new long[m + 1][Math.min(n, m) + 1][Math.min(2 * m - 1, n) + 1][32];
 
 		for (int i = 0; i <= m; i++)
 			for (int j = 0; j <= Math.min(n, m); j++)
-				for (int k = 0; k <= Math.min(2*m - 1, n); k++)
+				for (int k = 0; k <= Math.min(2 * m - 1, n); k++)
 					for (int l = 0; l < 32; l++)
 						dp[i][j][k][l] = -1;
 
 		long ans = 0;
 		for (int i = 1; i <= Math.min(n, m); i++) {
-			for (int j = 1; j <= Math.min(2*m - 1, n); j++) {
+			for (int j = 1; j <= Math.min(2 * m - 1, n); j++) {
 				long res = getGroups(m, i, j, 0);
 				ans = (ans + choose(n - j + i, i) * res % MOD) % MOD;
 			}
@@ -85,11 +84,11 @@ public class New_Year_Tiles {
 			if (cnt > m)
 				continue;
 			if (prev == 0) {
-				res = (res + getGroups(m - cnt, groups - 1, left - 1, i))%MOD;
+				res = (res + getGroups(m - cnt, groups - 1, left - 1, i)) % MOD;
 			} else {
 				if ((i & prev) == 0)
-					res = (res + getGroups(m - cnt, groups, left - 1, i))%MOD;
-				res = (res + getGroups(m - cnt, groups - 1, left - 2, i))%MOD;
+					res = (res + getGroups(m - cnt, groups, left - 1, i)) % MOD;
+				res = (res + getGroups(m - cnt, groups - 1, left - 2, i)) % MOD;
 			}
 		}
 		return dp[m][groups][left][prev] = res;
@@ -121,4 +120,3 @@ public class New_Year_Tiles {
 		return br.readLine().trim();
 	}
 }
-

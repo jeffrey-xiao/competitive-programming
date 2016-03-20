@@ -63,4 +63,3 @@ public class New_Year_Late_Christmas_Shopping {
 		return br.readLine().trim();
 	}
 }
-

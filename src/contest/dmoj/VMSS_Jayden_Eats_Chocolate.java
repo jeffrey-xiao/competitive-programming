@@ -11,7 +11,7 @@ public class VMSS_Jayden_Eats_Chocolate {
 
 	static int n, x, y, z;
 	static int[] dp;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,9 +22,9 @@ public class VMSS_Jayden_Eats_Chocolate {
 		x = readInt();
 		y = readInt();
 		z = readInt();
-		
+
 		dp = new int[n + 1];
-		
+
 		for (int i = 0; i <= n; i++) {
 			if (dp[i] == 0 && i != 0)
 				continue;
@@ -35,7 +35,7 @@ public class VMSS_Jayden_Eats_Chocolate {
 			if (i + z <= n)
 				dp[i + z] = Math.max(dp[i + z], dp[i] + 1);
 		}
-		
+
 		out.println(dp[n]);
 		out.close();
 	}
@@ -66,4 +66,3 @@ public class VMSS_Jayden_Eats_Chocolate {
 		return br.readLine().trim();
 	}
 }
-

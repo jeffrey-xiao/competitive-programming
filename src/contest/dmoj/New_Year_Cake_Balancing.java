@@ -46,10 +46,10 @@ public class New_Year_Cake_Balancing {
 		// 0 = remove left, 1 = remove right
 		if (bl == 0 && br == 0)
 			return 0;
-		
+
 		if (dp[bl][br][flag] != -1)
 			return dp[bl][br][flag];
-		
+
 		int totalL = 0;
 		int totalR = 0;
 		int min = 1 << 30;
@@ -62,16 +62,16 @@ public class New_Year_Cake_Balancing {
 			if ((br & 1 << i) > 0)
 				totalR += wr[i];
 
-		for (int i = 0; i < l; i++) 
-			if ((bl & 1 << i) > 0) 
-				if (Math.abs((totalL - wl[i]) - totalR) <= w) 
+		for (int i = 0; i < l; i++)
+			if ((bl & 1 << i) > 0)
+				if (Math.abs((totalL - wl[i]) - totalR) <= w)
 					min = Math.min(min, flag + solve(bl ^ (1 << i), br, 0));
 
 		for (int i = 0; i < r; i++)
-			if ((br & 1 << i) > 0) 
-				if (Math.abs(totalL - (totalR - wr[i])) <= w) 
+			if ((br & 1 << i) > 0)
+				if (Math.abs(totalL - (totalR - wr[i])) <= w)
 					min = Math.min(min, 1 - flag + solve(bl, br ^ (1 << i), 1));
-					
+
 		return dp[bl][br][flag] = min;
 	}
 
@@ -101,4 +101,3 @@ public class New_Year_Cake_Balancing {
 		return br.readLine().trim();
 	}
 }
-

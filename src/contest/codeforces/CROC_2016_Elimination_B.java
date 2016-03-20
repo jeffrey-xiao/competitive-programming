@@ -57,4 +57,3 @@ public class CROC_2016_Elimination_B {
 		return br.readLine().trim();
 	}
 }
-

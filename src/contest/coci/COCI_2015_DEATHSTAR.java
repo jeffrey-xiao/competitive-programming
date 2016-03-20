@@ -11,7 +11,7 @@ public class COCI_2015_DEATHSTAR {
 
 	static int n;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,10 +19,9 @@ public class COCI_2015_DEATHSTAR {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		
+
 		a = new int[n + 1];
-		
-		
+
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++) {
 				int val = readInt();
@@ -64,4 +63,3 @@ public class COCI_2015_DEATHSTAR {
 		return br.readLine().trim();
 	}
 }
-

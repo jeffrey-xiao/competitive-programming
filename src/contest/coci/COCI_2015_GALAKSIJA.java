@@ -14,10 +14,10 @@ public class COCI_2015_GALAKSIJA {
 	static int[] order, id, sz;
 	static ArrayList<HashMap<Integer, Long>> states;
 	static long[] ans;
-	
+
 	static int[] v;
 	static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -35,11 +35,11 @@ public class COCI_2015_GALAKSIJA {
 		id = new int[n];
 		sz = new int[n];
 		v = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Edge>());
-		
-		for (int i = 0; i < n-1; i++) {
+
+		for (int i = 0; i < n - 1; i++) {
 			a[i] = readInt() - 1;
 			b[i] = readInt() - 1;
 			c[i] = readInt();
@@ -48,7 +48,7 @@ public class COCI_2015_GALAKSIJA {
 		}
 
 		dfs(0, -1);
-		
+
 		for (int i = 0; i < n; i++) {
 			states.add(new HashMap<Integer, Long>());
 			states.get(i).put(v[i], 1l);
@@ -56,16 +56,16 @@ public class COCI_2015_GALAKSIJA {
 			sz[i] = 1;
 		}
 
-		for (int i = 0; i < n-1; i++)
+		for (int i = 0; i < n - 1; i++)
 			order[i] = readInt() - 1;
 
 		long total = 0;
-		for (int i = n-2; i >= 0; i--) {
+		for (int i = n - 2; i >= 0; i--) {
 			int id1 = find(a[order[i]]);
 			int id2 = find(b[order[i]]);
 
 			merge(id1, id2);
-			
+
 			if (id2 == id[id2]) {
 				int temp = id1;
 				id1 = id2;
@@ -96,10 +96,10 @@ public class COCI_2015_GALAKSIJA {
 			}
 		}
 	}
-	
+
 	static int find (int i) {
 		return i == id[i] ? i : (id[i] = find(id[i]));
-	}	
+	}
 
 	static void merge (int i, int j) {
 		if (sz[i] >= sz[j]) {
@@ -113,6 +113,7 @@ public class COCI_2015_GALAKSIJA {
 
 	static class Edge {
 		int dest, val;
+
 		Edge (int dest, int val) {
 			this.dest = dest;
 			this.val = val;

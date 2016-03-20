@@ -92,14 +92,14 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 					if (next.x > maxX || next.x < minX)
 						continue;
 				}
-				
+
 				if (dir.x - s.x > 0) {
 					if (next.x < s.x)
 						continue;
 				} else if (dir.x - s.x < 0) {
 					if (next.x > s.x)
 						continue;
-				}	
+				}
 
 				if (dir.y - s.y > 0) {
 					if (next.y < s.y)
@@ -108,7 +108,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 					if (next.y > s.y)
 						continue;
 				}
-				
+
 				double nextDist = getDist(s, next);
 				if (nextDist < dist) {
 					dist = nextDist;

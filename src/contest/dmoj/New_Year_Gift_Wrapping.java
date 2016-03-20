@@ -16,11 +16,11 @@ public class New_Year_Gift_Wrapping {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		
+
 		char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-		
-		for (int i = 0; i < 2*n - 1; i++) {
-			for (int j = 0; j < 2*n - 1; j++) {
+
+		for (int i = 0; i < 2 * n - 1; i++) {
+			for (int j = 0; j < 2 * n - 1; j++) {
 				int pos = Math.max(Math.abs(n - 1 - i), Math.abs(n - 1 - j));
 				out.print(alpha[pos]);
 			}
@@ -55,4 +55,3 @@ public class New_Year_Gift_Wrapping {
 		return br.readLine().trim();
 	}
 }
-

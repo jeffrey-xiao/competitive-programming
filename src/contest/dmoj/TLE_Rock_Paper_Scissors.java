@@ -10,18 +10,18 @@ public class TLE_Rock_Paper_Scissors {
 	static StringTokenizer st;
 
 	static int N, M, Q;
-	
+
 	static int[] disc, lo, id, sz;
 	static int cnt, comCnt;
-	
+
 	static Stack<Integer> s = new Stack<Integer>();
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<HashSet<Integer>> g = new ArrayList<HashSet<Integer>>();
-	
+
 	static boolean[] inStack;
 	static int[] cache;
 	static int[][] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -31,26 +31,26 @@ public class TLE_Rock_Paper_Scissors {
 		N = readInt();
 		M = readInt();
 		Q = readInt();
-		
+
 		disc = new int[N];
 		lo = new int[N];
 		id = new int[N];
 		sz = new int[N];
 		inStack = new boolean[N];
-		
+
 		for (int i = 0; i < N; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		for (int i = 0; i < M; i++)
 			adj.get(readInt() - 1).add(readInt() - 1);
-		
+
 		for (int i = 0; i < N; i++)
 			if (disc[i] == 0)
 				dfs(i);
-		
+
 		for (int i = 0; i < comCnt; i++)
 			g.add(new HashSet<Integer>());
-		
+
 		for (int i = 0; i < N; i++)
 			for (int j : adj.get(i))
 				if (id[i] != id[j])
@@ -62,18 +62,18 @@ public class TLE_Rock_Paper_Scissors {
 			cache = new int[comCnt];
 			for (int j = 0; j < comCnt; j++)
 				cache[j] = -2;
-			
+
 			for (int j = 0; j < comCnt; j++) {
 				if (i == j)
 					continue;
 				val[j][i] = find(j, i);
 			}
 		}
-			
+
 		for (int i = 0; i < Q; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
-			
+
 			if (id[u] == id[v]) {
 				out.println("Indeterminate");
 				continue;
@@ -88,13 +88,13 @@ public class TLE_Rock_Paper_Scissors {
 				out.println("Indeterminate");
 			}
 		}
-		
+
 		out.close();
 	}
 
 	static int find (int u, int v) {
-        if (cache[u] != -2)
-            return cache[u];
+		if (cache[u] != -2)
+			return cache[u];
 		if (u == v)
 			return cache[u] = 0;
 		int ret = -1;
@@ -106,12 +106,12 @@ public class TLE_Rock_Paper_Scissors {
 		}
 		return cache[u] = ret;
 	}
-	
+
 	static void dfs (int u) {
 		disc[u] = lo[u] = ++cnt;
 		inStack[u] = true;
 		s.push(u);
-		
+
 		for (int v : adj.get(u)) {
 			if (disc[v] == 0) {
 				dfs(v);
@@ -124,14 +124,14 @@ public class TLE_Rock_Paper_Scissors {
 			while (s.peek() != u) {
 				inStack[s.peek()] = false;
 				sz[comCnt]++;
-				id[s.pop()] = comCnt; 
+				id[s.pop()] = comCnt;
 			}
 			inStack[s.peek()] = false;
 			sz[comCnt]++;
 			id[s.pop()] = comCnt++;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

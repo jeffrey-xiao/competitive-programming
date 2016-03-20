@@ -11,6 +11,7 @@ public class Woburn_Challenge2 {
 
 	static int N, M;
 	static char[][] words;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,9 +20,9 @@ public class Woburn_Challenge2 {
 
 		N = readInt();
 		M = readInt();
-		
+
 		words = new char[N][M];
-		
+
 		for (int i = 0; i < N; i++) {
 			words[i] = readLine().toCharArray();
 		}
@@ -49,13 +50,13 @@ public class Woburn_Challenge2 {
 			}
 			cost += N - max - wildcard;
 			if (wildcard != N) {
-				ways = (ways * maxCnt)%1000;
+				ways = (ways * maxCnt) % 1000;
 			} else {
 				ways = (ways * 26) % 1000;
 			}
 		}
 		out.printf("%d %d\n", cost, ways);
-		
+
 		out.close();
 	}
 
@@ -85,4 +86,3 @@ public class Woburn_Challenge2 {
 		return br.readLine().trim();
 	}
 }
-

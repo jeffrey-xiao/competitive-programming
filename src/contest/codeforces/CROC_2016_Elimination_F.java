@@ -9,7 +9,7 @@ public class CROC_2016_Elimination_F {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int MOD = (int)(1e9 + 7);
+	static int MOD = (int) (1e9 + 7);
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,15 +25,15 @@ public class CROC_2016_Elimination_F {
 		long[] coeff = new long[1000001];
 		long[] choose = new long[1000001]; // I choose k
 		int[] divisorCnt = new int[1000001];
-		
+
 		ArrayList<ArrayList<Integer>> divisors = new ArrayList<ArrayList<Integer>>();
-		
+
 		for (int i = 0; i < n + q; i++)
 			a[i] = readInt();
 
 		for (int i = 0; i <= 1000000; i++)
 			divisors.add(new ArrayList<Integer>());
-		
+
 		for (int i = 1; i <= 1000000; i++) {
 			coeff[i] += i;
 			divisors.get(i).add(i);
@@ -52,7 +52,7 @@ public class CROC_2016_Elimination_F {
 		}
 
 		long res = 0;
-		
+
 		for (int i = 0; i < n + q; i++) {
 			for (int d : divisors.get(a[i])) {
 				divisorCnt[d]++;
@@ -65,7 +65,7 @@ public class CROC_2016_Elimination_F {
 	}
 
 	static int divMod (long i, long j) {
-		return (int)(i * pow(j, MOD - 2) % MOD);
+		return (int) (i * pow(j, MOD - 2) % MOD);
 	}
 
 	static long pow (long base, long pow) {
@@ -104,4 +104,3 @@ public class CROC_2016_Elimination_F {
 		return br.readLine().trim();
 	}
 }
-

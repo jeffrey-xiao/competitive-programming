@@ -45,13 +45,13 @@ public class CROC_2016_Elimination_C {
 				}
 				min = Math.min(min, minDist);
 				l++;
-			} else if(a[r] - a[l] < k + 1) {
+			} else if (a[r] - a[l] < k + 1) {
 				r++;
 			} else {
 				l++;
 			}
 		}
-		
+
 		out.println(min);
 		out.close();
 	}
@@ -82,4 +82,3 @@ public class CROC_2016_Elimination_C {
 		return br.readLine().trim();
 	}
 }
-

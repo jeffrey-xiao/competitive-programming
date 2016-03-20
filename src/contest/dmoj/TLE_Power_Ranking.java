@@ -11,7 +11,7 @@ public class TLE_Power_Ranking {
 
 	static int N, P;
 	static User[] users;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,39 +20,39 @@ public class TLE_Power_Ranking {
 
 		N = readInt();
 		P = readInt();
-		
+
 		users = new User[N];
-		
+
 		for (int i = 0; i < N; i++)
 			users[i] = new User(readLine(), 0);
-		
+
 		for (int i = 0; i < P; i++)
 			for (int j = 0; j < N; j++)
 				users[j].points += readInt();
-		
+
 		Arrays.sort(users);
-		
+
 		for (int i = 0; i < N; i++)
 			out.printf("%d. %s\n", i + 3, users[i].name);
-		
+
 		out.close();
 	}
 
 	static class User implements Comparable<User> {
 		String name;
 		int points;
-		
+
 		User (String name, int points) {
 			this.name = name;
 			this.points = points;
 		}
-		
+
 		@Override
 		public int compareTo (User o) {
 			return o.points - points;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -79,4 +79,3 @@ public class TLE_Power_Ranking {
 		return br.readLine().trim();
 	}
 }
-

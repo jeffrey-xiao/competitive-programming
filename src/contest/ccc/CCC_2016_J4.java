@@ -57,4 +57,3 @@ public class CCC_2016_J4 {
 		return br.readLine().trim();
 	}
 }
-

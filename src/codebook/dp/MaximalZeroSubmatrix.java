@@ -23,7 +23,7 @@ public class MaximalZeroSubmatrix {
 
 		int n = readInt();
 		int m = readInt();
-		
+
 		int[][] a = new int[n][m];
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < m; j++)
@@ -43,7 +43,7 @@ public class MaximalZeroSubmatrix {
 				if (a[i][j] == 1)
 					height[i][j] = 0;
 				else
-					height[i][j] = 1 + (i == rows - 1 ? 0 : height[i+1][j]);
+					height[i][j] = 1 + (i == rows - 1 ? 0 : height[i + 1][j]);
 			}
 		}
 		for (int i = 0; i < rows; i++) {
@@ -64,7 +64,7 @@ public class MaximalZeroSubmatrix {
 		}
 		return ret;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -91,4 +91,3 @@ public class MaximalZeroSubmatrix {
 		return br.readLine().trim();
 	}
 }
-

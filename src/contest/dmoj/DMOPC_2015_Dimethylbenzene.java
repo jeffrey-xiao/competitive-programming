@@ -14,9 +14,9 @@ public class DMOPC_2015_Dimethylbenzene {
 	static int[] curr;
 
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	
+
 	static boolean valid = false;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,25 +25,25 @@ public class DMOPC_2015_Dimethylbenzene {
 
 		n = readInt();
 		m = readInt();
-		
+
 		v = new boolean[n];
 		curr = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 		}
-		
+
 		for (int i = 0; i < n; i++)
 			if (!v[i])
 				dfs(i, 0);
 		out.println(valid ? "YES" : "NO");
 		out.close();
 	}
-	
+
 	static void dfs (int i, int depth) {
 		v[i] = true;
 		curr[i] = depth;
@@ -52,7 +52,7 @@ public class DMOPC_2015_Dimethylbenzene {
 				valid = true;
 			}
 			if (!v[j]) {
-				dfs(j, depth+1);
+				dfs(j, depth + 1);
 			}
 		}
 		curr[i] = -1;
@@ -84,4 +84,3 @@ public class DMOPC_2015_Dimethylbenzene {
 		return br.readLine().trim();
 	}
 }
-

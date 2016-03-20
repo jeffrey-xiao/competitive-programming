@@ -14,6 +14,7 @@ public class Glenforest_Starry_Sky {
 	static int r, c;
 	static HashMap<Integer, Long> newHm = new HashMap<Integer, Long>();
 	static HashMap<Integer, Long> hm = new HashMap<Integer, Long>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,19 +27,19 @@ public class Glenforest_Starry_Sky {
 		long ans = 0;
 		ArrayList<Integer> validSeq = new ArrayList<Integer>();
 		HashMap<Integer, ArrayList<Integer>> toValid = new HashMap<Integer, ArrayList<Integer>>();
-		
-		for (int j = 0; j < 1 << c; j++) 
+
+		for (int j = 0; j < 1 << c; j++)
 			if (valid(j))
 				validSeq.add(j);
-				
+
 		for (int j : validSeq) {
 			hm.put(j, 1l);
 			int marked = 0;
 			for (int k = 0; k < c; k++)
 				if ((j & 1 << k) > 0) {
-					marked |= 1 << (k-1);
+					marked |= 1 << (k - 1);
 					marked |= 1 << (k);
-					marked |= 1 << (k+1);
+					marked |= 1 << (k + 1);
 				}
 			toValid.put(j, new ArrayList<Integer>());
 			for (int k : validSeq) {
@@ -48,33 +49,33 @@ public class Glenforest_Starry_Sky {
 			}
 		}
 		for (int i = 1; i < r; i++) {
-			if (i < r-1) {
+			if (i < r - 1) {
 				newHm.clear();
 				for (Integer j : hm.keySet()) {
 					for (Integer v : toValid.get(j)) {
 						if (!newHm.containsKey(v))
 							newHm.put(v, 0l);
-						newHm.put(v, (newHm.get(v) + hm.get(j))%MOD);
+						newHm.put(v, (newHm.get(v) + hm.get(j)) % MOD);
 					}
 				}
 				hm.clear();
 				hm.putAll(newHm);
 			} else {
 				for (Integer j : hm.keySet()) {
-					ans = (ans + hm.get(j))%MOD;
+					ans = (ans + hm.get(j)) % MOD;
 				}
 			}
 
 		}
-		out.println((ans - 1 + MOD)%MOD);
+		out.println((ans - 1 + MOD) % MOD);
 		out.close();
 	}
 
 	static boolean valid (int pattern) {
-		if ((pattern & 1) > 0 || (pattern & 1 << (c-1)) > 0)
+		if ((pattern & 1) > 0 || (pattern & 1 << (c - 1)) > 0)
 			return false;
 		for (int j = 2; j < c; j++)
-			if (((pattern & (1 << j)) > 0) && ((pattern & (1 << (j-1))) > 0) || ((pattern & (1 << j)) > 0) && ((pattern & (1 << (j-2))) > 0))
+			if (((pattern & (1 << j)) > 0) && ((pattern & (1 << (j - 1))) > 0) || ((pattern & (1 << j)) > 0) && ((pattern & (1 << (j - 2))) > 0))
 				return false;
 		return true;
 	}
@@ -105,4 +106,3 @@ public class Glenforest_Starry_Sky {
 		return br.readLine().trim();
 	}
 }
-

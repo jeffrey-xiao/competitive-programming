@@ -9,11 +9,11 @@ package codebook.algorithms;
 public class TernarySearch {
 
 	static final double EPS = 1e-8;
-	
+
 	static double f (double x) {
 		return -3.160297 * x * x + 7.15015 * x - 1.12689;
 	}
-	
+
 	static double ternarySearchMin (double lo, double hi) {
 		while (hi - lo > EPS) {
 			double lthird = lo + (hi - lo) / 3;
@@ -25,7 +25,7 @@ public class TernarySearch {
 		}
 		return lo;
 	}
-	
+
 	static double ternarySearchMax (double lo, double hi) {
 		while (hi - lo > EPS) {
 			double lthird = lo + (hi - lo) / 3;
@@ -37,8 +37,8 @@ public class TernarySearch {
 		}
 		return lo;
 	}
+
 	public static void main (String[] args) {
 		System.out.println(ternarySearchMax(-100, 100));
 	}
 }
-

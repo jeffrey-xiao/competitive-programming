@@ -10,7 +10,7 @@ public class Woburn_Challenge_2015_4 {
 	static StringTokenizer st;
 
 	static int n, m;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,7 +19,7 @@ public class Woburn_Challenge_2015_4 {
 
 		n = readInt();
 		m = readInt();
-		
+
 		int x1 = readInt();
 		int y1 = readInt();
 		int x2 = readInt();
@@ -40,7 +40,7 @@ public class Woburn_Challenge_2015_4 {
 				}
 			} else {
 				int ans = 0;
-				for (int j = b-1; j < c; j++)
+				for (int j = b - 1; j < c; j++)
 					ans += s[j].damage;
 				out.println(ans);
 			}
@@ -50,6 +50,7 @@ public class Woburn_Challenge_2015_4 {
 
 	static class Ship {
 		int x, y, dx, dy, damage;
+
 		Ship (int x, int y, int dx, int dy) {
 			this.x = x;
 			this.y = y;
@@ -58,7 +59,7 @@ public class Woburn_Challenge_2015_4 {
 			this.damage = 0;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

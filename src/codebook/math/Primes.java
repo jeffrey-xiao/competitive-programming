@@ -8,7 +8,7 @@ public class Primes {
 	static ArrayList<Integer> getPrimesEratosthenes (int N) {
 		boolean[] prime = new boolean[N + 1];
 		ArrayList<Integer> ret = new ArrayList<Integer>();
-		
+
 		Arrays.fill(prime, true);
 
 		for (int i = 2; i * i <= N; i++)
@@ -108,12 +108,12 @@ public class Primes {
 				ret.add(i);
 		return ret;
 	}
-	
+
 	public static void main (String[] args) {
 		ArrayList<Integer> ret1 = getPrimesEratosthenes(123456789);
 		ArrayList<Integer> ret2 = getPrimesLinear(123456789);
 		ArrayList<Integer> ret3 = getPrimesAtkins(123456789);
-		
-		assert(ret1.equals(ret2) && ret2.equals(ret3));
+
+		assert (ret1.equals(ret2) && ret2.equals(ret3));
 	}
 }

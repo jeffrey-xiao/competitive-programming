@@ -17,10 +17,10 @@ public class DMOPC_2015_Redirection {
 
 		int N = readInt();
 		int[] time = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			time[i] = readLine().length();
-		
+
 		int M = readInt();
 		int[] centers = new int[M];
 		for (int i = 0; i < N; i++) {
@@ -31,7 +31,7 @@ public class DMOPC_2015_Redirection {
 			out.println(minIndex + 1);
 			centers[minIndex] += time[i];
 		}
-		
+
 		out.close();
 	}
 
@@ -61,4 +61,3 @@ public class DMOPC_2015_Redirection {
 		return br.readLine().trim();
 	}
 }
-

@@ -15,13 +15,13 @@ public class VMSS_Shahir_In_A_Box {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int maxX = - 1 << 30;
-		int maxY = - 1 << 30;
+		int maxX = -1 << 30;
+		int maxY = -1 << 30;
 		int minX = 1 << 30;
 		int minY = 1 << 30;
-		
+
 		int n = readInt();
-		
+
 		for (int i = 0; i < n; i++) {
 			int x = readInt();
 			int y = readInt();
@@ -60,4 +60,3 @@ public class VMSS_Shahir_In_A_Box {
 		return br.readLine().trim();
 	}
 }
-

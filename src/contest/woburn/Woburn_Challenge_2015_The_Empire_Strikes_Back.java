@@ -17,7 +17,7 @@ public class Woburn_Challenge_2015_The_Empire_Strikes_Back {
 
 		int n = readInt();
 		int m = readInt();
-		
+
 		int ans = 0;
 		for (int i = 0; i < n; i++) {
 			int val = readInt();
@@ -55,4 +55,3 @@ public class Woburn_Challenge_2015_The_Empire_Strikes_Back {
 		return br.readLine().trim();
 	}
 }
-

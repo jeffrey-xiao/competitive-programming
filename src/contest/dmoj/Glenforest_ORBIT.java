@@ -10,10 +10,10 @@ public class Glenforest_ORBIT {
 	static StringTokenizer st;
 
 	static int N, Q;
-	
+
 	static Node[] tree;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,22 +23,21 @@ public class Glenforest_ORBIT {
 		N = readInt();
 		Q = readInt();
 
-		a = new int[N+1];
-		tree = new Node[4*N];
-		
+		a = new int[N + 1];
+		tree = new Node[4 * N];
+
 		for (int i = 1; i <= N; i++)
 			a[i] = readInt();
 
 		build(1, 1, N);
-		
+
 		for (int i = 0; i < Q; i++) {
 			int x = readInt();
 			a[x] = readInt();
 			update(1, 1, N, x);
 			out.println(tree[1].max);
 		}
-		
-		
+
 		out.close();
 	}
 
@@ -51,14 +50,14 @@ public class Glenforest_ORBIT {
 		if (x <= mid)
 			update(n << 1, l, mid, x);
 		else
-			update(n << 1 | 1, mid+1, r, x);
+			update(n << 1 | 1, mid + 1, r, x);
 		tree[n] = new Node();
 		tree[n].total = tree[n << 1].total | tree[n << 1 | 1].total;
 		tree[n].left = Math.max(tree[n].total, Math.max(tree[n << 1].left, tree[n << 1].total | tree[n << 1 | 1].left));
 		tree[n].right = Math.max(tree[n].total, Math.max(tree[n << 1 | 1].right, tree[n << 1 | 1].total | tree[n << 1].right));
 		tree[n].max = Math.max(tree[n << 1 | 1].left | tree[n << 1].right, Math.max(tree[n << 1].max, tree[n << 1 | 1].max));
 	}
-	
+
 	static void build (int n, int l, int r) {
 		if (l == r) {
 			tree[n] = new Node(a[l], a[l], a[l], a[l]);
@@ -66,14 +65,14 @@ public class Glenforest_ORBIT {
 		}
 		int mid = (l + r) >> 1;
 		build(n << 1, l, mid);
-		build(n << 1 | 1, mid+1, r);
+		build(n << 1 | 1, mid + 1, r);
 		tree[n] = new Node();
 		tree[n].total = tree[n << 1].total | tree[n << 1 | 1].total;
 		tree[n].left = Math.max(tree[n].total, Math.max(tree[n << 1].left, tree[n << 1].total | tree[n << 1 | 1].left));
 		tree[n].right = Math.max(tree[n].total, Math.max(tree[n << 1 | 1].right, tree[n << 1 | 1].total | tree[n << 1].right));
 		tree[n].max = Math.max(tree[n << 1 | 1].left | tree[n << 1].right, Math.max(tree[n << 1].max, tree[n << 1 | 1].max));
 	}
-	
+
 	static int[] getAdd (int n) {
 		int[] bit = new int[32];
 		for (int i = 0; i < 32; i++)
@@ -91,11 +90,14 @@ public class Glenforest_ORBIT {
 		}
 		return bit;
 	}
-	
+
 	static class Node {
-		
+
 		int left, right, max, total;
-		Node () {}
+
+		Node () {
+		}
+
 		Node (int left, int right, int max, int total) {
 			this.left = left;
 			this.right = right;
@@ -103,7 +105,7 @@ public class Glenforest_ORBIT {
 			this.total = total;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -130,4 +132,3 @@ public class Glenforest_ORBIT {
 		return br.readLine().trim();
 	}
 }
-

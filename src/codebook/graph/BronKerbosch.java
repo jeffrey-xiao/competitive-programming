@@ -19,7 +19,7 @@ public class BronKerbosch {
 	static int n, m;
 	static boolean[][] adj;
 	static int[] w;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -28,15 +28,15 @@ public class BronKerbosch {
 
 		n = readInt();
 		m = readInt();
-		
+
 		adj = new boolean[n][n];
-		
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt();
 			int b = readInt();
 			adj[a][b] = adj[b][a] = true;
 		}
-		
+
 		w = new int[n];
 		for (int i = 0; i < n; i++)
 			w[i] = readInt();
@@ -47,9 +47,9 @@ public class BronKerbosch {
 	}
 
 	static int solveWeighted (int nodes) {
-		return solveWeighted (nodes, 0, (1 << nodes) - 1, 0);
+		return solveWeighted(nodes, 0, (1 << nodes) - 1, 0);
 	}
-	
+
 	static int solveWeighted (int nodes, int curr, int pool, int excl) {
 		if (pool == 0 && excl == 0) {
 			int cnt = 0;
@@ -63,13 +63,13 @@ public class BronKerbosch {
 		for (int i = 0; i < nodes; i++)
 			if ((pool & 1 << i) > 0 || (excl & 1 << i) > 0)
 				j = i;
-		
+
 		for (int i = 0; i < nodes; i++) {
 			if ((pool & 1 << i) == 0 || adj[i][j])
 				continue;
 			int ncurr = curr, npool = 0, nexcl = 0;
 			ncurr |= 1 << i;
-			
+
 			for (int k = 0; k < nodes; k++) {
 				if (adj[i][k]) {
 					npool |= pool & 1 << k;
@@ -77,17 +77,17 @@ public class BronKerbosch {
 				}
 			}
 			res = Math.max(res, solveWeighted(nodes, ncurr, npool, nexcl));
-			
+
 			pool &= ~(1 << i);
 			excl |= 1 >> i;
 		}
 		return res;
 	}
-	
+
 	static int solveUnweighted (int nodes) {
-		return solveUnweighted (nodes, 0, (1 << nodes) - 1, 0);
+		return solveUnweighted(nodes, 0, (1 << nodes) - 1, 0);
 	}
-	
+
 	static int solveUnweighted (int nodes, int curr, int pool, int excl) {
 		if (pool == 0 && excl == 0) {
 			int cnt = 0;
@@ -101,13 +101,13 @@ public class BronKerbosch {
 		for (int i = 0; i < nodes; i++)
 			if ((pool & 1 << i) > 0 || (excl & 1 << i) > 0)
 				j = i;
-		
+
 		for (int i = 0; i < nodes; i++) {
 			if ((pool & 1 << i) == 0 || adj[i][j])
 				continue;
 			int ncurr = curr, npool = 0, nexcl = 0;
 			ncurr |= 1 << i;
-			
+
 			for (int k = 0; k < nodes; k++) {
 				if (adj[i][k]) {
 					npool |= pool & 1 << k;
@@ -115,13 +115,13 @@ public class BronKerbosch {
 				}
 			}
 			res = Math.max(res, solveUnweighted(nodes, ncurr, npool, nexcl));
-			
+
 			pool &= ~(1 << i);
 			excl |= 1 >> i;
 		}
 		return res;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -148,4 +148,3 @@ public class BronKerbosch {
 		return br.readLine().trim();
 	}
 }
-

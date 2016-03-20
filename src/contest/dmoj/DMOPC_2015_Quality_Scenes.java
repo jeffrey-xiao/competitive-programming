@@ -19,12 +19,12 @@ public class DMOPC_2015_Quality_Scenes {
 		int b = readInt();
 		int c = readInt();
 		int d = readInt();
-		
+
 		if (Math.max(0, Math.min(b, d) - Math.max(a, c)) > 0)
 			out.println("YES");
 		else
 			out.println("NO");
-		
+
 		out.close();
 	}
 
@@ -54,4 +54,3 @@ public class DMOPC_2015_Quality_Scenes {
 		return br.readLine().trim();
 	}
 }
-

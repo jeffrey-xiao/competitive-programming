@@ -17,29 +17,28 @@ public class CROC_2016_Elimination_A {
 
 		String s1 = readLine();
 		s1 += new StringBuilder(readLine()).reverse();
-		
+
 		String s2 = readLine();
 		s2 += new StringBuilder(readLine()).reverse();
-		
+
 		String res1 = "";
 		for (int i = 0; i < 4; i++)
 			if (s1.charAt(i) != 'X')
 				res1 += s1.charAt(i);
-		
 
 		String res2 = "";
 		for (int i = 0; i < 4; i++)
 			if (s2.charAt(i) != 'X')
 				res2 += s2.charAt(i);
-		
-		if ((res1+res1).indexOf(res2) != -1)
+
+		if ((res1 + res1).indexOf(res2) != -1)
 			out.println("YES");
 		else
 			out.println("NO");
-		
+
 		out.close();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -66,4 +65,3 @@ public class CROC_2016_Elimination_A {
 		return br.readLine().trim();
 	}
 }
-

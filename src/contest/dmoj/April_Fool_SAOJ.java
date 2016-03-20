@@ -10,7 +10,7 @@ public class April_Fool_SAOJ {
 	static StringTokenizer st;
 
 	final static int MOD = 1000000000;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,12 +18,12 @@ public class April_Fool_SAOJ {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		
+
 		long ans = 0;
-		
+
 		for (long i = 1; i <= n; i++)
-			ans = (ans + i*i % MOD * i % MOD * i % MOD * i % MOD * i % MOD) % MOD;
-		
+			ans = (ans + i * i % MOD * i % MOD * i % MOD * i % MOD * i % MOD) % MOD;
+
 		out.println(ans);
 		out.close();
 	}
@@ -54,4 +54,3 @@ public class April_Fool_SAOJ {
 		return br.readLine().trim();
 	}
 }
-

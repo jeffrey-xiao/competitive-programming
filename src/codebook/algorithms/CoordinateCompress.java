@@ -18,21 +18,20 @@ public class CoordinateCompress {
 		TreeSet<Integer> ts = new TreeSet<Integer>();
 		for (int i = lo; i <= hi; i++)
 			ts.add(a[i]);
-		
+
 		int cnt = 0;
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		
+
 		for (int val : ts)
 			hm.put(val, cnt++);
-		
+
 		for (int i = lo; i <= hi; i++)
 			a[i] = hm.get(a[i]);
 	}
 
 	public static void main (String[] args) {
-		int[] a = new int[]{1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
+		int[] a = new int[] {1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
 		compress(a, 0, 9);
 		System.out.println(Arrays.toString(a));
 	}
 }
-

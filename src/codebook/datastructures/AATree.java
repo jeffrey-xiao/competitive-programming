@@ -100,7 +100,7 @@ public class AATree {
 	public void add (int key) {
 		root = add(root, key, key);
 	}
-	
+
 	public void add (int key, int value) {
 		root = add(root, key, value);
 	}
@@ -177,7 +177,7 @@ public class AATree {
 		System.out.print(n.key + " ");
 		traverse(n.right);
 	}
-	
+
 	// object representing the nodes of the tree
 	private class Node {
 		int key, value;
@@ -190,7 +190,7 @@ public class AATree {
 			this.level = 1;
 		}
 	}
-	
+
 	public static void main (String[] args) {
 		AATree t = new AATree();
 		long c = System.currentTimeMillis();
@@ -218,5 +218,5 @@ public class AATree {
 		}
 		System.out.println("SUCCESS");
 	}
-	
+
 }

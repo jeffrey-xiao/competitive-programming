@@ -27,21 +27,21 @@ public class LongestCommonSubsequence {
 	}
 
 	static String getLongestCommonSubsequence (String s1, String s2) {
-		int[][] dp = new int[s1.length()+1][s2.length()+1];
+		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
 		int startPos = 0, maxLen = 0;
 		for (int i = 1; i <= s1.length(); i++)
 			for (int j = 1; j <= s2.length(); j++)
-				if (s1.charAt(i-1) == s2.charAt(j-1)) {
-					dp[i][j] = 1 + dp[i-1][j-1];
+				if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+					dp[i][j] = 1 + dp[i - 1][j - 1];
 					if (dp[i][j] > maxLen) {
 						maxLen = dp[i][j];
 						startPos = i - dp[i][j];
 					}
 				}
-		
+
 		return s1.substring(startPos, startPos + maxLen);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -68,4 +68,3 @@ public class LongestCommonSubsequence {
 		return br.readLine().trim();
 	}
 }
-

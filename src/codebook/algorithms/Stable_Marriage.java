@@ -18,32 +18,32 @@ public class Stable_Marriage {
 
 	static int n;
 	static int[][] menPref, womenPref;
-	
+
 	// for the ith woman, what man j is indexed
 	static int[][] menToPref;
 	static int[] menChoice, womenChoice;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		n = readInt();
-		
+
 		// menPref[i] describes the preferences of the ith man
 		menPref = new int[n][n];
-		
+
 		// womanPref[i] describes the preferences of the ith wpman
 		womenPref = new int[n][n];
 		menToPref = new int[n][n];
-		
+
 		// initially all men will propose to their first preference on their list (index)
 		menChoice = new int[n];
-		
+
 		// the man they currently choose
 		womenChoice = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
 				menPref[i][j] = readInt();
@@ -54,17 +54,17 @@ public class Stable_Marriage {
 				womenPref[i][j] = man;
 				menToPref[i][man] = j;
 			}
-		
+
 		Queue<Integer> menLeft = new ArrayDeque<Integer>();
 		for (int i = 0; i < n; i++) {
 			menLeft.offer(i);
 			womenChoice[i] = -1;
 		}
-		
+
 		while (!menLeft.isEmpty()) {
 			int currMan = menLeft.poll();
 			int currWoman = menPref[currMan][menChoice[currMan]++];
-			
+
 			if (womenChoice[currWoman] == -1) {
 				womenChoice[currWoman] = currMan;
 			} else {
@@ -107,4 +107,3 @@ public class Stable_Marriage {
 		return br.readLine().trim();
 	}
 }
-

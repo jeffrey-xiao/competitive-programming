@@ -41,12 +41,12 @@ public class Dijkstra {
 
 		dist = new int[n];
 		v = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Edge>());
 			dist[i] = 1 << 30;
 		}
-		
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
@@ -55,7 +55,7 @@ public class Dijkstra {
 		}
 		dist[orig] = 0;
 
-		for (int i = 0; i < n-1; i++) {
+		for (int i = 0; i < n - 1; i++) {
 			int minIndex = -1;
 			for (int j = 0; j < n; j++)
 				if (!v[j] && (minIndex == -1 || dist[minIndex] > dist[j]))
@@ -64,7 +64,7 @@ public class Dijkstra {
 			for (Edge e : adj.get(minIndex))
 				dist[e.dest] = Math.min(dist[e.dest], dist[minIndex] + e.cost);
 		}
-		
+
 		out.println(dist[dest]);
 		out.close();
 	}

@@ -16,6 +16,7 @@ public class DMOPC_2015_Alarms {
 	static int best = 0;
 	static boolean[] rowUsed, colUsed;
 	static int[][] covered;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,7 +25,7 @@ public class DMOPC_2015_Alarms {
 
 		n = readInt();
 		g = new int[n + 1][n + 1];
-		covered = new int[n+1][n+1];
+		covered = new int[n + 1][n + 1];
 		rowUsed = new boolean[n + 1];
 		colUsed = new boolean[n + 1];
 
@@ -33,18 +34,18 @@ public class DMOPC_2015_Alarms {
 				g[i][j] = readInt();
 
 		int m = readInt();
-		a = new int[m+1];
+		a = new int[m + 1];
 		for (int i = 1; i <= m; i++)
 			a[i] = readInt();
 
 		solve(m, 0);
 		out.println(best);
-		out.close();	
+		out.close();
 	}
 
 	static void solve (int i, int curr) {
 		best = Math.max(best, curr);
-		if (i == 0) 
+		if (i == 0)
 			return;
 		int max = 0;
 		for (int j = 1; j <= i; j++) {
@@ -103,4 +104,3 @@ public class DMOPC_2015_Alarms {
 		return br.readLine().trim();
 	}
 }
-

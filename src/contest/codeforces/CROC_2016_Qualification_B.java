@@ -17,12 +17,12 @@ public class CROC_2016_Qualification_B {
 
 		int n = readInt();
 		int b = readInt();
-		
+
 		long currTime = 0;
 		Queue<Query> q = new ArrayDeque<Query>();
-		
+
 		long[] ans = new long[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			long time = readInt();
 			long len = readInt();
@@ -37,10 +37,10 @@ public class CROC_2016_Qualification_B {
 			else
 				ans[i] = -1;
 		}
-		
+
 		while (!q.isEmpty())
 			ans[q.peek().index] = (currTime = Math.max(currTime, q.peek().start) + q.poll().time);
-		
+
 		for (int i = 0; i < n; i++)
 			out.print(ans[i] + " ");
 		out.println();
@@ -50,13 +50,14 @@ public class CROC_2016_Qualification_B {
 	static class Query {
 		long start, time;
 		int index;
+
 		Query (long start, long time, int index) {
 			this.start = start;
 			this.time = time;
 			this.index = index;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -83,4 +84,3 @@ public class CROC_2016_Qualification_B {
 		return br.readLine().trim();
 	}
 }
-

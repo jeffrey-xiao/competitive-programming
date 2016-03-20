@@ -33,8 +33,8 @@ public class DMOPC_2015_Cheesecake_Distribution {
 			for (int i = 0; i < n; i++) {
 				ans += Math.abs(cnt / n - a[i]);
 			}
-			
-			out.println(ans/2);
+
+			out.println(ans / 2);
 		}
 		out.close();
 	}
@@ -65,4 +65,3 @@ public class DMOPC_2015_Cheesecake_Distribution {
 		return br.readLine().trim();
 	}
 }
-

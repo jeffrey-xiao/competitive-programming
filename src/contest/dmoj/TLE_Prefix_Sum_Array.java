@@ -12,8 +12,8 @@ public class TLE_Prefix_Sum_Array {
 	static int N, M;
 	static long[] a;
 
-	static int MOD = (int)(1e9 + 7);
-	
+	static int MOD = (int) (1e9 + 7);
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,14 +22,14 @@ public class TLE_Prefix_Sum_Array {
 
 		N = readInt();
 		a = new long[N + 1];
-		
+
 		for (int i = 1; i <= N; i++)
 			a[i] = readInt();
-		
+
 		M = readInt();
 		long[] res = new long[N + 1];
 		long factor = -1;
-		
+
 		for (int i = 0; i < N; i++) {
 			if (factor == -1) {
 				factor = 1;
@@ -38,20 +38,20 @@ public class TLE_Prefix_Sum_Array {
 				factor = divMod(factor, (i + 1 + M - 2 - (M - 1)));
 			}
 			for (int j = 1 + i; j <= N; j++)
-				res[j] = (res[j] + factor*a[j - i]) % MOD;
+				res[j] = (res[j] + factor * a[j - i]) % MOD;
 		}
 
 		for (int i = 1; i <= N; i++)
 			out.print(res[i] + " ");
 		out.println();
-		
+
 		out.close();
 	}
 
 	// O(log P)
 	static long divMod (long i, long j) {
 		return i * pow(j, MOD - 2) % MOD;
-	}	
+	}
 
 	static long pow (long base, long pow) {
 		if (pow == 0)
@@ -62,7 +62,7 @@ public class TLE_Prefix_Sum_Array {
 			return pow(base * base % MOD, pow / 2);
 		return base * pow(base * base % MOD, pow / 2) % MOD;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -89,4 +89,3 @@ public class TLE_Prefix_Sum_Array {
 		return br.readLine().trim();
 	}
 }
-

@@ -12,6 +12,7 @@ public class Woburn_Challenge1 {
 	static int N, M;
 	static int[] damage;
 	static int[] seg;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,9 +21,9 @@ public class Woburn_Challenge1 {
 
 		N = readInt();
 		M = readInt();
-		
+
 		damage = new int[N + 1];
-		seg = new int[4*N];
+		seg = new int[4 * N];
 		for (int i = 1; i <= N; i++) {
 			damage[i] = readInt() + damage[i - 1];
 		}
@@ -33,7 +34,7 @@ public class Woburn_Challenge1 {
 		for (int i = 0; i < M; i++) {
 			int l = 0;
 			int r = N;
-			int curr = readInt(); 
+			int curr = readInt();
 			while (l <= r) {
 				int mid = (l + r) / 2;
 				if (min[mid] < -curr)
@@ -45,7 +46,7 @@ public class Woburn_Challenge1 {
 		}
 		out.close();
 	}
-	
+
 	static int query (int n, int l, int r, int ql, int qr) {
 		if (ql == l && qr == r)
 			return seg[n];
@@ -53,10 +54,10 @@ public class Woburn_Challenge1 {
 		if (qr <= mid)
 			return query(n << 1, l, mid, ql, qr);
 		else if (ql > mid)
-			return query(n << 1 | 1, mid+1, r, ql, qr);
-		return Math.min(query(n << 1, l, mid, ql, mid), query(n << 1 | 1, mid+1, r, mid+1, qr));
+			return query(n << 1 | 1, mid + 1, r, ql, qr);
+		return Math.min(query(n << 1, l, mid, ql, mid), query(n << 1 | 1, mid + 1, r, mid + 1, qr));
 	}
-	
+
 	static void build (int n, int l, int r) {
 		if (l == r) {
 			seg[n] = damage[l];
@@ -67,7 +68,7 @@ public class Woburn_Challenge1 {
 		build(n << 1 | 1, mid + 1, r);
 		seg[n] = Math.min(seg[n << 1], seg[n << 1 | 1]);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -94,4 +95,3 @@ public class Woburn_Challenge1 {
 		return br.readLine().trim();
 	}
 }
-

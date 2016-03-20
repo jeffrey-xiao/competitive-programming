@@ -61,4 +61,3 @@ public class COCI_2015_YODA {
 		return br.readLine().trim();
 	}
 }
-

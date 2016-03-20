@@ -13,6 +13,7 @@ public class DMOPC_2015_Event_Horizon {
 	static ArrayList<HashMap<Integer, Integer>> adj = new ArrayList<HashMap<Integer, Integer>>();
 	static int[] cnt;
 	static boolean[] vis;
+
 	public static void main (String[] args) throws Exception {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,21 +22,21 @@ public class DMOPC_2015_Event_Horizon {
 
 		N = readInt();
 		M = readInt();
-		
+
 		cnt = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			adj.add(new HashMap<Integer, Integer>());
-		
+
 		for (int i = 0; i < M; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
-			
+
 			vis = new boolean[N];
 			State s1 = dfs(a);
 			vis = new boolean[N];
 			State s2 = dfs(b);
-			
+
 			if (s1.min < s2.min) {
 				add(a, b);
 				cnt[a]++;
@@ -59,7 +60,7 @@ public class DMOPC_2015_Event_Horizon {
 		int max = 0;
 		for (int i = 0; i < N; i++)
 			max = Math.max(max, cnt[i]);
-		
+
 		out.println(max);
 		out.close();
 	}
@@ -69,13 +70,13 @@ public class DMOPC_2015_Event_Horizon {
 			adj.get(i).put(j, 0);
 		adj.get(i).put(j, adj.get(i).get(j) + 1);
 	}
-	
+
 	static void remove (int i, int j) {
 		adj.get(i).put(j, adj.get(i).get(j) - 1);
 		if (adj.get(i).get(j) == 0)
 			adj.get(i).remove(j);
 	}
-	
+
 	static State dfs (int u) {
 		State s = new State();
 		s.min = cnt[u];
@@ -94,20 +95,21 @@ public class DMOPC_2015_Event_Horizon {
 		}
 		return s;
 	}
-	
+
 	static class State {
 		int min = 1 << 30;
 		ArrayList<Edge> e = new ArrayList<Edge>();
 	}
-	
+
 	static class Edge {
 		int a, b;
+
 		Edge (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -134,4 +136,3 @@ public class DMOPC_2015_Event_Horizon {
 		return br.readLine().trim();
 	}
 }
-

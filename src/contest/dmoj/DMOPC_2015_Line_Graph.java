@@ -10,7 +10,7 @@ public class DMOPC_2015_Line_Graph {
 	static StringTokenizer st;
 
 	static int[] id, sz;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -46,20 +46,23 @@ public class DMOPC_2015_Line_Graph {
 
 	static class Edge implements Comparable<Edge> {
 		int a, b, c;
+
 		Edge (int a, int b, int c) {
 			this.a = a;
 			this.b = b;
 			this.c = c;
 		}
+
 		@Override
 		public int compareTo (Edge e) {
 			return c - e.c;
 		}
 	}
-	
+
 	static int find (int i) {
 		return i == id[i] ? i : (id[i] = find(id[i]));
 	}
+
 	static void merge (int i, int j) {
 		if (sz[i] > sz[j]) {
 			sz[i] += sz[j];
@@ -69,7 +72,7 @@ public class DMOPC_2015_Line_Graph {
 			id[i] = j;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -96,4 +99,3 @@ public class DMOPC_2015_Line_Graph {
 		return br.readLine().trim();
 	}
 }
-

@@ -15,7 +15,7 @@ public class DMOPC_2015_Tilt {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int n = readInt();
 		BigDecimal bd = new BigDecimal("0").setScale(15, BigDecimal.ROUND_HALF_UP);
 		for (int i = 0; i < n; i++)
@@ -50,4 +50,3 @@ public class DMOPC_2015_Tilt {
 		return br.readLine().trim();
 	}
 }
-

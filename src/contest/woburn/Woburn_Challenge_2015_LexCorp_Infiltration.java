@@ -15,8 +15,8 @@ public class Woburn_Challenge_2015_LexCorp_Infiltration {
 	static int rooms = 0;
 	static boolean[] gassed = new boolean[1000000];
 	static int[] size = new int[1000000];
-	static int[] dr = {-1,1,0,0};
-	static int[] dc = {0,0,-1,1};
+	static int[] dr = {-1, 1, 0, 0};
+	static int[] dc = {0, 0, -1, 1};
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -51,7 +51,7 @@ public class Woburn_Challenge_2015_LexCorp_Infiltration {
 			int t = readInt();
 			int a = readInt() - 1;
 			int b = readInt() - 1;
-			
+
 			int index = grid[a][b];
 			if (gassed[index])
 				out.println("-1");
@@ -104,12 +104,13 @@ public class Woburn_Challenge_2015_LexCorp_Infiltration {
 
 	static class Point {
 		int r, c;
+
 		Point (int r, int c) {
 			this.r = r;
 			this.c = c;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -136,4 +137,3 @@ public class Woburn_Challenge_2015_LexCorp_Infiltration {
 		return br.readLine().trim();
 	}
 }
-

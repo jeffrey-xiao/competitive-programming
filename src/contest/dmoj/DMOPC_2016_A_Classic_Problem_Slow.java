@@ -11,7 +11,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 
 	static int[] max, min;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,13 +24,13 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 		for (int i = 1; i <= n; i++) {
 			a[i] = readInt();
 		}
-		
+
 		max = new int[4 * n];
 		min = new int[4 * n];
-		
+
 		buildMax(1, 1, n);
 		buildMin(1, 1, n);
-		
+
 		int ans = 0;
 		for (int i = 1; i <= n; i++) {
 			int index = query(1, 1, n, i, k, 1 << 30, -1 << 30).index;
@@ -39,14 +39,17 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 		out.println(ans);
 		out.close();
 	}
+
 	static class State {
 		int min, max, index;
+
 		State (int min, int max, int index) {
 			this.min = min;
 			this.max = max;
 			this.index = index;
 		}
 	}
+
 	static State query (int n, int l, int r, int x, int k, int minV, int maxV) {
 		if (l == r) {
 			maxV = Math.max(maxV, max[n]);
@@ -65,7 +68,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 				State ret = query(n << 1 | 1, mid + 1, r, x, k, Math.min(minV, res.min), Math.max(maxV, res.max));
 				if (ret.index != -1)
 					return ret;
-				else	
+				else
 					return res;
 			} else {
 				return res;
@@ -74,7 +77,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 			return query(n << 1 | 1, mid + 1, r, x, k, minV, maxV);
 		}
 	}
-	
+
 	static void buildMax (int n, int l, int r) {
 		if (l == r) {
 			max[n] = a[l];
@@ -85,6 +88,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 		buildMax(n << 1 | 1, mid + 1, r);
 		max[n] = Math.max(max[n << 1], max[n << 1 | 1]);
 	}
+
 	static void buildMin (int n, int l, int r) {
 		if (l == r) {
 			min[n] = a[l];
@@ -95,7 +99,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
 		buildMin(n << 1 | 1, mid + 1, r);
 		min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

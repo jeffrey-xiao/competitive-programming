@@ -18,7 +18,7 @@ public class New_Year_Food_Selection {
 		int C = readInt();
 		int F = readInt();
 		int S = readInt();
-		
+
 		int n = readInt();
 		for (int i = 0; i < n; i++) {
 			int x = readInt();
@@ -29,7 +29,7 @@ public class New_Year_Food_Selection {
 			if (c <= C * x && f <= F * x && s <= S * x)
 				System.out.println(str);
 		}
-		
+
 		out.close();
 	}
 
@@ -39,7 +39,7 @@ public class New_Year_Food_Selection {
 			res += st.nextToken() + " ";
 		return res;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -66,4 +66,3 @@ public class New_Year_Food_Selection {
 		return br.readLine().trim();
 	}
 }
-

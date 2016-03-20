@@ -11,7 +11,7 @@ public class DMOPC_2015_Total_Annihilation {
 
 	static int n, m;
 	static long[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,8 +20,8 @@ public class DMOPC_2015_Total_Annihilation {
 
 		n = readInt();
 		m = readInt();
-		a = new long[n+m];
-		for (int i = 0; i < n+m; i++)
+		a = new long[n + m];
+		for (int i = 0; i < n + m; i++)
 			a[i] = readLong();
 		int left = (n + m) / 2;
 		int right = n + m - left;
@@ -29,7 +29,7 @@ public class DMOPC_2015_Total_Annihilation {
 		long ans = 0;
 		for (int i = 0; i < (1 << left); i++) {
 			long sum = 0;
-			for (int j = 0; j < left; j++) 
+			for (int j = 0; j < left; j++)
 				if ((i & 1 << j) > 0)
 					sum += j < n ? a[j] : -a[j];
 			if (!hs.containsKey(sum))
@@ -38,17 +38,17 @@ public class DMOPC_2015_Total_Annihilation {
 		}
 		for (int i = 0; i < (1 << right); i++) {
 			long sum = 0;
-			for (int j = 0; j < right; j++) 
+			for (int j = 0; j < right; j++)
 				if ((i & 1 << j) > 0)
-					sum += left + j < n ? a[left+j] : -a[left+j];
+					sum += left + j < n ? a[left + j] : -a[left + j];
 
 			if (hs.containsKey(-sum))
 				ans += hs.get(-sum);
 		}
-		out.println(ans-1);
+		out.println(ans - 1);
 		out.close();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +75,3 @@ public class DMOPC_2015_Total_Annihilation {
 		return br.readLine().trim();
 	}
 }
-

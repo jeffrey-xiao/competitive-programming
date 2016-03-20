@@ -17,21 +17,21 @@ public class CCC_2016_S2 {
 
 		int T = readInt();
 		int N = readInt();
-		
+
 		int[] A = new int[N];
 		int[] B = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			A[i] = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			B[i] = readInt();
-		
+
 		int ans = 0;
-		
+
 		Arrays.sort(A);
 		Arrays.sort(B);
-		
+
 		if (T == 1) {
 			for (int i = 0; i < N; i++) {
 				ans += Math.max(A[i], B[i]);
@@ -41,7 +41,7 @@ public class CCC_2016_S2 {
 				ans += Math.max(A[i], B[N - i - 1]);
 			}
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -72,4 +72,3 @@ public class CCC_2016_S2 {
 		return br.readLine().trim();
 	}
 }
-

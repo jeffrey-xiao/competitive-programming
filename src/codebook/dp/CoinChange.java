@@ -18,7 +18,7 @@ public class CoinChange {
 	static int n, m;
 	static int[] coins;
 	static int[] dp;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,24 +27,24 @@ public class CoinChange {
 
 		n = readInt();
 		m = readInt();
-		
-		dp = new int[n+1];
+
+		dp = new int[n + 1];
 		coins = new int[m];
-		
+
 		for (int i = 0; i < m; i++)
 			coins[i] = readInt();
-		
+
 		dp[0] = 1;
 
 		for (int j = 0; j < m; j++)
 			for (int i = 1; i <= n; i++)
 				if (coins[j] <= i)
 					dp[i] += dp[i - coins[j]];
-		
+
 		out.println(dp[n]);
 		out.close();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -71,4 +71,3 @@ public class CoinChange {
 		return br.readLine().trim();
 	}
 }
-

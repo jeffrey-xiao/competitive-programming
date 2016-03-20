@@ -42,7 +42,6 @@ public class Mackenzie_Rocks {
 				update(pos1, -valueOf(rock1));
 				update(pos2, -valueOf(rock2));
 
-
 				update(pos1, valueOf(rock2));
 				update(pos2, valueOf(rock1));
 
@@ -50,7 +49,7 @@ public class Mackenzie_Rocks {
 				toPos.put(rock2, pos1);
 			} else if (c == 'M') {
 				String rock1 = next();
-				String rock2 = next();	
+				String rock2 = next();
 				int pos1 = toPos.get(rock1);
 				int pos2 = toPos.get(rock2);
 				out.println(queryTo(Math.max(pos1, pos2)) - queryTo(Math.min(pos1, pos2) - 1));
@@ -119,4 +118,3 @@ public class Mackenzie_Rocks {
 		return br.readLine().trim();
 	}
 }
-

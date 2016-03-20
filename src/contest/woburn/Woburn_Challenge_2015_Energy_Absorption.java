@@ -22,7 +22,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
 		for (int i = 0; i < n; i++) {
 			if (i > 0 && a[i] == 0) {
 				for (int j = 1; j <= 4; j++) {
-					if (a[i-1] != j  && (i + 1 >= a.length || a[i+1] != j)) {
+					if (a[i - 1] != j && (i + 1 >= a.length || a[i + 1] != j)) {
 						a[i] = j;
 						break;
 					}
@@ -31,7 +31,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
 			if (i == 0 && a[i] == 0) {
 				if (a.length == 1)
 					a[i] = 1;
-				if (a[i+1] == 1)
+				if (a[i + 1] == 1)
 					a[i] = 2;
 				else
 					a[i] = 1;
@@ -40,7 +40,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
 		for (int i = 0; i < n; i++)
 			out.print(a[i]);
 		out.println();
-		
+
 		out.close();
 	}
 
@@ -70,4 +70,3 @@ public class Woburn_Challenge_2015_Energy_Absorption {
 		return br.readLine().trim();
 	}
 }
-

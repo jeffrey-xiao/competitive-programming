@@ -10,7 +10,7 @@ public class DMOPC_2015_Gel_Bananas {
 	static StringTokenizer st;
 
 	static long A, B, N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,7 +20,7 @@ public class DMOPC_2015_Gel_Bananas {
 		A = readLong();
 		B = readLong();
 		N = readLong();
-		
+
 		out.println((N - 1) / lcm(A, B) + 1);
 		out.close();
 	}
@@ -28,11 +28,11 @@ public class DMOPC_2015_Gel_Bananas {
 	static long lcm (long a, long b) {
 		return a * b / gcf(a, b);
 	}
-	
+
 	static long gcf (long a, long b) {
 		return b == 0 ? a : gcf(b, a % b);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -59,4 +59,3 @@ public class DMOPC_2015_Gel_Bananas {
 		return br.readLine().trim();
 	}
 }
-

@@ -52,7 +52,7 @@ public class CCC_2016_J3 {
 		}
 		return (index - maxLength) / 2 + maxLength + 1 - (index - maxLength + 1) / 2;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -79,4 +79,3 @@ public class CCC_2016_J3 {
 		return br.readLine().trim();
 	}
 }
-

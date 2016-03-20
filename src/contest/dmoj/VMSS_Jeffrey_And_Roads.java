@@ -17,7 +17,7 @@ public class VMSS_Jeffrey_And_Roads {
 
 		Point s = new Point(readDouble(), readDouble());
 		Point e = new Point(readDouble(), readDouble());
-		
+
 		int n = readInt();
 		int counter = 0;
 		for (int z = 0; z < n; z++) {
@@ -47,15 +47,16 @@ public class VMSS_Jeffrey_And_Roads {
 		out.println(counter);
 		out.close();
 	}
- 
+
 	static class Point {
 		double x, y;
 
-		Point(double x, double y) {
+		Point (double x, double y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -82,4 +83,3 @@ public class VMSS_Jeffrey_And_Roads {
 		return br.readLine().trim();
 	}
 }
-

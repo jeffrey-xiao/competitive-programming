@@ -22,38 +22,38 @@ public class CROC_2016_Qualification_C {
 		for (int i = 0; i < n; i++) {
 			String s = readLine();
 			int hostEnd = 7;
-			
+
 			while (hostEnd < s.length() && s.charAt(hostEnd) != '/')
 				++hostEnd;
-			
+
 			String host = s.substring(0, hostEnd);
 			String query = s.substring(hostEnd);
-			
+
 			if (!sites.containsKey(host))
 				sites.put(host, new ArrayList<String>());
 			sites.get(host).add(query);
 		}
-		
+
 		HashMap<ArrayList<String>, ArrayList<String>> pathHosts = new HashMap<ArrayList<String>, ArrayList<String>>();
 		for (Map.Entry<String, ArrayList<String>> e : sites.entrySet()) {
 			ArrayList<String> paths = e.getValue();
 			Collections.sort(paths);
-			
+
 			ArrayList<String> res = new ArrayList<String>();
 			for (int i = 0; i < paths.size(); i++) {
 				if (i == 0 || !(paths.get(i).equals(paths.get(i - 1)))) {
 					res.add(paths.get(i));
 				}
 			}
-			
+
 			if (pathHosts.get(res) == null)
 				pathHosts.put(res, new ArrayList<String>());
 			pathHosts.get(res).add(e.getKey());
-			
+
 		}
 		ArrayList<ArrayList<String>> ans = new ArrayList<ArrayList<String>>();
-		
-		for (ArrayList<String> hosts: pathHosts.values()) {
+
+		for (ArrayList<String> hosts : pathHosts.values()) {
 			if (hosts.size() > 1) {
 				ans.add(hosts);
 			}
@@ -71,11 +71,13 @@ public class CROC_2016_Qualification_C {
 	static class State implements Comparable<State> {
 		int index;
 		long hash1, hash2;
+
 		State (int index, long hash1, long hash2) {
 			this.index = index;
 			this.hash1 = hash1;
 			this.hash2 = hash2;
 		}
+
 		@Override
 		public int compareTo (State o) {
 			int cmp1 = new Long(hash1).compareTo(new Long(o.hash1));
@@ -112,4 +114,3 @@ public class CROC_2016_Qualification_C {
 		return br.readLine().trim();
 	}
 }
-

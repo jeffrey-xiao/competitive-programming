@@ -12,7 +12,7 @@ public class VMSS_Head_Data_Slave_Applications {
 	static final int MOD = 1000000007;
 	static int n;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,7 +23,7 @@ public class VMSS_Head_Data_Slave_Applications {
 		for (int i = 0; i <= 500; i++)
 			for (int j = 0; j <= i; j++)
 				binomial[i][j] = (j == 0 || i <= 1) ? 1 : (binomial[i - 1][j - 1] + binomial[i - 1][j]) % MOD;
-		
+
 		n = readInt();
 		a = new int[n];
 		for (int i = 0; i < n; i++)
@@ -31,10 +31,10 @@ public class VMSS_Head_Data_Slave_Applications {
 		long totalWays = 1;
 		int totalCnt = 0;
 		for (int i = 0; i < n; i++) {
-			totalWays = (totalWays * binomial[totalCnt + a[i] - 1][a[i] - 1])%MOD;
+			totalWays = (totalWays * binomial[totalCnt + a[i] - 1][a[i] - 1]) % MOD;
 			totalCnt += a[i];
 		}
-		
+
 		out.println(totalWays % MOD);
 		out.close();
 	}
@@ -65,4 +65,3 @@ public class VMSS_Head_Data_Slave_Applications {
 		return br.readLine().trim();
 	}
 }
-

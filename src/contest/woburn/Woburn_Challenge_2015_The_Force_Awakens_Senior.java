@@ -124,11 +124,11 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Senior {
 
 		int mid = (l + r) >> 1;
 
-				if (qr <= mid)
-					return query(n << 1, l, mid, ql, qr);
-				else if (ql > mid)
-					return query(n << 1 | 1, mid + 1, r, ql, qr);
-				return query(n << 1, l, mid, ql, mid) + query(n << 1 | 1, mid + 1, r, mid + 1, qr);
+		if (qr <= mid)
+			return query(n << 1, l, mid, ql, qr);
+		else if (ql > mid)
+			return query(n << 1 | 1, mid + 1, r, ql, qr);
+		return query(n << 1, l, mid, ql, mid) + query(n << 1 | 1, mid + 1, r, mid + 1, qr);
 	}
 
 	static void updateDamage (int c) {
@@ -149,19 +149,18 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Senior {
 
 		int mid = (l + r) >> 1;
 
-			if (Math.abs(x) <= mid)
-				update(n << 1, l, mid, x);
-			else
-				update(n << 1 | 1, mid + 1, r, x);
+		if (Math.abs(x) <= mid)
+			update(n << 1, l, mid, x);
+		else
+			update(n << 1 | 1, mid + 1, r, x);
 
-			pushUp(n);
+		pushUp(n);
 	}
 
 	static void pushUp (int n) {
 		// damage[n] = damage[n << 1] + damage[n << 1 | 1];
 		ships[n] = ships[n << 1] + ships[n << 1 | 1];
 	}
-	
 
 	static void pushDown (int n) {
 		if (lazy[n] > 0) {
@@ -214,4 +213,3 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Senior {
 		return br.readLine().trim();
 	}
 }
-

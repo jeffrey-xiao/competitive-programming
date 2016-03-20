@@ -25,13 +25,13 @@ public class CCOQR_2016_P1 {
 
 		ArrayList<ArrayList<Integer>> xs = new ArrayList<ArrayList<Integer>>();
 		ArrayList<ArrayList<Integer>> ys = new ArrayList<ArrayList<Integer>>();
-		
+
 		HashMap<Integer, Integer> xindex = new HashMap<Integer, Integer>();
 		HashMap<Integer, Integer> yindex = new HashMap<Integer, Integer>();
-		
+
 		int xcnt = 0;
 		int ycnt = 0;
-		
+
 		for (int i = 0; i < 100000; i++) {
 			xs.add(new ArrayList<Integer>());
 			ys.add(new ArrayList<Integer>());
@@ -43,7 +43,7 @@ public class CCOQR_2016_P1 {
 				xindex.put(X[i], xcnt++);
 			if (yindex.get(Y[i]) == null)
 				yindex.put(Y[i], ycnt++);
-			
+
 			xs.get(xindex.get(X[i])).add(Y[i]);
 			ys.get(yindex.get(Y[i])).add(X[i]);
 		}
@@ -52,7 +52,7 @@ public class CCOQR_2016_P1 {
 			Collections.sort(xs.get(i));
 			Collections.sort(ys.get(i));
 		}
-		
+
 		long ans = 0;
 		for (int i = 0; i < N; i++) {
 			int indexincol = bsearch(xs.get(xindex.get(X[i])), Y[i]);
@@ -69,6 +69,7 @@ public class CCOQR_2016_P1 {
 
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
@@ -90,7 +91,7 @@ public class CCOQR_2016_P1 {
 		}
 		return -1;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

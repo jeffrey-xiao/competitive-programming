@@ -15,10 +15,10 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 	static boolean[][] cycle;
 	static int[][] last;
 	static int ans, cnt;
-	
-	static int[] dx = {-1,1,0,0};
-	static int[] dy = {0,0,-1,1};
-	
+
+	static int[] dx = {-1, 1, 0, 0};
+	static int[] dy = {0, 0, -1, 1};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,23 +27,23 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 
 		N = readInt();
 		M = readInt();
-		
+
 		grid = new char[N + 2][M + 2];
 		v = new boolean[N + 2][M + 2][4];
 		cycle = new boolean[N + 2][M + 2];
 		last = new int[N + 2][M + 2];
-		
+
 		for (int i = 0; i <= N + 1; i++)
 			for (int j = 0; j <= M + 1; j++)
 				grid[i][j] = '#';
-		
+
 		for (int i = 1; i <= N; i++) {
 			char[] in = next().toCharArray();
 			for (int j = 1; j <= M; j++) {
 				grid[i][j] = in[j - 1];
 			}
 		}
-		
+
 		for (int i = 0; i <= N + 1; i++) {
 			for (int j = 0; j <= M + 1; j++) {
 				if (grid[i][j] == '#') {
@@ -58,7 +58,7 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 				}
 			}
 		}
-		
+
 		for (int i = 0; i <= N + 1; i++)
 			for (int j = 0; j <= M + 1; j++)
 				if (grid[i][j] == '.' && (cycle[i][j] || !(v[i][j][0] && v[i][j][1] && v[i][j][2] && v[i][j][3])))
@@ -77,9 +77,9 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 			int dir = Math.abs(dx + (dy + 1) * 2 - 1);
 			if (v[x][y][dir])
 				return;
-			
+
 			v[x][y][dir] = true;
-			
+
 			if (grid[x][y] == 'X') {
 				dx = -dx;
 				dy = -dy;
@@ -88,7 +88,7 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 				int ndy = dx;
 				dx = ndx;
 				dy = ndy;
-			}  else if (grid[x][y] == '/') {
+			} else if (grid[x][y] == '/') {
 				int ndx = -dy;
 				int ndy = -dx;
 				dx = ndx;
@@ -96,7 +96,7 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 			}
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -123,4 +123,3 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Junior {
 		return br.readLine().trim();
 	}
 }
-

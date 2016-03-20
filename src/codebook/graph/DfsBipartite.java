@@ -36,9 +36,9 @@ public class DfsBipartite {
 
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		color = new int[n];
-		
+
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;

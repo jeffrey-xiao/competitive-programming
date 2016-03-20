@@ -10,11 +10,12 @@ public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 	static StringTokenizer st;
 
 	static int n, m;
-	
+
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static int[] color;
 	static int sz = 0;
 	static int color1 = 0;
+
 	public static void main (String[] args) throws IOException, InterruptedException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,13 +24,13 @@ public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 
 		n = readInt();
 		m = readInt();
-	
+
 		color = new int[n];
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
 		for (int i = 0; i < m; i++) {
-			int a = readInt()-1;
-			int b = readInt()-1;
+			int a = readInt() - 1;
+			int b = readInt() - 1;
 			adj.get(a).add(b);
 			adj.get(b).add(a);
 		}
@@ -39,12 +40,13 @@ public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 		t.join();
 		out.close();
 	}
-	
+
 	public void run () {
 		solve();
 	}
+
 	static void solve () {
-		double total = n*n;
+		double total = n * n;
 		double ways = 0;
 		for (int i = 0; i < n; i++) {
 			if (color[i] == 0) {
@@ -54,11 +56,12 @@ public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 				if (!isbipartite)
 					ways += sz * sz;
 				else
-					ways += (color1)*(color1) + (sz - color1) * (sz - color1);
+					ways += (color1) * (color1) + (sz - color1) * (sz - color1);
 			}
 		}
-		System.out.println(ways /total);
+		System.out.println(ways / total);
 	}
+
 	static boolean dfs (int i, int c) {
 		color[i] = c;
 		if (c == 1)
@@ -102,4 +105,3 @@ public class Woburn_Challenge_2015_Rescue_Mission implements Runnable {
 		return br.readLine().trim();
 	}
 }
-

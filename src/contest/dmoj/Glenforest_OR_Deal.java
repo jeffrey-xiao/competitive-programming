@@ -51,4 +51,3 @@ public class Glenforest_OR_Deal {
 		return br.readLine().trim();
 	}
 }
-

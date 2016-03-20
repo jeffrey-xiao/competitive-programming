@@ -23,7 +23,7 @@ public class Woburn_Challenge_2015_A_New_Hope {
 				out.print(", ");
 		}
 		out.println(" away...");
-		
+
 		out.close();
 	}
 
@@ -53,4 +53,3 @@ public class Woburn_Challenge_2015_A_New_Hope {
 		return br.readLine().trim();
 	}
 }
-

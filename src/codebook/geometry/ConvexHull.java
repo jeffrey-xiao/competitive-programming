@@ -22,7 +22,7 @@ public class ConvexHull {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		
+
 		Point[] points = new Point[n];
 
 		for (int x = 0; x < n; x++)

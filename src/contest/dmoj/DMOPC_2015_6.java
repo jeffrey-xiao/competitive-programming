@@ -13,6 +13,7 @@ public class DMOPC_2015_6 {
 	static final int MOD = 1000000007;
 	static final int SIZE = 1501;
 	static long[] dp = new long[SIZE];
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,7 +22,7 @@ public class DMOPC_2015_6 {
 
 		int n = readInt();
 		int k = readInt();
-		compute(SIZE-1, MOD);
+		compute(SIZE - 1, MOD);
 		if (k <= 18) {
 			long ans = 0;
 			Interval[] a = new Interval[k];
@@ -37,64 +38,75 @@ public class DMOPC_2015_6 {
 					}
 				}
 				for (int j = 1; j <= n; j++)
-					id[j] += id[j-1];
+					id[j] += id[j - 1];
 				int[] cnt = new int[19];
 				for (int j = 0; j < n; j++) {
 					cnt[msb(id[j])]++;
 				}
 				long currAns = 1;
 				for (int j = 0; j < 19; j++) {
-//					System.out.println(j + " " + cnt[j]);
+					//					System.out.println(j + " " + cnt[j]);
 					currAns = (currAns * catalan(cnt[j] - (j == 0 ? 0 : 2))) % MOD;
 				}
-//				System.out.println("HERE " + Integer.toString(i, 2) + " " + currAns);
+				//				System.out.println("HERE " + Integer.toString(i, 2) + " " + currAns);
 				ans = (ans + currAns) % MOD;
 			}
 			out.println(ans);
 		}
-		
+
 		out.close();
 	}
 
-	private static int msb (int x){
-		int bval[] = { 0,1,2,2,3,3,3,3,4,4,4,4,4,4,4,4 };
+	private static int msb (int x) {
+		int bval[] = {0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4};
 
-		    int base = 0;
-		    if ((x & 0xFFFF0000) > 0) { base += 32/2; x >>= 32/2; }
-		    if ((x & 0x0000FF00) > 0) { base += 32/4; x >>= 32/4; }
-		    if ((x & 0x000000F0) > 0) { base += 32/8; x >>= 32/8; }
-		    return base + bval[x];
+		int base = 0;
+		if ((x & 0xFFFF0000) > 0) {
+			base += 32 / 2;
+			x >>= 32 / 2;
+		}
+		if ((x & 0x0000FF00) > 0) {
+			base += 32 / 4;
+			x >>= 32 / 4;
+		}
+		if ((x & 0x000000F0) > 0) {
+			base += 32 / 8;
+			x >>= 32 / 8;
+		}
+		return base + bval[x];
 	}
-	
+
 	static class Interval implements Comparable<Interval> {
 		int l, r;
+
 		Interval (int l, int r) {
 			this.l = l;
 			this.r = r;
 		}
+
 		@Override
 		public int compareTo (Interval o) {
-			return - (r - l) + (o.r - o.l);
+			return -(r - l) + (o.r - o.l);
 		}
 	}
-	
+
 	static long catalan (int n) {
 		if (n % 2 == 1)
 			return 0;
 		if (n < 0)
 			return 1;
-		return dp[n/2];
+		return dp[n / 2];
 	}
-	
+
 	static void compute (int n, int m) {
 		dp[0] = dp[1] = 1;
 		for (int i = 2; i <= n; i++) {
 			for (int j = 0; j <= i - 1; j++)
-				dp[i] = (dp[i] + (dp[j] * dp[i-j-1]) % m) % m;
+				dp[i] = (dp[i] + (dp[j] * dp[i - j - 1]) % m) % m;
 			dp[i] %= m;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

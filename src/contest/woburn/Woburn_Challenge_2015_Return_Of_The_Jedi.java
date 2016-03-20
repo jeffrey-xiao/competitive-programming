@@ -18,13 +18,13 @@ public class Woburn_Challenge_2015_Return_Of_The_Jedi {
 		int S = readInt();
 		int E = readInt();
 		int R = readInt();
-		
+
 		Point[] t = new Point[S];
 		for (int i = 0; i < S; i++)
 			t[i] = new Point(readInt(), readInt(), readInt());
-		
+
 		int ans = 0;
-		
+
 		for (int i = 0; i < E; i++) {
 			int x = readInt();
 			int y = readInt();
@@ -32,24 +32,25 @@ public class Woburn_Challenge_2015_Return_Of_The_Jedi {
 			for (int j = 0; j < S; j++)
 				if ((x - t[j].x) * (x - t[j].x) + (y - t[j].y) * (y - t[j].y) <= R * R)
 					types.add(t[j].type);
-			
+
 			if (types.size() > 1)
 				ans++;
 		}
 		out.println(ans);
-		
+
 		out.close();
 	}
 
 	static class Point {
 		int type, x, y;
+
 		Point (int type, int x, int y) {
 			this.type = type;
 			this.x = x;
 			this.y = y;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -76,4 +77,3 @@ public class Woburn_Challenge_2015_Return_Of_The_Jedi {
 		return br.readLine().trim();
 	}
 }
-

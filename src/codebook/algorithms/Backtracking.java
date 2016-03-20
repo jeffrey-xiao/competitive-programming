@@ -18,7 +18,7 @@ public class Backtracking {
 	static int n;
 	static int[] row;
 	static boolean[] used, diag1, diag2;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -28,9 +28,9 @@ public class Backtracking {
 		n = readInt();
 		row = new int[n];
 		used = new boolean[n];
-		diag1 = new boolean[2*n-1];
-		diag2 = new boolean[2*n-1];
-		
+		diag1 = new boolean[2 * n - 1];
+		diag2 = new boolean[2 * n - 1];
+
 		out.println(backtrack(0, n) + " " + branchAndBound(0, n));
 		out.close();
 	}
@@ -48,12 +48,12 @@ public class Backtracking {
 			if (used[row[i]])
 				continue;
 			used[row[i]] = true;
-			total += backtrack(i+1, n);
+			total += backtrack(i + 1, n);
 			used[row[i]] = false;
 		}
 		return total;
 	}
-	
+
 	static int branchAndBound (int i, int n) {
 		if (i == n)
 			return 1;
@@ -62,12 +62,12 @@ public class Backtracking {
 			if (used[j] || diag1[i + j] || diag2[i - j + n - 1])
 				continue;
 			used[j] = diag1[i + j] = diag2[i - j + n - 1] = true;
-			total += branchAndBound(i+1, n);
+			total += branchAndBound(i + 1, n);
 			used[j] = diag1[i + j] = diag2[i - j + n - 1] = false;
 		}
 		return total;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -94,4 +94,3 @@ public class Backtracking {
 		return br.readLine().trim();
 	}
 }
-

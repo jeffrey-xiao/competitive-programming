@@ -60,7 +60,7 @@ public class DfsBiconnectedComponents {
 		s.pop();
 		for (int i = 0; i < n; i++)
 			if (cutVertex[i])
-				out.printf("%d is a cut vertex\n", i+1);
+				out.printf("%d is a cut vertex\n", i + 1);
 		for (Edge e : bridges)
 			out.printf("%d-%d is a bridge\n", e.a, e.b);
 		out.close();
@@ -86,7 +86,7 @@ public class DfsBiconnectedComponents {
 					s.pop();
 				}
 				if (low[j] > disc[i])
-					bridges.add(new Edge(i+1, j+1));
+					bridges.add(new Edge(i + 1, j + 1));
 			} else if (j != prev && disc[j] < low[i]) {
 				low[i] = disc[j];
 				s.push(new Edge(i, j));

@@ -25,7 +25,7 @@ public class New_Year_The_365_Days_of_Christmas {
 				str = "nd";
 			else if (i % 10 == 3)
 				str = "rd";
-			
+
 			if (i % 100 >= 11 && i % 100 <= 13)
 				str = "th";
 			out.printf("On the %d%s day of Christmas my true love sent to me:\n", i, str);
@@ -67,4 +67,3 @@ public class New_Year_The_365_Days_of_Christmas {
 		return br.readLine().trim();
 	}
 }
-

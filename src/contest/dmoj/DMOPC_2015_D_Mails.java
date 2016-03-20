@@ -9,10 +9,10 @@ public class DMOPC_2015_D_Mails {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static String[] names = {"Okabe", "Mayuri", "Daru", "Kurisu", };
+	static String[] names = {"Okabe", "Mayuri", "Daru", "Kurisu",};
 	static String[] catchphrase = {"elpsycongroo", "tuturu", "superhacker", "myfork"};
 	static int N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,7 +20,7 @@ public class DMOPC_2015_D_Mails {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			String phrase = readLine();
 			int cnt = 0;
@@ -38,7 +38,7 @@ public class DMOPC_2015_D_Mails {
 			else
 				out.println();
 		}
-		
+
 		out.close();
 	}
 
@@ -53,7 +53,7 @@ public class DMOPC_2015_D_Mails {
 		}
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -80,4 +80,3 @@ public class DMOPC_2015_D_Mails {
 		return br.readLine().trim();
 	}
 }
-

@@ -16,25 +16,25 @@ public class VMSS_GGG {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		
+
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		
+
 		for (int i = 0; i < n; i++)
 			hm.put(readInt(), i);
-			
+
 		int m = readInt();
-		
+
 		ArrayList<Integer> vals = new ArrayList<Integer>();
 		int[] dp = new int[m + 1];
 		for (int i = 1; i <= m; i++)
 			dp[i] = 1 << 30;
-		
+
 		for (int i = 0; i < m; i++) {
 			int val = readInt();
 			if (hm.get(val) != null)
 				vals.add(hm.get(val));
 		}
-		
+
 		int len = 0;
 		for (int i = 0; i < vals.size(); i++) {
 			int lo = 1;
@@ -51,7 +51,7 @@ public class VMSS_GGG {
 				len = lo;
 		}
 		out.println(len);
-		
+
 		out.close();
 	}
 
@@ -81,4 +81,3 @@ public class VMSS_GGG {
 		return br.readLine().trim();
 	}
 }
-

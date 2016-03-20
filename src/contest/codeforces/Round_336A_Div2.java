@@ -17,7 +17,7 @@ public class Round_336A_Div2 {
 
 		int n = readInt();
 		int s = readInt();
-		
+
 		Person[] p = new Person[n];
 		for (int i = 0; i < n; i++)
 			p[i] = new Person(readInt(), readInt());
@@ -30,16 +30,18 @@ public class Round_336A_Div2 {
 		}
 		currTime += s;
 		out.println(currTime);
-		
+
 		out.close();
 	}
 
 	static class Person implements Comparable<Person> {
 		int floor, time;
+
 		Person (int floor, int time) {
 			this.floor = floor;
 			this.time = time;
 		}
+
 		@Override
 		public int compareTo (Person o) {
 			if (o.floor == floor)
@@ -47,7 +49,7 @@ public class Round_336A_Div2 {
 			return o.floor - floor;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -74,4 +76,3 @@ public class Round_336A_Div2 {
 		return br.readLine().trim();
 	}
 }
-

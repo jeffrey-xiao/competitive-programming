@@ -54,7 +54,7 @@ public class BinaryIndexedTree {
 		return ret;
 	}
 	*/
-	
+
 	// Range updates and point queries
 	/*
 	public void update (int idx, int val) { 

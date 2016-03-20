@@ -17,7 +17,7 @@ public class DMOPC_2015_New_Key {
 
 		char[] encrypted = readLine().toCharArray();
 		char[] decrypted = new char[encrypted.length];
-		
+
 		for (int i = 0; i < encrypted.length; i++) {
 			if (encrypted[i] == '0')
 				decrypted[i] = '9';
@@ -58,4 +58,3 @@ public class DMOPC_2015_New_Key {
 		return br.readLine().trim();
 	}
 }
-

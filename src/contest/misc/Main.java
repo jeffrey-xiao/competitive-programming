@@ -43,17 +43,18 @@ public class Main {
 		for (int i = 1; i <= 49999; i++) {
 			out.println(i + " " + (i + 1));
 		}
-		
+
 		out.close();
 	}
+
 	static boolean isValid (String s) {
 		boolean repeated = false;
 		boolean between = false;
 		for (int i = 0; i < s.length() - 1; i++) {
-			String substring = s.substring(i, i+2);
+			String substring = s.substring(i, i + 2);
 			int cnt = 0;
-			for (int k = 0; k < s.length()-1;) {
-				if (s.substring(k, k+2).equals(substring)) {
+			for (int k = 0; k < s.length() - 1;) {
+				if (s.substring(k, k + 2).equals(substring)) {
 					cnt++;
 					k += 2;
 				} else
@@ -63,27 +64,31 @@ public class Main {
 				repeated |= cnt >= 2;
 			}
 		}
-		for (int i = 0; i < s.length()-2; i++)
-			if (s.charAt(i) == s.charAt(i+2))
+		for (int i = 0; i < s.length() - 2; i++)
+			if (s.charAt(i) == s.charAt(i + 2))
 				between = true;
 		return repeated && between;
 	}
+
 	static class Point {
 		Integer x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point)o;
+				Point p = (Point) o;
 				return x == p.x && y == p.y;
 			}
 			return false;
 		}
+
 		public int hashCode () {
-			return x.hashCode() + y.hashCode()*31;
+			return x.hashCode() + y.hashCode() * 31;
 		}
 	}
 

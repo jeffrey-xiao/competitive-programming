@@ -14,7 +14,7 @@ public class Woburn_Challenge3 {
 	static int[][] up;
 	static int[][] left;
 	static int[][] best;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,12 +23,12 @@ public class Woburn_Challenge3 {
 
 		N = readInt();
 		M = readInt();
-		
+
 		a = new int[N + 1][M + 1];
 		up = new int[N + 1][M + 1];
 		left = new int[N + 1][M + 1];
-		best = new int[N + 1][M  + 1];
-		
+		best = new int[N + 1][M + 1];
+
 		for (int i = 1; i <= N; i++)
 			for (int j = 1; j <= M; j++) {
 				a[i][j] = readInt();
@@ -38,7 +38,7 @@ public class Woburn_Challenge3 {
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
 				best[i][j] = up[i][j] + left[i][j] - a[i][j];
-				best[i][j] = Math.max(best[i][j], Math.max(best[i-1][j], best[i][j - 1]));
+				best[i][j] = Math.max(best[i][j], Math.max(best[i - 1][j], best[i][j - 1]));
 			}
 		}
 		int ans = 0;
@@ -70,10 +70,10 @@ public class Woburn_Challenge3 {
 				currBestUp += a[i][j];
 			}
 		}
-		
+
 		for (int i = 1; i <= N; i++)
 			for (int j = 1; j <= M; j++) {
-				ans = Math.max(ans, up[i][j] + left[i][j] - a[i][j] + best[i-1][j-1]);
+				ans = Math.max(ans, up[i][j] + left[i][j] - a[i][j] + best[i - 1][j - 1]);
 			}
 		out.println(ans);
 		out.close();
@@ -105,4 +105,3 @@ public class Woburn_Challenge3 {
 		return br.readLine().trim();
 	}
 }
-

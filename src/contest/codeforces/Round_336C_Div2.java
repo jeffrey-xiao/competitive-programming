@@ -10,7 +10,7 @@ public class Round_336C_Div2 {
 	static StringTokenizer st;
 
 	static int[] tree;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,12 +18,12 @@ public class Round_336C_Div2 {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		tree = new int[1000100];
-		
+
 		int n = readInt();
 		Beacon[] b = new Beacon[n];
 		for (int i = 0; i < n; i++)
 			b[i] = new Beacon(readInt() + 1, readInt());
-		
+
 		Arrays.sort(b);
 		for (int i = 0; i < n; i++) {
 			b[i].numDestroyed = query(b[i].pos) - query(b[i].pos - b[i].power - 1);
@@ -41,30 +41,33 @@ public class Round_336C_Div2 {
 		out.close();
 	}
 
-	public static void update (int idx, int val) { 
-		for (int x = idx; x < 1000100; x += (x & -x)) 
-			tree[x] += val; 
-	} 
-	public static int query (int idx) { 
-		int res = 0;
-		for (int x = idx; x > 0; x -= (x & -x)) 
-			res += tree[x]; 
-		return res; 
+	public static void update (int idx, int val) {
+		for (int x = idx; x < 1000100; x += (x & -x))
+			tree[x] += val;
 	}
-	
+
+	public static int query (int idx) {
+		int res = 0;
+		for (int x = idx; x > 0; x -= (x & -x))
+			res += tree[x];
+		return res;
+	}
+
 	static class Beacon implements Comparable<Beacon> {
 		int pos, power;
 		int numDestroyed;
+
 		Beacon (int pos, int power) {
 			this.pos = pos;
 			this.power = power;
 		}
+
 		@Override
 		public int compareTo (Beacon o) {
 			return pos - o.pos;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -91,4 +94,3 @@ public class Round_336C_Div2 {
 		return br.readLine().trim();
 	}
 }
-

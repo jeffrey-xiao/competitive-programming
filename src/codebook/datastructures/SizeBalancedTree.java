@@ -9,7 +9,6 @@
  *  - Access: O(log N)
  */
 
-
 package codebook.datastructures;
 
 import java.util.TreeSet;
@@ -17,11 +16,11 @@ import java.util.TreeSet;
 public class SizeBalancedTree {
 	// represents the root of the tree
 	private Node root;
-	
+
 	private class Node {
 		Node left, right;
 		Integer key, value, size;
-		
+
 		Node (Integer key, Integer value) {
 			this.key = key;
 			this.value = value;
@@ -32,39 +31,39 @@ public class SizeBalancedTree {
 	public boolean contains (Integer key) {
 		return contains(root, key);
 	}
-	
+
 	private boolean contains (Node n, Integer key) {
 		if (n == null)
 			return false;
 		int cmp = key.compareTo(n.key);
 		if (cmp < 0)
 			return contains(n.left, key);
-		else if (cmp > 0) 
+		else if (cmp > 0)
 			return contains(n.right, key);
 		else
 			return true;
 	}
-	
+
 	public Integer get (Integer key) {
 		return get(root, key);
 	}
-	
+
 	private Integer get (Node n, Integer key) {
 		if (n == null)
 			return null;
 		int cmp = key.compareTo(n.key);
 		if (cmp < 0)
 			return get(n.left, key);
-		else if (cmp > 0) 
+		else if (cmp > 0)
 			return get(n.right, key);
 		else
 			return n.value;
 	}
-	
+
 	public void remove (Integer key) {
 		root = remove(root, key);
 	}
-	
+
 	private Node remove (Node n, Integer k) {
 		if (n == null)
 			return n;
@@ -87,15 +86,15 @@ public class SizeBalancedTree {
 		}
 		return n;
 	}
-	
+
 	public void add (Integer key) {
 		add(key, key);
 	}
-	
+
 	public void add (Integer key, Integer value) {
 		root = add(root, key, value);
 	}
-	
+
 	private Node add (Node n, Integer key, Integer value) {
 		if (n == null)
 			return new Node(key, value);
@@ -110,7 +109,7 @@ public class SizeBalancedTree {
 		n = maintain(n, key >= n.key);
 		return n;
 	}
-	
+
 	private Node maintain (Node n, boolean flag) {
 		if (n == null)
 			return n;
@@ -163,12 +162,12 @@ public class SizeBalancedTree {
 			n = n.right;
 		return n;
 	}
-	
+
 	private Node resetSize (Node n) {
 		n.size = getSize(n.left) + getSize(n.right) + 1;
 		return n;
 	}
-	
+
 	private Integer getSize (Node n) {
 		return n == null ? 0 : n.size;
 	}
@@ -192,7 +191,7 @@ public class SizeBalancedTree {
 		x = resetSize(x);
 		return x;
 	}
-	
+
 	// in order traversal of nodes
 	public void traverse (Node n) {
 		if (n == null)
@@ -201,7 +200,7 @@ public class SizeBalancedTree {
 		System.out.print(n.key + " ");
 		traverse(n.right);
 	}
-	
+
 	public static void main (String[] args) {
 		SizeBalancedTree t = new SizeBalancedTree();
 		long c = System.currentTimeMillis();
@@ -230,4 +229,3 @@ public class SizeBalancedTree {
 		System.out.println("SUCCESS");
 	}
 }
-

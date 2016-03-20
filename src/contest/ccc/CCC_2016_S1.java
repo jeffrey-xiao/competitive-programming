@@ -21,13 +21,13 @@ public class CCC_2016_S1 {
 		char[] in2 = readLine().toCharArray();
 		for (int i = 0; i < in1.length; i++) {
 			cnt[in1[i] - 'a']++;
-			
+
 			if (in2[i] == '*')
 				wildcard++;
 			else
 				cnt[in2[i] - 'a']--;
 		}
-		
+
 		int sum = 0;
 		for (int i = 0; i < 26; i++)
 			sum += Math.abs(cnt[i]);
@@ -61,4 +61,3 @@ public class CCC_2016_S1 {
 		return br.readLine().trim();
 	}
 }
-

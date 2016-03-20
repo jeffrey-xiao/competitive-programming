@@ -18,15 +18,15 @@ public class Woburn_Challenge_2015_Electroshock_Therapy {
 		int n = readInt();
 		int[] a = new int[n];
 		int ans = 0;
-		
+
 		for (int i = 0; i < n; i++)
 			ans += (a[i] = readInt()) - 1;
-		
+
 		for (int i = 0; i < n - 1; i++)
 			ans += Math.max(a[i], a[i + 1]);
-		
+
 		ans += 2 * n + a[0] + a[n - 1];
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -57,4 +57,3 @@ public class Woburn_Challenge_2015_Electroshock_Therapy {
 		return br.readLine().trim();
 	}
 }
-

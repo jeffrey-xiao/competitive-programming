@@ -9,11 +9,11 @@ public class Glenforest_Soko_Boop {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int[] movex = {0,0,-1,1};
-	static int[] movey = {-1,1,0,0};
+	static int[] movex = {0, 0, -1, 1};
+	static int[] movey = {-1, 1, 0, 0};
 	static int r, c;
 	static char[][] g;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -66,17 +66,20 @@ public class Glenforest_Soko_Boop {
 				if (v[nx][ny][nbx][nby])
 					continue;
 				v[nx][ny][nbx][nby] = true;
-				q.offer(new State(nx, ny, nbx, nby, s.cnt+1));
+				q.offer(new State(nx, ny, nbx, nby, s.cnt + 1));
 			}
 		}
 		out.println(-1);
 		out.close();
 	}
+
 	static boolean valid (int x, int y) {
 		return !(x < 0 || x >= r || y < 0 || y >= c || g[x][y] == '#');
 	}
+
 	static class State {
 		int x, y, bx, by, cnt;
+
 		State (int x, int y, int bx, int by, int cnt) {
 			this.x = x;
 			this.y = y;
@@ -84,9 +87,9 @@ public class Glenforest_Soko_Boop {
 			this.by = by;
 			this.cnt = cnt;
 		}
-		
+
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -113,4 +116,3 @@ public class Glenforest_Soko_Boop {
 		return br.readLine().trim();
 	}
 }
-

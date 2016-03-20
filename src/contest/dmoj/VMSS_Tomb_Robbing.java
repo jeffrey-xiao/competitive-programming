@@ -13,9 +13,9 @@ public class VMSS_Tomb_Robbing {
 	static char[][] g;
 	static boolean[][] v;
 
-	static int[] mover = {0,0,-1,1};
-	static int[] movec = {-1,1,0,0};
-	
+	static int[] mover = {0, 0, -1, 1};
+	static int[] movec = {-1, 1, 0, 0};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,13 +24,13 @@ public class VMSS_Tomb_Robbing {
 
 		r = readInt();
 		c = readInt();
-		
+
 		g = new char[r][c];
 		v = new boolean[r][c];
-		
+
 		for (int i = 0; i < r; i++)
 			g[i] = readLine().toCharArray();
-		
+
 		int cnt = 0;
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
@@ -38,7 +38,7 @@ public class VMSS_Tomb_Robbing {
 					cnt++;
 					dfs(i, j);
 				}
-					
+
 			}
 		}
 		out.println(cnt);
@@ -50,13 +50,13 @@ public class VMSS_Tomb_Robbing {
 		for (int k = 0; k < 4; k++) {
 			int newi = i + mover[k];
 			int newj = j + movec[k];
-			
+
 			if (newi < 0 || newi >= r || newj < 0 || newj >= c || v[newi][newj] || g[newi][newj] == 'X')
 				continue;
 			dfs(newi, newj);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -83,4 +83,3 @@ public class VMSS_Tomb_Robbing {
 		return br.readLine().trim();
 	}
 }
-

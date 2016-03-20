@@ -34,9 +34,9 @@ public class New_Year_Arithmetic_Snowman {
 				max = Math.max(max, e.getKey() * 3);
 
 		Arrays.sort(a);
-		for (int i = 0; i < n; i++) 
-			for (int j = i + 1; j < n; j++) 
-				if (hs.containsKey(a[j] + a[j] - a[i]) && a[i] != a[j]) 
+		for (int i = 0; i < n; i++)
+			for (int j = i + 1; j < n; j++)
+				if (hs.containsKey(a[j] + a[j] - a[i]) && a[i] != a[j])
 					max = Math.max(max, a[j] + a[j] - a[i] + a[j] + a[i]);
 
 		out.println(max);
@@ -70,4 +70,3 @@ public class New_Year_Arithmetic_Snowman {
 		return br.readLine().trim();
 	}
 }
-

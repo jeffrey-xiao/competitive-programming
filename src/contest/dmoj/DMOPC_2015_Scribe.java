@@ -29,13 +29,13 @@ public class DMOPC_2015_Scribe {
 			x--;
 			if (x > 0) {
 				int pow = 0;
-				while (pow(10, pow+1) <= x)
-					pow ++;
+				while (pow(10, pow + 1) <= x)
+					pow++;
 				getCnt(x, pow, sum1, true);
 			}
 			int pow = 0;
-			while (pow(10, pow+1) <= y)
-				pow ++;
+			while (pow(10, pow + 1) <= y)
+				pow++;
 			getCnt(y, pow, sum2, true);
 			for (int i = 0; i < 10; i++)
 				out.printf(sum2[i] - sum1[i] + " ");
@@ -49,12 +49,12 @@ public class DMOPC_2015_Scribe {
 		int temp = n / pow(10, pow);
 		for (int i = 0; i < temp; i++)
 			sum[i] += pow(10, pow);
-		
+
 		sum[temp] += n % pow(10, pow) + 1;
-		
+
 		if (sub)
 			sum[0] -= pow(10, pow);
-			
+
 		if (pow == 0)
 			return;
 		for (int i = 0; i < 10; i++)

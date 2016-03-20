@@ -32,19 +32,19 @@ public class Woburn_Challenge4 {
 		tb = new TreeMap<Integer, Bomb>();
 		civilian = new Person[M];
 
-		minReach = new int[4*N];
-		maxReach = new int[4*N];
-		left = new int[4*N];
-		right = new int[4*N];
+		minReach = new int[4 * N];
+		maxReach = new int[4 * N];
+		left = new int[4 * N];
+		right = new int[4 * N];
 
 		for (int i = 0; i < N; i++) {
 			int pos = readInt();
 			int l = readInt();
 			int r = readInt();
-//			int pos = (int)(Math.random() * 100);
-//			int l = (int)(Math.random() * 100);
-//			int r = (int)(Math.random() * 100);
-//			System.out.println(pos + " " + l + " " + r);
+			//			int pos = (int)(Math.random() * 100);
+			//			int l = (int)(Math.random() * 100);
+			//			int r = (int)(Math.random() * 100);
+			//			System.out.println(pos + " " + l + " " + r);
 			if (!tb.containsKey(pos))
 				tb.put(pos, new Bomb(l, r));
 			tb.get(pos).l = Math.max(l, tb.get(pos).l);
@@ -55,13 +55,13 @@ public class Woburn_Challenge4 {
 		N = tb.size();
 		b = new Bomb[N + 1];
 		int cnt = 1;
-		
+
 		for (Map.Entry<Integer, Bomb> entry : tb.entrySet()) {
 			b[cnt] = new Bomb(entry.getKey(), entry.getValue().l, entry.getValue().r, cnt);
 			b[cnt].cnt = entry.getValue().cnt;
 			cnt++;
 		}
-		for (int i = 1; i <= N; i++) 
+		for (int i = 1; i <= N; i++)
 			tb.get(b[i].pos).index = i;
 
 		build(minReach, 1, 1, N);
@@ -72,7 +72,7 @@ public class Woburn_Challenge4 {
 		for (int i = 1; i <= N; i++) {
 			update(left, 1, 1, N, i, b[i].pos - b[i].l);
 			update(right, 1, 1, N, i, -(b[i].pos + b[i].r));
-			
+
 			update(minReach, 1, 1, N, i, i);
 			Map.Entry<Integer, Bomb> lowInterval = tb.ceilingEntry(b[i].pos - b[i].l);
 			update(minReach, 1, 1, N, i, query(minReach, 1, 1, N, lowInterval.getValue().index, i));
@@ -84,11 +84,9 @@ public class Woburn_Challenge4 {
 			update(maxReach, 1, 1, N, i, query(maxReach, 1, 1, N, i, highInterval.getValue().index));
 		}
 
-		
-
 		for (int i = 0; i < M; i++)
 			civilian[i] = new Person(readInt(), i);
-		
+
 		int[] ans = new int[M + 1];
 		for (int i = 1; i <= N; i++) {
 			int ll = query(minReach, 1, 1, N, i, i);
@@ -127,28 +125,32 @@ public class Woburn_Challenge4 {
 		for (int i = 0; i < M; i++) {
 			out.println(ans[i]);
 		}
-		
+
 		out.close();
 	}
 
 	static class Person implements Comparable<Person> {
 		int pos, index;
+
 		Person (int pos, int index) {
 			this.pos = pos;
 			this.index = index;
 		}
+
 		@Override
 		public int compareTo (Person o) {
 			return pos - o.pos;
 		}
 	}
 
-	static class Bomb{
+	static class Bomb {
 		int pos, l, r, index, cnt;
+
 		Bomb (int l, int r) {
 			this.l = l;
 			this.r = r;
 		}
+
 		Bomb (int pos, int l, int r, int index) {
 			this.pos = pos;
 			this.l = l;
@@ -187,9 +189,9 @@ public class Woburn_Challenge4 {
 		if (qr <= mid)
 			return query(tree, n << 1, l, mid, ql, qr);
 		else if (ql > mid)
-			return query(tree, n << 1 | 1, mid+1, r, ql, qr);
+			return query(tree, n << 1 | 1, mid + 1, r, ql, qr);
 		else
-			return Math.min(query(tree, n << 1, l, mid, ql, mid), query(tree, n << 1 | 1, mid+1, r, mid+1, qr));
+			return Math.min(query(tree, n << 1, l, mid, ql, mid), query(tree, n << 1 | 1, mid + 1, r, mid + 1, qr));
 	}
 
 	static String next () throws IOException {
@@ -218,4 +220,3 @@ public class Woburn_Challenge4 {
 		return br.readLine().trim();
 	}
 }
-

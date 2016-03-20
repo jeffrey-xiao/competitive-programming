@@ -29,7 +29,7 @@ public class VMSS_Multiple_Statements {
 		}
 		if (!valid)
 			out.println("Paradox!");
-			
+
 		out.close();
 	}
 
@@ -59,4 +59,3 @@ public class VMSS_Multiple_Statements {
 		return br.readLine().trim();
 	}
 }
-

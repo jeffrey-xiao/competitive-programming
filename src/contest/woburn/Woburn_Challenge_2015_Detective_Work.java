@@ -11,15 +11,15 @@ public class Woburn_Challenge_2015_Detective_Work {
 
 	static int N;
 	static TreeSet<Point> points = new TreeSet<Point>();
-	
+
 	public static void main (String[] args) throws IOException, InterruptedException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		N = readInt();
-		
+
 		points.add(new Point(1, 1));
 		int ans = 0;
 		for (int i = 0; i < N; i++) {
@@ -35,20 +35,22 @@ public class Woburn_Challenge_2015_Detective_Work {
 			points.add(p);
 			out.println(ans);
 		}
-		
+
 		out.close();
 	}
-	
+
 	static int dist (Point p1, Point p2) {
-		return Math.abs(p1.x  - p2.x) + Math.abs(Math.abs(p1.y) - Math.abs(p2.y));
+		return Math.abs(p1.x - p2.x) + Math.abs(Math.abs(p1.y) - Math.abs(p2.y));
 	}
-	
+
 	static class Point implements Comparable<Point> {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
+
 		@Override
 		public int compareTo (Point o) {
 			if (x == o.x)
@@ -56,7 +58,7 @@ public class Woburn_Challenge_2015_Detective_Work {
 			return x - o.x;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -83,4 +85,3 @@ public class Woburn_Challenge_2015_Detective_Work {
 		return br.readLine().trim();
 	}
 }
-

@@ -16,7 +16,7 @@ public class VMSS_A_New_Prime_Factorization {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
-		for (int i = 2; i*i <= n; i++) {
+		for (int i = 2; i * i <= n; i++) {
 			while (n % i == 0) {
 				out.println(i);
 				n /= i;
@@ -53,4 +53,3 @@ public class VMSS_A_New_Prime_Factorization {
 		return br.readLine().trim();
 	}
 }
-

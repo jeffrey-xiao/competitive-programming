@@ -13,6 +13,7 @@ public class CROC_2016_Elimination_D {
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<HashSet<Integer>> need = new ArrayList<HashSet<Integer>>();
 	static int[] in;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,9 +25,9 @@ public class CROC_2016_Elimination_D {
 
 		a = new int[m];
 		b = new int[m];
-		
+
 		in = new int[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<Integer>());
 			need.add(new HashSet<Integer>());
@@ -35,17 +36,17 @@ public class CROC_2016_Elimination_D {
 			a[i] = readInt() - 1;
 			b[i] = readInt() - 1;
 			adj.get(a[i]).add(b[i]);
-			
+
 			in[b[i]]++;
 		}
 
 		Queue<Integer> q = new LinkedList<Integer>();
-		
+
 		for (int i = 0; i < n; i++) {
 			if (in[i] == 0)
 				q.offer(i);
 		}
-		
+
 		while (!q.isEmpty()) {
 			if (q.size() > 1) {
 				out.println(-1);
@@ -61,7 +62,7 @@ public class CROC_2016_Elimination_D {
 				}
 			}
 		}
-		
+
 		for (int i = m - 1; i >= 0; i--) {
 			if (need.get(a[i]).contains(b[i])) {
 				out.println(i + 1);
@@ -69,12 +70,11 @@ public class CROC_2016_Elimination_D {
 				return;
 			}
 		}
-		
+
 		out.println(0);
 		out.close();
 	}
 
-	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -101,4 +101,3 @@ public class CROC_2016_Elimination_D {
 		return br.readLine().trim();
 	}
 }
-

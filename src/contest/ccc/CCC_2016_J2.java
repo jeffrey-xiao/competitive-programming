@@ -17,19 +17,18 @@ public class CCC_2016_J2 {
 
 		int[] rowSum = new int[4];
 		int[] colSum = new int[4];
-		
+
 		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++) {
 				int val = readInt();
 				rowSum[i] += val;
 				colSum[j] += val;
 			}
-		if (rowSum[0] == rowSum[1] && rowSum[1] == rowSum[2] && rowSum[2] == rowSum[3] && 
-			colSum[0] == colSum[1] && colSum[1] == colSum[2] && colSum[2] == colSum[3] && rowSum[0] == colSum[0])
+		if (rowSum[0] == rowSum[1] && rowSum[1] == rowSum[2] && rowSum[2] == rowSum[3] && colSum[0] == colSum[1] && colSum[1] == colSum[2] && colSum[2] == colSum[3] && rowSum[0] == colSum[0])
 			out.println("magic");
 		else
 			out.println("not magic");
-		
+
 		out.close();
 	}
 
@@ -59,4 +58,3 @@ public class CCC_2016_J2 {
 		return br.readLine().trim();
 	}
 }
-

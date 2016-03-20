@@ -14,7 +14,7 @@ public class Round_336D_Div2 {
 	static boolean[][] v;
 	static int[][] dp;
 	static int n;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,10 +29,10 @@ public class Round_336D_Div2 {
 			for (int j = 0; j < n; j++)
 				dp[i][j] = -1;
 		}
-		out.println(compute(0, n-1, 0));
+		out.println(compute(0, n - 1, 0));
 		out.close();
 	}
-	
+
 	static int compute (int i, int j, int flag) {
 		if (i > j)
 			return flag;
@@ -46,7 +46,7 @@ public class Round_336D_Div2 {
 				res = Math.min(res, compute(i + 1, k - 1, 1) + compute(k + 1, j, 0));
 		return dp[i][j] = res;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -73,4 +73,3 @@ public class Round_336D_Div2 {
 		return br.readLine().trim();
 	}
 }
-

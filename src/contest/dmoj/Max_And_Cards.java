@@ -23,7 +23,7 @@ public class Max_And_Cards {
 		fact = new long[20];
 		fact[0] = 1;
 		for (int i = 1; i <= 19; i++)
-			fact[i] = fact[i-1] * i;
+			fact[i] = fact[i - 1] * i;
 
 		for (int i = 0; i < q; i++) {
 			solve(n, readLong() + 1);
@@ -41,7 +41,7 @@ public class Max_And_Cards {
 				if (fact[i] * j >= q) {
 					for (int k = j - 1; k < n - 1; k++)
 						val[k] = val[k + 1];
-					q -= fact[i] * (j-1);
+					q -= fact[i] * (j - 1);
 					break;
 				}
 			}
@@ -76,4 +76,3 @@ public class Max_And_Cards {
 		return br.readLine().trim();
 	}
 }
-

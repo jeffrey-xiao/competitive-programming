@@ -29,7 +29,7 @@ public class VMSS_Russian_Palindrome_Cultivation {
 		} else {
 			int inc = 0;
 			int i = input.length / 2;
-			int j = (input.length - 1)/2;
+			int j = (input.length - 1) / 2;
 			while (j >= 0) {
 				if (input[j] > input[i] && inc == 0)
 					inc = -1;
@@ -41,7 +41,7 @@ public class VMSS_Russian_Palindrome_Cultivation {
 			}
 			if (inc == 1 || inc == 0) {
 				i = input.length / 2;
-				j = (input.length - 1)/2;
+				j = (input.length - 1) / 2;
 				while (input[i] == '9') {
 					input[i] = '0';
 					i--;
@@ -49,11 +49,11 @@ public class VMSS_Russian_Palindrome_Cultivation {
 				}
 				input[i]++;
 				if (i != j)
-				input[j]++;
+					input[j]++;
 			}
 			out.println(new String(input));
 		}
-		
+
 		out.close();
 	}
 
@@ -83,4 +83,3 @@ public class VMSS_Russian_Palindrome_Cultivation {
 		return br.readLine().trim();
 	}
 }
-

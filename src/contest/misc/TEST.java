@@ -78,7 +78,7 @@ public class TEST extends Thread {
 	public static void main (String[] args) throws IOException {
 		for (int i = 0; i < 1 << 5; i++)
 			System.out.println(Integer.toString(i, 2));
-		
+
 		// List a = new ArrayList<Integer>();
 		// a.add(null);
 		// System.out.println(a.get(0));

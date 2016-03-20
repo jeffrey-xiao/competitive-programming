@@ -23,14 +23,14 @@ public class COCI_2015_CHEWBACCA {
 			long x = readLong();
 			long y = readLong();
 			if (k == 1)
-				out.println(Math.abs(x-y));
+				out.println(Math.abs(x - y));
 			else {
 				int cnt = 0;
 				while (x != y) {
 					if (x > y)
-						x = (x - (2 - k))/k;
+						x = (x - (2 - k)) / k;
 					else
-						y = (y - (2 - k))/k;
+						y = (y - (2 - k)) / k;
 					cnt++;
 				}
 				out.println(cnt);

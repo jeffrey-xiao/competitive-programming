@@ -32,19 +32,19 @@ public class New_Year_DIY_Christmas_Tree {
 		for (int i = 0; i < n; i++) {
 			int m = readInt();
 			for (int j = 0; j < m; j++) {
-				int a = readInt()-1;
+				int a = readInt() - 1;
 				adj.get(i).add(a);
 				adj.get(a).add(i);
 			}
 		}
-		
+
 		getSizes(0, -1);
 		dfs(0, -1, 1, n, 0);
-		
+
 		for (int i : ans)
 			out.print(i + " ");
 		out.println();
-		
+
 		out.close();
 	}
 
@@ -67,7 +67,6 @@ public class New_Year_DIY_Christmas_Tree {
 			max -= sz[v];
 		}
 	}
-
 
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
@@ -95,4 +94,3 @@ public class New_Year_DIY_Christmas_Tree {
 		return br.readLine().trim();
 	}
 }
-

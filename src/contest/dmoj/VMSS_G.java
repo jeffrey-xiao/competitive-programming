@@ -15,15 +15,11 @@ public class VMSS_G {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		char[][] g = {{'G','G','G','G','G'},
-					  {'G','.','.','.','.'},
-					  {'G','.','.','G','G'},
-					  {'G','.','.','.','G'},
-					  {'G','G','G','G','G'}};
+		char[][] g = { {'G', 'G', 'G', 'G', 'G'}, {'G', '.', '.', '.', '.'}, {'G', '.', '.', 'G', 'G'}, {'G', '.', '.', '.', 'G'}, {'G', 'G', 'G', 'G', 'G'}};
 		int n = readInt();
-		for (int i = 0; i < 5*n; i++, out.println())
-			for (int j = 0; j < 5*n; j++)
-				out.print(g[i/n][j/n]);
+		for (int i = 0; i < 5 * n; i++, out.println())
+			for (int j = 0; j < 5 * n; j++)
+				out.print(g[i / n][j / n]);
 		out.close();
 	}
 
@@ -53,4 +49,3 @@ public class VMSS_G {
 		return br.readLine().trim();
 	}
 }
-

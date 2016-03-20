@@ -20,7 +20,7 @@ public class Fast_Factorial_Calculator {
 			if (N.length() > 2)
 				out.println(0);
 			else {
-			    long n = Long.parseLong(N);
+				long n = Long.parseLong(N);
 				long ans = 1;
 				for (int i = 1; i <= n; i++)
 					ans = (ans * i) % (1l << 32);

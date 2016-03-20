@@ -27,13 +27,13 @@ public class LongestCommonSubstring {
 	}
 
 	static String getLongestCommonSubsequence (String s1, String s2) {
-		int[][] dp = new int[s1.length()+1][s2.length()+1];
+		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
 		for (int i = 1; i <= s1.length(); i++)
 			for (int j = 1; j <= s2.length(); j++) {
-				if (s1.charAt(i-1) == s2.charAt(j-1))
-					dp[i][j] = 1 + dp[i-1][j-1];
+				if (s1.charAt(i - 1) == s2.charAt(j - 1))
+					dp[i][j] = 1 + dp[i - 1][j - 1];
 				else
-					dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
 			}
 		StringBuilder ret = new StringBuilder("");
 		for (int i = s1.length(), j = s2.length(); i > 0 && j > 0;) {
@@ -41,7 +41,7 @@ public class LongestCommonSubstring {
 				ret.append(s1.charAt(i - 1));
 				i--;
 				j--;
-			} else if (dp[i-1][j] > dp[i][j-1]) {
+			} else if (dp[i - 1][j] > dp[i][j - 1]) {
 				i--;
 			} else {
 				j--;
@@ -49,7 +49,7 @@ public class LongestCommonSubstring {
 		}
 		return ret.reverse().toString();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -76,4 +76,3 @@ public class LongestCommonSubstring {
 		return br.readLine().trim();
 	}
 }
-

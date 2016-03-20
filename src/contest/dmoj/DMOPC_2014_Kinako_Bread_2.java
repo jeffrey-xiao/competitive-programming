@@ -15,7 +15,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 	static boolean[] v;
 	static ArrayList<State> states;
 	static int[] bit = new int[200001];
-	
+
 	static int lk, rk, lc, rc;
 
 	public static void main (String[] args) throws IOException {
@@ -25,41 +25,41 @@ public class DMOPC_2014_Kinako_Bread_2 {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		
+
 		lk = readInt();
 		rk = readInt();
 		lc = readInt();
 		rc = readInt();
-		
+
 		states = new ArrayList<State>();
 		adj = new ArrayList<ArrayList<Integer>>();
 		v = new boolean[n];
-		
-		for (int i = 0; i < n; i++) 
+
+		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		a = readLine().toCharArray();
-		
+
 		for (int i = 0; i < n - 1; i++) {
 			int x = readInt() - 1;
 			int y = readInt() - 1;
 			adj.get(x).add(y);
 			adj.get(y).add(x);
 		}
-		
+
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		q.offer(0);
-		
+
 		long ans = 0;
 
 		while (!q.isEmpty()) {
 			states.clear();
 			int curr = q.poll();
-			
+
 			int centroid = getCentroid(curr, -1, getSize(curr, -1));
-			
+
 			int cntC = 0, cntK = 0;
-			
+
 			if (a[centroid] == 'C')
 				cntC++;
 			else
@@ -68,18 +68,18 @@ public class DMOPC_2014_Kinako_Bread_2 {
 			states.add(new State(0, 0));
 
 			v[centroid] = true;
-			
+
 			for (int next : adj.get(centroid))
 				if (!v[next]) {
 					q.offer(next);
 					ArrayList<State> currStates = new ArrayList<State>();
 					computeStates(next, centroid, 0, 0, currStates);
-					
+
 					Collections.sort(currStates);
-					
+
 					int left = 0;
 					int right = -1;
-					
+
 					for (int i = 0; i < currStates.size(); i++) { // computing all valid paths with i
 						while (left < i && currStates.get(i).cntC + currStates.get(left).cntC + cntC < lc) {
 							update(currStates.get(left++).cntK, -1);
@@ -87,7 +87,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 						while (left - 1 >= 0 && currStates.get(i).cntC + currStates.get(left - 1).cntC + cntC >= lc) {
 							update(currStates.get(--left).cntK, 1);
 						}
-						while (right + 1 < i && currStates.get(i).cntC + currStates.get(right+1).cntC + cntC <= rc) {
+						while (right + 1 < i && currStates.get(i).cntC + currStates.get(right + 1).cntC + cntC <= rc) {
 							update(currStates.get(++right).cntK, 1);
 						}
 						while (right >= 0 && currStates.get(i).cntC + currStates.get(right).cntC + cntC > rc) {
@@ -104,7 +104,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 
 			int left = 0;
 			int right = -1;
-			
+
 			for (int i = 0; i < states.size(); i++) { // computing all valid paths with i
 				while (left < i && states.get(i).cntC + states.get(left).cntC + cntC < lc) {
 					update(states.get(left++).cntK, -1);
@@ -112,7 +112,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 				while (left - 1 >= 0 && states.get(i).cntC + states.get(left - 1).cntC + cntC >= lc) {
 					update(states.get(--left).cntK, 1);
 				}
-				while (right + 1 < i && states.get(i).cntC + states.get(right+1).cntC + cntC <= rc) {
+				while (right + 1 < i && states.get(i).cntC + states.get(right + 1).cntC + cntC <= rc) {
 					update(states.get(++right).cntK, 1);
 				}
 				while (right >= 0 && states.get(i).cntC + states.get(right).cntC + cntC > rc) {
@@ -138,13 +138,13 @@ public class DMOPC_2014_Kinako_Bread_2 {
 			sum += bit[x];
 		return sum;
 	}
-	
+
 	static void update (int idx, int val) {
 		idx++;
 		for (int x = idx; x <= 200000; x += (x & -x))
 			bit[x] += val;
 	}
-	
+
 	static void computeStates (int curr, int par, int cntC, int cntK, ArrayList<State> currStates) {
 		if (a[curr] == 'C')
 			cntC++;
@@ -152,22 +152,22 @@ public class DMOPC_2014_Kinako_Bread_2 {
 			cntK++;
 		currStates.add(new State(cntC, cntK));
 		states.add(new State(cntC, cntK));
-		
+
 		for (int next : adj.get(curr)) {
 			if (next == par || v[next])
 				continue;
 			computeStates(next, curr, cntC, cntK, currStates);
 		}
 	}
-	
+
 	static class State implements Comparable<State> {
 		int cntC, cntK;
-		
+
 		State (int cntC, int cntK) {
 			this.cntC = cntC;
 			this.cntK = cntK;
 		}
-		
+
 		@Override
 		public int compareTo (State s) {
 			if (cntC == s.cntC)
@@ -175,15 +175,15 @@ public class DMOPC_2014_Kinako_Bread_2 {
 			return cntC - s.cntC;
 		}
 	}
-	
+
 	static int getSize (int curr, int par) {
-	    int sz = 1;
-	    for (int next : adj.get(curr))
-	        if (next != par && !v[next])
-	            sz += getSize(next, curr);
-	    return sz;
+		int sz = 1;
+		for (int next : adj.get(curr))
+			if (next != par && !v[next])
+				sz += getSize(next, curr);
+		return sz;
 	}
-	
+
 	static int getCentroid (int curr, int par, int treeSize) {
 		int n = treeSize;
 		int sz = 1;
@@ -200,7 +200,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 		valid &= n - sz <= n / 2;
 		return valid ? curr : -sz;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -227,4 +227,3 @@ public class DMOPC_2014_Kinako_Bread_2 {
 		return br.readLine().trim();
 	}
 }
-

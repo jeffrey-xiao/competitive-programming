@@ -18,10 +18,10 @@ public class DMOPC_2015_Double_XP_Weekend {
 		int ei = readInt();
 		int ef = readInt();
 		int eb = readInt();
-		
+
 		int b = readInt();
 		int c = readInt();
-		
+
 		int fish = 0;
 		long cost = 0;
 		while (ei < ef) {
@@ -66,4 +66,3 @@ public class DMOPC_2015_Double_XP_Weekend {
 		return br.readLine().trim();
 	}
 }
-

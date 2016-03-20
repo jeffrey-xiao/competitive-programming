@@ -19,14 +19,14 @@ public class Woburn_Challenge_2015_Battle_Predictions {
 		int db = readInt();
 		int as = readInt();
 		int ds = readInt();
-		
+
 		if (ab > ds && db > as)
 			out.println("Batman");
 		else if (as > db && ds > ab)
 			out.println("Superman");
 		else
 			out.println("Inconclusive");
-		
+
 		out.close();
 	}
 
@@ -56,4 +56,3 @@ public class Woburn_Challenge_2015_Battle_Predictions {
 		return br.readLine().trim();
 	}
 }
-

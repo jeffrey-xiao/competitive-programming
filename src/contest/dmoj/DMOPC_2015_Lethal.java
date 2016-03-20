@@ -23,7 +23,7 @@ public class DMOPC_2015_Lethal {
 		m %= 60;
 		h %= 24;
 		out.print(h + " " + m);
-		
+
 		out.close();
 	}
 
@@ -53,4 +53,3 @@ public class DMOPC_2015_Lethal {
 		return br.readLine().trim();
 	}
 }
-

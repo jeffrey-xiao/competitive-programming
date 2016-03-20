@@ -19,7 +19,7 @@ public class VMSS_Cold_War_Telecom {
 	static TreeSet<Integer> cutVertices;
 	static int count = 0;
 	static int n, m;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -43,10 +43,10 @@ public class VMSS_Cold_War_Telecom {
 		for (int i = 0; i < n; i++)
 			if (!v[i])
 				dfs(i, -1);
-		
+
 		out.println(cutVertices.size());
 		for (Integer u : cutVertices)
-				out.printf("%d\n", u);
+			out.printf("%d\n", u);
 		out.close();
 	}
 

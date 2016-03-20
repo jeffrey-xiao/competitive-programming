@@ -10,7 +10,7 @@ public class Woburn_Challenge_2015_Red_Sun_Simulator {
 	static StringTokenizer st;
 
 	static int N, Q;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -42,7 +42,7 @@ public class Woburn_Challenge_2015_Red_Sun_Simulator {
 				hi++;
 			}
 		}
-		
+
 		for (int i = 0; i < Q; i++) {
 			int t = readInt();
 			if (lo <= t && t <= hi)
@@ -79,4 +79,3 @@ public class Woburn_Challenge_2015_Red_Sun_Simulator {
 		return br.readLine().trim();
 	}
 }
-

@@ -24,10 +24,10 @@ public class VMSS_Restoring_Reputation {
 		for (int i = 0; i < s1.length; i++) {
 			for (int j = 0; j < s2.length; j++) {
 				if (i == 0)
-					dp[i][j] = j*I;
+					dp[i][j] = j * I;
 				else if (j == 0)
-					dp[i][j] = i*D;
-				else if (s1[i] == s2[j])	
+					dp[i][j] = i * D;
+				else if (s1[i] == s2[j])
 					dp[i][j] = dp[i - 1][j - 1];
 				else
 					dp[i][j] = Math.min(Math.min(dp[i - 1][j] + D, dp[i][j - 1] + I), dp[i - 1][j - 1] + Math.min(R, D + I));
@@ -63,4 +63,3 @@ public class VMSS_Restoring_Reputation {
 		return br.readLine().trim();
 	}
 }
-

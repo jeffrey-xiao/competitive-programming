@@ -12,7 +12,7 @@ public class VMSS_Can_Shahir_Even_Get_There {
 	static int n, m, a, b;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static boolean[] vis;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,12 +23,12 @@ public class VMSS_Can_Shahir_Even_Get_There {
 		m = readInt();
 		a = readInt() - 1;
 		b = readInt() - 1;
-		
+
 		vis = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		for (int i = 0; i < m; i++) {
 			int x = readInt() - 1;
 			int y = readInt() - 1;
@@ -48,7 +48,7 @@ public class VMSS_Can_Shahir_Even_Get_There {
 				return true;
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +75,3 @@ public class VMSS_Can_Shahir_Even_Get_There {
 		return br.readLine().trim();
 	}
 }
-

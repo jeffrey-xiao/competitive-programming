@@ -20,7 +20,7 @@ public class New_Year_Invitation_Devastation {
 		for (int i = 0; i < n; i++) {
 			out.println(str.replace(">", readLine()));
 		}
-		
+
 		out.close();
 	}
 
@@ -50,4 +50,3 @@ public class New_Year_Invitation_Devastation {
 		return br.readLine().trim();
 	}
 }
-

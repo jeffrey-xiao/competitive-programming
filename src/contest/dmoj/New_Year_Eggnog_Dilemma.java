@@ -23,7 +23,7 @@ public class New_Year_Eggnog_Dilemma {
 			if (query == 1)
 				out.println(getDays(n, m));
 			else
-				for (int j = 0; ; j++)
+				for (int j = 0;; j++)
 					if (pow(m + 1, j) >= n)
 						out.println(j);
 		}
@@ -37,10 +37,10 @@ public class New_Year_Eggnog_Dilemma {
 		if (f >= 60)
 			return 1;
 		if (f == 1)
-			return n-1;
+			return n - 1;
 		for (int i = 2;; i++)
 			if (pow(i, f) >= n)
-				return i-1;
+				return i - 1;
 	}
 
 	static long pow (long n, long k) {
@@ -49,9 +49,9 @@ public class New_Year_Eggnog_Dilemma {
 		if (k == 1)
 			return n;
 		if (k % 2 == 0)
-			return pow(n*n, k / 2);
+			return pow(n * n, k / 2);
 		else
-			return n*pow(n*n, k / 2);
+			return n * pow(n * n, k / 2);
 	}
 
 	static String next () throws IOException {

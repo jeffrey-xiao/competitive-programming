@@ -20,20 +20,22 @@ public class CycleDetectionFloyd {
 
 	static class State {
 		int start, length;
+
 		State (int start, int length) {
 			this.start = start;
 			this.length = length;
 		}
+
 		@Override
 		public String toString () {
-			return "Start: "+start+"; Length: " + length;
+			return "Start: " + start + "; Length: " + length;
 		}
 	}
-	
+
 	static int f (int x) {
-		return (125978*x*x + 2630) % 6349;
+		return (125978 * x * x + 2630) % 6349;
 	}
-	
+
 	static State getCycle (int x) {
 		int tortoise = f(x), hare = f(f(x));
 		while (tortoise != hare) {
@@ -55,9 +57,8 @@ public class CycleDetectionFloyd {
 		}
 		return new State(start, length);
 	}
-	
+
 	public static void main (String[] args) {
 		System.out.println(getCycle(0));
 	}
 }
-

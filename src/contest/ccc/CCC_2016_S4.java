@@ -26,16 +26,16 @@ public class CCC_2016_S4 {
 
 		dp = new boolean[N + 1][N + 1];
 		sz = new int[N + 1];
-		for (int i = 1; i <= N; i++) 
+		for (int i = 1; i <= N; i++)
 			sz[i] = readInt() + sz[i - 1];
 
 		for (int gap = 0; gap < N; gap++) {
 			for (int i = 1; i <= N; i++) {
 				int j = i + gap;
-				
+
 				if (j > N)
 					continue;
-				
+
 				dp[i][j] = false;
 
 				if (j - i == 0) {
@@ -68,7 +68,7 @@ public class CCC_2016_S4 {
 						dp[i][j] = true;
 					}
 				}
-				
+
 				if (dp[i][j]) {
 					ans = Math.max(ans, get(i, j));
 				}
@@ -108,4 +108,3 @@ public class CCC_2016_S4 {
 		return br.readLine().trim();
 	}
 }
-

@@ -121,4 +121,3 @@ public class CCC_2016_S3 {
 		return br.readLine().trim();
 	}
 }
-

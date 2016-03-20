@@ -31,7 +31,6 @@ public class EdgeList {
 
 		edges = new Edge[m];
 
-
 		for (int i = 0; i < m; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;

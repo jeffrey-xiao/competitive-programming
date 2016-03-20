@@ -15,7 +15,7 @@ public class VMSS_GG {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		char[] in = (" "+next()).toCharArray();
+		char[] in = (" " + next()).toCharArray();
 		int[] sum = new int[in.length];
 		for (int i = 1; i < in.length; i++)
 			sum[i] = sum[i - 1] + (in[i] == 'G' ? 1 : 0);
@@ -54,4 +54,3 @@ public class VMSS_GG {
 		return br.readLine().trim();
 	}
 }
-

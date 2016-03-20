@@ -18,16 +18,16 @@ public class DMOPC_2015_Great_Sequence {
 		int n = readInt();
 		int k = readInt();
 		int q = readInt();
-		int[] sum = new int[n+1];
+		int[] sum = new int[n + 1];
 		ArrayList<TreeSet<Integer>> list = new ArrayList<TreeSet<Integer>>();
 		for (int i = 0; i <= 2001; i++) {
 			list.add(new TreeSet<Integer>());
 		}
-		
+
 		for (int i = 1; i <= n; i++) {
 			int val = readInt();
 			list.get(val + 1000).add(i);
-			sum[i] = val + sum[i-1];
+			sum[i] = val + sum[i - 1];
 		}
 		for (int i = 0; i < q; i++) {
 			int a = readInt();
@@ -41,7 +41,7 @@ public class DMOPC_2015_Great_Sequence {
 			else
 				out.println("Yes");
 		}
-		
+
 		out.close();
 	}
 
@@ -71,4 +71,3 @@ public class DMOPC_2015_Great_Sequence {
 		return br.readLine().trim();
 	}
 }
-

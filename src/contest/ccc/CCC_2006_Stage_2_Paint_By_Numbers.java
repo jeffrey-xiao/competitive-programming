@@ -182,4 +182,3 @@ public class CCC_2006_Stage_2_Paint_By_Numbers {
 		return br.readLine().trim();
 	}
 }
-

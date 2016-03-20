@@ -18,13 +18,13 @@ public class CROC_2016_Qualification_A {
 		int n = readInt();
 		int a = readInt();
 		int b = readInt();
-	
+
 		int even = n / 2;
 		int odd = (n + 1) / 2;
-		
+
 		int cnt1 = (a % 2 == 0 ? (a / 2) * b : (a / 2) * b + (b + 1) / 2);
 		int cnt2 = a * b - cnt1;
-		
+
 		if (cnt1 < odd || cnt2 < even)
 			out.println(-1);
 		else {
@@ -45,7 +45,7 @@ public class CROC_2016_Qualification_A {
 				out.println();
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -75,4 +75,3 @@ public class CROC_2016_Qualification_A {
 		return br.readLine().trim();
 	}
 }
-

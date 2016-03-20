@@ -15,8 +15,7 @@ public class VMSS_Diana_Socializes {
 	static char[][] grid;
 	static int[] mover = {-1, 1, 0, 0};
 	static int[] movec = {0, 0, -1, 1};
-	
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,13 +24,13 @@ public class VMSS_Diana_Socializes {
 
 		N = readInt();
 		M = readInt();
-		
+
 		grid = new char[N][M];
 		id = new int[N][M];
-		
+
 		for (int i = 0; i < N; i++)
 			grid[i] = next().toCharArray();
-		
+
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < M; j++)
 				if (id[i][j] == 0 && grid[i][j] == '.') {
@@ -61,21 +60,20 @@ public class VMSS_Diana_Socializes {
 				}
 			}
 		}
-		
+
 		if (maxSize == 0) {
 			out.println(-1);
 		} else {
 			out.println(maxSize);
-			out.println(ansC + " " + ansR);	
+			out.println(ansC + " " + ansR);
 			for (int room : best)
 				out.print(room + " ");
 			out.println();
-			
+
 		}
 		out.close();
 	}
 
-	
 	static void dfs (int r, int c) {
 		id[r][c] = cnt;
 		for (int k = 0; k < 4; k++) {
@@ -86,7 +84,7 @@ public class VMSS_Diana_Socializes {
 			dfs(nr, nc);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -113,4 +111,3 @@ public class VMSS_Diana_Socializes {
 		return br.readLine().trim();
 	}
 }
-

@@ -27,7 +27,7 @@ public class CCC_2016_J1 {
 			out.println(2);
 		else
 			out.println(1);
-		
+
 		out.close();
 	}
 
@@ -57,4 +57,3 @@ public class CCC_2016_J1 {
 		return br.readLine().trim();
 	}
 }
-

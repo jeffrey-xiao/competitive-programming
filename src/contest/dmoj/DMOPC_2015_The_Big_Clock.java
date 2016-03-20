@@ -41,7 +41,7 @@ public class DMOPC_2015_The_Big_Clock {
 			else
 				out.println("LETHAL");
 		}
-		
+
 		out.close();
 	}
 
@@ -71,4 +71,3 @@ public class DMOPC_2015_The_Big_Clock {
 		return br.readLine().trim();
 	}
 }
-

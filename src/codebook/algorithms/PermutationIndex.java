@@ -17,7 +17,7 @@ public class PermutationIndex {
 
 	static int n;
 	static int[] a;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,10 +26,10 @@ public class PermutationIndex {
 
 		n = readInt();
 		a = new int[n];
-		
+
 		for (int i = 0; i < n; i++)
 			a[i] = readInt();
-		
+
 		int index = 0;
 		int position = 2;
 		int factor = 1;
@@ -42,8 +42,8 @@ public class PermutationIndex {
 			factor *= position;
 			position++;
 		}
-		out.println(index+1);
-		
+		out.println(index + 1);
+
 		out.close();
 	}
 
@@ -73,4 +73,3 @@ public class PermutationIndex {
 		return br.readLine().trim();
 	}
 }
-

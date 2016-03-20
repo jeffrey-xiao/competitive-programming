@@ -17,7 +17,7 @@ public class DMOPC_2015_Dictionary {
 		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
 		for (int i = 0; i < 26; i++)
 			list.add(new ArrayList<String>());
-		
+
 		int n = readInt();
 		for (int i = 0; i < n; i++) {
 			String str = next();
@@ -63,4 +63,3 @@ public class DMOPC_2015_Dictionary {
 		return br.readLine().trim();
 	}
 }
-

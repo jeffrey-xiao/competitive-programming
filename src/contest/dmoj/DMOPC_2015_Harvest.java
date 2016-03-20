@@ -27,21 +27,21 @@ public class DMOPC_2015_Harvest {
 			prefix[x] -= 1;
 			prefix[y] += 1;
 		}
-		
+
 		for (int i = 1; i <= N + 1; i++) {
 			prefix[i] += prefix[i - 1];
 		}
-		for (int i = 1; i <+ N + 1; i++) {
+		for (int i = 1; i < +N + 1; i++) {
 			prefix[i] += prefix[i - 1];
 		}
-		
+
 		int lo = 0;
 		int hi = N;
-		
+
 		while (lo <= hi) {
 			int mid = (lo + hi) >> 1;
 			boolean poss = false;
-			for (int i = mid; i <= N; i++) 
+			for (int i = mid; i <= N; i++)
 				if (prefix[i] - prefix[i - mid] >= K)
 					poss = true;
 			if (poss)
@@ -82,4 +82,3 @@ public class DMOPC_2015_Harvest {
 		return br.readLine().trim();
 	}
 }
-

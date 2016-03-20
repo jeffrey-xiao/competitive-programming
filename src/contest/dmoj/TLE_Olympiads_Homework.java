@@ -10,8 +10,8 @@ public class TLE_Olympiads_Homework {
 	static StringTokenizer st;
 
 	static long N;
-	static long MOD = (long)(1e9) + 13;
-	
+	static long MOD = (long) (1e9) + 13;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -53,7 +53,7 @@ public class TLE_Olympiads_Homework {
 			return pow(a * a % MOD, b / 2);
 		return a * pow(a * a % MOD, b / 2) % MOD;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

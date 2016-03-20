@@ -17,26 +17,28 @@ public class CycleDetectionBrent {
 
 	static class State {
 		int start, length;
+
 		State (int start, int length) {
 			this.start = start;
 			this.length = length;
 		}
+
 		@Override
 		public String toString () {
-			return "Start: "+start+"; Length: " + length;
+			return "Start: " + start + "; Length: " + length;
 		}
 	}
-	
+
 	static int f (int x) {
-		return (125978*x*x + 2630) % 6349;
+		return (125978 * x * x + 2630) % 6349;
 	}
-	
+
 	static State getCycle (int x) {
 		int power = 1;
 		int length = 1;
 		int tortoise = x;
 		int hare = f(x);
-		
+
 		while (tortoise != hare) {
 			if (power == length) {
 				tortoise = hare;
@@ -46,14 +48,14 @@ public class CycleDetectionBrent {
 			hare = f(hare);
 			length++;
 		}
-		
+
 		hare = x;
 		for (int i = 0; i < length; i++)
 			hare = f(hare);
-		
+
 		int start = 0;
 		tortoise = x;
-		
+
 		while (tortoise != hare) {
 			tortoise = f(tortoise);
 			hare = f(hare);
@@ -61,9 +63,8 @@ public class CycleDetectionBrent {
 		}
 		return new State(start, length);
 	}
-	
+
 	public static void main (String[] args) {
 		System.out.println(getCycle(0));
 	}
 }
-

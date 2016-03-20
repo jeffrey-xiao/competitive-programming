@@ -12,9 +12,9 @@ public class Alex_And_Animal_Rights {
 	static int r, c;
 	static char[][] g;
 
-	static int[] movex = {-1,1,0,0};
-	static int[] movey = {0,0,-1,1};
-	
+	static int[] movex = {-1, 1, 0, 0};
+	static int[] movey = {0, 0, -1, 1};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -26,13 +26,13 @@ public class Alex_And_Animal_Rights {
 		g = new char[r][c];
 		for (int i = 0; i < r; i++)
 			g[i] = next().toCharArray();
-		
+
 		int cnt = 0;
 		for (int i = 0; i < r; i++)
 			for (int j = 0; j < c; j++)
 				if (g[i][j] != '-' && dfs(i, j))
 					cnt++;
-				
+
 		out.println(cnt);
 		out.close();
 	}
@@ -51,7 +51,7 @@ public class Alex_And_Animal_Rights {
 		}
 		return res;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -78,4 +78,3 @@ public class Alex_And_Animal_Rights {
 		return br.readLine().trim();
 	}
 }
-

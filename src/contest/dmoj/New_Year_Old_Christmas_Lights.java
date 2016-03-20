@@ -19,6 +19,7 @@ public class New_Year_Old_Christmas_Lights {
 	static int[] len;
 
 	static TreeMap<Integer, Integer> tm = new TreeMap<Integer, Integer>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -28,30 +29,30 @@ public class New_Year_Old_Christmas_Lights {
 		n = readInt();
 		k = readInt();
 
-		a = new int[n+1];
+		a = new int[n + 1];
 		for (int i = 1; i <= n; i++)
 			a[i] = readInt();
 
 		int ln = 1 + (int) (Math.ceil(Math.log(n) / Math.log(2)));
 
-		min = new int[n+1][ln];
-		max = new int[n+1][ln];
-		maxAns = new int[n+1][ln];
-		maxIndex = new int[n+1][ln];
+		min = new int[n + 1][ln];
+		max = new int[n + 1][ln];
+		maxAns = new int[n + 1][ln];
+		maxIndex = new int[n + 1][ln];
 
-		len = new int[n+1];
+		len = new int[n + 1];
 
 		for (int i = 1; i <= n; i++)
 			min[i][0] = max[i][0] = a[i];
-		
+
 		for (int i = 1; i < ln; i++)
 			for (int j = 1; j + (1 << i) - 1 <= n; j++) {
 				min[j][i] = Math.min(min[j][i - 1], min[j + (1 << (i - 1))][i - 1]);
 				max[j][i] = Math.max(max[j][i - 1], max[j + (1 << (i - 1))][i - 1]);
 			}
 
-		a = new int[n+1];
-		
+		a = new int[n + 1];
+
 		for (int i = 1; i <= n; i++)
 			len[i] = getMin(i, i, n);
 
@@ -59,34 +60,33 @@ public class New_Year_Old_Christmas_Lights {
 			maxAns[i][0] = len[i];
 			maxIndex[i][0] = i;
 		}
-		
+
 		for (int i = 1; i < ln; i++)
 			for (int j = 1; j + (1 << i) - 1 <= n; j++) {
 				if (maxAns[j][i - 1] >= maxAns[j + (1 << (i - 1))][i - 1]) {
 					maxAns[j][i] = maxAns[j][i - 1];
-					maxIndex[j][i] = maxIndex[j][i-1];
+					maxIndex[j][i] = maxIndex[j][i - 1];
 				} else {
 					maxAns[j][i] = maxAns[j + (1 << (i - 1))][i - 1];
 					maxIndex[j][i] = maxIndex[j + (1 << (i - 1))][i - 1];
 				}
 			}
 
-
 		q = readInt();
 
 		for (int i = 0; i < q; i++) {
 			int x = readInt();
 			int y = readInt();
-			
+
 			int ansIndex = 0, ansSize = 0;
 
 			int endpoint = indexOverflow(x, y);
-			
+
 			int l = x;
 			int r = endpoint - 1;
-			
+
 			int sz = (int) (Math.log(endpoint - 1 - l + 1) / Math.log(2));
-			
+
 			if (sz >= 0) {
 				if (maxAns[l][sz] >= maxAns[r - (1 << sz) + 1][sz]) {
 					ansIndex = maxIndex[l][sz];
@@ -96,18 +96,19 @@ public class New_Year_Old_Christmas_Lights {
 					ansSize = maxAns[r - (1 << sz) + 1][sz];
 				}
 			}
-			
-			int val = Math.min(len[endpoint], y - endpoint + 1); 
-			
+
+			int val = Math.min(len[endpoint], y - endpoint + 1);
+
 			if (val > ansSize) {
 				ansSize = val;
 				ansIndex = endpoint;
 			}
-			
+
 			out.println(ansIndex + " " + (ansIndex + ansSize - 1));
 		}
 		out.close();
 	}
+
 	static int indexOverflow (int l, int r) {
 		int lo = l;
 		int hi = r;
