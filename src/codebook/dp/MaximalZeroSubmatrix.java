@@ -28,7 +28,9 @@ public class MaximalZeroSubmatrix {
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < m; j++)
 				a[i][j] = readInt();
+
 		out.println(getMaxZeroSubmatrix(a));
+		out.println(bruteForce(a));
 		out.close();
 	}
 
@@ -63,6 +65,32 @@ public class MaximalZeroSubmatrix {
 			}
 		}
 		return ret;
+	}
+
+	static int bruteForce (int[][] a) {
+		int rows = a.length;
+		int cols = a[0].length;
+		int res = 0;
+
+		int[][] sum = new int[rows + 1][cols + 1];
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= cols; j++) {
+				sum[i][j] = a[i - 1][j - 1] + sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1];
+			}
+		}
+
+		for (int i = 0; i <= rows; i++) {
+			for (int j = 0; j < i; j++) {
+				for (int k = 0; k <= cols; k++) {
+					for (int l = 0; l < k; l++) {
+						if (sum[i][k] - sum[j][k] - sum[i][l] + sum[j][l] == 0)
+							res = Math.max(res, (i - j) * (k - l));
+					}
+				}
+			}
+		}
+
+		return res;
 	}
 
 	static String next () throws IOException {
