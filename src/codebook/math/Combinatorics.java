@@ -58,6 +58,16 @@ public class Combinatorics {
 		return ret;
 	}
 
+	// O(log P) if you precompute factorials
+	static long fastChoose (int n, int k, int p) {
+		return divMod(divMod(factorial(n, p), factorial(k, p), p), factorial(n - k, p), p);
+	}
+
+	// O(log P)
+	static long divMod (long i, long j, long p) {
+		return i * pow(j, p - 2, p) % p;
+	}
+	
 	// O(k)
 	static long multichoose (int n, int k, long p) {
 		return choose(n + k - 1, k, p);
@@ -159,15 +169,5 @@ public class Combinatorics {
 	// O(n)
 	static long catalan (int n, long p) {
 		return choose(2 * n, n, p) * pow(n + 1, p - 2, p) % p;
-	}
-
-	// O(log P) if you precompute factorials
-	static long fastChoose (int n, int k, int p) {
-		return divMod(divMod(factorial(n, p), factorial(k, p), p), factorial(n - k, p), p);
-	}
-
-	// O(log P)
-	static long divMod (long i, long j, long p) {
-		return i * pow(j, p - 2, p) % p;
 	}
 }
