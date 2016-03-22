@@ -15,10 +15,6 @@ optimization
 
 geometry
 
-strings
- - dynamic suffix array
- - suffix automaton
-
 linear algebra
 
 number theory
