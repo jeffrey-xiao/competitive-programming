@@ -11,25 +11,95 @@ import java.util.StringTokenizer;
 public class DMOPC_2014_Nia_And_Dominoes {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+	static PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
+	static int A, B, M;
+	static long N;
+	
 	public static void main (String[] args) throws IOException {
-		int a = readInt();
-		int b = readInt();
-		int n = readInt();
-		int m = readInt();
-		int[] c = new int[3];
-		c[0] = 1;
-		for (int i = 1; i <= m; i++) {
-			c[i % 3] = 0;
-			if (i - 2 >= 0)
-				c[i % 3] = (c[i % 3] + (c[(i - 2) % 3] * b) % n) % n;
-			c[i % 3] = (c[i % 3] + (c[(i - 1) % 3] * a) % n) % n;
+		A = readInt();
+		B = readInt();
+		M = readInt();
+		N = readLong();
+		
+		Cycle c = getCycle(new State(1, 0));
+		if (N < c.start) {
+			State ans = new State(1, 0);
+			for (int i = 0; i < N; i++) {
+				ans = f(ans);
+			}
+			out.println(ans.a);
+		} else {
+			N = (N - c.start) % c.length + c.start;
+			State ans = new State(1, 0);
+			for (int i = 0; i < N; i++) {
+				ans = f(ans);
+			}
+			out.println(ans.a);
 		}
-		System.out.println(c[m % 3]);
+		out.close();
 	}
 
+	static class Cycle {
+		long start, length;
+		Cycle (long start, long length) {
+			this.start = start;
+			this.length = length;
+		}
+	}
+
+	static class State {
+		long a, b;
+		State (long a, long b) {
+			this.a = a;
+			this.b = b;
+		}
+		@Override
+		public boolean equals (Object o) {
+			if (o instanceof State) {
+				State s = (State)o;
+				return a == s.a && s.b == b;
+			}
+			return false;
+		}
+	}
+	
+	static State f (State s) {
+		return new State((s.a * A % M + s.b * B % M) % M, s.a);
+	}
+	
+	static Cycle getCycle (State s) {
+		long power = 1;
+		long length = 1;
+		State tortoise = new State(s.a, s.b);
+		State hare = f(s);
+		
+		while (!tortoise.equals(hare)) {
+			if (power == length) {
+				tortoise = hare;
+				power *= 2;
+				length = 0;
+			}
+			hare = f(hare);
+			length++;
+		}
+		
+		hare = new State(s.a, s.b);
+		for (int i = 0; i < length; i++)
+			hare = f(hare);
+		
+		int start = 0;
+		tortoise = new State(s.a, s.b);
+		
+		while (!tortoise.equals(hare)) {
+			tortoise = f(tortoise);
+			hare = f(hare);
+			start++;
+		}
+		return new Cycle(start, length);
+	}
+	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
