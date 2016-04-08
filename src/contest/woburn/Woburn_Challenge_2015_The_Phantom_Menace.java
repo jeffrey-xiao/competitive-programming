@@ -3,14 +3,11 @@ package contest.woburn;
 import java.util.*;
 import java.io.*;
 
-public class Woburn_Challenge2 {
+public class Woburn_Challenge_2015_The_Phantom_Menace {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-
-	static int N, M;
-	static char[][] words;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,44 +15,31 @@ public class Woburn_Challenge2 {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		N = readInt();
-		M = readInt();
-
-		words = new char[N][M];
-
-		for (int i = 0; i < N; i++) {
-			words[i] = readLine().toCharArray();
-		}
-		int cost = 0;
-		int ways = 1;
-		for (int j = 0; j < M; j++) {
-			HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
-			int wildcard = 0;
-			int max = 0;
-			for (int i = 0; i < N; i++) {
-				if (words[i][j] == '?')
-					wildcard++;
-				else {
-					int curr = 0;
-					if (hm.get(words[i][j]) != null)
-						curr = hm.get(words[i][j]);
-					hm.put(words[i][j], curr + 1);
-					max = Math.max(max, curr + 1);
+		int n = readInt();
+		int[] a = new int[n];
+		for (int i = 0; i < n; i++)
+			a[i] = readInt();
+		for (int i = 0; i < n; i++) {
+			if (i > 0 && a[i] == 0) {
+				for (int j = 1; j <= 4; j++) {
+					if (a[i - 1] != j && (i + 1 >= a.length || a[i + 1] != j)) {
+						a[i] = j;
+						break;
+					}
 				}
 			}
-			int maxCnt = 0;
-			for (Map.Entry<Character, Integer> entry : hm.entrySet()) {
-				if (entry.getValue() == max)
-					maxCnt++;
-			}
-			cost += N - max - wildcard;
-			if (wildcard != N) {
-				ways = (ways * maxCnt) % 1000;
-			} else {
-				ways = (ways * 26) % 1000;
+			if (i == 0 && a[i] == 0) {
+				if (a.length == 1)
+					a[i] = 1;
+				if (a[i + 1] == 1)
+					a[i] = 2;
+				else
+					a[i] = 1;
 			}
 		}
-		out.printf("%d %d\n", cost, ways);
+		for (int i = 0; i < n; i++)
+			out.print(a[i]);
+		out.println();
 
 		out.close();
 	}

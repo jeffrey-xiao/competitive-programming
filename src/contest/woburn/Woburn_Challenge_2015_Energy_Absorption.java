@@ -9,39 +9,64 @@ public class Woburn_Challenge_2015_Energy_Absorption {
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static int N, M;
+	static int[] damage;
+	static int[] seg;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		int n = readInt();
-		int[] a = new int[n];
-		for (int i = 0; i < n; i++)
-			a[i] = readInt();
-		for (int i = 0; i < n; i++) {
-			if (i > 0 && a[i] == 0) {
-				for (int j = 1; j <= 4; j++) {
-					if (a[i - 1] != j && (i + 1 >= a.length || a[i + 1] != j)) {
-						a[i] = j;
-						break;
-					}
-				}
-			}
-			if (i == 0 && a[i] == 0) {
-				if (a.length == 1)
-					a[i] = 1;
-				if (a[i + 1] == 1)
-					a[i] = 2;
-				else
-					a[i] = 1;
-			}
-		}
-		for (int i = 0; i < n; i++)
-			out.print(a[i]);
-		out.println();
+		N = readInt();
+		M = readInt();
 
+		damage = new int[N + 1];
+		seg = new int[4 * N];
+		for (int i = 1; i <= N; i++) {
+			damage[i] = readInt() + damage[i - 1];
+		}
+		build(1, 0, N);
+		int[] min = new int[N + 1];
+		for (int i = 0; i <= N; i++)
+			min[i] = query(1, 0, N, 0, i);
+		for (int i = 0; i < M; i++) {
+			int l = 0;
+			int r = N;
+			int curr = readInt();
+			while (l <= r) {
+				int mid = (l + r) / 2;
+				if (min[mid] < -curr)
+					r = mid - 1;
+				else
+					l = mid + 1;
+			}
+			out.println(l - 1);
+		}
 		out.close();
+	}
+
+	static int query (int n, int l, int r, int ql, int qr) {
+		if (ql == l && qr == r)
+			return seg[n];
+		int mid = (l + r) >> 1;
+		if (qr <= mid)
+			return query(n << 1, l, mid, ql, qr);
+		else if (ql > mid)
+			return query(n << 1 | 1, mid + 1, r, ql, qr);
+		return Math.min(query(n << 1, l, mid, ql, mid), query(n << 1 | 1, mid + 1, r, mid + 1, qr));
+	}
+
+	static void build (int n, int l, int r) {
+		if (l == r) {
+			seg[n] = damage[l];
+			return;
+		}
+		int mid = (l + r) >> 1;
+		build(n << 1, l, mid);
+		build(n << 1 | 1, mid + 1, r);
+		seg[n] = Math.min(seg[n << 1], seg[n << 1 | 1]);
 	}
 
 	static String next () throws IOException {
