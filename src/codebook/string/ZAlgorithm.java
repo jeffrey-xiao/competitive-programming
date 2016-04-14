@@ -1,6 +1,6 @@
 /*
  * The Z algorithm produces an array Z where Z[i] is the length of the longest substring starting from S[i] which is also a prefix of S.
- * I.E. the maximum k such that S[i + j] = S[i] for all 0 <= j < k
+ * I.E. the maximum k such that S[i + j] = S[j] for all 0 <= j < k
  *
  * Time complexity: O(N)
  */
@@ -31,7 +31,7 @@ public class ZAlgorithm {
 
 	private void compute () {
 		z = new int[text.length()];
-		// [l, r] represents the largest prefix substring of the previous index
+		// [l, r] represents the largest prefix substring of a previous index
 		int l = 0, r = 0;
 		for (int i = 1; i < text.length(); i++) {
 			// if the current index exceeds the right boundary of the previous prefix substring, then reset it

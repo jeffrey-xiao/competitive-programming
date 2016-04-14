@@ -8,17 +8,17 @@ package codebook.string;
 
 public class Manacher {
 	public String getLongestPalindrome (String s) {
-		int len = s.length() * 2 - 1;
+		int len = s.length() * 2 + 1;
 		char[] text = new char[len];
 		for (int i = 0; i < len; i++)
 			text[i] = '#';
-		for (int i = 0; i < len; i += 2)
+		for (int i = 1; i < len; i += 2)
 			text[i] = s.charAt(i / 2);
 		int[] max = new int[len];
 
-		// center of right most palindrome
+		// center of palindrome with the greatest right boundary
 		int c = 0;
-		// right boundary of right most palindrome
+		// right boundary of palindrome
 		int r = 0;
 		for (int i = 1; i < len; i++) {
 			// the index of the mirror of i with respects to center c
@@ -38,8 +38,11 @@ public class Manacher {
 		int maxLength = 0;
 		int index = 0;
 		for (int i = 1; i < len - 1; i++) {
-			if (max[i] > maxLength) {
-				maxLength = max[i];
+			int currLen = max[i];
+			if (i % 2 == 1)
+				currLen++;
+			if (currLen > maxLength) {
+				maxLength = currLen;
 				index = i;
 			}
 		}
@@ -48,6 +51,6 @@ public class Manacher {
 
 	public static void main (String[] args) {
 		Manacher m = new Manacher();
-		System.out.println(m.getLongestPalindrome("BANANA"));
+		System.out.println(m.getLongestPalindrome("BANANAANA"));
 	}
 }
