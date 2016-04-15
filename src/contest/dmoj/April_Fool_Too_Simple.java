@@ -20,7 +20,6 @@ public class April_Fool_Too_Simple {
 		char e = get(d);
 		char f = get(e);
 		char g = get(f);
-		char h = get(g);
 		out.print((char)(g + d));
 		out.print((char)(g + f + c + a));
 		out.print((char)(g + f + d + c));
