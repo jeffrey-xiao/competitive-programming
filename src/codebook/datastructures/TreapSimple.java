@@ -129,15 +129,8 @@ public class TreapSimple {
 	private Node remove (Node n, Integer k) {
 		if (n == null)
 			return n;
-		int cmp = k.compareTo(n.key);
-		if (cmp < 0)
-			n.left = remove(n.left, k);
-		else if (cmp > 0)
-			n.right = remove(n.right, k);
-		else {
-			n = merge(n.left, n.right);
-		}
-		return n;
+		NodePair nodes = split(n, k);
+		return merge(nodes.left, nodes.right);
 	}
 
 	// auxiliary function to merge
@@ -183,28 +176,15 @@ public class TreapSimple {
 	private Node add (Node n, Node m) {
 		if (n == null)
 			return m;
-		if (m.priority > n.priority) {
-			NodePair pair = split(n, m.key);
-			m.left = pair.left;
-			m.right = pair.right;
-			return m;
-		} else {
-			int cmp = n.key.compareTo(m.key);
-			if (cmp < 0)
-				n.right = add(n.right, m);
-			else if (cmp > 0)
-				n.left = add(n.left, m);
-			else
-				n.value = m.value;
-		}
-		return n;
+		NodePair nodes = split(n, m.key);
+		return merge(nodes.left, merge(m, nodes.right));
 	}
 
 	public static void main (String[] args) {
 		TreapSimple t = new TreapSimple();
 		long c = System.currentTimeMillis();
 		TreeSet<Integer> hs = new TreeSet<Integer>();
-		for (int x = 0; x < 100000; x++) {
+		for (int x = 0; x < 100; x++) {
 			int ran = (int) (Math.random() * (100000)) + 5;
 			hs.add(ran);
 			t.add(ran);
