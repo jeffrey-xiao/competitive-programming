@@ -32,7 +32,7 @@ public class ECOO_2016_R2_P3 {
 			
 			for (int i = 0; i < N; i++)
 				for (int j = 0; j < N; j++) {
-					// rows;
+					// rows
 					if (j + sz - 1 < N) {
 						boolean valid = true;
 						for (int k = j; k < j + sz; k++) {
@@ -53,6 +53,7 @@ public class ECOO_2016_R2_P3 {
 							cnt++;
 						}
 					}
+					// cols
 					if (i + sz - 1 < N) {
 						boolean valid = true;
 						for (int k = i; k < i + sz; k++) {

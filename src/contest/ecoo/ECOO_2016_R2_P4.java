@@ -73,13 +73,11 @@ public class ECOO_2016_R2_P4 {
 
 			while (!q.isEmpty()) {
 				Point curr = q.poll();
-//				System.out.println(curr.r + " " + curr.c);
 
 				while (curr.r + 1 < R && g[curr.r + 1][curr.c] == '.' && g[curr.r][curr.c] != '#') {
 					curr.r++;
 					vis[curr.type][curr.r][curr.c] = true;
 				}
-//				System.out.println(curr.r + " END " + curr.c);
 
 				for (int k = 0; k < 4; k++) {
 					int nr = curr.r + BR[k];
@@ -167,7 +165,6 @@ public class ECOO_2016_R2_P4 {
 				} 
 				
 				if (curr.type == 2) {
-//					System.out.println("START " + curr.r + " " + curr.c);
 					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r, curr.c - 1) && isValid(curr.r, curr.c - 2) && isValid(curr.r, curr.c - 3)) {
 						int nr = curr.r;
@@ -189,23 +186,18 @@ public class ECOO_2016_R2_P4 {
 					if (isValid(curr.r, curr.c + 1) && isValid(curr.r, curr.c + 2) && isValid(curr.r, curr.c + 3)) {
 						int nr = curr.r;
 						int nc = curr.c + 3;
-//						System.out.println(nr + " asd " + nc);
 						while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-//						System.out.println(nr + " END " + nc);
 						if (vis[curr.type][nr][nc]) {
-//							System.out.println(nr + " CAUGHT " + nc);
 							continue;
 						}
 						vis[curr.type][nr][nc] = true;
 						
 						if (nr + 1 >= R && g[nr][nc] == '.') {
-//							System.out.println(nr + " CAUGHT " + nc);
 							continue;
 						}
-//						System.out.println(nr + " inqueue " + nc);
 						q.offer(new Point(nr, nc, curr.type));
 					}
 
@@ -262,11 +254,7 @@ public class ECOO_2016_R2_P4 {
 					}
 				}
 			}
-//			for (int i = 0; i < R; i++) {
-//				for (int j = 0; j < C; j++)
-//					System.out.print(vis[2][i][j] ? '1' : '0');
-//				System.out.println();
-//			}
+
 			for (int i = 0; i < 3; i++) {
 				if (i == 0)
 					out.print("HOP ");
