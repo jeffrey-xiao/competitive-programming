@@ -1,5 +1,5 @@
 /*
- * Tree algorithms that compute the center, centroid, and the diamter of a tree.
+ * Tree algorithms that compute the center, centroid, and the diameter of a tree.
  *
  * Time complexity:
  *  - getCenters: O(V + E)
