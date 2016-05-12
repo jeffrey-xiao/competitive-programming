@@ -140,15 +140,13 @@ public class TreapSimple {
 		else if (t2 == null)
 			return t1;
 
-		Node newRoot = null;
 		if (t1.priority > t2.priority) {
 			t1.right = merge(t1.right, t2);
-			newRoot = t1;
+			return t1;
 		} else {
 			t2.left = merge(t1, t2.left);
-			newRoot = t2;
+			return t2;
 		}
-		return newRoot;
 	}
 
 	// auxiliary function to split
@@ -184,17 +182,17 @@ public class TreapSimple {
 		TreapSimple t = new TreapSimple();
 		long c = System.currentTimeMillis();
 		TreeSet<Integer> hs = new TreeSet<Integer>();
-		for (int x = 0; x < 100; x++) {
+		for (int x = 0; x < 1000000; x++) {
 			int ran = (int) (Math.random() * (100000)) + 5;
 			hs.add(ran);
 			t.add(ran);
 		}
 		System.out.println(hs.size());
-		for (Integer i : hs)
-			System.out.print(i + " ");
-		System.out.println();
-		t.traverse(t.root);
-		System.out.println();
+//		for (Integer i : hs)
+//			System.out.print(i + " ");
+//		System.out.println();
+//		t.traverse(t.root);
+//		System.out.println();
 		t.add(1);
 		assert (t.contains(t.root, 1));
 		assert (!t.contains(t.root, 2));
