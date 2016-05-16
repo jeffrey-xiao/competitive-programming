@@ -21,11 +21,11 @@ public class ECOO_2016_R2_P4 {
 	static char[][] g;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
 		// br = new BufferedReader(new FileReader("in.txt"));
-		br = new BufferedReader(new FileReader("DATA42.txt"));
+		// br = new BufferedReader(new FileReader("DATA42.txt"));
 
 		for (int T = 1; T <= TEST_CASES; T++) {
 			C = readInt();
@@ -93,11 +93,15 @@ public class ECOO_2016_R2_P4 {
 						vis[curr.type][nr][nc] = true;
 						nr++;
 					}
+
 					if (vis[curr.type][nr][nc])
 						continue;
+
 					vis[curr.type][nr][nc] = true;
+
 					if (nr + 1 >= R && g[nr][nc] == '.')
 						continue;
+
 					q.offer(new Point(nr, nc, curr.type));
 				}
 
@@ -109,63 +113,71 @@ public class ECOO_2016_R2_P4 {
 
 							if (!isValid(nr, nc))
 								continue;
+							
+							while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
+								vis[curr.type][nr][nc] = true;
+								nr++;
+							}
+
+							if (vis[curr.type][nr][nc])
+								continue;
+
+							vis[curr.type][nr][nc] = true;
+
+							if (nr + 1 >= R && g[nr][nc] == '.')
+								continue;
+
+							q.offer(new Point(nr, nc, curr.type));
+
+						}
+					}
+				} 
+
+				if (curr.type == 1 || curr.type == 2) {
+					if (isValid(curr.r, curr.c - 1)) {
+						int nr = curr.r;
+						int nc = curr.c - 2;
+
+						if (isValid(nr, nc)) {
 
 							while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
 								vis[curr.type][nr][nc] = true;
 								nr++;
 							}
-							if (vis[curr.type][nr][nc])
-								continue;
-							vis[curr.type][nr][nc] = true;
-							if (nr + 1 >= R && g[nr][nc] == '.')
-								continue;
-							q.offer(new Point(nr, nc, curr.type));
+
+							if (!vis[curr.type][nr][nc]) {
+								vis[curr.type][nr][nc] = true;
+
+								if (nr + 1 < R || g[nr][nc] != '.') {
+									q.offer(new Point(nr, nc, curr.type));
+								}
+							}
 						}
 					}
-				} 
-				if (curr.type == 1 || curr.type == 2) {
-					for (int i = 0; i <= 0; i++)
-					if (isValid(curr.r, curr.c - 1)) {
-						int nr = curr.r;
-						int nc = curr.c - 2;
 
-						if (!isValid(nr, nc))
-							continue;
-
-						while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
-							vis[curr.type][nr][nc] = true;
-							nr++;
-						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
-					}
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r, curr.c + 1)) {
 						int nr = curr.r;
 						int nc = curr.c + 2;
 
-						if (!isValid(nr, nc))
-							continue;
+						if (isValid(nr, nc)) {
 
-						while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
-							vis[curr.type][nr][nc] = true;
-							nr++;
+							while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
+								vis[curr.type][nr][nc] = true;
+								nr++;
+							}
+
+							if (!vis[curr.type][nr][nc]) {
+								vis[curr.type][nr][nc] = true;
+
+								if (nr + 1 < R || g[nr][nc] != '.') {
+									q.offer(new Point(nr, nc, curr.type));
+								}
+							}
 						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
 					}
 				} 
-				
+
 				if (curr.type == 2) {
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r, curr.c - 1) && isValid(curr.r, curr.c - 2) && isValid(curr.r, curr.c - 3)) {
 						int nr = curr.r;
 						int nc = curr.c - 3;
@@ -174,34 +186,33 @@ public class ECOO_2016_R2_P4 {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
+
+						if (!vis[curr.type][nr][nc]) {
+							vis[curr.type][nr][nc] = true;
+							if (nr + 1 < R || g[nr][nc] != '.') {
+								q.offer(new Point(nr, nc, curr.type));
+							}
+						}
 					}
 
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r, curr.c + 1) && isValid(curr.r, curr.c + 2) && isValid(curr.r, curr.c + 3)) {
 						int nr = curr.r;
 						int nc = curr.c + 3;
+
 						while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-						if (vis[curr.type][nr][nc]) {
-							continue;
+
+						if (!vis[curr.type][nr][nc]) {
+							vis[curr.type][nr][nc] = true;
+
+							if (nr + 1 < R || g[nr][nc] != '.') {
+								q.offer(new Point(nr, nc, curr.type));
+							}
 						}
-						vis[curr.type][nr][nc] = true;
-						
-						if (nr + 1 >= R && g[nr][nc] == '.') {
-							continue;
-						}
-						q.offer(new Point(nr, nc, curr.type));
 					}
 
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r - 1, curr.c) && isValid(curr.r - 1, curr.c + 1) && isValid(curr.r - 1, curr.c + 2)) {
 						int nr = curr.r - 1;
 						int nc = curr.c + 2;
@@ -211,15 +222,16 @@ public class ECOO_2016_R2_P4 {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
+
+						if (!vis[curr.type][nr][nc]) {
+							vis[curr.type][nr][nc] = true;
+
+							if (nr + 1 < R || g[nr][nc] != '.') {
+								q.offer(new Point(nr, nc, curr.type));
+							}
+						}
 					}
 
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r - 1, curr.c) && isValid(curr.r - 1, curr.c - 1) && isValid(curr.r - 1, curr.c - 2)) {
 						int nr = curr.r - 1;
 						int nc = curr.c - 2;
@@ -228,15 +240,16 @@ public class ECOO_2016_R2_P4 {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
+
+						if (!vis[curr.type][nr][nc]) {
+							vis[curr.type][nr][nc] = true;
+
+							if (nr + 1 < R || g[nr][nc] != '.') {
+								q.offer(new Point(nr, nc, curr.type));
+							}
+						}
 					}
 
-					for (int i = 0; i <= 0; i++)
 					if (isValid(curr.r - 1, curr.c) && isValid(curr.r - 2, curr.c)) {
 						int nr = curr.r - 2;
 						int nc = curr.c;
@@ -245,12 +258,14 @@ public class ECOO_2016_R2_P4 {
 							vis[curr.type][nr][nc] = true;
 							nr++;
 						}
-						if (vis[curr.type][nr][nc])
-							continue;
-						vis[curr.type][nr][nc] = true;
-						if (nr + 1 >= R && g[nr][nc] == '.')
-							continue;
-						q.offer(new Point(nr, nc, curr.type));
+
+						if (!vis[curr.type][nr][nc]) {
+							vis[curr.type][nr][nc] = true;
+
+							if (nr + 1 < R || g[nr][nc] != '.') {
+								q.offer(new Point(nr, nc, curr.type));
+							}
+						}
 					}
 				}
 			}

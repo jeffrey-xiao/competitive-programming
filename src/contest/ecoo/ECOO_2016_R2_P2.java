@@ -12,11 +12,11 @@ public class ECOO_2016_R2_P2 {
 	static final int TEST_CASES = 10;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
 		// br = new BufferedReader(new FileReader("in.txt"));
-		br = new BufferedReader(new FileReader("DATA21.txt"));
+		// br = new BufferedReader(new FileReader("DATA21.txt"));
 
 		for (int t = 1; t <= TEST_CASES; t++) {
 			int k = readInt();

@@ -15,11 +15,11 @@ public class ECOO_2016_R2_P3 {
 	static int[] my = {-1,0,1,-1,1,-1,0,1};
 	
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
 		// br = new BufferedReader(new FileReader("in.txt"));
-		br = new BufferedReader(new FileReader("DATA31.txt"));
+		// br = new BufferedReader(new FileReader("DATA31.txt"));
 		
 		for (int t = 1; t <= TEST_CASES; t++) {
 			int N = readInt();
