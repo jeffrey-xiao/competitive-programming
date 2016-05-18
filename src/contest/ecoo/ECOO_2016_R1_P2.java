@@ -13,35 +13,35 @@ public class ECOO_2016_R1_P2 {
 	static PrintWriter out;
 	static StringTokenizer st;
 
+	static final int TEST_CASES = 10;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		// br = new BufferedReader(new FileReader("DATA21.txt"));
 
-		for (int T = 1; T <= 10; T++) {
+		for (int T = 1; T <= TEST_CASES; T++) {
 			int N = readInt();
-			int[] val = new int[N];
+			int[] occ = new int[101];
 			for (int i = 0; i < N; i++) {
-				val[i] = readInt();
+				occ[readInt()]++;
 			}
 			HashSet<Integer> hm = new HashSet<Integer>();
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					hm.add(val[i] * val[j]);
-					hm.add(val[i] + val[j]);
+			for (int i = 1; i <= 100; i++) {
+				for (int j = 1; j <= 100; j++) {
+					for (int k = 1; k <= 100; k++) {
+						if (occ[i] > 0 && occ[j] > 0 && occ[k] > 0) {
+							hm.add((i * j) * k);
+							hm.add((i + j) * k);
+							hm.add((i * j) + k);
+							hm.add((i + j) + k);
+						}
+					}
 				}
 			}
 			for (int i = 0; i < 5; i++) {
 				int v = readInt();
-				boolean poss = false;
-				for (int j = 0; j < N; j++) {
-					if (hm.contains(v - val[j])) {
-						poss = true;
-					}
-					if (v % val[j] == 0 && hm.contains(v / val[j]))
-						poss = true;
-				}
-				out.print(poss ? "T" : "F");
+				out.print(hm.contains(v) ? "T" : "F");
 			}
 			out.println();
 		}
