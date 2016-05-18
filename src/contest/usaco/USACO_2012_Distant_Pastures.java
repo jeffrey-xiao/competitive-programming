@@ -3,6 +3,7 @@ package contest.usaco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
@@ -34,31 +35,46 @@ public class USACO_2012_Distant_Pastures {
 	}
 
 	private static int bfs (int x, int y, char[][] grid) {
-		int startx = x;
-		int starty = y;
 		PriorityQueue<Point> moves = new PriorityQueue<Point>();
-		boolean[][] visited = new boolean[n][n];
+		int[][] min = new int[n][n];
+		
+		for (int i = 0; i < n; i++)
+			Arrays.fill(min[i], 1 << 30);
+		
 		int max = 0;
+		
+		min[x][y] = 0;
 		moves.add(new Point(x, y, 0));
+		
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
 			x = curr.x;
 			y = curr.y;
-			int time = curr.time;
-			if (visited[x][y])
+			
+			if (min[x][y] < curr.time)
 				continue;
-			visited[x][y] = true;
+			
+			int time = curr.time;
+			
 			if (time > max) {
 				max = time;
 			}
+			
 			for (int z = 0; z < 4; z++) {
 				int nextx = x + movex[z];
 				int nexty = y + movey[z];
-				if (nextx < startx || nexty < starty || nextx >= n || nexty >= n || visited[nextx][nexty])
+				
+				if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n)
 					continue;
+				
 				int add = a;
 				if (grid[x][y] != grid[nextx][nexty])
 					add = b;
+				
+				if (min[nextx][nexty] <= add + time)
+					continue;
+				
+				min[nextx][nexty] = add + time;
 				moves.add(new Point(nextx, nexty, add + time));
 			}
 
