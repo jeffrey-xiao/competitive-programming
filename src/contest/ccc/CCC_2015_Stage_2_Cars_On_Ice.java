@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class CCC_2015_Stage_2_Cars_On_Ice {
 
 	static BufferedReader br;
-	static PrintWriter pr;
+	static PrintWriter out;
 	static StringTokenizer st;
 
 	static int r, c;
@@ -25,23 +25,25 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new OutputStreamWriter(System.out));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
 		// br = new BufferedReader(new FileReader("in.txt"));
-		// pr = new PrintWriter(new FileWriter("out.txt"));
+		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		r = readInt();
 		c = readInt();
 		g = new char[r][c];
 		in = new int[r][c][4];
 		car = new boolean[r][c][4];
+		
 		for (int i = 0; i < r; i++)
 			g[i] = next().toCharArray();
+		
 		for (int i = 0; i < r; i++)
 			for (int j = 0; j < c; j++) {
 				for (int z = 0; z < 4; z++)
-					if (0 <= i + movex[z] && i + movex[z] < r && 0 <= j + movey[z] && j + movey[z] < c) {
+					if (0 <= i + movex[z] && i + movex[z] < r && 0 <= j + movey[z] && j + movey[z] < c)
 						in[i][j][z]++;
-					}
+				
 				if (g[i][j] != '.') {
 					int currDir = dir.indexOf(g[i][j]);
 					for (int z = 0; z < 4; z++)
@@ -54,13 +56,13 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 		for (int i = 0; i < r; i++)
 			for (int j = 0; j < c; j++)
 				for (int k = 0; k < 4; k++)
-					if (in[i][j][k] == 0) {
+					if (in[i][j][k] == 0)
 						q.offer(new State(i, j, k));
-					}
+		
 		while (!q.isEmpty()) {
 			State curr = q.poll();
 			if (car[curr.r][curr.c][curr.d]) {
-				pr.printf("(%d,%d)\n", curr.r, curr.c);
+				out.printf("(%d,%d)\n", curr.r, curr.c);
 				for (int z = 0; z < 4; z++)
 					if (z != curr.d) {
 						in[curr.r][curr.c][z]--;
@@ -68,6 +70,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 							q.offer(new State(curr.r, curr.c, z));
 					}
 			}
+			
 			// depends on direction
 			int nr = curr.r + movex[(curr.d + 2) % 4];
 			int nc = curr.c + movey[(curr.d + 2) % 4];
@@ -77,7 +80,8 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 					q.offer(new State(nr, nc, curr.d));
 			}
 		}
-		pr.close();
+		
+		out.close();
 	}
 
 	static class State {
