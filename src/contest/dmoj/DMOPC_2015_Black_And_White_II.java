@@ -146,4 +146,3 @@ public class DMOPC_2015_Black_And_White_II {
 		return br.readLine().trim();
 	}
 }
-
