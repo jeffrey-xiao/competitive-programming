@@ -3,71 +3,67 @@ package contest.hackerearth;
 import java.util.*;
 import java.io.*;
 
-public class Clash_May_2016_P1 {
+public class Clash_May_2016_P2 {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
 	static long N;
-	static ArrayList<Integer> primes;
+	static final int MOD = 252;
+	static long[][] dp;
+	
+	static Matrix A, T, I;
+	static final long M = 1l << 32;
+			
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		N = readLong();
-
-		primes = getPrimesEratosthenes((int)(Math.ceil(Math.sqrt(N))));
+		N = readLong() - 1;
 		
-		long res = 0;
-		for (long i = (N + 2) / 2; i <= N; i++) {
-			if (isPrimePower(i)) {
-				res = i;
-				break;
-			}
+		A = new Matrix();
+		T = new Matrix();
+		
+		for (int i = 1; i < 10; i++) {
+			A.data[i][0] = 1;
 		}
-
-		out.println(res);
+		
+		for (int j = 0; j < MOD; j++) 
+			for (int k = 1; k < 10; k++)
+				if (j * 10 % k == 0)
+					T.data[(j * 10 + k) % MOD][j] = (T.data[(j * 10 + k) % MOD][j] + 1) % M;
+		
+		for (; N > 0; N /= 2) {
+			if ((N & 1) > 0)
+				A = T.multiply(A);
+			T = T.multiply(T);
+		}
+		
+		long ans = 0;
+		for (int i = 0; i < MOD; i++)
+			ans = (ans + A.data[i][0]) % M;
+		
+		out.println((ans + M) % M);
 		out.close();
 	}
 
-	static ArrayList<Integer> getPrimesEratosthenes (int N) {
-		boolean[] prime = new boolean[N + 1];
-		ArrayList<Integer> ret = new ArrayList<Integer>();
 
-		Arrays.fill(prime, true);
-
-		for (int i = 2; i * i <= N; i++)
-			if (prime[i])
-				for (int j = i * i; j <= N; j += i)
-					prime[j] = false;
-
-		for (int i = 2; i <= N; i++)
-			if (prime[i])
-				ret.add(i);
-
-		return ret;
+	static class Matrix {
+		long[][] data = new long[MOD][MOD];
+		
+		Matrix multiply (Matrix m) {
+			Matrix ret = new Matrix();
+			for (int i = 0; i < MOD; i++)
+				for (int k = 0; k < MOD; k++)
+					for (int j = 0; j < MOD; j++)
+						ret.data[i][j] = (ret.data[i][j] + data[i][k] * m.data[k][j] % M) % M;
+			return ret;
+		}
 	}
 	
-	static boolean isPrimePower (long n) {
-		boolean hasOtherFactor = false;
-		for (int prime : primes) {
-			if (n % prime == 0) {
-				if (hasOtherFactor)
-					return false;
-				while (n % prime == 0) {
-					n /= prime;
-				}
-				hasOtherFactor = true;
-			}
-		}
-		if (n != 1)
-			return !hasOtherFactor;
-		return true;
-	}
-
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

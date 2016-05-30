@@ -3,69 +3,43 @@ package contest.hackerearth;
 import java.util.*;
 import java.io.*;
 
-public class Clash_May_2016_P1 {
+public class Clash_May_2016_P3 {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static long N;
-	static ArrayList<Integer> primes;
+	static int W, H;
+	static boolean[][] taken;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		N = readLong();
-
-		primes = getPrimesEratosthenes((int)(Math.ceil(Math.sqrt(N))));
+		W = readInt();
+		H = readInt();
+		taken = new boolean[W + 1][H + 1];
 		
-		long res = 0;
-		for (long i = (N + 2) / 2; i <= N; i++) {
-			if (isPrimePower(i)) {
-				res = i;
-				break;
-			}
+		if ((W == 1) ^ (H == 1))
+			out.println("NO");
+		else {
+			out.println("YES");
+			out.printf("%d %d\n", W, 1);
+			taken[W][1] = true;
+			out.printf("%d %d\n", 1, H);
+			taken[1][H] = true;
+			out.printf("%d %d\n", 1, 1);
+			taken[1][1] = true;
+			
+			for (int i = 1; i <= W; i++)
+				for (int j = 1; j <= H; j++)
+					if (!taken[i][j])
+						out.printf("%d %d\n", i, j);
 		}
-
-		out.println(res);
+		
 		out.close();
-	}
-
-	static ArrayList<Integer> getPrimesEratosthenes (int N) {
-		boolean[] prime = new boolean[N + 1];
-		ArrayList<Integer> ret = new ArrayList<Integer>();
-
-		Arrays.fill(prime, true);
-
-		for (int i = 2; i * i <= N; i++)
-			if (prime[i])
-				for (int j = i * i; j <= N; j += i)
-					prime[j] = false;
-
-		for (int i = 2; i <= N; i++)
-			if (prime[i])
-				ret.add(i);
-
-		return ret;
-	}
-	
-	static boolean isPrimePower (long n) {
-		boolean hasOtherFactor = false;
-		for (int prime : primes) {
-			if (n % prime == 0) {
-				if (hasOtherFactor)
-					return false;
-				while (n % prime == 0) {
-					n /= prime;
-				}
-				hasOtherFactor = true;
-			}
-		}
-		if (n != 1)
-			return !hasOtherFactor;
-		return true;
 	}
 
 	static String next () throws IOException {

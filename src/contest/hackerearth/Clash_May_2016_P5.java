@@ -3,69 +3,51 @@ package contest.hackerearth;
 import java.util.*;
 import java.io.*;
 
-public class Clash_May_2016_P1 {
+public class Clash_May_2016_P5 {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static long N;
-	static ArrayList<Integer> primes;
+	static int N;
+	static int[] val;
+	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		N = readLong();
-
-		primes = getPrimesEratosthenes((int)(Math.ceil(Math.sqrt(N))));
+		N = readInt();
 		
-		long res = 0;
-		for (long i = (N + 2) / 2; i <= N; i++) {
-			if (isPrimePower(i)) {
-				res = i;
-				break;
-			}
+		val = new int[N];
+		
+		for (int i = 0; i < N; i++)
+			val[i] = next().length() - next().length();
+		
+		int zeroIndex = -1;
+		int positiveIndex = -1;
+		int negativeIndex = -1;
+		for (int i = 0; i < N; i++) {
+			if (val[i] == 0)
+				zeroIndex = i;
+			else if (val[i] > 0)
+				positiveIndex = i;
+			else
+				negativeIndex = i;
 		}
-
-		out.println(res);
+		if (zeroIndex != -1) {
+			out.printf("YES\n%d\n%d\n", 1, zeroIndex + 1);
+		} else if (positiveIndex == -1 || negativeIndex == -1) {
+			out.printf("NO\n");
+		} else {
+			out.printf("YES\n%d\n", Math.abs(val[negativeIndex]) + Math.abs(val[positiveIndex]));
+			for (int i = 0; i < Math.abs(val[negativeIndex]); i++)
+				out.printf("%d ", positiveIndex + 1);
+			for (int i = 0; i < Math.abs(val[positiveIndex]); i++)
+				out.printf("%d ", negativeIndex + 1);
+		}
 		out.close();
-	}
-
-	static ArrayList<Integer> getPrimesEratosthenes (int N) {
-		boolean[] prime = new boolean[N + 1];
-		ArrayList<Integer> ret = new ArrayList<Integer>();
-
-		Arrays.fill(prime, true);
-
-		for (int i = 2; i * i <= N; i++)
-			if (prime[i])
-				for (int j = i * i; j <= N; j += i)
-					prime[j] = false;
-
-		for (int i = 2; i <= N; i++)
-			if (prime[i])
-				ret.add(i);
-
-		return ret;
-	}
-	
-	static boolean isPrimePower (long n) {
-		boolean hasOtherFactor = false;
-		for (int prime : primes) {
-			if (n % prime == 0) {
-				if (hasOtherFactor)
-					return false;
-				while (n % prime == 0) {
-					n /= prime;
-				}
-				hasOtherFactor = true;
-			}
-		}
-		if (n != 1)
-			return !hasOtherFactor;
-		return true;
 	}
 
 	static String next () throws IOException {
