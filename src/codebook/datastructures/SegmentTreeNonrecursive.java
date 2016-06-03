@@ -47,7 +47,8 @@ public class SegmentTreeNonrecursive {
 		for (; i > 1; i >>= 1)
 			tree[i >> 1] = tree[i] + tree[i^1];
 	}
-	 */
+	*/
+	
 	public void update (int lo, int hi, int val) {
 		// directly modifying the segments
 		// note that a left child will have an even index while a right child will have an odd index

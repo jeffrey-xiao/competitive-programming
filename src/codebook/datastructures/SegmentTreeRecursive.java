@@ -12,7 +12,7 @@ package codebook.datastructures;
 
 public class SegmentTreeRecursive {
 
-	// size of the inut
+	// size of the input
 	private int size;
 	// represents the nodes of the tree
 	private int[] seg;
