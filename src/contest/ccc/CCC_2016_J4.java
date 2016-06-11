@@ -19,9 +19,9 @@ public class CCC_2016_J4 {
 		int min = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
 		int travelTime = 240;
 		for (int i = 0; i < (travelTime + 1) / 2; i++, min++) {
-			if (7 * 60 < min && min <= 10 * 60) {
+			if (7 * 60 <= min && min < 10 * 60) {
 				travelTime++;
-			} else if (15 * 60 < min && min <= 19 * 60) {
+			} else if (15 * 60 <= min && min < 19 * 60) {
 				travelTime++;
 			}
 		}
