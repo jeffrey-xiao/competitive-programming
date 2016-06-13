@@ -11,7 +11,7 @@ public class Blackrock_D {
 
 	static int N;
 	static ArrayList<ArrayList<Integer>> adj;
-	static long[] val;
+	static int[] val;
 	static long[][] dp;
 
 	public static void main (String[] args) throws IOException {
@@ -22,22 +22,16 @@ public class Blackrock_D {
 
 		N = readInt();
 
-		val = new long[1000000];
-		dp = new long[1000000][2];
-		adj = new ArrayList<ArrayList<Integer>>(1000000);
+		val = new int[N];
+		dp = new long[N][2];
+		adj = new ArrayList<ArrayList<Integer>>(N);
 
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		int curr = -1;
 		int cnt = 0;
 
-		String input = br.readLine().trim();
-		
-		st = new StringTokenizer(input);
-		
-		N = 0;
-		
-		for (int i = 0; st.hasMoreTokens(); ) {
-			String c = st.nextToken();
+		for (int i = 0; i < N; ) {
+			String c = next();
 			if (!c.equals("#")) {
 				adj.add(new ArrayList<Integer>());
 				q.offer(i);
@@ -45,11 +39,12 @@ public class Blackrock_D {
 				if (curr != -1) {
 					adj.get(curr).add(i);
 				} else {
-					curr = q.poll();
+					curr = i;
 					cnt = -1;
+					q.poll();
 				}
 				cnt++;
-				val[i] = Long.parseLong(c);
+				val[i] = Integer.parseInt(c);
 				i++;
 			} else {
 				cnt++;
@@ -59,17 +54,10 @@ public class Blackrock_D {
 				curr = q.poll();
 				cnt = 0;
 			}
-			N = i;
 		}
-		
-//		for (int i = 0; i < N; i++) {
-//			out.printf("ON %d %d\n", i, val[i]);
-//			for (int j : adj.get(i)) {
-//				out.printf("connected to (%d, %d)\n", j, val[j]);
-//			}
-//		}
 
 		solve(0);
+		
 		out.println(Math.max(dp[0][0], dp[0][1]));
 		out.close();
 	}
@@ -82,8 +70,8 @@ public class Blackrock_D {
 		long noTake = 0;
 
 		for (int v : adj.get(u)) {
-			take = take + dp[v][0];
-			noTake = noTake + Math.max(dp[v][0], dp[v][1]);
+			take += dp[v][0];
+			noTake += Math.max(dp[v][0], dp[v][1]);
 		}
 
 		dp[u][0] = noTake;
@@ -116,4 +104,3 @@ public class Blackrock_D {
 		return br.readLine().trim();
 	}
 }
-
