@@ -1,5 +1,5 @@
 /*
- * Bitset dynamic programming solution that finds the shortest hamiliton cycle.
+ * Bitmask dynamic programming solution that finds the shortest Hamiltonian cycle.
  *
  * Time complexity: O((2^N) * (N^2)) where N is the number of vertexes
  */
