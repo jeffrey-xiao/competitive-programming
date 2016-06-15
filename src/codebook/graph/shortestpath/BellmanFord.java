@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class BellmanFord {
@@ -21,7 +20,7 @@ public class BellmanFord {
 	static StringTokenizer st;
 
 	static int n, m, orig, dest;
-	static ArrayList<Edge> e;
+	static Edge[] e;
 	static int[] dist;
 
 	public static void main (String[] args) throws IOException {
@@ -36,7 +35,7 @@ public class BellmanFord {
 		dest = readInt() - 1;
 
 		dist = new int[n];
-		e = new ArrayList<Edge>();
+		e = new Edge[m];
 
 		for (int i = 0; i < n; i++)
 			dist[i] = 1 << 29;
@@ -45,7 +44,7 @@ public class BellmanFord {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			int c = readInt();
-			e.add(new Edge(a, b, c));
+			e[i] = new Edge(a, b, c);
 		}
 
 		dist[orig] = 0;
