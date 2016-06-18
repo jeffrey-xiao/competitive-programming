@@ -3,7 +3,7 @@ package contest.ccc;
 import java.util.*;
 import java.io.*;
 
-public class CCC_Stage_2016_Splitting_Hares {
+public class CCC_2016_Stage_2_Splitting_Hares {
 
 	static BufferedReader br;
 	static PrintWriter out;
