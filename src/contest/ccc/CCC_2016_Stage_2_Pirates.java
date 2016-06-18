@@ -33,8 +33,7 @@ public class CCC_2016_Stage_2_Pirates {
 		
 		Node treap = null;
 		treap = insert(treap, K, 1);
-//		traverse(treap);
-//		out.println();
+
 		long inc = 0;
 		for (int i = 1; i < N; i++) {
 			int needToSatisfy = V[i] - 1;
@@ -45,35 +44,22 @@ public class CCC_2016_Stage_2_Pirates {
 				treap = insert(treap, 0 - inc, i);
 			} else {
 				long haveToPay = needToSatisfy * inc + querySmallest(treap, needToSatisfy) + needToSatisfy;
-//				out.printf("acc cost %d, base %d, inc %d\n", needToSatisfy * inc, querySmallest(treap, needToSatisfy), needToSatisfy);
-//				out.println("HAVE TO PAY " + haveToPay);
 				if (haveToPay > K) {
 					out.println(-1);
 					treap = insert(treap, -1 - inc, 1);
 				} else {
 					treap = removeLargest(treap, needToSatisfy);
-//					out.println("REMVING LARGEST");
-//					traverse(treap);
-//					out.println();
 					inc++;
-//					out.printf("need to satisfy %d and i %d\n", needToSatisfy, i);
 					if (needToSatisfy != i) {
-//						out.printf("INSERTING %d with size %d\n", 0 - inc, i - needToSatisfy);
 						treap = insert(treap, 0 - inc, i - needToSatisfy);
 					}
 					treap = insert(treap, K - haveToPay - inc, 1);
 					out.println(K - haveToPay);
 				}
 			}
-//			traverse(treap);
-//			out.println();
-//			out.println("INC " + inc);
 		}
-		out.println();
 		out.close();
 	}
-
-
 
 	static void bf () {
 		dp = new long[N][N];
@@ -118,15 +104,11 @@ public class CCC_2016_Stage_2_Pirates {
 
 	static void traverse (Node n) {
 		if (n == null) {
-			//ut.println(" UP ");
 			return;
 		}
-		//out.println(" LEFT ");
 		traverse(n.left);
 		out.printf("(%d, %d %d) ", n.val, n.size, n.totalSize);
-		//out.println(" RIGHT ");
 		traverse(n.right);
-		//out.println(" UP ");
 	}
 
 	static Node removeLargest (Node n, int amt) {
