@@ -1,226 +1,108 @@
-/*
- * 2-SAT problem solved using Tarjan's SCC algorithm.
- * 
- * Reference problem: CCC 2001 Stage 2 Coke or Chocolate Milk
- * 
- * Time Complexity: O(N + M) where N is the number of vertices and M is the number of edges
- * 
- */
-
 package codebook.algorithms;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Stack;
-import java.util.StringTokenizer;
-import java.util.TreeMap;
+import java.util.*;
+import java.io.*;
+
+/*
+ * Given 2SAT clauses
+ * 
+ * Determine if the clauses are satisfiable (- means negation)
+ * Returns:
+ *  1 - the clauses are satisfiable
+ *  2 - the clauses are unsatisfiable
+ */
 
 public class TwoSat {
 
 	static BufferedReader br;
-	static PrintWriter pr;
+	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int n;
-	static TreeMap<String, Integer> toIndex = new TreeMap<String, Integer>();
-	static HashMap<Integer, String> toName = new HashMap<Integer, String>();
-	static ArrayList<HashSet<Integer>> adj = new ArrayList<HashSet<Integer>>();
-	static int[] v;
-	static int[] disc;
-	static int[] low;
-	static int[] com;
-	static int[] negcom;
-	static int[] idCom;
-	static int[] in;
-	static int[] sizeCom;
+	// number of clauses
+	static int N;
+
+	// adjacency list
+	static ArrayList<ArrayList<Integer>> adj;
+
+	// variables for Tarjan's SCC
+	static int[] disc, lo, id;
 	static Stack<Integer> s = new Stack<Integer>();
-	static int cnt = 0, comNum = 0;
+	static int cnt, idCnt = 1;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
-		pr = new PrintWriter(new OutputStreamWriter(System.out));
-		// br = new BufferedReader(new FileReader("in.txt"));
-		// pr = new PrintWriter(new FileWriter("out.txt"));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
 
-		toIndex.clear();
-		toName.clear();
-		adj.clear();
-		v = new int[2000];
-		disc = new int[2000];
-		low = new int[2000];
-		com = new int[2000];
-		negcom = new int[2000];
-		idCom = new int[2000];
-		in = new int[2000];
-		sizeCom = new int[2000];
-		s.clear();
-		cnt = 0;
-		comNum = 0;
-		n = 0;
-		int Q = -1;
-		main : while ((Q = readInt()) != 0) {
-			for (int i = 0; i < 2000; i++) {
-				adj.add(new HashSet<Integer>());
-				disc[i] = low[i] = com[i] = -1;
-			}
-			// p U q == -p -> q and -q -> p
-			// x * 2 + 1 = complement
+		N = readInt();
 
-			for (int i = 0; i < Q; i++) {
-				String[] in = readLine().split(" ");
-				if (in.length == 3) {
-					addName(in[0]);
-					if (in[1].equals("wants"))
-						v[toIndex.get(in[0])] = 1;
-					else
-						v[toIndex.get(in[0])] = -1;
-				} else if (in.length == 4) {
-					addName(in[0]);
-					if (in[1].equals("wants"))
-						v[toIndex.get(in[0])] = -1;
-					else
-						v[toIndex.get(in[0])] = 1;
-				} else if (in.length == 5) {
-					addName(in[0]);
-					addName(in[4]);
-					int p = toIndex.get(in[0]);
-					int q = toIndex.get(in[4]);
-					if (in[2].equals("same")) {
-						adj.get(p * 2).add(q * 2);
-						adj.get(q * 2).add(p * 2);
-						adj.get(p * 2 + 1).add(q * 2 + 1);
-						adj.get(q * 2 + 1).add(p * 2 + 1);
-					} else {
-						adj.get(p * 2 + 1).add(q * 2);
-						adj.get(q * 2).add(p * 2 + 1);
-						adj.get(p * 2).add(q * 2 + 1);
-						adj.get(q * 2 + 1).add(p * 2);
-					}
-				} else {
-					addName(in[0]);
-					int p = toIndex.get(in[0]);
-					if (in[2].equals("Coke") && in[6].equals("Coke")) {
-						addName(in[4]);
-						int q = toIndex.get(in[4]);
-						adj.get(p * 2 + 1).add(q * 2 + 1);
-						adj.get(q * 2).add(p * 2);
-					} else if (in[2].equals("Coke") && in[6].equals("chocolate")) {
-						addName(in[4]);
-						int q = toIndex.get(in[4]);
-						adj.get(p * 2 + 1).add(q * 2);
-						adj.get(q * 2 + 1).add(p * 2);
-					} else if (in[2].equals("chocolate") && in[7].equals("chocolate")) {
-						addName(in[5]);
-						int q = toIndex.get(in[5]);
-						adj.get(p * 2).add(q * 2);
-						adj.get(q * 2 + 1).add(p * 2 + 1);
-					} else if (in[2].equals("chocolate") && in[7].equals("Coke")) {
-						addName(in[5]);
-						int q = toIndex.get(in[5]);
-						adj.get(p * 2).add(q * 2 + 1);
-						adj.get(q * 2).add(p * 2 + 1);
-					}
-				}
-			}
-			n = toIndex.size();
-			// generate all the connected components
-			for (int i = 0; i < 2 * n; i++)
-				if (disc[i] == -1)
-					dfs(i);
-			// checking if assignment is valid
-			boolean valid = true;
-			for (int i = 0; i < 2 * n; i += 2) {
-				if (com[i] == com[i + 1]) {
-					valid = false;
-				} else {
-					negcom[com[i]] = com[i + 1];
-					negcom[com[i + 1]] = com[i];
-				}
-			}
-			if (!valid) {
-				System.out.println("Everybody gets water");
-				continue;
-			}
-			// assigning values
-			for (int i = 0; i < n; i++) {
-				if (v[i] != 0) {
-					if (idCom[com[i * 2]] == -v[i] || idCom[com[i * 2 + 1]] == v[i]) {
-						System.out.println("Everybody gets water");
-						continue main;
-					}
-					idCom[com[i * 2]] = v[i];
-					idCom[com[i * 2 + 1]] = -v[i];
-				}
-			}
-			for (int i = 0; i < comNum; i++) {
-				if (idCom[i] == 0) {
-					if (sizeCom[i] > sizeCom[negcom[i]]) {
-						idCom[i] = 1;
-						idCom[negcom[i]] = -1;
-					} else if (sizeCom[i] < sizeCom[negcom[i]]) {
-						idCom[i] = -1;
-						idCom[negcom[i]] = 1;
-					} else {
+		disc = new int[N << 1];
+		lo = new int[N << 1];
+		id = new int[N << 1];
+		adj = new ArrayList<ArrayList<Integer>>(N << 1);
 
-					}
-				}
-			}
-			for (Map.Entry<String, Integer> e : toIndex.entrySet()) {
-				if (idCom[com[e.getValue() * 2]] == 0) {
-					idCom[com[e.getValue() * 2]] = 1;
-					idCom[negcom[com[e.getValue() * 2]]] = -1;
-				}
-				System.out.println(e.getKey() + " gets " + (idCom[com[e.getValue() * 2]] == 1 ? "Coke" : "chocolate milk"));
+		for (int i = 0; i < 2 * N; i++)
+			adj.add(new ArrayList<Integer>());
+
+		for (int i = 0; i < N; i++) {
+			int a = toNode(readInt());
+			int b = toNode(readInt());
+
+			adj.get(a ^ 1).add(b);
+			adj.get(b ^ 1).add(a);
+		}
+
+		for (int i = 0; i < 2 * N; i++)
+			if (disc[i] == 0)
+				dfs(i);
+
+		for (int i = 0; i < N; i++) {
+			if (id[i << 1] == id[i << 1 | 1]) {
+				out.println(0);
+				out.close();
+				return;
 			}
 		}
-		pr.close();
+		out.println(1);
+		out.close();
 	}
 
 	static void dfs (int u) {
-		disc[u] = low[u] = cnt++;
+		disc[u] = lo[u] = ++cnt;
 		s.push(u);
-		for (Integer v : adj.get(u)) {
-			if (disc[v] == -1) {
+
+		for (int v : adj.get(u)) {
+			if (disc[v] == 0) {
 				dfs(v);
-				low[u] = Math.min(low[u], low[v]);
-			} else if (com[v] == -1) {
-				low[u] = Math.min(low[u], disc[v]);
+				lo[u] = Math.min(lo[u], lo[v]);
+			} else if (id[v] == 0) {
+				lo[u] = Math.min(lo[u], disc[v]);
 			}
 		}
-		if (disc[u] == low[u]) {
+
+		if (disc[u] == lo[u]) {
 			while (s.peek() != u) {
-				com[s.pop()] = comNum;
-				sizeCom[comNum]++;
+				id[s.peek()] = idCnt;
+				s.pop();
 			}
-			sizeCom[comNum]++;
-			com[s.pop()] = comNum++;
+			id[s.peek()] = idCnt;
+			idCnt++;
+			s.pop();
 		}
 	}
 
-	// adds name if didn't yet
-	static void addName (String name) {
-		if (!toIndex.containsKey(name)) {
-			toIndex.put(name, n);
-			toName.put(n, name);
-			n++;
-		}
+	static int toNode (int val) {
+		return val < 0 ? (- val - 1) * 2 + 1 : (val - 1) * 2;
+	}
+
+	static String readLine () throws IOException {
+		return br.readLine().trim();
 	}
 
 	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
+		while (st == null || !st.hasMoreTokens()) {
+			st = new StringTokenizer(readLine());
+		}
 		return st.nextToken();
-	}
-
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
 	}
 
 	static int readInt () throws IOException {
@@ -233,9 +115,5 @@ public class TwoSat {
 
 	static char readCharacter () throws IOException {
 		return next().charAt(0);
-	}
-
-	static String readLine () throws IOException {
-		return br.readLine().trim();
 	}
 }
