@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class IOI_2015_Holiday {
+public class IOI_2014_Holiday {
 
 	static BufferedReader br;
 	static PrintWriter out;
