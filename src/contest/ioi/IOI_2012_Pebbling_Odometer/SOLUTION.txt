@@ -1,0 +1,264 @@
+[SUBTASK 1]
+right
+
+CHECK:
+pebble FOUND
+
+halt
+
+ADVANCE:
+move
+right
+right
+jump CHECK
+
+FOUND:
+get
+jump ADVANCE
+[SUBTASK 2]
+pebble MAIN_1
+halt
+
+MAIN_1:
+right
+move
+pebble MAIN_2
+halt
+
+MAIN_2:
+left
+left
+move
+
+jump REMOVE_LEFT
+
+REMOVE_LEFT:
+left
+get
+move
+put
+right
+right
+move
+right
+move
+pebble REMOVE_RIGHT
+right
+right
+move
+put
+left
+move
+get
+pebble PUT_LEFT
+right
+right
+move
+halt
+
+REMOVE_RIGHT:
+right
+get
+move
+put
+right
+right
+move
+left
+move
+pebble REMOVE_LEFT
+right
+right
+move
+right
+move
+pebble PUT_RIGHT
+right
+right
+move
+halt
+
+PUT_LEFT:
+get
+right
+right
+move
+put
+right
+move
+right
+move
+pebble PUT_RIGHT
+right
+right
+move
+left
+move
+halt
+
+PUT_RIGHT:
+get
+right
+right
+move
+put
+left
+move
+left
+move
+pebble PUT_LEFT
+right
+right
+move
+right
+move
+halt
+[SUBTASK 3]
+right
+pebble FIND_MID
+
+FIND:
+move
+FIND_MID:
+pebble MOVING
+jump FIND
+
+MOVING:
+get
+move
+pebble TERMINATE
+put
+jump FIND_TWO
+
+FIND_TWO:
+move
+pebble TURN_AROUND
+jump FIND_TWO
+
+TURN_AROUND:
+right
+right
+jump MOVING
+
+TERMINATE:
+halt
+[SUBTASK 4]
+right
+move
+
+CHECK_RIGHT:
+pebble PUSH_LEFT
+move
+pebble PUSH_LEFT
+move
+pebble PUSH_LEFT
+move
+pebble PUSH_LEFT
+move
+border FINISH_LEFT
+jump CHECK_RIGHT
+
+BEFORE_PUSH_LEFT:
+left
+left
+PUSH_LEFT:
+get
+left
+left
+MOVE_LEFT:
+move
+move
+move
+move
+border DROP_PEBBLE
+jump MOVE_LEFT
+
+DROP_PEBBLE:
+put
+right
+right
+move
+jump CHECK_RIGHT
+
+FINISH_LEFT:
+right
+border BEFORE_MOVE_LEFT_3
+move
+right
+MOVE_LEFT_2:
+pebble BEFORE_PUSH_LEFT
+move
+pebble BEFORE_PUSH_LEFT
+move
+pebble BEFORE_PUSH_LEFT
+move
+pebble BEFORE_PUSH_LEFT
+move
+border MOVE_BOTTOM
+jump MOVE_LEFT_2
+
+BEFORE_MOVE_LEFT_3:
+right
+MOVE_LEFT_3:
+move
+move
+move
+move
+border MOVE_BOTTOM
+jump MOVE_LEFT_3
+
+MOVE_BOTTOM:
+left
+border PUSH_TOP
+move
+left
+move
+jump CHECK_RIGHT
+
+PUSH_TOP:
+right
+right
+
+MOVE_TOP:
+move
+move
+move
+move
+border FIND_BOTTOM
+jump MOVE_TOP
+
+FIND_BOTTOM:
+right
+right
+MOVE_BOTTOM_2:
+move
+pebble PUSH_TOP_START
+move
+pebble PUSH_TOP_START
+move
+pebble PUSH_TOP_START
+move
+pebble PUSH_TOP_START
+border TERMINATE
+jump MOVE_BOTTOM_2
+
+PUSH_TOP_START:
+get
+right
+right
+PUSH_TOP_2:
+move
+move
+move
+move
+border END_PUSH_TOP
+jump PUSH_TOP_2
+
+END_PUSH_TOP:
+put
+jump FIND_BOTTOM
+
+TERMINATE:
+halt
+
+[SUBTASK 5]
