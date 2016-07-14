@@ -11,19 +11,21 @@ public class Test {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static private final String INPUT_FILTER = "C:/Users/Jeffrey/Desktop/filter10.jpg";
-	static private final String OUTPUT_TEXT = "C:/Users/Jeffrey/Desktop/filter10.txt";
-	static private final String OUTPUT_FILTER = "C:/Users/Jeffrey/Desktop/filter11.jpg";
+	static private final String INPUT_FILTER = "C:/Users/Jeffrey/Desktop/filter1.jpg";
+	static private final String OUTPUT_TEXT = "C:/Users/Jeffrey/Desktop/filter2.txt";
+	static private final String OUTPUT_FILTER = "C:/Users/Jeffrey/Desktop/filter2.jpg";
+	static int WIDTH;
+	static int HEIGHT;
 	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader(OUTPUT_TEXT));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		BufferedImage image = ImageIO.read(new File(INPUT_FILTER));
-		int WIDTH = image.getWidth();
-		int HEIGHT = image.getHeight();
+		WIDTH = image.getWidth();
+		HEIGHT = image.getHeight();
 		BufferedImage res = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
 		int min = 255;
