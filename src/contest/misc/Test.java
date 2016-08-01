@@ -22,7 +22,7 @@ public class Test {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader(OUTPUT_TEXT));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
+		
 		BufferedImage image = ImageIO.read(new File(INPUT_FILTER));
 		WIDTH = image.getWidth();
 		HEIGHT = image.getHeight();
