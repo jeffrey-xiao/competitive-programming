@@ -64,12 +64,22 @@ int hasEdge (int u, int v) {
     }
     c[rootu][rootv]--;
     c[rootv][rootu]--;
-    if (countU == 1 || countV == 1) {
+    if (countU == 1 || countV == 1 || (size[rootu] == 1 && size[rootv] == 1)) {
         merge(u, v);
         return 1;
     }
 
     return 0;
+}
+
+int main () {
+    initialize(4);
+    printf("%d\n", hasEdge(0, 1));
+    printf("%d\n", hasEdge(0, 2));
+    printf("%d\n", hasEdge(3, 1));
+    printf("%d\n", hasEdge(3, 2));
+    printf("%d\n", hasEdge(3, 0));
+    printf("%d\n", hasEdge(1, 2));
 }
 
 
