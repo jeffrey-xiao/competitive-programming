@@ -10,131 +10,164 @@ public class CCC_2016_Stage_2_Splitting_Hares {
 	static StringTokenizer st;
 
 	static int N;
-	static Point[] p, sorted;
-	
+	static int[] x, y, w;
+	static final double EPS = 1e-8;
+	static final Comparator<Integer> pointComparator = new Comparator<Integer> () {
+		@Override
+		// small positive < big positive < big negative < small negative
+		public int compare (Integer i, Integer j) {
+//			Double angle1 = Math.atan2(y[i], x[i]);
+//			Double angle2 = Math.atan2(y[j], x[j]);
+//			return angle1.compareTo(angle2);
+			
+			Double slope1 = 0.0;
+			Double slope2 = 0.0;
+			
+			if (x[i] != 0)
+				slope1 = (double)(y[i]) / x[i];
+			if (x[j] != 0)
+				slope2 = (double)(y[j]) / x[j];
+
+			if (slope1 * slope2 > 0)
+				return slope1.compareTo(slope2);
+			
+			if (slope1 < 0)
+				return 1;
+			if (slope1 > 0)
+				return -1;
+			
+			if (slope2 < 0)
+				return -1;
+			if (slope2 > 0)
+				return 1;
+			return 0;
+		}
+	};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
-		p = new Point[N];
-		sorted = new Point[N];
-		
+
+		x = new int[N];
+		y = new int[N];
+		w = new int[N];
+
 		for (int i = 0; i < N; i++) {
-			int x = readInt(), y = readInt(), w = readInt();
-			p[i] = new Point(x, y, w, i);
-			sorted[i] = new Point(x, y, w, i);
+			x[i] = readInt();
+			y[i] = readInt();
+			w[i] = readInt();
 		}
-		
+
 		int ans = 0;
-		
 		for (int i = 0; i < N; i++) {
-			final Point curr = p[i];
-			
-			Arrays.sort(sorted, new Comparator<Point> () {
-				@Override
-				public int compare (Point p1, Point p2) {
-					Double a1 = Math.atan2(p1.y - curr.y, p1.x - curr.x);
-					Double a2 = Math.atan2(p2.y - curr.y, p2.x - curr.x);
-					return a1.compareTo(a2);
-				}
-			});
-			
-			Deque<Integer> plane1 = new ArrayDeque<Integer>();
-			Deque<Integer> plane2 = new ArrayDeque<Integer>();
-			
-			int sum1 = 0;
-			int sum2 = 0;
-			
-			boolean init = false;
-//			out.println("SORTING " + curr);
+			int currX = x[i];
+			int currY = y[i];
+
 			for (int j = 0; j < N; j++) {
-				if (sorted[j].index == curr.index)
-					continue;
-				if (!init) {
-					init = true;
-					for (int k = 0; k < N; k++) {
-						if (sorted[(k + j) % N].index == curr.index || (k + j) % N == j)
-							continue;
-						
-						long ccw = ccw(curr, sorted[j], sorted[(k + j) % N]);
-						
-						if (ccw > 0) { // left turn
-							plane1.addLast((k + j) % N);
-							sum1 += sorted[(k + j) % N].w;
-						} else if (ccw < 0) { // right turn
-							plane2.addLast((k + j) % N);
-							sum2 += sorted[(k + j) % N].w;
-						}
-					}
-				} else {
-					int prev = j - 1;
-					if (sorted[prev].index == curr.index)
-						prev--;
-					
-					plane2.addLast(prev);
-					sum2 += sorted[prev].w;
-					
-					if (plane1.isEmpty()) {
-						int planeRemove = plane2.removeFirst();
-						plane1.addLast(planeRemove);
-						sum1 += sorted[planeRemove].w;
-						sum2 -= sorted[planeRemove].w;
-					}
-					
-					int remove = plane1.removeFirst();
-					sum1 -= sorted[remove].w;
-					
-					while (!plane2.isEmpty() && ccw(curr, sorted[remove], sorted[plane2.getFirst()]) > 0) {
-						int planeRemove = plane2.removeFirst();
-						plane1.addLast(planeRemove);
-						sum1 += sorted[planeRemove].w;
-						sum2 -= sorted[planeRemove].w;
-					}
-				}
-				
-				int val = Math.max(sum1, sum2) + Math.max(0, curr.w) + Math.max(0, sorted[j].w);
-				ans = Math.max(ans, val);
-				
-//				out.println("DONE SWEEP ITERATION " + sorted[j] + " " + val + " " + (sum1 + " " + sum2));
-//				for (int index : plane1)
-//					out.print(sorted[index] + " ");
-//				out.println();
-//				for (int index : plane2)
-//					out.print(sorted[index] + " ");
-//				out.println();
+				x[j] -= currX;
+				y[j] -= currY;
 			}
+
+			ArrayList<Integer> plane1 = new ArrayList<Integer>();
+			ArrayList<Integer> plane2 = new ArrayList<Integer>();
+
+			int w1 = 0, w2 = 0, prefix = 0, suffix = 0;
 			
+			/// don't include the current point in weight calculations until the end
+			for (int j = 0; j < N; j++) {
+				if (y[j] < 0) {
+					plane1.add(j);
+					w1 += w[j];
+				} else if (y[j] > 0) {
+					plane2.add(j);
+					w2 += w[j];
+				} else if (x[j] < 0) {
+					suffix += w[j];
+				} else if (x[j] > 0) {
+					prefix += w[j];
+				}
+			}
+
+			Collections.sort(plane1, pointComparator);
+			Collections.sort(plane2, pointComparator);
+			
+
+			ans = Math.max(ans, Math.max(w1 + prefix + suffix + w[i], w2 + prefix + suffix + w[i]));
+			
+			ans = Math.max(ans, Math.max(w1 + suffix + w[i], w2 + prefix + w[i]));
+			ans = Math.max(ans, Math.max(w1 + suffix, w2 + prefix + w[i]));
+			ans = Math.max(ans, Math.max(w1 + suffix + w[i], w2 + prefix));
+			
+			
+			ans = Math.max(ans, Math.max(w1 + prefix + w[i], w2 + suffix + w[i]));
+			ans = Math.max(ans, Math.max(w1 + prefix, w2 + suffix + w[i]));
+			ans = Math.max(ans, Math.max(w1 + prefix + w[i], w2 + suffix));
+			
+			ans = Math.max(ans, calc(plane1, plane2, w1, w2, prefix, suffix, i));
+			
+			for (int j = 0; j < N; j++) {
+				x[j] += currX;
+				y[j] += currY;
+			}
 		}
+
 		out.println(ans);
 		out.close();
 	}
-
-	static class Point {
-		long x, y;
-		int w, index;
-		Point (long x, long y, int w, int index) {
-			this.x = x;
-			this.y = y;
-			this.w = w;
-			this.index = index;
+	
+	static int calc (ArrayList<Integer> plane1, ArrayList<Integer> plane2, int w1, int w2, int prefix, int suffix, int i) {
+		int index1 = 0;
+		int index2 = 0;
+		int ret = 0;
+		
+		while (index2 < plane2.size()) {
+			int curr = plane2.get(index2);
+			w1 += prefix;
+			w2 += suffix;
+			prefix = 0;
+			suffix = 0;
+			
+			while (index2 < plane2.size() && pointComparator.compare(curr, plane2.get(index2)) == 0) {
+				prefix += w[plane2.get(index2)];
+				w2 -= w[plane2.get(index2)];
+				index2++;
+			}
+			while (index1 < plane1.size() && ccw(curr, i, plane1.get(index1)) < 0) {
+				w2 += w[plane1.get(index1)];
+				w1 -= w[plane1.get(index1)];
+				index1++;
+			}
+			
+			while (index1 < plane1.size() && pointComparator.compare(curr, plane1.get(index1)) == 0) {
+				suffix += w[plane1.get(index1)];
+				w1 -= w[plane1.get(index1)];
+				index1++;
+			}
+			
+			ret = Math.max(ret, Math.max(w1 + prefix + suffix + w[i], w2 + prefix + suffix + w[i]));
+			
+			ret = Math.max(ret, Math.max(w1 + suffix + w[i], w2 + prefix + w[i]));
+			ret = Math.max(ret, Math.max(w1 + suffix, w2 + prefix + w[i]));
+			ret = Math.max(ret, Math.max(w1 + suffix + w[i], w2 + prefix));
+			
+			ret = Math.max(ret, Math.max(w1 + prefix + w[i], w2 + suffix + w[i]));
+			ret = Math.max(ret, Math.max(w1 + prefix, w2 + suffix + w[i]));
+			ret = Math.max(ret, Math.max(w1 + prefix + w[i], w2 + suffix));
 		}
 		
-		@Override
-		public String toString () {
-			return String.format("(%d)", w);
-		}
+		return ret;
 	}
 	
 	static long cross (long x0, long y0, long x1, long y1) {
-		return x0 * y1 - x1 * y0;
+	    return x0 * y1 - x1 * y0;
 	}
-	
-	static long ccw (Point p1, Point p2, Point p3) {
-		return cross(p2.x - p1.x, p2.y - p1.y, p3.x - p1.x, p3.y - p1.y); 
+
+	static long ccw (int p1, int p2, int p3) {
+	    return cross(x[p2] - x[p1], y[p2] - y[p1], x[p3] - x[p1], y[p3] - y[p1]);
 	}
 	
 	static String next () throws IOException {
