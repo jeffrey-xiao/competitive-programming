@@ -11,7 +11,7 @@ public class IOI_2002_Bus_Terminals {
 
 	static int N, ans = 1 << 30, stackIndex;
 	static Point curr;
-	static Point[] points, sorted;;
+	static Point[] points, sorted;
 	static int[] hubA;
 	
 	public static void main (String[] args) throws IOException {
