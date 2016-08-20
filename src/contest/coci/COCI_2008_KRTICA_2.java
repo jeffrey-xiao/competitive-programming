@@ -3,7 +3,7 @@ package contest.coci;
 import java.util.*;
 import java.io.*;
 
-public class COCI_2008_KRTICA {
+public class COCI_2008_KRTICA_2 implements Runnable {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -43,6 +43,12 @@ public class COCI_2008_KRTICA {
 			adj.get(v).add(u);
 		}
 		
+		new Thread(null, new COCI_2008_KRTICA_2(), "Main", 1 << 25).start();
+	}
+
+
+	@Override
+	public void run () {
 		computeLongestPaths(0, -1);
 		solve(0, -1, - 1 << 30, - 1 << 30);
 			

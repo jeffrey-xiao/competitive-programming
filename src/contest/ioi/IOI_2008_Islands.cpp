@@ -115,7 +115,7 @@ int main () {
             dfs(i);
             ll currDist = 0;
             ll maxSubtree = 0;
-            for (int j = 0; j < currCycle.size(); j++) {
+            for (int j = 0; j < (int)currCycle.size(); j++) {
                 computeSizes(currCycle[j], -1);
                 pair<int, ll> s = getFarthest(currCycle[j], currCycle[j], -1, 0);
                 s = getFarthest(s.first, currCycle[j], -1, 0);
@@ -128,14 +128,14 @@ int main () {
                     }
             }
             ll maxDist = 0;
-            ll maxCurr = sz[currCycle[0]]+ nextDist[currCycle[0]];
-            for (int j = 1; j < currCycle.size(); j++) {
+            ll maxCurr = sz[currCycle[0]] + nextDist[currCycle[0]];
+            for (int j = 1; j < (int)currCycle.size(); j++) {
                 maxDist = max(maxDist, maxCurr + sz[currCycle[j]]);
                 maxCurr = nextDist[currCycle[j]] + max(maxCurr, sz[currCycle[j]]);
             }
             // backward dynamic programming
             maxCurr = currDist + sz[currCycle[0]] - nextDist[currCycle[0]];
-            for (int j = 1; j < currCycle.size(); j++) {
+            for (int j = 1; j < (int)currCycle.size(); j++) {
                 maxDist = max(maxDist, maxCurr + sz[currCycle[j]]);
                 maxCurr = max(maxCurr, currDist + sz[currCycle[j]]) - nextDist[currCycle[j]];
             }

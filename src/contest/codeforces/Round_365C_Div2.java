@@ -34,6 +34,7 @@ public class Round_365C_Div2 {
 			x[i] = readDouble();
 			y[i] = readDouble();
 			double pos = y[i] / slope;
+
 			if (pos > x[i])
 				intersect = true;
 			else
@@ -41,9 +42,9 @@ public class Round_365C_Div2 {
 		}
 
 		if (intersect) {
-			out.println(max * slope);
+			out.println(max / v + w / u);
 		} else {
-			out.println(0);
+			out.println(w / u);
 		}
 		out.close();
 	}
