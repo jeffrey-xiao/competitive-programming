@@ -1,0 +1,1 @@
+int HC(int N);
