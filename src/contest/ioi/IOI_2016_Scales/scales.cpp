@@ -32,6 +32,8 @@ struct State {
     int type;
     bool valid;
     vector<int> val;
+    State () {}
+
     State (int type, bool valid, vector<int> val) {
         this->type = type;
         this->valid = valid;
@@ -42,12 +44,17 @@ struct State {
 int target[] = {243, 81, 27, 9, 3, 1};
 vector<int> toOrder[720];
 
+map<pair<vector<int>, int>, State> memo;
+
 // determining the best question
-State compute (vector<int> valid, int iteration) {
+State compute (vector<int> validStates, int iteration) {
+    if (memo.count({validStates, iteration}))
+        return memo[{validStates, iteration}];
+
     State ret = State(-1, 0, vector<int>());
     ret.val = {0, 0, 0};
 
-    if (valid.size() == 1 || valid.size() == 0) {
+    if (validStates.size() == 1 || validStates.size() == 0) {
         ret.valid = 1;
         return ret;
     }
@@ -64,7 +71,7 @@ State compute (vector<int> valid, int iteration) {
                 vector<vector<int>> valids;
                 for (int k = 0; k < 3; k++) {
                     vector<int> nextValid;
-                    for (int permutationIndex : valid) {
+                    for (int permutationIndex : validStates) {
                         vector<int> permutation = getPermutation(permutationIndex);
                         vector<int> toIndex = toOrder[permutationIndex];
 
@@ -89,14 +96,14 @@ State compute (vector<int> valid, int iteration) {
                 }
 
                 bool valid = true;
-                for (int k = 0; k < valids.size(); k++) {
-                    if (valids[k].size() > target[iteration]) {
+                for (int k = 0; k < (int)valids.size(); k++) {
+                    if ((int)valids[k].size() > target[iteration]) {
                         valid = false;
                         break;
                     }
                 }
 
-                for (int k = 0; k < valids.size() && valid; k++) {
+                for (int k = 0; k < (int)valids.size() && valid; k++) {
                     if (!compute(valids[k], iteration + 1).valid) {
                         valid = false;
                         break;
@@ -107,7 +114,7 @@ State compute (vector<int> valid, int iteration) {
                     ret.type = j;
                     ret.val = val;
                     ret.valid = true;
-                    return ret;
+                    return memo[{validStates, iteration}] = ret;
                 }
             }
         } else if (val.size() == 4) {
@@ -117,7 +124,7 @@ State compute (vector<int> valid, int iteration) {
                     if (j == k)
                         continue;
                     vector<int> nextValid;
-                    for (int permutationIndex : valid) {
+                    for (int permutationIndex : validStates) {
                         vector<int> permutation = getPermutation(permutationIndex);
                         vector<int> toIndex = toOrder[permutationIndex];
 
@@ -140,14 +147,14 @@ State compute (vector<int> valid, int iteration) {
                     valids.push_back(nextValid);
                 }
                 bool valid = true;
-                for (int k = 0; k < valids.size(); k++) {
-                    if (valids[k].size() > target[iteration]) {
+                for (int k = 0; k < (int)valids.size(); k++) {
+                    if ((int)valids[k].size() > target[iteration]) {
                         valid = false;
                         break;
                     }
                 }
 
-                for (int k = 0; k < valids.size() && valid; k++) {
+                for (int k = 0; k < (int)valids.size() && valid; k++) {
                     if (!compute(valids[k], iteration + 1).valid) {
                         valid = false;
                         break;
@@ -159,13 +166,13 @@ State compute (vector<int> valid, int iteration) {
 
                     ret.val = {val[(j + 1) % 4], val[(j + 2) % 4], val[(j + 3) % 4], val[j % 4]};
                     ret.valid = true;
-                    return ret;
+                    return memo[{validStates, iteration}] = ret;
                 }
             }
         }
     }
 
-    return ret;
+    return memo[{validStates, iteration}] = ret;
 }
 
 void orderCoins() {
@@ -262,7 +269,7 @@ void orderCoins() {
         }
 
         validSolutions = nextSolutions;
-        printf("%d\n", validSolutions.size());
+//        printf("%d\n", validSolutions.size());
     }
 
     vector<int> ans = getPermutation(validSolutions[0]);
