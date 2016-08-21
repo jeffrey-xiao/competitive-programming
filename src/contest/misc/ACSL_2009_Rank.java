@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class ACSL_2009_Task_4_Rank {
+public class ACSL_2009_Rank {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
