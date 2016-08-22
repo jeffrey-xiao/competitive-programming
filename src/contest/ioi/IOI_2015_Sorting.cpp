@@ -17,42 +17,31 @@ typedef long long ll;
 typedef pair<int, int> pi;
 typedef pair<ll, ll> pll;
 
-int n, m;
-
-int val[SIZE], valIndex[SIZE], x[3*SIZE], y[3*SIZE];
+int val[SIZE], valIndex[SIZE];
 int sorted[SIZE];
 unordered_map<int, int> toIndex;
 
-int main () {
-	// freopen("in.txt", "r", stdin);
-	// freopen("out.txt", "w", stdout);
-
-    rint(n);
-
-    for (int i = 0; i < n; i++) {
-        rint(val[i]);
+int findSwapPairs (int N, int S[], int M, int X[], int Y[], int P[], int Q[]) {
+    for (int i = 0; i < N; i++) {
+        val[i] = S[i];
         sorted[i] = val[i];
         valIndex[i] = i;
         toIndex[val[i]] = i;
     }
 
-    sort(sorted, sorted + n);
+    sort(sorted, sorted + N);
 
-    rint(m);
-    for (int i = 0; i < m; i++)
-        rint(x[i]), rint(y[i]);
-
-    int lo = 0, hi = n-1;
+    int lo = 0, hi = N - 1;
     vector<int> s1, s2;
 
     while (lo <= hi) {
         int mid = (hi + lo) / 2;
 
         for (int i = mid - 1; i >= 0; i--)
-            swap(valIndex[x[i]], valIndex[y[i]]);
+            swap(valIndex[X[i]], valIndex[Y[i]]);
 
         int cnt = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < N; i++) {
             if (sorted[valIndex[i]] != val[i]) {
                 int j = toIndex[sorted[valIndex[i]]];
 
@@ -71,7 +60,7 @@ int main () {
             toIndex[val[s2[i]]] = s2[i];
         }
         for (int i = 0; i < mid; i++)
-            swap(valIndex[x[i]], valIndex[y[i]]);
+            swap(valIndex[X[i]], valIndex[Y[i]]);
         if (cnt <= mid)
             hi = mid - 1;
         else
@@ -85,9 +74,9 @@ int main () {
     vector<int> ans1, ans2;
 
     for (int i = lo - 1; i >= 0; i--)
-        swap(valIndex[x[i]], valIndex[y[i]]);
+        swap(valIndex[X[i]], valIndex[Y[i]]);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < N; i++) {
         if (sorted[valIndex[i]] != val[i]) {
             int j = toIndex[sorted[valIndex[i]]];
             s1.pb(i);
@@ -106,14 +95,14 @@ int main () {
         toIndex[val[s2[i]]] = s2[i];
     }
     for (int i = 0; i < lo; i++)
-        swap(valIndex[x[i]], valIndex[y[i]]);
+        swap(valIndex[X[i]], valIndex[Y[i]]);
 
     for (int i = 0; i < lo; i++) {
-        swap(val[x[i]], val[y[i]]);
-        toIndex[val[x[i]]] = x[i];
-        toIndex[val[y[i]]] = y[i];
+        swap(val[X[i]], val[Y[i]]);
+        toIndex[val[X[i]]] = X[i];
+        toIndex[val[Y[i]]] = Y[i];
 
-        if (i >= ans1.size())
+        if (i >= (int)ans1.size())
             continue;
 
         int si = toIndex[ans1[i]];
@@ -126,12 +115,42 @@ int main () {
         toIndex[val[si]] = si;
         toIndex[val[sj]] = sj;
     }
-    printf("%d\n", lo);
-    for (int i = 0; i < lo; i++) {
-        if (i < s1.size())
-            printf("%d %d\n", ans1[i], ans2[i]);
-        else
-            printf("0 0\n");
+
+    for (int i = 0; i < M; i++)
+        P[i] = Q[i] = 0;
+
+    for (int i = 0; i < min((int)s1.size(), lo); i++)
+        P[i] = ans1[i], Q[i] = ans2[i];
+
+    return lo;
+}
+
+int main () {
+	// freopen("in.txt", "r", stdin);
+	// freopen("out.txt", "w", stdout);
+
+    int N, M;
+    scanf("%d", &N);
+
+    int S[N];
+
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &S[i]);
     }
+
+    scanf("%d", &M);
+
+    int X[M], Y[M];
+
+    for (int i = 0; i < M; i++)
+        scanf("%d%d", &X[i], &Y[i]);
+
+    int P[M], Q[M];
+
+    int ans = findSwapPairs(N, S, M, X, Y, P, Q);
+
+    printf("%d\n", ans);
+    for (int i = 0; i < ans; i++)
+        printf("%d %d\n", P[i], Q[i]);
 	return 0;
 }

@@ -66,8 +66,8 @@ bool isMajority (int dist, int N, int A) {
     // finding candidate
     while (remaining.size() > 1) {
         vector<int> newRemaining;
-        for (int i = 0; i < remaining.size(); i += 2) {
-            if (i + 1 >= remaining.size()) {
+        for (int i = 0; i < (int)remaining.size(); i += 2) {
+            if (i + 1 >= (int)remaining.size()) {
                 eliminated.insert(remaining[i]);
                 continue;
             } else {
@@ -106,7 +106,6 @@ bool isMajority (int dist, int N, int A) {
 }
 
 int hubDistance (int N, int sub) {
-    total = 0;
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             dist[i][j] = -1;
