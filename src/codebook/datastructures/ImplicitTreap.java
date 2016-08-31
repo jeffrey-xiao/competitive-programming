@@ -121,6 +121,10 @@ class ImplicitTreap {
 		traverse(n.right);
 	}
 
+	public void clear () {
+		this.root = null;
+	}
+	
 	private void resetSize (Node n) {
 		if (n != null)
 			n.size = getSize(n.left) + getSize(n.right) + 1;
@@ -173,11 +177,30 @@ class ImplicitTreap {
 	}
 
 	public static void main (String[] args) {
-		ImplicitTreap t = new ImplicitTreap();
-		for (int i = 1; i <= 10; i++)
-			t.pushBack(i);
-		t.add(1, 100);
-		for (int i = 1; i <= 11; i++)
-			System.out.println(t.get(i));
+		java.util.ArrayList<Integer> list = new java.util.ArrayList<Integer>();
+		ImplicitTreap treap = new ImplicitTreap();
+		for (int i = 0; i < 100000; i++) {
+			int rnd = (int)(Math.random() * (i + 1));
+			int val = (int)(Math.random() * 10000000);
+			
+			list.add(rnd, val);
+			treap.add(rnd, val);
+		}
+		
+		for (int i = 0; i < 100000; i++) {
+			assert(list.get(i).equals(treap.get(i + 1)));
+		}
+		
+		treap.clear();
+		long start = System.currentTimeMillis();
+		
+		for (int i = 0; i < 1000000; i++) {
+			int rnd = (int)(Math.random() * (i + 1));
+			int val = (int)(Math.random() * 10000000);
+			
+			treap.add(rnd, val);
+		}
+		
+		System.out.println(System.currentTimeMillis() - start);
 	}
 }
