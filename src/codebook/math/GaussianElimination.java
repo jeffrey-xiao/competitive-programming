@@ -1,7 +1,6 @@
 package codebook.math;
 
 import java.util.*;
-import java.io.*;
 
 public class GaussianElimination {
 	
