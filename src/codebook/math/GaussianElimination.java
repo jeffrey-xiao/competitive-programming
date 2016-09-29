@@ -98,25 +98,22 @@ public class GaussianElimination {
 			177.2,
 			279.2,
 		};
+
+		System.out.println(Arrays.toString(solve(A, B)));
 		
 		A = new double[][] {
-			{2, 1, -1},
-			{-3, -1, 2},
-			{-2, 1, 2}
+			{3, 2, 2},
+			{0, 4, 1},
+			{1, 1, 3}
 		};
 		
 		B = new double[] {
-			8,
-			-11,
-			-3,
+			15,
+			6,
+			19,
 		};
 		
 		System.out.println(Arrays.toString(solve(A, B)));
-		System.out.println();
-		for (int j = 0; j < 3; j++)
-			System.out.println(Arrays.toString(A[j]));
-		System.out.println();
-		System.out.println(Arrays.toString(B));
 	}
 }
 
