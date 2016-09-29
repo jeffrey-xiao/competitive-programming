@@ -98,7 +98,7 @@ public class GaussianElimination {
 			177.2,
 			279.2,
 		};
-
+		// [0.29047619047619005, 19.690476190476193, 1.0857142857142679]
 		System.out.println(Arrays.toString(solve(A, B)));
 		
 		A = new double[][] {
@@ -113,6 +113,7 @@ public class GaussianElimination {
 			19,
 		};
 		
+		// [1.0, 0.0, 6.0]
 		System.out.println(Arrays.toString(solve(A, B)));
 	}
 }
