@@ -56,6 +56,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 		dist = new int[leftSize + rightSize + 1];
 		int res = 0;
 		while (bfs())
+			// attempt to match edges starting from each unmatched left node
 			for (int i = 1; i <= leftSize; i++)
 				if (pair[i] == NULL)
 					res += dfs(i) ? 1 : 0;
@@ -63,8 +64,13 @@ public class MaxBipartiteMatchingHopcroftKarp {
 	}
 
 	static boolean bfs () {
+		// all unmatched nodes in left set is connected to left super node
+		// all unmatched nodes in right set is connected to right super node
+		// both super nodes are simulated using a NULL node
+		// we want to find the shortest augmenting path from the left super node to the right super node
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		for (int i = 1; i <= leftSize; i++) {
+			// if a node in the left set is unmatched, we can start an augmenting path from there
 			if (pair[i] == NULL) {
 				dist[i] = 0;
 				q.offer(i);
@@ -72,12 +78,19 @@ public class MaxBipartiteMatchingHopcroftKarp {
 				dist[i] = 1 << 30;
 			}
 		}
+		
+		// initialize the right super node distance to infinity
 		dist[NULL] = 1 << 30;
+		
 		while (!q.isEmpty()) {
 			Integer curr = q.poll();
+			
 			if (dist[curr] >= dist[NULL])
 				continue;
+			
 			for (int next : adj.get(curr)) {
+				// we either pick already matched edges to remove them, or an edge
+				// from an unmatched right node to the right super node
 				if (dist[pair[next]] == 1 << 30) {
 					dist[pair[next]] = dist[curr] + 1;
 					q.offer(pair[next]);
@@ -85,20 +98,27 @@ public class MaxBipartiteMatchingHopcroftKarp {
 
 			}
 		}
+		
+		// if the right super node can be reached, we can match more edges
 		return dist[NULL] != 1 << 30;
 	}
 
 	static boolean dfs (int i) {
 		if (i == NULL)
 			return true;
+		
 		for (int j : adj.get(i)) {
-			if (dist[pair[j]] == dist[i] + 1)
+			// matching the edges along the shortest augmenting path
+			if (dist[pair[j]] == dist[i] + 1) {
 				if (dfs(pair[j])) {
 					pair[j] = i;
 					pair[i] = j;
 					return true;
 				}
+			}
 		}
+		
+		// if an augmenting path cannot be found, then set the distance to infinity to avoid traversal
 		dist[i] = 1 << 30;
 		return false;
 	}
