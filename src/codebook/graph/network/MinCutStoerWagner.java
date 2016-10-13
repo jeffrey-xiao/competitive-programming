@@ -48,7 +48,7 @@ public class MinCutStoerWagner {
 	static int getMinCut () {
 		int minCut = 1 << 30;
 		for (int v = n - 1; v >= 0; v--) {
-			// initializing the weights of each node -- a weight of a node is the sum of the connects to the growing subgraph
+			// initializing the weights of each node -- a weight of a node is the sum of the connections to the growing subgraph
 			// the initial subgraph will contain node 0
 			for (int i = 1; i < n; i++) {
 				weight[i] = adj[0][i];
@@ -69,9 +69,13 @@ public class MinCutStoerWagner {
 						weight[i] += adj[curr][i];
 					used[curr] = true;
 				} else {
+					// merging prev and curr
 					for (int i = 0; i < n; i++)
 						adj[prev][i] = adj[i][prev] += adj[i][curr];
 					inContraction[curr] = true;
+					// either the min-cut of G involves (prev, curr) in different subsets or the same subset
+					// therefore we take the weight of them in different subsets, and then merge them to account 
+					// for the case where they are in the same subet
 					minCut = Math.min(minCut, weight[curr]);
 				}
 			}
