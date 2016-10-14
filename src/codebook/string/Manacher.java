@@ -39,18 +39,17 @@ public class Manacher {
 		int index = 0;
 		for (int i = 1; i < len - 1; i++) {
 			int currLen = max[i];
-			if (i % 2 == 1)
-				currLen++;
 			if (currLen > maxLength) {
 				maxLength = currLen;
 				index = i;
 			}
 		}
-		return s.substring((index - maxLength + 1) / 2, (index - maxLength) / 2 + maxLength + 1);
+		return s.substring((index - maxLength + 1) / 2, (index - maxLength) / 2 + maxLength);
 	}
 
 	public static void main (String[] args) {
 		Manacher m = new Manacher();
+		System.out.println(m.getLongestPalindrome("BANANABANA"));
 		System.out.println(m.getLongestPalindrome("BANANAANA"));
 	}
 }
