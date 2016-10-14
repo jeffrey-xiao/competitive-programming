@@ -59,7 +59,6 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		out.close();
 	}
 
-	@SuppressWarnings ("unused")
 	static int getMinCostMaxFlow () {
 		int flow = 0;
 		int cost = 0;
