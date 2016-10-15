@@ -11,7 +11,6 @@ package codebook.string;
 public class SuffixTree {
 
 	// constants
-	static final int SHIFT = 'a';
 	static final int END = 1 << 30;
 
 	// attributes of the input data
@@ -60,14 +59,16 @@ public class SuffixTree {
 	}
 
 	public void printTree () {
-		printTree(root);
+		printTree(root, 0);
 	}
 
-	private void printTree (Node curr) {
-		for (int i = 0; i < 26; i++) {
+	private void printTree (Node curr, int depth) {
+		System.out.printf("%d [rank=%d]\n", curr.index, depth);
+		for (int i = 0; i < 256; i++) {
 			if (curr.child[i] != null) {
-				System.out.println(input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
-				printTree(curr.child[i]);
+				System.out.printf("%d--%d[label=\"%s\"]\n", curr.index, curr.child[i].index, input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
+				//System.out.println(input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
+				printTree(curr.child[i], depth + 1);
 			}
 		}
 	}
@@ -80,41 +81,53 @@ public class SuffixTree {
 			// if the active length is zero, then we reset the active edge
 			if (activeLength == 0)
 				activeEdge = currentPos;
+			
 			// creating a new leaf node
-			if (activeNode.child[input.charAt(activeEdge) - SHIFT] == null) {
-				activeNode.child[input.charAt(activeEdge) - SHIFT] = new Node(currentPos, END);
+			if (activeNode.child[input.charAt(activeEdge)] == null) {
+				activeNode.child[input.charAt(activeEdge)] = new Node(currentPos, END);
 				// if a previous node has already been created during this
 				// iteration, then we create a suffix link
-				addSuffixLink();
+				addSuffixLink(activeNode);
 			} else {
 				// if the current length required is greater than the edge
 				// length, then we advance to the next edge down the tree
-				int nextLen = activeNode.child[input.charAt(activeEdge) - SHIFT].getLength();
+				int nextLen = activeNode.child[input.charAt(activeEdge)].getLength();
 				if (activeLength >= nextLen) {
-					activeNode = activeNode.child[input.charAt(activeEdge) - SHIFT];
+					activeNode = activeNode.child[input.charAt(activeEdge)];
 					activeEdge += nextLen;
 					activeLength -= nextLen;
 					continue;
 				}
 				// the current position of the suffix overlaps with a suffix
 				// already inserted
-				if (input.charAt(activeNode.child[input.charAt(activeEdge) - SHIFT].start + activeLength) == input.charAt(currentPos)) {
+				if (input.charAt(activeNode.child[input.charAt(activeEdge)].start + activeLength) == input.charAt(currentPos)) {
 					activeLength++;
 					// if a previous node has already been created during this
 					// iteration, then we create a suffix link
-					addSuffixLink();
+					addSuffixLink(activeNode);
 					break;
 				} else {
 					// since we found that the current position of the suffix is
 					// entirely new, we have to split the edge into two
-					// the start position doesn't change
-					activeNode.child[input.charAt(activeEdge) - SHIFT].start = activeNode.child[input.charAt(activeEdge) - SHIFT].start;
-					// the end position becomes where it branches off
-					activeNode.child[input.charAt(activeEdge) - SHIFT].end = activeNode.child[input.charAt(activeEdge) - SHIFT].start + activeLength;
-					// adding both branches now
-					activeNode.child[input.charAt(activeEdge) - SHIFT].child[input.charAt(activeNode.start + activeLength) - SHIFT] = new Node(activeNode.child[input.charAt(activeEdge) - SHIFT].start + activeLength, END);
-					activeNode.child[input.charAt(activeEdge) - SHIFT].child[input.charAt(currentPos) - SHIFT] = new Node(currentPos, END);
-					addSuffixLink();
+	                
+	                Node old = activeNode.child[input.charAt(activeEdge)];
+	                
+	                // creating the split node
+	                Node split = new Node(old.start, old.start + activeLength);
+	                activeNode.child[input.charAt(activeEdge)] = split;
+	                
+	                // creating the new leaf node
+	                Node leaf = new Node(currentPos, END);
+	                
+	                // adding the leaf node to split
+	                split.child[input.charAt(currentPos)] = leaf;
+	                
+	                // shifting the old node's start by active length
+	                old.start += activeLength;
+	                
+	                // adding the old node to split
+	                split.child[input.charAt(old.start)] = old;
+					addSuffixLink(split);
 				}
 			}
 			remainder--;
@@ -137,11 +150,11 @@ public class SuffixTree {
 		}
 	}
 
-	private void addSuffixLink () {
+	private void addSuffixLink (Node curr) {
 		if (firstNodeCreated == false)
-			lastNodeCreated.suffix = activeNode;
-		firstNodeCreated = true;
-		lastNodeCreated = activeNode;
+			lastNodeCreated.suffix = curr;
+		firstNodeCreated = false;
+		lastNodeCreated = curr;
 	}
 
 	private class Node {
@@ -149,12 +162,14 @@ public class SuffixTree {
 		int start, end;
 		Node[] child;
 		Node suffix;
+		int index;
 
 		Node (int start, int end) {
-			child = new Node[26];
+			child = new Node[256];
 			suffix = null;
 			this.start = start;
 			this.end = end;
+			index = (int)(Math.random() * 1000);
 		}
 
 		private int getLength () {
@@ -163,7 +178,7 @@ public class SuffixTree {
 	}
 
 	public static void main (String[] args) {
-		SuffixTree st = new SuffixTree("abcabxabcd");
-		st.printTree(st.root);
+		SuffixTree st = new SuffixTree("abcabxabcd$");
+		st.printTree();
 	}
 }
