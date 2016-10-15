@@ -55,11 +55,11 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 			int cost = readInt();
 			addEdge(a, b, cost, -cost, flow, 0);
 		}
-		out.println(getMinCostMaxFlow());
+		out.println(getMinCostMaxFlow().cost);
 		out.close();
 	}
 
-	static int getMinCostMaxFlow () {
+	static State getMinCostMaxFlow () {
 		int flow = 0;
 		int cost = 0;
 		bellmanFord();
@@ -83,7 +83,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 				curr = prev[curr];
 			}
 		}
-		return cost;
+		return new State(flow, cost);
 	}
 
 	static void reduceCost () {
@@ -134,6 +134,14 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 		last[y] = cnt++;
 	}
 
+	static class State {
+		int flow, cost;
+		State (int flow, int cost) {
+			this.flow = flow;
+			this.cost = cost;
+		}
+	}
+	
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
 
