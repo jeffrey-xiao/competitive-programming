@@ -1,0 +1,3 @@
+[submodule "src/ACM-Notebook"]
+	path = src/ACM-Notebook
+	url = https://github.com/jeffrey-xiao/ACM-Notebook.git
