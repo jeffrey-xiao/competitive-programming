@@ -55,48 +55,31 @@ public class BinaryHeap {
 	}
 
 	private void heapifyDown (int i) {
-		if (heap[i] == null)
+		int child = (i << 1) + 1;
+		if (child >= index)
 			return;
-		int index1 = (i << 1) + 1;
-		int index2 = (i << 1) + 2;
-		int cmp1 = index1 >= size || heap[index1] == null ? 0 : heap[i].compareTo(heap[index1]);
-		int cmp2 = index2 >= size || heap[index2] == null ? 0 : heap[i].compareTo(heap[index2]);
-		if (cmp1 > 0 && cmp2 > 0) {
-			if (heap[index1].compareTo(heap[index2]) < 0) {
-				Integer temp = heap[i];
-				heap[i] = heap[index1];
-				heap[index1] = temp;
-				heapifyDown(index1);
-			} else {
-				Integer temp = heap[i];
-				heap[i] = heap[index2];
-				heap[index2] = temp;
-				heapifyDown(index2);
-			}
-		} else if (cmp1 > 0) {
-			Integer temp = heap[i];
-			heap[i] = heap[index1];
-			heap[index1] = temp;
-			heapifyDown(index1);
-		} else if (cmp2 > 0) {
-			Integer temp = heap[i];
-			heap[i] = heap[index2];
-			heap[index2] = temp;
-			heapifyDown(index2);
-		}
+		if (child + 1 < index && heap[child + 1] < heap[child])
+			child++;
+		if (heap[i] <= heap[child])
+			return;
+		swap(i, child);
+		heapifyDown(child);
 	}
 
 	private void heapifyUp (int i) {
 		while (i > 0) {
-			if (heap[i].compareTo(heap[(i - 1) >> 1]) < 0) {
-				Integer temp = heap[i];
-				heap[i] = heap[(i - 1) >> 1];
-				heap[(i - 1) >> 1] = temp;
-			}
+			if (heap[i].compareTo(heap[(i - 1) >> 1]) < 0)
+				swap(i, (i - 1) >> 1);
 			i = (i - 1) >> 1;
 		}
 	}
 
+	private void swap (int i, int j) {
+		Integer temp = heap[i];
+		heap[i] = heap[j];
+		heap[j] = temp;
+	}
+	
 	private void addSize () {
 		size *= 2;
 		Integer[] newQueue = new Integer[size];
