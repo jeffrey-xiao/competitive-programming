@@ -208,7 +208,7 @@ public class Primes {
 	static long multmod (long a, long b, long m) {
 		long x = 0, y = a % m;
 		for (; b > 0; b >>= 1) {
-			if ((b & 1) == 1) 
+			if ((b & 1) == 1)
 				x = (x + y) % m;
 			y = (y << 1) % m;
 		}
@@ -216,7 +216,7 @@ public class Primes {
 	}
 
 	static long randLong (long n) {
-		return (long)(Math.random() * n);
+		return (long) (Math.random() * n);
 	}
 
 	static long brent (long n) {
@@ -228,10 +228,10 @@ public class Primes {
 		long g = 1, r = 1, q = 1, ys = 0, hi = 0, x = 0;
 		while (g == 1) {
 			x = y;
-			
+
 			for (int i = 0; i < r; i++)
 				y = (multmod(y, y, n) + c) % n;
-			
+
 			for (long k = 0; k < r && g == 1; k += m) {
 				ys = y;
 				hi = Math.min(m, r - k);
@@ -241,11 +241,11 @@ public class Primes {
 				}
 				g = gcd(q, n);
 			}
-			
+
 			r *= 2;
 		}
 
-		if (g == n) 
+		if (g == n)
 			do {
 				ys = (multmod(ys, ys, n) + c) % n;
 				g = gcd(x > ys ? x - ys : ys - x, n);
@@ -264,10 +264,10 @@ public class Primes {
 			return ret;
 		}
 
-		for (; n % 2 == 0; n /= 2) 
+		for (; n % 2 == 0; n /= 2)
 			ret.add(2L);
 
-		for (; n % 3 == 0; n /= 3) 
+		for (; n % 3 == 0; n /= 3)
 			ret.add(3L);
 
 		int max = 1000000;
@@ -285,7 +285,7 @@ public class Primes {
 
 		if (n != 1)
 			ret.add(n);
-		
+
 		Collections.sort(ret);
 		return ret;
 	}

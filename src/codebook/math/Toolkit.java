@@ -1,7 +1,7 @@
 package codebook.math;
 
 public class Toolkit {
-	
+
 	static double roundToSignificantFigures (double num, int n) {
 		if (num == 0) {
 			return 0;
