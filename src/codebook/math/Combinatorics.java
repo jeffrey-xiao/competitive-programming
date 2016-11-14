@@ -67,7 +67,7 @@ public class Combinatorics {
 	static long divMod (long i, long j, long p) {
 		return i * pow(j, p - 2, p) % p;
 	}
-	
+
 	// O(k)
 	static long multichoose (int n, int k, long p) {
 		return choose(n + k - 1, k, p);
