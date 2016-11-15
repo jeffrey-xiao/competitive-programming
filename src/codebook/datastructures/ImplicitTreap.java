@@ -40,44 +40,26 @@ class ImplicitTreap {
 	}
 
 	public void remove (Integer k) {
-		if (k > getSize(root))
-			throw new IllegalArgumentException();
-		root = remove(root, k, 0);
-	}
-
-	// auxiliary function to delete
-	private Node remove (Node n, Integer k, Integer lowerCnt) {
-		if (n == null)
-			return n;
-		Integer key = lowerCnt + getSize(n.left) + 1;
-		int cmp = k.compareTo(key);
-		if (cmp < 0)
-			n.left = remove(n.left, k, lowerCnt);
-		else if (cmp > 0)
-			n.right = remove(n.right, k, lowerCnt + getSize(n.left) + 1);
-		else {
-			n = merge(n.left, n.right);
-		}
-		resetSize(n);
-		return n;
+		NodePair res = split(root, k);
+		root = merge(res.left.left, merge(res.left.right, res.right));
 	}
 
 	public Integer get (Integer k) {
 		if (k > getSize(root) || k <= 0)
 			throw new IllegalArgumentException();
-		return get(root, k, 0);
+		return get(root, k);
 	}
 
 	// auxiliary function for get
-	private Integer get (Node n, Integer k, Integer lowerCnt) {
+	private Integer get (Node n, Integer k) {
 		if (n == null)
 			return null;
-		Integer key = lowerCnt + getSize(n.left) + 1;
+		Integer key = getSize(n.left) + 1;
 		int cmp = k.compareTo(key);
 		if (cmp < 0)
-			return get(n.left, k, lowerCnt);
+			return get(n.left, k);
 		else if (cmp > 0)
-			return get(n.right, k, lowerCnt + getSize(n.left) + 1);
+			return get(n.right, k - getSize(n.left) - 1);
 		return n.value;
 	}
 
@@ -86,25 +68,23 @@ class ImplicitTreap {
 	}
 
 	public void add (Integer key, Integer val) {
-		NodePair n = split(root, key, 0);
-		Node newRoot = merge(n.left, new Node(val));
-		newRoot = merge(newRoot, n.right);
-		root = newRoot;
+		NodePair n = split(root, key);
+		root = merge(n.left, merge(new Node(val), n.right));
 	}
 
 	public void modify (Integer key, Integer val) {
-		root = modify(root, key, val, 0);
+		root = modify(root, key, val);
 	}
 
 	// auxiliary method for modify
-	private Node modify (Node n, Integer key, Integer val, Integer lowerCnt) {
-		Integer nKey = lowerCnt + getSize(n.left) + 1;
+	private Node modify (Node n, Integer key, Integer val) {
+		Integer nKey = getSize(n.left) + 1;
 		if (nKey == key)
 			n.value = val;
 		else if (nKey > key)
-			n.left = modify(n.left, key, val, lowerCnt);
+			n.left = modify(n.left, key, val);
 		else
-			n.right = modify(n.right, key, val, lowerCnt + getSize(n.left) + 1);
+			n.right = modify(n.right, key, val - getSize(n.left) - 1);
 		return n;
 	}
 
@@ -154,20 +134,20 @@ class ImplicitTreap {
 	}
 
 	// auxiliary function to split
-	private NodePair split (Node n, Integer key, Integer lowerCnt) {
+	private NodePair split (Node n, Integer key) {
 		NodePair res = new NodePair(null, null);
 		if (n == null)
 			return res;
-		Integer nKey = lowerCnt + getSize(n.left) + 1;
+		Integer nKey = getSize(n.left) + 1;
 		if (nKey > key) {
-			res = split(n.left, key, lowerCnt);
+			res = split(n.left, key);
 			n.left = res.right;
 			res.right = n;
 			resetSize(res.left);
 			resetSize(res.right);
 			return res;
 		} else {
-			res = split(n.right, key, lowerCnt + getSize(n.left) + 1);
+			res = split(n.right, key - getSize(n.left) - 1);
 			n.right = res.left;
 			res.left = n;
 			resetSize(res.left);
@@ -199,6 +179,14 @@ class ImplicitTreap {
 			int val = (int)(Math.random() * 10000000);
 			
 			treap.add(rnd, val);
+		}
+		
+		for (int i = 999999; i >= 0; i--) {
+			int rnd = (int)(Math.random() * (i + 1) + 1);
+			int prev = treap.get(rnd);
+			treap.remove(rnd);
+			if (rnd < treap.getSize(treap.root))
+				assert(prev != treap.get(rnd));
 		}
 		
 		System.out.println(System.currentTimeMillis() - start);
