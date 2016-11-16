@@ -55,6 +55,32 @@ public class Euclid {
 
 		return ret;
 	}
+	
+	// Chinese remainder theorem (special case): find z such that
+	// z % m1 = r1, z % m2 = r2.  Here, z is unique modulo M = lcm(m1, m2).
+	// Return (z, M).  On failure, M = -1.
+	static int[] chineseRemainderTheorem (int m1, int r1, int m2, int r2) {
+		int[] res = euclid(m1, m2);
+		int g = res[0], s = res[1], t = res[2];
+		if (r1 % g != r2 % g)
+			return new int[]{0, -1};
+		return new int[]{mod(s*r2*m1 + t*r1*m2, m1*m2) / g, m1*m2 / g};
+	}
+	
+	// Chinese remainder theorem: find z such that
+	// z % m[i] = r[i] for all i.  Note that the solution is
+	// unique modulo M = lcm_i (m[i]).  Return (z, M). On 
+	// failure, M = -1. Note that we do not require the a[i]'s
+	// to be relatively prime.
+	static int[] chineseRemainderTheorem (int[] m, int[] r) {
+		int[] ret = new int[]{r[0], m[0]};
+		for (int i = 1; i < m.length; i++) {
+			ret = chineseRemainderTheorem(ret[1], ret[0], m[i], r[i]);
+			if (ret[1] == -1)
+				break;
+		}
+		return ret;
+	}
 
 	// computes x and y such that ax + by = c; on failure, x = y = -1 << 30
 	static int[] linearDiophantine (int a, int b, int c) {
