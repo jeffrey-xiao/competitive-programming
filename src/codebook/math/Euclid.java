@@ -44,7 +44,7 @@ public class Euclid {
 	// finds all solutions to ax = b mod n
 	static ArrayList<Integer> linearEquationSolver (int a, int b, int n) {
 		ArrayList<Integer> ret = new ArrayList<Integer>();
-		int[] res = euclid(a, b);
+		int[] res = euclid(a, n);
 		int d = res[0], x = res[1];
 
 		if (b % d == 0) {
