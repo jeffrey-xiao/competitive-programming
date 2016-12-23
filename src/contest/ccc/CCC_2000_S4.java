@@ -31,9 +31,6 @@ public class CCC_2000_S4 {
 					}
 				}
 			}
-			for (int[] a : table)
-				System.out.printf("%3d,%3d    ", a[0] < -1 ? 0 : a[0], a[1]);
-			System.out.println();
 		}
 
 		System.out.printf(table[dist][0] < 0 ? "Roberta acknowledges defeat." : "Roberta wins in %d strokes.", table[table.length - 1][1]);

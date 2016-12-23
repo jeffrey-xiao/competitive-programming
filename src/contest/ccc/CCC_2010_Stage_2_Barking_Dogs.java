@@ -1,99 +1,86 @@
 package contest.ccc;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
 public class CCC_2010_Stage_2_Barking_Dogs {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	public static void main (String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		int n = readInt();
-		int[] dogs = new int[n];
-		ArrayList<ArrayList<Integer>> adjlist = new ArrayList<ArrayList<Integer>>();
-		for (int x = 0; x < n; x++) {
-			dogs[x] = readInt();
-			adjlist.add(new ArrayList<Integer>());
+		
+		int[] wait = new int[n];
+		int[] coolDown = new int[n];
+		int[] totalTime = new int[n];
+		boolean[] justChanged;
+		
+		ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+		
+		for (int x = 0; x < n; x++){
+			wait[x] = readInt();
+			adj.add(new ArrayList<Integer>());
+			coolDown[x] = Integer.MAX_VALUE;
 		}
-		int m = readInt();
-		for (int x = 0; x < m; x++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			adjlist.get(a).add(b);
-		}
-		int time = readInt();
-		int[] bark = new int[n];
-		PriorityQueue<Dog> moves = new PriorityQueue<Dog>();
-		moves.add(new Dog(0, 0));
-		bark[0] = 0;
-		int[] total = new int[n];
-		while (!moves.isEmpty()) {
-			Dog curr = moves.poll();
-			if (curr.time > time)
-				continue;
-			bark[curr.id] = 0;
-			total[curr.id]++;
-			for (int x = 0; x < adjlist.get(curr.id).size(); x++) {
-				int next = adjlist.get(curr.id).get(x);
-				if ((bark[next] != 0 && curr.time + dogs[next] > bark[next]))
-					continue;
-				moves.remove(new Dog(next, curr.time + dogs[next]));
-				bark[next] = curr.time + dogs[next];
-				moves.offer(new Dog(next, curr.time + dogs[next]));
+		
+		coolDown[0] = 0;
+		int k = readInt();
+		for(int x = 0; x < k; x++)
+			adj.get(readInt()-1).add(readInt()-1);
+		
+		int t = readInt();
+		
+		for(int x = 0; x <= t; x++){
+			justChanged = new boolean[n];
+			
+			for(int y = 0; y < n; y++){
+				if(coolDown[y] == 0 && !justChanged[y]){
+					for(Integer i : adj.get(y)){
+						if(coolDown[i] >= 20000){
+							coolDown[i] = wait[i];
+							justChanged[i] = true;
+						}
+					}
+					totalTime[y]++;
+				}
+			}
+			
+			for(int y = 0; y < n; y++){
+				coolDown[y]--;
+				if(coolDown[y] < 0)
+					coolDown[y] = Integer.MAX_VALUE;
 			}
 		}
-		for (int x : total)
-			System.out.println(x);
+		
+		for(int x = 0; x < n; x++)
+			System.out.println(totalTime[x]);
 	}
 
-	static class Dog implements Comparable<Dog> {
-		int id;
-		int time;
-
-		Dog (int id, int time) {
-			this.id = id;
-			this.time = time;
-		}
-
-		@Override
-		public int compareTo (Dog o) {
-			return this.time - o.time;
-		}
-
-		@Override
-		public boolean equals (Object o) {
-			if (o instanceof Dog) {
-				Dog d = (Dog) o;
-				return this.id == d.id;
-			}
-			return false;
-		}
-	}
-
-	static String next () throws IOException {
+	static String next() throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong () throws IOException {
+	static long readLong() throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt () throws IOException {
+	static int readInt() throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble () throws IOException {
+	static double readDouble() throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static String readLine () throws IOException {
+	static char readCharacter() throws IOException {
+		return next().charAt(0);
+	}
+
+	static String readLine() throws IOException {
 		return br.readLine().trim();
 	}
 }

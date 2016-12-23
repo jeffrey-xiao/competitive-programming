@@ -25,7 +25,7 @@ public class CCC_2002_J1 {
 				System.out.println(" * * * \n" + "      *\n" + "      *\n" + "      *\n" + " * * * \n" + "      *\n" + "      *\n" + "      *\n" + " * * * \n");
 				break;
 			case 4:
-				System.out.println("       " + "*     *\n" + "*     *\n" + "*     *\n" + " * * * \n" + "      *\n" + "      *\n" + "      *\n" + "       \n");
+				System.out.println("*     *\n" + "*     *\n" + "*     *\n" + " * * * \n" + "      *\n" + "      *\n" + "      *\n" + "       \n");
 				break;
 			case 5:
 				System.out.println(" * * * \n" + "*      \n" + "*      \n" + "*      \n" + " * * * \n" + "      *\n" + "      *\n" + "      *\n" + " * * * \n");
