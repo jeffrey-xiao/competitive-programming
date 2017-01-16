@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class DfsCycleDetection {
@@ -26,7 +25,6 @@ public class DfsCycleDetection {
 
 	static boolean[] v;
 	static boolean[] done;
-	static Stack<Integer> order = new Stack<Integer>();
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -64,7 +62,6 @@ public class DfsCycleDetection {
 				dfs(j);
 		v[i] = false;
 		done[i] = true;
-		order.push(i);
 	}
 
 	static String next () throws IOException {
