@@ -1,3 +1,6 @@
 [submodule "src/cpp"]
 	path = src/cpp
 	url = https://github.com/jeffrey-xiao/ACM-Notebook
+[submodule "src/--force"]
+	path = src/--force
+	url = https://github.com/jeffrey-xiao/ACM-Notebook.git
