@@ -3,7 +3,7 @@ package contest.hackercup;
 import java.util.*;
 import java.io.*;
 
-public class FHB_2016_Qualification_Lazy_Loading {
+public class FHB_2017_Qualification_Lazy_Loading {
 
 	static BufferedReader br;
 	static PrintWriter out;
