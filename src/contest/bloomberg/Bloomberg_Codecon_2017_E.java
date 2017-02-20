@@ -3,72 +3,61 @@ package contest.bloomberg;
 import java.util.*;
 import java.io.*;
 
-public class P6 {
+public class Bloomberg_Codecon_2017_E {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int R, C;
-	static boolean[][] g;
+	static int N, M;
+	static HashMap<String, Integer> toIndex = new HashMap<String, Integer>();
+	static int[] hours;
+	static int ans = 0;
+	static int[] time;
+	static ArrayList<ArrayList<Integer>> places = new ArrayList<ArrayList<Integer>>();
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		R = readInt();
-		C = readInt();
+		N = readInt();
+		hours = new int[N];
 		
-		g = new boolean[R][C];
-		
-		int M = readInt();
-		
-		for (int i = 0; i < M; i++)
-			g[readInt()][readInt()] = true;
-		
-		LinkedList<Point> l = new LinkedList<Point>();
-		l.add(new Point(0, 0));
-		int N = readInt();
-		Point curr = new Point(0, 0);
 		for (int i = 0; i < N; i++) {
-			char c = readCharacter();
-			switch (c) {
-				case 'R':
-					curr.c++;
-					break;
-				case 'L':
-					curr.c--;
-					break;
-				case 'U':
-					curr.r--;
-					break;
-				case 'D':
-					curr.r++;
-					break;
-			}
-			if (!g[curr.r][curr.c]) {
-				l.removeFirst();
-			}
-			g[curr.r][curr.c] = false;
-			for (Point p : l) {
-				if (p.r == curr.r && p.c == curr.c) {
-					out.println(i + 1);
-					out.close();
-					return;
-				}
-			}
-			l.addLast(new Point(curr.r, curr.c));
+			String place = next();
+			toIndex.put(place, i);
+			hours[i] = readInt();
 		}
-		out.println(-1);
+		
+		
+		M = readInt();
+		for (int i = 0; i < M; i++)
+			places.add(new ArrayList<Integer>());
+		time = new int[M];
+		for (int i = 0; i < M; i++) {
+			int K = readInt();
+			next();
+			time[i] = readInt();
+			for (int k = 0; k < K; k++)
+				places.get(i).add(toIndex.get(next()));
+		}
+		compute(0);
+		out.println(ans);
 		out.close();
 	}
 
-	static class Point {
-		int r, c;
-		Point (int r, int c) {
-			this.r = r;
-			this.c = c;
+	static void compute (int i) {
+		if (i == M) {
+			ans++;
+			return;
+		}
+		for (int j : places.get(i)) {
+			if (hours[j] >= time[i]) {
+				hours[j] -= time[i];
+				compute(i + 1);
+				hours[j] += time[i];
+			}
 		}
 	}
 	

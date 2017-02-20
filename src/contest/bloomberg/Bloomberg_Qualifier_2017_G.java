@@ -3,7 +3,7 @@ package contest.bloomberg;
 import java.util.*;
 import java.io.*;
 
-public class P7 {
+public class Bloomberg_Qualifier_2017_G {
 
 	static BufferedReader br;
 	static PrintWriter out;

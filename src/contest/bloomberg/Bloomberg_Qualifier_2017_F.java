@@ -3,59 +3,72 @@ package contest.bloomberg;
 import java.util.*;
 import java.io.*;
 
-public class P1 {
+public class Bloomberg_Qualifier_2017_F {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int N, M;
-	static int[] p;
+	static int R, C;
+	static boolean[][] g;
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		N = readInt();
-		M = readInt();
+		R = readInt();
+		C = readInt();
 		
-		Deque<State> d = new ArrayDeque<State>();
+		g = new boolean[R][C];
 		
-		for (int i = 0; i < N; i++)
-			d.addLast(new State(readInt(), i == M));
+		int M = readInt();
 		
-		int ret = 0;
+		for (int i = 0; i < M; i++)
+			g[readInt()][readInt()] = true;
 		
-		while (!d.isEmpty()) {
-			State curr = d.removeFirst();
-			boolean isGreater = false;
-			
-			for (State s : d)
-				if (s.val > curr.val)
-					isGreater = true;
-
-			if (!isGreater && curr.curr) {
-				ret += 2;
-				break;
+		LinkedList<Point> l = new LinkedList<Point>();
+		l.add(new Point(0, 0));
+		int N = readInt();
+		Point curr = new Point(0, 0);
+		for (int i = 0; i < N; i++) {
+			char c = readCharacter();
+			switch (c) {
+				case 'R':
+					curr.c++;
+					break;
+				case 'L':
+					curr.c--;
+					break;
+				case 'U':
+					curr.r--;
+					break;
+				case 'D':
+					curr.r++;
+					break;
 			}
-			
-			if (isGreater)
-				d.addLast(curr);
-			else
-				ret += 2;
+			if (!g[curr.r][curr.c]) {
+				l.removeFirst();
+			}
+			g[curr.r][curr.c] = false;
+			for (Point p : l) {
+				if (p.r == curr.r && p.c == curr.c) {
+					out.println(i + 1);
+					out.close();
+					return;
+				}
+			}
+			l.addLast(new Point(curr.r, curr.c));
 		}
-		
-		out.println(ret);
+		out.println(-1);
 		out.close();
 	}
-	
-	static class State {
-		int val;
-		boolean curr;
-		State (int val, boolean curr) {
-			this.val = val;
-			this.curr = curr;
+
+	static class Point {
+		int r, c;
+		Point (int r, int c) {
+			this.r = r;
+			this.c = c;
 		}
 	}
 	

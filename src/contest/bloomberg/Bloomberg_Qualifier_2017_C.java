@@ -3,36 +3,32 @@ package contest.bloomberg;
 import java.util.*;
 import java.io.*;
 
-public class P4 {
+public class Bloomberg_Qualifier_2017_C {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		String in = readLine();
-		
-		int[] occ = new int[10];
-		
-		for (int i = 0; i < in.length(); i++)
-			occ[in.charAt(i) - '0']++;
-		StringBuilder ret = new StringBuilder();
-		boolean mid = false;
-		String m = "";
-		for (int i = 9; i >= 0; i--) {
-			for (int j = 0; j < occ[i] / 2; j++)
-				ret.append(i);
-			if (occ[i] % 2 == 1 && !mid) {
-				mid = true;
-				m = ""+i;
-			}
+		int n = readInt();
+		int[] num = new int[n + 1];
+		int[] solution = new int[n + 1];
+		int largest = 0;
+		for (int x = 1; x <= n; x++) {
+			num[x] = readInt();
+			solution[x] = num[x];
+			for (int y = 1; y < x; y++)
+				if (num[y] <= num[x] && solution[y] + num[x] > solution[x])
+					solution[x] = solution[y] + num[x];
+			largest = Math.max(largest, solution[x]);
 		}
-		out.println(ret.toString() + m + ret.reverse().toString());
+		out.println(largest);
+		
 		out.close();
 	}
 
