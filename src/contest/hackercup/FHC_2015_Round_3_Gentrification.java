@@ -1,4 +1,4 @@
-package contest.dmoj;
+package contest.hackercup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class FHC_Gentrification {
+public class FHC_2015_Round_3_Gentrification {
 
 	static BufferedReader br;
 	static PrintWriter out;

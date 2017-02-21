@@ -3,47 +3,60 @@ package contest.hackercup;
 import java.util.*;
 import java.io.*;
 
-public class FHB_2017_Qualification_Lazy_Loading {
+public class FHC_2016_Round_2_Carnival_Coins {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int T, N;
-	static int[] W;
-	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		out = new PrintWriter(new FileWriter("out.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
+		//out = new PrintWriter(new FileWriter("out.txt"));
 
-		T = readInt();
-		
+		int T = readInt();
+
 		for (int t = 1; t <= T; t++) {
-			N = readInt();
-			W = new int[N];
-			
-			for (int i = 0; i < N; i++)
-				W[i] = readInt();
-			
-			Arrays.sort(W);
-			
-			int l = 0;
-			int r = N - 1;
-			int ans = 0;
-			while (r >= l) {
-				int itemsNeeded = 49 / W[r];
-				if (l + itemsNeeded > r)
-					break;
-				l += itemsNeeded;
-				r--;
-				ans++;
+			int n = readInt();
+			int k = readInt();
+			double p = readDouble();
+
+			double[][] dp = new double[n + 1][n + 1];
+			double[] best = new double[n + 1];
+
+			dp[0][0] = 1.0;
+			for (int i = 1; i <= n; i++) {
+				for (int j = 0; j <= i; j++) {
+					if (j - 1 >= 0)
+						dp[i][j] += dp[i - 1][j - 1] * p;
+					dp[i][j] += dp[i - 1][j] * (1 - p);
+				}
 			}
-			out.printf("Case #%d: %d\n", t, ans);
+			
+			for (int i = k; i <= n; i++) {
+				double curr = 0;
+				for (int j = k; j <= i; j++)
+					curr += dp[i][j];
+				best[i] = curr;
+				for (int j = 1; j <= i - 1; j++)
+					best[i] = Math.max(best[i], best[j] + best[i - j]);
+			}
+			
+			out.printf("Case #%d: %.15f\n", t, best[n]);
 		}
-		
+
 		out.close();
+	}
+
+
+	static double choose (int n, int k) {
+		double res = 1d;
+		for (int i = k + 1; i <= n; i++)
+			res *= i;
+		for (int i = 1; i <= n - k; i++)
+			res /= i;
+		return res;
 	}
 
 	static String next () throws IOException {

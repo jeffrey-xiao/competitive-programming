@@ -3,14 +3,14 @@ package contest.hackercup;
 import java.util.*;
 import java.io.*;
 
-public class FHB_2017_Qualification_Progress_Pie {
+public class FHC_2017_Qualification_Lazy_Loading {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int T;
-	static double P, x, y;
+	static int T, N;
+	static int[] W;
 	
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,21 +21,26 @@ public class FHB_2017_Qualification_Progress_Pie {
 		T = readInt();
 		
 		for (int t = 1; t <= T; t++) {
-			P = readDouble() / 100.0 * Math.PI * 2;
-			x = readInt() - 50;
-			y = readInt() - 50;
+			N = readInt();
+			W = new int[N];
 			
-			double angle = Math.PI / 2 - Math.atan2(y, x);
-			if (angle < 0)
-				angle += 2 * Math.PI;
-			if (P == 0)
-				out.printf("Case #%d: white\n", t);
-			else if (x == 0 && y == 0)
-				out.printf("Case #%d: black\n", t);
-			else if (x * x + y * y > 50 * 50 || angle > P)
-				out.printf("Case #%d: white\n", t);
-			else
-				out.printf("Case #%d: black\n", t);
+			for (int i = 0; i < N; i++)
+				W[i] = readInt();
+			
+			Arrays.sort(W);
+			
+			int l = 0;
+			int r = N - 1;
+			int ans = 0;
+			while (r >= l) {
+				int itemsNeeded = 49 / W[r];
+				if (l + itemsNeeded > r)
+					break;
+				l += itemsNeeded;
+				r--;
+				ans++;
+			}
+			out.printf("Case #%d: %d\n", t, ans);
 		}
 		
 		out.close();

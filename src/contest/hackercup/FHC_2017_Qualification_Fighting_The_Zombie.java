@@ -3,7 +3,7 @@ package contest.hackercup;
 import java.util.*;
 import java.io.*;
 
-public class FHB_2017_Qualification_Fighting_The_Zombie {
+public class FHC_2017_Qualification_Fighting_The_Zombie {
 
 	static BufferedReader br;
 	static PrintWriter out;
