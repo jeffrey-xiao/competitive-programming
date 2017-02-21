@@ -9,7 +9,7 @@ public class FHC_2016_Qualification_High_Security {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	public static void main(String[] args) throws IOException {
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
@@ -27,19 +27,18 @@ public class FHC_2016_Qualification_High_Security {
 			for (int j = 0; j <= 1; j++) {
 				TreeSet<Integer> ts = new TreeSet<Integer>();
 				for (int i = 0; i < n; i++) {
-					if (g[j][i] == '.' && (i - 1 < 0 || g[j][i-1] == 'X') && (i + 1 >= n || g[j][i+1] == 'X') && 
-						g[(j + 1) % 2][i] == '.' && (i - 1 < 0 || g[(j + 1) % 2][i-1] == 'X') && (i + 1 >= n || g[(j + 1) % 2][i+1] == 'X')) {
+					if (g[j][i] == '.' && (i - 1 < 0 || g[j][i - 1] == 'X') && (i + 1 >= n || g[j][i + 1] == 'X') && g[(j + 1) % 2][i] == '.' && (i - 1 < 0 || g[(j + 1) % 2][i - 1] == 'X') && (i + 1 >= n || g[(j + 1) % 2][i + 1] == 'X')) {
 						if (j == 0) {
 							ans++;
 						}
-					} else if (g[j][i] == '.' && (i - 1 < 0 || g[j][i-1] == 'X') && (i + 1 >= n || g[j][i+1] == 'X'))
+					} else if (g[j][i] == '.' && (i - 1 < 0 || g[j][i - 1] == 'X') && (i + 1 >= n || g[j][i + 1] == 'X'))
 						ts.add(i);
 				}
 				int l = 0;
 				for (int i = 0; i < n;) {
 					if (g[(j + 1) % 2][i] == 'X') {
 						if (i - 1 > l) {
-							Integer remove = ts.floor(i - 1); 
+							Integer remove = ts.floor(i - 1);
 							if (remove != null && remove.intValue() >= l)
 								ts.remove(remove);
 							ans++;
@@ -52,7 +51,7 @@ public class FHC_2016_Qualification_High_Security {
 					}
 				}
 				if (n - 1 > l) {
-					Integer remove = ts.floor(n - 1); 
+					Integer remove = ts.floor(n - 1);
 					if (remove != null && remove.intValue() >= l)
 						ts.remove(remove);
 					ans++;
@@ -66,36 +65,36 @@ public class FHC_2016_Qualification_High_Security {
 
 	static class Segment {
 		int l, r;
+
 		Segment (int l, int r) {
 			this.l = l;
 			this.r = r;
 		}
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }
-

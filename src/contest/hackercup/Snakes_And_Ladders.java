@@ -47,10 +47,12 @@ public class Snakes_And_Ladders {
 
 	static class Ladder implements Comparable<Ladder> {
 		long x, h;
+
 		Ladder (long x, long h) {
 			this.x = x;
 			this.h = h;
 		}
+
 		@Override
 		public int compareTo (Ladder o) {
 			if (x == o.x)
@@ -92,7 +94,7 @@ public class Snakes_And_Ladders {
 	private static void update (long key, long value) {
 		root = update(root, key, value);
 	}
-	
+
 	private static Node update (Node n, long key, long value) {
 		if (n.key == key) {
 			n.value += value;
@@ -105,7 +107,7 @@ public class Snakes_And_Ladders {
 		else
 			return update(n.right, key, value);
 	}
-	
+
 	private static Long getFirst (Node n, long key) {
 		if (n == null)
 			return null;
@@ -113,7 +115,7 @@ public class Snakes_And_Ladders {
 			return n.key;
 		return getFirst(n.left, key);
 	}
-	
+
 	// object representing a pair of nodes of the tree
 	static class NodePair {
 		Node left, right;
@@ -158,13 +160,14 @@ public class Snakes_And_Ladders {
 
 	static class State {
 		long total, sz, addValue;
+
 		State (long total, long sz, long addValue) {
 			this.total = total;
 			this.sz = sz;
 			this.addValue = addValue;
 		}
 	}
-	
+
 	// auxiliary function for get
 	private static State get (Node n, long k) {
 		if (n == null)
@@ -278,4 +281,3 @@ public class Snakes_And_Ladders {
 		return br.readLine().trim();
 	}
 }
-

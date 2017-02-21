@@ -10,7 +10,7 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
 	static StringTokenizer st;
 
 	static int T, H, S;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,7 +18,7 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			H = readInt();
 			S = readInt();
@@ -39,7 +39,7 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
 			}
 			out.printf("Case #%d: %.10f\n", t, ans);
 		}
-		
+
 		out.close();
 	}
 
@@ -60,7 +60,7 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
 		}
 		return dp[rolls % 2][H - offset];
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -87,4 +87,3 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
 		return br.readLine().trim();
 	}
 }
-

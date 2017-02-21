@@ -13,13 +13,13 @@ public class FHC_2015_Round_2_Lazy_Sort {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int t = readInt();
 		for (int q = 1; q <= t; q++) {
 			int n = readInt();
@@ -67,7 +67,7 @@ public class FHC_2015_Round_2_Lazy_Sort {
 				valid = true;
 			out.printf("Case #%d: %s\n", q, valid ? "yes" : "no");
 		}
-		
+
 		out.close();
 	}
 

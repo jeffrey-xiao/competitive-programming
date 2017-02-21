@@ -11,7 +11,7 @@ public class FHC_2017_Qualification_Progress_Pie {
 
 	static int T;
 	static double P, x, y;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,12 +19,12 @@ public class FHC_2017_Qualification_Progress_Pie {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			P = readDouble() / 100.0 * Math.PI * 2;
 			x = readInt() - 50;
 			y = readInt() - 50;
-			
+
 			double angle = Math.PI / 2 - Math.atan2(y, x);
 			if (angle < 0)
 				angle += 2 * Math.PI;
@@ -37,7 +37,7 @@ public class FHC_2017_Qualification_Progress_Pie {
 			else
 				out.printf("Case #%d: black\n", t);
 		}
-		
+
 		out.close();
 	}
 
@@ -67,4 +67,3 @@ public class FHC_2017_Qualification_Progress_Pie {
 		return br.readLine().trim();
 	}
 }
-

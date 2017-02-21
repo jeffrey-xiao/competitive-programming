@@ -11,7 +11,7 @@ public class FHC_2017_Qualification_Lazy_Loading {
 
 	static int T, N;
 	static int[] W;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,16 +19,16 @@ public class FHC_2017_Qualification_Lazy_Loading {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			N = readInt();
 			W = new int[N];
-			
+
 			for (int i = 0; i < N; i++)
 				W[i] = readInt();
-			
+
 			Arrays.sort(W);
-			
+
 			int l = 0;
 			int r = N - 1;
 			int ans = 0;
@@ -42,7 +42,7 @@ public class FHC_2017_Qualification_Lazy_Loading {
 			}
 			out.printf("Case #%d: %d\n", t, ans);
 		}
-		
+
 		out.close();
 	}
 
@@ -72,4 +72,3 @@ public class FHC_2017_Qualification_Lazy_Loading {
 		return br.readLine().trim();
 	}
 }
-

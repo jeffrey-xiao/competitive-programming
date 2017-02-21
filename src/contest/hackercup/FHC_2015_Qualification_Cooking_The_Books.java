@@ -1,4 +1,5 @@
 package contest.hackercup;
+
 import java.util.*;
 import java.io.*;
 
@@ -7,13 +8,13 @@ public class FHC_2015_Qualification_Cooking_The_Books {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int n = readInt();
 		for (int t = 1; t <= n; t++) {
 			char[] curr = next().toCharArray();
@@ -32,39 +33,39 @@ public class FHC_2015_Qualification_Cooking_The_Books {
 			}
 			out.printf("Case #%d: %d %d\n", t, min, max);
 		}
-		
+
 		out.close();
 	}
 
-	private static void swap(char[] curr, int x, int y) {
+	private static void swap (char[] curr, int x, int y) {
 		char temp = curr[x];
 		curr[x] = curr[y];
 		curr[y] = temp;
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }

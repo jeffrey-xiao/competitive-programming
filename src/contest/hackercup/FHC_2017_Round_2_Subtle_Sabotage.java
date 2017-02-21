@@ -11,7 +11,7 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
 
 	static int T;
 	static int N, M, K;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,12 +19,12 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			N = readInt();
 			M = readInt();
 			K = readInt();
-			
+
 			if (K >= N || K >= M)
 				out.printf("Case #%d: %d\n", t, -1);
 			else {
@@ -37,10 +37,10 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
 					min = Math.min(min, 2 + ((K == 1) ? 3 : 2));
 				if (2 * K + 1 <= M && N >= 1 + K + 1 + K + 1)
 					min = Math.min(min, 2 + ((K == 1) ? 3 : 2));
-				out.printf("Case #%d: %d\n", t, min == 1 << 30 ? -1 : min	);
+				out.printf("Case #%d: %d\n", t, min == 1 << 30 ? -1 : min);
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -70,4 +70,3 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
 		return br.readLine().trim();
 	}
 }
-

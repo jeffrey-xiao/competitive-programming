@@ -47,7 +47,7 @@ public class FHC_2017_Round_1_Manic_Moving {
 				S[i] = readInt() - 1;
 				D[i] = readInt() - 1;
 			}
-			
+
 			dist = new int[N][];
 			for (int i = 0; i < N; i++)
 				dist[i] = computePath(i);
@@ -57,7 +57,7 @@ public class FHC_2017_Round_1_Manic_Moving {
 			dp[0][1] = 1 << 30;
 			for (int i = 1; i <= K; i++) {
 				dp[i][0] = dp[i][1] = 1 << 30;
-				
+
 				// going from D[i - 1] - S[i] - D[i]
 				long currCost = 0;
 				ret = getPath(D[i - 1]);
@@ -67,7 +67,7 @@ public class FHC_2017_Round_1_Manic_Moving {
 
 				if (currCost + dp[i - 1][0] < 1 << 30)
 					dp[i][0] = Math.min(dp[i][0], currCost + dp[i - 1][0]);
-				
+
 				// going from D[i - 1] - D[i]
 				currCost = 0;
 				ret = getPath(D[i - 1]);
@@ -87,7 +87,6 @@ public class FHC_2017_Round_1_Manic_Moving {
 
 					if (currCost + dp[i - 1][0] < 1 << 30)
 						dp[i][1] = Math.min(dp[i][1], currCost + dp[i - 1][0]);
-					
 
 					// going from D[i - 1] - S[i + 1] - D[i]
 					currCost = 0;
@@ -110,7 +109,7 @@ public class FHC_2017_Round_1_Manic_Moving {
 	static int[] getPath (int u) {
 		return dist[u];
 	}
-	
+
 	static int[] computePath (int u) {
 		int[] dist = new int[N];
 		Arrays.fill(dist, 1 << 30);
@@ -134,10 +133,12 @@ public class FHC_2017_Round_1_Manic_Moving {
 
 	static class State implements Comparable<State> {
 		int dest, cost;
+
 		State (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (State o) {
 			return cost - o.cost;
@@ -170,4 +171,3 @@ public class FHC_2017_Round_1_Manic_Moving {
 		return br.readLine().trim();
 	}
 }
-

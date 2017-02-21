@@ -11,7 +11,7 @@ public class FHC_2017_Round_1_Pie_Progress {
 
 	static int T;
 	static int N, M;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,15 +19,15 @@ public class FHC_2017_Round_1_Pie_Progress {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			N = readInt();
 			M = readInt();
-			
+
 			long[] dp = new long[N + 1];
 			Arrays.fill(dp, 1 << 30);
 			dp[0] = 0;
-			
+
 			for (int i = 0; i < N; i++) {
 				int[] cost = new int[M];
 				for (int j = 0; j < M; j++)
@@ -42,8 +42,7 @@ public class FHC_2017_Round_1_Pie_Progress {
 			}
 			out.printf("Case #%d: %d\n", t, dp[N]);
 		}
-		
-		
+
 		out.close();
 	}
 
@@ -73,4 +72,3 @@ public class FHC_2017_Round_1_Pie_Progress {
 		return br.readLine().trim();
 	}
 }
-

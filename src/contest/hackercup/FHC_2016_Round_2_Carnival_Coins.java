@@ -33,7 +33,7 @@ public class FHC_2016_Round_2_Carnival_Coins {
 					dp[i][j] += dp[i - 1][j] * (1 - p);
 				}
 			}
-			
+
 			for (int i = k; i <= n; i++) {
 				double curr = 0;
 				for (int j = k; j <= i; j++)
@@ -42,13 +42,12 @@ public class FHC_2016_Round_2_Carnival_Coins {
 				for (int j = 1; j <= i - 1; j++)
 					best[i] = Math.max(best[i], best[j] + best[i - j]);
 			}
-			
+
 			out.printf("Case #%d: %.15f\n", t, best[n]);
 		}
 
 		out.close();
 	}
-
 
 	static double choose (int n, int k) {
 		double res = 1d;
@@ -85,4 +84,3 @@ public class FHC_2016_Round_2_Carnival_Coins {
 		return br.readLine().trim();
 	}
 }
-

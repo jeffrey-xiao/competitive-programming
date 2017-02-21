@@ -25,7 +25,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 			N = readInt();
 			R = readInt();
 			Point[] p = new Point[N];
-			
+
 			for (int i = 0; i < N; i++)
 				p[i] = new Point(readInt(), readInt());
 			int ans = 0;
@@ -33,7 +33,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 				for (int j = i; j < N; j++) {
 					int bot = Math.min(p[i].y, p[j].y);
 					int left = Math.min(p[i].x, p[j].x);
-					
+
 					for (int m = 0; m < N; m++) {
 						for (int n = m; n < N; n++) {
 							int bot2 = Math.min(p[m].y, p[n].y);
@@ -41,7 +41,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 							double cx = left2 + R / 2.0;
 							double cy = bot2 + R / 2.0;
 							double r = R / Math.sqrt(2);
-							
+
 							boolean[] used = new boolean[N];
 							int curr = 0;
 							for (int k = 0; k < N; k++) {
@@ -49,7 +49,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 									used[k] = true;
 								if (inSquare(bot2, left2, R, p[k].x, p[k].y)) {
 									curr++;
-									assert(inCircle(cx, cy, r, p[k].x, p[k].y));
+									assert (inCircle(cx, cy, r, p[k].x, p[k].y));
 								}
 							}
 							for (int k = 0; k < N; k++)
@@ -60,7 +60,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 					}
 				}
 			}
-			
+
 			out.printf("Case #%d: %d\n", t, ans);
 		}
 
@@ -72,7 +72,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 			return true;
 		return false;
 	}
-	
+
 	static boolean inCircle (double centerx, double centery, double r, double x, double y) {
 		double dx = centerx - x;
 		double dy = centery - y;
@@ -80,20 +80,21 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 			return true;
 		return false;
 	}
-	
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
-		
+
 		@Override
 		public String toString () {
 			return String.format("(%d, %d)", x, y);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -120,4 +121,3 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 		return br.readLine().trim();
 	}
 }
-

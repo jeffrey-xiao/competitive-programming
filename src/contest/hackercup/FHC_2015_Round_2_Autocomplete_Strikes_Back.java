@@ -7,12 +7,12 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
 
 	static BufferedReader br;
 	static PrintWriter out;
-	
+
 	static StringTokenizer st;
 	static double p;
 	static Node root;
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
@@ -46,38 +46,39 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
 				for (Node i : curr.list) {
 					for (int j = 100; j >= 0; j--) {
 						for (int l = 0; l <= 100; l++) {
-							if (j-l >= 0 && curr.min[j-l] + i.min[l] < curr.min[j]) {
-								curr.min[j] = curr.min[j-l] + i.min[l];
+							if (j - l >= 0 && curr.min[j - l] + i.min[l] < curr.min[j]) {
+								curr.min[j] = curr.min[j - l] + i.min[l];
 							}
 						}
 					}
 				}
 				curr.min[1] = curr.depth;
 			}
-			out.printf("Case #%d: %d\n",qq, root.min[k]);
+			out.printf("Case #%d: %d\n", qq, root.min[k]);
 		}
 		out.close();
 	}
-	
+
 	static void addWord (String s) {
 		Node curr = root;
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			if (curr.child[c - 'a'] == null) {
-				Node add = new Node(i == s.length()-1, curr.depth+1);
+				Node add = new Node(i == s.length() - 1, curr.depth + 1);
 				curr.child[c - 'a'] = add;
 				curr.list.add(add);
 			}
 			curr = curr.child[c - 'a'];
 		}
 	}
-	
+
 	static class Node {
 		boolean isEnd;
 		int depth;
 		Node[] child;
 		ArrayList<Node> list = new ArrayList<Node>();
 		int[] min = new int[101];
+
 		Node (boolean isEnd, int depth) {
 			this.isEnd = isEnd;
 			this.depth = depth;
@@ -86,31 +87,30 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
 				min[i] = 1 << 29;
 		}
 	}
-	
-	static String next() throws IOException {
+
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }
-

@@ -24,7 +24,7 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
 			int[][] prefix = new int[n + 2][2];
 			int[] suffixNextLetter = new int[n + 2];
 			int[][] suffix = new int[n + 2][2];
-			
+
 			for (int i = 1; i <= n; i++) {
 				if (i == 1)
 					prefixNextLetter[i] = 0;
@@ -36,14 +36,14 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
 				}
 			}
 			for (int i = 1; i <= n; i++) {
-				if (c1[i-1] == c2[i-1]) {
+				if (c1[i - 1] == c2[i - 1]) {
 					prefix[i][0] = prefix[i - 1][0];
 				} else {
 					prefix[i][0] = prefix[i - 1][1];
 				}
 				prefix[i][1] = 1 + prefix[prefixNextLetter[i]][1];
 			}
-			
+
 			for (int i = n; i >= 1; i--) {
 				if (i == n)
 					suffixNextLetter[i] = n + 1;
@@ -55,17 +55,17 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
 				}
 			}
 			for (int i = n; i >= 1; i--) {
-				if (c1[i+1] == c2[i+1]) {
-				suffix[i][0] = suffix[i + 1][0];
+				if (c1[i + 1] == c2[i + 1]) {
+					suffix[i][0] = suffix[i + 1][0];
 				} else {
-					suffix[i][0] = suffix[i+1][1];
+					suffix[i][0] = suffix[i + 1][1];
 				}
 				suffix[i][1] = 1 + suffix[suffixNextLetter[i]][1];
 			}
 			int ans = 1 << 30;
 			for (int i = 1; i < n; i++) {
 				int val1 = c1[i] == c2[i] ? prefix[i][0] : prefix[i][1];
-				int val2 = c1[i + 1] == c2[i + 1] ? suffix[i+1][0]:suffix[i+1][1];
+				int val2 = c1[i + 1] == c2[i + 1] ? suffix[i + 1][0] : suffix[i + 1][1];
 				ans = Math.min(ans, Math.max(val1, val2));
 			}
 			if (n == 1) {
@@ -76,7 +76,7 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
 			}
 			out.printf("Case #%d: %d\n", t, ans);
 		}
-		
+
 		out.close();
 	}
 
@@ -106,4 +106,3 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
 		return br.readLine().trim();
 	}
 }
-

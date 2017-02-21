@@ -1,4 +1,5 @@
 package contest.hackercup;
+
 import java.util.*;
 import java.io.*;
 
@@ -7,23 +8,23 @@ public class FHC_2015_Round_1_Corporate_Gifting {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	static State[] dp1;
 	static State[] dp2;
 	static ArrayList<ArrayList<Integer>> adj;
 	static int n;
 	static int ln;
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int t = readInt();
 		for (int qq = 1; qq <= t; qq++) {
 			n = readInt();
-			ln = (int)(Math.ceil(Math.log(n)/Math.log(2)));
+			ln = (int) (Math.ceil(Math.log(n) / Math.log(2)));
 			adj = new ArrayList<ArrayList<Integer>>();
 			dp1 = new State[n];
 			dp2 = new State[n];
@@ -37,11 +38,11 @@ public class FHC_2015_Round_1_Corporate_Gifting {
 			compute(0);
 			out.printf("Case #%d: %d\n", qq, dp1[0].value);
 		}
-		
+
 		out.close();
 	}
 
-	private static void compute(int i) {
+	private static void compute (int i) {
 		if (adj.get(i).size() == 0) {
 			dp1[i] = new State(1);
 			dp1[i].curr.add(1);
@@ -51,7 +52,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
 		}
 		for (Integer x : adj.get(i))
 			compute(x);
-		
+
 		int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
 		ArrayList<Integer> firstC = new ArrayList<Integer>(), secondC = new ArrayList<Integer>();
 		for (int j = 1; j <= ln; j++) {
@@ -78,7 +79,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
 				secondC.add(j);
 			}
 		}
-		
+
 		dp1[i] = new State(first, firstC);
 		dp2[i] = new State(second, secondC);
 	}
@@ -86,34 +87,36 @@ public class FHC_2015_Round_1_Corporate_Gifting {
 	static class State {
 		int value;
 		ArrayList<Integer> curr = new ArrayList<Integer>();
-		State(int value, ArrayList<Integer> curr) {
+
+		State (int value, ArrayList<Integer> curr) {
 			this.value = value;
 			this.curr = curr;
 		}
-		State(int value) {
+
+		State (int value) {
 			this.value = value;
 		}
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }

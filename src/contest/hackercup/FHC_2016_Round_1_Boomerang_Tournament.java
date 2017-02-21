@@ -1,4 +1,5 @@
 package contest.hackercup;
+
 import java.util.*;
 import java.io.*;
 
@@ -12,18 +13,18 @@ public class FHC_2016_Round_1_Boomerang_Tournament {
 	static int[][] adj;
 	static int[] loseFirst;
 	static int[] best;
-	
+
 	static int[] place = {0, 0, 1, 2, 2, 4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8};
 	static int[] places = {1, 2, 3, 5, 9};
 	static HashSet<Integer> hs1 = new HashSet<Integer>();
 	static HashSet<Integer> hs2 = new HashSet<Integer>();
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		//out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		out = new PrintWriter(new FileWriter("out.txt"));
-	
+
 		int T = readInt();
 		for (int t = 1; t <= T; t++) {
 			dp.clear();
@@ -51,12 +52,12 @@ public class FHC_2016_Round_1_Boomerang_Tournament {
 			for (int i = 0; i < N; i++)
 				out.printf("%d %d\n", best[i], loseFirst[i] == 0 ? N / 2 + 1 : 1);
 		}
-		
+
 		out.close();
 	}
-	
+
 	static HashMap<Integer, HashSet<Integer>> dp = new HashMap<Integer, HashSet<Integer>>();
-	
+
 	static HashSet<Integer> solve (int[] val, int n, int index) {
 		int state = 0;
 		for (int i = 0; i < n; i++)
@@ -88,7 +89,7 @@ public class FHC_2016_Round_1_Boomerang_Tournament {
 			for (int j = 0; j < n; j++)
 				if ((i & 1 << j) == 0)
 					b[cnt++] = val[j];
-			
+
 			HashSet<Integer> res1 = solve(a, n / 2, index + 1);
 			HashSet<Integer> res2 = solve(b, n / 2, index + 1);
 			for (int j : res1)
@@ -105,30 +106,30 @@ public class FHC_2016_Round_1_Boomerang_Tournament {
 		dp.put(state, res);
 		return res;
 	}
-	static String next() throws IOException {
+
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }
-
