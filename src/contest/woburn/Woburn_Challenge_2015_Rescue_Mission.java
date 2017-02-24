@@ -3,7 +3,7 @@ package contest.woburn;
 import java.util.*;
 import java.io.*;
 
-public class Woburn_Challenge_Rescue_Mission {
+public class Woburn_Challenge_2015_Rescue_Mission {
 
 	static BufferedReader br;
 	static PrintWriter out;
