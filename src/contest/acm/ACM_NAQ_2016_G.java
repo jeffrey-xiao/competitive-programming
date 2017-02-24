@@ -9,12 +9,13 @@ public class ACM_NAQ_2016_G {
 	static PrintWriter out;
 	static StringTokenizer st;
 	static double[] prefix;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		String in = readLine();
 		prefix = new double[1000001];
 		for (int i = 1; i <= 1000000; i++)
@@ -33,7 +34,7 @@ public class ACM_NAQ_2016_G {
 		} else {
 			int lo = 1;
 			int hi = 1000000;
-			
+
 			while (lo <= hi) {
 				int mid = (hi + lo) >> 1;
 				if (digits(mid) < in.length())
@@ -49,7 +50,7 @@ public class ACM_NAQ_2016_G {
 	static int digits (int n) {
 		return (int)Math.ceil(prefix[n]);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

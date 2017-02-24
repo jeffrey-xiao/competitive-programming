@@ -19,8 +19,8 @@ public class CCC_2005_S5 {
 			int temp = t.add(next);
 			total += temp + 1;
 		}
-		float f = total / (float) n;
-		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
+		float f = total / (float)n;
+		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int)(f * 100.0))) == 0.5 && (int)((f * 10 - (int)(f * 10)) * 10) % 2 == 0)
 			f -= 0.01;
 		System.out.printf("%.2f", f);
 	}

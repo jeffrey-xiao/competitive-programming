@@ -14,7 +14,7 @@ public class DMOPC_2015_Ariadnes_Thread {
 	static ArrayList<TreeSet<Integer>> occ = new ArrayList<TreeSet<Integer>>();
 	static int[] first, depth, size;
 	static int[][] pa;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,12 +22,12 @@ public class DMOPC_2015_Ariadnes_Thread {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		first = new int[N];
 		pa = new int[LN][N];
 		depth = new int[N];
 		size = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			adj.add(new ArrayList<Integer>());
 			occ.add(new TreeSet<Integer>());
@@ -36,9 +36,9 @@ public class DMOPC_2015_Ariadnes_Thread {
 		for (int i = 0; i < LN; i++)
 			for (int j = 0; j < N; j++)
 				pa[i][j] = -1;
-		
+
 		Arrays.fill(first, 1 << 30);
-		
+
 		for (int i = 0; i < N; i++) {
 			int sz = readInt();
 			for (int j = 0; j < sz; j++) {
@@ -47,16 +47,16 @@ public class DMOPC_2015_Ariadnes_Thread {
 				pa[0][val] = i;
 			}
 		}
-		
+
 		for (int i = 1; i < LN; i++)
 			for (int j = 0; j < N; j++)
 				if (pa[i - 1][j] != -1)
 					pa[i][j] = pa[i - 1][pa[i - 1][j]];
-		
+
 		dfs(0, -1, 0);
-		
+
 		Q = readInt();
-		
+
 		for (int i = 0; i < Q; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
@@ -76,28 +76,28 @@ public class DMOPC_2015_Ariadnes_Thread {
 			u = v;
 			v = temp;
 		}
-		
+
 		for (int i = LN - 1; i >= 0; i--)
 			if (pa[i][u] != -1 && depth[pa[i][u]] >= depth[v])
 				u = pa[i][u];
-		
+
 		if (u == v)
 			return v;
-		
+
 		for (int i = LN - 1; i >= 0; i--)
 			if (pa[i][v] != -1 && pa[i][u] != -1 && pa[i][u] != pa[i][v]) {
 				u = pa[i][u];
 				v = pa[i][v];
 			}
-		
+
 		return pa[0][u];
 	}
-	
+
 	static void dfs (int u, int prev, int d) {
 		first[u] = Math.min(first[u], cnt);
 		occ.get(u).add(cnt++);
 		depth[u] = d;
-		
+
 		for (int v : adj.get(u)) {
 			if (prev != v) {
 				dfs(v, u, d + 1);
@@ -107,7 +107,7 @@ public class DMOPC_2015_Ariadnes_Thread {
 			}
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -134,4 +134,3 @@ public class DMOPC_2015_Ariadnes_Thread {
 		return br.readLine().trim();
 	}
 }
-

@@ -10,7 +10,7 @@ public class Round_1A_B {
 	static StringTokenizer st;
 
 	static int T;
-	
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		//out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,7 +18,7 @@ public class Round_1A_B {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			int N = readInt();
 			int[] val = new int[2501];
@@ -31,7 +31,7 @@ public class Round_1A_B {
 					out.printf("%d ", i);
 			out.println();
 		}
-		
+
 		out.close();
 	}
 
@@ -61,4 +61,3 @@ public class Round_1A_B {
 		return br.readLine().trim();
 	}
 }
-

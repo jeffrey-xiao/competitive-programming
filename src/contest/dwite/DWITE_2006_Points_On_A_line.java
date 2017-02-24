@@ -34,7 +34,7 @@ public class DWITE_2006_Points_On_A_line {
 	}
 
 	static double getSlope (Point p1, Point p2) {
-		double m = ((double) (p1.y - p2.y)) / ((double) (p1.x - p2.x));
+		double m = ((double)(p1.y - p2.y)) / ((double)(p1.x - p2.x));
 		if (m == Double.NEGATIVE_INFINITY)
 			return Double.POSITIVE_INFINITY;
 		return m;

@@ -30,7 +30,7 @@ public class COCI_2014_KRATKI {
 			for (int i = 1; i <= n; i++)
 				ps.print(i + " ");
 			ps.println();
-		} else if (k < (int) (Math.sqrt(n))) {
+		} else if (k < (int)(Math.sqrt(n))) {
 			ps.println(-1);
 		} else {
 			for (int i = 1; i <= (n + k - 1) / k; i++) {

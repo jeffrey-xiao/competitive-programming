@@ -12,6 +12,7 @@ public class COCI_2006_JOGURT {
 	static int N;
 	static int[] tree;
 	static int[] newTree;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,7 +20,7 @@ public class COCI_2006_JOGURT {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		tree = new int[(1 << N) - 1];
 		tree[0] = 1;
 		for (int i = 0; i < N - 1; i++) {
@@ -33,7 +34,7 @@ public class COCI_2006_JOGURT {
 			// duplicate nodes with 2 * n + 1
 			for (int j = sz + 1; j <= 2 * sz; j++)
 				tree[j] = 2 * tree[j - sz] + 1;
-			
+
 			// multiply original nodes by 2
 			for (int j = 1; j <= sz; j++)
 				tree[j] = 2 * tree[j];
@@ -41,7 +42,7 @@ public class COCI_2006_JOGURT {
 			// swap last layer
 			int lo = 1;
 			int hi = sz + 1;
-			
+
 			while (hi < sz * 2 + 1) {
 				if (tree[lo] >= 1 << (i + 1) && tree[hi] >= 1 << (i + 1)) {
 					int temp = tree[lo];
@@ -52,11 +53,11 @@ public class COCI_2006_JOGURT {
 				hi++;
 			}
 		}
-		
+
 		for (int i = 0; i < (1 << N) - 1; i++)
 			out.printf("%d ", tree[i]);
 		out.println();
-		
+
 		out.close();
 	}
 
@@ -86,4 +87,3 @@ public class COCI_2006_JOGURT {
 		return br.readLine().trim();
 	}
 }
-

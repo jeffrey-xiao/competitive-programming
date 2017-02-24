@@ -17,24 +17,23 @@ public class Mackenzie_Love_Guru {
 
 		String a = readLine().toLowerCase();
 		String b = readLine().toLowerCase();
-		
-		
+
 		int compatA = 0;
 		int compatB = 0;
-		
+
 		for (int i = 0; i < a.length(); i++) {
 			compatA = (compatA + modpow(a.charAt(i) - 'a' + 1, i + 1, 10)) % 10;
 		}
-		
+
 		for (int i = 0; i < b.length(); i++) {
 			compatB = (compatB + modpow(b.charAt(i) - 'a' + 1, i + 1, 10)) % 10;
 		}
-		
+
 		if (compatA == 0)
 			compatA = 10;
 		if (compatB == 0)
 			compatB = 10;
-		
+
 		out.println(compatA + compatB);
 		out.close();
 	}
@@ -48,7 +47,7 @@ public class Mackenzie_Love_Guru {
 			return modpow(base * base % mod, pow / 2, mod) % mod;
 		return base * modpow(base * base % mod, pow / 2, mod) % mod;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +74,3 @@ public class Mackenzie_Love_Guru {
 		return br.readLine().trim();
 	}
 }
-

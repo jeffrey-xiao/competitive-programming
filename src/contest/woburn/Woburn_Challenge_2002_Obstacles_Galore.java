@@ -12,7 +12,7 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
 	static int T, N;
 	static double[] X, Y;
 	static double cx, cy, g, endRad;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,30 +20,30 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 0; t < T; t++) {
 			N = readInt();
-			
+
 			X = new double[N];
 			Y = new double[N];
-			
+
 			for (int i = 0; i < N; i++) {
 				X[i] = readDouble();
 				Y[i] = readDouble();
 			}
-			
+
 			cx = readDouble();
 			cy = readDouble();
 			g = readDouble();
 			endRad = readDouble();
-			
+
 			double minTime = 1 << 30;
-			
+
 			for (int i = 0; i < N; i++) {
 				double currTime = dist(cx, cy, X[i], Y[i]) / g;
 				minTime = Math.min(minTime, currTime);
 			}
-			
+
 			if (minTime >= endRad / g)
 				out.println("The monkeys need help!\n");
 			else {
@@ -54,7 +54,7 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
 				out.printf("\n%.3f\n\n", minTime * g);
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -63,7 +63,7 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
 		double dy = y1 - y2;
 		return Math.sqrt(dx * dx + dy * dy);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -90,4 +90,3 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
 		return br.readLine().trim();
 	}
 }
-

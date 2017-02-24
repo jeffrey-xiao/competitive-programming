@@ -12,7 +12,7 @@ public class Woburn_Challenge_2016_Training_Regimen {
 	static int N, M;
 	static int[] times;
 	static ArrayList<ArrayList<State>> adj = new ArrayList<ArrayList<State>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,33 +21,33 @@ public class Woburn_Challenge_2016_Training_Regimen {
 
 		N = readInt();
 		M = readInt();
-		
+
 		times = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			times[i] = readInt();
 			adj.add(new ArrayList<State>());
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
 			int c = readInt();
-			
+
 			adj.get(u).add(new State(v, c));
 			adj.get(v).add(new State(u, c));
 		}
-		
+
 		int[] dist = new int[N];
 		Arrays.fill(dist, 1 << 30);
 		dist[0] = 0;
-		
+
 		PriorityQueue<State> pq = new PriorityQueue<State>();
 		pq.offer(new State(0, 0));
-		
+
 		while (!pq.isEmpty()) {
 			State curr = pq.poll();
-			
+
 			for (State next : adj.get(curr.index)) {
 				if (dist[next.index] <= Math.max(curr.cost, next.cost))
 					continue;
@@ -55,17 +55,17 @@ public class Woburn_Challenge_2016_Training_Regimen {
 				pq.offer(new State(next.index, dist[next.index]));
 			}
 		}
-		
+
 		ArrayList<State> states = new ArrayList<State>();
-		
+
 		for (int i = 1; i < N; i++)
 			states.add(new State(i, dist[i]));
 		Collections.sort(states);
-		
+
 		int currLevel = 1;
 		int trainingCost = times[0];
 		long ans = 0;
-		
+
 		for (int i = 0; i < states.size(); i++) {
 			if (states.get(i).cost == 1 << 30)
 				continue;
@@ -81,14 +81,15 @@ public class Woburn_Challenge_2016_Training_Regimen {
 		out.println(-1);
 		out.close();
 	}
-	
+
 	static class State implements Comparable<State> {
 		int index, cost;
+
 		State (int index, int cost) {
 			this.index = index;
 			this.cost = cost;
 		}
-		
+
 		@Override
 		public int compareTo (State s) {
 			if (cost == s.cost)
@@ -123,4 +124,3 @@ public class Woburn_Challenge_2016_Training_Regimen {
 		return br.readLine().trim();
 	}
 }
-

@@ -14,8 +14,8 @@ public class IOI_2014_Wall {
 
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
-		int height = (int) Math.ceil(Math.log(n) / Math.log(2));
-		int size = 2 * (int) Math.pow(2, height) - 1;
+		int height = (int)Math.ceil(Math.log(n) / Math.log(2));
+		int size = 2 * (int)Math.pow(2, height) - 1;
 		up = new int[size * 2 + 1];
 		down = new int[size * 2 + 1];
 		int k = readInt();

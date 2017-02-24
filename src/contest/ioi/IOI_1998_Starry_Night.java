@@ -36,7 +36,7 @@ public class IOI_1998_Starry_Night {
 
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
-				if (g[i][j] == '1') { 
+				if (g[i][j] == '1') {
 					curr = new ArrayList<Point>();
 					dfs(i, j);
 
@@ -45,18 +45,18 @@ public class IOI_1998_Starry_Night {
 					for (Point p : curr) {
 						minR = Math.min(minR, p.x);
 						maxR = Math.max(maxR, p.x);
-						
+
 						minC = Math.min(minC, p.y);
 						maxC = Math.max(maxC, p.y);
 					}
-					
+
 					Cluster c = new Cluster(maxR - minR + 1, maxC - minC + 1);
 					for (Point p : curr)
 						c.points.add(new Point(p.x - minR, p.y - minC));
-					
+
 					boolean exists = false;
 					int index = clusters.size();
-					
+
 					for (int q = 0; q < clusters.size(); q++) {
 						Cluster cluster = clusters.get(q);
 						for (int k = 0; k < 2; k++) {
@@ -70,11 +70,11 @@ public class IOI_1998_Starry_Night {
 							c.flip();
 						}
 					}
-					
+
 					for (Point p : curr) {
 						g[p.x][p.y] = (char)('a' + index);
 					}
-					
+
 					if (!exists) {
 						clusters.add(c);
 					}
@@ -84,7 +84,7 @@ public class IOI_1998_Starry_Night {
 
 		for (int i = 0; i < H; i++)
 			out.println(new String(g[i]));
-		
+
 		out.close();
 	}
 
@@ -93,13 +93,13 @@ public class IOI_1998_Starry_Night {
 		Collections.sort(p2);
 		if (p1.size() != p2.size())
 			return false;
-		
+
 		for (int i = 0; i < p1.size(); i++)
 			if (!p1.get(i).equals(p2.get(i)))
 				return false;
 		return true;
 	}
-	
+
 	static void dfs (int r, int c) {
 		g[r][c] = '0';
 		curr.add(new Point(r, c));
@@ -120,7 +120,7 @@ public class IOI_1998_Starry_Night {
 
 		Cluster (int height, int width) {
 			this.height = height;
-			this.width  = width;
+			this.width = width;
 			this.points = new ArrayList<Point>();
 		}
 
@@ -143,7 +143,7 @@ public class IOI_1998_Starry_Night {
 				points.get(i).y = width - points.get(i).y - 1;
 			}
 		}
-		
+
 		public String toString () {
 			StringBuilder ret = new StringBuilder();
 			for (int i = 0; i < height; i++) {
@@ -163,16 +163,19 @@ public class IOI_1998_Starry_Night {
 
 	static class Point implements Comparable<Point> {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
+
 		@Override
 		public int compareTo (Point p) {
 			if (x == p.x)
 				return y - p.y;
 			return x - p.x;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
@@ -181,6 +184,7 @@ public class IOI_1998_Starry_Night {
 			}
 			return false;
 		}
+
 		@Override
 		public String toString () {
 			return String.format("(%d %d)", x, y);
@@ -213,4 +217,3 @@ public class IOI_1998_Starry_Night {
 		return br.readLine().trim();
 	}
 }
-

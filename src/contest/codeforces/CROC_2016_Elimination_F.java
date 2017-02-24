@@ -9,7 +9,7 @@ public class CROC_2016_Elimination_F {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int MOD = (int) (1e9 + 7);
+	static int MOD = (int)(1e9 + 7);
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
@@ -65,7 +65,7 @@ public class CROC_2016_Elimination_F {
 	}
 
 	static int divMod (long i, long j) {
-		return (int) (i * pow(j, MOD - 2) % MOD);
+		return (int)(i * pow(j, MOD - 2) % MOD);
 	}
 
 	static long pow (long base, long pow) {

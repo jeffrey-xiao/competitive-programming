@@ -52,7 +52,7 @@ public class CCC_2011_Stage_2_Reorganization {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Employee) {
-				Employee e = (Employee) o;
+				Employee e = (Employee)o;
 				return id == e.id;
 			}
 			return false;

@@ -16,16 +16,16 @@ public class Mackenzie_Playlist_Panic {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		int[] time = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			time[i] = readInt() * 60 + readInt();
-		
+
 		Arrays.sort(time);
 
 		int currTime = 0;
-		
+
 		int totalTime = readInt() * 60 + readInt();
 		for (int i = 0; i < N; i++) {
 			currTime += time[i];
@@ -65,4 +65,3 @@ public class Mackenzie_Playlist_Panic {
 		return br.readLine().trim();
 	}
 }
-

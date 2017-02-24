@@ -45,8 +45,8 @@ public class CCC_2016_S5 {
 	static int[] getState (int[] state, long k) {
 		int[] ret = new int[N];
 		for (int i = 0; i < N; i++) {
-			ret[(int) (((i - k) % N + N) % N)] ^= state[i];
-			ret[(int) ((i + k) % N)] ^= state[i];
+			ret[(int)(((i - k) % N + N) % N)] ^= state[i];
+			ret[(int)((i + k) % N)] ^= state[i];
 		}
 		return ret;
 	}

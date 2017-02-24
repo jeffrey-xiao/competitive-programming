@@ -10,10 +10,10 @@ public class COCI_2013_ORGANIZATOR {
 	static StringTokenizer st;
 
 	static final int MAX_SIZE = 2000000;
-	
+
 	static int N;
 	static int[] occ = new int[MAX_SIZE + 1];
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,10 +21,10 @@ public class COCI_2013_ORGANIZATOR {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			occ[readInt()]++;
-		
+
 		long ans = 0;
 		for (int i = 1; i <= MAX_SIZE; i++) {
 			long curr = 0;
@@ -33,7 +33,7 @@ public class COCI_2013_ORGANIZATOR {
 			if (curr > 1)
 				ans = Math.max(ans, curr * i);
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -64,4 +64,3 @@ public class COCI_2013_ORGANIZATOR {
 		return br.readLine().trim();
 	}
 }
-

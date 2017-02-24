@@ -61,7 +61,7 @@ public class WOC_28_E {
 				ret |= 1 << (len - i - 1);
 		return ret;
 	}
-	
+
 	static int remove (int bitmask, int i) {
 		int upperMask = FULL_MASK ^ ((1 << (i + 1)) - 1);
 		int lowerMask = (1 << i) - 1;
@@ -95,4 +95,3 @@ public class WOC_28_E {
 		return br.readLine().trim();
 	}
 }
-

@@ -18,7 +18,7 @@ public class Woburn_Challenge_2016_The_Perfect_Mate {
 		int N = readInt();
 		String name = "None";
 		int maxWins = -1;
-		
+
 		for (int i = 0; i < N; i++) {
 			String currName = next();
 			int wins = readInt();
@@ -58,4 +58,3 @@ public class Woburn_Challenge_2016_The_Perfect_Mate {
 		return br.readLine().trim();
 	}
 }
-

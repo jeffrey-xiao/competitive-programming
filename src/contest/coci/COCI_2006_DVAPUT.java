@@ -30,12 +30,12 @@ public class COCI_2006_DVAPUT {
 			long pow = 1;
 			for (int i = 0; i < mid; i++) {
 				pow = (26 * pow) % MOD;
-				hash = (26 * hash + (long) (str[i] - 'a')) % MOD;
+				hash = (26 * hash + (long)(str[i] - 'a')) % MOD;
 			}
 			hs.add(hash);
 			boolean success = false;
 			for (int i = mid; i < str.length; i++) {
-				hash = (26 * hash - (pow * (long) (str[i - mid] - 'a')) + (long) (str[i] - 'a')) % MOD;
+				hash = (26 * hash - (pow * (long)(str[i - mid] - 'a')) + (long)(str[i] - 'a')) % MOD;
 				if (hs.contains(hash)) {
 					success = true;
 					break;

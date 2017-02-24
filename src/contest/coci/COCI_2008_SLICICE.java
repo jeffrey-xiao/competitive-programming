@@ -72,7 +72,7 @@ public class COCI_2008_SLICICE {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Edge) {
-				Edge e = (Edge) o;
+				Edge e = (Edge)o;
 				return dest == e.dest;
 			}
 			return false;

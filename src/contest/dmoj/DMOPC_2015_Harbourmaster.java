@@ -11,9 +11,9 @@ public class DMOPC_2015_Harbourmaster {
 
 	static double C, S, P;
 	static int N;
-	
+
 	static int[] c, s, p;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,17 +23,17 @@ public class DMOPC_2015_Harbourmaster {
 		C = readInt();
 		S = readInt();
 		P = readInt();
-		
+
 		N = readInt();
-		
+
 		c = new int[N];
 		s = new int[N];
 		p = new int[N];
-		
+
 		int totalC = 0;
 		int totalS = 0;
 		int totalP = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			totalC += c[i] = readInt();
 			totalS += s[i] = readInt();
@@ -41,9 +41,9 @@ public class DMOPC_2015_Harbourmaster {
 		}
 
 		double max = 0;
-		
+
 		if (N <= 5) {
-			max = Math.min(totalC / C, Math.min(totalS / S, totalP / P)); 
+			max = Math.min(totalC / C, Math.min(totalS / S, totalP / P));
 		} else {
 			for (int i = 0; i < N; i++) {
 				for (int j = i + 1; j < N; j++) {
@@ -53,16 +53,14 @@ public class DMOPC_2015_Harbourmaster {
 								totalC = c[i] + c[j] + c[k] + c[l] + c[m];
 								totalS = s[i] + s[j] + s[k] + s[l] + s[m];
 								totalP = p[i] + p[j] + p[k] + p[l] + p[m];
-								max = Math.max(max, Math.min(totalC / C, Math.min(totalS / S, totalP / P))); 
+								max = Math.max(max, Math.min(totalC / C, Math.min(totalS / S, totalP / P)));
 							}
 						}
 					}
 				}
 			}
 		}
-		
 
-		
 		out.printf("%.1f\n", Math.min(100, max * 100));
 		out.close();
 	}
@@ -93,4 +91,3 @@ public class DMOPC_2015_Harbourmaster {
 		return br.readLine().trim();
 	}
 }
-

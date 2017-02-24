@@ -8,7 +8,7 @@ public class University_Codesprint_2_B {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -16,7 +16,7 @@ public class University_Codesprint_2_B {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			String in = readLine();
 			if (in.charAt(0) == '0') {
@@ -34,7 +34,7 @@ public class University_Codesprint_2_B {
 			else
 				out.println("NO");
 		}
-		
+
 		out.close();
 	}
 
@@ -44,11 +44,11 @@ public class University_Codesprint_2_B {
 		if (curr.charAt(0) == '0')
 			return false;
 		for (int i = 0; i < Math.min(curr.length(), Long.toString(val).length() + 1); i++)
-			if (Long.parseLong(curr.substring(0, i + 1)) == val) 
+			if (Long.parseLong(curr.substring(0, i + 1)) == val)
 				return isValid(val + 1, curr.substring(i + 1));
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +75,3 @@ public class University_Codesprint_2_B {
 		return br.readLine().trim();
 	}
 }
-

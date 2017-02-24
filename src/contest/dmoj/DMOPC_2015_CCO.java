@@ -16,11 +16,11 @@ public class DMOPC_2015_CCO {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		String[] design = {readLine(), readLine(), readLine()};
-		
+
 		String V = next();
 		int H = readInt();
 		int W = readInt();
-		
+
 		int height = 2 * H + 5;
 		int width = 2 * W + 5;
 		int index = 0;
@@ -36,7 +36,7 @@ public class DMOPC_2015_CCO {
 			else
 				out.printf("|%s%s%s|\n", rep(' ', (width - 5) / 2), design[index++], rep(' ', (width - 5) / 2));
 		}
-		
+
 		out.close();
 	}
 
@@ -46,7 +46,7 @@ public class DMOPC_2015_CCO {
 			ret.append(c);
 		return ret.toString();
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -73,4 +73,3 @@ public class DMOPC_2015_CCO {
 		return br.readLine().trim();
 	}
 }
-

@@ -12,7 +12,7 @@ public class Blackrock_H {
 	static int N;
 	static int[] val;
 	static int[][] cache;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,9 +23,9 @@ public class Blackrock_H {
 		N = in.length;
 		val = new int[N];
 
-		for (int i = 0; i < N; i++) 
+		for (int i = 0; i < N; i++)
 			val[i] = in[i] == 'a' ? 0 : 1;
-		
+
 		if (N % 2 == 1) {
 			out.println(0);
 			out.close();
@@ -37,7 +37,7 @@ public class Blackrock_H {
 		for (int i = 0; i <= half; i++) {
 			cache[i] = new int[1 << i];
 		}
-		
+
 		// solving left bitmasks
 		main : for (int i = 0; i < (1 << half); i++) {
 			int cnt = bitCount(i);
@@ -47,7 +47,7 @@ public class Blackrock_H {
 			int set2 = 0;
 			int len1 = 0;
 			int len2 = 0;
-			
+
 			// a is 0, b is 1
 			for (int j = 0; j < half; j++) {
 				// in set1
@@ -62,15 +62,14 @@ public class Blackrock_H {
 					len2++;
 				}
 
-				
 			}
 			if ((set1 & ((1 << Math.min(len1, len2)) - 1)) != (set2 & ((1 << Math.min(len1, len2)) - 1)))
 				continue main;
 			if (len1 > len2) {
 				cache[len1 - len2][(set1 >> len2)]++;
 			} else if (len2 == len1) {
-	            if ((i ^ ((1 << half) - 1)) < i)
-	            	cache[0][0]++;
+				if ((i ^ ((1 << half) - 1)) < i)
+					cache[0][0]++;
 			}
 		}
 
@@ -101,8 +100,8 @@ public class Blackrock_H {
 					len2++;
 				}
 
-				
-			}if ((set1 & ((1 << Math.min(len1, len2)) - 1)) != (set2 & ((1 << Math.min(len1, len2)) - 1)))
+			}
+			if ((set1 & ((1 << Math.min(len1, len2)) - 1)) != (set2 & ((1 << Math.min(len1, len2)) - 1)))
 				continue main;
 			if (len1 > len2) {
 				ans += cache[len1 - len2][(set11 & (((1 << (len1 - len2)) - 1)))];
@@ -110,22 +109,23 @@ public class Blackrock_H {
 				ans += cache[0][0];
 			}
 		}
-		
+
 		out.println(ans * 2l);
 		out.close();
 	}
 
 	static int bitCount (int x) {
-	    x = x - ((x >> 1) & 0x55555555);
-	    x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
-	    x = (x + (x >> 4)) & 0x0F0F0F0F;
-	    x = x + (x >> 8);
-	    x = x + (x >> 16);
-	    return x & 0x0000003F;
+		x = x - ((x >> 1) & 0x55555555);
+		x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
+		x = (x + (x >> 4)) & 0x0F0F0F0F;
+		x = x + (x >> 8);
+		x = x + (x >> 16);
+		return x & 0x0000003F;
 	}
 
 	static class State {
 		int mask, length;
+
 		State (int mask, int length) {
 			this.mask = mask;
 			this.length = length;
@@ -144,7 +144,7 @@ public class Blackrock_H {
 		public int hashCode () {
 			return mask * 31 + length;
 		}
-		
+
 		@Override
 		public String toString () {
 			return String.format("(%d, %d)", mask, length);
@@ -177,4 +177,3 @@ public class Blackrock_H {
 		return br.readLine().trim();
 	}
 }
-

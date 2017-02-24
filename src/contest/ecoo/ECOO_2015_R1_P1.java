@@ -1,18 +1,18 @@
 package contest.ecoo;
+
 import java.util.*;
 import java.io.*;
 
 public class ECOO_2015_R1_P1 {
 
 	static BufferedReader br;
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	public static void main(String[] args) throws IOException {
+	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new FileReader("DATA11.txt"));
 		br = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (int qq = 0; qq < 10; qq++) {
 			int[] sum = new int[8];
 			String next = readLine();
@@ -35,39 +35,37 @@ public class ECOO_2015_R1_P1 {
 					sum[7]++;
 				next = readLine();
 			}
-			System.out.println(sum[0] * 16 + get(sum[1]) + get(sum[2])
-					+ get(sum[3]) + get(sum[4]) + get(sum[5]) + get(sum[6])
-					+ get(sum[7]));
+			System.out.println(sum[0] * 16 + get(sum[1]) + get(sum[2]) + get(sum[3]) + get(sum[4]) + get(sum[5]) + get(sum[6]) + get(sum[7]));
 		}
 	}
 
-	private static int get(int i) {
+	private static int get (int i) {
 		return (i + 6) / 7 * 13;
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }

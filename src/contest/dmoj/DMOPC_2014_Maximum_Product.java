@@ -17,7 +17,7 @@ public class DMOPC_2014_Maximum_Product {
 
 		int N = readInt();
 		long ans = 1;
-		long max = - 1 << 30;
+		long max = -1 << 30;
 
 		boolean hasOne = false;
 		boolean hasZero = false;
@@ -76,4 +76,3 @@ public class DMOPC_2014_Maximum_Product {
 		return br.readLine().trim();
 	}
 }
-

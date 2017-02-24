@@ -25,7 +25,7 @@ public class COCI_2014_STROJOPIS {
 		int[] cnt = new int[8];
 		for (int i = 0; i < in.length; i++) {
 			for (int j = 0; j < 8; j++) {
-				if (s[j].indexOf((char) in[i]) != -1)
+				if (s[j].indexOf((char)in[i]) != -1)
 					cnt[j]++;
 			}
 		}

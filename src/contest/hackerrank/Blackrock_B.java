@@ -9,7 +9,6 @@ public class Blackrock_B {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -72,7 +71,7 @@ public class Blackrock_B {
 			ans[o[i].p] += toAllocate;
 			availableUnits -= toAllocate;
 		}
-		
+
 		for (int i = 0; i < T; i++)
 			out.printf("%s %d\n", toName.get(i), ans[i]);
 
@@ -123,4 +122,3 @@ public class Blackrock_B {
 		return br.readLine().trim();
 	}
 }
-

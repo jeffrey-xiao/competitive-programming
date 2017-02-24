@@ -16,7 +16,6 @@ public class Waterloo_Local_2016_C {
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
-
 		String a = next();
 		String b = next();
 		if (b.length() >= 4)

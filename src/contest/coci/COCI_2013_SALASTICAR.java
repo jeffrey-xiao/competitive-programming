@@ -34,31 +34,29 @@ public class COCI_2013_SALASTICAR {
 		toIndex = new int[N];
 		min = new int[4 * N];
 		sum = new int[4 * N];
-		
+
 		computeSuffixArray();
 		minBuild(1, 0, N - 1);
 
 		for (int i = 0; i < N; i++)
 			toIndex[res[i]] = i;
-		
+
 		M = readInt();
 
 		ans = new int[M];
 		states = new State[M];
 
-		
-		
 		for (int i = 0; i < M; i++) {
 			String code = next();
 			states[i] = new State(code, getFirstSuffix(code), i);
 
-			assert(getFirstSuffix(code) == bruteforceFirstSuffix(code));
+			assert getFirstSuffix(code) == bruteforceFirstSuffix(code);
 		}
-		
+
 		Arrays.sort(states);
-		
+
 		int curr = 0;
-		
+
 		for (State s : states) {
 			while (curr <= Math.min(s.firstMatch, N - 1)) {
 				sumUpdate(1, 0, N - 1, toIndex[curr], 1);
@@ -69,7 +67,7 @@ public class COCI_2013_SALASTICAR {
 
 		for (int i = 0; i < M; i++)
 			out.println(ans[i]);
-		
+
 		out.close();
 	}
 
@@ -80,7 +78,7 @@ public class COCI_2013_SALASTICAR {
 				return i;
 		return N;
 	}
-	
+
 	static int getAnswer (String code) {
 		int ret = 0;
 		int lo = 0;
@@ -97,7 +95,7 @@ public class COCI_2013_SALASTICAR {
 		}
 		return ret;
 	}
-	
+
 	static int getFirstSuffix (String code) {
 		int lo = 0;
 		int hi = N - 1;
@@ -123,7 +121,7 @@ public class COCI_2013_SALASTICAR {
 		}
 		return lo;
 	}
-	
+
 	public static int bsearchFloor (int lo, int hi, char val, int pos) {
 		while (lo <= hi) {
 			int mid = lo + ((hi - lo) >> 1);
@@ -140,21 +138,21 @@ public class COCI_2013_SALASTICAR {
 			sum[n] += val;
 			return;
 		}
-		
+
 		int mid = (l + r) >> 1;
-			
+
 		if (x <= mid)
 			sumUpdate(n << 1, l, mid, x, val);
 		else
 			sumUpdate(n << 1 | 1, mid + 1, r, x, val);
-		
+
 		sum[n] = sum[n << 1] + sum[n << 1 | 1];
 	}
-	
+
 	static int sumQuery (int n, int l, int r, int ql, int qr) {
 		if (l == ql && r == qr)
 			return sum[n];
-		
+
 		int mid = (l + r) >> 1;
 
 		if (qr <= mid)
@@ -164,11 +162,11 @@ public class COCI_2013_SALASTICAR {
 		else
 			return sumQuery(n << 1, l, mid, ql, mid) + sumQuery(n << 1 | 1, mid + 1, r, mid + 1, qr);
 	}
-	
+
 	static int minQuery (int n, int l, int r, int ql, int qr) {
 		if (l == ql && r == qr)
 			return min[n];
-		
+
 		int mid = (l + r) >> 1;
 
 		if (qr <= mid)
@@ -209,11 +207,11 @@ public class COCI_2013_SALASTICAR {
 	static Integer[] computeSuffixArray () {
 		for (int i = 0; i < N; i++) {
 			res[i] = i;
-			order[i] = (int) (input[i] - '0');
+			order[i] = (int)(input[i] - '0');
 			newOrder[i] = 0;
 		}
 
-		final SuffixComparator C = new SuffixComparator(); 
+		final SuffixComparator C = new SuffixComparator();
 
 		for (sz = 1;; sz <<= 1) {
 			Arrays.sort(res, C);
@@ -264,4 +262,3 @@ public class COCI_2013_SALASTICAR {
 		return br.readLine().trim();
 	}
 }
-

@@ -31,7 +31,7 @@ public class Lexicographically_Least_Substring {
 		int minLen = readInt();
 		for (int i = 0; i < len; i++) {
 			res[i] = i;
-			order[i] = (int) (input[i]);
+			order[i] = (int)(input[i]);
 			newOrder[i] = 0;
 		}
 		for (sz = 1;; sz <<= 1) {

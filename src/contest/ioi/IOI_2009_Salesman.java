@@ -102,11 +102,11 @@ public class IOI_2009_Salesman {
 			return val[n];
 
 		int mid = (l + r) >> 1;
-			if (qr <= mid)
-				return query(val, n << 1, l, mid, ql, qr);
-			else if (ql > mid)
-				return query(val, n << 1 | 1, mid + 1, r, ql, qr);
-			return Math.max(query(val, n << 1, l, mid, ql, mid), query(val, n << 1 | 1, mid + 1, r, mid + 1, qr));
+		if (qr <= mid)
+			return query(val, n << 1, l, mid, ql, qr);
+		else if (ql > mid)
+			return query(val, n << 1 | 1, mid + 1, r, ql, qr);
+		return Math.max(query(val, n << 1, l, mid, ql, mid), query(val, n << 1 | 1, mid + 1, r, mid + 1, qr));
 	}
 
 	static void update (int[] val, int n, int l, int r, int x, int profit) {
@@ -116,40 +116,40 @@ public class IOI_2009_Salesman {
 		}
 
 		int mid = (l + r) >> 1;
-			if (x <= mid)
-				update(val, n << 1, l, mid, x, profit);
-			else
-				update(val, n << 1 | 1, mid + 1, r, x, profit);
+		if (x <= mid)
+			update(val, n << 1, l, mid, x, profit);
+		else
+			update(val, n << 1 | 1, mid + 1, r, x, profit);
 
-			val[n] = Math.max(val[n << 1], val[n << 1 | 1]);
+		val[n] = Math.max(val[n << 1], val[n << 1 | 1]);
 	}
 
 	static void buildDown (int n, int l, int r) {
 		if (l == r) {
 			if (l == S)
-				down[n] = - D * l;
+				down[n] = -D * l;
 			else
-				down[n] = - INF;
+				down[n] = -INF;
 			return;
 		}
 		int mid = (l + r) >> 1;
-			buildDown(n << 1, l, mid);
-			buildDown(n << 1 | 1, mid + 1, r);
-			down[n] = Math.max(down[n << 1], down[n << 1 | 1]);
+		buildDown(n << 1, l, mid);
+		buildDown(n << 1 | 1, mid + 1, r);
+		down[n] = Math.max(down[n << 1], down[n << 1 | 1]);
 	}
 
 	static void buildUp (int n, int l, int r) {
 		if (l == r) {
 			if (l == S)
-				up[n] = + U * l;
+				up[n] = +U * l;
 			else
-				up[n] = - INF;
+				up[n] = -INF;
 			return;
 		}
 		int mid = (l + r) >> 1;
-			buildUp(n << 1, l, mid);
-			buildUp(n << 1 | 1, mid + 1, r);
-			up[n] = Math.max(up[n << 1], up[n << 1 | 1]);
+		buildUp(n << 1, l, mid);
+		buildUp(n << 1 | 1, mid + 1, r);
+		up[n] = Math.max(up[n << 1], up[n << 1 | 1]);
 	}
 
 	static class Trade implements Comparable<Trade> {

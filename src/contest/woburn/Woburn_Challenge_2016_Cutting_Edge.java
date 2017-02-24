@@ -10,7 +10,7 @@ public class Woburn_Challenge_2016_Cutting_Edge {
 	static StringTokenizer st;
 
 	static long N, M, K;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,27 +21,26 @@ public class Woburn_Challenge_2016_Cutting_Edge {
 		M = readInt();
 		K = readInt() + 1;
 
-		
 		if (K >= M - 1 + N - 1)
 			out.println(-1);
 		else {
 			long ans = 0;
 			long a = K / 2;
 			long b = K - a;
-			
+
 			ans += compute(a) + compute(b);
 			out.println(ans);
 		}
-		
+
 		out.close();
 	}
-	
+
 	static long compute (long n) {
 		long min = Math.min(N, M);
 		if (n < min)
 			return (n + 1) * (n + 2) / 2 - 1;
 		else
-			return (min) * (min + 1) / 2 - 1 + (n - min + 1) * min; 
+			return (min) * (min + 1) / 2 - 1 + (n - min + 1) * min;
 	}
 
 	static String next () throws IOException {
@@ -70,4 +69,3 @@ public class Woburn_Challenge_2016_Cutting_Edge {
 		return br.readLine().trim();
 	}
 }
-

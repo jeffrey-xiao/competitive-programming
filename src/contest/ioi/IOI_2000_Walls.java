@@ -100,7 +100,7 @@ public class IOI_2000_Walls {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Pair) {
-				Pair p = (Pair) o;
+				Pair p = (Pair)o;
 				return x == p.x && y == p.y;
 			}
 			return false;

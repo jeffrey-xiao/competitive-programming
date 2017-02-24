@@ -12,7 +12,7 @@ public class Revenge_Of_The_Digger_2 {
 	static int N, M, src, sink, cnt;
 	static Edge[] e;
 	static int[] dist, last;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,28 +21,28 @@ public class Revenge_Of_The_Digger_2 {
 
 		N = readInt();
 		M = readInt();
-		
+
 		src = 0;
-		
+
 		e = new Edge[(N + M) * 2];
 		dist = new int[2 * N];
 		last = new int[2 * N];
-		
+
 		Arrays.fill(last, -1);
-		
+
 		for (int i = 0; i < N; i++) {
 			int flow = readInt();
 			addEdge(in(i), out(i), flow, 0);
 			if (flow == 0)
 				sink = in(i);
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
 			addEdge(out(a), in(b), 1 << 30, 0);
 		}
-		
+
 		out.println(getFlow());
 		out.close();
 	}
@@ -50,7 +50,7 @@ public class Revenge_Of_The_Digger_2 {
 	static int in (int x) {
 		return 2 * x;
 	}
-	
+
 	static int out (int x) {
 		return 2 * x + 1;
 	}
@@ -116,7 +116,7 @@ public class Revenge_Of_The_Digger_2 {
 			this.next = next;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -143,4 +143,3 @@ public class Revenge_Of_The_Digger_2 {
 		return br.readLine().trim();
 	}
 }
-

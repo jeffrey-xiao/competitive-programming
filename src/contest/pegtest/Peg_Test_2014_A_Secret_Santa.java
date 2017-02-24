@@ -13,7 +13,7 @@ public class Peg_Test_2014_A_Secret_Santa {
 	static int[] ans;
 	static boolean[] used;
 	static ArrayList<ArrayList<Integer>> conn;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,29 +21,29 @@ public class Peg_Test_2014_A_Secret_Santa {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		conn = new ArrayList<ArrayList<Integer>>(N);
-		
+
 		used = new boolean[N];
 		ans = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			conn.add(new ArrayList<Integer>());
-		
+
 		for (int i = 0; i < N; i++) {
 			int sz = readInt();
 			for (int j = 0; j < sz; j++)
 				conn.get(i).add(readInt() - 1);
 		}
-		
+
 		compute(0);
-		
+
 		for (int i = 0; i < N; i++)
 			out.printf("%d ", ans[i]);
 		out.println();
 		out.close();
 	}
-	
+
 	static boolean compute (int i) {
 		if (i == N)
 			return true;
@@ -58,7 +58,7 @@ public class Peg_Test_2014_A_Secret_Santa {
 		}
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -85,4 +85,3 @@ public class Peg_Test_2014_A_Secret_Santa {
 		return br.readLine().trim();
 	}
 }
-

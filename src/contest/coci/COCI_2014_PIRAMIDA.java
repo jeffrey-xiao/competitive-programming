@@ -52,11 +52,11 @@ public class COCI_2014_PIRAMIDA {
 			long diff = l - 1;
 			int left = 0, right = 0;
 			if (l % 2 == 0) {
-				left = (int) ((((l - 1) % N) * (l / 2 % N)) % N + 1);
-				right = (int) ((((l + 1) % N) * (l / 2 % N) - 1) % N + 1);
+				left = (int)((((l - 1) % N) * (l / 2 % N)) % N + 1);
+				right = (int)((((l + 1) % N) * (l / 2 % N) - 1) % N + 1);
 			} else {
-				left = (int) ((((l - 1) / 2 % N) * (l % N)) % N + 1);
-				right = (int) ((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
+				left = (int)((((l - 1) / 2 % N) * (l % N)) % N + 1);
+				right = (int)((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
 			}
 
 			long num = ((diff + 1 + N - 1)) / N;

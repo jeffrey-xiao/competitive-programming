@@ -47,7 +47,7 @@ public class Permutations {
 			free[i] = i;
 
 		for (int i = 0; i < n; i++) {
-			int pos = (int) (x / fact[n - 1 - i]);
+			int pos = (int)(x / fact[n - 1 - i]);
 			ret[i] = free[pos];
 			for (int j = pos; j < n; j++)
 				free[j] = free[j + 1];

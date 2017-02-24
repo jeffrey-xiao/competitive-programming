@@ -19,7 +19,7 @@ public class COCI_2013_KUSAC {
 
 		N = readInt();
 		M = readInt();
-		
+
 		int ans = 0;
 		while (N != 0) {
 			N %= M;
@@ -56,4 +56,3 @@ public class COCI_2013_KUSAC {
 		return br.readLine().trim();
 	}
 }
-

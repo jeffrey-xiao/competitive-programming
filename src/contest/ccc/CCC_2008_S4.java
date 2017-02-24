@@ -27,7 +27,7 @@ public class CCC_2008_S4 {
 		}
 	}
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	private static void compute (int x, Stack<Integer> s) {
 		if (s.size() == 1 && x == 4) {
 			int result = s.peek();
@@ -36,13 +36,13 @@ public class CCC_2008_S4 {
 			return;
 		}
 		if (x < 4) {
-			Stack<Integer> newStack = (Stack<Integer>) s.clone();
+			Stack<Integer> newStack = (Stack<Integer>)s.clone();
 			for (int y = 0; y < 4; y++) {
 				if (visited[y])
 					continue;
 				visited[y] = true;
 				newStack.push(nums[y]);
-				compute(x + 1, (Stack<Integer>) newStack.clone());
+				compute(x + 1, (Stack<Integer>)newStack.clone());
 				newStack.pop();
 				visited[y] = false;
 
@@ -51,22 +51,22 @@ public class CCC_2008_S4 {
 		if (s.size() >= 2) {
 			int b = s.pop();
 			int a = s.pop();
-			Stack<Integer> placeholder = (Stack<Integer>) s.clone();
+			Stack<Integer> placeholder = (Stack<Integer>)s.clone();
 			placeholder.push(a + b);
-			compute(x, (Stack<Integer>) placeholder.clone());
+			compute(x, (Stack<Integer>)placeholder.clone());
 			placeholder.pop();
 
 			placeholder.push(a - b);
-			compute(x, (Stack<Integer>) placeholder.clone());
+			compute(x, (Stack<Integer>)placeholder.clone());
 			placeholder.pop();
 
 			placeholder.push(a * b);
-			compute(x, (Stack<Integer>) placeholder.clone());
+			compute(x, (Stack<Integer>)placeholder.clone());
 			placeholder.pop();
 
 			if (b != 0 && a % b == 0) {
 				placeholder.push(a / b);
-				compute(x, (Stack<Integer>) placeholder.clone());
+				compute(x, (Stack<Integer>)placeholder.clone());
 				placeholder.pop();
 			}
 		}

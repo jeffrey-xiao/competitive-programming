@@ -1,4 +1,5 @@
 package contest.ecoo;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,7 +42,6 @@ public class ECOO_2016_R1_P3 {
 			}
 			out.println(ans);
 		}
-
 
 		out.close();
 	}

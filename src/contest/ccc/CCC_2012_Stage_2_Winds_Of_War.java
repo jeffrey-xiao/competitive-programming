@@ -35,27 +35,27 @@ public class CCC_2012_Stage_2_Winds_Of_War {
 		Arrays.sort(p);
 
 		for (int i = 0; i < P + T; i++) {
-	        for (int j = i + 1; j < P + T; j++) {
-	            dp[i][j] = - 1 << 30;
-	        }
-	    }
+			for (int j = i + 1; j < P + T; j++) {
+				dp[i][j] = -1 << 30;
+			}
+		}
 
-	    for (int j = 0; j < P + T; j++) {
-	        for (int k = j + 1; k < P + T; k++) {
-	            int score = 0;
+		for (int j = 0; j < P + T; j++) {
+			for (int k = j + 1; k < P + T; k++) {
+				int score = 0;
 
-	            for (int i = j + 1; i < k; i++)
-	                if (ccw(p[i], p[j], p[k]) > 0)
-	                    score += p[i].type;
+				for (int i = j + 1; i < k; i++)
+					if (ccw(p[i], p[j], p[k]) > 0)
+						score += p[i].type;
 
-	            dp[j][k] = Math.max(dp[j][k], p[j].type + p[k].type + score);
-	            for (int i = 0; i < j; i++) {
-	                if (ccw(p[i], p[j], p[k]) > 0) {
-	                    dp[j][k] = Math.max(dp[j][k], dp[i][j] + p[k].type + score);
-	                }
-	            }
-	        }
-	    }
+				dp[j][k] = Math.max(dp[j][k], p[j].type + p[k].type + score);
+				for (int i = 0; i < j; i++) {
+					if (ccw(p[i], p[j], p[k]) > 0) {
+						dp[j][k] = Math.max(dp[j][k], dp[i][j] + p[k].type + score);
+					}
+				}
+			}
+		}
 
 		int ans = 0;
 		for (int i = 0; i < P + T; i++)
@@ -80,7 +80,7 @@ public class CCC_2012_Stage_2_Winds_Of_War {
 		}
 
 		@Override
-		public int compareTo(Point o) {
+		public int compareTo (Point o) {
 			Double a1 = Math.atan2(y, x);
 			Double a2 = Math.atan2(o.y, o.x);
 			return a1.compareTo(a2);
@@ -113,4 +113,3 @@ public class CCC_2012_Stage_2_Winds_Of_War {
 		return br.readLine().trim();
 	}
 }
-

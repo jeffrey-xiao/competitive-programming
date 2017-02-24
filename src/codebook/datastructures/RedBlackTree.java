@@ -192,7 +192,7 @@ public class RedBlackTree {
 		return balance(n);
 	}
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	private Node removeMaxNode (Node n) {
 		if (n.right == null)
 			return null;

@@ -39,7 +39,7 @@ public class USACO_2013_Party_Invitation {
 			counter++;
 			for (int x = 0; x < inverse.get(next).size(); x++) {
 				int index = inverse.get(next).get(x);
-				groups.get(index).remove((Integer) next);
+				groups.get(index).remove((Integer)next);
 				if (groups.get(index).size() == 1) {
 					if (!q.contains(groups.get(index).get(0)))
 						q.offer(groups.get(index).get(0));

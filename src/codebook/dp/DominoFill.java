@@ -7,7 +7,7 @@ public class DominoFill {
 	 * ..234
 	 * 01
 	 */
-	public static int method1(int R, int C) {
+	public static int method1 (int R, int C) {
 		int[] prev = new int[1 << C];
 		prev[(1 << C) - 1] = 1;
 
@@ -22,7 +22,7 @@ public class DominoFill {
 							cur[mask | (1 << (c - 1))] += prev[mask]; // horizontal
 						}
 					} else {
-						cur[mask | (1 << c)] += prev[mask];  // vertical
+						cur[mask | (1 << c)] += prev[mask]; // vertical
 					}
 				}
 				prev = cur;
@@ -37,7 +37,7 @@ public class DominoFill {
 	 * ..012
 	 * 34
 	 */
-	public static int method2(int R, int C) {
+	public static int method2 (int R, int C) {
 		int[] prev = new int[1 << C];
 		prev[(1 << C) - 1] = 1;
 
@@ -47,15 +47,15 @@ public class DominoFill {
 				for (int mask = 0; mask < 1 << C; mask++) {
 					int nmask = (mask << 1) & ((1 << C) - 1);
 					if ((mask & (1 << (C - 1))) != 0) {
-						 // do nothing
+						// do nothing
 						cur[nmask] += prev[mask];
 
 						if (c > 0 && ((mask & 1) == 0)) {
-							 // horizontal
+							// horizontal
 							cur[nmask | 3] += prev[mask];
 						}
 					} else {
-						 // vertical
+						// vertical
 						cur[nmask | 1] += prev[mask];
 					}
 				}
@@ -66,4 +66,3 @@ public class DominoFill {
 		return prev[(1 << C) - 1];
 	}
 }
-

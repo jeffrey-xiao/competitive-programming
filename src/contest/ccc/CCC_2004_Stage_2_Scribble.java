@@ -27,7 +27,7 @@ public class CCC_2004_Stage_2_Scribble {
 			for (int y = 97; y <= 122; y++) {
 				int count = 0;
 				String temp = word;
-				count = word.length() - temp.replace("" + (char) y, "").length();
+				count = word.length() - temp.replace("" + (char)y, "").length();
 				if (letters[y - 97] >= count)
 					points += values[y - 97] * count;
 				else

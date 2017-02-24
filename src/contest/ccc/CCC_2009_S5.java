@@ -24,7 +24,7 @@ public class CCC_2009_S5 {
 			int f = Math.min(r - 1, x + rd);
 			for (int i = s; i <= f; i++) {
 				int d = Math.abs((x - i));
-				int hori = (int) Math.sqrt(rd * rd - d * d);
+				int hori = (int)Math.sqrt(rd * rd - d * d);
 				int start = Math.max(0, y - hori);
 				int end = Math.min(c, y + hori + 1);
 				grid[i][start] += b;

@@ -33,7 +33,7 @@ public class CCC_1998_S2 {
 				sum += n / i + i;
 		return sum == 2 * n;
 	}
-	
+
 	static boolean isSum (int n) {
 		int sum = 0;
 		int m = n;
@@ -43,7 +43,7 @@ public class CCC_1998_S2 {
 		}
 		return sum == n;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -70,4 +70,3 @@ public class CCC_1998_S2 {
 		return br.readLine().trim();
 	}
 }
-

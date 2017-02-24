@@ -10,7 +10,7 @@ public class DMOPC_2014_Bad_Smores {
 	static StringTokenizer st;
 
 	static long xf, yf, r, xw, yw, l;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,11 +20,11 @@ public class DMOPC_2014_Bad_Smores {
 		xf = readInt();
 		yf = readInt();
 		r = readInt();
-		
+
 		xw = readInt();
 		yw = readInt();
 		l = readInt();
-		
+
 		long ans = 0;
 
 		for (long i = yf - r; i <= yf + r; i++) {
@@ -41,25 +41,25 @@ public class DMOPC_2014_Bad_Smores {
 			long wr = xw + range;
 			ans += getOverlap(fl, fr, wl, wr);
 		}
-		
+
 		long dx = (xf - xw);
 		long dy = (yf - yw);
-		
+
 		int decCnt = 0;
-		
+
 		if (dx * dx + dy * dy <= r * r) {
 			ans--;
 			decCnt++;
 		}
-		
+
 		if (Math.abs(dx) + Math.abs(dy) <= l) {
 			ans--;
 			decCnt++;
 		}
-		
+
 		if (decCnt == 2 && dx == 0 && dy == 0)
 			ans++;
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -67,7 +67,7 @@ public class DMOPC_2014_Bad_Smores {
 	static long getOverlap (long min1, long max1, long min2, long max2) {
 		return Math.max(0, Math.min(max1, max2) - Math.max(min1, min2) + 1);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -94,4 +94,3 @@ public class DMOPC_2014_Bad_Smores {
 		return br.readLine().trim();
 	}
 }
-

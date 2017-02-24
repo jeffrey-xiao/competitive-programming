@@ -65,7 +65,7 @@ public class CCC_2005_S4 {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Node) {
-				Node n = (Node) o;
+				Node n = (Node)o;
 				return curr.equals(n.curr);
 			}
 			return false;

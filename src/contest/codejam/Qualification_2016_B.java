@@ -10,7 +10,7 @@ public class Qualification_2016_B {
 	static StringTokenizer st;
 
 	static int T;
-	
+
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
 		// out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,15 +18,15 @@ public class Qualification_2016_B {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			char[] in = readLine().toCharArray();
 			int ans = 0;
-			
+
 			for (int i = 1; i < in.length; i++)
 				if (in[i] != in[i - 1])
 					ans++;
-			
+
 			if (in[in.length - 1] == '-')
 				ans++;
 			out.printf("Case #%d: %d\n", t, ans);
@@ -60,4 +60,3 @@ public class Qualification_2016_B {
 		return br.readLine().trim();
 	}
 }
-

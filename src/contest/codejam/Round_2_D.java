@@ -27,8 +27,8 @@ public class Round_2_D {
 
 			ans = 0;
 			edges = 0;
-			
-			adj = new ArrayList<ArrayList<Integer>>(2*N);
+
+			adj = new ArrayList<ArrayList<Integer>>(2 * N);
 			vis = new boolean[2 * N];
 
 			for (int i = 0; i < 2 * N; i++)
@@ -46,7 +46,7 @@ public class Round_2_D {
 			}
 
 			ArrayList<State> s = new ArrayList<State>();
-			
+
 			for (int i = 0; i < 2 * N; i++)
 				if (!vis[i]) {
 					State next = dfs(i);
@@ -76,7 +76,7 @@ public class Round_2_D {
 						states.add(s.get(i));
 					}
 				}
-				
+
 				int maxStates = 1;
 
 				for (int sz : occ)
@@ -107,7 +107,7 @@ public class Round_2_D {
 								int newSzA = szA[i][j] + states.get(k).a;
 								int newSzB = szB[i][j] + states.get(k).b;
 								int newCost = dp[i][j] + szA[i][j] * states.get(k).b + szB[i][j] * states.get(k).a;
-								
+
 								if (newSzA == newSzB) {
 									if (newCost < dp[i + 1][newState]) {
 										dp[i + 1][newState] = newCost;
@@ -126,12 +126,12 @@ public class Round_2_D {
 						}
 					}
 				}
-				
+
 				min = 1 << 30;
-				
+
 				for (int i = 0; i <= N; i++)
 					min = Math.min(min, dp[i][maxStates - 1]);
-				
+
 				out.printf("Case #%d: %d\n", t, ans + min - edges);
 			}
 		}
@@ -161,10 +161,12 @@ public class Round_2_D {
 
 	static class State implements Comparable<State> {
 		int a, b;
+
 		State (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
+
 		@Override
 		public int compareTo (State s) {
 			if (a != s.a)
@@ -208,4 +210,3 @@ public class Round_2_D {
 		return br.readLine().trim();
 	}
 }
-

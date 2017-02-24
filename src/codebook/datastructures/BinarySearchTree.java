@@ -137,7 +137,7 @@ public class BinarySearchTree {
 		BinarySearchTree t = new BinarySearchTree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 10000; x++) {
-			int ran = (int) (Math.random() * (1 << 30)) + 5;
+			int ran = (int)(Math.random() * (1 << 30)) + 5;
 			t.add(ran);
 		}
 		// t.traverse(root);

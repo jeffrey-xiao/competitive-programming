@@ -1,29 +1,26 @@
 package contest.ecoo;
+
 import java.util.*;
 import java.io.*;
 
 public class ECOO_2015_R1_P4 {
 
 	static BufferedReader br;
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(
-			new OutputStreamWriter(System.out)));
+	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
 	static StringTokenizer st;
 
-	public static void main(String[] args) throws IOException {
+	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new FileReader("DATA41.txt"));
 		br = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (int qq = 0; qq < 10; qq++) {
 			String s = next();
 			int[] dp = new int[s.length() + 1];
 			dp[0] = 1;
-			String[] num = new String[] { "ook", "ookook", "oog", "ooga", "ug",
-					"mook", "mookmook", "oogam", "oogum", "ugug" };
+			String[] num = new String[] {"ook", "ookook", "oog", "ooga", "ug", "mook", "mookmook", "oogam", "oogum", "ugug"};
 			for (int i = 0; i < s.length(); i++) {
 				for (int j = 0; j < num.length; j++) {
-					if (i + num[j].length() <= s.length()
-							&& s.substring(i, i + num[j].length()).equals(
-									num[j]))
+					if (i + num[j].length() <= s.length() && s.substring(i, i + num[j].length()).equals(num[j]))
 						dp[i + num[j].length()] += dp[i];
 				}
 				// System.out.print(dp[i] + " ");
@@ -32,29 +29,29 @@ public class ECOO_2015_R1_P4 {
 		}
 	}
 
-	static String next() throws IOException {
+	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
 		return st.nextToken();
 	}
 
-	static long readLong() throws IOException {
+	static long readLong () throws IOException {
 		return Long.parseLong(next());
 	}
 
-	static int readInt() throws IOException {
+	static int readInt () throws IOException {
 		return Integer.parseInt(next());
 	}
 
-	static double readDouble() throws IOException {
+	static double readDouble () throws IOException {
 		return Double.parseDouble(next());
 	}
 
-	static char readCharacter() throws IOException {
+	static char readCharacter () throws IOException {
 		return next().charAt(0);
 	}
 
-	static String readLine() throws IOException {
+	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
 }

@@ -18,7 +18,7 @@ public class WOC_28_B {
 		int Q = readInt();
 		for (int i = 0; i < Q; i++)
 			out.println(solve(readLong()));
-		
+
 		out.close();
 	}
 
@@ -29,7 +29,7 @@ public class WOC_28_B {
 				ans += 1L << i;
 		return ans;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -56,4 +56,3 @@ public class WOC_28_B {
 		return br.readLine().trim();
 	}
 }
-

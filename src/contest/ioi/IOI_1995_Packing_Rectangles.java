@@ -105,7 +105,7 @@ public class IOI_1995_Packing_Rectangles {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Rect) {
-				Rect rect = (Rect) o;
+				Rect rect = (Rect)o;
 				return r == rect.r && c == rect.c;
 			}
 			return false;

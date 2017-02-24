@@ -17,12 +17,13 @@ public class BinaryHeapExtended {
 
 	class Pair {
 		int first, second;
+
 		Pair (int first, int second) {
 			this.first = first;
 			this.second = second;
 		}
 	}
-	
+
 	public BinaryHeapExtended () {
 		index = 0;
 		size = 1;
@@ -80,7 +81,7 @@ public class BinaryHeapExtended {
 			heapifyUp(pos);
 		}
 	}
-	
+
 	private void heapifyDown (int i) {
 		int child = (i << 1) + 1;
 		if (child >= index)
@@ -105,15 +106,15 @@ public class BinaryHeapExtended {
 		Integer temp = heap[i];
 		heap[i] = heap[j];
 		heap[j] = temp;
-		
+
 		temp = toId[i];
 		toId[i] = toId[j];
 		toId[j] = temp;
-		
+
 		toPos[toId[i]] = i;
 		toPos[toId[j]] = j;
 	}
-	
+
 	private void addSize () {
 		size *= 2;
 		int maxId = 0;
@@ -153,9 +154,9 @@ public class BinaryHeapExtended {
 	public static void main (String[] args) {
 		BinaryHeapExtended h = new BinaryHeapExtended();
 		for (int x = 0; x < 100; x++)
-			h.add(x, (int) (Math.random() * 100));
+			h.add(x, (int)(Math.random() * 100));
 		for (int x = 0; x < 100; x++)
-			h.changePriority(x, (int) (Math.random() * 100));
+			h.changePriority(x, (int)(Math.random() * 100));
 		for (int x = 0; x < 100; x++) {
 			Pair res = h.remove();
 			System.out.println(res.first + " " + res.second);

@@ -27,25 +27,25 @@ public class Round_2_B {
 			K = readInt();
 
 			ans = 0.0;
-			prob = new double[N];			
-			
+			prob = new double[N];
+
 			for (int i = 0; i < N; i++)
 				prob[i] = readDouble();
-			
+
 			Arrays.sort(prob);
-			
+
 			ArrayList<Double> left = new ArrayList<Double>();
 			ArrayList<Double> right = new ArrayList<Double>();
-			
+
 			for (int i = N - K; i < N; i++)
 				right.add(prob[i]);
-			
+
 			ans = Math.max(ans, getProb(left, right));
-			
+
 			for (int i = 0; i < K; i++) {
 				left.add(prob[i]);
 				right.remove(0);
-				
+
 				ans = Math.max(ans, getProb(left, right));
 			}
 			out.printf("Case #%d: %f\n", t, ans);
@@ -58,21 +58,21 @@ public class Round_2_B {
 		ArrayList<Double> p = new ArrayList<Double>();
 		p.addAll(left);
 		p.addAll(right);
-		
-		assert(p.size() == K);
+
+		assert p.size() == K;
 
 		double[][] dp = new double[p.size() + 1][p.size() + 1];
 		dp[0][0] = 1;
-		
+
 		for (int i = 0; i < p.size(); i++) {
 			for (int j = 0; j < p.size(); j++) {
-				dp[i + 1][j]  += dp[i][j] * (1 - p.get(i));
+				dp[i + 1][j] += dp[i][j] * (1 - p.get(i));
 				dp[i + 1][j + 1] += dp[i][j] * (p.get(i));
 			}
 		}
 		return dp[p.size()][p.size() / 2];
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -99,4 +99,3 @@ public class Round_2_B {
 		return br.readLine().trim();
 	}
 }
-

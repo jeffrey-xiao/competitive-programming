@@ -41,7 +41,7 @@ public class COCI_2014_ZGODAN {
 		if (i == 0) {
 			char org = n[i];
 			for (int j = -1; j <= 1; j++) {
-				char c = (char) (n[i] + j);
+				char c = (char)(n[i] + j);
 				if (c < '0' || c > '9')
 					continue;
 				n[i] = c;
@@ -57,7 +57,7 @@ public class COCI_2014_ZGODAN {
 					org[j] = n[j];
 				char c = n[i];
 				if (c - 1 >= '0') {
-					n[i] = (char) (c - 1);
+					n[i] = (char)(c - 1);
 					for (int j = i + 1; j < n.length; j++) {
 						if ((n[j - 1] - '0') % 2 == 0)
 							n[j] = '9';
@@ -67,7 +67,7 @@ public class COCI_2014_ZGODAN {
 					replace(n);
 				}
 				if (c + 1 <= '9') {
-					n[i] = (char) (c + 1);
+					n[i] = (char)(c + 1);
 					for (int j = i + 1; j < n.length; j++) {
 						if ((n[j - 1] - '0') % 2 == 0)
 							n[j] = '1';

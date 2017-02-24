@@ -20,12 +20,12 @@ public class WOC_28_F {
 
 		G = readInt();
 		long start = System.currentTimeMillis();
-//		String s = next();
+		//		String s = next();
 		for (int g = 1; g <= G; g++) {
 			String s = next();
-//			String s = "";
-//			for (int i = 0; i < 1000; i++)
-//				s += "abcdefghijklmnopqrstuvwxyz".charAt((int)(Math.random() * 26));
+			//			String s = "";
+			//			for (int i = 0; i < 1000; i++)
+			//				s += "abcdefghijklmnopqrstuvwxyz".charAt((int)(Math.random() * 26));
 			ans = 1 << 30;
 			s = preprocess(s);
 
@@ -53,10 +53,10 @@ public class WOC_28_F {
 		String ss = s + s;
 
 		ArrayList<String> candidates = new ArrayList<String>();
-		
+
 		for (int i = ss.length() - 1; i >= s.length(); i--)
 			candidates.add(ss.substring(i - s.length() + 1, i + 1));
-		
+
 		for (String w : candidates) {
 			ans = Math.min(ans, compute(new StringBuilder(new String(w))));
 		}
@@ -66,10 +66,10 @@ public class WOC_28_F {
 	static int compute (StringBuilder w) {
 		Interval prev = null;
 		ArrayList<ArrayList<Interval>> intervals = new ArrayList<ArrayList<Interval>>();
-		
+
 		for (int i = 0; i < 26; i++)
 			intervals.add(new ArrayList<Interval>());
-		
+
 		for (int i = 0; i < w.length();) {
 			char c = w.charAt(i++);
 			Interval curr = new Interval(1);
@@ -109,7 +109,7 @@ public class WOC_28_F {
 			if (canSub > 0) {
 				currAns--;
 			}
-			
+
 			for (int j = 0; j < intervals.get(i).size(); j++) {
 				Interval curr = intervals.get(i).get(j);
 				if (canSub >= 2 || canSub == 0) {
@@ -121,7 +121,7 @@ public class WOC_28_F {
 						curr.right.canSub = i;
 					}
 				}
-				
+
 				if (curr.left != null)
 					curr.left.right = curr.right;
 				if (curr.right != null)
@@ -137,6 +137,7 @@ public class WOC_28_F {
 		int sz;
 		int canSub;
 		Interval left, right;
+
 		Interval (int sz) {
 			this.sz = sz;
 			this.canSub = -1;

@@ -85,7 +85,7 @@ public class AhoCorasick {
 
 	private String printWord (Node n) {
 		if (n != root)
-			return printWord(n.parent) + (char) (n.index + 'a');
+			return printWord(n.parent) + (char)(n.index + 'a');
 		return "";
 	}
 
@@ -128,7 +128,7 @@ public class AhoCorasick {
 			if (isEnd)
 				System.out.println(curr);
 			for (Integer i : c) {
-				child[i].printWord(curr + (char) (i + SHIFT));
+				child[i].printWord(curr + (char)(i + SHIFT));
 			}
 		}
 	}

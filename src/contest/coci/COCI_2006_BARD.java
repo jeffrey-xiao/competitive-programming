@@ -13,7 +13,7 @@ public class COCI_2006_BARD {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	public static void main (String[] args) throws IOException {
 		int n = readInt();
 		int k = readInt();

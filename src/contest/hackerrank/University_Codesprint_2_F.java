@@ -13,6 +13,7 @@ public class University_Codesprint_2_F {
 	static int N, M, Q, K;
 	static int[] l, r;
 	static String search;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,17 +24,17 @@ public class University_Codesprint_2_F {
 		M = readInt();
 		Q = readInt();
 		K = readInt();
-		
+
 		search = next();
-		
+
 		l = new int[M];
 		r = new int[M];
-		
+
 		for (int i = 0; i < M; i++) {
 			l[i] = readInt();
 			r[i] = readInt();
 		}
-		
+
 		for (int i = 0; i < Q; i++) {
 			String in = next();
 			int a = readInt();
@@ -46,28 +47,29 @@ public class University_Codesprint_2_F {
 			s.search(search);
 			out.println(s.ans);
 		}
-		
+
 		out.close();
 	}
 
 	static class AhoCorasick {
-	
+
 		// constant to represent the shift from the ASCII value to the proper index
 		private static final int SHIFT = 'a';
-	
+
 		// Object representing the root of the search tree
 		private Node root = new Node(0, 0);
-	
+
 		AhoCorasick () {
 			root = new Node(0, 0);
 			root.parent = root;
 		}
-	
+
 		public void addWord (String s) {
 			root.addWord(s);
 		}
+
 		int ans = 0;
-	
+
 		public void computeFall () {
 			Queue<Node> q = new LinkedList<Node>();
 			// the fall of the root is the root
@@ -96,7 +98,7 @@ public class University_Codesprint_2_F {
 					curr.fall = root;
 			}
 		}
-	
+
 		public void search (String s) {
 			Node currState = root;
 			for (int i = 0; i < s.length(); i++) {
@@ -121,7 +123,7 @@ public class University_Codesprint_2_F {
 				}
 			}
 		}
-	
+
 		class Node {
 			int depth, index;
 			Node[] child;
@@ -130,7 +132,7 @@ public class University_Codesprint_2_F {
 			boolean isEnd = false;
 			int cnt;
 			ArrayList<Integer> c;
-	
+
 			Node (int depth, int index) {
 				this.depth = depth;
 				this.index = index;
@@ -139,7 +141,7 @@ public class University_Codesprint_2_F {
 				for (int i = 0; i < 26; i++)
 					child[i] = null;
 			}
-	
+
 			private void addWord (String s) {
 				// marking it as a leaf node if it is the end of the word
 				if (depth == s.length()) {
@@ -157,19 +159,18 @@ public class University_Codesprint_2_F {
 				// recursively add the rest of the word
 				child[curr - SHIFT].addWord(s);
 			}
-	
+
 			// auxiliary method to print out the words in the trie
 			public void printWord (String curr) {
 				if (isEnd)
 					System.out.println(curr);
 				for (Integer i : c) {
-					child[i].printWord(curr + (char) (i + SHIFT));
+					child[i].printWord(curr + (char)(i + SHIFT));
 				}
 			}
 		}
 	}
 
-	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -196,4 +197,3 @@ public class University_Codesprint_2_F {
 		return br.readLine().trim();
 	}
 }
-

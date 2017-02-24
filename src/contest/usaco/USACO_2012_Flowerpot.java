@@ -74,7 +74,7 @@ public class USACO_2012_Flowerpot {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Pot) {
-				Pot p = (Pot) o;
+				Pot p = (Pot)o;
 				return y == p.y;
 			}
 			return false;

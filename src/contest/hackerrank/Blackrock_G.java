@@ -10,7 +10,7 @@ public class Blackrock_G {
 	static StringTokenizer st;
 
 	static final int MOD = (int)(1e9 + 7);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,7 +18,7 @@ public class Blackrock_G {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		long[] a = new long[N + 1];
 		a[0] = 1;
 		a[1] = readInt();
@@ -33,7 +33,7 @@ public class Blackrock_G {
 		for (int i = 0; i <= N; i++) {
 			ans = (ans + i * a[i]) % MOD;
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -64,6 +64,3 @@ public class Blackrock_G {
 		return br.readLine().trim();
 	}
 }
-
-
-

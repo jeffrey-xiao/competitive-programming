@@ -33,14 +33,14 @@ public class April_Fool_Too_Simple {
 		out.print((char)(g + f + d + c));
 		out.print((char)(g + f + c));
 		out.print((char)(f + a));
-		
+
 		out.close();
 	}
 
 	static char get (char c) {
 		return (char)(c + c);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

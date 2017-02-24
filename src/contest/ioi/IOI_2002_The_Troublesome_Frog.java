@@ -73,12 +73,12 @@ public class IOI_2002_The_Troublesome_Frog {
 		State (int dx, int dy, int x, int y) {
 			this.dx = dx;
 			this.dy = dy;
-			inter = y - (double) (dy) / dx * x;
+			inter = y - (double)(dy) / dx * x;
 		}
 
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State) o;
+				State s = (State)o;
 				return dx == s.dx && dy == s.dy && inter == s.inter;
 			}
 			return false;

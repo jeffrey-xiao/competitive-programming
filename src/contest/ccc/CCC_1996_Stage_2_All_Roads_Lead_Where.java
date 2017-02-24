@@ -57,7 +57,7 @@ public class CCC_1996_Stage_2_All_Roads_Lead_Where {
 		int curr = b;
 		String s = "";
 		while (curr != -1) {
-			s += (char) (curr + 65);
+			s += (char)(curr + 65);
 			curr = prev[curr];
 		}
 		return s;

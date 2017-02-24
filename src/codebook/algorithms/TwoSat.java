@@ -91,7 +91,7 @@ public class TwoSat {
 	}
 
 	static int toNode (int val) {
-		return val < 0 ? (- val - 1) * 2 + 1 : (val - 1) * 2;
+		return val < 0 ? (-val - 1) * 2 + 1 : (val - 1) * 2;
 	}
 
 	static String readLine () throws IOException {

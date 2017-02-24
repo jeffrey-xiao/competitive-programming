@@ -10,13 +10,14 @@ public class Waterloo_Local_2016_A {
 	static StringTokenizer st;
 
 	static int NULL = 0;
-	
+
 	static int R, C, K;
 	static int leftSize, rightSize;
 	static boolean[][] dead;
 	static boolean[] vis;
 	static int[] pair, dist;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,13 +26,13 @@ public class Waterloo_Local_2016_A {
 
 		C = readInt();
 		R = readInt();
-	
-		leftSize = (R * C ) / 2;
+
+		leftSize = (R * C) / 2;
 		rightSize = (R * C + 1) / 2;
-		
+
 		for (int i = 0; i < leftSize + rightSize + 1; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		K = readInt();
 		dead = new boolean[R][C];
 		for (int i = 0; i < K; i++) {
@@ -39,7 +40,7 @@ public class Waterloo_Local_2016_A {
 			int r = readInt();
 			dead[r][c] = true;
 		}
-		
+
 		for (int i = 0; i < R; i++) {
 			for (int j = 0; j < C; j++) {
 				boolean isLeft = (i + j) % 2 == 1;
@@ -48,21 +49,21 @@ public class Waterloo_Local_2016_A {
 						adj.get((i * C + j) / 2 + 1).add(leftSize + (i * C + j + 1) / 2 + 1);
 					else
 						adj.get((i * C + j + 1) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-//					out.printf("right conn %d %d and %d %d\n", i, j, i, j + 1);
+					//					out.printf("right conn %d %d and %d %d\n", i, j, i, j + 1);
 				}
-//				if (j != 0) {
-//					if (isLeft)
-//						adj.get((i * C + j) / 2 + 1).add(leftSize + (i * C + j - 1) / 2 + 1);
-//					else
-//						adj.get((i * C + j - 1) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-//					out.printf("left conn %d %d and %d %d\n", i, j, i, j - 1);
-//				}
+				//				if (j != 0) {
+				//					if (isLeft)
+				//						adj.get((i * C + j) / 2 + 1).add(leftSize + (i * C + j - 1) / 2 + 1);
+				//					else
+				//						adj.get((i * C + j - 1) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
+				//					out.printf("left conn %d %d and %d %d\n", i, j, i, j - 1);
+				//				}
 				if (i != R - 1 && isLeft && !dead[i][j] && !dead[i + 1][j]) {
 					if (isLeft)
 						adj.get((i * C + j) / 2 + 1).add(leftSize + ((i + 1) * C + j) / 2 + 1);
 					else
 						adj.get(((i + 1) * C + j) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-//					out.printf("bot conn %d %d and %d %d\n", i, j, i + 1, j);
+					//					out.printf("bot conn %d %d and %d %d\n", i, j, i + 1, j);
 				}
 			}
 		}
@@ -70,7 +71,6 @@ public class Waterloo_Local_2016_A {
 		out.println(matched);
 		out.close();
 	}
-
 
 	static int getMaxMatching () {
 		pair = new int[leftSize + rightSize + 1];
@@ -123,7 +123,7 @@ public class Waterloo_Local_2016_A {
 		dist[i] = 1 << 30;
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

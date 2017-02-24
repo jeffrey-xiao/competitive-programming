@@ -22,13 +22,13 @@ public class Mackenzie_Moores_Law {
 			int days = (int)(Math.ceil(Math.log(d / 2.0) / Math.log(2) * 2 * 365));
 			int years = days / 365;
 			days -= years * 365;
-			
+
 			int months = days / 30;
 			days -= months * 30;
-			
+
 			int weeks = days / 7;
 			days -= weeks * 7;
-			
+
 			if (years > 0)
 				out.print(years + "Y ");
 			if ((int)(months) > 0)
@@ -38,7 +38,7 @@ public class Mackenzie_Moores_Law {
 			if ((int)(days) > 0)
 				out.print(days + "D ");
 		}
-		
+
 		out.close();
 	}
 
@@ -68,4 +68,3 @@ public class Mackenzie_Moores_Law {
 		return br.readLine().trim();
 	}
 }
-

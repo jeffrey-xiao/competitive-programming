@@ -24,7 +24,7 @@ public class WOC_20_C {
 		N = readInt();
 		M = readInt();
 		K = readInt();
-		
+
 		cost = new ArrayList<ArrayList<Pair>>(N);
 		nodes = new ArrayList<ArrayList<Integer>>(K);
 		adj = new int[N][N];
@@ -43,7 +43,6 @@ public class WOC_20_C {
 				bit[i] |= 1 << val;
 			}
 		}
-
 
 		for (int i = 0; i < N; i++) {
 			cost.add(new ArrayList<Pair>());
@@ -83,16 +82,15 @@ public class WOC_20_C {
 			}
 		}
 
-
 		int ans = 1 << 30;
-		
+
 		int[] bestDp = new int[1 << K];
 		Arrays.fill(bestDp, 1 << 30);
-		
+
 		for (int i = 0; i < 1 << K; i++)
 			for (int j = 0; j < N; j++)
 				bestDp[i] = Math.min(bestDp[i], dp[i][j] + dist[j][N - 1]);
-			
+
 		for (int i = 0; i < 1 << K; i++)
 			for (int j = 0; j < 1 << K; j++)
 				if ((i | j) == (1 << K) - 1)
@@ -108,10 +106,10 @@ public class WOC_20_C {
 		PriorityQueue<Pair> pq = new PriorityQueue<Pair>();
 		pq.offer(new Pair(u, 0));
 		dist[u][u] = 0;
-		
+
 		while (!pq.isEmpty()) {
 			Pair curr = pq.poll();
-			
+
 			for (Pair next : cost.get(curr.dest)) {
 				if (dist[u][next.dest] <= curr.cost + next.cost)
 					continue;
@@ -120,26 +118,30 @@ public class WOC_20_C {
 			}
 		}
 	}
-	
+
 	static class Pair implements Comparable<Pair> {
 		int dest, cost;
+
 		Pair (int dest, int cost) {
 			this.dest = dest;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (Pair o) {
 			return cost - o.cost;
 		}
 	}
-	
+
 	static class State implements Comparable<State> {
 		int bits, curr, cost;
+
 		State (int bits, int curr, int cost) {
 			this.bits = bits;
 			this.curr = curr;
 			this.cost = cost;
 		}
+
 		@Override
 		public int compareTo (State s) {
 			return cost - s.cost;
@@ -172,4 +174,3 @@ public class WOC_20_C {
 		return br.readLine().trim();
 	}
 }
-

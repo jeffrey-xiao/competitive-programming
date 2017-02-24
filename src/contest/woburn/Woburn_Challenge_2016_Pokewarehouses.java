@@ -44,4 +44,3 @@ public class Woburn_Challenge_2016_Pokewarehouses {
 		return br.readLine().trim();
 	}
 }
-

@@ -224,7 +224,7 @@ public class IntervalTree {
 		// 23));
 		t = new IntervalTree();
 		for (int i = 0; i < 10000; i++) {
-			t.add((int) (Math.random() * 100000), 1000000);
+			t.add((int)(Math.random() * 100000), 1000000);
 		}
 		System.out.println(t.getHeight(t.root));
 	}

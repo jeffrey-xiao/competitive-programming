@@ -11,7 +11,6 @@ public class ECOO_2016_R3_P1 {
 
 	static final int TEST_CASES = 3;
 
-
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -71,4 +70,3 @@ public class ECOO_2016_R3_P1 {
 		return br.readLine().trim();
 	}
 }
-

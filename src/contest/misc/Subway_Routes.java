@@ -73,7 +73,7 @@ public class Subway_Routes {
 		// CENTERS
 		ArrayList<Integer> centers = new ArrayList<Integer>();
 		double split = (best.path.size() - 1) / 2.0d;
-		for (int x = (int) Math.floor(split); x <= (int) Math.ceil(split); x++)
+		for (int x = (int)Math.floor(split); x <= (int)Math.ceil(split); x++)
 			centers.add(best.path.get(x));
 		for (int x = 0; x < centers.size() - 1; x++) {
 			int a = centers.get(x);

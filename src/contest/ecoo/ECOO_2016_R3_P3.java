@@ -10,9 +10,9 @@ public class ECOO_2016_R3_P3 {
 	static StringTokenizer st;
 
 	static final int TEST_CASES = 10;
-	
+
 	static int N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,15 +20,15 @@ public class ECOO_2016_R3_P3 {
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		char[][] dict = new char[N][];
 		for (int i = 0; i < N; i++)
 			dict[i] = next().toCharArray();
-		
+
 		for (int t = 1; t <= TEST_CASES; t++) {
 			char[] in = (next() + " ").toCharArray();
 			int[] dp = new int[in.length];
-			
+
 			Arrays.fill(dp, 1 << 30);
 			dp[0] = 0;
 			for (int j = 0; j < dp.length; j++) {
@@ -50,7 +50,7 @@ public class ECOO_2016_R3_P3 {
 			out.println(dp[in.length - 1] - 1);
 			out.flush();
 		}
-		
+
 		out.close();
 	}
 
@@ -80,4 +80,3 @@ public class ECOO_2016_R3_P3 {
 		return br.readLine().trim();
 	}
 }
-

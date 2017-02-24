@@ -10,7 +10,7 @@ public class Woburn_Challenge_2015_Driving_Range {
 	static StringTokenizer st;
 
 	static int N, cntR, cntC, maxR, maxC;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,11 +18,11 @@ public class Woburn_Challenge_2015_Driving_Range {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			char d = readCharacter();
 			int p = readInt();
-			
+
 			if (d == 'R') {
 				cntR++;
 				maxR = Math.max(maxR, p);
@@ -30,9 +30,8 @@ public class Woburn_Challenge_2015_Driving_Range {
 				cntC++;
 				maxC = Math.max(maxC, p);
 			}
-			
-			out.println(i + 1 + cntR + cntC + Math.min(Math.max(maxC - cntR, 0) + Math.max(maxR - cntC - 1, 0),
-													   Math.max(maxC - cntR - 1, 0) + Math.max(maxR - cntC, 0)));
+
+			out.println(i + 1 + cntR + cntC + Math.min(Math.max(maxC - cntR, 0) + Math.max(maxR - cntC - 1, 0), Math.max(maxC - cntR - 1, 0) + Math.max(maxR - cntC, 0)));
 		}
 		out.close();
 	}
@@ -63,4 +62,3 @@ public class Woburn_Challenge_2015_Driving_Range {
 		return br.readLine().trim();
 	}
 }
-

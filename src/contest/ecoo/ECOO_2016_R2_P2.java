@@ -47,7 +47,7 @@ public class ECOO_2016_R2_P2 {
 			} else {
 				char[] e = in[0].toCharArray();
 				char[] d = new char[e.length];
-				
+
 				int sum = 0;
 				for (int i = d.length - 1; i >= 0; i--) {
 					if (i == d.length - 1)
@@ -107,4 +107,3 @@ public class ECOO_2016_R2_P2 {
 		return br.readLine().trim();
 	}
 }
-

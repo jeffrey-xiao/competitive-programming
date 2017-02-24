@@ -13,44 +13,44 @@ public class COCI_2007_PRAVOKUTNI {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	static int N;
 	static Point[] p;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		N = readInt();
-		
+
 		p = new Point[N];
-		
+
 		for (int i = 0; i < N; i++)
 			p[i] = new Point(readInt(), readInt());
 
 		int ans = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			HashMap<Fraction, Integer> cnt = new HashMap<Fraction, Integer>();
-			
+
 			for (int j = 0; j < N; j++) {
 				if (i == j)
 					continue;
 				int dx = p[i].x - p[j].x;
 				int dy = p[i].y - p[j].y;
-				
+
 				Fraction f = new Fraction(dy, dx);
 				if (!cnt.containsKey(f))
 					cnt.put(f, 0);
 				cnt.put(f, cnt.get(f) + 1);
-				
+
 				if (cnt.get(new Fraction(-dx, dy)) != null)
 					ans += cnt.get(new Fraction(-dx, dy));
 			}
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -58,10 +58,10 @@ public class COCI_2007_PRAVOKUTNI {
 	static int gcd (int a, int b) {
 		return b == 0 ? a : gcd(b, a % b);
 	}
-	
+
 	static class Fraction {
 		int num, den;
-		
+
 		Fraction (int num, int den) {
 			if (num == 0) {
 				den = 1;
@@ -72,20 +72,20 @@ public class COCI_2007_PRAVOKUTNI {
 				num /= gcd;
 				den /= gcd;
 				if (den < 0) {
-					den *= - 1;
-					num *= - 1;
+					den *= -1;
+					num *= -1;
 				}
 			}
-			
+
 			this.num = num;
 			this.den = den;
 		}
-		
+
 		@Override
 		public int hashCode () {
 			return num ^ den;
 		}
-		
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Fraction) {
@@ -95,15 +95,16 @@ public class COCI_2007_PRAVOKUTNI {
 			return false;
 		}
 	}
-	
+
 	static class Point {
 		int x, y;
+
 		Point (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -27,7 +27,7 @@ public class Round_238E {
 			out.println("No solution");
 			out.close();
 		}
-		
+
 		adj = new ArrayList<ArrayList<Integer>>();
 		used = new TreeSet<Long>();
 		vis = new boolean[N];
@@ -55,14 +55,14 @@ public class Round_238E {
 				continue;
 			used.add(toIndex(u, v));
 			neighbours.add(v);
-			
+
 		}
-		
+
 		for (int v : neighbours) {
 			int next = -1;
 			if (!vis[v])
 				next = dfs(v);
-			
+
 			if (next == -1)
 				leftover.push(v);
 			else
@@ -109,4 +109,3 @@ public class Round_238E {
 		return br.readLine().trim();
 	}
 }
-

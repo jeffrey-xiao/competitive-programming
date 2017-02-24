@@ -11,7 +11,7 @@ public class Clash_May_2016_P5 {
 
 	static int N;
 	static int[] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,12 +19,12 @@ public class Clash_May_2016_P5 {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		val = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			val[i] = next().length() - next().length();
-		
+
 		int zeroIndex = -1;
 		int positiveIndex = -1;
 		int negativeIndex = -1;
@@ -76,4 +76,3 @@ public class Clash_May_2016_P5 {
 		return br.readLine().trim();
 	}
 }
-

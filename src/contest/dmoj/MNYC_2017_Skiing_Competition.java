@@ -10,7 +10,7 @@ public class MNYC_2017_Skiing_Competition {
 	static StringTokenizer st;
 
 	static final int SZ = 50;
-	
+
 	static int N, M, A, B, Q;
 	static int[] dist, min;
 	static Edge[] prev;
@@ -22,9 +22,9 @@ public class MNYC_2017_Skiing_Competition {
 	static TreeMap<Integer, Integer> paths = new TreeMap<Integer, Integer>();
 	static HashSet<Edge> usedEdges = new HashSet<Edge>();
 	static HashSet<Integer> usedVertices = new HashSet<Integer>();
-	
+
 	static boolean[] vis = new boolean[200];
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -53,7 +53,7 @@ public class MNYC_2017_Skiing_Competition {
 
 		if (N <= 100) {
 			vis[A] = true;
-			dfs(A, 0, 1 << 30);	
+			dfs(A, 0, 1 << 30);
 			int[] cost = new int[SZ], min = new int[SZ];
 			Arrays.fill(cost, -1);
 			Arrays.fill(min, -1);
@@ -75,7 +75,7 @@ public class MNYC_2017_Skiing_Competition {
 			out.close();
 			return;
 		}
-		
+
 		Path nextPath = shortestPath(A, B);
 
 		if (Q == 1) {
@@ -87,7 +87,7 @@ public class MNYC_2017_Skiing_Competition {
 			out.close();
 			return;
 		}
-		
+
 		bestPaths.add(nextPath);
 
 		if (!paths.containsKey(nextPath.cost))
@@ -111,7 +111,7 @@ public class MNYC_2017_Skiing_Competition {
 				}
 
 				usedVertices.add(A);
-				for (Edge node : rootPath) 
+				for (Edge node : rootPath)
 					usedVertices.add(node.sink);
 
 				Path spurPath = shortestPath(spurNode, B);
@@ -140,7 +140,7 @@ public class MNYC_2017_Skiing_Competition {
 				paths.put(nextPath.cost, nextPath.min);
 			paths.put(nextPath.cost, Math.min(nextPath.min, paths.get(nextPath.cost)));
 		}
-		
+
 		int[] cost = new int[SZ], min = new int[SZ];
 		Arrays.fill(cost, -1);
 		Arrays.fill(min, -1);
@@ -161,7 +161,7 @@ public class MNYC_2017_Skiing_Competition {
 		}
 		out.close();
 	}
-	
+
 	static void dfs (int u, int cost, int min) {
 		if (u == B) {
 			if (!paths.containsKey(cost))
@@ -183,7 +183,7 @@ public class MNYC_2017_Skiing_Competition {
 			vis[e.sink] = false;
 		}
 	}
-	
+
 	static Path shortestPath (int src, int sink) {
 		Arrays.fill(dist, 1 << 30);
 		Arrays.fill(prev, null);
@@ -200,8 +200,7 @@ public class MNYC_2017_Skiing_Competition {
 					continue;
 				if (usedVertices.contains(next.sink))
 					continue;
-				if (next.cost + curr.cost < dist[next.sink] ||
-						(next.cost + curr.cost == dist[next.sink] && Math.min(curr.min, next.cost) < min[next.sink])) {
+				if (next.cost + curr.cost < dist[next.sink] || (next.cost + curr.cost == dist[next.sink] && Math.min(curr.min, next.cost) < min[next.sink])) {
 					int nextCost = next.cost + curr.cost;
 					dist[next.sink] = nextCost;
 					prev[next.sink] = next;
@@ -210,10 +209,10 @@ public class MNYC_2017_Skiing_Competition {
 				}
 			}
 		}
-		
+
 		if (prev[sink] == null)
 			return null;
-		
+
 		Path ret = new Path();
 		ret.cost = dist[sink];
 		ret.min = min[sink];
@@ -228,11 +227,13 @@ public class MNYC_2017_Skiing_Competition {
 
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost, min;
+
 		Vertex (int index, int cost, int min) {
 			this.index = index;
 			this.cost = cost;
 			this.min = min;
 		}
+
 		@Override
 		public int compareTo (Vertex v) {
 			if (cost == v.cost)
@@ -243,6 +244,7 @@ public class MNYC_2017_Skiing_Competition {
 
 	static class Edge {
 		int src, sink, cost;
+
 		Edge (int src, int sink, int cost) {
 			this.src = src;
 			this.sink = sink;
@@ -262,7 +264,7 @@ public class MNYC_2017_Skiing_Competition {
 		public int hashCode () {
 			return 31 * src + sink;
 		}
-		
+
 		public Edge negate () {
 			return new Edge(sink, src, cost);
 		}
@@ -271,6 +273,7 @@ public class MNYC_2017_Skiing_Competition {
 	static class Path implements Comparable<Path> {
 		ArrayList<Edge> nodes = new ArrayList<Edge>();
 		int cost, min;
+
 		@Override
 		public int compareTo (Path v) {
 			if (cost == v.cost)
@@ -314,4 +317,3 @@ public class MNYC_2017_Skiing_Competition {
 		return br.readLine().trim();
 	}
 }
-

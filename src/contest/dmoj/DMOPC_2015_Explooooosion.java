@@ -11,9 +11,9 @@ public class DMOPC_2015_Explooooosion {
 
 	static int N;
 	static long[] val;
-	
+
 	static final int MOD = (int)(1e9 + 7);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,11 +22,11 @@ public class DMOPC_2015_Explooooosion {
 
 		long smallest = 0;
 		long largest = 0;
-		
+
 		N = readInt();
-		
+
 		val = new long[N];
-		
+
 		PriorityQueue<Long> pq = new PriorityQueue<Long>();
 
 		int ones = 0;
@@ -39,24 +39,24 @@ public class DMOPC_2015_Explooooosion {
 				ones++;
 			}
 		}
-		
+
 		Arrays.sort(val);
-		
+
 		if (smallest == 0)
 			smallest = val[0];
-		
+
 		while (ones > 0) {
 			if (pq.size() >= 2 && ones >= 2) {
 				long a = pq.poll();
 				long b = pq.poll();
-				
+
 				if (a == 2 && b == 2) {
 					a++;
 					b++;
 				} else {
 					pq.offer(2l);
 				}
-				
+
 				pq.offer(a);
 				pq.offer(b);
 				ones -= 2;
@@ -71,11 +71,11 @@ public class DMOPC_2015_Explooooosion {
 				ones -= 1;
 			}
 		}
-		
+
 		while (pq.size() >= 2) {
 			pq.offer(pq.poll() * pq.poll() % MOD);
 		}
-		
+
 		largest = pq.poll();
 		out.println(smallest);
 		out.println(largest);
@@ -83,6 +83,7 @@ public class DMOPC_2015_Explooooosion {
 			out.println(Arrays.toString(val));
 		out.close();
 	}
+
 	static long bfmin () {
 		long[] dp = new long[1 << N];
 		Arrays.fill(dp, 1 << 30);
@@ -107,7 +108,7 @@ public class DMOPC_2015_Explooooosion {
 		}
 		return dp[(1 << N) - 1];
 	}
-	
+
 	static long bfmax () {
 		long[] dp = new long[1 << N];
 		for (int i = 1; i < 1 << N; i++) {
@@ -131,16 +132,17 @@ public class DMOPC_2015_Explooooosion {
 		}
 		return dp[(1 << N) - 1];
 	}
-	
+
 	static class State {
 		long val;
 		boolean overflow;
+
 		State (long val, boolean overflow) {
 			this.val = val;
 			this.overflow = overflow;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -167,4 +169,3 @@ public class DMOPC_2015_Explooooosion {
 		return br.readLine().trim();
 	}
 }
-

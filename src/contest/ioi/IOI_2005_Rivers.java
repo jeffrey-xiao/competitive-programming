@@ -54,7 +54,7 @@ public class IOI_2005_Rivers {
 			Node[] prev = new Node[size];
 			for (int y = 0; y < size; y++)
 				prev[y] = nodes[x].child.get(y).clone();
-			for (int gap = (int) (Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
+			for (int gap = (int)(Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
 				size = prev.length;
 				Node[] level = new Node[(size + 1) / 2];
 				for (int y = 0; y < level.length; y++) {

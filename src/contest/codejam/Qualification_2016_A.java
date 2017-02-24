@@ -10,7 +10,7 @@ public class Qualification_2016_A {
 	static StringTokenizer st;
 
 	static int T, N;
-	
+
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
 		// out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,7 +18,7 @@ public class Qualification_2016_A {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			N = readInt();
 			if (N == 0) {
@@ -64,4 +64,3 @@ public class Qualification_2016_A {
 		return br.readLine().trim();
 	}
 }
-

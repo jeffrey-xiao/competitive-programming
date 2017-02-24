@@ -26,9 +26,9 @@ public class CCC_1998_C {
 					x += movex[dir] * moves;
 					y += movey[dir] * moves;
 				} else if (command == 2)
-					dir = (byte) ((dir + 5) % 4);
+					dir = (byte)((dir + 5) % 4);
 				else
-					dir = (byte) ((dir + 3) % 4);
+					dir = (byte)((dir + 3) % 4);
 				command = readInt();
 			}
 			System.out.println("Distance is " + (Math.abs(x) + Math.abs(y)));

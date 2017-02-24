@@ -105,6 +105,7 @@ public class MinCostMaxFlowSuccessiveShortestPath {
 
 	static class State {
 		int flow, cost;
+
 		State (int flow, int cost) {
 			this.flow = flow;
 			this.cost = cost;

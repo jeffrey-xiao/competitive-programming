@@ -11,7 +11,7 @@ public class Woburn_Challenge_2016_Away_Mission {
 
 	static int N, Q;
 	static int[] R, G, B, best;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,7 +24,7 @@ public class Woburn_Challenge_2016_Away_Mission {
 		G = new int[N];
 		B = new int[N];
 		best = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			R[i] = readInt();
 		for (int i = 0; i < N; i++)
@@ -65,7 +65,7 @@ public class Woburn_Challenge_2016_Away_Mission {
 			}
 			out.println(i);
 		}
-		
+
 		out.close();
 	}
 
@@ -73,13 +73,13 @@ public class Woburn_Challenge_2016_Away_Mission {
 		for (int i = 0; i < a.length / 2; i++)
 			swap(a, i, a.length - i - 1);
 	}
-	
+
 	static void swap (int[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];
 		a[j] = temp;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -106,4 +106,3 @@ public class Woburn_Challenge_2016_Away_Mission {
 		return br.readLine().trim();
 	}
 }
-

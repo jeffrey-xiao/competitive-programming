@@ -46,11 +46,11 @@ public class Hacker_Country {
 		int top = 0;
 		int bottom = 0;
 		for (int i = 0; i < n; i++) {
-			double best = ((double) (dist[n][i] - dist[0][i])) / n;
+			double best = ((double)(dist[n][i] - dist[0][i])) / n;
 			int newTop = dist[n][i] - dist[0][i];
 			int newBottom = n;
 			for (int j = 1; j < n; j++) {
-				double val = (dist[n][i] - dist[j][i]) / ((double) (n - j));
+				double val = (dist[n][i] - dist[j][i]) / ((double)(n - j));
 				if (val > best) {
 					best = val;
 					newTop = dist[n][i] - dist[j][i];

@@ -88,26 +88,6 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
 				int lo = queryMin(1, 1, N, lowerIndex, higherIndex);
 				int hi = queryMax(1, 1, N, lowerIndex, higherIndex);
 
-				/*
-				int minIndex = -1;
-				int maxIndex = -1;
-				
-				
-				for (int j = 1; j <= N; j++) {
-					if (mine[i].l <= mine[j].pos && mine[j].pos <= mine[i].r) {
-						if (minIndex == -1 || (mine[minIndex].l > mine[j].l))
-							minIndex = j;
-					}
-					if (mine[i].l <= mine[j].pos && mine[j].pos <= mine[i].r) {
-						if (maxIndex == -1 || (mine[maxIndex].r < mine[j].r))
-							maxIndex = j;
-					}
-				}
-				
-				assert(mine[lo].l == mine[minIndex].l);
-				assert(mine[hi].r == mine[maxIndex].r);
-				*/
-
 				if (lo != i)
 					adj.get(i).add(lo);
 
@@ -151,28 +131,6 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
 			}
 		}
 
-		/*
-		for (int i = 1; i <= N; i++) {
-			boolean finished = false;
-			boolean[] exploded = new boolean[N + 1];
-			exploded[i] = true;
-			int l = mine[i].l;
-			int r = mine[i].r;
-			while (!finished) {
-				finished = true;
-				for (int j = 1; j <= N; j++) {
-					if (!exploded[j] && l <= mine[j].pos && mine[j].pos <= r) {
-						exploded[j] = true;
-						l = Math.min(l, mine[j].l);
-						r = Math.max(r, mine[j].r);
-						finished = false;
-					}
-				}
-			}
-			assert(l == lRange[id[i]]);
-			assert(r == rRange[id[i]]);
-		}
-		*/
 		int[] ans = new int[M];
 
 		PriorityQueue<State> pq = new PriorityQueue<State>();

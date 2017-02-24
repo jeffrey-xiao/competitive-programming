@@ -1,4 +1,5 @@
 package contest.ecoo;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,7 +15,7 @@ public class ECOO_2016_R1_P2 {
 	static StringTokenizer st;
 
 	static final int TEST_CASES = 10;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -45,7 +46,7 @@ public class ECOO_2016_R1_P2 {
 			}
 			out.println();
 		}
-		 
+
 		out.close();
 	}
 

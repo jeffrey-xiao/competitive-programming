@@ -24,7 +24,7 @@ public class Mackenzie_Abdoof {
 				valid &= isValid(in[i], -1, 0);
 			out.println(valid ? "valid" : "invalid");
 		}
-		
+
 		out.close();
 	}
 
@@ -57,7 +57,7 @@ public class Mackenzie_Abdoof {
 		}
 		return valid;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -84,4 +84,3 @@ public class Mackenzie_Abdoof {
 		return br.readLine().trim();
 	}
 }
-

@@ -121,7 +121,7 @@ public class DMOPC_2014_Spacetime_Convergence_Cannons {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Slope) {
-				Slope s = (Slope) o;
+				Slope s = (Slope)o;
 				return dy == s.dy && dx == s.dx;
 			}
 			return false;

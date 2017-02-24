@@ -10,13 +10,13 @@ public class Woburn_Challenge_2015_FuzzBiz {
 	static StringTokenizer st;
 
 	static int N, M;
-	
+
 	// 0 = not divisible by 3 or 5
 	// 1 = divisible by 3
 	// 2 = divisible by 5
 	// 3 = divisible by 3 and 5
 	static int[] states;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,7 +25,7 @@ public class Woburn_Challenge_2015_FuzzBiz {
 
 		N = readInt();
 		M = readInt();
-		
+
 		states = new int[M];
 		for (int i = 0; i < M; i++) {
 			String in = readLine();
@@ -36,9 +36,9 @@ public class Woburn_Challenge_2015_FuzzBiz {
 			else if (in.equals("fizzbuzz"))
 				states[i] = 3;
 		}
-		
+
 		int ans = 0;
-		
+
 		for (int i = 1; i <= 15; i++) {
 			boolean valid = true;
 			for (int j = 0; j < M; j++) {
@@ -57,7 +57,7 @@ public class Woburn_Challenge_2015_FuzzBiz {
 			}
 		}
 		out.println(ans);
-		
+
 		out.close();
 	}
 
@@ -87,4 +87,3 @@ public class Woburn_Challenge_2015_FuzzBiz {
 		return br.readLine().trim();
 	}
 }
-

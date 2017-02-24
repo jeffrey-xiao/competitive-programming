@@ -18,7 +18,7 @@ public class DMOPC_2015_Counting_Money {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 1; i <= N; i++) {
 			char op = readCharacter();
 			String val = next();
@@ -39,22 +39,22 @@ public class DMOPC_2015_Counting_Money {
 
 	static String toBaseNegTwo (String str) {
 		long val = Long.parseLong(str);
-		
+
 		StringBuilder res = new StringBuilder("");
 		while (val != 0) {
 			long remainder = val % -2;
 			val /= -2;
-			
+
 			if (remainder < 0) {
 				remainder += 2;
 				val += 1;
 			}
-			
-			res.append(""+remainder);
+
+			res.append("" + remainder);
 		}
 		return res.reverse().toString();
 	}
-	
+
 	static int toBaseTen (String val) {
 		int pow = 1;
 		int res = 0;
@@ -72,7 +72,7 @@ public class DMOPC_2015_Counting_Money {
 			return b;
 		return p % 2 == 0 ? pow(b * b, p / 2) : b * pow(b * b, p / 2);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -99,4 +99,3 @@ public class DMOPC_2015_Counting_Money {
 		return br.readLine().trim();
 	}
 }
-

@@ -16,19 +16,19 @@ public class DMOPC_2014_Loner_Phoner {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			String in = readLine();
-			
-			if (in.length() != 10 || !isNumber(in) || (!in.substring(0, 3).equals("416") && !in.substring(0, 3).equals("647"))) 
+
+			if (in.length() != 10 || !isNumber(in) || (!in.substring(0, 3).equals("416") && !in.substring(0, 3).equals("647")))
 				out.println("not a phone number");
 			else
 				out.printf("(%s)-%s-%s\n", in.substring(0, 3), in.substring(3, 6), in.substring(6, 10));
 		}
-		
+
 		out.close();
 	}
-	
+
 	static boolean isNumber (String s) {
 		for (int i = 0; i < s.length(); i++)
 			if (s.charAt(i) < '0' || s.charAt(i) > '9')
@@ -62,4 +62,3 @@ public class DMOPC_2014_Loner_Phoner {
 		return br.readLine().trim();
 	}
 }
-

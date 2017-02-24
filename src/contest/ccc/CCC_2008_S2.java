@@ -15,7 +15,7 @@ public class CCC_2008_S2 {
 		while (n != 0) {
 			int total = n;
 			for (int x = 1; x < n; x++)
-				total += (int) Math.sqrt(n * n - x * x);
+				total += (int)Math.sqrt(n * n - x * x);
 			System.out.println(total * 4 + 1);
 			n = readInt();
 		}

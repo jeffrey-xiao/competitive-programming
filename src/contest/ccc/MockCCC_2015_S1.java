@@ -56,7 +56,7 @@ public class MockCCC_2015_S1 {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Ratio) {
-				Ratio r = (Ratio) o;
+				Ratio r = (Ratio)o;
 				return DU == r.DU && U == r.U && D == r.D;
 			}
 			return false;

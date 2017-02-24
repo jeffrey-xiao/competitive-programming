@@ -10,7 +10,7 @@ public class ECOO_2016_R3_P2 {
 	static StringTokenizer st;
 
 	static final int TEST_CASES = 10; // 10
-	
+
 	static int Aw, Ah, Bx, By, Sx, Sy;
 
 	public static void main (String[] args) throws IOException {
@@ -26,7 +26,6 @@ public class ECOO_2016_R3_P2 {
 			By = readInt();
 			Sx = readInt();
 			Sy = readInt();
-
 
 			for (int walls = 1; walls <= 5; walls++) {
 				double Th = readInt();
@@ -135,4 +134,3 @@ public class ECOO_2016_R3_P2 {
 		return br.readLine().trim();
 	}
 }
-

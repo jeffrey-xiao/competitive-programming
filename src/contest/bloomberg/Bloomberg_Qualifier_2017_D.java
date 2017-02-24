@@ -8,7 +8,7 @@ public class Bloomberg_Qualifier_2017_D {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -16,9 +16,9 @@ public class Bloomberg_Qualifier_2017_D {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		String in = readLine();
-		
+
 		int[] occ = new int[10];
-		
+
 		for (int i = 0; i < in.length(); i++)
 			occ[in.charAt(i) - '0']++;
 		StringBuilder ret = new StringBuilder();
@@ -29,7 +29,7 @@ public class Bloomberg_Qualifier_2017_D {
 				ret.append(i);
 			if (occ[i] % 2 == 1 && !mid) {
 				mid = true;
-				m = ""+i;
+				m = "" + i;
 			}
 		}
 		out.println(ret.toString() + m + ret.reverse().toString());
@@ -62,4 +62,3 @@ public class Bloomberg_Qualifier_2017_D {
 		return br.readLine().trim();
 	}
 }
-

@@ -17,16 +17,16 @@ public class ACM_NEERC_2014_D {
 
 		int N = readInt();
 		long M = readLong();
-		
+
 		Server[] s = new Server[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			s[i] = new Server(readLong(), readInt(), i);
 		}
-		
+
 		Arrays.sort(s);
 		long total = 0;
-		
+
 		int i = 0;
 		ArrayList<Integer> used = new ArrayList<Integer>();
 		ArrayList<Server> poss = new ArrayList<Server>();
@@ -55,7 +55,7 @@ public class ACM_NEERC_2014_D {
 		}
 		for (; j < poss.size(); j++)
 			used.add(poss.get(j).index);
-		
+
 		out.printf("%d %d\n", used.size(), lowVoltage);
 		for (int index : used)
 			out.print(index + 1 + " ");
@@ -66,17 +66,19 @@ public class ACM_NEERC_2014_D {
 	static class Server implements Comparable<Server> {
 		Long capacity;
 		int type, index;
+
 		Server (long capacity, int type, int index) {
 			this.capacity = capacity;
 			this.type = type;
 			this.index = index;
 		}
+
 		@Override
 		public int compareTo (Server o) {
 			return o.capacity.compareTo(capacity);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -103,4 +105,3 @@ public class ACM_NEERC_2014_D {
 		return br.readLine().trim();
 	}
 }
-

@@ -95,7 +95,7 @@ public class CCC_1999_Stage_2_Common_Words {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Word) {
-				Word w = (Word) o;
+				Word w = (Word)o;
 				return word.equals(w.word);
 			}
 			return false;

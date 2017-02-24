@@ -10,7 +10,7 @@ public class Woburn_Challenge_2015_Vertical_Posting {
 	static StringTokenizer st;
 
 	static String in;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -51,4 +51,3 @@ public class Woburn_Challenge_2015_Vertical_Posting {
 		return br.readLine().trim();
 	}
 }
-

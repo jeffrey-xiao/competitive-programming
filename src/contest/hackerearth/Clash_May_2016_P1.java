@@ -11,6 +11,7 @@ public class Clash_May_2016_P1 {
 
 	static long N;
 	static ArrayList<Integer> primes;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,7 +21,7 @@ public class Clash_May_2016_P1 {
 		N = readLong();
 
 		primes = getPrimesEratosthenes((int)(Math.ceil(Math.sqrt(N))));
-		
+
 		long res = 0;
 		for (long i = (N + 2) / 2; i <= N; i++) {
 			if (isPrimePower(i)) {
@@ -50,7 +51,7 @@ public class Clash_May_2016_P1 {
 
 		return ret;
 	}
-	
+
 	static boolean isPrimePower (long n) {
 		boolean hasOtherFactor = false;
 		for (int prime : primes) {
@@ -94,4 +95,3 @@ public class Clash_May_2016_P1 {
 		return br.readLine().trim();
 	}
 }
-

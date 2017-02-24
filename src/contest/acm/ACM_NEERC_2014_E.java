@@ -74,4 +74,3 @@ public class ACM_NEERC_2014_E {
 		return br.readLine().trim();
 	}
 }
-

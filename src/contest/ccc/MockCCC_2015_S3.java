@@ -73,7 +73,7 @@ public class MockCCC_2015_S3 {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point) o;
+				Point p = (Point)o;
 				return x == p.x && y == p.y;
 			}
 			return false;
@@ -121,7 +121,7 @@ public class MockCCC_2015_S3 {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Line) {
-				Line p = (Line) o;
+				Line p = (Line)o;
 				return p1.equals(p.p1) && p2.equals(p.p2);
 			}
 			return false;

@@ -20,7 +20,7 @@ public class Phantom_The_Torture_Chamber {
 		if (start == 0)
 			start++;
 		long end = readLong();
-		int end1 = (int) Math.sqrt(end);
+		int end1 = (int)Math.sqrt(end);
 		boolean[] sieve1 = new boolean[end1];
 		LinkedList<Integer> ll = new LinkedList<Integer>();
 		sieve1[0] = true;

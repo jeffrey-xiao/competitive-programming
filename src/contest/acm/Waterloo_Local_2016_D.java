@@ -17,12 +17,12 @@ public class Waterloo_Local_2016_D {
 
 		int R = readInt();
 		int C = readInt();
-		
+
 		char[][] g = new char[R][C];
 		boolean[][] vis = new boolean[R][C];
 		for (int i = 0; i < R; i++)
 			g[i] = readLine().toCharArray();
-		
+
 		int r = 0;
 		int c = 0;
 		int moves = 0;
@@ -47,13 +47,13 @@ public class Waterloo_Local_2016_D {
 				out.close();
 				return;
 			}
-			
+
 			if (vis[r][c]) {
 				out.println("Lost");
 				out.close();
 				return;
 			}
-			
+
 			moves++;
 		}
 		out.println(moves);

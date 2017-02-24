@@ -60,15 +60,15 @@ public class Woburn_Challenge_2015_Contest_Sites {
 		long res = 0;
 		for (int i = 0; i < n; i++) {
 			if (diff.get(i).cost >= 0)
-				res += live[diff.get(i).index] * (long) path1[diff.get(i).index];
+				res += live[diff.get(i).index] * (long)path1[diff.get(i).index];
 			else {
 				int index = diff.get(i).index;
 				if (live[index] > k) {
-					res += k * (long) path2[index];
-					res += (live[index] - k) * (long) path1[index];
+					res += k * (long)path2[index];
+					res += (live[index] - k) * (long)path1[index];
 					k = 0;
 				} else {
-					res += live[index] * (long) path2[index];
+					res += live[index] * (long)path2[index];
 					k -= live[index];
 				}
 			}

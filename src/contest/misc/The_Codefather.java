@@ -11,7 +11,7 @@ public class The_Codefather {
 
 	static int N;
 	static long[] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,27 +20,27 @@ public class The_Codefather {
 
 		N = readInt();
 		val = new long[N];
-		
+
 		long sum = 0;
 		for (int i = 0; i < N; i++) {
 			val[i] = readInt();
 			if (i > 0)
 				sum += val[i];
 		}
-		
+
 		if (sum > (val[0] - 1) * (N - 1)) {
 			out.println("impossible");
 			out.close();
 			return;
 		}
-		
+
 		int lo = 0;
 		int hi = 1000000;
 		while (lo <= hi) {
 			long[] curr = Arrays.copyOf(val, N);
 			Arrays.sort(curr, 1, N);
 			int mid = (lo + hi) >> 1;
-		
+
 			boolean valid = true;
 			int index = 1;
 
@@ -63,18 +63,18 @@ public class The_Codefather {
 						curr[i] -= transfer;
 						curr[j] += transfer;
 					}
-					
+
 					j = (j + 1) % N;
 				} while (j != index);
-				
+
 				index = (j - 1 + N) % N;
-				
+
 				if (curr[i] >= curr[0]) {
 					valid = false;
 					break;
 				}
 			}
-			
+
 			if (valid)
 				hi = mid - 1;
 			else
@@ -110,4 +110,3 @@ public class The_Codefather {
 		return br.readLine().trim();
 	}
 }
-

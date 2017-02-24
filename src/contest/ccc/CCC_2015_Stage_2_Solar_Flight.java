@@ -53,9 +53,9 @@ public class CCC_2015_Stage_2_Solar_Flight {
 				} else if (a[j] > a[i]) {
 					col.add(new Collision(0.0, i, j));
 				}
-				double s1 = (double) (b[i] - a[i]) / x;
-				double s2 = (double) (b[j] - a[j]) / x;
-				double cx = (double) (a[j] - a[i]) / (s1 - s2);
+				double s1 = (double)(b[i] - a[i]) / x;
+				double s2 = (double)(b[j] - a[j]) / x;
+				double cx = (double)(a[j] - a[i]) / (s1 - s2);
 				if (0 <= cx && cx <= x) {
 					if (b[i] > b[j])
 						col.offer(new Collision(cx, j, i));

@@ -10,7 +10,7 @@ public class DMOPC_2015_BFS {
 	static StringTokenizer st;
 
 	static int N, D, Q, L, T;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,9 +22,9 @@ public class DMOPC_2015_BFS {
 		Q = readInt();
 		L = readInt();
 		T = readInt();
-		
+
 		out.println(N * 5 + D * 10 + Q * 25 + L * 100 + T * 200);
-		
+
 		out.close();
 	}
 
@@ -54,4 +54,3 @@ public class DMOPC_2015_BFS {
 		return br.readLine().trim();
 	}
 }
-

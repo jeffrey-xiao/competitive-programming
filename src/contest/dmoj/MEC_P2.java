@@ -16,13 +16,13 @@ public class MEC_P2 {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		String in1 = readLine();
 		String in2 = readLine();
-		
+
 		int left = 1 << 30;
 		int right = 1 << 30;
-		
+
 		if (in1.equals(in2)) {
 			out.println("L0");
 		} else {
@@ -38,10 +38,10 @@ public class MEC_P2 {
 					right = Math.min(left, i + 1);
 				}
 			}
-			
+
 			if (left == 1 << 30 && right == 1 << 30) {
 				out.println(-1);
-			}else if (left <= right) {
+			} else if (left <= right) {
 				out.println("L" + left);
 			} else {
 				out.println("R" + right);
@@ -76,4 +76,3 @@ public class MEC_P2 {
 		return br.readLine().trim();
 	}
 }
-

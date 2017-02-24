@@ -25,18 +25,22 @@ public class ACM_NAQ_2016_K {
 			int c1 = readInt();
 			int c2 = readInt();
 
-			x = 0; y = 0;
+			x = 0;
+			y = 0;
 			linearDiophantine(a1, b1, c1);
-			int x1 = x; int y1 = y;
+			int x1 = x;
+			int y1 = y;
 
-			x = 0; y = 0;
+			x = 0;
+			y = 0;
 			linearDiophantine(a2, b2, c2);
-			int x2 = x; int y2 = y;
+			int x2 = x;
+			int y2 = y;
 
 			int lcm1 = lcm(a1, b1);
 			int lcm2 = lcm(a2, b2);
 
-			if (x1 == - 1 << 30 && y1 == - 1 << 30 || x2 == - 1 << 30 && y2 == - 1 << 30) {
+			if (x1 == -1 << 30 && y1 == -1 << 30 || x2 == -1 << 30 && y2 == -1 << 30) {
 				out.println("?");
 				continue;
 			}
@@ -88,7 +92,7 @@ public class ACM_NAQ_2016_K {
 	}
 
 	// computes x and y such that ax + by = c; on failure, x = y = -1
-	static void linearDiophantine(int a, int b, int c) {
+	static void linearDiophantine (int a, int b, int c) {
 		int d = gcd(a, b);
 		if (c % d != 0) {
 			x = y = -1 << 30;
@@ -103,8 +107,9 @@ public class ACM_NAQ_2016_K {
 	}
 
 	static int x, y;
+
 	// returns d = gcd(a, b); finds x, y such that d = ax * by
-	public static int[] euclid(int a, int b) {
+	public static int[] euclid (int a, int b) {
 		int x = 1, y = 0, x1 = 0, y1 = 1, t;
 		while (b != 0) {
 			int q = a / b;
@@ -118,7 +123,7 @@ public class ACM_NAQ_2016_K {
 			b = a - q * b;
 			a = t;
 		}
-		return a > 0 ? new int[]{a, x, y} : new int[]{-a, -x, -y};
+		return a > 0 ? new int[] {a, x, y} : new int[] {-a, -x, -y};
 	}
 
 	static int gcd (int a, int b) {

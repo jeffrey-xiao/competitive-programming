@@ -104,7 +104,7 @@ class ImplicitTreap {
 	public void clear () {
 		this.root = null;
 	}
-	
+
 	private void resetSize (Node n) {
 		if (n != null)
 			n.size = getSize(n.left) + getSize(n.right) + 1;
@@ -162,33 +162,33 @@ class ImplicitTreap {
 		for (int i = 0; i < 100000; i++) {
 			int rnd = (int)(Math.random() * (i + 1));
 			int val = (int)(Math.random() * 10000000);
-			
+
 			list.add(rnd, val);
 			treap.add(rnd, val);
 		}
-		
+
 		for (int i = 0; i < 100000; i++) {
-			assert(list.get(i).equals(treap.get(i + 1)));
+			assert list.get(i).equals(treap.get(i + 1));
 		}
-		
+
 		treap.clear();
 		long start = System.currentTimeMillis();
-		
+
 		for (int i = 0; i < 1000000; i++) {
 			int rnd = (int)(Math.random() * (i + 1));
 			int val = (int)(Math.random() * 10000000);
-			
+
 			treap.add(rnd, val);
 		}
-		
+
 		for (int i = 999999; i >= 0; i--) {
 			int rnd = (int)(Math.random() * (i + 1) + 1);
 			int prev = treap.get(rnd);
 			treap.remove(rnd);
 			if (rnd < treap.getSize(treap.root))
-				assert(prev != treap.get(rnd));
+				assert prev != treap.get(rnd);
 		}
-		
+
 		System.out.println(System.currentTimeMillis() - start);
 	}
 }

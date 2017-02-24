@@ -19,7 +19,7 @@ public class ACM_NAQ_2016_J {
 		for (int i = 0; i < N; i++) {
 			out.println(readLine().toString().length());
 		}
-		
+
 		out.close();
 	}
 

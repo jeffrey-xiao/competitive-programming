@@ -10,7 +10,7 @@ public class WOC_28_A {
 	static StringTokenizer st;
 
 	static int N, C, M;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,7 +20,7 @@ public class WOC_28_A {
 		N = readInt();
 		C = readInt();
 		M = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			if (readInt() > C * M) {
 				out.println("No");
@@ -58,4 +58,3 @@ public class WOC_28_A {
 		return br.readLine().trim();
 	}
 }
-

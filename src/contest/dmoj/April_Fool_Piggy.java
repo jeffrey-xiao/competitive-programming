@@ -14,7 +14,7 @@ public class April_Fool_Piggy {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-        
+
 		out.println("                                             )\\   /|");
 		out.println("                                          ,-/',|_/ |");
 		out.println("                       __            __,-' (   / \\/          ");
@@ -31,7 +31,7 @@ public class April_Fool_Piggy {
 		out.println("                       \\\\              \\\\");
 		out.println("                        L\\              L\\");
 		out.println("^^");
-		
+
 		out.close();
 	}
 

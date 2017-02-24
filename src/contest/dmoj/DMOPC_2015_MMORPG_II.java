@@ -11,14 +11,14 @@ public class DMOPC_2015_MMORPG_II {
 
 	static int N;
 	static ArrayList<ArrayList<Integer>> adj;
-	
+
 	static boolean[] isBasic;
 	static long[] dp;
 	static int[] sz;
-	
+
 	static long[] f;
 	static final int MOD = (int)(1e9 + 7);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -29,17 +29,17 @@ public class DMOPC_2015_MMORPG_II {
 		f[0] = 1;
 		for (int i = 1; i <= 100000; i++)
 			f[i] = (f[i - 1] * i) % MOD;
-		
+
 		N = readInt();
-		
+
 		adj = new ArrayList<ArrayList<Integer>>(N);
 		isBasic = new boolean[N];
 		dp = new long[N];
 		sz = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		for (int i = 0; i < N; i++) {
 			int val = readInt() - 1;
 			if (val == -1)
@@ -49,7 +49,7 @@ public class DMOPC_2015_MMORPG_II {
 		}
 		int curr = N;
 		long ans = 1;
-		
+
 		for (int i = 0; i < N; i++) {
 			if (isBasic[i]) {
 				dfs(i);
@@ -68,10 +68,10 @@ public class DMOPC_2015_MMORPG_II {
 			dfs(v);
 			sz[u] += sz[v];
 		}
-		
+
 		int curr = sz[u] - 1;
 		long ret = 1;
-		
+
 		for (int v : adj.get(u)) {
 			ret = (ret * dp[v]) % MOD;
 			ret = (ret * choose(curr, sz[v])) % MOD;
@@ -79,7 +79,7 @@ public class DMOPC_2015_MMORPG_II {
 		}
 		dp[u] = ret;
 	}
-	
+
 	static long choose (int n, int k) {
 		return divMod(divMod(f[n], f[k]), f[n - k]);
 	}
@@ -88,7 +88,7 @@ public class DMOPC_2015_MMORPG_II {
 	static long divMod (long i, long j) {
 		return i * pow(j, MOD - 2, MOD) % MOD;
 	}
-	
+
 	static long pow (long base, long pow, long mod) {
 		if (pow == 0)
 			return 1;
@@ -98,7 +98,7 @@ public class DMOPC_2015_MMORPG_II {
 			return pow(base * base % mod, pow / 2, mod);
 		return base * pow(base * base % mod, pow / 2, mod) % mod;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -125,4 +125,3 @@ public class DMOPC_2015_MMORPG_II {
 		return br.readLine().trim();
 	}
 }
-

@@ -12,6 +12,7 @@ public class New_Year_2017_The_Christmas_Swap {
 	static int N, K, left, l;
 	static char[] in;
 	static ArrayList<ArrayList<Integer>> pos = new ArrayList<ArrayList<Integer>>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,7 +23,7 @@ public class New_Year_2017_The_Christmas_Swap {
 		K = readInt();
 
 		in = readLine().toCharArray();
-		
+
 		pos.add(new ArrayList<Integer>());
 		pos.add(new ArrayList<Integer>());
 
@@ -56,14 +57,13 @@ public class New_Year_2017_The_Christmas_Swap {
 					left = i;
 			}
 			bestAns = prevAns;
-			
-			
+
 			for (int i = 1; i + mid - 1 < N; i++) {
 				// computing best for interval [i, i + mid - 1]
-				
+
 				// not changing the positions used
 				int nextAns = computeNextAnswer(prevAns, i, mid, index, false, -1);
-				
+
 				// incrementing the positions used to the right
 				if (l + mid < pos.get(index).size()) {
 					l++;
@@ -71,7 +71,7 @@ public class New_Year_2017_The_Christmas_Swap {
 					int possAns = computeNextAnswer(nextAns, i, mid, index, true, lastLeft);
 					int diff = Math.abs(i + mid - 1 - pos.get(index).get(l + mid - 1)) - Math.abs(i - pos.get(index).get(l - 1));
 					possAns += diff;
-					
+
 					// reverting if answer is not better or equal
 					if (possAns > nextAns) {
 						l--;
@@ -80,13 +80,13 @@ public class New_Year_2017_The_Christmas_Swap {
 						nextAns = possAns;
 					}
 				}
-				
+
 				bestAns = Math.min(bestAns, nextAns);
 				prevAns = nextAns;
 				if (bestAns <= K)
 					break;
 			}
-			
+
 			if (bestAns <= K) {
 				lo = mid + 1;
 			} else {
@@ -99,13 +99,13 @@ public class New_Year_2017_The_Christmas_Swap {
 	static int computeNextAnswer (int prevAns, int i, int mid, int index, boolean inverse, int lastLeft) {
 		int nextAns = prevAns;
 		left = Math.max(left, l - 1);
-		
+
 		// adjusting left
 		while (left + 1 <= l + mid - 1 && pos.get(index).get(left + 1) < i + left + 1 - l)
 			left++;
 		while (left >= l && pos.get(index).get(left) >= i + left - l)
 			left--;
-		
+
 		if (inverse) {
 			int benefit = (lastLeft - (l - 1) + 1) - 1;
 			int negative = (mid - benefit - 1);
@@ -114,7 +114,7 @@ public class New_Year_2017_The_Christmas_Swap {
 		} else {
 			nextAns += left - l + 1 - (l + mid - 1 - left);
 		}
-		
+
 		return nextAns;
 	}
 
@@ -152,4 +152,3 @@ public class New_Year_2017_The_Christmas_Swap {
 		return br.readLine().trim();
 	}
 }
-

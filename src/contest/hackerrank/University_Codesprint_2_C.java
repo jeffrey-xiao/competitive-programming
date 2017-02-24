@@ -16,20 +16,20 @@ public class University_Codesprint_2_C {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			int N = readInt();
 			int M = readInt();
 			long x = readLong();
-			
+
 			long[] stackA = new long[N + 1];
 			long[] stackB = new long[M + 1];
-			
+
 			for (int i = 1; i <= N; i++)
 				stackA[i] = readLong() + stackA[i - 1];
 			for (int i = 1; i <= M; i++)
 				stackB[i] = readLong() + stackB[i - 1];
-			
+
 			int max = 0;
 			for (int i = 0; i <= N; i++) {
 				int lo = 0;
@@ -46,7 +46,7 @@ public class University_Codesprint_2_C {
 			}
 			out.println(max);
 		}
-		
+
 		out.close();
 	}
 
@@ -76,4 +76,3 @@ public class University_Codesprint_2_C {
 		return br.readLine().trim();
 	}
 }
-

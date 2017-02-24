@@ -19,16 +19,16 @@ public class VMSS_Whipping_Out_The_Old_Dictionary {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		int t = readInt();
 		for (; t > 0; t--) {
 			ArrayList<String[]> input = new ArrayList<String[]>();
-			
+
 			String in = "";
-			
+
 			while ((in = br.readLine()) != null && !in.equals(""))
 				input.add(in.split(" "));
-			
+
 			ArrayList<String> dictionary = new ArrayList<String>();
 			for (int x = 0; x < input.size(); x++) {
 				for (int y = 0; y < input.get(x).length; y++) {
@@ -45,7 +45,7 @@ public class VMSS_Whipping_Out_The_Old_Dictionary {
 
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

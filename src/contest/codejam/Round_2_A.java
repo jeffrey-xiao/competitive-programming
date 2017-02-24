@@ -12,6 +12,7 @@ public class Round_2_A {
 	static int T, N, R, P, S;
 	static int[] type;
 	static boolean[] dp;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -50,9 +51,7 @@ public class Round_2_A {
 				PriorityQueue<State> np = new PriorityQueue<State>();
 				PriorityQueue<State> ns = new PriorityQueue<State>();
 				while (r.size() != 0 || p.size() != 0 || s.size() != 0) {
-					if ((p.size() == 0 && s.size() == 0) ||
-						(r.size() == 0 && s.size() == 0) || 
-						(r.size() == 0 && p.size() == 0)) {
+					if ((p.size() == 0 && s.size() == 0) || (r.size() == 0 && s.size() == 0) || (r.size() == 0 && p.size() == 0)) {
 						out.printf("Case #%d: IMPOSSIBLE\n", t);
 						continue main;
 					}
@@ -69,7 +68,7 @@ public class Round_2_A {
 							newState.prev.addAll(s1.prev);
 						}
 						np.offer(newState);
-					} 
+					}
 					// take P and S
 					else if ((p.size() >= s.size() && s.size() >= r.size()) || (s.size() >= p.size() && p.size() >= r.size())) {
 						State s1 = p.poll();
@@ -111,7 +110,7 @@ public class Round_2_A {
 				res = p.poll();
 			else
 				res = r.poll();
-			
+
 			for (int i : res.prev) {
 				if (i == 0)
 					out.print("P");
@@ -139,7 +138,7 @@ public class Round_2_A {
 		public int compareTo (State s) {
 			return compare(prev, s.prev);
 		}
-		
+
 	}
 
 	static int compare (ArrayList<Integer> a, ArrayList<Integer> b) {
@@ -151,7 +150,7 @@ public class Round_2_A {
 		}
 		return 0;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -178,4 +177,3 @@ public class Round_2_A {
 		return br.readLine().trim();
 	}
 }
-

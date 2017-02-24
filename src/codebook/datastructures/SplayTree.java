@@ -190,7 +190,7 @@ public class SplayTree {
 		SplayTree t = new SplayTree();
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 100; x++) {
-			int ran = (int) (Math.random() * (100)) + 5;
+			int ran = (int)(Math.random() * (100)) + 5;
 			t.add(ran);
 		}
 		t.traverse(t.root);

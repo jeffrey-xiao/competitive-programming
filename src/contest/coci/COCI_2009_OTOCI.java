@@ -40,7 +40,7 @@ public class COCI_2009_OTOCI {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		n = readInt();
-		sn = (int) (Math.sqrt(n));
+		sn = (int)(Math.sqrt(n));
 		id = new int[n + 1];
 		size = new int[n + 1];
 		val = new int[n + 1];
@@ -122,11 +122,11 @@ public class COCI_2009_OTOCI {
 		int res = 0;
 		while (chain[i] != chain[j]) {
 			if (depth[head[chain[i]]] < depth[head[chain[j]]]) {
-				assert (chainIndex[head[chain[j]]] <= chainIndex[j]);
+				assert chainIndex[head[chain[j]]] <= chainIndex[j];
 				res += query(seg[chain[j]], 1, 1, chainSize[chain[j]], chainIndex[head[chain[j]]], chainIndex[j]);
 				j = parent[head[chain[j]]];
 			} else {
-				assert (chainIndex[head[chain[i]]] <= chainIndex[i]);
+				assert chainIndex[head[chain[i]]] <= chainIndex[i];
 				res += query(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[head[chain[i]]], chainIndex[i]);
 				i = parent[head[chain[i]]];
 			}

@@ -41,7 +41,7 @@ public class Johnson {
 		adj = new ArrayList<ArrayList<Edge>>();
 		h = new int[n + 1];
 		dist = new int[n + 1][n + 1];
-		
+
 		for (int i = 0; i <= n; i++) {
 			adj.add(new ArrayList<Edge>());
 			h[i] = 1 << 29;
@@ -58,7 +58,7 @@ public class Johnson {
 		}
 
 		h[0] = 0;
-		
+
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j <= n; j++)
 				for (Edge e : adj.get(j))
@@ -72,41 +72,41 @@ public class Johnson {
 					out.close();
 					return;
 				}
-		
+
 		for (int i = 1; i <= n; i++)
 			dist[i] = getPath(i);
-		
+
 		for (int i = 0; i < q; i++) {
 			int a = readInt();
 			int b = readInt();
 			out.println(dist[a][b] - h[a] + h[b]);
 		}
-		
+
 		out.close();
 	}
 
 	static int[] getPath (int src) {
 		int[] dist = new int[n + 1];
-		
+
 		for (int i = 0; i <= n; i++)
 			dist[i] = 1 << 29;
 		dist[src] = 0;
-		
+
 		pq = new PriorityQueue<Vertex>();
 		pq.offer(new Vertex(src, 0));
-		
+
 		while (!pq.isEmpty()) {
 			Vertex curr = pq.poll();
-			
+
 			for (Edge next : adj.get(curr.index)) {
 				if (dist[next.dest] <= curr.cost + next.cost + h[curr.index] - h[next.dest])
 					continue;
-				
+
 				dist[next.dest] = curr.cost + next.cost + h[curr.index] - h[next.dest];
 				pq.offer(new Vertex(next.dest, dist[next.dest]));
 			}
 		}
-		
+
 		return dist;
 	}
 
@@ -132,7 +132,7 @@ public class Johnson {
 			this.cost = cost;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

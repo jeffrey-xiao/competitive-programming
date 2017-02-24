@@ -42,7 +42,7 @@ public class Trie {
 	private void print (Node n, String curr) {
 		for (int i = 0; i < 26; i++)
 			if (n.child[i] != null)
-				print(n.child[i], curr + (char) (i + SHIFT));
+				print(n.child[i], curr + (char)(i + SHIFT));
 		if (n.isLeaf)
 			System.out.println(curr);
 	}

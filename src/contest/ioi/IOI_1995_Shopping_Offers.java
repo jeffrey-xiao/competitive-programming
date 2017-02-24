@@ -96,7 +96,7 @@ public class IOI_1995_Shopping_Offers {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State) o;
+				State s = (State)o;
 				for (int x = 0; x < items.length; x++)
 					if (s.items[x] != items[x])
 						return false;

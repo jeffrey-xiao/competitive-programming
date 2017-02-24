@@ -14,31 +14,30 @@ public class Bloomberg_Qualifier_2017_H {
 	static int[] path;
 	static int[] pathCost;
 	static ArrayList<ArrayList<State>> adj = new ArrayList<ArrayList<State>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		N = readInt();
 		M = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			adj.add(new ArrayList<State>());
-		
+
 		A = readInt() - 1;
 		B = readInt() - 1;
 		K = readInt();
 		G = readInt();
-		
+
 		path = new int[G];
 		pathCost = new int[G];
-		
-		for (int i = 0; i < G; i++) 
+
+		for (int i = 0; i < G; i++)
 			path[i] = readInt() - 1;
-		
-		
+
 		for (int i = 0; i < M; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
@@ -46,7 +45,7 @@ public class Bloomberg_Qualifier_2017_H {
 			adj.get(a).add(new State(b, c));
 			adj.get(b).add(new State(a, c));
 		}
-		
+
 		for (int i = 1; i < G; i++) {
 			for (int j = 0; j < N; j++)
 				for (State e : adj.get(j)) {
@@ -55,13 +54,13 @@ public class Bloomberg_Qualifier_2017_H {
 					}
 				}
 		}
-		
+
 		PriorityQueue<State> pq = new PriorityQueue<State>();
 		int[] cost = new int[N];
 		Arrays.fill(cost, 1 << 30);
 		cost[A] = 0;
 		pq.offer(new State(A, 0));
-		
+
 		while (!pq.isEmpty()) {
 			State curr = pq.poll();
 			for (State e : adj.get(curr.dest)) {
@@ -74,14 +73,14 @@ public class Bloomberg_Qualifier_2017_H {
 						endB = path[i];
 						f = pathCost[i] - curr.cost - K;
 					}
-				
+
 				int finalCost = curr.cost + e.cost;
 				if (e.dest == endA && curr.dest == endB || e.dest == endB && curr.dest == endA) {
 					finalCost = finalCost + f;
 				}
 
 				if (cost[e.dest] <= finalCost)
-						continue;
+					continue;
 				cost[e.dest] = finalCost;
 				pq.offer(new State(e.dest, cost[e.dest]));
 			}
@@ -92,17 +91,19 @@ public class Bloomberg_Qualifier_2017_H {
 
 	static class State implements Comparable<State> {
 		int cost, dest;
+
 		State (int dest, int cost) {
 			this.cost = cost;
 			this.dest = dest;
 		}
+
 		@Override
 		public int compareTo (State o) {
 			return cost - o.cost;
 		}
-		
+
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -129,4 +130,3 @@ public class Bloomberg_Qualifier_2017_H {
 		return br.readLine().trim();
 	}
 }
-

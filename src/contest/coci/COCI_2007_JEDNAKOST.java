@@ -77,7 +77,7 @@ public class COCI_2007_JEDNAKOST {
 
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State st = (State) o;
+				State st = (State)o;
 				return i.equals(st.i) && t.equals(st.t) && s.equals(st.s);
 			}
 			return false;

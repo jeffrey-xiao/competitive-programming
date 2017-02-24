@@ -20,7 +20,7 @@ public class USACO_2013_Empty_Stalls {
 			long a = readLong();
 			long b = readLong();
 			for (; y > 0; y--) {
-				cows[(int) ((a * y + b) % n)] += x;
+				cows[(int)((a * y + b) % n)] += x;
 			}
 		}
 		int curr = 0;

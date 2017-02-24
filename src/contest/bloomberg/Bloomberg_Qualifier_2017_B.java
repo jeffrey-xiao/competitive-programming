@@ -10,7 +10,7 @@ public class Bloomberg_Qualifier_2017_B {
 	static StringTokenizer st;
 
 	static int N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,16 +18,16 @@ public class Bloomberg_Qualifier_2017_B {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		TreeMap<Character, TreeSet<Integer>> tm = new TreeMap<Character, TreeSet<Integer>>();
-		
+
 		N = readInt();
 		HashSet<Character> open = new HashSet<Character>();
-		
+
 		for (int i = 0; i < N; i++) {
 			String next = readLine();
 			if (next.charAt(0) == '^') {
 				open.add(next.charAt(1));
 				if (tm.get(next.charAt(1)) == null)
-				tm.put(next.charAt(1), new TreeSet<Integer>());
+					tm.put(next.charAt(1), new TreeSet<Integer>());
 			} else if (next.charAt(0) == '/') {
 				open.remove(next.charAt(1));
 			} else {
@@ -37,7 +37,7 @@ public class Bloomberg_Qualifier_2017_B {
 				}
 			}
 		}
-		
+
 		for (Map.Entry<Character, TreeSet<Integer>> e : tm.entrySet()) {
 			out.print(e.getKey() + " ");
 			for (Integer i : e.getValue())
@@ -73,4 +73,3 @@ public class Bloomberg_Qualifier_2017_B {
 		return br.readLine().trim();
 	}
 }
-

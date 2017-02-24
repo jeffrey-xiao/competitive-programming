@@ -36,7 +36,7 @@ public class Woburn_Challenge_2016_Most_Illogical {
 				s.push(next);
 			}
 		}
-		
+
 		while (s.size() > 1) {
 			String last = s.pop();
 			if (last.equals("true") || s.peek().equals("true")) {
@@ -80,4 +80,3 @@ public class Woburn_Challenge_2016_Most_Illogical {
 		return br.readLine().trim();
 	}
 }
-

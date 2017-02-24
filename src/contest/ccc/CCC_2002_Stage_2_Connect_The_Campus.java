@@ -104,7 +104,7 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Edge) {
-				Edge e = (Edge) o;
+				Edge e = (Edge)o;
 				return dest == e.dest;
 			}
 			return false;

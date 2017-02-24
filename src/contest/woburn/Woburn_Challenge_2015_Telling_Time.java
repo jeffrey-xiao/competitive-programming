@@ -10,7 +10,7 @@ public class Woburn_Challenge_2015_Telling_Time {
 	static StringTokenizer st;
 
 	static int N, F, ans;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,13 +19,13 @@ public class Woburn_Challenge_2015_Telling_Time {
 
 		N = readInt();
 		F = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			if (readInt() % F == 0)
 				ans++;
-		
+
 		out.println(ans);
-		
+
 		out.close();
 	}
 
@@ -55,4 +55,3 @@ public class Woburn_Challenge_2015_Telling_Time {
 		return br.readLine().trim();
 	}
 }
-

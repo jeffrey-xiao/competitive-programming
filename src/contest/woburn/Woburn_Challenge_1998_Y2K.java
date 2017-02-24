@@ -17,7 +17,7 @@ public class Woburn_Challenge_1998_Y2K {
 		for (int x = 0; x < points.length; x++) {
 			points[x] = new Point(scan.nextInt(), scan.nextInt());
 			if (points[x].getY() < min) {
-				min = (int) points[x].getY();
+				min = (int)points[x].getY();
 				index = x;
 			}
 		}
@@ -54,11 +54,11 @@ public class Woburn_Challenge_1998_Y2K {
 		}
 
 		for (int x = convexHull.size() - 1; x >= 0; x--) {
-			System.out.println((int) convexHull.get(x).getX() + " " + (int) convexHull.get(x).getY());
+			System.out.println((int)convexHull.get(x).getX() + " " + (int)convexHull.get(x).getY());
 		}
 	}
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	private static double crossProduct (Point p1, Point p2) {
 		return p1.getX() * p2.getY() - p1.getY() * p2.getX();
 	}
@@ -67,7 +67,7 @@ public class Woburn_Challenge_1998_Y2K {
 		return (p2.getX() - p1.getX()) * (p3.getY() - p1.getY()) - (p2.getY() - p1.getY()) * (p3.getX() - p1.getX());
 	}
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	private static double polar (Point p1, Point p2, Point startPoint) {
 		return p1.getX() * p2.getY() + p2.getX() * startPoint.getY() + startPoint.getX() * p1.getY() - p2.getY() * startPoint.getX() - startPoint.getY() * p1.getX() - p1.getY() * p2.getX() > 0 ? -1 : 1;
 	}

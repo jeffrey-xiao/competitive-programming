@@ -41,7 +41,7 @@ public class June_2015_D {
 		int[] end2 = getEnd(new StringBuilder(in).reverse().toString());
 
 		long[] ans = new long[q];
-		int sz = (int) Math.sqrt(in.length());
+		int sz = (int)Math.sqrt(in.length());
 		for (int i = 0; i < (in.length() - 1) / sz + 1; i++) {
 			int start = i * sz;
 			int end = Math.min((i + 1) * sz - 1, in.length() - 1);
@@ -89,7 +89,7 @@ public class June_2015_D {
 		newOrder = new int[s.length()];
 		for (int i = 0; i < s.length(); i++) {
 			sa[i] = i;
-			order[i] = (int) (s.charAt(i));
+			order[i] = (int)(s.charAt(i));
 			newOrder[i] = 0;
 		}
 

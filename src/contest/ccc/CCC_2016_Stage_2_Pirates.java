@@ -14,7 +14,7 @@ public class CCC_2016_Stage_2_Pirates {
 	static int[] V;
 	static long[][] dp;
 	static boolean contains = false;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,14 +23,14 @@ public class CCC_2016_Stage_2_Pirates {
 
 		N = readInt();
 		K = readLong();
-		
+
 		V = new int[N];
 
 		for (int i = 0; i < N; i++)
 			V[i] = readInt();
 
 		out.println(K);
-		
+
 		Node treap = null;
 		treap = insert(treap, K, 1);
 
@@ -84,7 +84,7 @@ public class CCC_2016_Stage_2_Pirates {
 				out.println(K - needToGive);
 				dp[i][i] = K - needToGive;
 				for (int j = 0; j < needToSatisfy; j++)
-					dp[i][a.get(j).index]= a.get(j).val + 1; 
+					dp[i][a.get(j).index] = a.get(j).val + 1;
 			}
 		}
 	}
@@ -92,12 +92,14 @@ public class CCC_2016_Stage_2_Pirates {
 	static class State implements Comparable<State> {
 		Long val;
 		int index;
+
 		State (int index, long val) {
 			this.val = val;
 			this.index = index;
 		}
+
 		@Override
-		public int compareTo(State o) {
+		public int compareTo (State o) {
 			return val.compareTo(o.val);
 		}
 	}
@@ -147,8 +149,7 @@ public class CCC_2016_Stage_2_Pirates {
 		} else {
 			if (amt <= getTotalSize(n.left)) {
 				return querySmallest(n.left, amt);
-			}
-			else if (getTotalSize(n.left) + n.size >= amt)
+			} else if (getTotalSize(n.left) + n.size >= amt)
 				return querySmallest(n.left, getTotalSize(n.left)) + n.val * (amt - getTotalSize(n.left));
 			return getSum(n.left) + querySmallest(n.right, amt - getTotalSize(n.left) - n.size) + n.size * n.val;
 		}
@@ -169,6 +170,7 @@ public class CCC_2016_Stage_2_Pirates {
 		long sum;
 		double p;
 		Node left, right;
+
 		Node (long val, double p, Node left, Node right, int size) {
 			this.val = val;
 			this.p = p;
@@ -182,6 +184,7 @@ public class CCC_2016_Stage_2_Pirates {
 
 	static class Pair {
 		Node left, right;
+
 		Pair (Node left, Node right) {
 			this.left = left;
 			this.right = right;
@@ -270,4 +273,3 @@ public class CCC_2016_Stage_2_Pirates {
 		return br.readLine().trim();
 	}
 }
-

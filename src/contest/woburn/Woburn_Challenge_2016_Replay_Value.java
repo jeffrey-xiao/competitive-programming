@@ -13,7 +13,7 @@ public class Woburn_Challenge_2016_Replay_Value {
 	static int[] D;
 	static boolean[] exclude;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,31 +21,31 @@ public class Woburn_Challenge_2016_Replay_Value {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		D = new int[N];
 		exclude = new boolean[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			D[i] = readInt();
 			adj.add(new ArrayList<Integer>());
 		}
-		
+
 		for (int i = 0; i < N - 1; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
-			
+
 			adj.get(u).add(v);
 			adj.get(v).add(u);
 		}
-		
+
 		Queue<Integer> q = new ArrayDeque<Integer>();
 		q.offer(0);
 		long ans = 0;
-		
+
 		while (!q.isEmpty()) {
 			int u = q.poll();
 			u = getCentroid(u, -1, getSize(u, -1));
-			
+
 			long outgoing = 0;
 			long incoming = 0;
 
@@ -63,13 +63,13 @@ public class Woburn_Challenge_2016_Replay_Value {
 				outgoing += currOutgoing;
 				incoming += currIncoming;
 			}
-			
+
 			exclude[u] = true;
 			for (int v : adj.get(u))
 				if (!exclude[v])
 					q.offer(v);
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -81,7 +81,7 @@ public class Woburn_Challenge_2016_Replay_Value {
 				ret += getOutgoing(v, u);
 		return ret;
 	}
-	
+
 	static int getIncoming (int u, int par) {
 		int ret = 1;
 		for (int v : adj.get(u))
@@ -89,7 +89,7 @@ public class Woburn_Challenge_2016_Replay_Value {
 				ret += getIncoming(v, u);
 		return ret;
 	}
-	
+
 	static int getSize (int u, int par) {
 		int sz = 1;
 		for (int v : adj.get(u))
@@ -97,7 +97,7 @@ public class Woburn_Challenge_2016_Replay_Value {
 				sz += getSize(v, u);
 		return sz;
 	}
-	
+
 	static int getCentroid (int u, int par, int treeSize) {
 		int n = treeSize;
 		int sz = 1;
@@ -114,7 +114,7 @@ public class Woburn_Challenge_2016_Replay_Value {
 		valid &= n - sz <= n / 2;
 		return valid ? u : -sz;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -141,4 +141,3 @@ public class Woburn_Challenge_2016_Replay_Value {
 		return br.readLine().trim();
 	}
 }
-

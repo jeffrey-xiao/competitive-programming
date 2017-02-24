@@ -11,6 +11,7 @@ public class WOC_20_E {
 
 	static int N, M, K;
 	static ArrayList<ArrayList<Integer>> adj;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,10 +20,10 @@ public class WOC_20_E {
 
 		N = readInt();
 		M = readInt();
-		
-//		K = (int)(Math.cbrt(N));
+
+		//		K = (int)(Math.cbrt(N));
 		K = 150;
-		
+
 		adj = new ArrayList<ArrayList<Integer>>(N);
 
 		for (int i = 0; i < N; i++)
@@ -42,7 +43,7 @@ public class WOC_20_E {
 
 		int[] pairs = new int[M * K];
 		int index = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			// small corners
 			if (adj.get(i).size() <= K) {
@@ -72,9 +73,9 @@ public class WOC_20_E {
 			}
 		}
 		Arrays.sort(pairs, 0, index);
-		for (int i = 0; i < index; ) {
+		for (int i = 0; i < index;) {
 			int j = i;
-			while (j < index && pairs[i]  == pairs[j]) {
+			while (j < index && pairs[i] == pairs[j]) {
 				j++;
 			}
 			long cnt = j - i;
@@ -87,6 +88,7 @@ public class WOC_20_E {
 
 	static class Edge {
 		int u, v;
+
 		Edge (int u, int v) {
 			this.u = u;
 			this.v = v;
@@ -119,4 +121,3 @@ public class WOC_20_E {
 		return br.readLine().trim();
 	}
 }
-

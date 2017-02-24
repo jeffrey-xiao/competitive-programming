@@ -21,7 +21,7 @@ public class Encryption {
 
 		String s = next();
 		int len = s.length();
-		int width = (int) (Math.ceil(Math.sqrt(len)));
+		int width = (int)(Math.ceil(Math.sqrt(len)));
 		int height = (width * (width - 1) >= len) ? width - 1 : width;
 		char[][] g = new char[height][width];
 		for (int i = 0, k = 0; i < height; i++)

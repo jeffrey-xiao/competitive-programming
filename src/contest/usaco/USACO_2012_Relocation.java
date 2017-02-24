@@ -70,7 +70,7 @@ public class USACO_2012_Relocation {
 			if (!a.contains(x)) {
 				a.add(x);
 				permute(i, c - 1, a);
-				a.remove((Integer) x);
+				a.remove((Integer)x);
 			}
 		}
 	}

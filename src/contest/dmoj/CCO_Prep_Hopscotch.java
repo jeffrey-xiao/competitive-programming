@@ -11,9 +11,9 @@ public class CCO_Prep_Hopscotch {
 
 	static int N, Q;
 	static int blocks, interval;
-	
+
 	static int[] val, block, right, pos, cnt;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,17 +22,17 @@ public class CCO_Prep_Hopscotch {
 
 		N = readInt();
 		interval = (int)(Math.sqrt(N));
-		
+
 		val = new int[N];
 		block = new int[N];
 		right = new int[N];
 		pos = new int[N];
 		cnt = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			val[i] = readInt();
 			block[i] = (i / interval);
-			
+
 			right[block[i]] = i;
 			blocks = block[i];
 		}
@@ -49,7 +49,7 @@ public class CCO_Prep_Hopscotch {
 			}
 			last = right[i] + 1;
 		}
-		
+
 		Q = readInt();
 		for (int i = 0; i < Q; i++) {
 			int type = readInt();
@@ -78,10 +78,10 @@ public class CCO_Prep_Hopscotch {
 						pos[j] = pos[j + val[j]];
 					}
 				}
-				
+
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -111,4 +111,3 @@ public class CCO_Prep_Hopscotch {
 		return br.readLine().trim();
 	}
 }
-

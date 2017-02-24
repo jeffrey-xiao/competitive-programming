@@ -136,12 +136,13 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 
 	static class State {
 		int flow, cost;
+
 		State (int flow, int cost) {
 			this.flow = flow;
 			this.cost = cost;
 		}
 	}
-	
+
 	static class Vertex implements Comparable<Vertex> {
 		int index, cost;
 

@@ -11,10 +11,10 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 
 	static int N;
 	static long W;
-	
+
 	static long[] a;
 	static TreeSet<State> ts = new TreeSet<State>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,20 +23,20 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 
 		N = readInt();
 		W = readLong();
-		
+
 		a = new long[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			a[i] = readInt();
-			
+
 		}
-		
+
 		Arrays.sort(a);
-		
+
 		for (int i = 0; i < N; i++) {
 			ts.add(new State(a[i], i));
 		}
-		
+
 		long min = 0;
 		long prev = W;
 		if (W <= ts.first().value) {
@@ -51,34 +51,34 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 			}
 		} else {
 			State lower = null;
-			State higher = null; 
-			
+			State higher = null;
+
 			for (int i = N - 1; i >= 0; i--) {
 				if (a[i] <= W) {
 					lower = new State(a[i], i);
 					break;
 				}
 			}
-			
+
 			for (int i = 0; i < N; i++) {
 				if (a[i] > W) {
 					higher = new State(a[i], i);
 					break;
 				}
 			}
-			
+
 			prev = W;
- 			for (int i = lower.i; i >= 0; i--) {
+			for (int i = lower.i; i >= 0; i--) {
 				min += Math.min(Math.abs(prev - a[i]), Math.abs(W - a[i]));
 				prev = a[i];
 			}
- 			
- 			prev = W;
+
+			prev = W;
 			for (int i = higher.i; i < N; i++) {
 				min += Math.min(Math.abs(prev - a[i]), Math.abs(W - a[i]));
 				prev = a[i];
 			}
-			
+
 			long curr = 0;
 			for (int i = N - 1; i >= 0; i--) {
 				if (a[i] < W) {
@@ -86,40 +86,39 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 					break;
 				}
 			}
-			
+
 			for (int i = 0; i < N; i++) {
 				if (a[i] >= W) {
 					higher = new State(a[i], i);
 					break;
 				}
 			}
-			
+
 			prev = W;
 			for (int i = higher.i; i < N; i++) {
 				curr += Math.min(Math.abs(prev - a[i]), Math.abs(W - a[i]));
 				prev = a[i];
 			}
-			
+
 			prev = W;
 			for (int i = lower.i; i >= 0; i--) {
 				curr += Math.min(Math.abs(prev - a[i]), Math.abs(W - a[i]));
 				prev = a[i];
 			}
-			
+
 			min = Math.min(min, curr);
 		}
-		
-		
+
 		long[] loFirst = new long[N];
 		long[] hiFirst = new long[N];
-		
+
 		int lo1 = 0;
 		int hi1 = N - 1;
 		int lo2 = 0;
 		int hi2 = N - 1;
-		
+
 		boolean f = true;
-		
+
 		for (int i = 0; i < N; i++) {
 			if (f) {
 				loFirst[i] = a[lo1++];
@@ -132,9 +131,9 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 		}
 
 		long max = Math.max(getMax(loFirst), getMax(hiFirst));
-		
+
 		out.printf("%d %d\n", min, max);
-		
+
 		out.close();
 	}
 
@@ -145,7 +144,7 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 			curr += Math.max(Math.abs(prev - a[i]), Math.abs(W - a[i]));
 			prev = a[i];
 		}
-		
+
 		long curr1 = 0;
 		long prev1 = W;
 		for (int i = N - 1; i >= 0; i--) {
@@ -154,20 +153,23 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 		}
 		return Math.max(curr1, curr);
 	}
-	
+
 	static class State implements Comparable<State> {
 		Long value;
 		int i;
+
 		State (long value, int i) {
 			this.value = value;
 			this.i = i;
 		}
+
 		@Override
-		public int compareTo(State o) {
+		public int compareTo (State o) {
 			if (value == o.value)
 				return i - o.i;
 			return value.compareTo(o.value);
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof State) {
@@ -177,7 +179,7 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 			return false;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -204,4 +206,3 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 		return br.readLine().trim();
 	}
 }
-

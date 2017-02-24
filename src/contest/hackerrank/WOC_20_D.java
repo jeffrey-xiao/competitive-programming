@@ -78,12 +78,12 @@ public class WOC_20_D {
 					dp[1][i][nimber[i] = j] = 1;
 
 		for (int i = 2; i <= M; i++)
-			for (int j = 1; j <= N; j++) 
-				for (int k = 1; k <= j; k++) 
+			for (int j = 1; j <= N; j++)
+				for (int k = 1; k <= j; k++)
 					for (int l = 0; l < MAX_XOR; l++)
 						if (dp[i - 1][j - k][l] > 0)
 							dp[i][j][l ^ nimber[k]] = (dp[i][j][l ^ nimber[k]] + dp[i - 1][j - k][l]) % MOD;
-		
+
 		int ans = 0;
 		for (int i = 1; i < MAX_XOR; i++)
 			ans = (ans + dp[M][N][i]) % MOD;
@@ -118,4 +118,3 @@ public class WOC_20_D {
 		return br.readLine().trim();
 	}
 }
-

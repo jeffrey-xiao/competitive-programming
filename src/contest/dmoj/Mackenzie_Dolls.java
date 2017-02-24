@@ -16,15 +16,15 @@ public class Mackenzie_Dolls {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		int[] occ = new int[101];
-		
+
 		for (int i = 0; i < N; i++)
 			occ[readInt()]++;
-		
+
 		int min = -1;
 		int max = -1;
-		
+
 		for (int i = 0; i <= 100; i++) {
 			if (occ[i] != 0) {
 				if (min == -1 || occ[i] < occ[min])
@@ -63,4 +63,3 @@ public class Mackenzie_Dolls {
 		return br.readLine().trim();
 	}
 }
-

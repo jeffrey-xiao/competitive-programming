@@ -28,7 +28,7 @@ public class Bloomberg_Qualifier_2017_C {
 			largest = Math.max(largest, solution[x]);
 		}
 		out.println(largest);
-		
+
 		out.close();
 	}
 
@@ -58,4 +58,3 @@ public class Bloomberg_Qualifier_2017_C {
 		return br.readLine().trim();
 	}
 }
-

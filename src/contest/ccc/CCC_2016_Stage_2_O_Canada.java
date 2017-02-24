@@ -10,18 +10,18 @@ public class CCC_2016_Stage_2_O_Canada {
 	static StringTokenizer st;
 
 	static int N, G;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		N = readInt();
 		G = readInt();
-		
+
 		HashMap<Integer, Integer> occ = new HashMap<Integer, Integer>();
-		
+
 		for (int i = 0; i < G; i++) {
 			int[][] grid = new int[N][N];
 			for (int j = 0; j < N; j++) {
@@ -48,10 +48,10 @@ public class CCC_2016_Stage_2_O_Canada {
 			occ.put(res, occ.get(res) + 1);
 		}
 		int ans = 0;
-		
+
 		for (Map.Entry<Integer, Integer> e : occ.entrySet())
 			ans += e.getValue() * (e.getValue() - 1) / 2;
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -82,4 +82,3 @@ public class CCC_2016_Stage_2_O_Canada {
 		return br.readLine().trim();
 	}
 }
-

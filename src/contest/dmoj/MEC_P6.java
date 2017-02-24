@@ -24,14 +24,14 @@ public class MEC_P6 {
 
 		long[][] mm = new long[R + 2][C + 2];
 
-		for (int i = 1; i <= R ; i++)
+		for (int i = 1; i <= R; i++)
 			for (int j = 1; j <= C; j++) {
 				mm[i][j] = 1;
 			}
 
 		int[][] rowSum = new int[15][R + 2];
 		int[][] colSum = new int[15][C + 2];
-		
+
 		for (int i = 0; i < M; i++) {
 			char c = readCharacter();
 			int x = readInt();
@@ -60,8 +60,8 @@ public class MEC_P6 {
 				}
 			}
 		}
-		
-		for (int i = 1; i <= R; i++) {	
+
+		for (int i = 1; i <= R; i++) {
 			for (int j = 1; j <= C; j++) {
 				mm[i][j] += mm[i - 1][j] + mm[i][j - 1] - mm[i - 1][j - 1];
 			}
@@ -109,13 +109,15 @@ public class MEC_P6 {
 			return pow(base * base, pow / 2);
 		return base * pow(base * base, pow / 2);
 	}
-	
+
 	static class Interval implements Comparable<Interval> {
 		int lo, hi;
+
 		Interval (int lo, int hi) {
 			this.lo = lo;
 			this.hi = hi;
 		}
+
 		@Override
 		public int compareTo (Interval o) {
 			return lo - o.lo;
@@ -148,4 +150,3 @@ public class MEC_P6 {
 		return br.readLine().trim();
 	}
 }
-

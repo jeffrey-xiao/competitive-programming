@@ -102,7 +102,7 @@ public class CCC_2003_Stage_2_Cheap_Gas {
 
 		@Override
 		public int compareTo (State o) {
-			return (int) (cost - o.cost);
+			return (int)(cost - o.cost);
 		}
 
 	}

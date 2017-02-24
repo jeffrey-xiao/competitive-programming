@@ -23,7 +23,6 @@ public class ACM_Hong_Kong_2016_I {
 		N = readInt();
 		M = readInt();
 
-
 		for (int i = 0; i < N; i++)
 			adj.add(new ArrayList<Integer>());
 
@@ -36,7 +35,7 @@ public class ACM_Hong_Kong_2016_I {
 
 		s = readInt();
 		t = readInt();
-		
+
 		double[][] matrix = new double[N * N][N * N + 1];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
@@ -49,12 +48,12 @@ public class ACM_Hong_Kong_2016_I {
 					matrix[getIndex(i, j)][N * N] = 1;
 					for (int ni : adj.get(i))
 						for (int nj : adj.get(j)) {
-							matrix[getIndex(i, j)][getIndex(ni, nj)] = -1.0/total;
+							matrix[getIndex(i, j)][getIndex(ni, nj)] = -1.0 / total;
 						}
 				}
 			}
 		}
-		
+
 		double[][] sol = solve(matrix);
 
 		int index = getIndex(s, t);
@@ -89,7 +88,6 @@ public class ACM_Hong_Kong_2016_I {
 				if (Math.abs(A[j][i]) > Math.abs(A[maxIndex][i]))
 					maxIndex = j;
 
-			
 			if (Math.abs(A[maxIndex][i]) < EPS) {
 				continue;
 			}
@@ -97,7 +95,7 @@ public class ACM_Hong_Kong_2016_I {
 			double[] tempA = A[i];
 			A[i] = A[maxIndex];
 			A[maxIndex] = tempA;
-			
+
 			// ensuring that it's positive
 			if (A[i][i] < 0) {
 				for (int j = i; j <= N; j++)
@@ -109,11 +107,10 @@ public class ACM_Hong_Kong_2016_I {
 				if (A[i][i] == 0)
 					continue;
 				double factor = A[j][i] / A[i][i];
-				for (int k = i; k <= N; k++) 
+				for (int k = i; k <= N; k++)
 					A[j][k] -= A[i][k] * factor;
 			}
 		}
-
 
 		// backward elimination
 		for (int i = N - 1; i >= 0; i--) {
@@ -124,7 +121,7 @@ public class ACM_Hong_Kong_2016_I {
 			for (int j = i - 1; j >= 0; j--) {
 				double factor = A[j][i] / A[i][i];
 				for (int k = i; k <= N; k++)
-					A[j][k] -= A[i][k] * factor;	
+					A[j][k] -= A[i][k] * factor;
 			}
 		}
 
@@ -148,7 +145,7 @@ public class ACM_Hong_Kong_2016_I {
 		}
 		return 0;
 	}
-	
+
 	static int getIndex (int i, int j) {
 		return i * N + j;
 	}

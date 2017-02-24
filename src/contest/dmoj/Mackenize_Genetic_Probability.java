@@ -16,21 +16,20 @@ public class Mackenize_Genetic_Probability {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int N = readInt();
-		
+
 		char[] in1 = readLine().toCharArray();
 		char[] in2 = readLine().toCharArray();
 		char[] in3 = readLine().toCharArray();
-		
+
 		double prob = 1.0;
-		
+
 		for (int i = 0; i < N; i++) {
 			int cnt = 0;
 			for (int j = 0; j < 2; j++)
 				for (int k = 0; k < 2; k++)
-					if ((in1[i * 2 + j] == in3[i * 2] && in2[i * 2 + k] == in3[i * 2 + 1]) || 
-						(in1[i * 2 + j] == in3[i * 2 + 1] && in2[i * 2 + k] == in3[i * 2]))
+					if ((in1[i * 2 + j] == in3[i * 2] && in2[i * 2 + k] == in3[i * 2 + 1]) || (in1[i * 2 + j] == in3[i * 2 + 1] && in2[i * 2 + k] == in3[i * 2]))
 						cnt++;
-			
+
 			prob *= cnt / 4.0;
 		}
 		out.printf("%.10f\n", prob);
@@ -63,4 +62,3 @@ public class Mackenize_Genetic_Probability {
 		return br.readLine().trim();
 	}
 }
-

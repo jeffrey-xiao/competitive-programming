@@ -17,9 +17,9 @@ public class DMOPC_2014_Picking_Berries {
 
 		int W = readInt();
 		int H = readInt();
-		
+
 		int cnt = 0;
-		
+
 		for (int i = 0; i < H; i++) {
 			char[] line = br.readLine().toCharArray();
 			for (int j = 0; j < W; j++) {
@@ -36,7 +36,7 @@ public class DMOPC_2014_Picking_Berries {
 		for (int i = 0; i < cnt; i++)
 			out.print("o");
 		out.println();
-		
+
 		out.close();
 	}
 
@@ -66,4 +66,3 @@ public class DMOPC_2014_Picking_Berries {
 		return br.readLine().trim();
 	}
 }
-

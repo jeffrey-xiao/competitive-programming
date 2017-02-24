@@ -17,28 +17,27 @@ public class Mackenzie_Postcard {
 
 		int N = readInt();
 		int M = readInt();
-		
+
 		char[][] grid = new char[N][M];
-		
+
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < M; j++)
 				grid[i][j] = readCharacter();
-		
+
 		int minR = 1 << 30;
 		int maxR = -1 << 30;
 		int minC = 1 << 30;
 		int maxC = -1 << 30;
-		
-		
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				if (grid[i][j] == '*') {
 					minR = Math.min(minR, i);
 					maxR = Math.max(maxR, i);
-					
+
 					minC = Math.min(minC, j);
 					maxC = Math.max(maxC, j);
-					
+
 				}
 			}
 		}
@@ -49,8 +48,8 @@ public class Mackenzie_Postcard {
 				}
 				out.println();
 			}
-		} 
-		
+		}
+
 		out.close();
 	}
 
@@ -80,4 +79,3 @@ public class Mackenzie_Postcard {
 		return br.readLine().trim();
 	}
 }
-

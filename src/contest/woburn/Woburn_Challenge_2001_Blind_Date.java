@@ -117,7 +117,7 @@ public class Woburn_Challenge_2001_Blind_Date {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State p = (State) o;
+				State p = (State)o;
 				return p.x == x && p.y == y && p.z == z;
 			}
 			return false;

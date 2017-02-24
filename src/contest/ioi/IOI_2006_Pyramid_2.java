@@ -45,7 +45,7 @@ public class IOI_2006_Pyramid_2 {
 					dq.pollLast();
 				dq.addLast(new Point(val, i, j));
 				p[i][j] = dq.getFirst();
-				assert (p[i][j].x >= i - (a - 2) + c && p[i][j].y >= j - (b - 2) + d);
+				assert p[i][j].x >= i - (a - 2) + c && p[i][j].y >= j - (b - 2) + d;
 			}
 		}
 		for (int j = d; j <= m; j++) {
@@ -58,7 +58,7 @@ public class IOI_2006_Pyramid_2 {
 					dq.pollLast();
 				dq.addLast(val);
 				p[i][j] = dq.getFirst();
-				assert (p[i][j].x >= i - (a - 2) + c && p[i][j].y >= j - (b - 2) + d);
+				assert p[i][j].x >= i - (a - 2) + c && p[i][j].y >= j - (b - 2) + d;
 			}
 		}
 

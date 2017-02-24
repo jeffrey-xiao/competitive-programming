@@ -119,7 +119,7 @@ public class COCI_2006_CIRCLE {
 
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State) o;
+				State s = (State)o;
 				return (s.s + s.s).contains(this.s);
 			}
 			return false;

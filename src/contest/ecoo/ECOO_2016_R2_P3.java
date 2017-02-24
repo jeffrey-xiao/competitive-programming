@@ -10,26 +10,26 @@ public class ECOO_2016_R2_P3 {
 	static StringTokenizer st;
 
 	static final int TEST_CASES = 10;
-	
-	static int[] mx = {-1,-1,-1,0,0,1,1,1};
-	static int[] my = {-1,0,1,-1,1,-1,0,1};
-	
+
+	static int[] mx = {-1, -1, -1, 0, 0, 1, 1, 1};
+	static int[] my = {-1, 0, 1, -1, 1, -1, 0, 1};
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// br = new BufferedReader(new FileReader("DATA31.txt"));
-		
+
 		for (int t = 1; t <= TEST_CASES; t++) {
 			int N = readInt();
 			int sz = readInt();
 			char[][] g = new char[N][N];
 			for (int i = 0; i < N; i++)
 				g[i] = readLine().toCharArray();
-			
+
 			int cnt = 0;
-			
+
 			for (int i = 0; i < N; i++)
 				for (int j = 0; j < N; j++) {
 					// rows
@@ -79,7 +79,7 @@ public class ECOO_2016_R2_P3 {
 				}
 			out.println(cnt);
 		}
-		
+
 		out.close();
 	}
 
@@ -109,4 +109,3 @@ public class ECOO_2016_R2_P3 {
 		return br.readLine().trim();
 	}
 }
-

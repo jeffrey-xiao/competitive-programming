@@ -11,7 +11,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
 
 	static long[] fact = new long[2001];
 	static final long MOD = (long)(1e9 + 7);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,50 +21,49 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
 		fact[0] = 1;
 		for (int i = 1; i <= 2000; i++)
 			fact[i] = fact[i - 1] * i % MOD;
-		
+
 		int T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			int N = readInt();
 			int M = readInt();
-			
+
 			int maxR = 0;
 			int sumR = 0;
-			
+
 			int[] R = new int[N];
-			
+
 			for (int i = 0; i < N; i++) {
 				maxR = Math.max(maxR, R[i] = readInt());
 				sumR += 2 * R[i];
 			}
-			
+
 			if (N == 1) {
 				out.printf("Case #%d: %d\n", t, M);
 				continue;
 			}
-			
+
 			int[] occ = new int[maxR * 2 + 1];
-			
+
 			for (int i = 0; i < N; i++)
 				for (int j = i + 1; j < N; j++)
 					occ[R[i] + R[j]]++;
-			
+
 			long ans = 0;
-			
+
 			// fixing two umbrella
 			for (int i = 2; i <= maxR * 2; i++) {
 				int spaces = M + i - sumR;
 				if (spaces >= 1)
-					ans = (ans + occ[i] * choose(spaces + N - 1, N)) % MOD; 
+					ans = (ans + occ[i] * choose(spaces + N - 1, N)) % MOD;
 			}
 			ans = (ans * fact[N - 2] * 2) % MOD;
-			
+
 			out.printf("Case #%d: %d\n", t, ans);
 		}
-		
+
 		out.close();
 	}
-
 
 	static long choose (int n, int k) {
 		if (k > n - k)
@@ -74,7 +73,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
 			ret = ret * (n - i) % MOD;
 		return divMod(ret, fact[k]);
 	}
-	
+
 	static long divMod (long i, long j) {
 		return i * pow(j, MOD - 2) % MOD;
 	}
@@ -88,7 +87,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
 			return pow(a * a % MOD, b / 2);
 		return a * pow(a * a % MOD, b / 2) % MOD;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -115,4 +114,3 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
 		return br.readLine().trim();
 	}
 }
-

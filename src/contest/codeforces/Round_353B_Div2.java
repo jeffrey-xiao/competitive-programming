@@ -10,7 +10,7 @@ public class Round_353B_Div2 {
 	static StringTokenizer st;
 
 	static int N, A, B, C, D;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,15 +22,15 @@ public class Round_353B_Div2 {
 		B = readInt();
 		C = readInt();
 		D = readInt();
-		
+
 		int a = 1;
 		int b = a + A - D;
 		int c = b + B - C;
 		int d = c + D - A;
-		
+
 		int min = Math.min(a, Math.min(b, Math.min(c, d)));
 		int max = Math.max(a, Math.max(b, Math.max(c, d)));
-		
+
 		out.println(Math.max(0, 1l * N * (N - max + min)));
 		out.close();
 	}
@@ -61,4 +61,3 @@ public class Round_353B_Div2 {
 		return br.readLine().trim();
 	}
 }
-

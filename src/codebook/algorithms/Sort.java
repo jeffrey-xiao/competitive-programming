@@ -67,7 +67,7 @@ public class Sort {
 
 	private static int partition (int[] a, int lo, int hi) {
 		// random partition
-		int rand = (int) (Math.random() * (hi - lo + 1) + lo);
+		int rand = (int)(Math.random() * (hi - lo + 1) + lo);
 		swap(a, rand, lo);
 		int x = lo;
 		int y = hi + 1;
@@ -238,7 +238,7 @@ public class Sort {
 			int[] a = new int[10000];
 			int[] b = new int[10000];
 			for (int j = 0; j < 10; j++)
-				a[j] = (int) (Math.random() * 10000);
+				a[j] = (int)(Math.random() * 10000);
 			System.arraycopy(a, 0, b, 0, a.length);
 			Arrays.sort(b);
 			mergeSort1(a);

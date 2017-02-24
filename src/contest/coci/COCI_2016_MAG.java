@@ -41,7 +41,6 @@ public class COCI_2016_MAG {
 		for (int i = 0; i < N; i++)
 			min = Math.min(min, val[i] = readInt());
 
-
 		if (min != 1)
 			out.printf("%d/%d\n", min, 1);
 		else {
@@ -68,7 +67,7 @@ public class COCI_2016_MAG {
 				maxChild = Math.max(maxChild, dp[v][0].max);
 			}
 		}
-		
+
 		// consider two paths of ones
 		if (par != -1) {
 			int maxPar = 0;
@@ -115,6 +114,7 @@ public class COCI_2016_MAG {
 
 	static class State {
 		int max, index;
+
 		State (int max, int index) {
 			this.max = max;
 			this.index = index;
@@ -127,6 +127,7 @@ public class COCI_2016_MAG {
 
 	static class Fraction implements Comparable<Fraction> {
 		long a, b;
+
 		Fraction (long a, long b) {
 			long gcd = gcd(a, b);
 			if (gcd != 0) {
@@ -175,4 +176,3 @@ public class COCI_2016_MAG {
 		return br.readLine().trim();
 	}
 }
-

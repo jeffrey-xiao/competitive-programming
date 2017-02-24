@@ -19,7 +19,7 @@ public class COCI_2008_SLIKAR {
 	static char[][] ng;
 	static int[][][] dp;
 
-	static int[][] state = { {1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4}, {2, 2, 3, 3, 4, 4, 1, 1, 3, 3, 4, 4, 1, 1, 2, 2, 4, 4, 1, 1, 2, 2, 3, 3}, {3, 4, 2, 4, 2, 3, 4, 3, 4, 1, 1, 3, 2, 4, 1, 4, 2, 1, 2, 3, 1, 3, 1, 2}, {4, 3, 4, 2, 3, 2, 3, 4, 1, 4, 3, 1, 4, 2, 4, 1, 1, 2, 3, 2, 3, 1, 2, 1}};
+	static int[][] state = {{1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4}, {2, 2, 3, 3, 4, 4, 1, 1, 3, 3, 4, 4, 1, 1, 2, 2, 4, 4, 1, 1, 2, 2, 3, 3}, {3, 4, 2, 4, 2, 3, 4, 3, 4, 1, 1, 3, 2, 4, 1, 4, 2, 1, 2, 3, 1, 3, 1, 2}, {4, 3, 4, 2, 3, 2, 3, 4, 1, 4, 3, 1, 4, 2, 4, 1, 1, 2, 3, 2, 3, 1, 2, 1}};
 
 	public static void main (String[] args) throws IOException {
 		N = readInt();
@@ -47,7 +47,7 @@ public class COCI_2008_SLIKAR {
 		}
 		int mx = (x1 + x2) / 2;
 		int my = (y1 + y2) / 2;
-		State[][] ss = { {solve(x1, mx, y1, my), solve(x1, mx, my + 1, y2)}, {solve(mx + 1, x2, y1, my), solve(mx + 1, x2, my + 1, y2)}};
+		State[][] ss = {{solve(x1, mx, y1, my), solve(x1, mx, my + 1, y2)}, {solve(mx + 1, x2, y1, my), solve(mx + 1, x2, my + 1, y2)}};
 
 		s.type[0] = ss[0][0].type[0] + ss[1][0].type[0] + ss[0][1].type[0] + ss[1][1].type[0];
 		s.type[1] = ss[0][0].type[1] + ss[1][0].type[1] + ss[0][1].type[1] + ss[1][1].type[1];

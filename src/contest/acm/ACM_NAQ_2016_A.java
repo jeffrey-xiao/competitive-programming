@@ -1,4 +1,5 @@
 package contest.acm;
+
 import java.util.*;
 import java.io.*;
 
@@ -15,8 +16,7 @@ public class ACM_NAQ_2016_A {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		String in = readLine().toLowerCase();
-		String[] alpha = {"@", "8", "(", "|)", "3", "#", "6", "[-]", "|", "_|", "|<", "1", "[]\\/[]", "[]\\[]",
-						   "0", "|D", "(,)", "|Z", "$", "']['", "|_|", "\\/", "\\/\\/", "}{", "`/", "2"};
+		String[] alpha = {"@", "8", "(", "|)", "3", "#", "6", "[-]", "|", "_|", "|<", "1", "[]\\/[]", "[]\\[]", "0", "|D", "(,)", "|Z", "$", "']['", "|_|", "\\/", "\\/\\/", "}{", "`/", "2"};
 		String ret = "";
 		for (int i = 0; i < in.length(); i++) {
 			if ('a' <= in.charAt(i) && in.charAt(i) <= 'z')
@@ -54,4 +54,3 @@ public class ACM_NAQ_2016_A {
 		return br.readLine().trim();
 	}
 }
-

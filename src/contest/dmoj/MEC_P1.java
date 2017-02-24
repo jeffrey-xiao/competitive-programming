@@ -31,7 +31,7 @@ public class MEC_P1 {
 					p.add(new Point(j, i));
 
 		for (int i = 1; i < p.size(); i++)
-			out.printf("%.3f\n", Math.atan2(p.get(i).c - p.get(i - 1).c, - p.get(i).r + p.get(i - 1).r) / Math.PI * 180);
+			out.printf("%.3f\n", Math.atan2(p.get(i).c - p.get(i - 1).c, -p.get(i).r + p.get(i - 1).r) / Math.PI * 180);
 
 		if (p.size() == 0)
 			out.println("0.000");
@@ -41,6 +41,7 @@ public class MEC_P1 {
 
 	static class Point {
 		int r, c;
+
 		Point (int r, int c) {
 			this.r = r;
 			this.c = c;
@@ -73,4 +74,3 @@ public class MEC_P1 {
 		return br.readLine().trim();
 	}
 }
-

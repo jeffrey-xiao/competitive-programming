@@ -81,8 +81,8 @@ public class Primes {
 	}
 
 	static ArrayList<Integer> genPrimes (int l, int h) {
-		int sqrth = (int) Math.ceil(Math.sqrt(h));
-		int sqrtsqrth = (int) Math.ceil(Math.sqrt(sqrth));
+		int sqrth = (int)Math.ceil(Math.sqrt(h));
+		int sqrtsqrth = (int)Math.ceil(Math.sqrt(sqrth));
 
 		boolean[] prime1 = new boolean[sqrth + 1];
 		boolean[] prime2 = new boolean[h - l + 1];
@@ -165,7 +165,7 @@ public class Primes {
 	static long fermat (long n) {
 		if (n % 2 == 0)
 			return 2;
-		long x = (long) (Math.sqrt(n)), y = 0;
+		long x = (long)(Math.sqrt(n)), y = 0;
 		long r = x * x - y * y - n;
 		while (r != 0) {
 			if (r < 0) {
@@ -216,7 +216,7 @@ public class Primes {
 	}
 
 	static long randLong (long n) {
-		return (long) (Math.random() * n);
+		return (long)(Math.random() * n);
 	}
 
 	static long brent (long n) {
@@ -296,6 +296,6 @@ public class Primes {
 		ArrayList<Integer> ret2 = getPrimesLinear(123456789);
 		ArrayList<Integer> ret3 = getPrimesAtkins(123456789);
 
-		assert (ret1.equals(ret2) && ret2.equals(ret3));
+		assert ret1.equals(ret2) && ret2.equals(ret3);
 	}
 }

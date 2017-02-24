@@ -30,7 +30,7 @@ public class Blackrock_D {
 		int curr = -1;
 		int cnt = 0;
 
-		for (int i = 0; i < N; ) {
+		for (int i = 0; i < N;) {
 			String c = next();
 			if (!c.equals("#")) {
 				adj.add(new ArrayList<Integer>());
@@ -57,7 +57,7 @@ public class Blackrock_D {
 		}
 
 		solve(0);
-		
+
 		out.println(Math.max(dp[0][0], dp[0][1]));
 		out.close();
 	}

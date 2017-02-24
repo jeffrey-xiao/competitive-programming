@@ -11,7 +11,7 @@ public class WOC_20_A {
 
 	static int N, K;
 	static int[] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,18 +20,18 @@ public class WOC_20_A {
 
 		N = readInt();
 		K = readInt();
-		
+
 		val = new int[N];
-		
+
 		int ans = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			val[i] = readInt();
 			for (int j = 0; j < i; j++)
 				if ((val[i] + val[j]) % K == 0)
 					ans++;
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -62,4 +62,3 @@ public class WOC_20_A {
 		return br.readLine().trim();
 	}
 }
-

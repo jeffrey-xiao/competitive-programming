@@ -38,7 +38,7 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 		int shortest = s[n - 1];
 		for (int x = 0; x < edges.size(); x++) {
 			Edge e = edges.get(x);
-			long cost = (long) s[e.source] + d[e.dest] + e.cost;
+			long cost = (long)s[e.source] + d[e.dest] + e.cost;
 			if (cost < min && cost > shortest)
 				min = cost;
 		}
@@ -96,7 +96,7 @@ public class CCC_2012_Stage_2_The_Hungary_Games {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Node) {
-				Node n = (Node) o;
+				Node n = (Node)o;
 				return this.index == n.index;
 			}
 			return false;

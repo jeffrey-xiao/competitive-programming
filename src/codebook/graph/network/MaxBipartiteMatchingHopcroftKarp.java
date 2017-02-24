@@ -78,16 +78,16 @@ public class MaxBipartiteMatchingHopcroftKarp {
 				dist[i] = 1 << 30;
 			}
 		}
-		
+
 		// initialize the right super node distance to infinity
 		dist[NULL] = 1 << 30;
-		
+
 		while (!q.isEmpty()) {
 			Integer curr = q.poll();
-			
+
 			if (dist[curr] >= dist[NULL])
 				continue;
-			
+
 			for (int next : adj.get(curr)) {
 				// we either pick already matched edges to remove them, or an edge
 				// from an unmatched right node to the right super node
@@ -98,7 +98,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 
 			}
 		}
-		
+
 		// if the right super node can be reached, we can match more edges
 		return dist[NULL] != 1 << 30;
 	}
@@ -106,7 +106,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 	static boolean dfs (int i) {
 		if (i == NULL)
 			return true;
-		
+
 		for (int j : adj.get(i)) {
 			// matching the edges along the shortest augmenting path
 			if (dist[pair[j]] == dist[i] + 1) {
@@ -117,7 +117,7 @@ public class MaxBipartiteMatchingHopcroftKarp {
 				}
 			}
 		}
-		
+
 		// if an augmenting path cannot be found, then set the distance to infinity to avoid traversal
 		dist[i] = 1 << 30;
 		return false;

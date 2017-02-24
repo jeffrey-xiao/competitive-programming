@@ -10,7 +10,7 @@ public class DMOPC_2015_Bank_Burning {
 	static StringTokenizer st;
 
 	static int M, N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,16 +18,16 @@ public class DMOPC_2015_Bank_Burning {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		long total = 0;
-		
+
 		M = readInt();
 		N = readInt();
-		
+
 		int[] val = new int[N];
-		
+
 		total += M;
 		for (int i = 0; i < N; i++)
 			total += val[i] = readInt();
-		
+
 		Arrays.sort(val);
 
 		int left = N + 1;
@@ -68,4 +68,3 @@ public class DMOPC_2015_Bank_Burning {
 		return br.readLine().trim();
 	}
 }
-

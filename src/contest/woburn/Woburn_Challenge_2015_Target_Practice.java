@@ -12,7 +12,7 @@ public class Woburn_Challenge_2015_Target_Practice {
 	static int N, M;
 	static long[] radius;
 	static int[] score, occ;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,34 +21,34 @@ public class Woburn_Challenge_2015_Target_Practice {
 
 		N = readInt();
 		M = readInt();
-		
+
 		radius = new long[N];
 		score = new int[N];
 		occ = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			radius[i] = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			score[i] = readInt();
-		
+
 		for (int i = 0; i < M; i++) {
 			long x = readInt();
 			long y = readInt();
 			bsearch(x * x + y * y);
 		}
-		
+
 		int min = 0;
 		int max = 0;
-		
+
 		Arrays.sort(occ);
 		Arrays.sort(score);
-		
+
 		for (int i = 0; i < N; i++) {
 			min += occ[i] * score[N - i - 1];
 			max += occ[i] * score[i];
 		}
-		
+
 		out.printf("%d\n%d\n", min, max);
 		out.close();
 	}
@@ -56,10 +56,10 @@ public class Woburn_Challenge_2015_Target_Practice {
 	static void bsearch (long dist) {
 		int lo = 0;
 		int hi = N - 1;
-		
+
 		while (lo <= hi) {
 			int mid = (lo + hi) >> 1;
-			
+
 			if (radius[mid] * radius[mid] < dist)
 				lo = mid + 1;
 			else
@@ -68,7 +68,7 @@ public class Woburn_Challenge_2015_Target_Practice {
 		if (lo != N)
 			occ[lo]++;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -95,4 +95,3 @@ public class Woburn_Challenge_2015_Target_Practice {
 		return br.readLine().trim();
 	}
 }
-

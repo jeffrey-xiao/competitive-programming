@@ -11,7 +11,7 @@ public class CCO_Prep_City_Game {
 
 	static int N, M, K;
 	static int[][] a;
-	
+
 	public static void main (String[] args) throws Exception {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,11 +23,11 @@ public class CCO_Prep_City_Game {
 		for (int t = 1; t <= K; t++) {
 			N = readInt();
 			M = readInt();
-			
+
 			a = new int[N][M];
 			for (int i = 0; i < N; i++)
 				for (int j = 0; j < M; j++) {
-				    char c = readCharacter();
+					char c = readCharacter();
 					a[i][j] = c == 'R' ? 1 : 0;
 				}
 			out.println(getMaxZeroSubmatrix() * 3);

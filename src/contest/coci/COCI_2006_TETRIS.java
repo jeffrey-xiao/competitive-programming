@@ -15,7 +15,7 @@ public class COCI_2006_TETRIS {
 	static StringTokenizer st;
 
 	public static void main (String[] args) throws IOException {
-		int[][][] possible = new int[][][] { { {}, {0, 0, 0}}, {{0}}, { {0, 1}, {-1}}, { {-1, 0}, {1}}, { {0, 0}, {-1}, {1}, {-1, 1}}, { {0, 0}, {0}, {-2}, {1, 0}}, { {0, 0}, {0}, {2}, {0, -1}}};
+		int[][][] possible = new int[][][] {{{}, {0, 0, 0}}, {{0}}, {{0, 1}, {-1}}, {{-1, 0}, {1}}, {{0, 0}, {-1}, {1}, {-1, 1}}, {{0, 0}, {0}, {-2}, {1, 0}}, {{0, 0}, {0}, {2}, {0, -1}}};
 		int c = readInt();
 		int n = readInt() - 1;
 		int[] field = new int[c];

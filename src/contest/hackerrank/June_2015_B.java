@@ -23,9 +23,9 @@ public class June_2015_B {
 		for (int qq = 0; qq < t; qq++) {
 			int r = readInt();
 			int s = readInt();
-			double firstS = (double) (r) / (double) (s);
-			if (firstS - (int) (firstS) > 1.0 / 4.0) {
-				System.out.println((int) ((Math.ceil(firstS)) * s) + " 0/1");
+			double firstS = (double)(r) / (double)(s);
+			if (firstS - (int)(firstS) > 1.0 / 4.0) {
+				System.out.println((int)((Math.ceil(firstS)) * s) + " 0/1");
 			} else {
 				long top = r % s;
 				long bot = s;

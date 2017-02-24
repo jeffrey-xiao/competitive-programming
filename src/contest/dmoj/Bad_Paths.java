@@ -12,7 +12,7 @@ public class Bad_Paths {
 	static final int MOD = (int)(1e9 + 7);
 	static long[] fact = new long[1000001];
 	static long[] prefix = new long[1000001];
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,9 +25,9 @@ public class Bad_Paths {
 			fact[i] = fact[i - 1] * i % MOD;
 			prefix[i] = (prefix[i - 1] + divMod(1, fact[i], MOD)) % MOD;
 		}
-		
+
 		int N = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			int val = readInt();
 			long total = (fact[val] * prefix[val] - (val + 1)) % MOD;
@@ -36,15 +36,15 @@ public class Bad_Paths {
 			ans = divMod(ans, 2, MOD);
 			out.printf("%d\n", ans);
 		}
-		
+
 		out.close();
 	}
-	
+
 	// O(log P)
 	static long divMod (long i, long j, long p) {
 		return i * pow(j, p - 2, p) % p;
 	}
-	
+
 	static long pow (long base, long pow, long mod) {
 		if (pow == 0)
 			return 1;
@@ -54,7 +54,7 @@ public class Bad_Paths {
 			return pow(base * base % mod, pow / 2, mod);
 		return base * pow(base * base % mod, pow / 2, mod) % mod;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -81,4 +81,3 @@ public class Bad_Paths {
 		return br.readLine().trim();
 	}
 }
-

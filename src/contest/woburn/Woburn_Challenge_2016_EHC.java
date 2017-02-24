@@ -11,6 +11,7 @@ public class Woburn_Challenge_2016_EHC {
 
 	static int N, M, R;
 	static int[] pos;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,9 +21,9 @@ public class Woburn_Challenge_2016_EHC {
 		N = readInt();
 		M = readInt();
 		R = readInt();
-		
+
 		pos = new int[N + 1];
-		
+
 		for (int i = 0; i < N; i++)
 			pos[i] = readInt();
 		pos[N] = M + R;
@@ -62,4 +63,3 @@ public class Woburn_Challenge_2016_EHC {
 		return br.readLine().trim();
 	}
 }
-

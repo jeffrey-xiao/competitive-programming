@@ -12,6 +12,7 @@ public class IOI_2013_Game {
 	static final Random generator = new Random(0);
 	static int R, C, N;
 	static Seg root;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -57,7 +58,7 @@ public class IOI_2013_Game {
 		else
 			return gcd(query(s.left, r1, mid, c1, c2), query(s.right, mid + 1, r2, c1, c2));
 	}
-	
+
 	static void check (Node n) {
 		if (n == null)
 			return;
@@ -65,16 +66,16 @@ public class IOI_2013_Game {
 		check(n.right);
 		n = update(n);
 	}
-	
+
 	static long lastVal;
-	
+
 	static Seg update (Seg s, int r, int c, long val) {
 		if (s.l == s.r) {
 			s.treap = add(s.treap, c, val);
 			lastVal = val;
 			return s;
 		}
-		
+
 		int mid = (s.l + s.r) >> 1;
 		if (r <= mid) {
 			if (s.left == null)
@@ -98,6 +99,7 @@ public class IOI_2013_Game {
 		int l, r;
 		Node treap;
 		Seg left, right;
+
 		Seg (int l, int r) {
 			this.l = l;
 			this.r = r;
@@ -120,6 +122,7 @@ public class IOI_2013_Game {
 
 	static class NodePair {
 		Node left, right;
+
 		NodePair (Node left, Node right) {
 			this.left = left;
 			this.right = right;
@@ -134,11 +137,11 @@ public class IOI_2013_Game {
 		}
 		if (n.max < l || n.min > r)
 			return 0;
-		
+
 		long ret = 0;
 		if (l <= n.key && n.key <= r)
 			ret = n.value;
-		
+
 		if (r <= n.key)
 			ret = gcd(ret, query(n.left, l, r));
 		else if (l >= n.key)
@@ -246,4 +249,3 @@ public class IOI_2013_Game {
 		return br.readLine().trim();
 	}
 }
-

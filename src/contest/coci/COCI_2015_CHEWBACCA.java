@@ -9,7 +9,7 @@ public class COCI_2015_CHEWBACCA {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));

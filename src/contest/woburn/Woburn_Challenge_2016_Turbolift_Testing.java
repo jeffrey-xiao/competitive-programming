@@ -14,7 +14,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 	static long[] maxAns, minAns, netAns;
 	static long[] sum;
 	static int[] buttonIndex;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,9 +24,13 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 		N = readInt();
 		M = readInt();
 		Q = readInt();
-		
-		max = new long[N][]; min = new long[N][]; net = new long[N][];
-		maxAns = new long[M + 1]; minAns = new long[M + 1]; netAns = new long[M + 1];
+
+		max = new long[N][];
+		min = new long[N][];
+		net = new long[N][];
+		maxAns = new long[M + 1];
+		minAns = new long[M + 1];
+		netAns = new long[M + 1];
 		sum = new long[M + 1];
 		buttonIndex = new int[M + 1];
 		for (int i = 0; i < N; i++) {
@@ -40,7 +44,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 				min[i][j] = Math.min(min[i][j - 1], net[i][j]);
 			}
 		}
-		
+
 		for (int i = 1; i <= M; i++) {
 			int button = readInt() - 1;
 			buttonIndex[i] = button;
@@ -49,7 +53,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 			minAns[i] = Math.min(minAns[i - 1], netAns[i - 1] + min[button][min[button].length - 1]);
 			sum[i] = sum[i - 1] + net[button].length - 1;
 		}
-		
+
 		for (int i = 0; i < Q; i++) {
 			long buttonPresses = readLong();
 			int lo = 1;
@@ -70,7 +74,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 			}
 			out.printf("%d %d\n", currMin, currMax);
 		}
-		
+
 		out.close();
 	}
 
@@ -100,4 +104,3 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
 		return br.readLine().trim();
 	}
 }
-

@@ -12,6 +12,7 @@ public class DMOPC_2015_Admin_War_II {
 	static int N;
 	static int[] val1, val2;
 	static TreeMap<Integer, Integer> t1, t2;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,13 +20,13 @@ public class DMOPC_2015_Admin_War_II {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		val1 = new int[N];
 		val2 = new int[N];
-		
+
 		t1 = new TreeMap<Integer, Integer>();
 		t2 = new TreeMap<Integer, Integer>();
-		
+
 		for (int i = 0; i < N; i++) {
 			val1[i] = readInt();
 			if (!t1.containsKey(val1[i]))
@@ -38,10 +39,10 @@ public class DMOPC_2015_Admin_War_II {
 				t2.put(val2[i], 0);
 			t2.put(val2[i], t2.get(val2[i]) + 1);
 		}
-		
+
 		Arrays.sort(val1);
 		Arrays.sort(val2);
-		
+
 		int ans1 = 0;
 		int ans2 = 0;
 		for (int i = N - 1; i >= 0; i--) {
@@ -53,7 +54,7 @@ public class DMOPC_2015_Admin_War_II {
 					t2.remove(key);
 			}
 		}
-		
+
 		for (int i = N - 1; i >= 0; i--) {
 			Integer key = t1.higherKey(val2[i]);
 			if (key != null) {
@@ -93,4 +94,3 @@ public class DMOPC_2015_Admin_War_II {
 		return br.readLine().trim();
 	}
 }
-

@@ -39,7 +39,7 @@ public class COCI_2007_VECI {
 				if (permute(i, c - 1, a)) {
 					return true;
 				}
-				a.remove((Integer) x);
+				a.remove((Integer)x);
 			}
 		}
 		return false;

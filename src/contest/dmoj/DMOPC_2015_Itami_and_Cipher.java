@@ -23,7 +23,7 @@ public class DMOPC_2015_Itami_and_Cipher {
 		String s = next();
 		for (int i = 0; i < 26; i++) {
 			for (int j = 0; j < str.length; j++)
-				str[j] = (char) ((str[j] - 'a' - 1 + 26) % 26 + 'a');
+				str[j] = (char)((str[j] - 'a' - 1 + 26) % 26 + 'a');
 			main : for (int j = 0; j < str.length - s.length() + 1; j++) {
 				for (int k = 0; k < s.length(); k++) {
 					if (s.charAt(k) != str[j + k])

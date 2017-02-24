@@ -9,7 +9,7 @@ public class FHC_2015_Round_1_Winning_At_Sports {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static final int MOD = (int) (1e9 + 7);
+	static final int MOD = (int)(1e9 + 7);
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));

@@ -19,7 +19,7 @@ public class Primes_2 {
 		if (start == 0)
 			start++;
 		int end = readInt();
-		int end1 = (int) Math.sqrt(end);
+		int end1 = (int)Math.sqrt(end);
 		boolean[] sieve1 = new boolean[end1];
 		LinkedList<Integer> ll = new LinkedList<Integer>();
 		sieve1[0] = true;

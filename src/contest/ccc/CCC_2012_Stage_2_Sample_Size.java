@@ -18,7 +18,7 @@ public class CCC_2012_Stage_2_Sample_Size {
 		inner : for (int x = 1;; x++) {
 			main : for (int z = 0; z < n; z++) {
 				for (double y = 0; y <= x; y++) {
-					if ((int) (Math.round(y / x * 100 + 0.001)) == p[z])
+					if ((int)(Math.round(y / x * 100 + 0.001)) == p[z])
 						continue main;
 				}
 				continue inner;

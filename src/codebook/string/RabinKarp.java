@@ -50,7 +50,7 @@ public class RabinKarp {
 
 	private void initialize () {
 		patternHash = getHash(pattern, pattern.length());
-		pow = (long) (Math.pow(R, pattern.length() - 1) % MOD);
+		pow = (long)(Math.pow(R, pattern.length() - 1) % MOD);
 	}
 
 	private long getHash (String s, int len) {

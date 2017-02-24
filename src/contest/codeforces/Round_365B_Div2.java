@@ -12,7 +12,7 @@ public class Round_365B_Div2 {
 	static int N, K;
 	static boolean[] isCapital;
 	static int[] beauty;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,17 +21,17 @@ public class Round_365B_Div2 {
 
 		N = readInt();
 		K = readInt();
-		
+
 		isCapital = new boolean[N];
 		beauty = new int[N];
-		
+
 		long sum = 0;
 		for (int i = 0; i < N; i++)
 			sum += beauty[i] = readInt();
-		
+
 		for (int i = 0; i < K; i++)
 			isCapital[readInt() - 1] = true;
-		
+
 		long ans = 0;
 		for (int i = 0; i < N; i++) {
 			if (isCapital[i]) {
@@ -43,7 +43,7 @@ public class Round_365B_Div2 {
 			} else
 				ans += beauty[i] * beauty[(i + 1) % N];
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -74,4 +74,3 @@ public class Round_365B_Div2 {
 		return br.readLine().trim();
 	}
 }
-

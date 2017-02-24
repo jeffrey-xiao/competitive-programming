@@ -105,7 +105,7 @@ public class Good_Inflation {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Line) {
-				Line l = (Line) o;
+				Line l = (Line)o;
 				return s == l.s && m == l.m && x.compareTo(l.x) == 0;
 			}
 			return false;

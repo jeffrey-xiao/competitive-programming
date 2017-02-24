@@ -14,6 +14,7 @@ public class IOI_2011_Dancing_Elephants {
 
 	static int S, bucketCnt;
 	static ArrayList<ArrayList<State>> b;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -51,7 +52,7 @@ public class IOI_2011_Dancing_Elephants {
 
 			// removing from bucket
 			boolean removed = false;
-			
+
 			for (int j = 0; j < b.get(bucket[index]).size(); j++) {
 				if (b.get(bucket[index]).get(j).index == index) {
 					b.get(bucket[index]).remove(j);
@@ -59,19 +60,19 @@ public class IOI_2011_Dancing_Elephants {
 					break;
 				}
 			}
-			assert(removed);
+			assert removed;
 
 			// adding to bucket
 			int oldBucket = bucket[index];
 			int newBucket = 0;
-			
+
 			for (; newBucket < bucketCnt; newBucket++) {
 				if (b.get(newBucket).isEmpty())
 					continue;
 				if (pos[b.get(newBucket).get(b.get(newBucket).size() - 1).index] >= newPos)
 					break;
 			}
-			
+
 			if (newBucket == bucketCnt)
 				newBucket--;
 
@@ -84,7 +85,7 @@ public class IOI_2011_Dancing_Elephants {
 					break;
 				}
 			}
-			
+
 			if (!added)
 				b.get(newBucket).add(new State(index, 0, 0));
 
@@ -105,10 +106,10 @@ public class IOI_2011_Dancing_Elephants {
 
 					while (lo <= hi) {
 						int mid = (lo + hi) >> 1;
-					if (pos[b.get(j).get(mid).index] <= currPos)
-						lo = mid + 1;
-					else
-						hi = mid - 1;
+						if (pos[b.get(j).get(mid).index] <= currPos)
+							lo = mid + 1;
+						else
+							hi = mid - 1;
 					}
 					if (lo < b.get(j).size()) {
 						ans += b.get(j).get(lo).camerasNeeded;
@@ -120,7 +121,7 @@ public class IOI_2011_Dancing_Elephants {
 				rebuildCount = 0;
 				remake();
 			}
-			
+
 			rebuildCount++;
 			out.println(ans);
 		}
@@ -133,23 +134,23 @@ public class IOI_2011_Dancing_Elephants {
 		for (int i = 0; i < bucketCnt; i++)
 			for (int j = 0; j < b.get(i).size(); j++)
 				curr.add(b.get(i).get(j).index);
-		
+
 		for (int i = 0; i < bucketCnt; i++)
 			b.get(i).clear();
-		
+
 		for (int i = 0; i < curr.size(); i++) {
 			b.get(i / S).add(new State(curr.get(i), 0, 0));
-			bucket[curr.get(i)] = i / S; 
+			bucket[curr.get(i)] = i / S;
 		}
-		
+
 		rebuild();
 	}
-	
+
 	static void rebuild () {
 		for (int i = 0; i < bucketCnt; i++) {
 			rebuildBucket(i);
 		}
-	}	
+	}
 
 	static void rebuildBucket (int i) {
 		int index = b.get(i).size();
@@ -168,12 +169,13 @@ public class IOI_2011_Dancing_Elephants {
 
 	static class State {
 		int index, camerasNeeded, highestPosition;
+
 		State (int index, int camerasNeeded, int highestPosition) {
 			this.index = index;
 			this.camerasNeeded = camerasNeeded;
 			this.highestPosition = highestPosition;
 		}
-		
+
 		public String toString () {
 			return String.format("(%d, %d, %d)", pos[index], camerasNeeded, highestPosition);
 		}
@@ -205,4 +207,3 @@ public class IOI_2011_Dancing_Elephants {
 		return br.readLine().trim();
 	}
 }
-

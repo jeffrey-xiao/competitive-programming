@@ -55,7 +55,7 @@ public class CCC_2016_Stage_2_Field_Trip {
 				}
 			}
 		}
-		
+
 		out.printf("%d %d\n", ans, minConnections);
 		out.close();
 	}
@@ -63,7 +63,7 @@ public class CCC_2016_Stage_2_Field_Trip {
 	static State dfs (int u, int prev) {
 		State ret = new State(1, false);
 		vis[u] = true;
-		
+
 		for (int v : adj.get(u)) {
 			if (v == prev)
 				continue;
@@ -75,7 +75,7 @@ public class CCC_2016_Stage_2_Field_Trip {
 				ret.isCycle |= res.isCycle;
 			}
 		}
-		
+
 		return ret;
 	}
 
@@ -115,4 +115,3 @@ public class CCC_2016_Stage_2_Field_Trip {
 		return br.readLine().trim();
 	}
 }
-

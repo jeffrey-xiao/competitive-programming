@@ -11,7 +11,7 @@ public class MEC_P4 {
 
 	static int N, M;
 	static int[] id, sz, status;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,27 +20,27 @@ public class MEC_P4 {
 
 		N = readInt();
 		M = readInt();
-		
+
 		id = new int[N];
 		sz = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			id[i] = i;
 			sz[i] = 1;
 		}
-		
+
 		Edge[] e = new Edge[M];
 		status = new int[M];
-		
+
 		for (int i = 0; i < M; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
 			int cost = readInt();
-			
+
 			e[i] = new Edge(u, v, cost, i);
 		}
 		Arrays.sort(e);
-		
+
 		ArrayList<Edge> prev = new ArrayList<Edge>();
 		int prevCost = 0;
 		for (int i = 0; i < M; i++) {
@@ -48,7 +48,7 @@ public class MEC_P4 {
 				prev.add(e[i]);
 			} else {
 				prevCost = e[i].weight;
-				
+
 				ArrayList<Edge> possiblyUseful = new ArrayList<Edge>();
 				for (Edge edge : prev) {
 					if (find(edge.x) == find(edge.y)) {
@@ -57,7 +57,7 @@ public class MEC_P4 {
 						possiblyUseful.add(edge);
 					}
 				}
-				
+
 				boolean allUseful = true;
 				for (Edge edge : possiblyUseful) {
 					int rx = find(edge.x);
@@ -68,18 +68,18 @@ public class MEC_P4 {
 						merge(rx, ry);
 					}
 				}
-				
+
 				if (allUseful) {
 					for (Edge edge : possiblyUseful) {
 						status[edge.index] = 1;
 					}
 				}
-				
+
 				prev.clear();
 				prev.add(e[i]);
 			}
 		}
-		
+
 		ArrayList<Edge> possiblyUseful = new ArrayList<Edge>();
 		for (Edge edge : prev) {
 			if (find(edge.x) == find(edge.y)) {
@@ -88,7 +88,7 @@ public class MEC_P4 {
 				possiblyUseful.add(edge);
 			}
 		}
-		
+
 		boolean allUseful = true;
 		for (Edge edge : possiblyUseful) {
 			int rx = find(edge.x);
@@ -99,13 +99,13 @@ public class MEC_P4 {
 				merge(rx, ry);
 			}
 		}
-		
+
 		if (allUseful) {
 			for (Edge edge : possiblyUseful) {
 				status[edge.index] = 1;
 			}
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			if (status[i] == -1) {
 				out.println("not useful");
@@ -115,14 +115,14 @@ public class MEC_P4 {
 				out.println("useful");
 			}
 		}
-		
+
 		out.close();
 	}
 
 	static int find (int i) {
 		return i == id[i] ? i : (id[i] = find(id[i]));
 	}
-	
+
 	static void merge (int i, int j) {
 		if (sz[i] >= sz[j]) {
 			sz[i] += sz[j];
@@ -132,21 +132,23 @@ public class MEC_P4 {
 			id[i] = j;
 		}
 	}
-	
+
 	static class Edge implements Comparable<Edge> {
 		int x, y, weight, index;
+
 		Edge (int x, int y, int weight, int index) {
 			this.x = x;
 			this.y = y;
 			this.weight = weight;
 			this.index = index;
 		}
+
 		@Override
 		public int compareTo (Edge o) {
 			return weight - o.weight;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -173,4 +175,3 @@ public class MEC_P4 {
 		return br.readLine().trim();
 	}
 }
-

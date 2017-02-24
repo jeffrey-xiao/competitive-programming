@@ -44,7 +44,7 @@ public class DMOPC_2015_Kabane_Apocalypse {
 			else
 				ans += getSubarrays(i);
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -67,7 +67,6 @@ public class DMOPC_2015_Kabane_Apocalypse {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				State add = new State(j, occ[i][j]);
-
 
 				while (!s.isEmpty() && s.peek().height >= add.height) {
 					State state = s.pop();
@@ -99,10 +98,12 @@ public class DMOPC_2015_Kabane_Apocalypse {
 
 	static class State implements Comparable<State> {
 		int index, height;
+
 		State (int index, int height) {
 			this.index = index;
 			this.height = height;
 		}
+
 		@Override
 		public int compareTo (State s) {
 			return height - s.height;
@@ -135,4 +136,3 @@ public class DMOPC_2015_Kabane_Apocalypse {
 		return br.readLine().trim();
 	}
 }
-

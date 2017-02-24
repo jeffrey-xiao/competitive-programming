@@ -28,9 +28,9 @@ public class University_Codesprint_2_G {
 			ans = 1 << 30;
 
 			//getArrangements(0, new int[N - 1], S, S);
-			
+
 			int[] val = new int[N - 1];
-			for (int m = 1; m <= S / (N - 1); m++) { 
+			for (int m = 1; m <= S / (N - 1); m++) {
 				for (int i = 0; i < N - 1; i++) {
 					val = new int[N - 1];
 					int left = S;

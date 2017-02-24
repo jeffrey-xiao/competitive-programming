@@ -17,10 +17,10 @@ public class DMOPC_2014_Trunk_In_Trunk {
 
 		int[] a = {readInt(), readInt(), readInt()};
 		int[] b = {readInt(), readInt(), readInt()};
-		
+
 		Arrays.sort(a);
 		Arrays.sort(b);
-		
+
 		for (int i = 0; i < 3; i++) {
 			if (a[i] > b[i]) {
 				out.println("N");
@@ -58,4 +58,3 @@ public class DMOPC_2014_Trunk_In_Trunk {
 		return br.readLine().trim();
 	}
 }
-

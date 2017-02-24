@@ -16,7 +16,7 @@ public class Round_1A_C {
 	static boolean[] inStack;
 	static Stack<Integer> s = new Stack<Integer>();
 	static ArrayList<HashSet<Integer>> g;
-	
+
 	public static void main (String[] args) throws IOException {
 		//br = new BufferedReader(new InputStreamReader(System.in));
 		//out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -24,19 +24,19 @@ public class Round_1A_C {
 		out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
 			N = readInt();
-			
+
 			adj = new ArrayList<ArrayList<Integer>>();
 			rev = new ArrayList<ArrayList<Integer>>();
 			g = new ArrayList<HashSet<Integer>>();
-			
+
 			for (int i = 0; i < N; i++) {
 				adj.add(new ArrayList<Integer>());
 				rev.add(new ArrayList<Integer>());
 			}
-			
+
 			disc = new int[N];
 			id = new int[N];
 			lo = new int[N];
@@ -44,19 +44,19 @@ public class Round_1A_C {
 			sz = new int[N];
 			cnt = 0;
 			idCnt = 0;
-			
+
 			for (int i = 0; i < N; i++) {
 				int val = readInt() - 1;
 				adj.get(i).add(val);
 				rev.get(val).add(i);
 			}
-			
+
 			for (int i = 0; i < N; i++) {
 				if (disc[i] == 0) {
 					dfs(i);
 				}
 			}
-			
+
 			for (int i = 0; i < idCnt; i++) {
 				g.add(new HashSet<Integer>());
 			}
@@ -65,7 +65,7 @@ public class Round_1A_C {
 				for (int j : adj.get(i))
 					if (id[i] != id[j])
 						g.get(id[j]).add(id[i]);
-			
+
 			int maxCycle = 0;
 			int ans = 0;
 			for (int i = 0; i < N; i++) {
@@ -79,7 +79,7 @@ public class Round_1A_C {
 					}
 					ans += max;
 					max = 0;
-					
+
 					for (int j = 0; j < N; j++)
 						if (i != j && id[i] == id[j])
 							curr = j;
@@ -96,7 +96,7 @@ public class Round_1A_C {
 			}
 			out.printf("Case #%d: %d\n", t, Math.max(maxCycle, ans / 2));
 		}
-		
+
 		out.close();
 	}
 
@@ -107,7 +107,7 @@ public class Round_1A_C {
 		}
 		return curr + sz[u];
 	}
-	
+
 	static void dfs (int i) {
 		disc[i] = lo[i] = ++cnt;
 		inStack[i] = true;
@@ -132,7 +132,6 @@ public class Round_1A_C {
 		}
 	}
 
-	
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -159,4 +158,3 @@ public class Round_1A_C {
 		return br.readLine().trim();
 	}
 }
-

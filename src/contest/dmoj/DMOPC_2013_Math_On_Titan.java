@@ -80,8 +80,8 @@ public class DMOPC_2013_Math_On_Titan {
 	private static double round (double value) {
 		long factor = 10000000000l;
 		value = value * factor;
-		long tmp = (long) (value + 0.5);
-		return (double) tmp / factor;
+		long tmp = (long)(value + 0.5);
+		return (double)tmp / factor;
 	}
 
 	static class Line {

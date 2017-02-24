@@ -19,7 +19,7 @@ public class NOI_1997_Perfect_Tour {
 		}
 		for (int x = 0; x < r; x++)
 			for (int y = 0; y < c; y++) {
-				grid[y] = (short) Math.max(grid[y], nextInt());
+				grid[y] = (short)Math.max(grid[y], nextInt());
 			}
 		main : for (int x = 0; x < c; x++) {
 			int sum = 0;

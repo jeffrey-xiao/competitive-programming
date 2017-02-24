@@ -11,7 +11,7 @@ public class DMOPC_2015_Araxxi {
 
 	static int N, M;
 	static int[] last, dp, val, delay, next, max;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,27 +20,27 @@ public class DMOPC_2015_Araxxi {
 
 		N = readInt();
 		M = readInt();
-		
+
 		val = new int[N];
 		delay = new int[M];
 		dp = new int[N];
 		last = new int[M];
 		next = new int[N];
 		max = new int[N];
-		
+
 		Arrays.fill(last, -1);
-		
+
 		for (int i = 0; i < N; i++)
 			val[i] = readInt() - 1;
-		
+
 		for (int i = 0; i < M; i++)
 			delay[i] = readInt();
-		
+
 		for (int i = N - 1; i >= 0; i--) {
 			next[i] = last[val[i]];
 			last[val[i]] = i;
 		}
-		
+
 		for (int i = N - 1; i >= 0; i--) {
 			dp[i] = 1;
 			if (next[i] != -1)
@@ -81,4 +81,3 @@ public class DMOPC_2015_Araxxi {
 		return br.readLine().trim();
 	}
 }
-

@@ -18,7 +18,7 @@ public class USACO_2015_Cow_Hopscotch_Gold_2 {
 	static int r, c, k;
 	static int[][] g;
 
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings("unchecked")
 	public static void main (String[] args) throws IOException {
 		r = readInt();
 		c = readInt();

@@ -14,18 +14,18 @@ public class April_Fool_Miracle_Sort {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
 		int N = readInt();
-		
+
 		for (int i = 0; i < N; i++) {
 			out.println(readLine());
 		}
-		
+
 		out.close();
 	}
 
 	static char get (char c) {
 		return (char)(c + c);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

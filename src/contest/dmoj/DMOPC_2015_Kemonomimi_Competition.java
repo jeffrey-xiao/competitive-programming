@@ -12,7 +12,7 @@ public class DMOPC_2015_Kemonomimi_Competition {
 	static int N;
 	static int[] C = new int[4];
 	static int[] index, P, S, T;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,17 +20,17 @@ public class DMOPC_2015_Kemonomimi_Competition {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 0; i < 4; i++)
 			C[i] = readInt();
-		
+
 		index = new int[N];
 		P = new int[N];
 		S = new int[N];
 		T = new int[N];
-		
+
 		int last = 0;
-		
+
 		for (int i = 0; i < N; i++) {
 			index[i] = readInt() - 1;
 			P[i] = readInt();
@@ -48,7 +48,7 @@ public class DMOPC_2015_Kemonomimi_Competition {
 				out.println("The kemonomimi are too cute!");
 			}
 		}
-		
+
 		out.close();
 	}
 
@@ -78,4 +78,3 @@ public class DMOPC_2015_Kemonomimi_Competition {
 		return br.readLine().trim();
 	}
 }
-

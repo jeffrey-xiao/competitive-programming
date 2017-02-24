@@ -42,7 +42,7 @@ public class DMOPC_2014_Yokan {
 			int res = 0;
 			hs.clear();
 			for (int j = 0; j < 25; j++) {
-				int rand = (int) (Math.random() * (r - l + 1) + l);
+				int rand = (int)(Math.random() * (r - l + 1) + l);
 				int cnt = lower(in[rand], r) - Math.max(0, higher(in[rand], l)) + 1;
 				if (cnt * 3 >= (r - l + 1) * 2) {
 					valid = true;

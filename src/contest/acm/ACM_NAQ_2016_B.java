@@ -1,4 +1,5 @@
 package contest.acm;
+
 import java.util.*;
 import java.io.*;
 
@@ -17,7 +18,7 @@ public class ACM_NAQ_2016_B {
 	static int[] value;
 
 	static double ans = 0;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -43,7 +44,7 @@ public class ACM_NAQ_2016_B {
 					prob[i][j] = readDouble();
 
 				B[i] = -prob[i][4] * value[i];
-				
+
 				if (i - row - 1 >= 0)
 					A[i][i - row - 1] = prob[i][0];
 				A[i][i - row] = prob[i][1];
@@ -104,7 +105,7 @@ public class ACM_NAQ_2016_B {
 			// eliminating zeroes in rows bigger than i
 			for (int j = i + 1; j < N; j++) {
 				double factor = A[j][i] / A[i][i];
-				for (int k = i; k < N; k++) 
+				for (int k = i; k < N; k++)
 					A[j][k] -= A[i][k] * factor;
 				B[j] -= B[i] * factor;
 			}

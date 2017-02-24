@@ -13,7 +13,7 @@ public class IOI_2004_Empodia {
 	static int[] hi, lo, val;
 	static ArrayList<ArrayList<Integer>> poss;
 	static TreeSet<Interval> intervals;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,19 +21,19 @@ public class IOI_2004_Empodia {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-	
+
 		val = new int[N];
 		hi = new int[N];
 		lo = new int[N];
 		poss = new ArrayList<ArrayList<Integer>>();
 		intervals = new TreeSet<Interval>();
-		
+
 		for (int i = 0; i < N; i++)
 			val[i] = readInt();
-		
+
 		for (int i = 0; i < 2 * N; i++)
 			poss.add(new ArrayList<Integer>());
-		
+
 		Stack<State> s = new Stack<State>();
 
 		// processing upper bound (first number less than the current number)
@@ -46,7 +46,7 @@ public class IOI_2004_Empodia {
 				hi[val[i]] = s.peek().index;
 			s.push(new State(val[i], i));
 		}
-		
+
 		s.clear();
 		//processing lower bound (last number greater than the current number)
 		for (int i = 0; i < N; i++) {
@@ -63,15 +63,15 @@ public class IOI_2004_Empodia {
 			int diff = val[i] - i + N - 1;
 			poss.get(diff).add(i);
 		}
-		
+
 		for (int i = 0; i < 2 * N; i++) {
 			sweep(poss.get(i));
 		}
-		
+
 		out.println(intervals.size());
 		for (Interval i : intervals)
 			out.printf("%d %d\n", i.l + 1, i.r + 1);
-		
+
 		out.close();
 	}
 
@@ -81,7 +81,7 @@ public class IOI_2004_Empodia {
 			pq.offer(new Event(lo[val[indexes.get(i)]] + 1, 1, indexes.get(i)));
 			pq.offer(new Event(hi[val[indexes.get(i)]], -1, indexes.get(i)));
 		}
-		
+
 		TreeSet<Integer> active = new TreeSet<Integer>();
 		while (!pq.isEmpty()) {
 			Event curr = pq.poll();
@@ -109,7 +109,7 @@ public class IOI_2004_Empodia {
 					} else {
 						intersectPrev = false;
 					}
-					
+
 					if (next != null) {
 						if (Math.max(add.l, next.l) < Math.min(add.r, next.r)) {
 							if (add.r - add.l <= next.r - next.l) {
@@ -122,29 +122,32 @@ public class IOI_2004_Empodia {
 					} else {
 						intersectNext = false;
 					}
-					
+
 					if (!intersectPrev && !intersectNext)
 						intervals.add(add);
 				}
 			}
 		}
 	}
-	
+
 	static class State {
 		int val, index;
+
 		State (int val, int index) {
 			this.val = val;
 			this.index = index;
 		}
 	}
-	
+
 	static class Event implements Comparable<Event> {
 		int x, index, type;
+
 		Event (int x, int type, int index) {
 			this.x = x;
 			this.type = type;
 			this.index = index;
 		}
+
 		@Override
 		public int compareTo (Event e) {
 			if (x == e.x && type == e.type)
@@ -154,19 +157,21 @@ public class IOI_2004_Empodia {
 			return x - e.x;
 		}
 	}
-	
+
 	static class Interval implements Comparable<Interval> {
 		int l, r;
+
 		Interval (int l, int r) {
 			this.l = l;
 			this.r = r;
 		}
+
 		@Override
 		public int compareTo (Interval i) {
 			return l - i.l;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -193,4 +198,3 @@ public class IOI_2004_Empodia {
 		return br.readLine().trim();
 	}
 }
-

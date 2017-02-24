@@ -21,32 +21,32 @@ public class DMOPC_2015_Pizza_Bag {
 
 		N = readInt();
 		K = readInt();
-		
+
 		prefix = new long[2 * N + 1];
-		
-		for (int i = 1; i <= N; i++) 
+
+		for (int i = 1; i <= N; i++)
 			prefix[i] = prefix[i + N] = readLong();
-		
+
 		for (int i = 1; i <= 2 * N; i++)
 			prefix[i] += prefix[i - 1];
-		
+
 		Deque<State> mono = new ArrayDeque<State>();
 		mono.addFirst(new State(0, 0));
 		long ans = 0;
-		
+
 		for (int i = 1; i < 2 * N; i++) {
 			State add = new State(i, prefix[i]);
 			while (!mono.isEmpty() && mono.getLast().val >= prefix[i])
 				mono.removeLast();
-			
+
 			mono.addLast(add);
-			
+
 			while (mono.getFirst().index < i - K)
 				mono.removeFirst();
-		
+
 			ans = Math.max(ans, prefix[i] - mono.getFirst().val);
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -54,12 +54,13 @@ public class DMOPC_2015_Pizza_Bag {
 	static class State {
 		int index;
 		long val;
+
 		State (int index, long val) {
 			this.index = index;
 			this.val = val;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -86,4 +87,3 @@ public class DMOPC_2015_Pizza_Bag {
 		return br.readLine().trim();
 	}
 }
-

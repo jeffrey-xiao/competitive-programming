@@ -171,7 +171,7 @@ public class IOI_2012_Ideal_City {
 
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point) o;
+				Point p = (Point)o;
 				return p.x.compareTo(x) == 0 && p.y.compareTo(y) == 0;
 			}
 			return false;

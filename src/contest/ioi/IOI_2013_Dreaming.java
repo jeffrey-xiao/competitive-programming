@@ -135,7 +135,7 @@ public class IOI_2013_Dreaming {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Edge) {
-				Edge e = (Edge) o;
+				Edge e = (Edge)o;
 				return dest == e.dest;
 			}
 			return false;

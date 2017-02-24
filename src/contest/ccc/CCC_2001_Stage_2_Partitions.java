@@ -49,7 +49,7 @@ public class CCC_2001_Stage_2_Partitions {
 			nums.add(x);
 			if (compute(x, currSum - x, nums))
 				return true;
-			nums.remove((Integer) x);
+			nums.remove((Integer)x);
 		}
 		return false;
 	}

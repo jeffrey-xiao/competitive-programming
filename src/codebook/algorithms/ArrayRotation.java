@@ -71,7 +71,7 @@ public class ArrayRotation {
 		rotate1(a1, 0, 555, 999);
 		rotate2(a2, 0, 555, 999);
 		rotate3(a3, 0, 555, 999);
-		assert (Arrays.equals(a1, a2) && Arrays.equals(a2, a3));
+		assert Arrays.equals(a1, a2) && Arrays.equals(a2, a3);
 	}
 
 }

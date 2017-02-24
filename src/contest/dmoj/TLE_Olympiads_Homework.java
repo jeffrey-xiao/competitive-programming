@@ -10,7 +10,7 @@ public class TLE_Olympiads_Homework {
 	static StringTokenizer st;
 
 	static long N;
-	static long MOD = (long) (1e9) + 13;
+	static long MOD = (long)(1e9) + 13;
 
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));

@@ -8,7 +8,7 @@ public class DMOPC_2015_A_Very_Very_Original_Problem {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,7 +22,7 @@ public class DMOPC_2015_A_Very_Very_Original_Problem {
 			text[i] = '#';
 		for (int i = 1; i < len; i += 2)
 			text[i] = in.charAt(i / 2);
-		
+
 		int[] max = new int[len];
 
 		int c = 0;
@@ -45,7 +45,7 @@ public class DMOPC_2015_A_Very_Very_Original_Problem {
 		for (int i = 0; i < len; i++) {
 			prefix[i]++;
 			prefix[i + max[i]]--;
-			
+
 			suffix[i - max[i] + 1]++;
 			suffix[i + 1]--;
 		}
@@ -55,12 +55,12 @@ public class DMOPC_2015_A_Very_Very_Original_Problem {
 		}
 		for (int i = 3; i < len; i += 2)
 			prefix[i] += prefix[i - 2];
-		
+
 		long ans = 0;
 		for (int i = 3; i < len; i += 2) {
 			ans += suffix[i] * prefix[i - 2];
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -91,4 +91,3 @@ public class DMOPC_2015_A_Very_Very_Original_Problem {
 		return br.readLine().trim();
 	}
 }
-

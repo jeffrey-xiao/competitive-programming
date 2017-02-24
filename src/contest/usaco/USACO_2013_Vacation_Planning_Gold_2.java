@@ -106,7 +106,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Vertex) {
-				Vertex v = (Vertex) o;
+				Vertex v = (Vertex)o;
 				return index == v.index;
 			}
 			return false;

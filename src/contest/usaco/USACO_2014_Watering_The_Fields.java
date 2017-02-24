@@ -83,7 +83,7 @@ public class USACO_2014_Watering_The_Fields {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Edge) {
-				Edge e = (Edge) o;
+				Edge e = (Edge)o;
 				return dest == e.dest;
 			}
 			return false;

@@ -81,7 +81,7 @@ public class SuffixTree {
 			// if the active length is zero, then we reset the active edge
 			if (activeLength == 0)
 				activeEdge = currentPos;
-			
+
 			// creating a new leaf node
 			if (activeNode.child[input.charAt(activeEdge)] == null) {
 				activeNode.child[input.charAt(activeEdge)] = new Node(currentPos, END);
@@ -109,24 +109,24 @@ public class SuffixTree {
 				} else {
 					// since we found that the current position of the suffix is
 					// entirely new, we have to split the edge into two
-	                
-	                Node old = activeNode.child[input.charAt(activeEdge)];
-	                
-	                // creating the split node
-	                Node split = new Node(old.start, old.start + activeLength);
-	                activeNode.child[input.charAt(activeEdge)] = split;
-	                
-	                // creating the new leaf node
-	                Node leaf = new Node(currentPos, END);
-	                
-	                // adding the leaf node to split
-	                split.child[input.charAt(currentPos)] = leaf;
-	                
-	                // shifting the old node's start by active length
-	                old.start += activeLength;
-	                
-	                // adding the old node to split
-	                split.child[input.charAt(old.start)] = old;
+
+					Node old = activeNode.child[input.charAt(activeEdge)];
+
+					// creating the split node
+					Node split = new Node(old.start, old.start + activeLength);
+					activeNode.child[input.charAt(activeEdge)] = split;
+
+					// creating the new leaf node
+					Node leaf = new Node(currentPos, END);
+
+					// adding the leaf node to split
+					split.child[input.charAt(currentPos)] = leaf;
+
+					// shifting the old node's start by active length
+					old.start += activeLength;
+
+					// adding the old node to split
+					split.child[input.charAt(old.start)] = old;
 					addSuffixLink(split);
 				}
 			}

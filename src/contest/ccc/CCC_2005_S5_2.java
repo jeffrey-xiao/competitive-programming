@@ -39,7 +39,7 @@ public class CCC_2005_S5_2 {
 			freq[indexes[x]]++;
 		}
 		f /= n;
-		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
+		if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int)(f * 100.0))) == 0.5 && (int)((f * 10 - (int)(f * 10)) * 10) % 2 == 0)
 			f -= 0.01;
 		System.out.printf("%.2f", f);
 	}
@@ -68,7 +68,7 @@ public class CCC_2005_S5_2 {
 		}
 	}
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	private static int freqAt (int x) {
 		return freqTo(x) - freqTo(x - 1);
 	}

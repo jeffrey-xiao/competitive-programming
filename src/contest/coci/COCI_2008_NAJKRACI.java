@@ -80,7 +80,7 @@ public class COCI_2008_NAJKRACI {
 				if (dist[e.dest] < e.cost + dist[curr])
 					continue;
 				from[curr] = (from[e.dest] + from[curr]) % MOD;
-				res[e.index] = (int) ((res[e.index] + (long) (from[e.dest]) * (long) (to[curr])) % MOD);
+				res[e.index] = (int)((res[e.index] + (long)(from[e.dest]) * (long)(to[curr])) % MOD);
 			}
 		}
 	}

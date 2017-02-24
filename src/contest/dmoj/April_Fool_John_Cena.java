@@ -1,4 +1,5 @@
 package contest.dmoj;
+
 import java.util.*;
 import java.io.*;
 
@@ -12,10 +13,11 @@ public class April_Fool_John_Cena {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 
-		next(); next();
+		next();
+		next();
 		readInt();
 		int n = readInt();
-		
+
 		out.println(n);
 		out.close();
 	}

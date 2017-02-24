@@ -16,15 +16,15 @@ public class CCC_1999_P2 {
 		readInt();
 		while (br.ready()) {
 			String in = br.readLine();
-			
+
 			Pattern p;
 			Matcher m;
 			int index;
-			
+
 			p = Pattern.compile("\\b\\d\\d/\\d\\d/\\d\\d\\b");
 			m = p.matcher(in);
 			index = 0;
-			
+
 			while (m.find(index)) {
 				String org = m.group();
 				String[] s = org.split("/");
@@ -43,11 +43,11 @@ public class CCC_1999_P2 {
 					index = m.start() + 1;
 				}
 			}
-			
+
 			p = Pattern.compile("\\b\\d\\d.\\d\\d.\\d\\d\\b");
 			m = p.matcher(in);
 			index = 0;
-			
+
 			while (m.find(index)) {
 				String org = m.group();
 				String[] s = org.split("\\.");
@@ -66,11 +66,11 @@ public class CCC_1999_P2 {
 					index = m.start() + 1;
 				}
 			}
-			
+
 			p = Pattern.compile("\\b\\w+\\s\\d\\d,\\s\\d\\d\\b");
 			m = p.matcher(in);
 			index = 0;
-			
+
 			while (m.find(index)) {
 				String org = m.group();
 				String[] s = org.split(" ");
@@ -94,7 +94,7 @@ public class CCC_1999_P2 {
 					index = m.start() + 1;
 				}
 			}
-			
+
 			System.out.println(in);
 		}
 	}
@@ -103,7 +103,7 @@ public class CCC_1999_P2 {
 		String[] validYears = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 		return validYears[monthIndex - 1];
 	}
-	
+
 	static int getMonth (String year) {
 		String[] validYears = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 		for (int i = 0; i < 12; i++)
@@ -111,11 +111,11 @@ public class CCC_1999_P2 {
 				return i + 1;
 		return -1;
 	}
-	
+
 	static boolean isLeapYear (int year) {
 		return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 	}
-	
+
 	static boolean isValidDate (int day, int month, int year) {
 		int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31};
 		if (isLeapYear(year))
@@ -126,7 +126,7 @@ public class CCC_1999_P2 {
 			return false;
 		return true;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

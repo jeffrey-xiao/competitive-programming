@@ -11,6 +11,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 
 	static int N, M, K, Q;
 	static int[] R, C;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,19 +21,19 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 		N = readInt();
 		M = readInt();
 		K = readInt();
-		
+
 		R = new int[K];
 		C = new int[K];
-		
+
 		for (int i = 0; i < K; i++) {
 			R[i] = readInt();
 			C[i] = readInt();
 		}
 
 		Q = readInt();
-		
-		out.println(getArea(Q) - getArea(Q - 1	));
-		
+
+		out.println(getArea(Q) - getArea(Q - 1));
+
 		out.close();
 	}
 
@@ -40,7 +41,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 		Point[] ver = new Point[2 * K];
 		Point[] hor = new Point[2 * K];
 		boolean[] use = new boolean[K];
-		
+
 		for (int i = 0; i < K; i++) {
 			int loR = Math.max(1, R[i] - q);
 			int hiR = Math.min(N, R[i] + q);
@@ -51,10 +52,10 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 			ver[i << 1] = new Point(loR, i, 1);
 			ver[i << 1 | 1] = new Point(hiR + 1, i, -1);
 		}
-		
+
 		Arrays.sort(ver);
 		Arrays.sort(hor);
-		
+
 		// area of sweepline 
 		long horRet = 0;
 		// previous horizontal position
@@ -71,33 +72,33 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 				verPrev = ver[j].pos;
 				if (use[ver[j].index])
 					curr += ver[j].type;
-				
+
 				while (j + 1 < 2 * K && ver[j + 1].pos == verPrev) {
 					j++;
 					if (use[ver[j].index])
 						curr += ver[j].type;
 				}
 			}
-			
+
 			horRet += (hor[i].pos - horPrev) * verRet;
-			
+
 			horPrev = hor[i].pos;
-			
+
 			use[hor[i].index] = hor[i].type == 1 ? true : false;
-			
+
 			while (i + 1 < 2 * K && hor[i + 1].pos == horPrev) {
 				i++;
 				use[hor[i].index] = hor[i].type == 1 ? true : false;
 			}
 		}
-		
+
 		return horRet;
 	}
-	
+
 	static class Point implements Comparable<Point> {
 		Long pos;
 		int index, type;
-		
+
 		Point (long pos, int index, int type) {
 			this.pos = pos;
 			this.index = index;
@@ -109,7 +110,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 			return pos.compareTo(o.pos);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -136,4 +137,3 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
 		return br.readLine().trim();
 	}
 }
-

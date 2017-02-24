@@ -12,7 +12,7 @@ public class COCI_2016_JETPACK {
 	static int N;
 	static char[][] grid;
 	static int[][] prev;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,16 +20,16 @@ public class COCI_2016_JETPACK {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		grid = new char[10][N];
 		prev = new int[10][N];
 		for (int i = 9; i >= 0; i--)
 			grid[i] = readLine().toCharArray();
-		
+
 		Queue<Point> q = new ArrayDeque<Point>();
 		q.offer(new Point(0, 0));
 		prev[0][0] = -1;
-		
+
 		while (!q.isEmpty()) {
 			Point curr = q.poll();
 			if (curr.c == N - 1) {
@@ -50,7 +50,7 @@ public class COCI_2016_JETPACK {
 				out.close();
 				return;
 			}
-			
+
 			if (curr.r + 1 < 10 && grid[curr.r + 1][curr.c + 1] != 'X' && prev[curr.r + 1][curr.c + 1] == 0) {
 				prev[curr.r + 1][curr.c + 1] = 1;
 				q.offer(new Point(curr.r + 1, curr.c + 1));
@@ -63,12 +63,13 @@ public class COCI_2016_JETPACK {
 				q.offer(new Point(curr.r, curr.c + 1));
 			}
 		}
-		
+
 		out.close();
 	}
-	
+
 	static class Point {
 		int r, c;
+
 		Point (int r, int c) {
 			this.r = r;
 			this.c = c;
@@ -101,4 +102,3 @@ public class COCI_2016_JETPACK {
 		return br.readLine().trim();
 	}
 }
-

@@ -114,7 +114,7 @@ public class USACO_2013_Vacation_Planning_Gold {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Node) {
-				Node n = (Node) o;
+				Node n = (Node)o;
 				return this.index == n.index;
 			}
 			return false;

@@ -74,7 +74,7 @@ public class USACO_2013_Perimeter_Silver {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point) o;
+				Point p = (Point)o;
 				return this.x == p.x && this.y == p.y;
 			}
 			return false;

@@ -15,7 +15,7 @@ public class IOI_2006_Deciphering_Mayan_Writing {
 		int g = nextInt();
 		int s = nextInt();
 		for (int x = 0; x < g; x++) {
-			char c = (char) br.read();
+			char c = (char)br.read();
 			int index = (c) - 65 > 25 ? (c) - 71 : (c) - 65;
 			charsInGlyph[index]++;
 		}

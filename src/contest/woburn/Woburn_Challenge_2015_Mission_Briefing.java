@@ -11,7 +11,7 @@ public class Woburn_Challenge_2015_Mission_Briefing {
 
 	static char[] in;
 	static boolean[] vis = new boolean[10];
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,17 +19,17 @@ public class Woburn_Challenge_2015_Mission_Briefing {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		in = readLine().toCharArray();
-		
+
 		for (int i = 0; i < in.length - 2; i++) {
 			if (in[i] == '0' && in[i + 1] == '0' && in[i + 2] - '0' <= 9 && in[i + 2] - '0' >= 1)
 				vis[in[i + 2] - '0'] = true;
 		}
-		
+
 		int ans = 0;
 		for (int i = 0; i < 10; i++)
 			if (vis[i])
 				ans++;
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -60,4 +60,3 @@ public class Woburn_Challenge_2015_Mission_Briefing {
 		return br.readLine().trim();
 	}
 }
-

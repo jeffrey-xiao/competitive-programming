@@ -10,12 +10,12 @@ public class University_Codesprint_2_E {
 	static StringTokenizer st;
 
 	static final int MOD = (int)(1e9 + 7);
-	
+
 	static int N;
 	static int[] val, seg;
 	static long[] fact;
 	static long[][] dp, choose;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,17 +23,17 @@ public class University_Codesprint_2_E {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		val = new int[N]; 
+		val = new int[N];
 		seg = new int[N << 2];
 		fact = new long[N + 1];
-		
+
 		fact[0] = 1;
 		for (int i = 1; i <= N; i++)
 			fact[i] = (fact[i - 1] * i) % MOD;
-		
+
 		for (int i = 0; i < N; i++)
 			val[i] = readInt();
-		
+
 		update(1, 0, N - 1, 0, 0, 1);
 		int last = 0;
 		for (int i = 1; i < N; i++) {
@@ -41,7 +41,7 @@ public class University_Codesprint_2_E {
 				last = i;
 			update(1, 0, N - 1, last, i, 1);
 		}
-		
+
 		dp = new long[N + 1][N + 1];
 		for (int i = 0; i <= N; i++)
 			for (int j = 0; j <= N; j++)
@@ -51,11 +51,11 @@ public class University_Codesprint_2_E {
 		for (int i = 0; i <= N; i++)
 			for (int j = 0; j <= i; j++)
 				choose[i][j] = (j == 0 || i <= 1) ? 1 : (choose[i - 1][j - 1] + choose[i - 1][j]) % MOD;
-		
+
 		out.println(compute(0, N));
 		out.close();
 	}
-	
+
 	static long compute (int n, int k) {
 		if (n == N)
 			return 1;
@@ -84,7 +84,7 @@ public class University_Codesprint_2_E {
 			update(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
 		}
 	}
-	
+
 	static int query (int n, int l, int r, int x) {
 		if (l == x && x == r)
 			return seg[n];
@@ -95,7 +95,7 @@ public class University_Codesprint_2_E {
 		else
 			return query(n << 1 | 1, mid + 1, r, x);
 	}
-	
+
 	static void pushDown (int n) {
 		if (seg[n] != 0) {
 			seg[n << 1] += seg[n];
@@ -103,7 +103,7 @@ public class University_Codesprint_2_E {
 			seg[n] = 0;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -130,4 +130,3 @@ public class University_Codesprint_2_E {
 		return br.readLine().trim();
 	}
 }
-

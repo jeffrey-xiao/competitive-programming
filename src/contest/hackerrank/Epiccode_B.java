@@ -23,7 +23,7 @@ public class Epiccode_B {
 		char[] s = readLine().toCharArray();
 		int[] cnt = new int[26];
 		for (char c : s) {
-			cnt[(int) (c - 'a')]++;
+			cnt[(int)(c - 'a')]++;
 		}
 		long ans = 0;
 		for (int i = 0; i < 26; i++) {

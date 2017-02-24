@@ -20,18 +20,18 @@ public class Woburn_Challenge_2016_The_Elite_N {
 		long A = readInt();
 		long B = readInt();
 		long S = readInt();
-		
+
 		long prev = 0;
 		long totalTime = 0;
-		
+
 		for (int i = 0; i < M; i++) {
 			int curr = readInt();
 			totalTime += Math.min((curr - prev) * A, 2 * S + (curr - prev - 1) * B + A);
 			prev = curr;
 		}
-		
+
 		totalTime += Math.min((N - prev) * A, S + (N - prev) * B);
-		
+
 		out.println(totalTime);
 		out.close();
 	}
@@ -62,4 +62,3 @@ public class Woburn_Challenge_2016_The_Elite_N {
 		return br.readLine().trim();
 	}
 }
-

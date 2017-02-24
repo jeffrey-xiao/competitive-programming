@@ -110,14 +110,14 @@ public class CCC_2012_S4 {
 	static State toState (Integer i) {
 		State res = new State();
 		for (int x = n; x >= 1; x--) {
-			res.s[i / (int) (Math.pow(RADIX, x)) - 1].push(x);
-			i %= (int) (Math.pow(RADIX, x));
+			res.s[i / (int)(Math.pow(RADIX, x)) - 1].push(x);
+			i %= (int)(Math.pow(RADIX, x));
 		}
 		return res;
 	}
 
 	static class State {
-		@SuppressWarnings ("unchecked")
+		@SuppressWarnings("unchecked")
 		Stack<Integer>[] s = new Stack[n];
 
 		State () {

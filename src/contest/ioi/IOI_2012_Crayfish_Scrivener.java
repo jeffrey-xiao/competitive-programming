@@ -163,7 +163,7 @@ public class IOI_2012_Crayfish_Scrivener {
 			int c = read();
 			while (isSpaceChar(c))
 				c = read();
-			return (char) c;
+			return (char)c;
 		}
 
 		public int nextInt () {

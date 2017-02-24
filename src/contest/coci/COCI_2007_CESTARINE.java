@@ -12,7 +12,7 @@ public class COCI_2007_CESTARINE {
 	static int N;
 	static int[] entrance, exit;
 	static long[] dp;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,28 +20,28 @@ public class COCI_2007_CESTARINE {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		entrance = new int[N + 1];
 		exit = new int[N + 1];
 		dp = new long[N + 1];
-		
+
 		for (int i = 1; i <= N; i++) {
 			entrance[i] = readInt();
 			exit[i] = readInt();
 		}
-		
+
 		Arrays.sort(entrance, 1, N + 1);
 		Arrays.sort(exit, 1, N + 1);
-		
+
 		Arrays.fill(dp, 1l << 60);
 		dp[0] = 0;
-		
+
 		for (int i = 1; i <= N; i++) {
 			for (int k = 1; k <= Math.min(3, i); k++) {
 				dp[i] = Math.min(dp[i], dp[i - k] + compute(i, k));
 			}
 		}
-		
+
 		out.println(dp[N]);
 		out.close();
 	}
@@ -49,15 +49,15 @@ public class COCI_2007_CESTARINE {
 	static long compute (int i, int k) {
 		int[] a = new int[k];
 		int[] b = new int[k];
-		
+
 		for (int j = i - k + 1; j <= i; j++) {
 			a[j - (i - k + 1)] = entrance[j];
 			b[j - (i - k + 1)] = exit[j];
 		}
-		
+
 		return minPermute(a, b, 0);
 	}
-	
+
 	static long minPermute (int[] a, int[] b, int i) {
 		if (i == a.length) {
 			long ret = 0;
@@ -76,13 +76,13 @@ public class COCI_2007_CESTARINE {
 		}
 		return ret;
 	}
-	
+
 	static void swap (int[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];
 		a[j] = temp;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -109,4 +109,3 @@ public class COCI_2007_CESTARINE {
 		return br.readLine().trim();
 	}
 }
-

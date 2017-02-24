@@ -11,7 +11,7 @@ public class Round_353C_Div2 {
 
 	static int N;
 	static int[] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,7 +20,7 @@ public class Round_353C_Div2 {
 
 		N = readInt();
 		HashMap<Long, Integer> occ = new HashMap<Long, Integer>();
-		
+
 		long sum = 0;
 		for (int i = 0; i < N; i++) {
 			sum += readLong();
@@ -28,9 +28,9 @@ public class Round_353C_Div2 {
 				occ.put(sum, 0);
 			occ.put(sum, occ.get(sum) + 1);
 		}
-		
+
 		int ans = N - 1;
-		
+
 		for (Map.Entry<Long, Integer> e : occ.entrySet())
 			ans = Math.min(ans, N - e.getValue());
 
@@ -64,4 +64,3 @@ public class Round_353C_Div2 {
 		return br.readLine().trim();
 	}
 }
-

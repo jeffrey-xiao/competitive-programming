@@ -10,11 +10,11 @@ public class ECOO_2016_R2_P1 {
 	static StringTokenizer st;
 
 	static final int TEST_CASES = 10;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		
+
 		// br = new BufferedReader(new FileReader("in.txt"));
 		// br = new BufferedReader(new FileReader("DATA11.txt"));
 
@@ -32,7 +32,7 @@ public class ECOO_2016_R2_P1 {
 			}
 			out.println(in.length() - ans);
 		}
-		
+
 		out.close();
 	}
 
@@ -66,7 +66,7 @@ public class ECOO_2016_R2_P1 {
 		}
 		return max;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -93,4 +93,3 @@ public class ECOO_2016_R2_P1 {
 		return br.readLine().trim();
 	}
 }
-

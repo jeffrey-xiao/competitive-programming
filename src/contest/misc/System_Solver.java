@@ -30,7 +30,7 @@ public class System_Solver {
 		}
 
 		double[] ans = solve(A, B);
-		
+
 		if (ans == null)
 			out.println("NO UNIQUE SOLUTION");
 		else
@@ -39,7 +39,6 @@ public class System_Solver {
 
 		out.close();
 	}
-
 
 	/*
 	 * Reduces the matrix A where Ax = B into a RREF and returns a unique solution
@@ -65,7 +64,7 @@ public class System_Solver {
 					maxIndex = j;
 
 			if (Math.abs(A[maxIndex][i]) < EPS)
-				return null;	
+				return null;
 
 			double[] tempA = A[i];
 			A[i] = A[maxIndex];
@@ -85,7 +84,7 @@ public class System_Solver {
 			// eliminating zeroes in rows bigger than i
 			for (int j = i + 1; j < M; j++) {
 				double factor = A[j][i] / A[i][i];
-				for (int k = i; k < N; k++) 
+				for (int k = i; k < N; k++)
 					A[j][k] -= A[i][k] * factor;
 				B[j] -= B[i] * factor;
 			}
@@ -144,4 +143,3 @@ public class System_Solver {
 		return br.readLine().trim();
 	}
 }
-

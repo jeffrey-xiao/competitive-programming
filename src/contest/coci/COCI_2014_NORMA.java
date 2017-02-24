@@ -54,7 +54,7 @@ public class COCI_2014_NORMA {
 			hi.push(i);
 
 			updateLen(1, 1, n, 1, i, 1);
-			assert (tree[1].lmM >= 0);
+			assert tree[1].lmM >= 0;
 			ans = (ans + tree[1].lmM) % MOD;
 		}
 

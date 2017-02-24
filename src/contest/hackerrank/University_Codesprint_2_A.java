@@ -17,10 +17,10 @@ public class University_Codesprint_2_A {
 
 		int N = readInt();
 		int[] val = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			val[i] = readInt();
-		
+
 		int bestVal = val[0];
 		int worstVal = val[0];
 		int bestCount = 0;
@@ -65,4 +65,3 @@ public class University_Codesprint_2_A {
 		return br.readLine().trim();
 	}
 }
-

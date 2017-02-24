@@ -32,7 +32,7 @@ public class ECOO_2016_R3_P4 {
 
 			String binaryOp = "";
 			boolean canNegate = false;
-			
+
 			Queue<State> q = new ArrayDeque<State>();
 			for (int i = 0; i < use.length; i++) {
 				if ('0' <= use[i] && use[i] <= '9') {
@@ -59,17 +59,17 @@ public class ECOO_2016_R3_P4 {
 					}
 				}
 			}
-			
+
 			for (Map.Entry<Integer, String> s : base.entrySet())
 				q.offer(new State(s.getKey(), s.getValue()));
-			
+
 			while (!q.isEmpty()) {
 				State curr = q.poll();
 				if (vis.containsKey(target))
 					break;
 				for (int i = 0; i < use.length; i++) {
 					if (use[i] == 's' && binaryOp.length() == 0) {
-						State newState = new State(curr.num * curr.num, curr.op + " s") ;
+						State newState = new State(curr.num * curr.num, curr.op + " s");
 						if (Math.abs(newState.num) <= MAX && !vis.containsKey(newState.num)) {
 							q.offer(newState);
 							vis.put(newState.num, newState.op);
@@ -82,7 +82,7 @@ public class ECOO_2016_R3_P4 {
 								vis.put(newState.num, newState.op);
 							}
 							if (canNegate) {
-								newState = new State(curr.num - s.getKey(), curr.op + " + " + s.getValue() + " n") ;
+								newState = new State(curr.num - s.getKey(), curr.op + " + " + s.getValue() + " n");
 								if (Math.abs(newState.num) <= MAX && !vis.containsKey(newState.num)) {
 									q.offer(newState);
 									vis.put(newState.num, newState.op);
@@ -96,9 +96,9 @@ public class ECOO_2016_R3_P4 {
 								q.offer(newState);
 								vis.put(newState.num, newState.op);
 							}
-							
+
 							if (canNegate) {
-								newState = new State(curr.num + s.getKey(), curr.op + " - " + s.getValue() + " n") ;
+								newState = new State(curr.num + s.getKey(), curr.op + " - " + s.getValue() + " n");
 								if (Math.abs(newState.num) <= MAX && !vis.containsKey(newState.num)) {
 									q.offer(newState);
 									vis.put(newState.num, newState.op);
@@ -112,9 +112,9 @@ public class ECOO_2016_R3_P4 {
 								q.offer(newState);
 								vis.put(newState.num, newState.op);
 							}
-							
+
 							if (canNegate) {
-								newState = new State(curr.num * - s.getKey(), curr.op + " * " + s.getValue() + " n") ;
+								newState = new State(curr.num * -s.getKey(), curr.op + " * " + s.getValue() + " n");
 								if (Math.abs(newState.num) <= MAX && !vis.containsKey(newState.num)) {
 									q.offer(newState);
 									vis.put(newState.num, newState.op);
@@ -124,7 +124,7 @@ public class ECOO_2016_R3_P4 {
 					}
 				}
 			}
-			
+
 			out.print(vis.get(target));
 			if (binaryOp.length() > 0)
 				out.print(" " + binaryOp.charAt(0));
@@ -138,6 +138,7 @@ public class ECOO_2016_R3_P4 {
 	static class State {
 		int num;
 		String op;
+
 		State (int num, String op) {
 			this.num = num;
 			this.op = op;
@@ -156,7 +157,7 @@ public class ECOO_2016_R3_P4 {
 			}
 			return false;
 		}
-		
+
 		@Override
 		public String toString () {
 			return String.format("(%d %s)", num, op);
@@ -189,4 +190,3 @@ public class ECOO_2016_R3_P4 {
 		return br.readLine().trim();
 	}
 }
-

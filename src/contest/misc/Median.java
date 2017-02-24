@@ -19,9 +19,9 @@ public class Median {
 		Arrays.sort(nums);
 		System.out.print("The median on the test is ");
 		if (n % 2 == 1)
-			System.out.printf("%.1f\n", (float) nums[n / 2]);
+			System.out.printf("%.1f\n", (float)nums[n / 2]);
 		else
-			System.out.printf("%.1f\n", ((double) nums[n / 2] + nums[n / 2 - 1]) / 2);
+			System.out.printf("%.1f\n", ((double)nums[n / 2] + nums[n / 2 - 1]) / 2);
 	}
 
 	static String next () throws IOException {

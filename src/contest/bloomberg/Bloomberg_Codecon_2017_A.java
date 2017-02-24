@@ -11,7 +11,7 @@ public class Bloomberg_Codecon_2017_A {
 
 	static int N;
 	static int[] val;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,11 +20,11 @@ public class Bloomberg_Codecon_2017_A {
 
 		N = readInt();
 		val = new int[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			val[i] = readInt();
 		}
-		
+
 		int ans = 0;
 		for (int i = 0; i < N; i++) {
 			int minIndex = i;
@@ -34,12 +34,12 @@ public class Bloomberg_Codecon_2017_A {
 			}
 			if (minIndex != i)
 				ans++;
-			
+
 			int temp = val[i];
 			val[i] = val[minIndex];
 			val[minIndex] = temp;
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -70,4 +70,3 @@ public class Bloomberg_Codecon_2017_A {
 		return br.readLine().trim();
 	}
 }
-

@@ -12,6 +12,7 @@ public class NOI_2005_Maintaining_The_Sequence {
 	static int N, M;
 	static Node root = null;
 	static Random rand = new Random();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -92,6 +93,7 @@ public class NOI_2005_Maintaining_The_Sequence {
 
 	static class Nodepair {
 		Node left, right;
+
 		Nodepair (Node left, Node right) {
 			this.left = left;
 			this.right = right;
@@ -101,11 +103,11 @@ public class NOI_2005_Maintaining_The_Sequence {
 	static Nodepair split (Node n, int k, int lower) {
 		if (n == null)
 			return new Nodepair(null, null);
-		
+
 		int key = lower + getSize(n.left) + 1;
-		
+
 		n = update(n);
-		
+
 		if (k >= key) {
 			Nodepair res = split(n.right, k, lower + getSize(n.left) + 1);
 			n.right = res.left;
@@ -128,10 +130,10 @@ public class NOI_2005_Maintaining_The_Sequence {
 			return b;
 		if (b == null)
 			return a;
-		
+
 		a = update(a);
 		b = update(b);
-		
+
 		if (a.p > b.p) {
 			a.right = merge(a.right, b);
 			a = update(a);
@@ -154,7 +156,7 @@ public class NOI_2005_Maintaining_The_Sequence {
 	static Node update (Node n) {
 		if (n == null)
 			return n;
-		
+
 		n.size = getSize(n.left) + getSize(n.right) + 1;
 
 		if (n.same != 1 << 30) {
@@ -192,7 +194,7 @@ public class NOI_2005_Maintaining_The_Sequence {
 		}
 
 		if (n.left != null && n.right != null) {
-			n.maxSubarray = Math.max(n.maxSubarray, Math.max(Math.max(0, n.left.maxSuffix) + n.right.maxPrefix + n.value, n.value + n.left.maxSuffix + Math.max(0 , n.right.maxPrefix)));
+			n.maxSubarray = Math.max(n.maxSubarray, Math.max(Math.max(0, n.left.maxSuffix) + n.right.maxPrefix + n.value, n.value + n.left.maxSuffix + Math.max(0, n.right.maxPrefix)));
 		}
 
 		if (n.left == null && n.right == null)
@@ -254,4 +256,3 @@ public class NOI_2005_Maintaining_The_Sequence {
 		return br.readLine().trim();
 	}
 }
-

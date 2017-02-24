@@ -54,7 +54,7 @@ public class IOI_2012_Parachute_Rings {
 				int y = readInt();
 				u.add(x);
 				v.add(y);
-				
+
 				degree[x]++;
 				degree[y]++;
 
@@ -64,10 +64,7 @@ public class IOI_2012_Parachute_Rings {
 				if (degree[y] > degree[rebuildIndex])
 					rebuildIndex = y;
 
-
-				if (degree[rebuildIndex] < 3 || degree[rebuildIndex] >= 5 || 
-						(degree[rebuildIndex] == 3 && (val.size() == 4 || (val.size() == 1 && val.get(0).exclude != -1))) || 
-						(degree[rebuildIndex] == 4 && val.size() == 1)) {
+				if (degree[rebuildIndex] < 3 || degree[rebuildIndex] >= 5 || (degree[rebuildIndex] == 3 && (val.size() == 4 || (val.size() == 1 && val.get(0).exclude != -1))) || (degree[rebuildIndex] == 4 && val.size() == 1)) {
 					for (int k = 0; k < val.size(); k++)
 						val.get(k).merge(x, y);
 					continue;
@@ -78,14 +75,14 @@ public class IOI_2012_Parachute_Rings {
 						if (u.get(j) == rebuildIndex)
 							val.add(new DSU(N, v.get(j)));
 						else if (v.get(j) == rebuildIndex)
-							val.add(new DSU(N, u.get(j)));	
+							val.add(new DSU(N, u.get(j)));
 
-					assert(val.size() == 4);
+					assert val.size() == 4;
 				} else if (degree[rebuildIndex] == 4) {
 					val.clear();
 					val.add(new DSU(N, rebuildIndex));
 				}
-				
+
 				for (int j = 0; j < u.size(); j++) {
 					for (int k = 0; k < val.size(); k++) {
 						val.get(k).merge(u.get(j), v.get(j));
@@ -130,7 +127,7 @@ public class IOI_2012_Parachute_Rings {
 				bigNodes++;
 			if (deg[v] == 3)
 				bigNodes++;
-			
+
 			u = find(u);
 			v = find(v);
 
@@ -176,4 +173,3 @@ public class IOI_2012_Parachute_Rings {
 		return br.readLine().trim();
 	}
 }
-

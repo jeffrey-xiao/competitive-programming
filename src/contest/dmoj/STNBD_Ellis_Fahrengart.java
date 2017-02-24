@@ -47,7 +47,7 @@ public class STNBD_Ellis_Fahrengart {
 		for (int i = 0; i < m; i++)
 			q.add(new Query(readInt(), readInt(), i));
 		long[] ans = new long[m];
-		int sz = (int) Math.sqrt(n);
+		int sz = (int)Math.sqrt(n);
 		for (int i = 0; i < (n - 1) / sz + 1; i++) {
 			int start = i * sz + 1;
 			int end = Math.min((i + 1) * sz, n);

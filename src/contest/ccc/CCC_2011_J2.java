@@ -12,7 +12,7 @@ class CCC_2011_J2 {
 		boolean inTime = false;
 		int timeToLand = 0;
 		for (int x = 1; x <= time; x++) {
-			int altitude = (int) ((humidityFactor * Math.pow(x, 3)) + (2 * Math.pow(x, 2)) + x - (6 * Math.pow(x, 4)));
+			int altitude = (int)((humidityFactor * Math.pow(x, 3)) + (2 * Math.pow(x, 2)) + x - (6 * Math.pow(x, 4)));
 			if (altitude <= 0) {
 				inTime = true;
 				timeToLand = x;

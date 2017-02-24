@@ -14,7 +14,7 @@ public class ACM_NAQ_2016_L {
 	static double prob;
 	static int[] ans;
 	static final double EPS = 1e-10;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,7 +23,7 @@ public class ACM_NAQ_2016_L {
 
 		T = readInt();
 
-		for (int i= 0; i < T; i++) {
+		for (int i = 0; i < T; i++) {
 			p = new Point[7];
 			ans = null;
 			for (int j = 0; j < 7; j++)
@@ -86,8 +86,7 @@ public class ACM_NAQ_2016_L {
 	}
 
 	static boolean within (Point a, Point b, Point x) {
-		return Math.min(a.x, b.x) <= x.x && x.x <= Math.max(a.x, b.x) &&
-				Math.min(a.y, b.y) <= x.y && x.y <= Math.max(a.y, b.y);
+		return Math.min(a.x, b.x) <= x.x && x.x <= Math.max(a.x, b.x) && Math.min(a.y, b.y) <= x.y && x.y <= Math.max(a.y, b.y);
 	}
 
 	static double area () {
@@ -100,11 +99,11 @@ public class ACM_NAQ_2016_L {
 	static Point intersect (Point a, Point b, Point c, Point d) {
 		double A1 = a.y - b.y;
 		double B1 = b.x - a.x;
-		double C1 = - A1 * a.x - B1 * a.y; 
+		double C1 = -A1 * a.x - B1 * a.y;
 
 		double A2 = c.y - d.y;
 		double B2 = d.x - c.x;
-		double C2 = - A2 * c.x - B2 * c.y;
+		double C2 = -A2 * c.x - B2 * c.y;
 
 		double det = A1 * B2 - A2 * B1;
 		if (Math.abs(det) < EPS)
@@ -112,7 +111,6 @@ public class ACM_NAQ_2016_L {
 		else
 			return new Point(-1, (B1 * C2 - B2 * C1) / det, (A2 * C1 - A1 * C2) / det);
 	}
-
 
 	static void swap (int i, int j) {
 		Point temp = p[i];
@@ -138,7 +136,7 @@ public class ACM_NAQ_2016_L {
 			}
 			return false;
 		}
-		
+
 		@Override
 		public String toString () {
 			return String.format("(%f, %f)", x, y);

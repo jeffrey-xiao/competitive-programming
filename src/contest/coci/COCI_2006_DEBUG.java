@@ -69,12 +69,10 @@ public class COCI_2006_DEBUG {
 			for (int j = 0; j < C; j++) {
 				int currSize = 0;
 
-				while (i - currSize >= SIZE && j - currSize >= SIZE && 
-						i + currSize + SIZE < R && j + currSize + SIZE < C && canExpandBig1(i, j, currSize))
+				while (i - currSize >= SIZE && j - currSize >= SIZE && i + currSize + SIZE < R && j + currSize + SIZE < C && canExpandBig1(i, j, currSize))
 					currSize += SIZE;
 
-				while (i - currSize >= 1 && j - currSize >= 1 &&
-						i + currSize + 1 < R && j + currSize + 1 < C && canExpandSmall1(i, j, currSize))
+				while (i - currSize >= 1 && j - currSize >= 1 && i + currSize + 1 < R && j + currSize + 1 < C && canExpandSmall1(i, j, currSize))
 					currSize++;
 
 				if (currSize > 0)
@@ -89,13 +87,10 @@ public class COCI_2006_DEBUG {
 				if (g[i][j] != g[i + 1][j + 1] || g[i + 1][j] != g[i][j + 1])
 					continue;
 
-
-				while (i - currSize >= SIZE && j - currSize >= SIZE &&
-						i + currSize + SIZE + 1 < R && j + currSize + SIZE + 1 < C && canExpandBig2(i, j, currSize))
+				while (i - currSize >= SIZE && j - currSize >= SIZE && i + currSize + SIZE + 1 < R && j + currSize + SIZE + 1 < C && canExpandBig2(i, j, currSize))
 					currSize += SIZE;
 
-				while (i - currSize >= 1 && j - currSize >= 1 &&
-						i + currSize + 2 < R && j + currSize + 2 < C && canExpandSmall2(i, j, currSize))
+				while (i - currSize >= 1 && j - currSize >= 1 && i + currSize + 2 < R && j + currSize + 2 < C && canExpandSmall2(i, j, currSize))
 					currSize++;
 
 				ans = Math.max(ans, currSize * 2 + 2);
@@ -108,32 +103,40 @@ public class COCI_2006_DEBUG {
 
 	static boolean canExpandBig2 (int i, int j, int currSize) {
 		for (int k = -(currSize + SIZE); k <= currSize + SIZE + 1; k++) {
-			if (pre[1][i + k][j - currSize] != pre[3][i - k + 1][j + currSize + 1]) return false;
-			if (pre[0][i - currSize][j + k] != pre[2][i + currSize + 1][j - k + 1]) return false;
+			if (pre[1][i + k][j - currSize] != pre[3][i - k + 1][j + currSize + 1])
+				return false;
+			if (pre[0][i - currSize][j + k] != pre[2][i + currSize + 1][j - k + 1])
+				return false;
 		}
 		return true;
 	}
 
-	static boolean canExpandBig1 (int i, int j, int currSize ) {
+	static boolean canExpandBig1 (int i, int j, int currSize) {
 		for (int k = -(currSize + SIZE); k <= currSize + SIZE; k++) {
-			if (pre[1][i + k][j - currSize] != pre[3][i - k][j + currSize]) return false;
-			if (pre[0][i - currSize][j + k] != pre[2][i + currSize][j - k]) return false;
+			if (pre[1][i + k][j - currSize] != pre[3][i - k][j + currSize])
+				return false;
+			if (pre[0][i - currSize][j + k] != pre[2][i + currSize][j - k])
+				return false;
 		}
 		return true;
 	}
 
 	static boolean canExpandSmall2 (int i, int j, int currSize) {
 		for (int k = -(currSize + 1); k <= currSize + 2; k++) {
-			if (g[i + k][j - currSize - 1] != g[i + 1 - k][j + currSize + 2]) return false;
-			if (g[i - currSize - 1][j + k] != g[i + currSize + 2][j + 1 - k]) return false;
+			if (g[i + k][j - currSize - 1] != g[i + 1 - k][j + currSize + 2])
+				return false;
+			if (g[i - currSize - 1][j + k] != g[i + currSize + 2][j + 1 - k])
+				return false;
 		}
 		return true;
 	}
 
 	static boolean canExpandSmall1 (int i, int j, int currSize) {
 		for (int k = -(currSize + 1); k <= currSize + 1; k++) {
-			if (g[i + k][j - currSize - 1] != g[i - k][j + currSize + 1]) return false;
-			if (g[i - currSize - 1][j + k] != g[i + currSize + 1][j - k]) return false;
+			if (g[i + k][j - currSize - 1] != g[i - k][j + currSize + 1])
+				return false;
+			if (g[i - currSize - 1][j + k] != g[i + currSize + 1][j - k])
+				return false;
 		}
 		return true;
 	}
@@ -164,4 +167,3 @@ public class COCI_2006_DEBUG {
 		return br.readLine().trim();
 	}
 }
-

@@ -14,7 +14,7 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 	static int[][] diameter, diameterIndex;
 	static ArrayList<ArrayList<Integer>> adj;
 	static int ans = 1 << 30;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,40 +22,39 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		path = new int[N][3];
 		pathIndex = new int[N][3];
 		diameter = new int[N][3];
 		diameterIndex = new int[N][3];
-		
+
 		adj = new ArrayList<ArrayList<Integer>>();
-		
+
 		for (int i = 0; i < N; i++) {
 			adj.add(new ArrayList<Integer>());
-			pathIndex[i][0] = pathIndex[i][1] = pathIndex[i][2] -1;
-			diameterIndex[i][0] = diameterIndex[i][1] = diameterIndex[i][2] -1;
+			pathIndex[i][0] = pathIndex[i][1] = pathIndex[i][2] - 1;
+			diameterIndex[i][0] = diameterIndex[i][1] = diameterIndex[i][2] - 1;
 		}
-		
+
 		for (int i = 0; i < N - 1; i++) {
 			int u = readInt() - 1;
 			int v = readInt() - 1;
 			adj.get(u).add(v);
 			adj.get(v).add(u);
 		}
-		
+
 		new Thread(null, new COCI_2008_KRTICA_2(), "Main", 1 << 25).start();
 	}
-
 
 	@Override
 	public void run () {
 		computeLongestPaths(0, -1);
-		solve(0, -1, - 1 << 30, - 1 << 30);
-			
+		solve(0, -1, -1 << 30, -1 << 30);
+
 		out.println(ans);
 		out.close();
 	}
-	
+
 	static void solve (int u, int p, int dist, int prevDiameter) {
 		int i, j;
 		for (int v : adj.get(u)) {
@@ -71,31 +70,30 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 				currDiameter = Math.max(currDiameter, prevDiameter);
 				currDiameter = Math.max(currDiameter, currDist + Math.max(0, dist));
 				i = maxIndex(diameter[u], diameterIndex[u], new HashSet<Integer>(Arrays.asList(v, u)));
-				
+
 				if (i != -1)
 					currDiameter = Math.max(currDiameter, diameter[u][i]);
-				
-				
+
 				int d1 = diameter[v][0];
 				int d2 = currDiameter;
 				ans = Math.min(ans, Math.max((d1 + 1) / 2 + (d2 + 1) / 2 + 1, Math.max(d1, d2)));
 				solve(v, u, Math.max(currDist, dist) + 1, d2);
-				
+
 			}
 		}
 	}
-	
+
 	static int maxIndex (int[] vals, int[] indexes, HashSet<Integer> exclude) {
 		for (int i = 0; i < 3; i++)
-			if (!exclude.contains(indexes[i])) 
+			if (!exclude.contains(indexes[i]))
 				return i;
 		return -1;
 	}
-	
+
 	static void computeLongestPaths (int u, int p) {
 		for (int v : adj.get(u)) {
 			if (v != p) {
-				computeLongestPaths(v, u);	
+				computeLongestPaths(v, u);
 				replace(path[u], pathIndex[u], path[v][0] + 1, v);
 			}
 		}
@@ -106,7 +104,7 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 			}
 		}
 	}
-	
+
 	static void replace (int[] vals, int[] indexes, int val, int index) {
 		if (val > vals[0]) {
 			vals[2] = vals[1];
@@ -125,7 +123,7 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 			indexes[2] = index;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -152,4 +150,3 @@ public class COCI_2008_KRTICA_2 implements Runnable {
 		return br.readLine().trim();
 	}
 }
-

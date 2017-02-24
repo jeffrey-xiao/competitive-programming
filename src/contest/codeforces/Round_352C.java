@@ -16,7 +16,7 @@ public class Round_352C {
 	static int[] sum, max, lazy;
 
 	// keep track of first two occ and last two
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,9 +25,9 @@ public class Round_352C {
 
 		N = readInt();
 
-		sum = new int[4*N];
-		lazy = new int[4*N];
-		max = new int[4*N];
+		sum = new int[4 * N];
+		lazy = new int[4 * N];
+		max = new int[4 * N];
 
 		val = new int[N + 1];
 		occ = new int[200001];
@@ -43,7 +43,7 @@ public class Round_352C {
 					divisors.get(j).add(i);
 					if (divisors.get(j).size() == 3)
 						divisors.get(j).pollFirst();
-					if (x/ j != j) {
+					if (x / j != j) {
 						divisors.get(x / j).add(i);
 						if (divisors.get(x / j).size() == 3)
 							divisors.get(x / j).pollFirst();
@@ -63,7 +63,7 @@ public class Round_352C {
 		}
 
 		int ans = 0;
-		
+
 		for (int i = 1; i <= N; i++) {
 			if (i != 1) {
 				occ[val[i - 1]]++;
@@ -73,7 +73,7 @@ public class Round_352C {
 					if (pos >= i) {
 						int lo = i;
 						int hi = pos;
-						
+
 						while (lo <= hi) {
 							int mid = (lo + hi) >> 1;
 							if (query(1, 1, N, mid, mid) > val[i - 1])
@@ -88,7 +88,7 @@ public class Round_352C {
 				} else {
 					int lo = i;
 					int hi = N;
-					
+
 					while (lo <= hi) {
 						int mid = (lo + hi) >> 1;
 						if (query(1, 1, N, mid, mid) > val[i - 1])
@@ -100,7 +100,7 @@ public class Round_352C {
 						update(1, 1, N, lo, N, val[i - 1]);
 				}
 			}
-			
+
 			ans += query(1, 1, N, i, N);
 			for (int j = 1; j <= N; j++)
 				System.out.printf("%d ", query(1, 1, N, j, j));
@@ -127,7 +127,7 @@ public class Round_352C {
 		else
 			return query(n << 1, l, mid, ql, mid) + query(n << 1 | 1, mid + 1, r, mid + 1, qr);
 	}
-	
+
 	static void update (int n, int l, int r, int ql, int qr, int val) {
 		if (l == ql && r == qr) {
 			max[n] = val;
@@ -135,7 +135,7 @@ public class Round_352C {
 			sum[n] = val * (r - l + 1);
 			return;
 		}
-		
+
 		int mid = (l + r) >> 1;
 		if (lazy[n] != 0) {
 			max[n << 1] = max[n << 1 | 1] = lazy[n];
@@ -143,7 +143,7 @@ public class Round_352C {
 			sum[n << 1 | 1] = lazy[n] * (r - (mid + 1) + 1);
 			lazy[n] = 0;
 		}
-		
+
 		if (qr <= mid)
 			update(n << 1, l, mid, ql, qr, val);
 		else if (ql > mid)
@@ -152,10 +152,10 @@ public class Round_352C {
 			update(n << 1, l, mid, ql, mid, val);
 			update(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
 		}
-		
+
 		sum[n] = sum[n << 1] + sum[n << 1 | 1];
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -182,4 +182,3 @@ public class Round_352C {
 		return br.readLine().trim();
 	}
 }
-

@@ -44,7 +44,7 @@ public class Arrangements {
 			free[i] = i;
 		for (int i = 0; i < k; i++) {
 			long cnt = permute(n - 1 - i, k - 1 - i);
-			int pos = (int) (x / cnt);
+			int pos = (int)(x / cnt);
 			x %= cnt;
 			ret[i] = free[pos];
 			for (int j = pos; j < n - 1; j++)

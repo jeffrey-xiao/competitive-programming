@@ -15,7 +15,7 @@ public class WOC_28_C {
 	static long[] pow = new long[200001];
 
 	static final int MOD = (int)(1e9 + 7);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,15 +23,15 @@ public class WOC_28_C {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		input = readLine().toCharArray();
-		
+
 		pow[0] = 1;
 		for (int i = 1; i <= 200000; i++)
 			pow[i] = (pow[i - 1] << 1) % MOD;
-		
+
 		long ans = 0;
-		
+
 		for (int i = N - 1; i >= 0; i--) {
 			int val = (input[i] - '0') % 8;
 			ans = (ans + dp[1][(8 - val * 100 % 8) % 8] * (pow[i])) % MOD;
@@ -45,7 +45,7 @@ public class WOC_28_C {
 		out.printf("%d\n", ans);
 		out.close();
 	}
-	
+
 	static long bruteforce () {
 		long ret = 0;
 		for (int i = 0; i < N; i++) {
@@ -92,4 +92,3 @@ public class WOC_28_C {
 		return br.readLine().trim();
 	}
 }
-

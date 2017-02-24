@@ -29,7 +29,7 @@ public class USACO_2011_Cow_Beauty_Pageant {
 		for (Point p1 : spot1)
 			for (Point p2 : spot2)
 				if (Math.abs(p1.getX() - p2.getX()) + Math.abs(p1.getY() - p2.getY()) < minDistance)
-					minDistance = (int) (Math.abs(p1.getX() - p2.getX()) + Math.abs(p1.getY() - p2.getY()));
+					minDistance = (int)(Math.abs(p1.getX() - p2.getX()) + Math.abs(p1.getY() - p2.getY()));
 		System.out.println(minDistance - 1);
 
 	}
@@ -37,7 +37,7 @@ public class USACO_2011_Cow_Beauty_Pageant {
 	private static void fillSpots (char[][] cow, int x, int y, int counter) {
 		if (x < 0 || x >= cow.length || y < 0 || y >= cow[0].length || cow[x][y] != 'X')
 			return;
-		cow[x][y] = (char) (counter + 48);
+		cow[x][y] = (char)(counter + 48);
 		fillSpots(cow, x + 1, y, counter);
 		fillSpots(cow, x - 1, y, counter);
 		fillSpots(cow, x, y + 1, counter);

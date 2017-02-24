@@ -14,6 +14,7 @@ public class DMOPC_2015_Black_And_White_II {
 	static int N, M, cnt, src, sink;
 	static char[][] g;
 	static boolean[] v;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -30,7 +31,7 @@ public class DMOPC_2015_Black_And_White_II {
 		e = new ArrayList<Edge>();
 
 		Arrays.fill(last, -1);
-		
+
 		for (int i = 0; i < N; i++)
 			g[i] = readLine().toCharArray();
 
@@ -46,12 +47,12 @@ public class DMOPC_2015_Black_And_White_II {
 					addEdge(getIn(i, j), getOut(i, j), 1, 0);
 			}
 		}
-		
+
 		for (int i = 0; i < N; i++) {
 			addEdge(src, getIn(i, 0), 1 << 30, 0);
 			addEdge(getOut(i, M - 1), sink, 1 << 30, 0);
 		}
-		
+
 		out.println(getFlow());
 
 		out.close();
@@ -60,7 +61,7 @@ public class DMOPC_2015_Black_And_White_II {
 	static int getIn (int r, int c) {
 		return (r * M + c) * 2 + 1;
 	}
-	
+
 	static int getOut (int r, int c) {
 		return (r * M + c) * 2 + 2;
 	}

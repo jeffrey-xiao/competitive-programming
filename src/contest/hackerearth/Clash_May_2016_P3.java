@@ -11,7 +11,7 @@ public class Clash_May_2016_P3 {
 
 	static int W, H;
 	static boolean[][] taken;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -21,7 +21,7 @@ public class Clash_May_2016_P3 {
 		W = readInt();
 		H = readInt();
 		taken = new boolean[W + 1][H + 1];
-		
+
 		if ((W == 1) ^ (H == 1))
 			out.println("NO");
 		else {
@@ -32,13 +32,13 @@ public class Clash_May_2016_P3 {
 			taken[1][H] = true;
 			out.printf("%d %d\n", 1, 1);
 			taken[1][1] = true;
-			
+
 			for (int i = 1; i <= W; i++)
 				for (int j = 1; j <= H; j++)
 					if (!taken[i][j])
 						out.printf("%d %d\n", i, j);
 		}
-		
+
 		out.close();
 	}
 
@@ -68,4 +68,3 @@ public class Clash_May_2016_P3 {
 		return br.readLine().trim();
 	}
 }
-

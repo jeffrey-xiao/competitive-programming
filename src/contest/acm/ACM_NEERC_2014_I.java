@@ -17,17 +17,17 @@ public class ACM_NEERC_2014_I {
 
 		int N = readInt();
 		int[] p = new int[N];
-		
+
 		for (int i = 0; i < N; i++)
 			p[i] = readInt();
-		
+
 		int ans = 1;
 		Arrays.sort(p);
 		for (int i = 0; i < N - 1 && p[i] <= p[N - 1]; i++) {
 			ans++;
 			p[N - 1] -= p[i];
 		}
-		
+
 		out.println(ans);
 		out.close();
 	}
@@ -58,4 +58,3 @@ public class ACM_NEERC_2014_I {
 		return br.readLine().trim();
 	}
 }
-

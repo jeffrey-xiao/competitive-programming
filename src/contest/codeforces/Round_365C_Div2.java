@@ -12,7 +12,7 @@ public class Round_365C_Div2 {
 	static double w, v, u;
 	static int n;
 	static double[] x, y;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,10 +23,10 @@ public class Round_365C_Div2 {
 		w = readDouble();
 		v = readDouble();
 		u = readDouble();
-		
+
 		x = new double[n];
 		y = new double[n];
-		
+
 		double slope = u / v;
 		boolean intersect = false;
 		double max = 0;
@@ -75,4 +75,3 @@ public class Round_365C_Div2 {
 		return br.readLine().trim();
 	}
 }
-

@@ -14,7 +14,7 @@ public class COCI_2009_SORT {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	public static void main (String[] args) throws IOException {
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 		int n = readInt();

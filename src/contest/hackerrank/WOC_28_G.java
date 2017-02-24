@@ -35,17 +35,17 @@ public class WOC_28_G {
 
 		for (int i = 0; i < M; i++)
 			dice[i] = readInt();
-		
+
 		for (int i = 0; i < N; i++)
 			prob[i] = getOccurrences(i, M);
-		
+
 		long[] state = new long[N];
 		Arrays.fill(state, divMod(1, N, MOD));
-		
+
 		for (int i = 0; i < K; i++) {
 			state = multiply(state, prob);
 		}
-		
+
 		for (int i = 0; i < N; i++)
 			out.println(state[i]);
 		System.out.println("PROB IS " + divMod(1, N, MOD));
@@ -60,7 +60,7 @@ public class WOC_28_G {
 		}
 		return ret;
 	}
-	
+
 	static long[] multiply (long[] state, long[][] transition) {
 		long[] ret = new long[N];
 		for (int j = 0; j < N; j++)
@@ -121,4 +121,3 @@ public class WOC_28_G {
 		return br.readLine().trim();
 	}
 }
-

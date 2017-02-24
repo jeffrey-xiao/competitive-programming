@@ -28,7 +28,7 @@ public class CCO_Prep_Subsets {
 
 		n = readInt();
 		row = new ArrayList<Integer>();
-		gln3 = (int) (Math.log(n) / Math.log(3)) + 1;
+		gln3 = (int)(Math.log(n) / Math.log(3)) + 1;
 		for (int i = 0; i < 1 << gln3; i++) {
 			boolean valid = true;
 			for (int j = 0; j < gln3 - 1; j++)
@@ -48,7 +48,7 @@ public class CCO_Prep_Subsets {
 	}
 
 	static int solve (int c) {
-		int ln2 = (int) (Math.log(n / c) / Math.log(2)) + 1;
+		int ln2 = (int)(Math.log(n / c) / Math.log(2)) + 1;
 		int[][] dp = new int[2][1 << gln3];
 		for (int i = 0; i < ln2; i++) {
 			dp[i % 2] = new int[1 << gln3];

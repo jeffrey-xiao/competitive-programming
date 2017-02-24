@@ -82,7 +82,7 @@ public class USACO_2011_Simplifying_The_Farm {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Edge) {
-				Edge e = (Edge) (o);
+				Edge e = (Edge)(o);
 				return source == e.source && dest == e.dest;
 			}
 			return false;

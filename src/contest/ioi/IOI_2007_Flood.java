@@ -20,7 +20,7 @@ public class IOI_2007_Flood {
 	static Point[] p;
 	static int[] sum;
 	static Edge[][] map; // 0 = north, 1 = east, 2 = south, 3 = west
-	static int[][] dir = { {1, 0, 3, 2}, {2, 1, 0, 3}, {3, 2, 1, 0}, {0, 3, 2, 1}};
+	static int[][] dir = {{1, 0, 3, 2}, {2, 1, 0, 3}, {3, 2, 1, 0}, {0, 3, 2, 1}};
 	static TreeSet<Point> active = new TreeSet<Point>();
 
 	public static void main (String[] args) throws IOException {
@@ -135,7 +135,7 @@ public class IOI_2007_Flood {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point) o;
+				Point p = (Point)o;
 				return p.x == x && p.y == y;
 			}
 			return false;

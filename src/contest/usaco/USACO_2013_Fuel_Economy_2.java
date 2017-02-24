@@ -42,7 +42,7 @@ public class USACO_2013_Fuel_Economy_2 {
 			}
 			int needed = Math.min(maxGas, (nextSmall[x] == -1 ? end : stations[nextSmall[x]].pos) - stations[x].pos);
 			if (needed > curr) {
-				cost += (long) (needed - curr) * (long) stations[x].cost;
+				cost += (long)(needed - curr) * (long)stations[x].cost;
 				curr = needed;
 			}
 			curr -= (x == n - 1 ? end : stations[x + 1].pos) - stations[x].pos;

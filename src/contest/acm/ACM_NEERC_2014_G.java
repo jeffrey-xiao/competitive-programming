@@ -11,7 +11,7 @@ public class ACM_NEERC_2014_G {
 
 	static int[] val;
 	static int N, K;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -27,7 +27,7 @@ public class ACM_NEERC_2014_G {
 			val[i] = readInt();
 			min = Math.min(min, val[i]);
 		}
-		
+
 		int total = 0;
 		for (int i = 1; i < K; i++) {
 			total += val[i];
@@ -57,7 +57,7 @@ public class ACM_NEERC_2014_G {
 		out.println();
 		out.close();
 	}
-		
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -84,4 +84,3 @@ public class ACM_NEERC_2014_G {
 		return br.readLine().trim();
 	}
 }
-

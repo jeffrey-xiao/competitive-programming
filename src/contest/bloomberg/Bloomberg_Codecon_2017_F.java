@@ -11,6 +11,7 @@ public class Bloomberg_Codecon_2017_F {
 
 	static int N, M;
 	static int[][] places;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,16 +20,16 @@ public class Bloomberg_Codecon_2017_F {
 
 		N = readInt();
 		M = readInt();
-		
+
 		places = new int[N][];
-		
+
 		for (int i = 0; i < N; i++) {
 			int K = readInt();
 			places[i] = new int[K];
 			for (int j = 0; j < K; j++)
 				places[i][j] = readInt();
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;
@@ -54,26 +55,30 @@ public class Bloomberg_Codecon_2017_F {
 				currA = places[a][i];
 				currB = currB < places[b][j + 1] ? currB + timeDiff1 : currB - timeDiff1;
 				boolean after = currA < currB;
-				if (before != after) ans++;
+				if (before != after)
+					ans++;
 			} else if (timeDiff1 > timeDiff2) {
 				j++;
 				boolean before = currA < currB;
 				currA = currA < places[a][i + 1] ? currA + timeDiff2 : currA - timeDiff2;
 				currB = places[b][j];
 				boolean after = currA < currB;
-				if (before != after) ans++;
+				if (before != after)
+					ans++;
 			} else {
-				i++; j++;
+				i++;
+				j++;
 				boolean before = currA < currB;
 				currA = places[a][i];
 				currB = places[b][j];
 				boolean after = currA < currB;
-				if (before != after) ans++;
+				if (before != after)
+					ans++;
 			}
 		}
 		return ans;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -100,4 +105,3 @@ public class Bloomberg_Codecon_2017_F {
 		return br.readLine().trim();
 	}
 }
-

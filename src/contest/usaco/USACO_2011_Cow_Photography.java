@@ -58,7 +58,7 @@ public class USACO_2011_Cow_Photography {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Photo) {
-				Photo p = (Photo) o;
+				Photo p = (Photo)o;
 				return cowValue == p.cowValue && id == p.id;
 			}
 			return false;

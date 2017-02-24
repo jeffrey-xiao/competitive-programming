@@ -11,6 +11,7 @@ public class Bloomberg_Codecon_2017_B {
 
 	static int N;
 	static Card[][] c;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,13 +19,13 @@ public class Bloomberg_Codecon_2017_B {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		c = new Card[N][5];
 		String[] input = new String[17];
 		for (int i = 0; i < 17; i++)
 			input[i] = next();
 		ArrayList<Integer> winners = new ArrayList<Integer>();
-		int score = - 1 << 30;
+		int score = -1 << 30;
 		for (int i = 0; i < N; i++) {
 			int jokerIndex = -1;
 			for (int j = 0; j < 5; j++) {
@@ -48,7 +49,6 @@ public class Bloomberg_Codecon_2017_B {
 			} else {
 				max = getPoints(c[i]);
 			}
-			
 
 			if (max > score) {
 				score = max;
@@ -78,17 +78,21 @@ public class Bloomberg_Codecon_2017_B {
 			maxValue += i * occValue[i] * occValue[i];
 		return maxValue * maxOcc;
 	}
-	
+
 	static int getSuit (char c) {
 		switch (c) {
-			case 'h': return 0;
-			case 'd': return 1;
-			case 's': return 2;
-			case 'c': return 3;
+			case 'h':
+				return 0;
+			case 'd':
+				return 1;
+			case 's':
+				return 2;
+			case 'c':
+				return 3;
 		}
 		return -1;
 	}
-	
+
 	static int getValue (char c) {
 		switch (c) {
 			case 'J':
@@ -102,15 +106,16 @@ public class Bloomberg_Codecon_2017_B {
 		}
 		return -1;
 	}
-	
+
 	static class Card {
 		int value, suit;
+
 		Card (int value, int suit) {
 			this.value = value;
 			this.suit = suit;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -137,4 +142,3 @@ public class Bloomberg_Codecon_2017_B {
 		return br.readLine().trim();
 	}
 }
-

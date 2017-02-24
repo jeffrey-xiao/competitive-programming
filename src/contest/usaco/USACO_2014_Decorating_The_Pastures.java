@@ -38,7 +38,7 @@ public class USACO_2014_Decorating_The_Pastures {
 				if (vertices[curr[0]] != 0)
 					continue;
 
-				byte opp = (byte) (curr[1] == -1 ? 1 : -1);
+				byte opp = (byte)(curr[1] == -1 ? 1 : -1);
 				vertices[curr[0]] = opp;
 				if (opp == 1)
 					count1++;

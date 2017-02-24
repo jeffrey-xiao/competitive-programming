@@ -34,16 +34,16 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 		g = new char[r][c];
 		in = new int[r][c][4];
 		car = new boolean[r][c][4];
-		
+
 		for (int i = 0; i < r; i++)
 			g[i] = next().toCharArray();
-		
+
 		for (int i = 0; i < r; i++)
 			for (int j = 0; j < c; j++) {
 				for (int z = 0; z < 4; z++)
 					if (0 <= i + movex[z] && i + movex[z] < r && 0 <= j + movey[z] && j + movey[z] < c)
 						in[i][j][z]++;
-				
+
 				if (g[i][j] != '.') {
 					int currDir = dir.indexOf(g[i][j]);
 					for (int z = 0; z < 4; z++)
@@ -58,7 +58,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 				for (int k = 0; k < 4; k++)
 					if (in[i][j][k] == 0)
 						q.offer(new State(i, j, k));
-		
+
 		while (!q.isEmpty()) {
 			State curr = q.poll();
 			if (car[curr.r][curr.c][curr.d]) {
@@ -70,7 +70,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 							q.offer(new State(curr.r, curr.c, z));
 					}
 			}
-			
+
 			// depends on direction
 			int nr = curr.r + movex[(curr.d + 2) % 4];
 			int nc = curr.c + movey[(curr.d + 2) % 4];
@@ -80,7 +80,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
 					q.offer(new State(nr, nc, curr.d));
 			}
 		}
-		
+
 		out.close();
 	}
 

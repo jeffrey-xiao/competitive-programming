@@ -1,4 +1,5 @@
 package contest.ecoo;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +24,7 @@ public class ECOO_2016_R1_P1 {
 			int wa = readInt();
 			int wp = readInt();
 			int wq = readInt();
-			
+
 			int N = readInt();
 			int ans = 0;
 			for (int i = 0; i < N; i++) {
@@ -36,7 +37,6 @@ public class ECOO_2016_R1_P1 {
 			}
 			out.println(ans);
 		}
-
 
 		out.close();
 	}

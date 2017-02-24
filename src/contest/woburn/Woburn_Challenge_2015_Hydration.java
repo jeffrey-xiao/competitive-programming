@@ -10,9 +10,9 @@ public class Woburn_Challenge_2015_Hydration {
 	static StringTokenizer st;
 
 	static int N, M, K;
-	
+
 	static int[] cows, troughs;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,22 +22,22 @@ public class Woburn_Challenge_2015_Hydration {
 		N = readInt();
 		M = readInt();
 		K = readInt();
-		
+
 		cows = new int[N];
 		troughs = new int[M];
-		
+
 		for (int i = 0; i < N; i++)
 			cows[i] = readInt();
-		
+
 		for (int j = 0; j < M; j++)
 			troughs[j] = readInt();
-		
+
 		Arrays.sort(cows);
 		Arrays.sort(troughs);
-		
+
 		int lo = 1;
 		int hi = N;
-		
+
 		while (lo <= hi) {
 			int mid = (lo + hi) >> 1;
 			if (isPossible(mid)) {
@@ -64,7 +64,7 @@ public class Woburn_Challenge_2015_Hydration {
 		}
 		return true;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -91,4 +91,3 @@ public class Woburn_Challenge_2015_Hydration {
 		return br.readLine().trim();
 	}
 }
-

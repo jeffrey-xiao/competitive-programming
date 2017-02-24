@@ -46,10 +46,10 @@ public class Perl_Golf {
 					prev2 += "\\'";
 				else
 					prev2 += dp[val].charAt(1);
-				
+
 			} else {
 				if (prev1.length() != 0) {
-					out.print(".(\'"+prev1+"\'^\'"+prev2+"\')");
+					out.print(".(\'" + prev1 + "\'^\'" + prev2 + "\')");
 					prev1 = "";
 					prev2 = "";
 				}
@@ -60,7 +60,7 @@ public class Perl_Golf {
 					if (dp[val].charAt(j) == '\'')
 						res += "'\\''^";
 					else
-						res += "'"+dp[val].charAt(j)+"'^";
+						res += "'" + dp[val].charAt(j) + "'^";
 				}
 				res = res.substring(0, res.length() - 1);
 				res += ")";
@@ -70,13 +70,14 @@ public class Perl_Golf {
 			}
 		}
 		if (prev1.length() != 0) {
-			out.print(".(\'"+prev1+"\'^\'"+prev2+"\')");
+			out.print(".(\'" + prev1 + "\'^\'" + prev2 + "\')");
 			prev1 = "";
 			prev2 = "";
 		}
 		out.print(".\"'})\")");
 		out.close();
 	}
+
 	static char get (char c) {
 		return (char)(c + c);
 	}
@@ -103,4 +104,3 @@ public class Perl_Golf {
 		return br.readLine().trim();
 	}
 }
-

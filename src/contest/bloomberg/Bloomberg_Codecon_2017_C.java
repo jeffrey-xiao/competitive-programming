@@ -12,6 +12,7 @@ public class Bloomberg_Codecon_2017_C {
 	static int N;
 	static Pokemon[] opp, team;
 	static int max = 0;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,10 +20,10 @@ public class Bloomberg_Codecon_2017_C {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		opp = new Pokemon[N];
 		team = new Pokemon[N];
-		
+
 		for (int i = 0; i < N; i++) {
 			next();
 			team[i] = new Pokemon(readDouble(), readDouble(), readDouble());
@@ -49,18 +50,18 @@ public class Bloomberg_Codecon_2017_C {
 			if (hp1 <= 0.0) {
 				i++;
 				if (i < N) {
-				hp1 = opp[i].health;
+					hp1 = opp[i].health;
 				}
 			}
 			if (hp2 <= 0.0) {
 				j++;
 				if (j < N)
-				hp2 = team[j].health;
+					hp2 = team[j].health;
 			}
 		}
 		return N - j;
 	}
-	
+
 	static void permute (int i) {
 		if (i == N) {
 			max = Math.max(max, simulate());
@@ -72,22 +73,23 @@ public class Bloomberg_Codecon_2017_C {
 			swap(i, j);
 		}
 	}
-	
+
 	static void swap (int i, int j) {
 		Pokemon temp = team[i];
 		team[i] = team[j];
 		team[j] = temp;
 	}
-	
+
 	static class Pokemon {
 		double health, attack, defence;
+
 		Pokemon (double health, double attack, double defence) {
 			this.health = health;
 			this.attack = attack;
 			this.defence = defence;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -114,4 +116,3 @@ public class Bloomberg_Codecon_2017_C {
 		return br.readLine().trim();
 	}
 }
-

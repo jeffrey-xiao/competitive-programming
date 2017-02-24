@@ -15,7 +15,7 @@ public class COCI_2014_ACM {
 	static StringTokenizer st;
 
 	static int[][] a;
-	static int[][] p = { {0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 1, 0}, {2, 0, 1}};
+	static int[][] p = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 1, 0}, {2, 0, 1}};
 	static int[][] dp;
 	static int n;
 

@@ -41,7 +41,7 @@ public class USACO_2013_Island_Travels {
 		for (int x = 0; x < count; x++) {
 			bfs(x);
 		}
-		int size = (int) (Math.pow(2, count));
+		int size = (int)(Math.pow(2, count));
 		dp = new int[count][size];
 		for (int y = 0; y < count; y++)
 			for (int x = 0; x < size; x++)
@@ -126,7 +126,7 @@ public class USACO_2013_Island_Travels {
 	}
 
 	private static void fill (int x, int y, int id) {
-		grid[x][y] = (char) id;
+		grid[x][y] = (char)id;
 		for (int z = 0; z < 4; z++) {
 			int nx = x + movex[z];
 			int ny = y + movey[z];

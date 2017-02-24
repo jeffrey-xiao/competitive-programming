@@ -10,12 +10,11 @@ public class COCI_2015_TOPOVI {
 	static StringTokenizer st;
 
 	static int N, K, P;
-	static HashMap<Integer, Integer> rowVal = new HashMap<Integer, Integer>(),
-			colVal = new HashMap<Integer, Integer>();
-	static HashMap<Integer, Long> rowOcc = new HashMap<Integer, Long>(),
-			colOcc = new HashMap<Integer, Long>();
+	static HashMap<Integer, Integer> rowVal = new HashMap<Integer, Integer>(), colVal = new HashMap<Integer, Integer>();
+	static HashMap<Integer, Long> rowOcc = new HashMap<Integer, Long>(), colOcc = new HashMap<Integer, Long>();
 	static HashMap<Point, Integer> toValue = new HashMap<Point, Integer>();
 	static long rowTotal = 0, colTotal = 0;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -193,29 +192,36 @@ public class COCI_2015_TOPOVI {
 				occ.put(newVal, 0L);
 			occ.put(newVal, occ.get(newVal) + 1);
 
-			if (isCol) colTotal++;
-			else rowTotal++;
+			if (isCol)
+				colTotal++;
+			else
+				rowTotal++;
 		}
 		if (oldVal != 0) {
 			occ.put(oldVal, occ.get(oldVal) - 1);
 			if (occ.get(oldVal) == 0)
 				occ.remove(oldVal);
 
-			if (isCol) colTotal--;
-			else rowTotal--;
+			if (isCol)
+				colTotal--;
+			else
+				rowTotal--;
 		}
 	}
 
 	static class Point {
 		int r, c;
+
 		Point (int r, int c) {
 			this.r = r;
 			this.c = c;
 		}
+
 		@Override
 		public int hashCode () {
 			return r * 31 + c;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
@@ -252,4 +258,3 @@ public class COCI_2015_TOPOVI {
 		return br.readLine().trim();
 	}
 }
-

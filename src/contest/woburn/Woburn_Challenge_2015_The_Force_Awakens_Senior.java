@@ -80,8 +80,6 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Senior {
 					j++;
 			}
 
-			//assert(times.size() == 2 || times.size() == 0);
-
 			if (times.size() == 2) {
 				for (int j = 0; j < times.size(); j++) {
 					if (j == 0)

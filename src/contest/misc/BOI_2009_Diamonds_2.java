@@ -13,7 +13,7 @@ public class BOI_2009_Diamonds_2 {
 	static PrintStream pr = new PrintStream(System.out);
 	static int L, M, N;
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	public static void main (String[] args) throws IOException {
 		L = readInt();
 		M = readInt();

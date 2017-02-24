@@ -17,7 +17,7 @@ public class New_Year_2017_Christmas_Cozonac {
 
 		int N = readInt();
 		HashMap<ArrayList<String>, String> recipes = new HashMap<ArrayList<String>, String>();
-		
+
 		for (int i = 0; i < N; i++) {
 			String in = readLine().replaceAll("[()\\s]", "");
 			ArrayList<String> tokens = tokenize(in, '=');
@@ -26,12 +26,12 @@ public class New_Year_2017_Christmas_Cozonac {
 			Collections.sort(ingredients);
 			recipes.put(ingredients, result);
 		}
-		
+
 		int M = readInt();
 		for (int i = 0; i < M; i++) {
 			ArrayList<String> in = tokenize(readLine().replaceAll("\\+", " "), ' ');
 			Stack<String> s = new Stack<String>();
-			
+
 			for (int j = 0; j < in.size(); j++) {
 				if (in.get(j).equals(""))
 					continue;
@@ -53,17 +53,17 @@ public class New_Year_2017_Christmas_Cozonac {
 
 	static ArrayList<String> tokenize (String s, char delimiter) {
 		ArrayList<String> list = new ArrayList<String>();
-        int pos = 0, end;
-        while ((end = s.indexOf(delimiter, pos)) >= 0) {
-            list.add(s.substring(pos, end));
-            pos = end + 1;
-        }
-        if (pos < s.length()) {
-        	list.add(s.substring(pos, s.length()));
-        }
-        return list;
+		int pos = 0, end;
+		while ((end = s.indexOf(delimiter, pos)) >= 0) {
+			list.add(s.substring(pos, end));
+			pos = end + 1;
+		}
+		if (pos < s.length()) {
+			list.add(s.substring(pos, s.length()));
+		}
+		return list;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -90,4 +90,3 @@ public class New_Year_2017_Christmas_Cozonac {
 		return br.readLine().trim();
 	}
 }
-

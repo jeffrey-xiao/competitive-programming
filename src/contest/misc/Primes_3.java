@@ -15,7 +15,7 @@ public class Primes_3 {
 
 	public static boolean isPrime (long n, int k) {
 		while (k > 0) {
-			long x = (long) (Math.random() * (n - 2) + 1);
+			long x = (long)(Math.random() * (n - 2) + 1);
 			BigInteger b = new BigInteger(Long.toString(x)).modPow(new BigInteger(Long.toString(n - 1)), new BigInteger(Long.toString(n)));
 			if (!b.toString().equals("1"))
 				return false;

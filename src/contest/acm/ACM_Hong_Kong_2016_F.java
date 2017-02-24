@@ -13,8 +13,8 @@ public class ACM_Hong_Kong_2016_F {
 	static int[] man, woman;
 	static int[] total, diff;
 	static int res = 0;
-	
-	public static void main (String[] args) throws IOException	 {
+
+	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
@@ -23,31 +23,30 @@ public class ACM_Hong_Kong_2016_F {
 		N = readInt();
 		M = readInt();
 		K = readInt();
-		
+
 		total = new int[K];
 		diff = new int[K];
 		man = new int[N + 1];
 		woman = new int[N + 1];
-		
-		sz = (int) Math.sqrt(N);
-		
+
+		sz = (int)Math.sqrt(N);
+
 		for (int i = 1; i <= N; i++)
 			man[i] = readInt();
-		
+
 		for (int i = 1; i <= N; i++)
 			woman[i] = readInt();
-		
+
 		ArrayList<Query> q = new ArrayList<Query>();
-		
-		
+
 		int[] ans = new int[M];
-		
+
 		for (int i = 0; i < M; i++) {
 			int l = readInt() + 1;
 			int r = readInt() + 1;
 			q.add(new Query(l, r, i));
 		}
-		
+
 		Collections.sort(q);
 		int l = 1, r = 0;
 		for (Query query : q) {
@@ -72,7 +71,7 @@ public class ACM_Hong_Kong_2016_F {
 
 		for (int i = 0; i < M; i++)
 			out.println(ans[i]);
-		
+
 		out.close();
 	}
 
@@ -84,17 +83,17 @@ public class ACM_Hong_Kong_2016_F {
 			res--;
 		diff[woman[i]]++;
 	}
-	
+
 	static void update (int i) {
 		if (diff[man[i]] <= -1)
 			res++;
 		diff[man[i]]++;
-		
+
 		if (diff[woman[i]] >= 1)
 			res++;
 		diff[woman[i]]--;
 	}
-	
+
 	static class Query implements Comparable<Query> {
 		int l, r, index;
 
@@ -111,7 +110,7 @@ public class ACM_Hong_Kong_2016_F {
 			return r - o.r;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -42,7 +42,7 @@ public class MaxFlowDinic {
 		e = new Edge[2 * M];
 
 		Arrays.fill(last, -1);
-		
+
 		for (int i = 0; i < M; i++) {
 			int a = readInt() - 1;
 			int b = readInt() - 1;

@@ -38,28 +38,28 @@ public class UTS_Open_P2_Generation {
 			map2[y] = a - 'a';
 		}
 		for (int y = 0; y < x; y++) {
-			int ran = (int) (Math.random() * 2);
+			int ran = (int)(Math.random() * 2);
 			if (ran == 0)
-				ps.println((char) (map1[y] + 'a') + " " + (char) (map2[y] + 'a'));
+				ps.println((char)(map1[y] + 'a') + " " + (char)(map2[y] + 'a'));
 			else
-				ps.println((char) (map2[y] + 'a') + " " + (char) (map1[y] + 'a'));
+				ps.println((char)(map2[y] + 'a') + " " + (char)(map1[y] + 'a'));
 		}
 		int q = Integer.parseInt(args[1]);
 		ps.println(q);
 		int bound = Integer.parseInt(args[2]);
 		for (int y = 0; y < q; y++) {
-			int r = (int) (Math.random() * bound) + 1;
+			int r = (int)(Math.random() * bound) + 1;
 			String in = getString(x, r);
 			String out = getString(x, r);
 			while (repeat.contains(in + out)) {
 				in = getString(x, r);
 				out = getString(x, r);
 			}
-			int ran = (int) (Math.random() * 3);
+			int ran = (int)(Math.random() * 3);
 			if (ran == 0) {
 				out = "";
 				for (int z = 0; z < in.length(); z++) {
-					out += (char) (map1[in.charAt(z) - 'a'] + 'a');
+					out += (char)(map1[in.charAt(z) - 'a'] + 'a');
 				}
 			}
 			ps.println(in + " " + out);
@@ -75,7 +75,7 @@ public class UTS_Open_P2_Generation {
 	}
 
 	private static char getChar (int x) {
-		return alpha.charAt((int) (Math.random() * x));
+		return alpha.charAt((int)(Math.random() * x));
 	}
 
 	static String next () throws IOException {

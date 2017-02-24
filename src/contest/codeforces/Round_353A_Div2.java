@@ -10,7 +10,7 @@ public class Round_353A_Div2 {
 	static StringTokenizer st;
 
 	static long A, B, C;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -30,7 +30,7 @@ public class Round_353A_Div2 {
 		} else {
 			out.println("NO");
 		}
-		
+
 		out.close();
 	}
 
@@ -60,4 +60,3 @@ public class Round_353A_Div2 {
 		return br.readLine().trim();
 	}
 }
-

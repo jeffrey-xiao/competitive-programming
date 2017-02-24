@@ -25,6 +25,7 @@ public class CCC_2007_Stage_2_Gerrymandering {
 		for (int i = 0; i < ridings; i++)
 			for (int j = 0; j < parties; j++)
 				input[i][j] = readInt();
+
 		// at position i, how many ridings can you win if you merge j times;
 		int[][] dp = new int[ridings][ridings];
 		for (int i = 0; i < ridings; i++) {
@@ -35,6 +36,7 @@ public class CCC_2007_Stage_2_Gerrymandering {
 			if (greater)
 				dp[i][0] = 1;
 		}
+
 		for (int i = 1; i < ridings; i++) {
 			int[] sum = new int[parties];
 			for (int j = i; j >= 0; j--) {

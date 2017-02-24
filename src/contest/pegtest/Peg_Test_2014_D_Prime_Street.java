@@ -27,7 +27,7 @@ public class Peg_Test_2014_D_Prime_Street {
 				primes[primeCounter] = x + primes[primeCounter - 1];
 				primeCounter++;
 				for (long y = x; y < K; y += x)
-					sieve[(int) y] = true;
+					sieve[(int)y] = true;
 			} else if (sieve[x] && compoCounter <= 110000) {
 				compos[compoCounter] = x + compos[compoCounter - 1];
 				compoCounter++;

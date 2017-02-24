@@ -1,4 +1,5 @@
 package contest.acm;
+
 import java.util.*;
 import java.io.*;
 
@@ -15,7 +16,7 @@ public class ACM_NAQ_2016_E {
 	static int[] pair, dist;
 
 	static final int NULL = 0;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,18 +24,18 @@ public class ACM_NAQ_2016_E {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		leftSize = ((N - 1) * (N - 1) + 1) / 2;
 		rightSize = (N - 1) * (N - 1) / 2;
-		
+
 		for (int i = 0; i < leftSize + rightSize + 1; i++)
 			adj.add(new ArrayList<Integer>());
-		
+
 		int free = 0;
-		
+
 		for (int i = 0; i < 2 * N - 1; i++) {
 			char[] input = readLine().toCharArray();
-			
+
 			if (i % 2 == 0) {
 				for (int j = 1; j < 2 * N - 1; j += 2) {
 					if (input[j] == '.') {
@@ -43,7 +44,7 @@ public class ACM_NAQ_2016_E {
 						int r2 = i / 2;
 						int c1 = j / 2;
 						int c2 = j / 2;
-						
+
 						if (r1 < 0 || r2 >= N - 1)
 							continue;
 
@@ -63,7 +64,7 @@ public class ACM_NAQ_2016_E {
 						int r2 = i / 2;
 						int c1 = j / 2 - 1;
 						int c2 = j / 2;
-						
+
 						if (c1 < 0 || c2 >= N - 1)
 							continue;
 
@@ -77,12 +78,12 @@ public class ACM_NAQ_2016_E {
 				}
 			}
 		}
-		
+
 		int matched = getMaxMatching();
 		out.println(free - matched - ((N - 1) * (N - 1) - matched * 2) + 1);
 		out.close();
 	}
-	
+
 	static int getMaxMatching () {
 		pair = new int[leftSize + rightSize + 1];
 		dist = new int[leftSize + rightSize + 1];
@@ -134,7 +135,7 @@ public class ACM_NAQ_2016_E {
 		dist[i] = 1 << 30;
 		return false;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -183,25 +183,25 @@ public class TreapSimple {
 		long c = System.currentTimeMillis();
 		TreeSet<Integer> hs = new TreeSet<Integer>();
 		for (int x = 0; x < 1000000; x++) {
-			int ran = (int) (Math.random() * (100000)) + 5;
+			int ran = (int)(Math.random() * (100000)) + 5;
 			hs.add(ran);
 			t.add(ran);
 		}
 		System.out.println(hs.size());
-//		for (Integer i : hs)
-//			System.out.print(i + " ");
-//		System.out.println();
-//		t.traverse(t.root);
-//		System.out.println();
+		//		for (Integer i : hs)
+		//			System.out.print(i + " ");
+		//		System.out.println();
+		//		t.traverse(t.root);
+		//		System.out.println();
 		t.add(1);
-		assert (t.contains(t.root, 1));
-		assert (!t.contains(t.root, 2));
+		assert t.contains(t.root, 1);
+		assert !t.contains(t.root, 2);
 		t.remove(1);
-		assert (!t.contains(t.root, 1));
+		assert !t.contains(t.root, 1);
 		System.out.println(System.currentTimeMillis() - c);
 		for (Integer i : hs) {
 			t.remove(i);
-			assert (!t.contains(t.root, i));
+			assert !t.contains(t.root, i);
 		}
 		System.out.println("SUCCESS");
 	}

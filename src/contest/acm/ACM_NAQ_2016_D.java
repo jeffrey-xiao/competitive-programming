@@ -1,4 +1,5 @@
 package contest.acm;
+
 import java.util.*;
 import java.io.*;
 
@@ -17,7 +18,7 @@ public class ACM_NAQ_2016_D {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-		
+
 		in = readLine().toCharArray();
 		N = in.length;
 

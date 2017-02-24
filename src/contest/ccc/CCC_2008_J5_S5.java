@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class CCC_2008_J5_S5 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static int[][] moves = new int[][] { {2, 1, 0, 2}, {1, 1, 1, 1}, {0, 0, 2, 1}, {0, 3, 0, 0}, {1, 0, 0, 1}};
+	static int[][] moves = new int[][] {{2, 1, 0, 2}, {1, 1, 1, 1}, {0, 0, 2, 1}, {0, 3, 0, 0}, {1, 0, 0, 1}};
 
 	public static void main (String[] args) throws IOException {
 		for (int testCases = readInt(); testCases > 0; testCases--) {

@@ -11,6 +11,7 @@ public class Bloomberg_Qualifier_2017_F {
 
 	static int R, C;
 	static boolean[][] g;
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,14 +20,14 @@ public class Bloomberg_Qualifier_2017_F {
 
 		R = readInt();
 		C = readInt();
-		
+
 		g = new boolean[R][C];
-		
+
 		int M = readInt();
-		
+
 		for (int i = 0; i < M; i++)
 			g[readInt()][readInt()] = true;
-		
+
 		LinkedList<Point> l = new LinkedList<Point>();
 		l.add(new Point(0, 0));
 		int N = readInt();
@@ -66,12 +67,13 @@ public class Bloomberg_Qualifier_2017_F {
 
 	static class Point {
 		int r, c;
+
 		Point (int r, int c) {
 			this.r = r;
 			this.c = c;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -98,4 +100,3 @@ public class Bloomberg_Qualifier_2017_F {
 		return br.readLine().trim();
 	}
 }
-

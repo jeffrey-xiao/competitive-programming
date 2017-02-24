@@ -18,9 +18,9 @@ public class Cyclopian_Cash {
 			nums[x] = readInt();
 		Arrays.sort(nums);
 		if (n % 2 == 1)
-			System.out.printf("%.1f\n", (float) nums[n / 2]);
+			System.out.printf("%.1f\n", (float)nums[n / 2]);
 		else
-			System.out.printf("%.1f\n", ((double) nums[n / 2] + nums[n / 2 - 1]) / 2);
+			System.out.printf("%.1f\n", ((double)nums[n / 2] + nums[n / 2 - 1]) / 2);
 	}
 
 	static String next () throws IOException {

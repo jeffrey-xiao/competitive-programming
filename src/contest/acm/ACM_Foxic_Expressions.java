@@ -10,12 +10,12 @@ public class ACM_Foxic_Expressions {
 	static StringTokenizer st;
 
 	static int T, N, M;
-	static String S; 
+	static String S;
 	static String E;
 	static boolean[][] dp;
-	
+
 	static String fox = "FOXn";
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,13 +23,13 @@ public class ACM_Foxic_Expressions {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 0; t < T; t++) {
 			N = readInt();
 			S = " " + next();
 			M = readInt();
 			E = next();
-			
+
 			boolean valid = false;
 			for (int i = 0; i <= M; i++) {
 				// removing
@@ -41,7 +41,7 @@ public class ACM_Foxic_Expressions {
 					// modifying
 					if (i < M)
 						valid |= isValid(S, E.substring(0, i) + fox.charAt(j) + E.substring(i + 1, E.length()));
-				} 
+				}
 			}
 			valid |= isValid(S, E);
 			out.println(valid ? "Yes" : "No");
@@ -63,16 +63,16 @@ public class ACM_Foxic_Expressions {
 				for (int k = j - 1; k <= N; k++) {
 					boolean valid = false;
 					String currStr = S.substring(j, k + 1);
-					
+
 					valid |= checkEqual(currStr, curr[i], i == M && s2.charAt(s2.length() - 1) != 'n');
-					
+
 					dp[i][k] |= valid;
 				}
 			}
 		}
 		return dp[M][N];
 	}
-	
+
 	static boolean validExpression (String s) {
 		if (s.length() == 0)
 			return false;
@@ -81,7 +81,7 @@ public class ACM_Foxic_Expressions {
 				return false;
 		return !(s.charAt(0) == 'n');
 	}
-	
+
 	static boolean checkEqual (String s1, String s2, boolean exact) {
 		if (exact)
 			return s1.equals(s2);
@@ -97,7 +97,7 @@ public class ACM_Foxic_Expressions {
 				return false;
 		return true;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -124,4 +124,3 @@ public class ACM_Foxic_Expressions {
 		return br.readLine().trim();
 	}
 }
-

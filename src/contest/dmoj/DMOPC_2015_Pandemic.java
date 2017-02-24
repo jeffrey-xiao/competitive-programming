@@ -10,7 +10,7 @@ public class DMOPC_2015_Pandemic {
 	static StringTokenizer st;
 
 	static long N, K, D;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,16 +20,16 @@ public class DMOPC_2015_Pandemic {
 		N = readLong();
 		K = readLong();
 		D = readLong();
-		
+
 		long res = 0;
-		
+
 		while (N > 0 && D > 0) {
 			res += N % K;
 			N /= K;
 			D--;
 		}
 		res += N;
-		
+
 		out.println(res);
 		out.close();
 	}
@@ -60,4 +60,3 @@ public class DMOPC_2015_Pandemic {
 		return br.readLine().trim();
 	}
 }
-

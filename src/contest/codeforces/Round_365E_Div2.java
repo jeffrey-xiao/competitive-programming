@@ -1,4 +1,5 @@
 package contest.codeforces;
+
 import java.util.*;
 import java.io.*;
 
@@ -13,7 +14,7 @@ public class Round_365E_Div2 {
 	static ArrayList<Long> factors;
 	static long[] val;
 	static State[][] dp;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,31 +23,31 @@ public class Round_365E_Div2 {
 
 		N = readInt();
 		K = readLong();
-		
+
 		val = new long[N + 1];
 		factors = new ArrayList<Long>();
-		
+
 		int min = 1;
 		for (int i = 1; i <= N; i++) {
 			val[i] = readLong();
 			if (val[i] < val[min])
 				min = i;
 		}
-		
+
 		if (K == 1) {
 			out.println(1);
 			out.println(min);
 			out.close();
 			return;
 		}
-		
+
 		ArrayList<Factor> f = factor(K);
 		fillFactors(f, 0, 1);
 
 		Collections.sort(factors);
 
 		dp = new State[N + 1][factors.size()];
-		
+
 		for (int i = 0; i <= N; i++)
 			for (int j = 0; j < factors.size(); j++)
 				dp[i][j] = new State(1 << 30, -1, 1 << 30);
@@ -55,15 +56,15 @@ public class Round_365E_Div2 {
 		int[][] valPowers = new int[N + 1][f.size()];
 		int[][] factorPowers = new int[factors.size()][f.size()];
 		long[][] powers = new long[f.size()][];
-		
+
 		for (int i = 0; i < f.size(); i++) {
 			powers[i] = new long[f.get(i).count + 1];
 			powers[i][0] = 1;
 			for (int j = 1; j <= f.get(i).count; j++)
 				powers[i][j] = powers[i][j - 1] * f.get(i).factor;
 		}
-		
-		for (int i = 1; i <= N; i++) { 
+
+		for (int i = 1; i <= N; i++) {
 			long curr = val[i];
 			for (int j = 0; j < f.size(); j++)
 				while (curr % f.get(j).factor == 0) {
@@ -71,7 +72,7 @@ public class Round_365E_Div2 {
 					valPowers[i][j]++;
 				}
 		}
-		
+
 		for (int i = 0; i < factors.size(); i++) {
 			long curr = factors.get(i);
 			for (int j = 0; j < f.size(); j++)
@@ -80,7 +81,7 @@ public class Round_365E_Div2 {
 					factorPowers[i][j]++;
 				}
 		}
-		
+
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j < factors.size(); j++) {
 				dp[i][j] = new State(dp[i - 1][j].val, j, dp[i - 1][j].sum);
@@ -88,16 +89,15 @@ public class Round_365E_Div2 {
 				long gcf = 1;
 				for (int k = 0; k < f.size(); k++)
 					gcf *= powers[k][Math.min(valPowers[i][k], factorPowers[j][k])];
-				
+
 				long nextFactor = factors.get(j) / gcf;
 				int index = getFactorIndex(nextFactor);
-				if ((dp[i - 1][index].val + 1 < dp[i][j].val) ||
-					(dp[i - 1][index].val + 1 == dp[i][j].val && dp[i - 1][index].sum + val[i] <= dp[i][j].sum)) {
+				if ((dp[i - 1][index].val + 1 < dp[i][j].val) || (dp[i - 1][index].val + 1 == dp[i][j].val && dp[i - 1][index].sum + val[i] <= dp[i][j].sum)) {
 					dp[i][j] = new State(dp[i - 1][index].val + 1, index, dp[i - 1][index].sum + val[i]);
 				}
 			}
 		}
-		
+
 		int i = N;
 		int j = factors.size() - 1;
 		if (dp[i][j].val != 1 << 30) {
@@ -106,7 +106,7 @@ public class Round_365E_Div2 {
 				State curr = dp[i][j];
 				State prev = dp[i - 1][curr.prev];
 				if (curr.sum - prev.sum != 0)
-					out.print(i + " ");	
+					out.print(i + " ");
 				i--;
 				j = curr.prev;
 			}
@@ -116,7 +116,7 @@ public class Round_365E_Div2 {
 
 		out.close();
 	}
-	
+
 	static long pow (long a, long b) {
 		if (b == 0)
 			return 1;
@@ -126,13 +126,13 @@ public class Round_365E_Div2 {
 			return pow(a * a, b / 2);
 		return a * pow(a * a, b / 2);
 	}
-	
+
 	static int getFactorIndex (long x) {
 		int lo = 0;
 		int hi = factors.size() - 1;
 		while (lo <= hi) {
 			int mid = (lo + hi) >> 1;
-			
+
 			if (factors.get(mid) < x)
 				lo = mid + 1;
 			else if (factors.get(mid) > x)
@@ -142,11 +142,11 @@ public class Round_365E_Div2 {
 		}
 		return -1;
 	}
-	
+
 	static long gcf (long a, long b) {
 		return b == 0 ? a : gcf(b, a % b);
 	}
-	
+
 	static void fillFactors (ArrayList<Factor> primes, int i, long curr) {
 		if (i == primes.size()) {
 			factors.add(curr);
@@ -158,7 +158,7 @@ public class Round_365E_Div2 {
 			currPower *= primes.get(i).factor;
 		}
 	}
-	
+
 	static ArrayList<Factor> factor (long X) {
 		ArrayList<Factor> ret = new ArrayList<Factor>();
 		for (long i = 2; i * i <= X; i++) {
@@ -170,32 +170,34 @@ public class Round_365E_Div2 {
 				}
 			}
 		}
-		
+
 		if (X != 1)
 			ret.add(new Factor(X, 1));
-		
+
 		return ret;
 	}
-	
+
 	static class State {
 		int val, prev;
 		long sum;
+
 		State (int val, int prev, long sum) {
 			this.val = val;
 			this.prev = prev;
 			this.sum = sum;
 		}
 	}
-	
+
 	static class Factor {
 		long factor;
 		int count;
+
 		Factor (long factor, int count) {
 			this.factor = factor;
 			this.count = count;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -49,7 +49,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
 									used[k] = true;
 								if (inSquare(bot2, left2, R, p[k].x, p[k].y)) {
 									curr++;
-									assert (inCircle(cx, cy, r, p[k].x, p[k].y));
+									assert inCircle(cx, cy, r, p[k].x, p[k].y);
 								}
 							}
 							for (int k = 0; k < N; k++)

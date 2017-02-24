@@ -34,7 +34,7 @@ public class Directed_Acyclic_Path {
 			int curr = q.poll();
 			for (int x = 0; x < incoming.size(); x++) {
 				if (incoming.get(x).contains(curr)) {
-					incoming.get(x).remove((Integer) curr);
+					incoming.get(x).remove((Integer)curr);
 					if (incoming.get(x).size() == 0)
 						q.add(x);
 				}

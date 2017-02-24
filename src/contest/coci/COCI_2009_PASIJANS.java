@@ -60,7 +60,7 @@ public class COCI_2009_PASIJANS {
 
 		for (int i = 0; i < total; i++) {
 			out.printf("%d ", minValue[1]);
-			assert (minValue[1] == a[minIndex[1]][index[minIndex[1]]]);
+			assert minValue[1] == a[minIndex[1]][index[minIndex[1]]];
 			index[minIndex[1]]++;
 			update(1, 1, n, minIndex[1]);
 		}

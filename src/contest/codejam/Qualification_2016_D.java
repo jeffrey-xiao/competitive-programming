@@ -23,7 +23,7 @@ public class Qualification_2016_D {
 			K = readInt();
 			C = readInt();
 			S = readInt();
-			
+
 			int needed = (K + C - 1) / C;
 			if (needed > S)
 				out.printf("Case #%d: IMPOSSIBLE\n", t);
@@ -51,7 +51,7 @@ public class Qualification_2016_D {
 				}
 				out.println();
 			}
-		}	
+		}
 
 		out.close();
 	}
@@ -65,9 +65,9 @@ public class Qualification_2016_D {
 			return pow(base * base, pow / 2);
 		return base * pow(base * base, pow / 2);
 	}
-	
+
 	static void compute (int sz, int com) {
-		
+
 		for (int i = 0; i < 1 << sz; i++) {
 			String res = String.format("%03d", Integer.parseInt(Integer.toString(i, 2)));
 			String start = res;
@@ -84,7 +84,7 @@ public class Qualification_2016_D {
 			System.out.println(res + " " + start);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -111,4 +111,3 @@ public class Qualification_2016_D {
 		return br.readLine().trim();
 	}
 }
-

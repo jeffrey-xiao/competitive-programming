@@ -37,7 +37,7 @@ public class Blackrock_F {
 			sorted[i] = new Stock(p * c, 100 * p, i);
 		}
 
-		Arrays.sort(sorted, new Comparator<Stock> () {
+		Arrays.sort(sorted, new Comparator<Stock>() {
 			@Override
 			public int compare (Stock s1, Stock s2) {
 				if (s1.expected.equals(s2.expected))
@@ -50,7 +50,7 @@ public class Blackrock_F {
 
 		PriorityQueue<State> pq = new PriorityQueue<State>();
 		PriorityQueue<State> unusedVal = new PriorityQueue<State>();
-		PriorityQueue<State> usedVal = new PriorityQueue<State>(1, new Comparator<State> () {
+		PriorityQueue<State> usedVal = new PriorityQueue<State>(1, new Comparator<State>() {
 			@Override
 			public int compare (State o1, State o2) {
 				return o1.val.compareTo(o2.val);
@@ -71,7 +71,7 @@ public class Blackrock_F {
 		for (int i = 0; i < K; i++) {
 			while (!pq.isEmpty() && !used[pq.peek().index])
 				pq.poll();
-			
+
 			while (!usedVal.isEmpty() && usedK[usedVal.peek().index])
 				usedVal.poll();
 
@@ -118,6 +118,7 @@ public class Blackrock_F {
 	static class Stock {
 		Long expected, price;
 		int index;
+
 		Stock (long expected, long price, int index) {
 			this.expected = expected;
 			this.price = price;
@@ -151,4 +152,3 @@ public class Blackrock_F {
 		return br.readLine().trim();
 	}
 }
-

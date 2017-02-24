@@ -12,7 +12,7 @@ public class COCI_2009_KAJAK {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	public static void main (String[] args) throws IOException {
 		int r = readInt();
 		int c = readInt();

@@ -97,7 +97,7 @@ public class DWITE_2007_Velociraptor_Maze {
 		dfs(numMoves, new Point(ex, ey), prevh);
 		check(numMoves, new Point(ex, ey), prevv);
 		if (flag && numMoves[ex][ey] > fast) {
-			lastMove = (int) numMoves[ex][ey];
+			lastMove = (int)numMoves[ex][ey];
 			flag = false;
 		}
 		if (flag)
@@ -124,7 +124,7 @@ public class DWITE_2007_Velociraptor_Maze {
 		if (path[p.x][p.y] && flag && numMoves[p.x][p.y] == Math.ceil(value)) {
 			flag = false;
 
-			lastMove = (int) numMoves[p.x][p.y];
+			lastMove = (int)numMoves[p.x][p.y];
 		}
 
 		if (p.x == ex && p.y == ey) {

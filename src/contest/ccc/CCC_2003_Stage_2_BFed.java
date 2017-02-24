@@ -25,11 +25,11 @@ public class CCC_2003_Stage_2_BFed {
 		short[] v = new short[30001];
 		for (int x = 0; x < commands.length;) {
 			if (commands[x] == '+')
-				v[currCell] = (short) ((v[currCell] + 257) % 256);
+				v[currCell] = (short)((v[currCell] + 257) % 256);
 			else if (commands[x] == '-')
-				v[currCell] = (short) ((v[currCell] + 255) % 256);
+				v[currCell] = (short)((v[currCell] + 255) % 256);
 			else if (commands[x] == '.')
-				System.out.print((char) v[currCell]);
+				System.out.print((char)v[currCell]);
 			else if (commands[x] == '>') {
 				currCell++;
 			} else if (commands[x] == '<')

@@ -12,50 +12,48 @@ public class CCC_2010_S3 {
 	static StringTokenizer st;
 	static final int LEN = 1000000;
 	static int[] h;
+	static int n;
 
 	public static void main (String[] args) throws IOException {
-		int n = readInt();
-		h = new int[n];
+		n = readInt();
+		h = new int[2 * n];
 		for (int x = 0; x < n; x++)
 			h[x] = readInt();
-		Arrays.sort(h);
+
+		Arrays.sort(h, 0, n);
+		for (int x = 0; x < n; x++)
+			h[x + n] = h[x] + LEN;
+
 		int k = readInt();
+
 		int lo = 0;
 		int hi = LEN;
-		while (lo <= hi) {
-			int mid = lo + (hi - lo) / 2;
-			if (poss(mid) > k) {
+
+		while (lo < hi) {
+			int mid = (hi + lo) / 2;
+			if (k >= poss(mid))
+				hi = mid;
+			else
 				lo = mid + 1;
-			} else
-				hi = mid - 1;
 		}
 		System.out.println(lo);
 	}
 
-	private static int poss (int mid) {
-		int best = Integer.MAX_VALUE;
-		int size = h.length;
-		int d = mid * 2;
-		int x = 0;
+	static int poss (int mid) {
+		int hydrants = 1 << 30;
+		for (int i = 0; i < Math.min(n, 10); i++)
+			hydrants = Math.min(hydrants, compute(i, mid));
+		return hydrants;
+	}
 
-		while (x < size && h[x] <= d + h[0]) {
-			int curr = 1;
-			int y = x + 1;
-			if (y == size)
-				return 1;
-			int end = h[x + 1];
-			curr++;
-			while (y < size) {
-				if (h[y] > end + d) {
-					end = h[y];
-					curr++;
-				}
-				y++;
+	static int compute (int j, int mid) {
+		int curr = j, hydrants = 1;
+		for (int i = j; i < n + j; i++)
+			if (h[i] - h[curr] > 2 * mid) {
+				curr = i;
+				hydrants++;
 			}
-			best = Math.min(best, curr);
-			x++;
-		}
-		return best;
+		return hydrants;
 	}
 
 	static String next () throws IOException {

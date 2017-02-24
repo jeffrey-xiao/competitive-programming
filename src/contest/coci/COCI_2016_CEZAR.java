@@ -14,7 +14,7 @@ public class COCI_2016_CEZAR {
 	static Stack<Integer> s = new Stack<Integer>();
 	static boolean[] vis = new boolean[26], currVis = new boolean[26];
 	static boolean valid = true;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -23,7 +23,7 @@ public class COCI_2016_CEZAR {
 
 		for (int i = 0; i < 26; i++)
 			adj.add(new HashSet<Integer>());
-		
+
 		N = readInt();
 
 		Word[] w = new Word[N];
@@ -50,7 +50,7 @@ public class COCI_2016_CEZAR {
 				}
 			}
 		}
-		
+
 		for (int i = 25; i >= 0; i--)
 			if (!vis[i])
 				dfs(i);
@@ -66,7 +66,7 @@ public class COCI_2016_CEZAR {
 			}
 			out.println(ret);
 		}
-		
+
 		out.close();
 	}
 
@@ -83,7 +83,7 @@ public class COCI_2016_CEZAR {
 		vis[u] = true;
 		s.push(u);
 	}
-	
+
 	static class Word implements Comparable<Word> {
 		StringBuilder s;
 		int index;
@@ -124,4 +124,3 @@ public class COCI_2016_CEZAR {
 		return br.readLine().trim();
 	}
 }
-

@@ -49,12 +49,10 @@ public class ECOO_2016_R2_P4 {
 					} else if (g[i][j] == 'C') {
 						c = new Point(i, j, 0);
 						g[i][j] = '.';
-					}
-					else if (g[i][j] == 'T') {
+					} else if (g[i][j] == 'T') {
 						t = new Point(i, j, 0);
 						g[i][j] = '.';
-					}
-					else if (g[i][j] == 'F') {
+					} else if (g[i][j] == 'F') {
 						f = new Point(i, j, 0);
 						g[i][j] = '.';
 					}
@@ -68,7 +66,8 @@ public class ECOO_2016_R2_P4 {
 
 			Queue<Point> q = new ArrayDeque<Point>();
 
-			q.offer(p1); q.offer(p2);
+			q.offer(p1);
+			q.offer(p2);
 			q.offer(p3);
 
 			while (!q.isEmpty()) {
@@ -113,7 +112,7 @@ public class ECOO_2016_R2_P4 {
 
 							if (!isValid(nr, nc))
 								continue;
-							
+
 							while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
 								vis[curr.type][nr][nc] = true;
 								nr++;
@@ -131,7 +130,7 @@ public class ECOO_2016_R2_P4 {
 
 						}
 					}
-				} 
+				}
 
 				if (curr.type == 1 || curr.type == 2) {
 					if (isValid(curr.r, curr.c - 1)) {
@@ -175,7 +174,7 @@ public class ECOO_2016_R2_P4 {
 							}
 						}
 					}
-				} 
+				}
 
 				if (curr.type == 2) {
 					if (isValid(curr.r, curr.c - 1) && isValid(curr.r, curr.c - 2) && isValid(curr.r, curr.c - 3)) {
@@ -216,7 +215,6 @@ public class ECOO_2016_R2_P4 {
 					if (isValid(curr.r - 1, curr.c) && isValid(curr.r - 1, curr.c + 1) && isValid(curr.r - 1, curr.c + 2)) {
 						int nr = curr.r - 1;
 						int nc = curr.c + 2;
-
 
 						while (nr + 1 < R && g[nr + 1][nc] == '.' && g[nr][nc] != '#') {
 							vis[curr.type][nr][nc] = true;
@@ -302,6 +300,7 @@ public class ECOO_2016_R2_P4 {
 
 	static class Point {
 		int r, c, type;
+
 		Point (int r, int c, int type) {
 			this.r = r;
 			this.c = c;
@@ -335,4 +334,3 @@ public class ECOO_2016_R2_P4 {
 		return br.readLine().trim();
 	}
 }
-

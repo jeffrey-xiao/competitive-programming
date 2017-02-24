@@ -22,13 +22,13 @@ public class ACM_Hong_Kong_2016_C {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		LN = (int) (Math.ceil(Math.log(N) / Math.log(2)) + 1);
+		LN = (int)(Math.ceil(Math.log(N) / Math.log(2)) + 1);
 
 		id = new int[N];
 		sz = new int[N];
 		indegree = new int[N];
 		depth = new int[N];
-		
+
 		pa = new int[N][LN];
 
 		for (int i = 0; i < N; i++) {
@@ -79,7 +79,7 @@ public class ACM_Hong_Kong_2016_C {
 					}
 					v.add(x);
 				}
-				
+
 			}
 			int ans = 0;
 			for (Map.Entry<Integer, ArrayList<Integer>> e : hm.entrySet())
@@ -90,7 +90,6 @@ public class ACM_Hong_Kong_2016_C {
 
 		out.close();
 	}
-
 
 	static int getLca (int i, int j) {
 		if (depth[i] < depth[j]) {
@@ -111,21 +110,22 @@ public class ACM_Hong_Kong_2016_C {
 			}
 		return pa[i][0];
 	}
-	
+
 	static class State {
 		int node, cnt;
+
 		State (int node, int cnt) {
 			this.node = node;
 			this.cnt = cnt;
 		}
 	}
-	
+
 	static void dfs (int i, int d) {
 		depth[i] = d;
 		sz[i] = 1;
 		for (int j : adj.get(i)) {
 			dfs(j, d + 1);
-			sz[i] += sz[j]; 
+			sz[i] += sz[j];
 		}
 	}
 

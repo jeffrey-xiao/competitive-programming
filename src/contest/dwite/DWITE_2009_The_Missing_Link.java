@@ -18,7 +18,7 @@ public class DWITE_2009_The_Missing_Link {
 			for (int x = 0; x < 10; x++) {
 				if (i + x == 0)
 					continue;
-				s.setCharAt(i, (char) (x + 48));
+				s.setCharAt(i, (char)(x + 48));
 				if (isPrime(Integer.parseInt(s.toString()))) {
 					flag = true;
 					System.out.print(x + " ");

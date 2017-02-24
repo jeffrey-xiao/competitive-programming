@@ -13,7 +13,7 @@ public class Waterloo_Local_2016_B {
 	static int N;
 	static long M;
 	static long MAX = (long)(2e18);
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,13 +22,13 @@ public class Waterloo_Local_2016_B {
 
 		N = readInt();
 		M = readLong();
-		
+
 		dp = new long[N][N];
-		
+
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < N; j++)
 				dp[i][j] = -1;
-		
+
 		dp(0, 0);
 		print(0, 0, M);
 		out.close();
@@ -51,24 +51,24 @@ public class Waterloo_Local_2016_B {
 			print(pos + 1, val - 1, m);
 		}
 	}
-	
+
 	static long dp (int pos, int val) {
 		if (pos == N)
 			return val == 0 ? 1 : 0;
 		if (dp[pos][val] != -1)
 			return dp[pos][val];
-		
+
 		dp[pos][val] = 0;
-		
+
 		if (val > 0) {
-			dp[pos][val] += dp(pos + 1, val - 1); 
+			dp[pos][val] += dp(pos + 1, val - 1);
 		}
 		dp[pos][val] += dp(pos + 1, val + 1);
 		if (dp[pos][val] > MAX)
 			dp[pos][val] = MAX;
 		return dp[pos][val];
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

@@ -76,7 +76,7 @@ public class USACO_2013_Crowded_Cows {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Cow) {
-				Cow c = (Cow) o;
+				Cow c = (Cow)o;
 				return c.index == index && c.height == height;
 			}
 			return false;

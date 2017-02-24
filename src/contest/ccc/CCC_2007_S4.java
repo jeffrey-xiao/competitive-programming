@@ -19,9 +19,9 @@ public class CCC_2007_S4 {
 		scan.nextInt();
 		Collections.sort(slides, new Comparator<Object>() {
 			@Override
-			@SuppressWarnings ("unchecked")
+			@SuppressWarnings("unchecked")
 			public int compare (Object arg0, Object arg1) {
-				return ((List<Integer>) arg0).get(1) < ((List<Integer>) arg1).get(1) ? 1 : -1;
+				return ((List<Integer>)arg0).get(1) < ((List<Integer>)arg1).get(1) ? 1 : -1;
 			}
 		});
 		int[] dp = new int[destination];

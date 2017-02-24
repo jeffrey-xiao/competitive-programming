@@ -70,4 +70,3 @@ public class WOC_20_B {
 		return br.readLine().trim();
 	}
 }
-

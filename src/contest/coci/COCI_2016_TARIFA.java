@@ -10,7 +10,7 @@ public class COCI_2016_TARIFA {
 	static StringTokenizer st;
 
 	static int X, N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,12 +19,12 @@ public class COCI_2016_TARIFA {
 
 		X = readInt();
 		N = readInt();
-		
+
 		X *= N + 1;
-		
+
 		for (int i = 0; i < N; i++)
 			X -= readInt();
-		
+
 		out.println(X);
 		out.close();
 	}
@@ -55,4 +55,3 @@ public class COCI_2016_TARIFA {
 		return br.readLine().trim();
 	}
 }
-

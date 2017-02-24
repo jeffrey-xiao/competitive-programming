@@ -45,7 +45,7 @@ public class STNBD_Ellis_Fahrengart_Efficient {
 		for (int i = 0; i < m; i++)
 			q.add(new Query(readInt(), readInt(), i));
 		long[] ans = new long[m];
-		sz = (int) Math.sqrt(n);
+		sz = (int)Math.sqrt(n);
 		int l = 1, r = 0;
 		Collections.sort(q);
 		for (Query x : q) {

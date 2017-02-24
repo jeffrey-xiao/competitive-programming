@@ -1,4 +1,5 @@
 package contest.ecoo;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +17,7 @@ public class ECOO_2016_R1_P4 {
 
 	static final int HOUSES = 100;
 	static final int TESTCASES = 10;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -34,7 +35,7 @@ public class ECOO_2016_R1_P4 {
 			int demo = 0;
 			for (int x = X - 50; x <= X + 50; x++) {
 				for (int y = Y - 50; y <= Y + 50; y++) {
-					if (dist(x, y, X, Y) <= 50*50 && !h.contains(new Point(x, y, 0))) {
+					if (dist(x, y, X, Y) <= 50 * 50 && !h.contains(new Point(x, y, 0))) {
 						cnt++;
 						PriorityQueue<Pair> pq = new PriorityQueue<Pair>();
 						for (Point house : h) {
@@ -68,34 +69,37 @@ public class ECOO_2016_R1_P4 {
 		}
 		out.close();
 	}
-		
+
 	static class Pair implements Comparable<Pair> {
 		int dist, type;
+
 		Pair (int dist, int type) {
 			this.dist = dist;
 			this.type = type;
 		}
+
 		@Override
 		public int compareTo (Pair p) {
 			return dist - p.dist;
 		}
 	}
-	
+
 	static class Point {
 		int x, y, type;
+
 		Point (int x, int y, int type) {
 			this.x = x;
 			this.y = y;
 			this.type = type;
 		}
-		
+
 		public int hashCode () {
 			return 31 * 31 * x + y * 31;
 		}
-		
+
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p  = (Point)o;
+				Point p = (Point)o;
 				return p.x == x && p.y == y;
 			}
 			return false;
@@ -107,7 +111,7 @@ public class ECOO_2016_R1_P4 {
 		int dy = y1 - y2;
 		return dx * dx + dy * dy;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

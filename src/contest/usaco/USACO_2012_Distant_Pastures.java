@@ -37,43 +37,43 @@ public class USACO_2012_Distant_Pastures {
 	private static int bfs (int x, int y, char[][] grid) {
 		PriorityQueue<Point> moves = new PriorityQueue<Point>();
 		int[][] min = new int[n][n];
-		
+
 		for (int i = 0; i < n; i++)
 			Arrays.fill(min[i], 1 << 30);
-		
+
 		int max = 0;
-		
+
 		min[x][y] = 0;
 		moves.add(new Point(x, y, 0));
-		
+
 		while (!moves.isEmpty()) {
 			Point curr = moves.poll();
 			x = curr.x;
 			y = curr.y;
-			
+
 			if (min[x][y] < curr.time)
 				continue;
-			
+
 			int time = curr.time;
-			
+
 			if (time > max) {
 				max = time;
 			}
-			
+
 			for (int z = 0; z < 4; z++) {
 				int nextx = x + movex[z];
 				int nexty = y + movey[z];
-				
+
 				if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n)
 					continue;
-				
+
 				int add = a;
 				if (grid[x][y] != grid[nextx][nexty])
 					add = b;
-				
+
 				if (min[nextx][nexty] <= add + time)
 					continue;
-				
+
 				min[nextx][nexty] = add + time;
 				moves.add(new Point(nextx, nexty, add + time));
 			}
@@ -101,7 +101,7 @@ public class USACO_2012_Distant_Pastures {
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof Point) {
-				Point p = (Point) o;
+				Point p = (Point)o;
 				return x == p.x && y == p.y;
 			}
 			return false;

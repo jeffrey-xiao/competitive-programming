@@ -125,7 +125,7 @@ public class SkipList {
 
 		long c = System.currentTimeMillis();
 		for (int x = 0; x < 1000000; x++) {
-			int ran = (int) (Math.random() * (1 << 30)) + 5;
+			int ran = (int)(Math.random() * (1 << 30)) + 5;
 			list.add(ran);
 		}
 		// t.traverse(root);

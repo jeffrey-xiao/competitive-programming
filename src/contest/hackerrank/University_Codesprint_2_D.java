@@ -12,7 +12,7 @@ public class University_Codesprint_2_D {
 	static int Q, N, G, K, initial;
 	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 	static ArrayList<HashSet<Integer>> guesses = new ArrayList<HashSet<Integer>>();
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,34 +20,34 @@ public class University_Codesprint_2_D {
 		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		Q = readInt();
-		
+
 		for (int q = 1; q <= Q; q++) {
 			N = readInt();
-			
+
 			adj.clear();
 			guesses.clear();
 			for (int i = 0; i < N; i++) {
 				adj.add(new ArrayList<Integer>());
 				guesses.add(new HashSet<Integer>());
 			}
-			
-			for (int i = 0; i < N - 1;  i++) {
+
+			for (int i = 0; i < N - 1; i++) {
 				int u = readInt() - 1;
 				int v = readInt() - 1;
 				adj.get(u).add(v);
 				adj.get(v).add(u);
 			}
-			
+
 			G = readInt();
 			K = readInt();
-			
+
 			for (int i = 0; i < G; i++) {
 				int u = readInt() - 1;
 				int v = readInt() - 1;
-				
+
 				guesses.get(v).add(u);
 			}
-			
+
 			initial = 0;
 			dfs(0, -1);
 
@@ -57,9 +57,9 @@ public class University_Codesprint_2_D {
 			if (ans == 0)
 				out.println(ans + "/1");
 			else
-				out.println(ans/gcd + "/" + (total / gcd));
+				out.println(ans / gcd + "/" + (total / gcd));
 		}
-		
+
 		out.close();
 	}
 
@@ -73,7 +73,7 @@ public class University_Codesprint_2_D {
 			dfs(v, u);
 		}
 	}
-	
+
 	static int getAns (int u, int p, int curr) {
 		if (p != -1) {
 			if (guesses.get(p).contains(u))
@@ -84,17 +84,17 @@ public class University_Codesprint_2_D {
 		int ret = 0;
 		if (curr >= K)
 			ret++;
-		
+
 		for (int v : adj.get(u))
 			if (v != p)
 				ret += getAns(v, u, curr);
 		return ret;
 	}
-	
+
 	static int gcd (int a, int b) {
 		return b == 0 ? a : gcd(b, a % b);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -121,4 +121,3 @@ public class University_Codesprint_2_D {
 		return br.readLine().trim();
 	}
 }
-

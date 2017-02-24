@@ -44,11 +44,11 @@ public class DMOPC_2015_Sysadmin {
 			State last = s.getLast();
 			if (l[i].m == last.m || l[i].index == min)
 				continue;
-			Double x = (last.s - l[i].s) / (double) (l[i].m - last.m);
+			Double x = (last.s - l[i].s) / (double)(l[i].m - last.m);
 			while (x > 0 && (x < last.x || (Math.abs(x - last.x) < EPS && l[i].m > last.m && l[i].index < last.index))) {
 				s.removeLast();
 				last = s.getLast();
-				x = (last.s - l[i].s) / (double) (l[i].m - last.m);
+				x = (last.s - l[i].s) / (double)(l[i].m - last.m);
 			}
 			if (x > 0)
 				s.addLast(new State(x, l[i].s, l[i].m, l[i].index));
@@ -60,18 +60,18 @@ public class DMOPC_2015_Sysadmin {
 		ts.add(new State(0, finalS.get(0).index));
 		Collections.sort(finalS);
 		for (int i = 1; i < finalS.size(); i++) {
-			double x = (finalS.get(i).s - finalS.get(i - 1).s) / (double) (finalS.get(i - 1).m - finalS.get(i).m);
+			double x = (finalS.get(i).s - finalS.get(i - 1).s) / (double)(finalS.get(i - 1).m - finalS.get(i).m);
 			if (x == Math.ceil(x)) {
 				if (finalS.get(i).index < finalS.get(i - 1).index) {
-					ts.remove(new State((int) Math.ceil(x), finalS.get(i).index));
-					ts.add(new State((int) Math.ceil(x), finalS.get(i).index));
+					ts.remove(new State((int)Math.ceil(x), finalS.get(i).index));
+					ts.add(new State((int)Math.ceil(x), finalS.get(i).index));
 				} else {
-					ts.remove(new State((int) Math.ceil(x) + 1, finalS.get(i).index));
-					ts.add(new State((int) Math.ceil(x) + 1, finalS.get(i).index));
+					ts.remove(new State((int)Math.ceil(x) + 1, finalS.get(i).index));
+					ts.add(new State((int)Math.ceil(x) + 1, finalS.get(i).index));
 				}
 			} else {
-				ts.remove(new State((int) Math.ceil(x), finalS.get(i).index));
-				ts.add(new State((int) Math.ceil(x), finalS.get(i).index));
+				ts.remove(new State((int)Math.ceil(x), finalS.get(i).index));
+				ts.add(new State((int)Math.ceil(x), finalS.get(i).index));
 			}
 		}
 		for (int i = 0; i < q; i++) {

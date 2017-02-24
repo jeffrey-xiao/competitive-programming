@@ -16,7 +16,7 @@ public class DMOPC_2015_Not_A_Wall_Of_Text {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		out.println(readLine().split(" ").length);
-		
+
 		out.close();
 	}
 
@@ -46,4 +46,3 @@ public class DMOPC_2015_Not_A_Wall_Of_Text {
 		return br.readLine().trim();
 	}
 }
-

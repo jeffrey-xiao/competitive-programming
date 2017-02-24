@@ -10,7 +10,7 @@ public class Blackrock_A {
 	static StringTokenizer st;
 
 	static int N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -18,16 +18,16 @@ public class Blackrock_A {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		N = readInt();
-		
+
 		for (int i = 1; i <= N; i++) {
 			double start = 100000;
 			start /= readDouble();
 			start /= readDouble();
 			start /= readDouble();
-			
+
 			out.println((int)Math.max(0, Math.floor(start - 100000)));
 		}
-		
+
 		out.close();
 	}
 
@@ -57,4 +57,3 @@ public class Blackrock_A {
 		return br.readLine().trim();
 	}
 }
-

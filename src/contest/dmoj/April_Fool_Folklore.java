@@ -8,7 +8,7 @@ public class April_Fool_Folklore {
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -19,6 +19,7 @@ public class April_Fool_Folklore {
 		out.print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.");
 		out.close();
 	}
+
 	static void compute (int i, String curr) {
 		if (i == 14)
 			return;
@@ -46,6 +47,7 @@ public class April_Fool_Folklore {
 		out.print(".");
 		out.println("[-]]");
 	}
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -72,4 +74,3 @@ public class April_Fool_Folklore {
 		return br.readLine().trim();
 	}
 }
-

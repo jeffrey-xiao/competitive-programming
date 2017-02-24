@@ -16,13 +16,13 @@ public class DMOPC_2014_Nia_And_Dominoes {
 
 	static int A, B, M;
 	static long N;
-	
+
 	public static void main (String[] args) throws IOException {
 		A = readInt();
 		B = readInt();
 		M = readInt();
 		N = readLong();
-		
+
 		Cycle c = getCycle(new State(1, 0));
 		if (N < c.start) {
 			State ans = new State(1, 0);
@@ -43,6 +43,7 @@ public class DMOPC_2014_Nia_And_Dominoes {
 
 	static class Cycle {
 		long start, length;
+
 		Cycle (long start, long length) {
 			this.start = start;
 			this.length = length;
@@ -51,10 +52,12 @@ public class DMOPC_2014_Nia_And_Dominoes {
 
 	static class State {
 		long a, b;
+
 		State (long a, long b) {
 			this.a = a;
 			this.b = b;
 		}
+
 		@Override
 		public boolean equals (Object o) {
 			if (o instanceof State) {
@@ -64,17 +67,17 @@ public class DMOPC_2014_Nia_And_Dominoes {
 			return false;
 		}
 	}
-	
+
 	static State f (State s) {
 		return new State((s.a * A % M + s.b * B % M) % M, s.a);
 	}
-	
+
 	static Cycle getCycle (State s) {
 		long power = 1;
 		long length = 1;
 		State tortoise = new State(s.a, s.b);
 		State hare = f(s);
-		
+
 		while (!tortoise.equals(hare)) {
 			if (power == length) {
 				tortoise = hare;
@@ -84,14 +87,14 @@ public class DMOPC_2014_Nia_And_Dominoes {
 			hare = f(hare);
 			length++;
 		}
-		
+
 		hare = new State(s.a, s.b);
 		for (int i = 0; i < length; i++)
 			hare = f(hare);
-		
+
 		int start = 0;
 		tortoise = new State(s.a, s.b);
-		
+
 		while (!tortoise.equals(hare)) {
 			tortoise = f(tortoise);
 			hare = f(hare);
@@ -99,7 +102,7 @@ public class DMOPC_2014_Nia_And_Dominoes {
 		}
 		return new Cycle(start, length);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());

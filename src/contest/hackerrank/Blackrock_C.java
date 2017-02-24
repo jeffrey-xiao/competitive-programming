@@ -12,9 +12,9 @@ public class Blackrock_C {
 	static int[] val, s;
 	static int p, t, threshold;
 	static double r;
-	
+
 	static PriorityQueue<State> pq;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,35 +25,34 @@ public class Blackrock_C {
 		r = readDouble() / 100;
 		t = readInt();
 		threshold = readInt();
-		
+
 		s = new int[t + 1];
 		val = new int[t + 1];
-		
+
 		pq = new PriorityQueue<State>(3);
-		
+
 		for (int i = 1; i <= t; i++)
 			s[i] = readInt();
 
-		
 		out.printf("%.3f\n", getAnswer(s));
-		
+
 		compute(1, 0);
 		String[] ans = new String[3];
 		int index = 2;
 		while (!pq.isEmpty()) {
 			State s = pq.poll();
-			ans[index--] = String.format("%.3f - %s", s.d, s.val); 
+			ans[index--] = String.format("%.3f - %s", s.d, s.val);
 		}
-		
+
 		for (int i = 0; i < 3; i++)
 			out.println(ans[i]);
-		
+
 		out.close();
 	}
-	
+
 	static void compute (int i, int sum) {
 		if (i == t + 1) {
-			for (int j = 1; j <= t; j++) {	
+			for (int j = 1; j <= t; j++) {
 				val[j] += s[j];
 			}
 			addAnswer(val);
@@ -62,7 +61,7 @@ public class Blackrock_C {
 			}
 			return;
 		}
-		
+
 		for (int j = -threshold; j <= threshold; j++) {
 			val[i] = j;
 			if (s[i] + j < 0 || s[i] + j >= 100)
@@ -82,7 +81,7 @@ public class Blackrock_C {
 		}
 		return ans;
 	}
-	
+
 	static void addAnswer (int[] a) {
 		double ans = getAnswer(a);
 		StringBuilder ret = new StringBuilder("");
@@ -92,20 +91,22 @@ public class Blackrock_C {
 		if (pq.size() > 3)
 			pq.poll();
 	}
-	
+
 	static class State implements Comparable<State> {
 		Double d;
 		String val;
+
 		State (double d, String val) {
 			this.d = d;
 			this.val = val;
 		}
+
 		@Override
 		public int compareTo (State s) {
 			return d.compareTo(s.d);
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -132,4 +133,3 @@ public class Blackrock_C {
 		return br.readLine().trim();
 	}
 }
-

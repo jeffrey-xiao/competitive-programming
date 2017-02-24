@@ -26,23 +26,23 @@ class CCC_2011_J4 {
 		totalPositions.addAll(positions);
 		for (int x = 0; x < positions.size(); x++) {
 			if (positions.get(x).getX() > positions.get(previousIndex).getX()) {
-				for (int i = (int) positions.get(previousIndex).getX() + 1; i < positions.get(x).getX(); i++) {
-					totalPositions.add(new Point(i, (int) positions.get(x).getY()));
+				for (int i = (int)positions.get(previousIndex).getX() + 1; i < positions.get(x).getX(); i++) {
+					totalPositions.add(new Point(i, (int)positions.get(x).getY()));
 				}
 				previousIndex++;
 			} else if (positions.get(x).getX() < positions.get(previousIndex).getX()) {
-				for (int j = (int) positions.get(previousIndex).getX() - 1; j > positions.get(x).getX(); j--) {
-					totalPositions.add(new Point(j, (int) positions.get(x).getY()));
+				for (int j = (int)positions.get(previousIndex).getX() - 1; j > positions.get(x).getX(); j--) {
+					totalPositions.add(new Point(j, (int)positions.get(x).getY()));
 				}
 				previousIndex++;
 			} else if (positions.get(x).getY() > positions.get(previousIndex).getY()) {
-				for (int j = (int) positions.get(previousIndex).getY() + 1; j > positions.get(x).getY(); j++) {
-					totalPositions.add(new Point((int) positions.get(x).getX(), j));
+				for (int j = (int)positions.get(previousIndex).getY() + 1; j > positions.get(x).getY(); j++) {
+					totalPositions.add(new Point((int)positions.get(x).getX(), j));
 				}
 				previousIndex++;
 			} else if (positions.get(x).getY() < positions.get(previousIndex).getY()) {
-				for (int j = (int) positions.get(previousIndex).getY() - 1; j > positions.get(x).getY(); j--) {
-					totalPositions.add(new Point((int) positions.get(x).getX(), j));
+				for (int j = (int)positions.get(previousIndex).getY() - 1; j > positions.get(x).getY(); j--) {
+					totalPositions.add(new Point((int)positions.get(x).getX(), j));
 				}
 				previousIndex++;
 			}
@@ -56,20 +56,20 @@ class CCC_2011_J4 {
 			temp1 = input.split(" ");
 			try {
 				if (temp1[0].equals("d")) {
-					positions.add(new Point((int) positions.get(previousIndex).getX(), (int) positions.get(previousIndex).getY() - Integer.parseInt(temp1[1])));
-					totalPositions.add(new Point((int) positions.get(previousIndex).getX(), (int) positions.get(previousIndex).getY() - Integer.parseInt(temp1[1])));
+					positions.add(new Point((int)positions.get(previousIndex).getX(), (int)positions.get(previousIndex).getY() - Integer.parseInt(temp1[1])));
+					totalPositions.add(new Point((int)positions.get(previousIndex).getX(), (int)positions.get(previousIndex).getY() - Integer.parseInt(temp1[1])));
 					previousIndex++;
 				} else if (temp1[0].equals("r")) {
-					positions.add(new Point((int) positions.get(previousIndex).getX() + Integer.parseInt(temp1[1]), (int) positions.get(previousIndex).getY()));
-					totalPositions.add(new Point((int) positions.get(previousIndex).getX() + Integer.parseInt(temp1[1]), (int) positions.get(previousIndex).getY()));
+					positions.add(new Point((int)positions.get(previousIndex).getX() + Integer.parseInt(temp1[1]), (int)positions.get(previousIndex).getY()));
+					totalPositions.add(new Point((int)positions.get(previousIndex).getX() + Integer.parseInt(temp1[1]), (int)positions.get(previousIndex).getY()));
 					previousIndex++;
 				} else if (temp1[0].equals("l")) {
-					positions.add(new Point((int) positions.get(previousIndex).getX() - Integer.parseInt(temp1[1]), (int) positions.get(previousIndex).getY()));
-					totalPositions.add(new Point((int) positions.get(previousIndex).getX() - Integer.parseInt(temp1[1]), (int) positions.get(previousIndex).getY()));
+					positions.add(new Point((int)positions.get(previousIndex).getX() - Integer.parseInt(temp1[1]), (int)positions.get(previousIndex).getY()));
+					totalPositions.add(new Point((int)positions.get(previousIndex).getX() - Integer.parseInt(temp1[1]), (int)positions.get(previousIndex).getY()));
 					previousIndex++;
 				} else if (temp1[0].equals("u")) {
-					positions.add(new Point((int) positions.get(previousIndex).getX(), (int) positions.get(previousIndex).getY() + Integer.parseInt(temp1[1])));
-					totalPositions.add(new Point((int) positions.get(previousIndex).getX(), (int) positions.get(previousIndex).getY() + Integer.parseInt(temp1[1])));
+					positions.add(new Point((int)positions.get(previousIndex).getX(), (int)positions.get(previousIndex).getY() + Integer.parseInt(temp1[1])));
+					totalPositions.add(new Point((int)positions.get(previousIndex).getX(), (int)positions.get(previousIndex).getY() + Integer.parseInt(temp1[1])));
 					previousIndex++;
 				}
 			} catch (Exception ex) {
@@ -78,29 +78,29 @@ class CCC_2011_J4 {
 
 				// X positions
 				if (positions.get(x).getX() > positions.get(x - 1).getX()) {
-					for (int i = (int) positions.get(x - 1).getX() + 1; i < positions.get(x).getX(); i++) {
-						totalPositions.add(new Point(i, (int) positions.get(x).getY()));
+					for (int i = (int)positions.get(x - 1).getX() + 1; i < positions.get(x).getX(); i++) {
+						totalPositions.add(new Point(i, (int)positions.get(x).getY()));
 					}
 				} else if (positions.get(x).getX() < positions.get(x - 1).getX()) {
-					for (int j = (int) positions.get(x - 1).getX() - 1; j > positions.get(x).getX(); j--) {
-						totalPositions.add(new Point(j, (int) positions.get(x).getY()));
+					for (int j = (int)positions.get(x - 1).getX() - 1; j > positions.get(x).getX(); j--) {
+						totalPositions.add(new Point(j, (int)positions.get(x).getY()));
 					}
 					// Y positions
 				} else if (positions.get(x).getY() > positions.get(x - 1).getY()) {
 
-					for (int j = (int) positions.get(x - 1).getY() + 1; j > positions.get(x).getY(); j++) {
-						totalPositions.add(new Point((int) positions.get(x).getX(), j));
+					for (int j = (int)positions.get(x - 1).getY() + 1; j > positions.get(x).getY(); j++) {
+						totalPositions.add(new Point((int)positions.get(x).getX(), j));
 					}
 				} else if (positions.get(x).getY() < positions.get(x - 1).getY()) {
-					for (int j = (int) positions.get(x - 1).getY() - 1; j > positions.get(x).getY(); j--) {
-						totalPositions.add(new Point((int) positions.get(x).getX(), j));
+					for (int j = (int)positions.get(x - 1).getY() - 1; j > positions.get(x).getY(); j--) {
+						totalPositions.add(new Point((int)positions.get(x).getX(), j));
 					}
 				}
 				if (checkDanger(totalPositions)) {
-					System.out.println((int) positions.get(x).getX() + " " + (int) positions.get(x).getY() + " DANGER");
+					System.out.println((int)positions.get(x).getX() + " " + (int)positions.get(x).getY() + " DANGER");
 					System.exit(0);
 				} else {
-					System.out.println((int) positions.get(x).getX() + " " + (int) positions.get(x).getY() + " safe");
+					System.out.println((int)positions.get(x).getX() + " " + (int)positions.get(x).getY() + " safe");
 				}
 
 			}

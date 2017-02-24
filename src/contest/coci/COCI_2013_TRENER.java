@@ -11,7 +11,7 @@ public class COCI_2013_TRENER {
 
 	static int N;
 	static int[] occ;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -20,17 +20,17 @@ public class COCI_2013_TRENER {
 
 		N = readInt();
 		occ = new int[26];
-		
+
 		for (int i = 0; i < N; i++)
 			occ[readCharacter() - 'a']++;
-		
+
 		boolean valid = false;
 		for (int i = 0; i < 26; i++)
 			if (occ[i] >= 5) {
 				out.printf("%c", i + 'a');
 				valid = true;
 			}
-		
+
 		if (!valid)
 			out.println("PREDAJA");
 		else
@@ -64,4 +64,3 @@ public class COCI_2013_TRENER {
 		return br.readLine().trim();
 	}
 }
-

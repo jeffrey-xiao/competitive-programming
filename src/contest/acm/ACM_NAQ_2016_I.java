@@ -49,7 +49,7 @@ public class ACM_NAQ_2016_I {
 				sum += system[i][N * M];
 			out.println(sum);
 
-			assert(sum <= N * M * P);
+			assert sum <= N * M * P;
 
 			for (int i = 0; i < N * M; i++)
 				for (int j = 0; j < system[i][N * M]; j++)
@@ -60,7 +60,7 @@ public class ACM_NAQ_2016_I {
 
 		out.close();
 	}
-	
+
 	public static long[][] solve (long[][] A) {
 		int M = A.length;
 		int N = A[0].length - 1;
@@ -85,10 +85,10 @@ public class ACM_NAQ_2016_I {
 				long factor = A[j][i];
 				for (int k = i; k <= N; k++)
 					A[j][k] = (A[j][k] * A[i][i]);
-				for (int k = i; k <= N; k++) 
+				for (int k = i; k <= N; k++)
 					A[j][k] = (A[j][k] - A[i][k] * factor);
 			}
-			
+
 			for (int j = 0; j < M; j++) {
 				long gcd = 0;
 				for (int k = 0; k <= N; k++) {

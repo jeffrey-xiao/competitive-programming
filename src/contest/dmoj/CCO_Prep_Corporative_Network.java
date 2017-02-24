@@ -11,13 +11,13 @@ public class CCO_Prep_Corporative_Network {
 
 	static int T, N;
 	static int LN = 15;
-	
+
 	static int[][] par, sum;
 	static int[] id, depth;
 	static boolean[] notRoot;
-	
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>(); 
-	
+
+	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -25,31 +25,31 @@ public class CCO_Prep_Corporative_Network {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-		
+
 		for (int t = 1; t <= T; t++) {
-			
+
 			N = readInt();
-			
+
 			par = new int[N][LN];
 			sum = new int[N][LN];
 			id = new int[N];
 			depth = new int[N];
 			notRoot = new boolean[N];
-			
+
 			for (int i = 0; i < LN; i++)
 				for (int j = 0; j < N; j++)
 					par[j][i] = -1;
-	
+
 			adj.clear();
-			
+
 			for (int i = 0; i < N; i++) {
 				id[i] = i;
 				depth[i] = -1;
 				adj.add(new ArrayList<Integer>());
 			}
-			
+
 			ArrayList<Query> q = new ArrayList<Query>();
-			
+
 			char c;
 			while ((c = readCharacter()) != 'O') {
 				if (c == 'E')
@@ -65,11 +65,11 @@ public class CCO_Prep_Corporative_Network {
 					q.add(new Query(u, v));
 				}
 			}
-			
+
 			for (int i = 0; i < N; i++)
 				if (!notRoot[i])
 					dfs(i, 0);
-			
+
 			for (int i = 1; i < LN; i++) {
 				for (int j = 0; j < N; j++) {
 					if (par[j][i - 1] != -1) {
@@ -78,7 +78,7 @@ public class CCO_Prep_Corporative_Network {
 					}
 				}
 			}
-			
+
 			for (Query query : q) {
 				if (query.b == -1) {
 					out.println(lca(find(query.a), query.a));
@@ -87,14 +87,14 @@ public class CCO_Prep_Corporative_Network {
 				}
 			}
 		}
-		
+
 		out.close();
 	}
-	
+
 	static int lca (int a, int b) {
 		if (a == b)
 			return 0;
-		
+
 		int ret = 0;
 		for (int i = LN - 1; i >= 0; i--) {
 			if (par[b][i] != -1 && depth[par[b][i]] > depth[a]) {
@@ -105,31 +105,33 @@ public class CCO_Prep_Corporative_Network {
 		ret += sum[b][0];
 		return ret;
 	}
-	
+
 	static void dfs (int u, int d) {
 		depth[u] = d;
 		for (int v : adj.get(u))
 			dfs(v, d + 1);
 	}
-	
+
 	static int find (int i) {
 		return i == id[i] ? i : (id[i] = find(id[i]));
 	}
+
 	// j is par of i
 	static void merge (int i, int j) {
 		i = find(i);
 		j = find(j);
 		id[i] = j;
 	}
-	
+
 	static class Query {
 		int a, b;
+
 		Query (int a, int b) {
 			this.a = a;
 			this.b = b;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -156,4 +158,3 @@ public class CCO_Prep_Corporative_Network {
 		return br.readLine().trim();
 	}
 }
-

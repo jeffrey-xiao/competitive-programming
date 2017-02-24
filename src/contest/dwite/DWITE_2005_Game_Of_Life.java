@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DWITE_2005_Game_Of_Life {
 	static Scanner scan = new Scanner(System.in);
-	static final int[][] moves = { {-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}};
+	static final int[][] moves = {{-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 	public static void main (String[] args) {
 		char[][] grid = new char[scan.nextInt()][];

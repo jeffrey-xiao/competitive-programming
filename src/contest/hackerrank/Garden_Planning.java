@@ -177,7 +177,7 @@ public class Garden_Planning {
 
 		public boolean equals (Object o) {
 			if (o instanceof State) {
-				State s = (State) o;
+				State s = (State)o;
 				for (int i = 0; i < row.length; i++)
 					if (s.row[i] != row[i])
 						return false;

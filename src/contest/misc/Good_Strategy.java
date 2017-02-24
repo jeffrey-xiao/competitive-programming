@@ -41,7 +41,7 @@ public class Good_Strategy {
 
 	}
 
-	@SuppressWarnings ("rawtypes")
+	@SuppressWarnings("rawtypes")
 	static class Problem implements Comparable {
 		int id;
 		int difficulty;
@@ -54,7 +54,7 @@ public class Good_Strategy {
 		@Override
 		public int compareTo (Object arg) {
 			if (arg instanceof Problem) {
-				Problem p = (Problem) arg;
+				Problem p = (Problem)arg;
 				if (p.difficulty == this.difficulty)
 					return -p.id + this.id;
 				return p.difficulty - this.difficulty;
@@ -65,7 +65,7 @@ public class Good_Strategy {
 		@Override
 		public boolean equals (Object arg) {
 			if (arg instanceof Problem) {
-				Problem p = (Problem) arg;
+				Problem p = (Problem)arg;
 				return p.id == this.id;
 			}
 			return true;

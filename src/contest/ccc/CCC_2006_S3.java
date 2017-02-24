@@ -82,7 +82,7 @@ public class CCC_2006_S3 {
 		}
 
 		Line getLine (Point a) {
-			double m = ((double) this.y - a.y) / (this.x - a.x);
+			double m = ((double)this.y - a.y) / (this.x - a.x);
 			if (m == Double.NEGATIVE_INFINITY)
 				m = Double.POSITIVE_INFINITY;
 			double b = y - m * this.x;

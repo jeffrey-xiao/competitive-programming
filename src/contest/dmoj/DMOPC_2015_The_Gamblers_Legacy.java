@@ -7,10 +7,10 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 
 	static BufferedReader br;
 	static PrintWriter out;
-	static StringTokenizer st;	
+	static StringTokenizer st;
 
 	static int N;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,11 +22,11 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 			int val = readInt();
 			State s = getCycle(val);
 			if (s.length == 1)
-				out.printf("Equilibrium: Bob's investment becomes $%d after %d second(s)!\n",  s.val, s.start);
+				out.printf("Equilibrium: Bob's investment becomes $%d after %d second(s)!\n", s.val, s.start);
 			else
 				out.printf("Instability: Loop of length %d encountered after %d second(s)!\n", s.length, s.start);
 		}
-		
+
 		out.close();
 	}
 
@@ -44,7 +44,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 			return "Start: " + start + "; Length: " + length;
 		}
 	}
-	
+
 	static State getCycle (int x) {
 		int tortoise = f(x), hare = f(f(x));
 		while (tortoise != hare) {
@@ -66,7 +66,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 		}
 		return new State(start, length, tortoise);
 	}
-	
+
 	static int f (int x) {
 		int p = (int)Math.log10(x) + 1;
 		int ret = 0;
@@ -76,7 +76,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 		}
 		return ret;
 	}
-	
+
 	static int pow (int b, int p) {
 		if (p == 0)
 			return 1;
@@ -84,7 +84,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 			return b;
 		return p % 2 == 0 ? pow(b * b, p / 2) : b * pow(b * b, p / 2);
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -111,4 +111,3 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 		return br.readLine().trim();
 	}
 }
-

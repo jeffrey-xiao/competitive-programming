@@ -12,7 +12,7 @@ public class DMOPC_2015_The_Faster_Way {
 	static int N, R, M;
 
 	static boolean[] isFast;
-	
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,12 +22,12 @@ public class DMOPC_2015_The_Faster_Way {
 		N = readInt();
 		R = readInt();
 		M = readInt();
-		
+
 		isFast = new boolean[N + 1];
-		
+
 		for (int i = 0; i < R; i++)
 			isFast[readInt()] = true;
-		
+
 		int normal = 0;
 		int fast = 0;
 		for (int i = 0; i < M; i++) {
@@ -48,7 +48,7 @@ public class DMOPC_2015_The_Faster_Way {
 	static int getTime (int x) {
 		return x * (x + 1) / 2;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -75,4 +75,3 @@ public class DMOPC_2015_The_Faster_Way {
 		return br.readLine().trim();
 	}
 }
-

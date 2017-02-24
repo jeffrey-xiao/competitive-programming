@@ -14,6 +14,7 @@ public class Bloomberg_Codecon_2017_D {
 	static String start;
 	static ArrayList<String> ans = new ArrayList<String>();
 	static HashMap<String, ArrayList<Edge>> adj = new HashMap<String, ArrayList<Edge>>();
+
 	public static void main (String[] args) throws IOException {
 		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -22,7 +23,7 @@ public class Bloomberg_Codecon_2017_D {
 
 		C = readInt();
 		R = readInt();
-		
+
 		start = next();
 		int[] initial = new int[C];
 		for (int i = 0; i < C; i++) {
@@ -30,8 +31,7 @@ public class Bloomberg_Codecon_2017_D {
 			int val = readInt();
 			initial[i] = val;
 		}
-		
-		
+
 		for (int i = 0; i < R; i++) {
 			String s1 = next();
 			String s2 = next();
@@ -79,28 +79,29 @@ public class Bloomberg_Codecon_2017_D {
 			s.vis.remove(next.dest);
 		}
 	}
-	
+
 	static class Edge {
 		String dest;
 		int type, cost;
+
 		Edge (String dest, int type, int cost) {
 			this.dest = dest;
 			this.type = type;
 			this.cost = cost;
 		}
 	}
-	
+
 	static class State {
 		ArrayList<String> vis = new ArrayList<String>();
 		String curr;
 		int[] tickets;
-		
+
 		State (String curr, int[] tickets) {
 			this.curr = curr;
 			this.tickets = tickets;
 		}
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -127,4 +128,3 @@ public class Bloomberg_Codecon_2017_D {
 		return br.readLine().trim();
 	}
 }
-

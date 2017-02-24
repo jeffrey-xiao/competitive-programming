@@ -11,7 +11,7 @@ public class Qualification_2016_C {
 	static StringTokenizer st;
 
 	static int T;
-	
+
 	public static void main (String[] args) throws IOException {
 		// br = new BufferedReader(new InputStreamReader(System.in));
 		//out = new PrintWriter(new OutputStreamWriter(System.out));
@@ -68,18 +68,18 @@ public class Qualification_2016_C {
 
 		return ret;
 	}
-	
+
 	static BigInteger toBase (BigInteger n, long base) {
 		BigInteger res = BigInteger.valueOf(0);
 		BigInteger b = BigInteger.valueOf(1);
 		while (n.compareTo(BigInteger.valueOf(0)) > 0) {
 			res = res.add(n.mod(BigInteger.valueOf(10)).multiply(b));
 			b = b.multiply(BigInteger.valueOf(base));
-			n = n.divide(BigInteger.valueOf(10));	
+			n = n.divide(BigInteger.valueOf(10));
 		}
 		return res;
 	}
-	
+
 	static String next () throws IOException {
 		while (st == null || !st.hasMoreTokens())
 			st = new StringTokenizer(br.readLine().trim());
@@ -106,4 +106,3 @@ public class Qualification_2016_C {
 		return br.readLine().trim();
 	}
 }
-
