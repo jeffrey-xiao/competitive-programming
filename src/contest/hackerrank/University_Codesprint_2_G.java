@@ -9,7 +9,8 @@ public class University_Codesprint_2_G {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int G, N, M, S;
+	static int G;
+	static long N, M, S;
 	static int ans;
 
 	public static void main (String[] args) throws IOException {
@@ -21,68 +22,42 @@ public class University_Codesprint_2_G {
 		G = readInt();
 
 		for (int g = 0; g < G; g++) {
-			N = readInt();
-			M = readInt();
-			S = readInt();
+			N = readLong();
+			M = readLong();
+			S = readLong();
 
-			ans = 1 << 30;
-
-			//getArrangements(0, new int[N - 1], S, S);
-
-			int[] val = new int[N - 1];
-			for (int m = 1; m <= S / (N - 1); m++) {
-				for (int i = 0; i < N - 1; i++) {
-					val = new int[N - 1];
-					int left = S;
-					for (int j = 0; j < i; j++) {
-						val[j] = m;
-						left -= m;
-					}
-					for (int j = 0; j < N - 1 - i; j++) {
-						val[j + i] = left / (N - 1 - i);
-						if (left % (N - 1 - i) > j) {
-							val[j + i]++;
-						}
-					}
-
-					PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-					int currAns = 0;
-					for (int j = 0; j < N - 1; j++)
-						for (int k = j + 1; k < N - 1; k++)
-							pq.offer(Math.max(val[k], val[j]));
-					for (int j = 0; j < M - (N - 1); j++)
-						currAns += pq.poll();
-					for (int j = 0; j < N - 1; j++)
-						currAns += val[j];
-					ans = Math.min(ans, currAns);
+			// number of edges from the last node
+			long last = Math.max(1, M - (N - 2) * (N - 1) / 2);
+			// total number of edges from all nodes, except last node
+			long pre = Math.min(M - 1, (N - 2) * (N - 1) / 2);
+			// value of edges from last node
+			long val = S - N + 2;
+			// current answer
+			long ans = last * val + pre;
+			
+		
+			if (last <= (float)(N - 1) / 2.0 || N == 2)
+				out.println(ans);
+			else {
+				// added value to all nodes from 2 to N - 1
+				long K = (val - 1) / (N - 1);
+				// new answer
+				ans -= K * (last * (N - 2) - pre);
+				//current value in the last node
+				val -= (N - 2) * K;
+				if (val - K - 1 > 1) {
+					// amount which can be decreased from the last node
+					long rem = val - K - 2;
+					long am = pre - ((N - rem - 1) * (N - rem - 2)) / 2;
+					if (am <= rem * last)
+						// new answer, in case we will decrease value in the last node again
+						ans -= rem * last - am;
 				}
+				out.println(ans);
 			}
-			out.println(ans);
 		}
 
 		out.close();
-	}
-
-	static void getArrangements (int n, int[] val, int curr, int left) {
-		if (n == N - 1 && left == 0) {
-			PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-			int currAns = 0;
-			for (int i = 0; i < N - 1; i++)
-				for (int j = i + 1; j < N - 1; j++)
-					pq.offer(Math.max(val[i], val[j]));
-			for (int i = 0; i < M - (N - 1); i++)
-				currAns += pq.poll();
-			for (int i = 0; i < N - 1; i++)
-				currAns += val[i];
-			ans = Math.min(ans, currAns);
-			return;
-		}
-		if (left == 0 || n == N - 1)
-			return;
-		for (int i = 1; i <= Math.min(left, curr); i++) {
-			val[n] = i;
-			getArrangements(n + 1, val, i, left - i);
-		}
 	}
 
 	static String next () throws IOException {
