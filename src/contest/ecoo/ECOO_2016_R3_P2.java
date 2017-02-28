@@ -9,7 +9,7 @@ public class ECOO_2016_R3_P2 {
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static final int TEST_CASES = 10; // 10
+	static final int TEST_CASES = 10;
 
 	static int Aw, Ah, Bx, By, Sx, Sy;
 

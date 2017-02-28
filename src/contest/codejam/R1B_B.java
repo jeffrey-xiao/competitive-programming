@@ -36,7 +36,6 @@ public class R1B_B {
 				}
 
 				if (cnt == n) {
-					// System.out.println(Integer.toString(i, 2));
 					int ans = 0;
 					boolean[][] g = new boolean[r][c];
 					for (int x = 0; x < r; x++) {
@@ -52,8 +51,6 @@ public class R1B_B {
 								if (nx < 0 || nx >= r || ny < 0 || ny >= c || !g[x][y])
 									continue;
 
-								// System.out.println(x + " " + y + " " + nx +
-								// " " + ny);
 								if (g[nx][ny])
 									ans++;
 							}

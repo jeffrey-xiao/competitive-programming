@@ -69,8 +69,4 @@ public class friday {
 	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
-
-	public friday () {
-		// TODO Auto-generated constructor stub
-	}
 }

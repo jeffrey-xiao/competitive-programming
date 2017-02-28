@@ -64,8 +64,4 @@ public class gift1 {
 	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
-
-	public gift1 () {
-		// TODO Auto-generated constructor stub
-	}
 }

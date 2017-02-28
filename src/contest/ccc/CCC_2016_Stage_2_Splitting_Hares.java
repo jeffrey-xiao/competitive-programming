@@ -16,10 +16,6 @@ public class CCC_2016_Stage_2_Splitting_Hares {
 		@Override
 		// small positive < big positive < big negative < small negative
 		public int compare (Integer i, Integer j) {
-			//			Double angle1 = Math.atan2(y[i], x[i]);
-			//			Double angle2 = Math.atan2(y[j], x[j]);
-			//			return angle1.compareTo(angle2);
-
 			Double slope1 = 0.0;
 			Double slope2 = 0.0;
 

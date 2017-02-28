@@ -31,7 +31,6 @@ public class ACM_Reverse_Fox_Hunt {
 				char[] next = next().toCharArray();
 				for (int y = 0; y < c; y++) {
 					int index = x * r + y;
-					// System.out.println(index);
 					grid[index] = next[y];
 					if (index - c >= 0)
 						adj.get(index).add(new Edge(index - c, 1));

@@ -100,7 +100,6 @@ public class CCC_2003_S5 {
 		try {
 			s = br.readLine().trim();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return s;

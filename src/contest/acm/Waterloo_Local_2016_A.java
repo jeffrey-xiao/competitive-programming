@@ -49,21 +49,12 @@ public class Waterloo_Local_2016_A {
 						adj.get((i * C + j) / 2 + 1).add(leftSize + (i * C + j + 1) / 2 + 1);
 					else
 						adj.get((i * C + j + 1) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-					//					out.printf("right conn %d %d and %d %d\n", i, j, i, j + 1);
 				}
-				//				if (j != 0) {
-				//					if (isLeft)
-				//						adj.get((i * C + j) / 2 + 1).add(leftSize + (i * C + j - 1) / 2 + 1);
-				//					else
-				//						adj.get((i * C + j - 1) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-				//					out.printf("left conn %d %d and %d %d\n", i, j, i, j - 1);
-				//				}
 				if (i != R - 1 && isLeft && !dead[i][j] && !dead[i + 1][j]) {
 					if (isLeft)
 						adj.get((i * C + j) / 2 + 1).add(leftSize + ((i + 1) * C + j) / 2 + 1);
 					else
 						adj.get(((i + 1) * C + j) / 2 + 1).add(leftSize + (i * C + j) / 2 + 1);
-					//					out.printf("bot conn %d %d and %d %d\n", i, j, i + 1, j);
 				}
 			}
 		}

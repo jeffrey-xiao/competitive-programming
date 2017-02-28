@@ -3,7 +3,7 @@ package contest.dmoj;
 import java.util.*;
 import java.io.*;
 
-public class DMOPC_2015_6 {
+public class DMOPC_2015_Gala {
 
 	static BufferedReader br;
 	static PrintWriter out;
@@ -15,9 +15,9 @@ public class DMOPC_2015_6 {
 	static long[] dp = new long[SIZE];
 
 	public static void main (String[] args) throws IOException {
-		//br = new BufferedReader(new InputStreamReader(System.in));
+		br = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
+		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		int n = readInt();
@@ -45,10 +45,8 @@ public class DMOPC_2015_6 {
 				}
 				long currAns = 1;
 				for (int j = 0; j < 19; j++) {
-					//					System.out.println(j + " " + cnt[j]);
 					currAns = (currAns * catalan(cnt[j] - (j == 0 ? 0 : 2))) % MOD;
 				}
-				//				System.out.println("HERE " + Integer.toString(i, 2) + " " + currAns);
 				ans = (ans + currAns) % MOD;
 			}
 			out.println(ans);

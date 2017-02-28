@@ -91,8 +91,4 @@ public class beads {
 	static String readLine () throws IOException {
 		return br.readLine().trim();
 	}
-
-	public beads () {
-		// TODO Auto-generated constructor stub
-	}
 }

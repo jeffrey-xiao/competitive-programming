@@ -57,7 +57,6 @@ public class DMOPC_2015_Magic {
 	static void adjust (int prevPa, int prevPb) {
 		if (Math.abs(Pa - Pb) < D || Math.abs(Pa - Pb + K) < D) {
 			if (prevPa < prevPb) {
-				//			if (Pa < Pb) {
 				Pb = (Pa + D) % K;
 			} else {
 				Pb = ((Pa - D) % K + K) % K;

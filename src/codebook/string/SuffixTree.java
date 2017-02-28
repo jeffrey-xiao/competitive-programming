@@ -67,7 +67,6 @@ public class SuffixTree {
 		for (int i = 0; i < 256; i++) {
 			if (curr.child[i] != null) {
 				System.out.printf("%d--%d[label=\"%s\"]\n", curr.index, curr.child[i].index, input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
-				//System.out.println(input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
 				printTree(curr.child[i], depth + 1);
 			}
 		}

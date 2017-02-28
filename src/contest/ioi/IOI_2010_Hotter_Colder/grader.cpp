@@ -17,7 +17,7 @@ int Guess(int x){
 }
 
 int main(){
-   freopen("grader.in.1", "r", stdin);
+   freopen("grader.in", "r", stdin);
    int n=0,i,t,OK=0,sub1=0,sub2=0,sub3=0;
    double worst = 999999;
    while (2 == scanf("%d%d",&NN,&TT)) {

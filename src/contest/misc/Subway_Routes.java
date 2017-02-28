@@ -78,7 +78,6 @@ public class Subway_Routes {
 		for (int x = 0; x < centers.size() - 1; x++) {
 			int a = centers.get(x);
 			int b = centers.get(x + 1);
-			// System.out.println(a + " " + b + "REMOVE ");
 			int index1 = adj.get(a).indexOf(b);
 			int index2 = adj.get(b).indexOf(a);
 			adj.get(a).remove(index1);

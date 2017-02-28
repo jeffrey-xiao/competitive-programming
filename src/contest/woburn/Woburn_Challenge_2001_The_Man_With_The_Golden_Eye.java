@@ -51,8 +51,6 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
 				dfs(next.dest, sum[next.dest], x, visited, sum);
 				visited[next.dest] = false;
 			} else if (visited[next.dest] && next.dest == start && next.dest != prev) {
-				// System.out.println(start+1 + " START " +
-				// (Math.abs(sum[x]-sum[next.dest])+next.cost));
 				min = Math.min(Math.abs(sum[x] - sum[next.dest]) + next.cost, min);
 			}
 		}

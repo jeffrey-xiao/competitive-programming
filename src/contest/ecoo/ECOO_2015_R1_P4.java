@@ -23,7 +23,6 @@ public class ECOO_2015_R1_P4 {
 					if (i + num[j].length() <= s.length() && s.substring(i, i + num[j].length()).equals(num[j]))
 						dp[i + num[j].length()] += dp[i];
 				}
-				// System.out.print(dp[i] + " ");
 			}
 			System.out.println(dp[s.length()]);
 		}
