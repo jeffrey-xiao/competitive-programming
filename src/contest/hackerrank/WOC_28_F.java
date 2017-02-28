@@ -19,19 +19,15 @@ public class WOC_28_F {
 		//out = new PrintWriter(new FileWriter("out.txt"));
 
 		G = readInt();
-		long start = System.currentTimeMillis();
-		//		String s = next();
+
 		for (int g = 1; g <= G; g++) {
 			String s = next();
-			//			String s = "";
-			//			for (int i = 0; i < 1000; i++)
-			//				s += "abcdefghijklmnopqrstuvwxyz".charAt((int)(Math.random() * 26));
 			ans = 1 << 30;
 			s = preprocess(s);
 
 			out.println(solve(s));
 		}
-		out.println(System.currentTimeMillis() - start);
+
 		out.close();
 	}
 
