@@ -34,7 +34,7 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
 		out = new PrintWriter(new OutputStreamWriter(System.out));
 		//br = new BufferedReader(new FileReader("in.txt"));
 		//out = new PrintWriter(new FileWriter("out.txt"));
-
+		
 		T = readInt();
 		
 		for (int t = 1; t <= T; t++) {
