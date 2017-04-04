@@ -22,7 +22,7 @@ int main () {
       ans += N - curr;
       curr += N - curr;
     }
-  } 
+  }
   printf("%d\n", ans);
   return 0;
 }
