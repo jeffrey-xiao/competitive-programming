@@ -33,7 +33,7 @@ int main () {
       compressed.push_back({sweep[j].first, value});
     }
 
-    int value = 0;
+    int value = max(0, W[i]);
 
     for (int n = 0, m = 0; compressed[n].first < M_PI; n++) {
       while (compressed[m].first - compressed[n].first <= M_PI)
