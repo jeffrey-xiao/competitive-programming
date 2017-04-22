@@ -3,33 +3,37 @@ package contest.codejam;
 import java.util.*;
 import java.io.*;
 
-public class Qualification_2016_B {
+public class GCJ_2016_Qualification_A {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int T;
+	static int T, N;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
-		// out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		out = new PrintWriter(new FileWriter("out.txt"));
+		br = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
 
 		for (int t = 1; t <= T; t++) {
-			char[] in = readLine().toCharArray();
-			int ans = 0;
-
-			for (int i = 1; i < in.length; i++)
-				if (in[i] != in[i - 1])
-					ans++;
-
-			if (in[in.length - 1] == '-')
-				ans++;
-			out.printf("Case #%d: %d\n", t, ans);
+			N = readInt();
+			if (N == 0) {
+				out.printf("Case #%d: INSOMNIA\n", t);
+				continue;
+			}
+			int seen = 0, i = 1;
+			for (; seen != (1 << 10) - 1; i++) {
+				int curr = N * i;
+				while (curr != 0) {
+					seen |= 1 << (curr % 10);
+					curr /= 10;
+				}
+			}
+			out.printf("Case #%d: %d\n", t, N * (i - 1));
 		}
 		out.close();
 	}

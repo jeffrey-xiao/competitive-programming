@@ -3,35 +3,35 @@ package contest.codejam;
 import java.util.*;
 import java.io.*;
 
-public class Round_1A_A {
+public class A {
 
 	static BufferedReader br;
 	static PrintWriter out;
 	static StringTokenizer st;
 
-	static int T;
+	static int T, D, N;
 
 	public static void main (String[] args) throws IOException {
-		// br = new BufferedReader(new InputStreamReader(System.in));
-		// out = new PrintWriter(new OutputStreamWriter(System.out));
-		br = new BufferedReader(new FileReader("in.txt"));
-		out = new PrintWriter(new FileWriter("out.txt"));
+		br = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintWriter(new OutputStreamWriter(System.out));
+		// br = new BufferedReader(new FileReader("in.txt"));
+		// out = new PrintWriter(new FileWriter("out.txt"));
 
 		T = readInt();
-
+		
 		for (int t = 1; t <= T; t++) {
-			char[] in = readLine().toCharArray();
-			String res = "";
-			res += in[0];
-			for (int i = 1; i < in.length; i++) {
-				if (in[i] < res.charAt(0))
-					res += in[i];
-				else
-					res = in[i] + res;
+			D = readInt();
+			N = readInt();
+			
+			double maxTime = 0;
+			for (int i = 0; i < N; i++) {
+				int pos = readInt();
+				int speed = readInt();
+				maxTime = Math.max(1.0 * (D - pos) / speed, maxTime);
 			}
-			out.printf("Case #%d: %s\n", t, res);
+			out.printf("Case #%d: %f\n", t, D / maxTime);
 		}
-
+		
 		out.close();
 	}
 
@@ -61,3 +61,4 @@ public class Round_1A_A {
 		return br.readLine().trim();
 	}
 }
+
