@@ -3,7 +3,7 @@ package contest.codejam;
 import java.util.*;
 import java.io.*;
 
-public class B {
+public class GCJ_2017_Round_1B_B {
 
 	static BufferedReader br;
 	static PrintWriter out;
