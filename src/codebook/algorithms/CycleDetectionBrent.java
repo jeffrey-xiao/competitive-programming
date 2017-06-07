@@ -15,56 +15,56 @@ package codebook.algorithms;
 
 public class CycleDetectionBrent {
 
-	static class State {
-		int start, length;
+  static class State {
+    int start, length;
 
-		State (int start, int length) {
-			this.start = start;
-			this.length = length;
-		}
+    State (int start, int length) {
+      this.start = start;
+      this.length = length;
+    }
 
-		@Override
-		public String toString () {
-			return "Start: " + start + "; Length: " + length;
-		}
-	}
+    @Override
+    public String toString () {
+      return "Start: " + start + "; Length: " + length;
+    }
+  }
 
-	static int f (int x) {
-		return (125978 * x * x + 2630) % 6349;
-	}
+  static int f (int x) {
+    return (125978 * x * x + 2630) % 6349;
+  }
 
-	static State getCycle (int x) {
-		int power = 1;
-		int length = 1;
-		int tortoise = x;
-		int hare = f(x);
+  static State getCycle (int x) {
+    int power = 1;
+    int length = 1;
+    int tortoise = x;
+    int hare = f(x);
 
-		while (tortoise != hare) {
-			if (power == length) {
-				tortoise = hare;
-				power *= 2;
-				length = 0;
-			}
-			hare = f(hare);
-			length++;
-		}
+    while (tortoise != hare) {
+      if (power == length) {
+        tortoise = hare;
+        power *= 2;
+        length = 0;
+      }
+      hare = f(hare);
+      length++;
+    }
 
-		hare = x;
-		for (int i = 0; i < length; i++)
-			hare = f(hare);
+    hare = x;
+    for (int i = 0; i < length; i++)
+      hare = f(hare);
 
-		int start = 0;
-		tortoise = x;
+    int start = 0;
+    tortoise = x;
 
-		while (tortoise != hare) {
-			tortoise = f(tortoise);
-			hare = f(hare);
-			start++;
-		}
-		return new State(start, length);
-	}
+    while (tortoise != hare) {
+      tortoise = f(tortoise);
+      hare = f(hare);
+      start++;
+    }
+    return new State(start, length);
+  }
 
-	public static void main (String[] args) {
-		System.out.println(getCycle(0));
-	}
+  public static void main (String[] args) {
+    System.out.println(getCycle(0));
+  }
 }

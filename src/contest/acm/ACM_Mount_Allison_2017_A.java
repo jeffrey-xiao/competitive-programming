@@ -1,65 +1,68 @@
 package contest.acm;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class ACM_Mount_Allison_2017_A {
 
-	static BufferedReader br;
-	static PrintWriter out;
-	static StringTokenizer st;
+  static BufferedReader br;
+  static PrintWriter out;
+  static StringTokenizer st;
 
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//out = new PrintWriter(new FileWriter("out.txt"));
+  public static void main (String[] args) throws IOException {
+    br = new BufferedReader(new InputStreamReader(System.in));
+    out = new PrintWriter(new OutputStreamWriter(System.out));
+    //br = new BufferedReader(new FileReader("in.txt"));
+    //out = new PrintWriter(new FileWriter("out.txt"));
 
-		int N = readInt();
-		
-		for (int i = 0; i < N; i++) {
-			String in = readLine();
-			long ans = 0;
-			long curr = 0;
-			for (int j = 0; j < in.length(); j++) {
-				if (in.charAt(j) == ',')  {
-					ans = (ans * 60) + curr;
-					curr = 0;
-				} else {
-					curr = (curr * 10 + in.charAt(j) - '0');
-				}
-			}
-			ans = (ans * 60) + curr;
-			out.println(ans);
-		}
-		
-		out.close();
-	}
+    int N = readInt();
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
+    for (int i = 0; i < N; i++) {
+      String in = readLine();
+      long ans = 0;
+      long curr = 0;
+      for (int j = 0; j < in.length(); j++) {
+        if (in.charAt(j) == ',') {
+          ans = (ans * 60) + curr;
+          curr = 0;
+        } else {
+          curr = (curr * 10 + in.charAt(j) - '0');
+        }
+      }
+      ans = (ans * 60) + curr;
+      out.println(ans);
+    }
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
+    out.close();
+  }
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
+  static String next () throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
 
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
+  static long readLong () throws IOException {
+    return Long.parseLong(next());
+  }
 
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
+  static int readInt () throws IOException {
+    return Integer.parseInt(next());
+  }
 
-	static String readLine () throws IOException {
-		return br.readLine().trim();
-	}
+  static double readDouble () throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter () throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine () throws IOException {
+    return br.readLine().trim();
+  }
 }
-

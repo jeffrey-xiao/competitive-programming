@@ -15,80 +15,80 @@ import java.util.StringTokenizer;
 
 public class BellmanFord {
 
-	static BufferedReader br;
-	static PrintWriter out;
-	static StringTokenizer st;
+  static BufferedReader br;
+  static PrintWriter out;
+  static StringTokenizer st;
 
-	static int n, m, orig, dest;
-	static Edge[] e;
-	static int[] dist;
+  static int n, m, orig, dest;
+  static Edge[] e;
+  static int[] dist;
 
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		out = new PrintWriter(new OutputStreamWriter(System.out));
-		//br = new BufferedReader(new FileReader("in.txt"));
-		//out = new PrintWriter(new FileWriter("out.txt"));
+  public static void main (String[] args) throws IOException {
+    br = new BufferedReader(new InputStreamReader(System.in));
+    out = new PrintWriter(new OutputStreamWriter(System.out));
+    //br = new BufferedReader(new FileReader("in.txt"));
+    //out = new PrintWriter(new FileWriter("out.txt"));
 
-		n = readInt();
-		m = readInt();
-		orig = readInt() - 1;
-		dest = readInt() - 1;
+    n = readInt();
+    m = readInt();
+    orig = readInt() - 1;
+    dest = readInt() - 1;
 
-		dist = new int[n];
-		e = new Edge[m];
+    dist = new int[n];
+    e = new Edge[m];
 
-		for (int i = 0; i < n; i++)
-			dist[i] = 1 << 29;
+    for (int i = 0; i < n; i++)
+      dist[i] = 1 << 29;
 
-		for (int i = 0; i < m; i++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			int c = readInt();
-			e[i] = new Edge(a, b, c);
-		}
+    for (int i = 0; i < m; i++) {
+      int a = readInt() - 1;
+      int b = readInt() - 1;
+      int c = readInt();
+      e[i] = new Edge(a, b, c);
+    }
 
-		dist[orig] = 0;
-		for (int i = 0; i < n - 1; i++)
-			for (Edge edge : e)
-				dist[edge.dest] = Math.min(dist[edge.dest], dist[edge.orig] + edge.cost);
+    dist[orig] = 0;
+    for (int i = 0; i < n - 1; i++)
+      for (Edge edge : e)
+        dist[edge.dest] = Math.min(dist[edge.dest], dist[edge.orig] + edge.cost);
 
-		out.println(dist[dest]);
-		out.close();
-	}
+    out.println(dist[dest]);
+    out.close();
+  }
 
-	static class Edge {
-		int orig, dest, cost;
+  static class Edge {
+    int orig, dest, cost;
 
-		Edge (int orig, int dest, int cost) {
-			this.orig = orig;
-			this.dest = dest;
-			this.cost = cost;
-		}
-	}
+    Edge (int orig, int dest, int cost) {
+      this.orig = orig;
+      this.dest = dest;
+      this.cost = cost;
+    }
+  }
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
+  static String next () throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
+  static long readLong () throws IOException {
+    return Long.parseLong(next());
+  }
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
+  static int readInt () throws IOException {
+    return Integer.parseInt(next());
+  }
 
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
+  static double readDouble () throws IOException {
+    return Double.parseDouble(next());
+  }
 
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
+  static char readCharacter () throws IOException {
+    return next().charAt(0);
+  }
 
-	static String readLine () throws IOException {
-		return br.readLine().trim();
-	}
+  static String readLine () throws IOException {
+    return br.readLine().trim();
+  }
 }

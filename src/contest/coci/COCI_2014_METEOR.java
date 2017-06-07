@@ -11,96 +11,96 @@ import java.util.StringTokenizer;
 
 public class COCI_2014_METEOR {
 
-	static BufferedReader br;
-	static PrintWriter ps;
-	static StringTokenizer st;
+  static BufferedReader br;
+  static PrintWriter ps;
+  static StringTokenizer st;
 
-	static int[][] p;
-	static boolean[][] poss;
-	static int m;
+  static int[][] p;
+  static boolean[][] poss;
+  static int m;
 
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		// br = new BufferedReader(new FileReader("in.txt"));
-		// ps = new PrintWriter("out.txt");
+  public static void main (String[] args) throws IOException {
+    br = new BufferedReader(new InputStreamReader(System.in));
+    ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+    // br = new BufferedReader(new FileReader("in.txt"));
+    // ps = new PrintWriter("out.txt");
 
-		int r = readInt();
-		int c = readInt();
-		char[][] g = new char[r][c];
-		ArrayList<Point> p = new ArrayList<Point>();
-		for (int i = 0; i < r; i++) {
-			g[i] = next().toCharArray();
+    int r = readInt();
+    int c = readInt();
+    char[][] g = new char[r][c];
+    ArrayList<Point> p = new ArrayList<Point>();
+    for (int i = 0; i < r; i++) {
+      g[i] = next().toCharArray();
 
-		}
-		ArrayList<Point> ans = new ArrayList<Point>();
-		for (int j = 0; j < c; j++) {
-			boolean first = true;
-			for (int i = r - 1; i >= 0; i--) {
+    }
+    ArrayList<Point> ans = new ArrayList<Point>();
+    for (int j = 0; j < c; j++) {
+      boolean first = true;
+      for (int i = r - 1; i >= 0; i--) {
 
-				if (g[i][j] == 'X') {
-					g[i][j] = '.';
-					if (first) {
-						p.add(new Point(i, j));
-						first = false;
-					}
-					ans.add(new Point(i, j));
-				}
-			}
-		}
-		boolean change = true;
-		int displace = 0;
-		while (change) {
-			change = true;
-			for (Point pt : p) {
-				if (pt.x + displace == r - 1 || g[pt.x + 1 + displace][pt.y] == '#') {
-					change = false;
-					break;
-				}
-			}
-			if (change)
-				displace++;
-		}
-		for (Point pt : ans)
-			g[pt.x + displace][pt.y] = 'X';
-		for (int i = 0; i < r; i++) {
-			ps.println(new String(g[i]));
-		}
-		ps.close();
-	}
+        if (g[i][j] == 'X') {
+          g[i][j] = '.';
+          if (first) {
+            p.add(new Point(i, j));
+            first = false;
+          }
+          ans.add(new Point(i, j));
+        }
+      }
+    }
+    boolean change = true;
+    int displace = 0;
+    while (change) {
+      change = true;
+      for (Point pt : p) {
+        if (pt.x + displace == r - 1 || g[pt.x + 1 + displace][pt.y] == '#') {
+          change = false;
+          break;
+        }
+      }
+      if (change)
+        displace++;
+    }
+    for (Point pt : ans)
+      g[pt.x + displace][pt.y] = 'X';
+    for (int i = 0; i < r; i++) {
+      ps.println(new String(g[i]));
+    }
+    ps.close();
+  }
 
-	static class Point {
-		int x, y;
+  static class Point {
+    int x, y;
 
-		Point (int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
+    Point (int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+  }
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
+  static String next () throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
+  static long readLong () throws IOException {
+    return Long.parseLong(next());
+  }
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
+  static int readInt () throws IOException {
+    return Integer.parseInt(next());
+  }
 
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
+  static double readDouble () throws IOException {
+    return Double.parseDouble(next());
+  }
 
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
+  static char readCharacter () throws IOException {
+    return next().charAt(0);
+  }
 
-	static String readLine () throws IOException {
-		return br.readLine().trim();
-	}
+  static String readLine () throws IOException {
+    return br.readLine().trim();
+  }
 }

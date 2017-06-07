@@ -10,67 +10,67 @@ import java.util.StringTokenizer;
 
 public class COCI_2014_PROSJEK {
 
-	static BufferedReader br;
-	static PrintWriter ps;
-	static StringTokenizer st;
+  static BufferedReader br;
+  static PrintWriter ps;
+  static StringTokenizer st;
 
-	public static void main (String[] args) throws IOException {
-		br = new BufferedReader(new InputStreamReader(System.in));
-		ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-		// br = new BufferedReader(new FileReader("in.txt"));
-		// ps = new PrintWriter("out.txt");
+  public static void main (String[] args) throws IOException {
+    br = new BufferedReader(new InputStreamReader(System.in));
+    ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+    // br = new BufferedReader(new FileReader("in.txt"));
+    // ps = new PrintWriter("out.txt");
 
-		int n = readInt();
-		int k = readInt();
-		int[] a = new int[n + 1];
-		for (int i = 1; i <= n; i++)
-			a[i] = readInt();
-		double lo = 0, hi = 1 << 30;
-		double[] prefix = new double[n + 1];
-		while (hi - lo > 0.000000001) {
+    int n = readInt();
+    int k = readInt();
+    int[] a = new int[n + 1];
+    for (int i = 1; i <= n; i++)
+      a[i] = readInt();
+    double lo = 0, hi = 1 << 30;
+    double[] prefix = new double[n + 1];
+    while (hi - lo > 0.000000001) {
 
-			double mid = lo + (hi - lo) / 2;
-			boolean valid = false;
-			for (int i = 1; i <= n; i++)
-				prefix[i] = a[i] + prefix[i - 1] - mid;
-			double min = 0;
-			for (int i = k; i <= n; i++) {
-				if (prefix[i] >= min)
-					valid = true;
-				min = Math.min(min, prefix[i - k + 1]);
-			}
-			if (valid)
-				lo = mid;
-			else
-				hi = mid;
-		}
-		ps.println(lo);
-		ps.close();
-	}
+      double mid = lo + (hi - lo) / 2;
+      boolean valid = false;
+      for (int i = 1; i <= n; i++)
+        prefix[i] = a[i] + prefix[i - 1] - mid;
+      double min = 0;
+      for (int i = k; i <= n; i++) {
+        if (prefix[i] >= min)
+          valid = true;
+        min = Math.min(min, prefix[i - k + 1]);
+      }
+      if (valid)
+        lo = mid;
+      else
+        hi = mid;
+    }
+    ps.println(lo);
+    ps.close();
+  }
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
+  static String next () throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
+  static long readLong () throws IOException {
+    return Long.parseLong(next());
+  }
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
+  static int readInt () throws IOException {
+    return Integer.parseInt(next());
+  }
 
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
+  static double readDouble () throws IOException {
+    return Double.parseDouble(next());
+  }
 
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
+  static char readCharacter () throws IOException {
+    return next().charAt(0);
+  }
 
-	static String readLine () throws IOException {
-		return br.readLine().trim();
-	}
+  static String readLine () throws IOException {
+    return br.readLine().trim();
+  }
 }

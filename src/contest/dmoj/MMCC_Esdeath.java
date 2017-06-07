@@ -12,126 +12,126 @@ import java.util.StringTokenizer;
 
 public class MMCC_Esdeath {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
-	static StringTokenizer st;
+  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+  static StringTokenizer st;
 
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-	static State[] nodes;
-	static boolean[] v;
-	static boolean[] tv;
-	static int count, n, k;
-	static int[] index;
+  static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+  static State[] nodes;
+  static boolean[] v;
+  static boolean[] tv;
+  static int count, n, k;
+  static int[] index;
 
-	public static void main (String[] args) throws IOException {
-		n = readInt();
-		k = readInt();
-		nodes = new State[n];
-		index = new int[n];
-		for (int x = 0; x < n; x++) {
-			adj.add(new ArrayList<Integer>());
-			nodes[x] = new State(x, 0);
-		}
-		for (int x = 0; x < n - 1; x++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			adj.get(a).add(b);
-			adj.get(b).add(a);
-		}
-		getDepth(0, 1);
-		Arrays.sort(nodes);
-		for (int x = 0; x < n; x++) {
-			index[nodes[x].id] = x;
-		}
-		int lo = 0, hi = 2500;
+  public static void main (String[] args) throws IOException {
+    n = readInt();
+    k = readInt();
+    nodes = new State[n];
+    index = new int[n];
+    for (int x = 0; x < n; x++) {
+      adj.add(new ArrayList<Integer>());
+      nodes[x] = new State(x, 0);
+    }
+    for (int x = 0; x < n - 1; x++) {
+      int a = readInt() - 1;
+      int b = readInt() - 1;
+      adj.get(a).add(b);
+      adj.get(b).add(a);
+    }
+    getDepth(0, 1);
+    Arrays.sort(nodes);
+    for (int x = 0; x < n; x++) {
+      index[nodes[x].id] = x;
+    }
+    int lo = 0, hi = 2500;
 
-		while (lo <= hi) {
-			int mid = lo + (hi - lo) / 2;
-			if (isPossible(mid) <= k) {
-				hi = mid - 1;
-			} else {
-				lo = mid + 1;
-			}
-		}
-		System.out.println(lo);
-	}
+    while (lo <= hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (isPossible(mid) <= k) {
+        hi = mid - 1;
+      } else {
+        lo = mid + 1;
+      }
+    }
+    System.out.println(lo);
+  }
 
-	private static int isPossible (int r) {
-		tv = new boolean[n];
-		int count = 0;
-		for (int x = 0; x < n; x++) {
-			if (!tv[nodes[x].id]) {
-				v = new boolean[n];
-				int i = findCenter(nodes[x].id, r);
-				markNodes(i, r);
-				count++;
-			}
-		}
-		return count;
-	}
+  private static int isPossible (int r) {
+    tv = new boolean[n];
+    int count = 0;
+    for (int x = 0; x < n; x++) {
+      if (!tv[nodes[x].id]) {
+        v = new boolean[n];
+        int i = findCenter(nodes[x].id, r);
+        markNodes(i, r);
+        count++;
+      }
+    }
+    return count;
+  }
 
-	private static void markNodes (int i, int r) {
-		if (r == -1)
-			return;
-		v[i] = true;
-		tv[i] = true;
-		for (Integer next : adj.get(i))
-			if (!v[next])
-				markNodes(next, r - 1);
-	}
+  private static void markNodes (int i, int r) {
+    if (r == -1)
+      return;
+    v[i] = true;
+    tv[i] = true;
+    for (Integer next : adj.get(i))
+      if (!v[next])
+        markNodes(next, r - 1);
+  }
 
-	private static int findCenter (int x, int r) {
-		if (r == 0)
-			return x;
-		return findCenter(nodes[index[x]].parent, r - 1);
-	}
+  private static int findCenter (int x, int r) {
+    if (r == 0)
+      return x;
+    return findCenter(nodes[index[x]].parent, r - 1);
+  }
 
-	private static void getDepth (int i, int d) {
-		nodes[i].depth = d++;
-		for (Integer next : adj.get(i))
-			if (nodes[next].depth == 0) {
-				getDepth(next, d);
-				nodes[next].parent = i;
-			}
-	}
+  private static void getDepth (int i, int d) {
+    nodes[i].depth = d++;
+    for (Integer next : adj.get(i))
+      if (nodes[next].depth == 0) {
+        getDepth(next, d);
+        nodes[next].parent = i;
+      }
+  }
 
-	static class State implements Comparable<State> {
-		int id, depth, parent;
+  static class State implements Comparable<State> {
+    int id, depth, parent;
 
-		State (int id, int depth) {
-			this.id = id;
-			this.depth = depth;
-		}
+    State (int id, int depth) {
+      this.id = id;
+      this.depth = depth;
+    }
 
-		@Override
-		public int compareTo (State o) {
-			return o.depth - depth;
-		}
-	}
+    @Override
+    public int compareTo (State o) {
+      return o.depth - depth;
+    }
+  }
 
-	static String next () throws IOException {
-		while (st == null || !st.hasMoreTokens())
-			st = new StringTokenizer(br.readLine().trim());
-		return st.nextToken();
-	}
+  static String next () throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
 
-	static long readLong () throws IOException {
-		return Long.parseLong(next());
-	}
+  static long readLong () throws IOException {
+    return Long.parseLong(next());
+  }
 
-	static int readInt () throws IOException {
-		return Integer.parseInt(next());
-	}
+  static int readInt () throws IOException {
+    return Integer.parseInt(next());
+  }
 
-	static double readDouble () throws IOException {
-		return Double.parseDouble(next());
-	}
+  static double readDouble () throws IOException {
+    return Double.parseDouble(next());
+  }
 
-	static char readCharacter () throws IOException {
-		return next().charAt(0);
-	}
+  static char readCharacter () throws IOException {
+    return next().charAt(0);
+  }
 
-	static String readLine () throws IOException {
-		return br.readLine().trim();
-	}
+  static String readLine () throws IOException {
+    return br.readLine().trim();
+  }
 }

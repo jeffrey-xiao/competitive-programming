@@ -20,87 +20,87 @@ package codebook.datastructures;
 
 public class RangeTree {
 
-	// root of the tree
-	private Node root;
+  // root of the tree
+  private Node root;
 
-	public void add (int x, int y) {
-		root = add(root, x, y);
-	}
+  public void add (int x, int y) {
+    root = add(root, x, y);
+  }
 
-	private Node add (Node n, int x, int y) {
-		if (n == null)
-			return new Node(x, y);
-		n.bst.add(y, x);
-		if (x < n.x)
-			n.left = add(n.left, x, y);
-		else
-			n.right = add(n.right, x, y);
-		return n;
-	}
+  private Node add (Node n, int x, int y) {
+    if (n == null)
+      return new Node(x, y);
+    n.bst.add(y, x);
+    if (x < n.x)
+      n.left = add(n.left, x, y);
+    else
+      n.right = add(n.right, x, y);
+    return n;
+  }
 
-	public void query (int x1, int y1, int x2, int y2) {
-		// finding the node where n.x is in the x-interval
-		Node n = root;
-		while (n != null && !(x1 <= n.x && n.x <= x2)) {
-			if (x2 < n.x)
-				n = n.left;
-			else if (x1 > n.x)
-				n = n.right;
-		}
-		if (n == null)
-			return;
-		if (y1 <= n.y && n.y <= y2)
-			System.out.println(n.x + " " + n.y);
-		queryL(n.left, x1, y1, x2, y2);
-		queryR(n.right, x1, y1, x2, y2);
-	}
+  public void query (int x1, int y1, int x2, int y2) {
+    // finding the node where n.x is in the x-interval
+    Node n = root;
+    while (n != null && !(x1 <= n.x && n.x <= x2)) {
+      if (x2 < n.x)
+        n = n.left;
+      else if (x1 > n.x)
+        n = n.right;
+    }
+    if (n == null)
+      return;
+    if (y1 <= n.y && n.y <= y2)
+      System.out.println(n.x + " " + n.y);
+    queryL(n.left, x1, y1, x2, y2);
+    queryR(n.right, x1, y1, x2, y2);
+  }
 
-	private void queryL (Node n, int x1, int y1, int x2, int y2) {
-		if (n == null)
-			return;
-		if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
-			System.out.println(n.x + " " + n.y);
-		if (x1 <= n.x) {
-			printAll(n.right, y1, y2);
-			queryL(n.left, x1, y1, x2, y2);
-		} else
-			queryL(n.right, x1, y1, x2, y2);
-	}
+  private void queryL (Node n, int x1, int y1, int x2, int y2) {
+    if (n == null)
+      return;
+    if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
+      System.out.println(n.x + " " + n.y);
+    if (x1 <= n.x) {
+      printAll(n.right, y1, y2);
+      queryL(n.left, x1, y1, x2, y2);
+    } else
+      queryL(n.right, x1, y1, x2, y2);
+  }
 
-	private void queryR (Node n, int x1, int y1, int x2, int y2) {
-		if (n == null)
-			return;
-		if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
-			System.out.println(n.x + " " + n.y);
-		if (x1 >= n.x) {
-			printAll(n.left, y1, y2);
-			queryR(n.right, x1, y1, x2, y2);
-		} else
-			queryR(n.left, x1, y1, x2, y2);
-	}
+  private void queryR (Node n, int x1, int y1, int x2, int y2) {
+    if (n == null)
+      return;
+    if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
+      System.out.println(n.x + " " + n.y);
+    if (x1 >= n.x) {
+      printAll(n.left, y1, y2);
+      queryR(n.right, x1, y1, x2, y2);
+    } else
+      queryR(n.left, x1, y1, x2, y2);
+  }
 
-	private void printAll (Node n, int y1, int y2) {
-		if (n == null)
-			return;
-		for (Integer y : n.bst.range(y1, y2)) {
-			System.out.println(n.bst.get(y) + " " + y);
-		}
-	}
+  private void printAll (Node n, int y1, int y2) {
+    if (n == null)
+      return;
+    for (Integer y : n.bst.range(y1, y2)) {
+      System.out.println(n.bst.get(y) + " " + y);
+    }
+  }
 
-	// object representing a node of the tree
-	static class Node {
-		// x and y coordinates
-		int x, y;
-		// left and right nodes
-		Node left, right;
-		// BST for y coordinate
-		Treap bst;
+  // object representing a node of the tree
+  static class Node {
+    // x and y coordinates
+    int x, y;
+    // left and right nodes
+    Node left, right;
+    // BST for y coordinate
+    Treap bst;
 
-		Node (int x, int y) {
-			this.x = x;
-			this.y = y;
-			this.bst = new Treap();
-			this.bst.add(y, x);
-		}
-	}
+    Node (int x, int y) {
+      this.x = x;
+      this.y = y;
+      this.bst = new Treap();
+      this.bst.add(y, x);
+    }
+  }
 }
