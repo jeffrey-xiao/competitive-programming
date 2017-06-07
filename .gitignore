@@ -1,3 +1,9 @@
+# Ignore all no extension files except for LICENSE
+*
+!/**/
+!*.*
+!LICENSE
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
