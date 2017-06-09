@@ -1,104 +1,86 @@
 #include <message.h>
 #include <bits/stdc++.h>
-#include "crates.h"
+#include "rps.h"
 
 using namespace std;
 
 #define MASTER_NODE 0
 #define INF (1L << 60)
-#define MOD (LL)(1e9 + 7)
 #define DONE -1
 
 typedef long long LL;
 
+LL getWinner (LL a, LL b) {
+  char x = GetFavoriteMove(a);
+  char y = GetFavoriteMove(b);
+  if (x == y)
+    return a;
+  if (x == 'R')
+    return y == 'S' ? a : b;
+  if (x == 'P')
+    return y == 'R' ? a : b;
+  if (x == 'S')
+    return y == 'P' ? a : b;
+}
+
 int main () {
-  LL N = GetNumStacks();
+  int N = GetN();
   LL nodes = NumberOfNodes();
   LL id = MyNodeId();
-  LL intervalSize = (N + (nodes - 1) - 1) / (nodes - 1);
+  LL totalSize = 1LL << N;
+  LL nodesToUse = 8;
+
+  if (nodes == 100)
+    nodesToUse = 64;
+
+  nodesToUse = min(nodesToUse, totalSize);
+
+  LL intervalSize = totalSize / nodesToUse;
 
   if (id != MASTER_NODE) {
-    LL l = intervalSize * (id - 1) + 1;
-    LL r = min(N, intervalSize * id) + 1;
+    LL l = intervalSize * (id - 1);
+    LL r = min(totalSize, intervalSize * id);
 
-    if (l >= N + 1) {
-      PutLL(MASTER_NODE, 0);
-      Send(MASTER_NODE);
+    if (l >= totalSize)
+      return 0;
 
-      Receive(MASTER_NODE);
-      GetLL(MASTER_NODE);
-      GetLL(MASTER_NODE);
-
-      PutLL(MASTER_NODE, 0);
-      Send(MASTER_NODE);
-
-      Receive(MASTER_NODE);
-      GetLL(MASTER_NODE);
-
-      PutLL(MASTER_NODE, 0);
+    if (intervalSize == 1) {
+      PutLL(MASTER_NODE, l);
       Send(MASTER_NODE);
       return 0;
     }
 
-    LL total = 0;
-    for (LL i = l; i < r; i++)
-      total += GetStackHeight(i);
-    PutLL(MASTER_NODE, total);
-    Send(MASTER_NODE);
+    vector<LL> winners;
+    vector<LL> nextWinners;
 
-    Receive(MASTER_NODE);
-    LL desiredHeight = GetLL(MASTER_NODE);
-    LL cutoff = GetLL(MASTER_NODE);
-    LL totalDesired = 0;
+    for (LL i = l; i < r; i += 2)
+      winners.push_back(getWinner(i, i + 1));
 
-    for (LL i = l; i < r; i++)
-      totalDesired += (desiredHeight + (i <= cutoff));
-    PutLL(MASTER_NODE, totalDesired);
-    Send(MASTER_NODE);
-
-    Receive(MASTER_NODE);
-    LL sum = GetLL(MASTER_NODE);
-    LL ans = 0;
-
-    for (LL i = l; i < r; i++) {
-      sum += GetStackHeight(i) - (desiredHeight + (i <= cutoff));
-      ans = (ans + abs(sum)) % MOD;
+    while (winners.size() != 1) {
+      for (int i = 0; i < (int)winners.size(); i += 2)
+        nextWinners.push_back(getWinner(winners[i], winners[i + 1]));
+      winners = nextWinners;
+      nextWinners.clear();
     }
-
-    PutLL(MASTER_NODE, ans);
+    PutLL(MASTER_NODE, winners[0]);
     Send(MASTER_NODE);
   } else {
-    LL totals[nodes];
-    LL desiredTotals[nodes];
-    memset(totals, 0, sizeof(totals));
-    memset(desiredTotals, 0, sizeof(desiredTotals));
+    vector<LL> winners;
+    vector<LL> nextWinners;
 
-    for (int i = 1; i < nodes; i++) {
+    for (int i = 1; i <= nodesToUse; i++) {
       Receive(i);
-      totals[i] = totals[i - 1] + GetLL(i);
+      winners.push_back(GetLL(i));
     }
 
-    for (int i = 1; i < nodes; i++) {
-      PutLL(i, totals[nodes - 1] / N);
-      PutLL(i, totals[nodes - 1] % N);
-      Send(i);
+    while (winners.size() != 1) {
+      for (int i = 0; i < (int)winners.size(); i += 2)
+        nextWinners.push_back(getWinner(winners[i], winners[i + 1]));
+      winners = nextWinners;
+      nextWinners.clear();
     }
 
-    for (int i = 1; i < nodes; i++) {
-      Receive(i);
-      desiredTotals[i] = desiredTotals[i - 1] + GetLL(i);
-      PutLL(i, totals[i - 1] - desiredTotals[i - 1]);
-      Send(i);
-    }
-
-    LL ans = 0;
-    for (int i = 1; i < nodes; i++) {
-      int sender = Receive(-1);
-      ans = (ans + GetLL(sender)) % MOD;
-    }
-
-    assert(totals[nodes - 1] == desiredTotals[nodes - 1]);
-    printf("%lld\n", ans);
+    printf("%lld\n", winners[0]);
   }
   return 0;
 }
