@@ -57,3 +57,6 @@ out.txt
 /.settings/
 *.o
 *.exe
+.idea/
+competitive-programming.iml
+out/

@@ -41,8 +41,7 @@ public class Good_Strategy {
 
   }
 
-  @SuppressWarnings("rawtypes")
-  static class Problem implements Comparable {
+  static class Problem implements Comparable<Problem> {
     int id;
     int difficulty;
 
@@ -52,14 +51,11 @@ public class Good_Strategy {
     }
 
     @Override
-    public int compareTo (Object arg) {
-      if (arg instanceof Problem) {
-        Problem p = (Problem)arg;
-        if (p.difficulty == this.difficulty)
-          return -p.id + this.id;
-        return p.difficulty - this.difficulty;
-      }
-      return 0;
+    public int compareTo (Problem arg) {
+      Problem p = arg;
+      if (p.difficulty == this.difficulty)
+        return -p.id + this.id;
+      return p.difficulty - this.difficulty;
     }
 
     @Override
