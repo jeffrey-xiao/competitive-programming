@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Waterloo_Local_2016_A {
+public class ACM_Waterloo_Local_2016_A {
 
   static BufferedReader br;
   static PrintWriter out;

@@ -5,14 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class Waterloo_Local_2016_C {
+public class ACM_Waterloo_Local_2016_B {
 
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
+
+  static long[][] dp;
+  static int N;
+  static long M;
+  static long MAX = (long)(2e18);
 
   public static void main (String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,20 +24,53 @@ public class Waterloo_Local_2016_C {
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
-    String a = next();
-    String b = next();
-    if (b.length() >= 4)
-      out.println("Your wish is granted!");
-    else {
-      BigInteger ba = new BigInteger(a);
-      BigInteger bb = new BigInteger("2");
-      bb = bb.pow(Integer.parseInt(b));
-      if (ba.compareTo(bb) <= 0)
-        out.println("Your wish is granted!");
-      else
-        out.println("You will become a flying monkey!");
-    }
+    N = readInt();
+    M = readLong();
+
+    dp = new long[N][N];
+
+    for (int i = 0; i < N; i++)
+      for (int j = 0; j < N; j++)
+        dp[i][j] = -1;
+
+    dp(0, 0);
+    print(0, 0, M);
     out.close();
+  }
+
+  static void print (int pos, int val, long m) {
+    if (pos == N - 1) {
+      if (val == 1)
+        System.out.println(")");
+      else
+        System.out.println("(");
+      return;
+    }
+    if (dp[pos + 1][val + 1] >= m) {
+      System.out.print("(");
+      print(pos + 1, val + 1, m);
+    } else {
+      m -= dp[pos + 1][val + 1];
+      System.out.print(")");
+      print(pos + 1, val - 1, m);
+    }
+  }
+
+  static long dp (int pos, int val) {
+    if (pos == N)
+      return val == 0 ? 1 : 0;
+    if (dp[pos][val] != -1)
+      return dp[pos][val];
+
+    dp[pos][val] = 0;
+
+    if (val > 0) {
+      dp[pos][val] += dp(pos + 1, val - 1);
+    }
+    dp[pos][val] += dp(pos + 1, val + 1);
+    if (dp[pos][val] > MAX)
+      dp[pos][val] = MAX;
+    return dp[pos][val];
   }
 
   static String next () throws IOException {

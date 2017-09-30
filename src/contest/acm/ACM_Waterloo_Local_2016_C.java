@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class Waterloo_Local_2016_D {
+public class ACM_Waterloo_Local_2016_C {
 
   static BufferedReader br;
   static PrintWriter out;
@@ -19,48 +20,19 @@ public class Waterloo_Local_2016_D {
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
-    int R = readInt();
-    int C = readInt();
-
-    char[][] g = new char[R][C];
-    boolean[][] vis = new boolean[R][C];
-    for (int i = 0; i < R; i++)
-      g[i] = readLine().toCharArray();
-
-    int r = 0;
-    int c = 0;
-    int moves = 0;
-    while (g[r][c] != 'T') {
-      vis[r][c] = true;
-      switch (g[r][c]) {
-        case 'N':
-          r--;
-          break;
-        case 'S':
-          r++;
-          break;
-        case 'E':
-          c++;
-          break;
-        case 'W':
-          c--;
-          break;
-      }
-      if (r < 0 || r >= R || c < 0 || c >= C) {
-        out.println("Out");
-        out.close();
-        return;
-      }
-
-      if (vis[r][c]) {
-        out.println("Lost");
-        out.close();
-        return;
-      }
-
-      moves++;
+    String a = next();
+    String b = next();
+    if (b.length() >= 4)
+      out.println("Your wish is granted!");
+    else {
+      BigInteger ba = new BigInteger(a);
+      BigInteger bb = new BigInteger("2");
+      bb = bb.pow(Integer.parseInt(b));
+      if (ba.compareTo(bb) <= 0)
+        out.println("Your wish is granted!");
+      else
+        out.println("You will become a flying monkey!");
     }
-    out.println(moves);
     out.close();
   }
 
