@@ -5,35 +5,18 @@
  */
 package codebook.string;
 
-public class LCPArray {
-  private String text;
-  private int len;
+public class LcpArray {
+  public static Integer[] getLcp (String s) {
+    char[] text = s.toCharArray();
+    int len = s.length();
 
-  private int[] LCP;
+    Integer[] sa = new SuffixArraySort(new String(text)).getSuffixArray();
+    Integer[] lcp = new Integer[len];
 
-  LCPArray (String text) {
-    this.text = text;
-    this.len = text.length();
-    this.LCP = new int[len];
-    computeLCP();
-  }
-
-  public String getString () {
-    return text;
-  }
-
-  public void setString (String s) {
-    this.text = s;
-    this.len = text.length();
-    this.LCP = new int[len];
-    computeLCP();
-  }
-
-  private void computeLCP () {
-    Integer[] sa = new SuffixArraySort(text).getSuffixArray();
     int[] rank = new int[len];
     for (int i = 0; i < len; i++)
       rank[sa[i]] = i;
+
     int k = 0;
     // at each iteration, if k > 0, then we decrement it by one, because the LCP of successive suffixes can decrease by at most 1
     // Proof: Let us say we have a suffix s1 and the next highest ranked suffix is s2
@@ -47,13 +30,10 @@ public class LCPArray {
       }
       // attempting to extend from the next highest ranked suffix
       int j = sa[rank[i] + 1];
-      while (j + k < len && i + k < len && text.charAt(j + k) == text.charAt(i + k))
+      while (j + k < len && i + k < len && text[j + k] == text[i + k])
         k++;
-      LCP[rank[i]] = k;
+      lcp[rank[i]] = k;
     }
-  }
-
-  public int[] getLCP () {
-    return LCP;
+    return lcp;
   }
 }

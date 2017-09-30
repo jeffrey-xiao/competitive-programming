@@ -55,4 +55,9 @@ public class BoyerMoore {
     return -1;
   }
 
+  public static void main (String[] args) {
+    BoyerMoore bm = new BoyerMoore("ISS");
+    assert bm.search("MISSISSIPPI") == 1;
+    assert bm.search("IS") == -1;
+  }
 }

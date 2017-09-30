@@ -106,15 +106,19 @@ public class PalindromeTreeSmart {
     seq.remove(tree.size() - 1);
   }
 
+  public int getPalindromeCount () {
+    return ans;
+  }
+
   public static void main (String[] args) {
     PalindromeTreeSmart m = new PalindromeTreeSmart();
     m.addCharacter('a');
-    System.out.println(m.ans);
+    assert m.getPalindromeCount() == 1;
     m.addCharacter('a');
-    System.out.println(m.ans);
+    assert m.getPalindromeCount() == 3;
     m.deleteCharacter();
     m.deleteCharacter();
     m.addCharacter('a');
-    System.out.println(m.ans);
+    assert m.getPalindromeCount() == 1;
   }
 }

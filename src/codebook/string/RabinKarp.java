@@ -59,4 +59,10 @@ public class RabinKarp {
       res = (R * res + s.charAt(i)) % MOD;
     return res;
   }
+
+  public static void main (String[] args) {
+    RabinKarp rk = new RabinKarp("ISS");
+    assert rk.search("MISSISSIPPI") == 1;
+    assert rk.search("IS") == -1;
+  }
 }

@@ -10,12 +10,12 @@
 
 package codebook.string;
 
-public class KMP {
+public class Kmp {
 
   private String pattern;
   private int[] LCP;
 
-  KMP (String pattern) {
+  Kmp(String pattern) {
     this.pattern = pattern;
     buildLCP();
   }
@@ -58,5 +58,11 @@ public class KMP {
 
       LCP[i] = j;
     }
+  }
+
+  public static void main (String[] args) {
+    Kmp kmp = new Kmp("ISS");
+    assert kmp.search("MISSISSIPPI") == 1;
+    assert kmp.search("IS") == -1;
   }
 }

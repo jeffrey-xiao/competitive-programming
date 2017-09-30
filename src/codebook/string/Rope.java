@@ -223,23 +223,17 @@ public class Rope {
     Rope b = new Rope("MY+");
     Rope c = new Rope("NAME+");
     Rope d = new Rope("JEFFREY");
+
     a.concat(b);
     a.concat(c);
     a.concat(d);
-    //		a.traverse();
-    //		for (int i = 1; i <= 21; i++)
-    //			System.out.print(a.indexAt(i));
-    //		System.out.println();
-    //		NodePair n = a.split(10);
-    //		Rope r1 = new Rope(n.n1);
-    //		Rope r2 = new Rope(n.n2);
-    //		System.out.println(r1);
-    //		System.out.println(r2);
+
     for (int i = 1; i <= 22; i++) {
       a.insert(new Rope("AAA"), i);
       System.out.println(a);
       a.delete(i, i + 2);
     }
+
     for (int i = 1; i <= 21; i++) {
       for (int j = i; j <= 21; j++) {
         System.out.println(a.report(i, j));

@@ -14,29 +14,29 @@ public class SuffixArraySort {
   final SuffixComparator C = new SuffixComparator();
 
   // attributes of input
-  private char[] input;
+  private char[] text;
   private int len;
   private Integer[] res;
   private int[] order;
   private int[] newOrder;
   private int sz;
 
-  SuffixArraySort (String s) {
-    input = s.toCharArray();
+  SuffixArraySort (String text) {
+    this.text = text.toCharArray();
     initialize();
   }
 
-  public void setString (String s) {
-    input = s.toCharArray();
+  public void setString (String text) {
+    this.text = text.toCharArray();
     initialize();
   }
 
   public String getString () {
-    return new String(input);
+    return new String(text);
   }
 
   private void initialize () {
-    len = input.length;
+    len = text.length;
     res = new Integer[len];
     order = new int[len];
     newOrder = new int[len];
@@ -52,7 +52,7 @@ public class SuffixArraySort {
     // initializing suffix array, order and new order
     for (int i = 0; i < len; i++) {
       res[i] = i;
-      order[i] = (int)(input[i]);
+      order[i] = (int)(text[i]);
       newOrder[i] = 0;
     }
     // we sort the suffix array with steps of the powers of 2
@@ -85,8 +85,7 @@ public class SuffixArraySort {
   }
 
   public static void main (String[] args) throws IOException {
-    SuffixArraySort s = new SuffixArraySort(
-        "7656632013158138561652486333406146657287177640441810188112108257455585717541805245206400757522102177522477573137787626350115827710213101412116385315232112775315858157041065400387888682628451834882045610646485805140684845318416426243386148534624541871758640300711358862082668764473624460654026856184680164086878588785370280855001127845414561206835781763527160242055554855825718761273055314325383163665733331246604262287888574842586514167774251627775625756533583000528735356104746533680380704784686056667843475362060321111851675570514420371300070388484134610872743815560371871217238365056360358111852312501862548123818362478617502870426272485712006286343240635026267488207136547211523086787556323814271023640112840080334760860415007212374282754885331218505756866701824246463034330661856032350561640772383451770814525342701843248243670561156613722718215515173306645832650566534818022542234365638228160876212784774416785200747542384244367836201173120211843131635521135433117721766470222163001185383453514");
+    SuffixArraySort s = new SuffixArraySort("mississippi");
     Integer[] res = s.getSuffixArray();
     for (int i = 0; i < s.getString().length(); i++)
       System.out.println(s.getString().substring(res[i]));

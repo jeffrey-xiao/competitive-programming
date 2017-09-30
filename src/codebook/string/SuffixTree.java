@@ -63,10 +63,11 @@ public class SuffixTree {
   }
 
   private void printTree (Node curr, int depth) {
-    System.out.printf("%d [rank=%d]\n", curr.index, depth);
     for (int i = 0; i < 256; i++) {
       if (curr.child[i] != null) {
-        System.out.printf("%d--%d[label=\"%s\"]\n", curr.index, curr.child[i].index, input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
+        for (int j = 0; j < depth; j++)
+          System.out.print("----");
+        System.out.printf("%s\n", input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
         printTree(curr.child[i], depth + 1);
       }
     }
