@@ -2,7 +2,7 @@ package codebook.math;
 
 import java.util.ArrayList;
 
-public class Polynomial_Root_Finder {
+public class PolynomialRootFinder {
 
   static final double EPS = 1e-9;
   static final double INF = 1e30;

@@ -13,7 +13,7 @@ package codebook.datastructures;
 
 import java.util.TreeSet;
 
-public class AATree {
+public class AaTree {
   // represents the root of the tree
   private Node root;
 
@@ -192,7 +192,7 @@ public class AATree {
   }
 
   public static void main (String[] args) {
-    AATree t = new AATree();
+    AaTree t = new AaTree();
     long c = System.currentTimeMillis();
     TreeSet<Integer> hs = new TreeSet<Integer>();
     for (int x = 0; x < 100000; x++) {

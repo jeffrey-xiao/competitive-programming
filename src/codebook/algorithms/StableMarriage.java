@@ -16,7 +16,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Stable_Marriage {
+public class StableMarriage {
 
   static BufferedReader br;
   static PrintWriter out;

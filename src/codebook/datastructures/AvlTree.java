@@ -11,7 +11,7 @@
 
 package codebook.datastructures;
 
-public class AVLTree {
+public class AvlTree {
   // root of the tree
   Node root = null;
 
@@ -191,7 +191,7 @@ public class AVLTree {
   }
 
   public static void main (String[] args) {
-    AVLTree t = new AVLTree();
+    AvlTree t = new AvlTree();
     long c = System.currentTimeMillis();
     for (int x = 0; x < 1000000; x++) {
       int ran = (int)(Math.random() * (1 << 30)) + 5;

@@ -1,6 +1,6 @@
 package codebook.math;
 
-public class Real_Root_Finder {
+public class RealRootFinder {
 
   static final double EPS = 1e-9;
 

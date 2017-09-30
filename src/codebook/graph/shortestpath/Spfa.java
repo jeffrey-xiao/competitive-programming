@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class SPFA {
+public class Spfa {
 
   static BufferedReader br;
   static PrintWriter out;
