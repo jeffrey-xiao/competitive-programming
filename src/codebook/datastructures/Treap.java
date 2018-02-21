@@ -125,15 +125,14 @@ public class Treap {
     else if (cmp > 0)
       n.right = remove(n.right, k);
     else {
-      if (n.right == null)
-        n = n.left;
-      else if (n.left == null)
-        n = n.right;
-      else {
-        Node remove = getFirst(n.right);
-        n.value = remove.value;
-        n.key = remove.key;
-        remove(n.right, n.key);
+      if (n.left == null && n.right == null)
+        return null;
+      else if (n.left == null || (n.right != null && n.left.priority > n.right.priority)) {
+        n = rotateLeft(n);
+        n.left = remove(n.left, k);
+      } else {
+        n = rotateRight(n);
+        n.right = remove(n.right, k);
       }
     }
     return n;
