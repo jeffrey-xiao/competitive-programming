@@ -47,9 +47,16 @@ public class GCJ_2018_Qualification_D {
       double lo = 0, hi = Math.PI / 4;
       while (Math.abs(targetArea - getArea(currPoints)) > EPS) {
         double mid = (lo + hi) / 2;
+
         for (int i = 0; i < 8; i++)
           currPoints[i] = rotateZ(points[i], mid);
-        if (getArea(currPoints) < targetArea) {
+        double a = getArea(currPoints);
+
+        for (int i = 0; i < 8; i++)
+          currPoints[i] = rotateZ(points[i], mid + EPS);
+        double b = getArea(currPoints);
+
+        if (a < targetArea && a < b) {
           lo = mid;
         } else {
           hi = mid;
