@@ -43,11 +43,8 @@ public class GCJ_2018_Round_2_D {
         int currAns = 0;
         for (int i = -1; i < R; i++) {
           for (int j = -1; j < C; j++) {
-            int total = 0;
-            int curr;
+            int curr = 0;
             vis = new boolean[R][C];
-
-            curr = 0;
 
             for (int k = 0; k < R; k++) {
               for (int l = 0; l < C; l++) {
