@@ -20,230 +20,254 @@ import java.util.Arrays;
 
 public class Sort {
 
-  public static void shell (int[] a) {
-    for (int x = 0; x < a.length; x++)
-      for (int y = x + 4; y < a.length; y += 4)
-        if (a[x] > a[y])
-          swap(a, x, y);
+  public static void shellSort (int[] seq) {
+    for (int i = 0; i < seq.length; i++)
+      for (int j = i + 4; j < seq.length; j += 4)
+        if (seq[i] > seq[j])
+          swap(seq, i, j);
   }
 
-  public int find (int k, int beg, int end, int[] seq) {
-    int i = median(seq, beg, end, k);
-    if (i == k)
-      return seq[i];
-    else if (i < k)
-      return find(k, i + 1, end, seq);
-    return find(k - (seq.length - i), beg, i, seq);
+  public static int quickSelect (int[] seq, int k) {
+    return quickSelect(seq, 0, seq.length - 1, k);
   }
 
-  private int median (int[] seq, int beg, int end, int k) {
-    if (end - beg + 1 <= 5) {
-      Arrays.sort(seq, beg, end + 1);
-      return beg + k - 1;
-    }
-
-    for (int i = 0; i < (end + 1) / 5; i++) {
-      int left = 5 * i;
-      int right = left + 4;
-      if (right > end)
-        right = end;
-      int median = median(seq, left, right, 3);
-      swap(seq, median, i);
-    }
-    return median(seq, 0, (end + 1) / 5, (end + 1) / 10);
-  }
-
-  public static void quickSort (int[] a) {
-    quickSort(a, 0, a.length - 1);
-  }
-
-  private static void quickSort (int[] a, int lo, int hi) {
-    if (hi <= lo)
-      return;
-    int x = partition(a, lo, hi);
-    quickSort(a, lo, x - 1);
-    quickSort(a, x + 1, hi);
-  }
-
-  private static int partition (int[] a, int lo, int hi) {
-    // random partition
-    int rand = (int)(Math.random() * (hi - lo + 1) + lo);
-    swap(a, rand, lo);
-    int x = lo;
-    int y = hi + 1;
+  private static int quickSelect (int[] seq, int l, int r, int k) {
     while (true) {
-      while (a[++x] < a[lo])
-        if (x == hi)
-          break;
-      while (a[lo] < a[--y])
-        if (y == lo)
-          break;
-      if (x >= y)
-        break;
-      swap(a, x, y);
+      if (l == r)
+        return l;
+
+      int pivot = median(seq, l, r);
+      pivot = partition(seq, l, r, pivot);
+
+      if (k == pivot)
+        return k;
+      else if (k < pivot)
+        r = pivot - 1;
+      else
+        l = pivot + 1;
     }
-    swap(a, lo, y);
-    return y;
   }
 
-  public static void LSD (int[] a) {
-    int n = a.length;
+  public static void quickSort (int[] seq) {
+    quickSort(seq, 0, seq.length - 1);
+  }
+
+  private static void quickSort (int[] seq, int l, int r) {
+    if (r <= l)
+      return;
+    int pivot = median(seq, l, r);
+    pivot = partition(seq, l, r, pivot);
+    quickSort(seq, l, pivot - 1);
+    quickSort(seq, pivot + 1, r);
+  }
+
+  private static int median (int[] seq, int l, int r) {
+    if (r - l + 1 <= 5) {
+      Arrays.sort(seq, l, r + 1);
+      return (l + r) / 2;
+    }
+
+    for (int i = 0; i < (r - l) / 5 + 1; i++) {
+      int left = 5 * i + l;
+      int right = Math.min(left + 4, r);
+
+      Arrays.sort(seq, left, right + 1);
+      int median = (left + right) / 2;
+      swap(seq, median, i + l);
+    }
+    return quickSelect(seq, l, l + (r - l) / 5, l + (r - l) / 10);
+  }
+
+  private static int partition (int[] seq, int l, int r, int pivot) {
+    swap(seq, pivot, l);
+    int i = l;
+    int j = r + 1;
+    while (true) {
+      while (seq[++i] < seq[l])
+        if (i == r)
+          break;
+      while (seq[l] < seq[--j])
+        if (j == l)
+          break;
+      if (i >= j)
+        break;
+      swap(seq, i, j);
+    }
+    swap(seq, l, j);
+    return j;
+  }
+
+  public static void LSD (int[] seq) {
+    int n = seq.length;
     int[] aux = new int[n];
     for (int i = 1; i <= 1000000000; i *= 10) {
       int[] count = new int[10];
       for (int j = 0; j < n; j++)
-        count[(a[j] / i) % 10]++;
+        count[(seq[j] / i) % 10]++;
       for (int j = 1; j < 10; j++)
         count[j] += count[j - 1];
       for (int j = n - 1; j >= 0; j--)
-        aux[--count[(a[j] / i) % 10]] = a[j];
+        aux[--count[(seq[j] / i) % 10]] = seq[j];
       for (int j = 0; j < n; j++)
-        a[j] = aux[j];
+        seq[j] = aux[j];
     }
   }
 
-  public static void MSD (int[] a) {
-    int[] aux = new int[a.length];
-    MSD(a, aux, 0, a.length - 1, 1000000000);
+  public static void MSD (int[] seq) {
+    int[] aux = new int[seq.length];
+    MSD(seq, aux, 0, seq.length - 1, 1000000000);
   }
 
-  private static void MSD (int[] a, int[] aux, int lo, int hi, int d) {
-    if (hi <= lo || d == 0)
+  private static void MSD (int[] a, int[] aux, int l, int r, int d) {
+    if (r <= l || d == 0)
       return;
     int[] count = new int[11];
     int[] count2 = new int[11];
-    for (int i = lo; i <= hi; i++)
+    for (int i = l; i <= r; i++)
       count[(a[i] / d) % 10 + 1]++;
     for (int i = 1; i < 11; i++)
       count[i] += count[i - 1];
     for (int i = 0; i < 11; i++)
       count2[i] = count[i];
-    for (int i = hi; i >= lo; i--)
+    for (int i = r; i >= l; i--)
       aux[count[(a[i] / d) % 10]++] = a[i];
-    for (int i = lo; i <= hi; i++)
-      a[i] = aux[i - lo];
+    for (int i = l; i <= r; i++)
+      a[i] = aux[i - l];
     for (int i = 0; i < 10; i++)
-      MSD(a, aux, lo + count2[i], lo + count2[i + 1] - 1, d / 10);
+      MSD(a, aux, l + count2[i], l + count2[i + 1] - 1, d / 10);
   }
 
-  public static void mergeSort1 (int[] a) {
-    mergeSort1(a, new int[a.length], 0, a.length - 1);
+  public static void recursiveMergeSort (int[] seq) {
+    recursiveMergeSort(seq, new int[seq.length], 0, seq.length - 1);
   }
 
-  public static void mergeSort2 (int[] a) {
-    int length = a.length;
+  private static void recursiveMergeSort (int[] seq, int[] aux, int l, int r) {
+    if (r - l <= 0)
+      return;
+    int mid = (r + l) >> 1;
+    recursiveMergeSort(seq, aux, l, mid);
+    recursiveMergeSort(seq, aux, mid + 1, r);
+    merge(seq, aux, l, mid, r);
+  }
+
+  public static void iterativeMergeSort (int[] seq) {
+    int length = seq.length;
     int[] aux = new int[length];
     for (int gap = 1; gap < length; gap *= 2)
-      for (int low = 0; low < length - gap; low += gap * 2)
-        merge(a, aux, low, low + gap - 1, Math.min(length - 1, low + gap + gap - 1));
+      for (int l = 0; l < length - gap; l += gap * 2)
+        merge(seq, aux, l, l + gap - 1, Math.min(length - 1, l + gap + gap - 1));
   }
 
-  private static void mergeSort1 (int[] a, int[] aux, int lo, int hi) {
-    if (hi - lo <= 0)
-      return;
-    int mid = (hi + lo) >> 1;
-    mergeSort1(a, aux, lo, mid);
-    mergeSort1(a, aux, mid + 1, hi);
-    merge(a, aux, lo, mid, hi);
-  }
-
-  private static void merge (int[] a, int[] aux, int lo, int mid, int hi) {
-    for (int i = lo; i <= mid; i++)
-      aux[i] = a[i];
-    for (int i = lo, j = mid + 1, k = lo; k <= hi; k++) {
-      if (j == hi + 1 || (i <= mid && aux[i] < a[j]))
-        a[k] = aux[i++];
+  private static void merge (int[] seq, int[] aux, int l, int m, int r) {
+    for (int i = l; i <= m; i++)
+      aux[i] = seq[i];
+    for (int i = l, j = m + 1, k = l; k <= r; k++) {
+      if (j == r + 1 || (i <= m && aux[i] < seq[j]))
+        seq[k] = aux[i++];
       else
-        a[k] = a[j++];
+        seq[k] = seq[j++];
     }
   }
 
-  public static void heapSort (int[] a) {
-    for (int i = a.length / 2 - 1; i >= 0; i--)
-      pushDown(a, i, a.length);
-    for (int i = a.length - 1; i >= 0; i--) {
-      swap(a, 0, i);
-      pushDown(a, 0, i);
+  public static void heapSort (int[] seq) {
+    for (int i = seq.length / 2 - 1; i >= 0; i--)
+      pushDown(seq, i, seq.length);
+    for (int i = seq.length - 1; i >= 0; i--) {
+      swap(seq, 0, i);
+      pushDown(seq, 0, i);
     }
   }
 
-  private static void pushDown (int[] a, int i, int n) {
+  private static void pushDown (int[] seq, int i, int n) {
     while (true) {
       int minChild = 2 * i + 1;
       if (minChild >= n)
         break;
-      if (minChild + 1 < n && a[minChild + 1] > a[minChild])
+      if (minChild + 1 < n && seq[minChild + 1] > seq[minChild])
         minChild++;
-      if (a[i] >= a[minChild])
+      if (seq[i] >= seq[minChild])
         break;
-      swap(a, i, minChild);
+      swap(seq, i, minChild);
       i = minChild;
     }
   }
 
-  public static void bubbleSort (int[] a) {
-    for (int i = 0; i + 1 < a.length; i++)
-      for (int j = 0; j + 1 < a.length; j++)
-        if (a[j + 1] < a[j])
-          swap(a, j + 1, j);
+  public static void bubbleSort (int[] seq) {
+    for (int i = 0; i + 1 < seq.length; i++)
+      for (int j = 0; j + 1 < seq.length; j++)
+        if (seq[j + 1] < seq[j])
+          swap(seq, j + 1, j);
   }
 
-  public static void insertionSort (int[] a) {
-    for (int i = 1; i < a.length; i++)
+  public static void insertionSort (int[] seq) {
+    for (int i = 1; i < seq.length; i++)
       for (int j = i; j > 0; j--) {
-        if (a[j - 1] > a[j])
-          swap(a, j - 1, j);
+        if (seq[j - 1] > seq[j])
+          swap(seq, j - 1, j);
         else
           break;
       }
   }
 
-  public static void countingSort (int[] a) {
+  public static void countingSort (int[] seq) {
     int max = 0;
-    for (int x : a)
-      max = Math.max(max, x);
+    for (int val : seq)
+      max = Math.max(max, val);
     int[] cnt = new int[max + 1];
-    for (int x : a)
-      cnt[x]++;
+    for (int val : seq)
+      cnt[val]++;
     for (int i = 1; i < cnt.length; i++)
       cnt[i] += cnt[i - 1];
-    int[] b = new int[a.length];
-    for (int i = 0; i < a.length; i++)
-      b[--cnt[a[i]]] = a[i];
-    System.arraycopy(b, 0, a, 0, a.length);
+    int[] b = new int[seq.length];
+    for (int i = 0; i < seq.length; i++)
+      b[--cnt[seq[i]]] = seq[i];
+    System.arraycopy(b, 0, seq, 0, seq.length);
   }
 
-  public static void selectionSort (int[] a) {
-    int[] p = new int[a.length];
-    for (int i = 0; i < a.length; i++)
+  public static void selectionSort (int[] seq) {
+    int[] p = new int[seq.length];
+    for (int i = 0; i < seq.length; i++)
       p[i] = i;
-    for (int i = 0; i < a.length - 1; i++)
-      for (int j = i + 1; j < a.length; j++)
-        if (a[p[i]] > a[p[j]])
+    for (int i = 0; i < seq.length - 1; i++)
+      for (int j = i + 1; j < seq.length; j++)
+        if (seq[p[i]] > seq[p[j]])
           swap(p, i, j);
-    int[] b = new int[a.length];
-    for (int i = 0; i < a.length; i++)
-      b[i] = a[p[i]];
-    System.arraycopy(b, 0, a, 0, a.length);
+    int[] b = new int[seq.length];
+    for (int i = 0; i < seq.length; i++)
+      b[i] = seq[p[i]];
+    System.arraycopy(b, 0, seq, 0, seq.length);
   }
 
-  private static void swap (int[] a, int i, int j) {
-    int temp = a[i];
-    a[i] = a[j];
-    a[j] = temp;
+  private static void swap (int[] seq, int i, int j) {
+    int temp = seq[i];
+    seq[i] = seq[j];
+    seq[j] = temp;
   }
 
   public static void main (String[] args) throws Exception {
-    for (int i = 0; i < 100; i++) {
-      int[] a = new int[10000];
-      int[] b = new int[10000];
-      for (int j = 0; j < 10; j++)
-        a[j] = (int)(Math.random() * 10000);
-      System.arraycopy(a, 0, b, 0, a.length);
-      Arrays.sort(b);
-      mergeSort1(a);
-      if (!Arrays.equals(a, b))
-        throw new Exception();
-    }
+    int[] a = new int[10000];
+    int[] b = new int[10000];
+
+    for (int j = 0; j < 10000; j++)
+      a[j] = (int)(Math.random() * 10000);
+    System.arraycopy(a, 0, b, 0, a.length);
+
+    Arrays.sort(b);
+    quickSort(a);
+
+    assert Arrays.equals(a, b);
+
+
+    a = new int[10000];
+    b = new int[10000];
+
+    for (int j = 0; j < 10000; j++)
+      a[j] = (int)(Math.random() * 10000);
+    System.arraycopy(a, 0, b, 0, a.length);
+
+    int k = (int)(Math.random() * 10000);
+    Arrays.sort(a);
+    int answer = b[quickSelect(b, 0, b.length - 1, k)];
+    assert a[k] == answer;
   }
 }
