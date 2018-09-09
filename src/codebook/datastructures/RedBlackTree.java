@@ -14,7 +14,7 @@ package codebook.datastructures;
 public class RedBlackTree {
   // constants for the color
   private static final boolean RED = true;
-  private static final boolean BLACK = true;
+  private static final boolean BLACK = false;
 
   // represents the root of the tree
   private Node root;
