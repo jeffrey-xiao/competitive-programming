@@ -2,7 +2,8 @@
 *
 !/**/
 !*.*
-!LICENSE
+!LICENSE-MIT
+!LICENSE-APACHE
 
 # Windows image file caches
 Thumbs.db
