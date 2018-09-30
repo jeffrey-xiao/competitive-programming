@@ -3,7 +3,7 @@ package contest.acm;
 import java.util.*;
 import java.io.*;
 
-public class ACM_Waterloo_Local_2017_B {
+public class ACM_Waterloo_Local_2017_Fall_B {
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;

@@ -1,12 +1,17 @@
 package contest.acm;
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
-public class ACM_Waterloo_Local_2017_C {
+public class ACM_Waterloo_Local_2017_Winter_C {
+
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
+
+  static int N;
+  static int[] duck;
+  static int[][] dp;
 
   public static void main (String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,52 +19,34 @@ public class ACM_Waterloo_Local_2017_C {
     // br = new BufferedReader(new FileReader("in.txt"));
     // out = new PrintWriter(new FileWriter("out.txt"));
 
-    int N = readInt();
-    int K = readInt();
+    while (br.ready()) {
+      N = readInt();
+      duck = new int[N];
+      dp = new int[N][N];
 
-    int[] val = new int[N];
+      for (int i = 0; i < N; i++) {
+        Arrays.fill(dp[i], -1);
+        duck[i] = readInt();
+      }
 
-    for (int i = 0; i < N; i++)
-      val[i] = readInt();
-
-    Arrays.sort(val);
-
-    PriorityQueue<State> pq = new PriorityQueue<State>();
-    int margin = 0;
-    for (int i = 0; i < N; i++) {
-      // considering from [i + K - 1, i]
-      if (i + K - 1 < N)
-        pq.offer(new State(i, val[i + K - 1] - val[i]));
-
-      // considering ranges that start [i - K + 1, i]
-      while (pq.peek().index < i - K + 1)
-        pq.poll();
-
-      margin = Math.max(margin, pq.peek().pos);
+      System.out.println(solve(0, N - 1));
     }
-    out.println(margin);
+
     out.close();
   }
 
-  static class State implements Comparable<State> {
-    int index, pos;
-    State (int index, int pos) {
-      this.index = index;
-      this.pos = pos;
+  static int solve(int i, int j) {
+    if (i >= j) {
+      return 0;
+    }
+    if (dp[i][j] != -1) {
+      return dp[i][j];
     }
 
-    @Override
-    public int compareTo (State s) {
-      return pos - s.pos;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State s = (State)o;
-        return index == s.index && pos == s.pos;
-      }
-      return false;
+    if (duck[i] == duck[j]) {
+      return dp[i][j] = Math.max(1 + solve(i + 1, j - 1), Math.max(solve(i + 1, j), solve(i, j - 1)));
+    } else {
+      return dp[i][j] = Math.max(solve(i + 1, j), solve(i, j - 1));
     }
   }
 

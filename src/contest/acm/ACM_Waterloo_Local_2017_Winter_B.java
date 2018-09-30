@@ -3,10 +3,14 @@ package contest.acm;
 import java.io.*;
 import java.util.*;
 
-public class ACM_Waterloo_Local_2017_A {
+public class ACM_Waterloo_Local_2017_Winter_B {
+
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
+
+  static int N;
+  static int[] X;
 
   public static void main (String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,19 +18,28 @@ public class ACM_Waterloo_Local_2017_A {
     // br = new BufferedReader(new FileReader("in.txt"));
     // out = new PrintWriter(new FileWriter("out.txt"));
 
-    int[] sides = new int[] {readInt(), readInt(), readInt(), readInt(), readInt()};
-    int ret = 0;
-    for (int i = 0; i < 5; i++) {
-      for (int j = i + 1; j < 5; j++) {
-        for (int k = j + 1; k < 5; k++) {
-          int[] curr = new int[] {sides[i], sides[j], sides[k]};
-          Arrays.sort(curr);
-          if (curr[0] + curr[1] > curr[2])
-            ret++;
+    main:while (br.ready()) {
+      N = readInt();
+      X = new int[N];
+      for (int i = 0; i < N; i++) {
+        X[i] = readInt();
+      }
+
+      if (N == 1) {
+        out.println(1);
+        continue;
+      }
+
+      int diff = X[N - 1] - X[N - 2];
+      for (int i = N - 2; i >= 0; i--) {
+        if (X[i + 1] - X[i] != diff) {
+          out.println(i + 2);
+          continue main;
         }
       }
+      out.println(1);
     }
-    out.println(ret);
+
     out.close();
   }
 

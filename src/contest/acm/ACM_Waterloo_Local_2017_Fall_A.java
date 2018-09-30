@@ -1,15 +1,9 @@
 package contest.acm;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.math.BigInteger;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
-public class ACM_Waterloo_Local_2016_C {
-
+public class ACM_Waterloo_Local_2017_Fall_A {
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
@@ -17,22 +11,22 @@ public class ACM_Waterloo_Local_2016_C {
   public static void main (String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
-    //br = new BufferedReader(new FileReader("in.txt"));
-    //out = new PrintWriter(new FileWriter("out.txt"));
+    // br = new BufferedReader(new FileReader("in.txt"));
+    // out = new PrintWriter(new FileWriter("out.txt"));
 
-    String a = next();
-    String b = next();
-    if (b.length() >= 4)
-      out.println("Your wish is granted!");
-    else {
-      BigInteger ba = new BigInteger(a);
-      BigInteger bb = new BigInteger("2");
-      bb = bb.pow(Integer.parseInt(b));
-      if (ba.compareTo(bb) <= 0)
-        out.println("Your wish is granted!");
-      else
-        out.println("You will become a flying monkey!");
+    int[] sides = new int[] {readInt(), readInt(), readInt(), readInt(), readInt()};
+    int ret = 0;
+    for (int i = 0; i < 5; i++) {
+      for (int j = i + 1; j < 5; j++) {
+        for (int k = j + 1; k < 5; k++) {
+          int[] curr = new int[] {sides[i], sides[j], sides[k]};
+          Arrays.sort(curr);
+          if (curr[0] + curr[1] > curr[2])
+            ret++;
+        }
+      }
     }
+    out.println(ret);
     out.close();
   }
 

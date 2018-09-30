@@ -162,14 +162,12 @@ public class SuffixTree {
     int start, end;
     Node[] child;
     Node suffix;
-    int index;
 
     Node (int start, int end) {
       child = new Node[256];
       suffix = null;
       this.start = start;
       this.end = end;
-      index = (int)(Math.random() * 1000);
     }
 
     private int getLength () {

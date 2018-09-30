@@ -7,11 +7,16 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class ACM_Waterloo_Local_2016_D {
+public class ACM_Waterloo_Local_2016_Fall_B {
 
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
+
+  static long[][] dp;
+  static int N;
+  static long M;
+  static long MAX = (long)(2e18);
 
   public static void main (String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,49 +24,53 @@ public class ACM_Waterloo_Local_2016_D {
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
-    int R = readInt();
-    int C = readInt();
+    N = readInt();
+    M = readLong();
 
-    char[][] g = new char[R][C];
-    boolean[][] vis = new boolean[R][C];
-    for (int i = 0; i < R; i++)
-      g[i] = readLine().toCharArray();
+    dp = new long[N][N];
 
-    int r = 0;
-    int c = 0;
-    int moves = 0;
-    while (g[r][c] != 'T') {
-      vis[r][c] = true;
-      switch (g[r][c]) {
-        case 'N':
-          r--;
-          break;
-        case 'S':
-          r++;
-          break;
-        case 'E':
-          c++;
-          break;
-        case 'W':
-          c--;
-          break;
-      }
-      if (r < 0 || r >= R || c < 0 || c >= C) {
-        out.println("Out");
-        out.close();
-        return;
-      }
+    for (int i = 0; i < N; i++)
+      for (int j = 0; j < N; j++)
+        dp[i][j] = -1;
 
-      if (vis[r][c]) {
-        out.println("Lost");
-        out.close();
-        return;
-      }
-
-      moves++;
-    }
-    out.println(moves);
+    dp(0, 0);
+    print(0, 0, M);
     out.close();
+  }
+
+  static void print (int pos, int val, long m) {
+    if (pos == N - 1) {
+      if (val == 1)
+        System.out.println(")");
+      else
+        System.out.println("(");
+      return;
+    }
+    if (dp[pos + 1][val + 1] >= m) {
+      System.out.print("(");
+      print(pos + 1, val + 1, m);
+    } else {
+      m -= dp[pos + 1][val + 1];
+      System.out.print(")");
+      print(pos + 1, val - 1, m);
+    }
+  }
+
+  static long dp (int pos, int val) {
+    if (pos == N)
+      return val == 0 ? 1 : 0;
+    if (dp[pos][val] != -1)
+      return dp[pos][val];
+
+    dp[pos][val] = 0;
+
+    if (val > 0) {
+      dp[pos][val] += dp(pos + 1, val - 1);
+    }
+    dp[pos][val] += dp(pos + 1, val + 1);
+    if (dp[pos][val] > MAX)
+      dp[pos][val] = MAX;
+    return dp[pos][val];
   }
 
   static String next () throws IOException {
