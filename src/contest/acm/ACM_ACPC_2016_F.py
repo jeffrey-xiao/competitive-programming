@@ -6,6 +6,7 @@ ADD = 2
 CON = 3
 ASS = 4
 
+
 def bits(x):
     ret = []
     for i in range(10):
@@ -13,11 +14,12 @@ def bits(x):
         x /= 2
     return ret
 
+
 def parse(l, i):
     if l[i] == '[':
         x = l[i + 1]
         a = []
-        for j in range(i+3, len(l)):
+        for j in range(i + 3, len(l)):
             if l[j] == ']':
                 break
             a.append(l[j])
@@ -35,15 +37,16 @@ def parse(l, i):
         while l[k] != '}':
             ex, k = parse(l, k)
             exs.append(ex)
-        return (CON, x, y, exs), k+2
+        return (CON, x, y, exs), k + 2
     else:
         x = l[i + 1]
         y = l[i + 3]
         return (ASS, x, y), i + 5
 
+
 def run(l, a, var=None):
     if var is None:
-            var = {}
+        var = {}
     curunk = 0
 
     for expr in l:
@@ -63,6 +66,7 @@ def run(l, a, var=None):
                 return False
     return True
 
+
 def runnd(l):
     k = 0
     exprs = []
@@ -75,6 +79,7 @@ def runnd(l):
         if not run(exprs, bs):
             return False
     return True
+
 
 N = int(input())
 for _ in range(N):

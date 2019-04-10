@@ -6,14 +6,15 @@ def choose(x, y):
         ret //= i
     return ret
 
+
 T = int(input())
 
 for _ in range(T):
     x, y = map(int, input().split())
     ans = 0
-    for i in range(y+1):
-        for j in range(i+1):
+    for i in range(y + 1):
+        for j in range(i + 1):
             if 4 * i + 2 * j != y:
                 continue
-            ans += choose(i + j, j) ** 2
+            ans += choose(i + j, j)**2
     print(x, ans)

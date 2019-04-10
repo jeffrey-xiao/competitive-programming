@@ -17,7 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 import argparse
 import tempfile
 import os
@@ -37,15 +36,17 @@ OP_JUMP = 6
 OP_BORDERJ = 7
 OP_PEBBLEJ = 8
 
-op_map = {'left': OP_LEFT,
-          'right': OP_RIGHT,
-          'move': OP_MOVE,
-          'get': OP_GET,
-          'put': OP_PUT,
-          'halt': OP_HALT,
-          'jump ': OP_JUMP,
-          'border ': OP_BORDERJ,
-          'pebble ': OP_PEBBLEJ}
+op_map = {
+    'left': OP_LEFT,
+    'right': OP_RIGHT,
+    'move': OP_MOVE,
+    'get': OP_GET,
+    'put': OP_PUT,
+    'halt': OP_HALT,
+    'jump ': OP_JUMP,
+    'border ': OP_BORDERJ,
+    'pebble ': OP_PEBBLEJ
+}
 
 op_inv_map = {}
 for i, j in op_map.iteritems():
@@ -53,10 +54,7 @@ for i, j in op_map.iteritems():
 
 movex = {0: 0, 1: -1, 2: 0, 3: 1}
 movey = {0: -1, 1: 0, 2: 1, 3: 0}
-dir_name = {0: 'north',
-            1: 'west',
-            2: 'south',
-            3: 'east'}
+dir_name = {0: 'north', 1: 'west', 2: 'south', 3: 'east'}
 
 DEFAULT_GRID_SIDE = 256
 ALPHABET = set('qwertyuiopasdfghjklzxcvbnm'
@@ -76,9 +74,10 @@ class ParserException(Exception):
 
 
 class Simulation:
-
-    def __init__(self, grid_side=DEFAULT_GRID_SIDE,
-                 debug=False, max_steps=None,
+    def __init__(self,
+                 grid_side=DEFAULT_GRID_SIDE,
+                 debug=False,
+                 max_steps=None,
                  grid=None):
         self.grid_side = grid_side
         if grid is None:
@@ -178,8 +177,8 @@ class Simulation:
                     if 'GRID SIDE' in line:
                         fout.write('#define SIDE %d\n' % (self.grid_side))
 
-        res = os.system('gcc -O2 -static -Wall -o %s %s' %
-                        (self.runfile, self.srcfile))
+        res = os.system(
+            'gcc -O2 -static -Wall -o %s %s' % (self.runfile, self.srcfile))
         if res != 0:
             self.clean_runner()
             raise Exception("Couldn't compile runner")
@@ -196,20 +195,16 @@ class Simulation:
 
     def execute_runner(self):
         # Start the runner
-        popen = subprocess.Popen(self.runfile,
-                                 stdin=subprocess.PIPE,
-                                 stdout=subprocess.PIPE)
+        popen = subprocess.Popen(
+            self.runfile, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
         # Write the input data (max_steps and transposed grid)
         max_steps = self.max_steps
         if max_steps is None:
             max_steps = -1
-        popen.stdin.write("%d %d %d %d %d %d\n" % (self.posx,
-                                                   self.posy,
-                                                   self.dir,
-                                                   self.step_num,
-                                                   self.ip,
-                                                   max_steps))
+        popen.stdin.write(
+            "%d %d %d %d %d %d\n" % (self.posx, self.posy, self.dir,
+                                     self.step_num, self.ip, max_steps))
         for i in xrange(self.grid_side):
             for j in xrange(self.grid_side):
                 popen.stdin.write("%d " % (self.grid[i][j]))
@@ -355,8 +350,8 @@ def load_grid(fin, grid):
                 raise ParserException("Column index %d out of bound "
                                       "in line %s" % (posx, line))
             if posy < 0 or posy >= len(grid[posx]):
-                raise ParserException("Row index %d out of bound in line %s" %
-                                      (posy, line))
+                raise ParserException(
+                    "Row index %d out of bound in line %s" % (posy, line))
             if num < 0 or num >= 16:
                 raise ParserException("Pebble number %d out of bound "
                                       "in line %s" % (num, line))
@@ -374,36 +369,58 @@ def dump_grid(fout, grid):
 
 def main():
     parser = argparse.ArgumentParser(description="Odometer simulator")
-    parser.add_argument('-s', '--side', dest='grid_side',
-                        action='store', default=DEFAULT_GRID_SIDE,
-                        type=int,
-                        help="grid's side length (default: 256)")
-    parser.add_argument('-g', '--grid', dest='grid_file',
-                        action='store', default=None,
-                        type=str,
-                        help="grid description file (default: empty grid)")
-    parser.add_argument('program',
-                        action='store', type=str,
-                        help="program to run")
-    parser.add_argument('-d', '--debug',
-                        action='store_true', default=False,
-                        help="print debug information")
-    parser.add_argument('-c', '--compile', dest='compile',
-                        action='store_true', default=False,
-                        help="compile the program instead of interpreting it")
-    parser.add_argument('-m', '--max-steps', dest='max_steps',
-                        action='store', default=None,
-                        metavar='STEPS', type=int,
-                        help="execute at most STEPS steps")
-    parser.add_argument('-o', '--output', dest='output_file',
-                        action='store', default=None,
-                        metavar='OUTFILE', type=str,
-                        help="after execution, dump grid to file OUTFILE")
+    parser.add_argument(
+        '-s',
+        '--side',
+        dest='grid_side',
+        action='store',
+        default=DEFAULT_GRID_SIDE,
+        type=int,
+        help="grid's side length (default: 256)")
+    parser.add_argument(
+        '-g',
+        '--grid',
+        dest='grid_file',
+        action='store',
+        default=None,
+        type=str,
+        help="grid description file (default: empty grid)")
+    parser.add_argument(
+        'program', action='store', type=str, help="program to run")
+    parser.add_argument(
+        '-d',
+        '--debug',
+        action='store_true',
+        default=False,
+        help="print debug information")
+    parser.add_argument(
+        '-c',
+        '--compile',
+        dest='compile',
+        action='store_true',
+        default=False,
+        help="compile the program instead of interpreting it")
+    parser.add_argument(
+        '-m',
+        '--max-steps',
+        dest='max_steps',
+        action='store',
+        default=None,
+        metavar='STEPS',
+        type=int,
+        help="execute at most STEPS steps")
+    parser.add_argument(
+        '-o',
+        '--output',
+        dest='output_file',
+        action='store',
+        default=None,
+        metavar='OUTFILE',
+        type=str,
+        help="after execution, dump grid to file OUTFILE")
     args = parser.parse_args()
 
-    s = Simulation(args.grid_side,
-                   debug=args.debug,
-                   max_steps=args.max_steps)
+    s = Simulation(args.grid_side, debug=args.debug, max_steps=args.max_steps)
 
     if args.grid_file is not None:
         with open(args.grid_file) as fin:
@@ -430,6 +447,7 @@ def main():
         print "Execution took %d steps and was killed" % (s.step_num)
     else:
         print "Execution took %d steps" % (s.step_num)
+
 
 if __name__ == '__main__':
     main()

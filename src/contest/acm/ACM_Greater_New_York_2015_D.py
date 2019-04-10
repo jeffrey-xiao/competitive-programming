@@ -16,9 +16,9 @@ for i in range(2, 10001):
                 pwr += 1
                 ic //= p
             if ic == 1:
-                phi[i] = i - p ** (pwr - 1)
+                phi[i] = i - p**(pwr - 1)
             else:
-                phi[i] = (p ** pwr - p ** (pwr - 1)) * phi[ic]
+                phi[i] = (p**pwr - p**(pwr - 1)) * phi[ic]
             break
 
 pfx = [0]
@@ -28,4 +28,4 @@ N = int(input())
 
 for i in range(N):
     x, y = map(int, input().split())
-    print(x, pfx[y+1] + 2)
+    print(x, pfx[y + 1] + 2)
