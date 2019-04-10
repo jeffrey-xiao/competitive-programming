@@ -6,7 +6,7 @@ int N;
 const string vowels = "aeiou";
 const string consonants = "bcdfghjklmnpqrstvwxz";
 
-void solve (int n, bool isVowel, string curr) {
+void solve(int n, bool isVowel, string curr) {
   if (n == N) {
     puts(curr.c_str());
     return;
@@ -19,8 +19,9 @@ void solve (int n, bool isVowel, string curr) {
       solve(n + 1, !isVowel, curr + consonants[i]);
 }
 
-int main () {
-  ios_base::sync_with_stdio(false); cin.tie(NULL);
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
   cin >> N;
   solve(0, 0, "");
   solve(0, 1, "");

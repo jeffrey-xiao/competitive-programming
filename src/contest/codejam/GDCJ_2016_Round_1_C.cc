@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "rps.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ using namespace std;
 
 typedef long long LL;
 
-LL getWinner (LL a, LL b) {
+LL getWinner(LL a, LL b) {
   char x = GetFavoriteMove(a);
   char y = GetFavoriteMove(b);
   if (x == y)
@@ -23,7 +23,7 @@ LL getWinner (LL a, LL b) {
     return y == 'P' ? a : b;
 }
 
-int main () {
+int main() {
   int N = GetN();
   LL nodes = NumberOfNodes();
   LL id = MyNodeId();

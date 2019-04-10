@@ -1,21 +1,23 @@
+#include "weird_editor.h"
 #include <message.h>
 #include <stdio.h>
 #include <vector>
-#include "weird_editor.h"
 
 #define MASTER_NODE 0
 #define DONE -1
 #define SQRT 31622
 #define MOD (long long)(1e9 + 7)
 
-long long min (long long a, long long b) {
+long long min(long long a, long long b) {
   if (a < b)
     return a;
   return b;
 }
-long long modpow (long a, long b) {
-  if (b == 0) return 1;
-  if (b == 1) return a;
+long long modpow(long a, long b) {
+  if (b == 0)
+    return 1;
+  if (b == 1)
+    return a;
   if (b % 2 == 0)
     return modpow(a * a % MOD, b / 2);
   return a * modpow(a * a % MOD, b / 2) % MOD;
@@ -61,10 +63,10 @@ int main() {
         if (currMsg) {
           for (int k = j - 1; k >= 1; k--)
             curr[k] = 0;
-          }
+        }
       }
     }
-    long long totalSize =0;
+    long long totalSize = 0;
     long long ans = 0;
     std::vector<long long> memo(10);
     for (int i = 1; i <= 9; i++) {

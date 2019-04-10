@@ -3,15 +3,15 @@
 
 int main() {
 
-    int T, i;
+  int T, i;
 
-    T = _getNumberOfTests();
-    init(T);
+  T = _getNumberOfTests();
+  init(T);
 
-    for (i = 1; i <= T; i++) {
-        _initNewTest();
-        orderCoins();
-    }
+  for (i = 1; i <= T; i++) {
+    _initNewTest();
+    orderCoins();
+  }
 
-    return 0;
+  return 0;
 }

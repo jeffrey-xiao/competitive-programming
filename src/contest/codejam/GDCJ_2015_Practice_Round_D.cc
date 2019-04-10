@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "shhhh.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -10,13 +10,13 @@ using namespace std;
 
 typedef long long LL;
 
-LL randLong () {
+LL randLong() {
   LL a = rand();
   LL b = rand();
   return (a << 0) + (b << 31);
 }
 
-int main () {
+int main() {
   srand(time(NULL));
   LL N = GetN();
   LL nodes = NumberOfNodes();

@@ -5,7 +5,7 @@ using namespace std;
 int T, K;
 string S;
 
-int main () {
+int main() {
   cin >> T;
   for (int t = 1; t <= T; t++) {
     cin >> S >> K;

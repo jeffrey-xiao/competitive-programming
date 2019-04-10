@@ -1,0 +1,14 @@
+---
+ColumnLimit: 100
+---
+Language: Cpp
+AccessModifierOffset: -1
+AlignAfterOpenBracket: DontAlign
+AllowShortFunctionsOnASingleLine: Empty
+IndentCaseLabels: true
+---
+Language: Java
+AllowShortFunctionsOnASingleLine: Empty
+IndentCaseLabels: true
+ReflowComments: false
+---

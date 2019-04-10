@@ -6,7 +6,7 @@ int T;
 long long N, K;
 map<long long, long long> occ;
 
-int main () {
+int main() {
   cin >> T;
 
   for (int t = 1; t <= T; t++) {

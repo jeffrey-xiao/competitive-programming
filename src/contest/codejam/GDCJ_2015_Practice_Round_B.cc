@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "sandwich.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ using namespace std;
 
 typedef long long LL;
 
-int main () {
+int main() {
   LL N = GetN();
   LL nodes = NumberOfNodes();
   LL id = MyNodeId();

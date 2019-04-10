@@ -17,7 +17,7 @@ typedef pair<LL, LL> PLL;
 const double EPS = 1e-9;
 
 int T, N, P, R[50], Q[50][50];
-int main () {
+int main() {
   // freopen("in.txt", stdin);
   // freopen("out.txt", stdout);
 
@@ -69,4 +69,3 @@ int main () {
 
   return 0;
 }
-

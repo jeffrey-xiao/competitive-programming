@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "todd_and_steven.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ typedef long long LL;
 
 LL N, M, T;
 
-LL getValue (LL i) {
+LL getValue(LL i) {
   LL lo1 = 0, hi1 = MAX_VAL;
   while (lo1 <= hi1) {
     LL mid1 = (hi1 + lo1) / 2LL;

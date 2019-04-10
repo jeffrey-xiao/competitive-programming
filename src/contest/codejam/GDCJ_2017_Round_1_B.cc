@@ -1,11 +1,11 @@
+#include "pancakes.h"
 #include <message.h>
 #include <stdio.h>
-#include "pancakes.h"
 
 #define MASTER_NODE 0
 #define DONE -1
 
-long long min (long long a, long long b) {
+long long min(long long a, long long b) {
   if (a < b)
     return a;
   return b;

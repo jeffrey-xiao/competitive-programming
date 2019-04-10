@@ -6,14 +6,14 @@ int T;
 long long ans;
 string N;
 
-long long parseInt (string s) {
+long long parseInt(string s) {
   long long ret = 0;
   for (int i = 0; i < (int)s.size(); i++)
     ret = ret * 10 + s[i] - '0';
   return ret;
 }
 
-string adjust (string s) {
+string adjust(string s) {
   string ret = s;
   for (int i = 0; i < (int)s.size() - 1; i++)
     if (ret[i] > s[s.size() - 1])
@@ -21,14 +21,14 @@ string adjust (string s) {
   return ret;
 }
 
-bool isValid (string s) {
+bool isValid(string s) {
   for (int i = 1; i < (int)s.size(); i++)
     if (s[i] < s[i - 1])
       return false;
   return true;
 }
 
-int main () {
+int main() {
   cin >> T;
   for (int t = 1; t <= T; t++) {
     cin >> N;
@@ -53,6 +53,6 @@ int main () {
       }
       cout << "Case #" << t << ": " << ans << endl;
     }
- }
+  }
   return 0;
 }

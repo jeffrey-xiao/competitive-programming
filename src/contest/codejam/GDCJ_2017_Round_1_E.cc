@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "query_of_death.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -21,7 +21,7 @@ int main() {
     LL l = 0, r = N;
     LL total = 0;
     LL brokenNode = 0;
-    do { 
+    do {
       // dividing interval to availableNodes
       int currSz = availableNodes.size();
       int intervalSize = r - l;

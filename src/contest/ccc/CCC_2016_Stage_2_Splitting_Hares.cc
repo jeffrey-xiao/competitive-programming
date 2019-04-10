@@ -9,7 +9,7 @@ int N, W[SIZE], ans;
 pair<int, int> P[SIZE];
 vector<pair<double, int>> sweep, compressed;
 
-int main () {
+int main() {
   scanf("%d", &N);
 
   for (int i = 0; i < N; i++)

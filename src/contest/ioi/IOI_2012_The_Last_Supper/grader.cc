@@ -92,8 +92,8 @@ int main() {
 
   /* Set input and output buffering */
   char *inbuf, *outbuf;
-  inbuf = (char*) malloc(inbuf_len * sizeof(char));
-  outbuf = (char*) malloc(outbuf_len * sizeof(char));
+  inbuf = (char *)malloc(inbuf_len * sizeof(char));
+  outbuf = (char *)malloc(outbuf_len * sizeof(char));
   tmp = setvbuf(stdin, inbuf, _IOFBF, inbuf_len);
   tmp = setvbuf(stdout, outbuf, _IOFBF, outbuf_len);
 
@@ -101,18 +101,18 @@ int main() {
   freopen("input.txt", "r", stdin);
   tmp = scanf("%d %d %d", &N, &K, &M);
   input_assert(tmp == 3);
-  C = (int*) malloc(N * sizeof(int));
+  C = (int *)malloc(N * sizeof(int));
   for (i = 0; i < N; i++) {
     tmp = scanf("%d", &C[i]);
     input_assert(tmp == 1);
   }
 
-  A = (unsigned char*) malloc(M * sizeof(int));
+  A = (unsigned char *)malloc(M * sizeof(int));
   ComputeAdvice(C, N, K, M);
   fprintf(fadvice, "\n2\n");
 
   /* Init the scaffold */
-  in_scaffold = (int*) malloc(N * sizeof(int));
+  in_scaffold = (int *)malloc(N * sizeof(int));
   for (i = 0; i < K; i++)
     in_scaffold[i] = TRUE;
   for (i = K; i < N; i++)

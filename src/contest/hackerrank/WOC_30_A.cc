@@ -6,7 +6,7 @@ using namespace std;
 
 int C[MAX_T];
 
-int main () {
+int main() {
   int N, T;
   scanf("%d%d", &N, &T);
 

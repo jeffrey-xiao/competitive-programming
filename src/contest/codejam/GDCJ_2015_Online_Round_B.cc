@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "almost_sorted.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -11,7 +11,7 @@ using namespace std;
 
 typedef long long LL;
 
-int main () {
+int main() {
   LL N = NumberOfFiles();
   LL maxDist = MaxDistance();
   LL nodes = NumberOfNodes();

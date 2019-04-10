@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "winning_move.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -11,14 +11,14 @@ using namespace std;
 typedef long long LL;
 typedef unsigned long long ULL;
 
-LL getHash (LL num, LL hashingNodes) {
+LL getHash(LL num, LL hashingNodes) {
   ULL n = (ULL)num;
   n *= 11400714819323198549ULL;
   n >>= 54;
   return (LL)(n % (hashingNodes + 1)) + hashingNodes + 1;
 }
 
-int main () {
+int main() {
   LL N = GetNumPlayers();
   LL nodes = NumberOfNodes();
   LL id = MyNodeId();
@@ -92,7 +92,7 @@ int main () {
         return 0;
       }
       prevValue = values[i];
-    } 
+    }
     PutLL(MASTER_NODE, INF);
     Send(MASTER_NODE);
   }

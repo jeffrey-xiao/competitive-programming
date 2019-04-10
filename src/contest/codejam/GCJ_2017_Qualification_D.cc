@@ -21,7 +21,7 @@ int T, N, M;
 int row[MAX_N], col[MAX_N];
 map<int, int> diag1, diag2;
 int rook[MAX_N][MAX_N], bishop[MAX_N][MAX_N], added[MAX_N][MAX_N];
-int main () {
+int main() {
   // freopen("in.txt", stdin);
   // freopen("out.txt", stdout);
 

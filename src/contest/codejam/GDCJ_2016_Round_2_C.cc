@@ -1,6 +1,6 @@
-#include <message.h>
-#include <bits/stdc++.h>
 #include "lisp_plus_plus.h"
+#include <bits/stdc++.h>
+#include <message.h>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ using namespace std;
 
 typedef long long LL;
 
-int main () {
+int main() {
   LL N = GetLength();
   LL nodes = NumberOfNodes();
   LL id = MyNodeId();
