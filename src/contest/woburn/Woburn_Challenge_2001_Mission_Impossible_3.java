@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_2001_Mission_Impossible_3 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int x = scan.nextInt(); x > 0; x--) {
       long R = scan.nextLong();
       long a = scan.nextLong();
@@ -16,7 +16,7 @@ public class Woburn_Challenge_2001_Mission_Impossible_3 {
     }
   }
 
-  private static long gcf (long a, long b) {
+  private static long gcf(long a, long b) {
     if (b == 0)
       return a;
     if (b == 1)

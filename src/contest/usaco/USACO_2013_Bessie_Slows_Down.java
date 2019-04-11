@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class USACO_2013_Bessie_Slows_Down {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     PriorityQueue<Integer> d = new PriorityQueue<Integer>();
     PriorityQueue<Integer> t = new PriorityQueue<Integer>();
     int speed = 1;
@@ -43,7 +43,7 @@ public class USACO_2013_Bessie_Slows_Down {
     }
     if (currentD < 1000)
       currentT += (1000 - currentD) / (1.0 / speed);
-    System.out.println((int)Math.round(currentT));
+    System.out.println((int) Math.round(currentT));
   }
 
 }

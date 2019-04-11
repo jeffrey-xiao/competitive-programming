@@ -19,7 +19,7 @@ public class GCJ_2016_Round_2_A {
   static int[] type;
   static boolean[] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -27,7 +27,8 @@ public class GCJ_2016_Round_2_A {
 
     T = readInt();
 
-    main : for (int t = 1; t <= T; t++) {
+    main:
+    for (int t = 1; t <= T; t++) {
       N = readInt();
       R = readInt();
       P = readInt();
@@ -131,23 +132,7 @@ public class GCJ_2016_Round_2_A {
     out.close();
   }
 
-  static class State implements Comparable<State> {
-    int val;
-    ArrayList<Integer> prev;
-
-    State (int val) {
-      this.val = val;
-      this.prev = new ArrayList<Integer>();
-    }
-
-    @Override
-    public int compareTo (State s) {
-      return compare(prev, s.prev);
-    }
-
-  }
-
-  static int compare (ArrayList<Integer> a, ArrayList<Integer> b) {
+  static int compare(ArrayList<Integer> a, ArrayList<Integer> b) {
     for (int i = 0; i < a.size(); i++) {
       if (b.get(i) < b.get(i))
         return -1;
@@ -157,29 +142,45 @@ public class GCJ_2016_Round_2_A {
     return 0;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int val;
+    ArrayList<Integer> prev;
+
+    State(int val) {
+      this.val = val;
+      this.prev = new ArrayList<Integer>();
+    }
+
+    @Override
+    public int compareTo(State s) {
+      return compare(prev, s.prev);
+    }
+
   }
 }

@@ -15,7 +15,7 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int v = readInt();
     int t = readInt();
     ArrayList<Character> vs = new ArrayList<Character>();
@@ -36,7 +36,7 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
     }
     int r2 = readInt();
     for (int i = 0; i < r2; i++) {
-      mapT.get(readCharacter() - 'A').add(new char[] {readCharacter(), readCharacter()});
+      mapT.get(readCharacter() - 'A').add(new char[]{readCharacter(), readCharacter()});
     }
     int w = readInt();
     for (int q = 0; q < w; q++) {
@@ -68,33 +68,33 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
     }
   }
 
-  static class Pair {
-    char a, b;
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Pair {
+    char a, b;
   }
 }

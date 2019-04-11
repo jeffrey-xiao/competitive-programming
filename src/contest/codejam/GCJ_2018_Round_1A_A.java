@@ -11,7 +11,7 @@ public class GCJ_2018_Round_1A_A {
 
   static int T;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -19,7 +19,8 @@ public class GCJ_2018_Round_1A_A {
 
     T = readInt();
 
-    outer : for (int t = 1; t <= T; t++) {
+    outer:
+    for (int t = 1; t <= T; t++) {
       int R = readInt();
       int C = readInt();
       int H = readInt();
@@ -27,7 +28,7 @@ public class GCJ_2018_Round_1A_A {
 
       int[][] sum = new int[R + 1][C + 1];
       int total = 0;
-      
+
       for (int i = 1; i <= R; i++) {
         String s = readLine();
         for (int j = 0; j < s.length(); j++) {
@@ -37,7 +38,7 @@ public class GCJ_2018_Round_1A_A {
           }
         }
       }
-      
+
       if (total == 0) {
         out.printf("Case #%d: POSSIBLE\n", t);
         continue outer;
@@ -78,9 +79,9 @@ public class GCJ_2018_Round_1A_A {
       for (int i = 1; i < horizontalCuts.size(); i++) {
         for (int j = 1; j < verticalCuts.size(); j++) {
           int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] -
-            sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] -
-            sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] +
-            sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
+              sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] -
+              sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] +
+              sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
           if (curr != cellCount) {
             out.printf("Case #%d: IMPOSSIBLE\n", t);
             continue outer;
@@ -94,29 +95,29 @@ public class GCJ_2018_Round_1A_A {
     out.close();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

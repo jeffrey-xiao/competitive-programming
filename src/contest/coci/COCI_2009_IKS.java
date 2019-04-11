@@ -15,7 +15,7 @@ public class COCI_2009_IKS {
   static int count;
   static int[] total = new int[168];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[][] primes = new int[n][168];
     for (int x = 0; x < n; x++) {
@@ -27,7 +27,7 @@ public class COCI_2009_IKS {
     for (int y = 0; y < 168; y++) {
       total[y] /= n;
       if (total[y] != 0)
-        gcf *= (int)(Math.pow(revMap.get(y), total[y]));
+        gcf *= (int) (Math.pow(revMap.get(y), total[y]));
     }
     for (int x = 0; x < n; x++) {
       for (int y = 0; y < 168; y++) {
@@ -40,7 +40,7 @@ public class COCI_2009_IKS {
     System.out.println(gcf + " " + moves);
   }
 
-  private static void primeFactor (int i, int[] primes) {
+  private static void primeFactor(int i, int[] primes) {
     for (int x = 2; x * x <= i; x++)
       while (i % x == 0) {
         if (map.get(x) == null) {
@@ -63,25 +63,25 @@ public class COCI_2009_IKS {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

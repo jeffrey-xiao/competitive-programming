@@ -10,19 +10,17 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Stardust_Snow {
 
+  static final int SIZE = 52;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
   // row, column, snowflakes, max temp, max snowflakes, max move
   static int r, c, s, b, k, m;
-
-  static final int SIZE = 52;
   // time, column, temp, snowflakes
   static int[][][][] dp = new int[SIZE][SIZE][SIZE][SIZE];
   static Snow[][] snowflake = new Snow[SIZE][SIZE];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     s = readInt();
@@ -44,7 +42,7 @@ public class Glenforest_Stardust_Snow {
     System.out.println(solve(0, 1, b, k));
   }
 
-  static int solve (int time, int col, int temp, int snow) {
+  static int solve(int time, int col, int temp, int snow) {
     if (time == r + 1 || temp == 0 || snow == 0)
       return 0;
     if (dp[time][col][temp][snow] != -1)
@@ -61,38 +59,38 @@ public class Glenforest_Stardust_Snow {
     return dp[time][col][temp][snow] = ans;
   }
 
-  static class Snow {
-    int value, temp;
-
-    Snow (int value, int temp) {
-      this.value = value;
-      this.temp = temp;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Snow {
+    int value, temp;
+
+    Snow(int value, int temp) {
+      this.value = value;
+      this.temp = temp;
+    }
   }
 }

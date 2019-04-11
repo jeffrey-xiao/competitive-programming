@@ -18,7 +18,7 @@ public class GCJ_2016_Qualification_C {
 
   static int T;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -35,7 +35,8 @@ public class GCJ_2016_Qualification_C {
         BigInteger num = new BigInteger(Long.toString(i, 2));
         boolean valid = true;
         long[] div = new long[11];
-        main : for (int j = 2; j <= 10; j++) {
+        main:
+        for (int j = 2; j <= 10; j++) {
           BigInteger curr = toBase(num, j);
           for (int prime : primes)
             if (curr.mod(BigInteger.valueOf(prime)).equals(BigInteger.valueOf(0)) && !curr.equals(BigInteger.valueOf(prime))) {
@@ -57,7 +58,7 @@ public class GCJ_2016_Qualification_C {
     }
   }
 
-  static ArrayList<Integer> getPrimesEratosthenes (int n) {
+  static ArrayList<Integer> getPrimesEratosthenes(int n) {
     boolean[] prime = new boolean[n + 1];
     ArrayList<Integer> ret = new ArrayList<Integer>();
 
@@ -75,7 +76,7 @@ public class GCJ_2016_Qualification_C {
     return ret;
   }
 
-  static BigInteger toBase (BigInteger n, long base) {
+  static BigInteger toBase(BigInteger n, long base) {
     BigInteger res = BigInteger.valueOf(0);
     BigInteger b = BigInteger.valueOf(1);
     while (n.compareTo(BigInteger.valueOf(0)) > 0) {
@@ -86,29 +87,29 @@ public class GCJ_2016_Qualification_C {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

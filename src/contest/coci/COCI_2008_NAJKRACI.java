@@ -13,17 +13,16 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_NAJKRACI {
 
+  static final int MOD = 1000000007;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
   static int n, m;
   static int[] dist, from, to;
   static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
   static int[] res;
-  static final int MOD = 1000000007;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     dist = new int[n];
@@ -45,7 +44,7 @@ public class COCI_2008_NAJKRACI {
       System.out.println(res[i]);
   }
 
-  private static void dijkstras (int s) {
+  private static void dijkstras(int s) {
     for (int i = 0; i < n; i++) {
       dist[i] = 1 << 30;
       from[i] = to[i] = 0;
@@ -80,21 +79,47 @@ public class COCI_2008_NAJKRACI {
         if (dist[e.dest] < e.cost + dist[curr])
           continue;
         from[curr] = (from[e.dest] + from[curr]) % MOD;
-        res[e.index] = (int)((res[e.index] + (long)(from[e.dest]) * (long)(to[curr])) % MOD);
+        res[e.index] = (int) ((res[e.index] + (long) (from[e.dest]) * (long) (to[curr])) % MOD);
       }
     }
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Vertex implements Comparable<Vertex> {
     int index, cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return cost - o.cost;
     }
   }
@@ -102,41 +127,15 @@ public class COCI_2008_NAJKRACI {
   static class Edge implements Comparable<Edge> {
     int dest, index, cost;
 
-    Edge (int dest, int cost, int index) {
+    Edge(int dest, int cost, int index) {
       this.dest = dest;
       this.cost = cost;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return cost - o.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

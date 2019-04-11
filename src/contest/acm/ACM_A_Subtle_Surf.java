@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ACM_A_Subtle_Surf {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int t = scan.nextInt(); t > 0; t--) {
       int numOfChannels = scan.nextInt();
       int maxGap = scan.nextInt();

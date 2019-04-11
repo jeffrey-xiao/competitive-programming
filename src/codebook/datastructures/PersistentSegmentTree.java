@@ -31,7 +31,7 @@ public class PersistentSegmentTree {
   static Node[] tree;
 
   // tree[i] represents the count of the numbers from [1, i]
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -65,7 +65,7 @@ public class PersistentSegmentTree {
     out.close();
   }
 
-  static Node update (Node prev, int l, int r, int val) {
+  static Node update(Node prev, int l, int r, int val) {
     if (l <= val && val <= r) {
       if (l == r)
         return new Node(prev.cnt + 1);
@@ -75,7 +75,7 @@ public class PersistentSegmentTree {
     return prev;
   }
 
-  static int query (Node lo, Node hi, int l, int r, int val) {
+  static int query(Node lo, Node hi, int l, int r, int val) {
     if (l == r)
       return l;
     int mid = (l + r) >> 1;
@@ -86,44 +86,44 @@ public class PersistentSegmentTree {
       return query(lo.right, hi.right, mid + 1, r, val - count);
   }
 
-  static class Node {
-    Node left, right;
-    int cnt;
-
-    Node (int cnt) {
-      this(cnt, null, null);
-    }
-
-    Node (int cnt, Node left, Node right) {
-      this.cnt = cnt;
-      this.left = left;
-      this.right = right;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    Node left, right;
+    int cnt;
+
+    Node(int cnt) {
+      this(cnt, null, null);
+    }
+
+    Node(int cnt, Node left, Node right) {
+      this.cnt = cnt;
+      this.left = left;
+      this.right = right;
+    }
   }
 }

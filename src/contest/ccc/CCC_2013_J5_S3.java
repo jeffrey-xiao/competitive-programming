@@ -15,7 +15,7 @@ public class CCC_2013_J5_S3 {
   static ArrayList<Game> gamesNeeded;
   static int count;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     gamesNeeded = new ArrayList<Game>();
     for (int x = 0; x < 4; x++) {
       for (int y = x + 1; y < 4; y++) {
@@ -44,7 +44,7 @@ public class CCC_2013_J5_S3 {
     System.out.println(count);
   }
 
-  private static void compute (int[] scores, int i) {
+  private static void compute(int[] scores, int i) {
     Game g = gamesNeeded.get(i);
     if (i == gamesNeeded.size() - 1) {
       scores[g.team1] += 3;
@@ -77,7 +77,7 @@ public class CCC_2013_J5_S3 {
     }
   }
 
-  private static void check (int[] scores) {
+  private static void check(int[] scores) {
     int scoreOfFav = scores[favTeam];
     for (int x = 0; x < scores.length; x++)
       if (x != favTeam)
@@ -86,44 +86,44 @@ public class CCC_2013_J5_S3 {
     count++;
   }
 
-  static class Game {
-    int team1;
-    int team2;
-
-    Game (int team1, int team2) {
-      this.team1 = team1;
-      this.team2 = team2;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Game) {
-        Game g = (Game)o;
-        return team1 == g.team1 && team2 == g.team2;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Game {
+    int team1;
+    int team2;
+
+    Game(int team1, int team2) {
+      this.team1 = team1;
+      this.team2 = team2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Game) {
+        Game g = (Game) o;
+        return team1 == g.team1 && team2 == g.team2;
+      }
+      return false;
+    }
   }
 }

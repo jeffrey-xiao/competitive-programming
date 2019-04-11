@@ -19,7 +19,7 @@ public class COCI_2007_JEDNAKOST {
   static HashMap<State, Integer> dp = new HashMap<State, Integer>();
   static int n, target;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String[] input = next().split("=");
     a = input[0].toCharArray();
     target = Integer.parseInt(input[1]);
@@ -28,7 +28,7 @@ public class COCI_2007_JEDNAKOST {
     print(1, target, "" + a[0]);
   }
 
-  private static void print (int i, int t, String sum) {
+  private static void print(int i, int t, String sum) {
     int j = Integer.parseInt(sum);
     if (i == n) {
       System.out.print(sum + "=" + target);
@@ -42,7 +42,7 @@ public class COCI_2007_JEDNAKOST {
     }
   }
 
-  private static int solve (int i, int t, int currSum) {
+  private static int solve(int i, int t, int currSum) {
     if (i == n) {
       if (t == currSum) {
         dp.put(new State(i, t, currSum), 0);
@@ -66,51 +66,51 @@ public class COCI_2007_JEDNAKOST {
     return res;
   }
 
-  static class State {
-    Integer i, t, s;
-
-    State (int i, int t, int s) {
-      this.i = i;
-      this.t = t;
-      this.s = s;
-    }
-
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State st = (State)o;
-        return i.equals(st.i) && t.equals(st.t) && s.equals(st.s);
-      }
-      return false;
-    }
-
-    public int hashCode () {
-      return i.hashCode() * 31 * 31 + t.hashCode() * 31 + s.hashCode();
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    Integer i, t, s;
+
+    State(int i, int t, int s) {
+      this.i = i;
+      this.t = t;
+      this.s = s;
+    }
+
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State st = (State) o;
+        return i.equals(st.i) && t.equals(st.t) && s.equals(st.s);
+      }
+      return false;
+    }
+
+    public int hashCode() {
+      return i.hashCode() * 31 * 31 + t.hashCode() * 31 + s.hashCode();
+    }
   }
 }

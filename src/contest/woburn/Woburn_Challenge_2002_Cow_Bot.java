@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Woburn_Challenge_2002_Cow_Bot {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int z = scan.nextInt(); z > 0; z--) {
       int y = scan.nextInt();
       for (int x = scan.nextInt(); x > 0; x--) {
         if (isPrime(y)) {
           y *= 11;
-        } else if (Math.sqrt(y) - (int)Math.sqrt(y) == 0) {
+        } else if (Math.sqrt(y) - (int) Math.sqrt(y) == 0) {
           y = y + Integer.parseInt(new StringBuilder(Integer.toString(y)).reverse().toString());
         } else if (isPalindrome(Integer.toString(y))) {
           y = y * 10 + 4;
@@ -35,11 +35,11 @@ public class Woburn_Challenge_2002_Cow_Bot {
     }
   }
 
-  private static boolean isPalindrome (String x) {
+  private static boolean isPalindrome(String x) {
     return new StringBuilder(x).reverse().toString().equals(x);
   }
 
-  private static boolean isPrime (int n) {
+  private static boolean isPrime(int n) {
     if (n <= 1)
       return false;
     if (n == 2)

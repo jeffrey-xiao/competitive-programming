@@ -15,7 +15,7 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
   static double[][] matrix;
   static ArrayList<Connection> conn = new ArrayList<Connection>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     matrix = new double[n][n];
     int[][] nodes = new int[n][2];
@@ -46,7 +46,7 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
     }
   }
 
-  private static double prim () {
+  private static double prim() {
     double[] minValue = new double[n];
     for (int x = 1; x < n; x++)
       minValue[x] = 2000000000;
@@ -77,11 +77,39 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
     return totalCost;
   }
 
+  private static double getDist(int x1, int x2, int y1, int y2) {
+    double a = x1 - x2;
+    double b = y1 - y2;
+    return Math.sqrt(a * a + b * b);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Connection {
     int source;
     int dest;
 
-    Connection (int source, int dest) {
+    Connection(int source, int dest) {
       this.source = source;
       this.dest = dest;
     }
@@ -91,51 +119,23 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
     int dest;
     double cost;
 
-    Edge (int dest, double cost) {
+    Edge(int dest, double cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return cost - o.cost < 0 ? -1 : 1;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge)o;
+        Edge e = (Edge) o;
         return dest == e.dest;
       }
       return false;
     }
-  }
-
-  private static double getDist (int x1, int x2, int y1, int y2) {
-    double a = x1 - x2;
-    double b = y1 - y2;
-    return Math.sqrt(a * a + b * b);
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

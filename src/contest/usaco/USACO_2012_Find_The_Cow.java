@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class USACO_2012_Find_The_Cow {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String s = scan.next();
     int sum = 0;
     int first = 0;

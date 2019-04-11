@@ -26,7 +26,7 @@ public class CCO_Prep_Escape_Maze {
   static long ansNum;
   static long ansCount;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     while (n != 0) {
       s.clear();
@@ -128,7 +128,7 @@ public class CCO_Prep_Escape_Maze {
 
   }
 
-  private static void dfs (int i, int prev) {
+  private static void dfs(int i, int prev) {
     disc[i] = low[i] = count++;
     vi[i] = true;
     int children = 0;
@@ -172,34 +172,34 @@ public class CCO_Prep_Escape_Maze {
     }
   }
 
-  static class Edge {
-    int a, b;
-
-    Edge (int a, int b) {
-      this.a = a;
-      this.b = b;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int a, b;
+
+    Edge(int a, int b) {
+      this.a = a;
+      this.b = b;
+    }
   }
 }

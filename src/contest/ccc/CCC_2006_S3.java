@@ -10,13 +10,14 @@ public class CCC_2006_S3 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     Point a = new Point(readInt(), readInt());
     Point b = new Point(readInt(), readInt());
     Line l = a.getLine(b);
     int n = readInt();
     int count = 0;
-    main : for (int x = 0; x < n; x++) {
+    main:
+    for (int x = 0; x < n; x++) {
       int points = readInt();
       Point[] ps = new Point[points + 1];
       for (int y = 0; y < points; y++)
@@ -33,7 +34,7 @@ public class CCC_2006_S3 {
     System.out.println(count);
   }
 
-  private static boolean checkIntersection (Line a, Line b, Point w, Point x, Point y, Point z) {
+  private static boolean checkIntersection(Line a, Line b, Point w, Point x, Point y, Point z) {
     if (a.m == b.m)
       return false;
     int y1 = Math.min(w.y, x.y);
@@ -63,11 +64,33 @@ public class CCC_2006_S3 {
 
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Line {
     double m;
     double b;
 
-    Line (double m, double b) {
+    Line(double m, double b) {
       this.m = m;
       this.b = b;
     }
@@ -76,13 +99,13 @@ public class CCC_2006_S3 {
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
-    Line getLine (Point a) {
-      double m = ((double)this.y - a.y) / (this.x - a.x);
+    Line getLine(Point a) {
+      double m = ((double) this.y - a.y) / (this.x - a.x);
       if (m == Double.NEGATIVE_INFINITY)
         m = Double.POSITIVE_INFINITY;
       double b = y - m * this.x;
@@ -90,30 +113,8 @@ public class CCC_2006_S3 {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "(" + x + ", " + y + ") ";
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

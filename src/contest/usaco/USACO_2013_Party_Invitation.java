@@ -13,7 +13,7 @@ public class USACO_2013_Party_Invitation {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<ArrayList<Integer>> inverse = new ArrayList<ArrayList<Integer>>();
     for (int x = 0; x < n; x++)
@@ -39,7 +39,7 @@ public class USACO_2013_Party_Invitation {
       counter++;
       for (int x = 0; x < inverse.get(next).size(); x++) {
         int index = inverse.get(next).get(x);
-        groups.get(index).remove((Integer)next);
+        groups.get(index).remove((Integer) next);
         if (groups.get(index).size() == 1) {
           if (!q.contains(groups.get(index).get(0)))
             q.offer(groups.get(index).get(0));
@@ -49,25 +49,25 @@ public class USACO_2013_Party_Invitation {
     System.out.println(counter);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

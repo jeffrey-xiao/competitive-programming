@@ -15,21 +15,27 @@ public class BoyerMoore {
   private String pattern;
   private int[] rightOcc;
 
-  BoyerMoore (String pattern) {
+  BoyerMoore(String pattern) {
     this.pattern = pattern;
     initialize();
   }
 
-  public String getPattern () {
+  public static void main(String[] args) {
+    BoyerMoore bm = new BoyerMoore("ISS");
+    assert bm.search("MISSISSIPPI") == 1;
+    assert bm.search("IS") == -1;
+  }
+
+  public String getPattern() {
     return pattern;
   }
 
-  public void setPattern (String pattern) {
+  public void setPattern(String pattern) {
     this.pattern = pattern;
     initialize();
   }
 
-  private void initialize () {
+  private void initialize() {
     rightOcc = new int[R];
     for (int i = 0; i < R; i++)
       rightOcc[i] = -1;
@@ -37,7 +43,7 @@ public class BoyerMoore {
       rightOcc[pattern.charAt(i)] = i;
   }
 
-  public int search (String text) {
+  public int search(String text) {
     int skip = 0;
     for (int i = 0; i <= text.length() - pattern.length(); i += skip) {
       skip = 0;
@@ -53,11 +59,5 @@ public class BoyerMoore {
         return i;
     }
     return -1;
-  }
-
-  public static void main (String[] args) {
-    BoyerMoore bm = new BoyerMoore("ISS");
-    assert bm.search("MISSISSIPPI") == 1;
-    assert bm.search("IS") == -1;
   }
 }

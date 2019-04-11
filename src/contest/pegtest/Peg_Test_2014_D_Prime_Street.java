@@ -7,11 +7,11 @@ import java.util.StringTokenizer;
 
 public class Peg_Test_2014_D_Prime_Street {
 
+  static final int K = 1500000;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
-  static final int K = 1500000;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     long n = readLong();
     int l = readInt();
     boolean[] sieve = new boolean[K];
@@ -27,7 +27,7 @@ public class Peg_Test_2014_D_Prime_Street {
         primes[primeCounter] = x + primes[primeCounter - 1];
         primeCounter++;
         for (long y = x; y < K; y += x)
-          sieve[(int)y] = true;
+          sieve[(int) y] = true;
       } else if (sieve[x] && compoCounter <= 110000) {
         compos[compoCounter] = x + compos[compoCounter - 1];
         compoCounter++;
@@ -45,25 +45,25 @@ public class Peg_Test_2014_D_Prime_Street {
     System.out.println(index + 1);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

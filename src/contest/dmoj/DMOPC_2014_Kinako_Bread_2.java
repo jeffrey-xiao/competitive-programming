@@ -26,7 +26,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
 
   static int lk, rk, lc, rc;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -139,7 +139,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
     out.close();
   }
 
-  static int query (int idx) {
+  static int query(int idx) {
     idx++;
     int sum = 0;
     for (int x = idx; x > 0; x -= (x & -x))
@@ -147,13 +147,13 @@ public class DMOPC_2014_Kinako_Bread_2 {
     return sum;
   }
 
-  static void update (int idx, int val) {
+  static void update(int idx, int val) {
     idx++;
     for (int x = idx; x <= 200000; x += (x & -x))
       bit[x] += val;
   }
 
-  static void computeStates (int curr, int par, int cntC, int cntK, ArrayList<State> currStates) {
+  static void computeStates(int curr, int par, int cntC, int cntK, ArrayList<State> currStates) {
     if (a[curr] == 'C')
       cntC++;
     else
@@ -168,23 +168,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
     }
   }
 
-  static class State implements Comparable<State> {
-    int cntC, cntK;
-
-    State (int cntC, int cntK) {
-      this.cntC = cntC;
-      this.cntK = cntK;
-    }
-
-    @Override
-    public int compareTo (State s) {
-      if (cntC == s.cntC)
-        return cntK - s.cntK;
-      return cntC - s.cntC;
-    }
-  }
-
-  static int getSize (int curr, int par) {
+  static int getSize(int curr, int par) {
     int sz = 1;
     for (int next : adj.get(curr))
       if (next != par && !v[next])
@@ -192,7 +176,7 @@ public class DMOPC_2014_Kinako_Bread_2 {
     return sz;
   }
 
-  static int getCentroid (int curr, int par, int treeSize) {
+  static int getCentroid(int curr, int par, int treeSize) {
     int n = treeSize;
     int sz = 1;
     boolean valid = true;
@@ -209,29 +193,45 @@ public class DMOPC_2014_Kinako_Bread_2 {
     return valid ? curr : -sz;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int cntC, cntK;
+
+    State(int cntC, int cntK) {
+      this.cntC = cntC;
+      this.cntK = cntK;
+    }
+
+    @Override
+    public int compareTo(State s) {
+      if (cntC == s.cntC)
+        return cntK - s.cntK;
+      return cntC - s.cntC;
+    }
   }
 }

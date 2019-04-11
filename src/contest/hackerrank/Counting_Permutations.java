@@ -12,15 +12,15 @@ import java.util.StringTokenizer;
 
 public class Counting_Permutations {
 
+  static final int MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-  static final int MOD = 1000000007;
   static Node[] tree;
   static boolean[] dup;
   static long[] F;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -64,15 +64,15 @@ public class Counting_Permutations {
     out.close();
   }
 
-  private static long choose (int n, int k) {
+  private static long choose(int n, int k) {
     return divMod(divMod(F[n], F[k]), F[n - k]);
   }
 
-  private static long divMod (long i, long j) {
+  private static long divMod(long i, long j) {
     return i * pow(j, MOD - 2) % MOD;
   }
 
-  private static long pow (long a, int b) {
+  private static long pow(long a, int b) {
     if (b == 0)
       return 1;
     if (b == 1)
@@ -82,7 +82,7 @@ public class Counting_Permutations {
     return a * pow(a * a % MOD, b / 2) % MOD;
   }
 
-  private static void dp (int i, int prev) {
+  private static void dp(int i, int prev) {
     if (tree[i].dp.containsKey(prev))
       return;
     ArrayList<Integer> dpv = new ArrayList<Integer>();
@@ -107,7 +107,7 @@ public class Counting_Permutations {
 
   }
 
-  private static void compute (int i, int prev) {
+  private static void compute(int i, int prev) {
     if (tree[i].hash.containsKey(prev))
       return;
     int size = 1;
@@ -143,43 +143,43 @@ public class Counting_Permutations {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     ArrayList<Integer> child;
     HashMap<Integer, Long> dp;
     HashMap<Integer, StringBuilder> hash;
     HashMap<Integer, Integer> size;
 
-    Node () {
+    Node() {
       child = new ArrayList<Integer>();
       dp = new HashMap<Integer, Long>();
       hash = new HashMap<Integer, StringBuilder>();
       size = new HashMap<Integer, Integer>();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

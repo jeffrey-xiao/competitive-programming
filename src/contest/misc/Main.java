@@ -17,7 +17,7 @@ public class Main {
   static int N;
   static int[] id, sz;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -27,7 +27,7 @@ public class Main {
     Node treap = null;
     long time = System.currentTimeMillis();
     for (int i = 0; i < 1000000; i++) {
-      int rand = (int)(Math.random() * 1000000000);
+      int rand = (int) (Math.random() * 1000000000);
       treap = insert(treap, rand);
       ts.add(rand);
       //			assert contains(treap, rand) ;
@@ -44,7 +44,7 @@ public class Main {
     out.close();
   }
 
-  static void traverse (Node n) {
+  static void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -52,7 +52,7 @@ public class Main {
     traverse(n.right);
   }
 
-  static Node merge (Node a, Node b) {
+  static Node merge(Node a, Node b) {
     if (a == null)
       return b;
     if (b == null)
@@ -70,7 +70,7 @@ public class Main {
     }
   }
 
-  static Pair<Node, Node> split (Node a, int k) {
+  static Pair<Node, Node> split(Node a, int k) {
     if (a == null)
       return new Pair<Node, Node>(null, null);
     if (a.val < k) {
@@ -92,18 +92,18 @@ public class Main {
     }
   }
 
-  static Node insert (Node n, int val) {
+  static Node insert(Node n, int val) {
     Node ret = new Node(val, Math.random(), null, null);
     Pair<Node, Node> nodes = split(n, val);
     return merge(nodes.first, merge(ret, nodes.second));
   }
 
-  static Node delete (Node n, int val) {
+  static Node delete(Node n, int val) {
     Pair<Node, Node> nodes = split(n, val);
     return merge(nodes.first, nodes.second);
   }
 
-  static boolean contains (Node n, int val) {
+  static boolean contains(Node n, int val) {
     if (n == null)
       return false;
 
@@ -114,15 +114,41 @@ public class Main {
     return true;
   }
 
-  static int getSize (Node n) {
+  static int getSize(Node n) {
     if (n == null)
       return 0;
     return n.size;
   }
 
-  static Node updateSize (Node n) {
+  static Node updateSize(Node n) {
     n.size = getSize(n.left) + getSize(n.right) + 1;
     return n;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Node {
@@ -130,7 +156,7 @@ public class Main {
     double p;
     Node left, right;
 
-    Node (int val, double p, Node left, Node right) {
+    Node(int val, double p, Node left, Node right) {
       this.val = val;
       this.size = getSize(left) + getSize(right) + 1;
       this.left = left;
@@ -139,39 +165,13 @@ public class Main {
     }
   }
 
-  static class Pair <A, B> {
+  static class Pair<A, B> {
     A first;
     B second;
 
-    Pair (A first, B second) {
+    Pair(A first, B second) {
       this.first = first;
       this.second = second;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

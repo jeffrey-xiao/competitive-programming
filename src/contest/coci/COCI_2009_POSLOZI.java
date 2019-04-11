@@ -15,19 +15,18 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class COCI_2009_POSLOZI {
+  static final int RADIX = 12;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
   static int[] A;
   static int[] B;
-  static final int RADIX = 12;
   static int n, m;
 
   static HashMap<Integer, Byte> vs = new HashMap<Integer, Byte>();
   static HashMap<Integer, Byte> ve = new HashMap<Integer, Byte>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     A = new int[m];
@@ -42,8 +41,8 @@ public class COCI_2009_POSLOZI {
       A[x] = readInt() - 1;
       B[x] = readInt() - 1;
     }
-    vs.put(toIndex(startState.s), (byte)-1);
-    ve.put(toIndex(endState.s), (byte)-1);
+    vs.put(toIndex(startState.s), (byte) -1);
+    ve.put(toIndex(endState.s), (byte) -1);
     Queue<State> q = new LinkedList<State>();
     q.offer(startState);
     q.offer(endState);
@@ -96,28 +95,13 @@ public class COCI_2009_POSLOZI {
     System.out.println(steps.size());
   }
 
-  static class State {
-    int[] s;
-    boolean isStart;
-
-    State (boolean isStart) {
-      s = new int[n];
-      this.isStart = isStart;
-    }
-
-    State (int[] s, boolean isStart) {
-      this.s = Arrays.copyOf(s, s.length);
-      this.isStart = isStart;
-    }
-  }
-
-  private static void swap (int[] s, int a, int b) {
+  private static void swap(int[] s, int a, int b) {
     int temp = s[a];
     s[a] = s[b];
     s[b] = temp;
   }
 
-  private static int toIndex (int[] s) {
+  private static int toIndex(int[] s) {
     int res = 0;
     int m = 1;
     for (int x = 0; x < n; x++) {
@@ -127,25 +111,40 @@ public class COCI_2009_POSLOZI {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int[] s;
+    boolean isStart;
+
+    State(boolean isStart) {
+      s = new int[n];
+      this.isStart = isStart;
+    }
+
+    State(int[] s, boolean isStart) {
+      this.s = Arrays.copyOf(s, s.length);
+      this.isStart = isStart;
+    }
   }
 }

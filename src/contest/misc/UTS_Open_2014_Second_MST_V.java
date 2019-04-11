@@ -30,7 +30,7 @@ public class UTS_Open_2014_Second_MST_V {
 
   static int n, m, E;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = 0; x < VSIZE; x++) {
       last[x] = -1;
       id[x] = x;
@@ -71,7 +71,7 @@ public class UTS_Open_2014_Second_MST_V {
     ps.close();
   }
 
-  private static int dfs (int x, int y, int m, int prev) {
+  private static int dfs(int x, int y, int m, int prev) {
     if (x == y)
       return m;
     for (int e = now[x]; e != -1; e = nextE[e]) {
@@ -84,7 +84,7 @@ public class UTS_Open_2014_Second_MST_V {
     return -1;
   }
 
-  private static void addEdge (int x, int y, int xy, int yx) {
+  private static void addEdge(int x, int y, int xy, int yx) {
     to[E] = y;
     cost[E] = xy;
     nextE[E] = last[x];
@@ -99,26 +99,11 @@ public class UTS_Open_2014_Second_MST_V {
 
   }
 
-  static class Edge implements Comparable<Edge> {
-    int a, b, c;
-
-    Edge (int a, int b, int c) {
-      this.a = a;
-      this.b = b;
-      this.c = c;
-    }
-
-    @Override
-    public int compareTo (Edge o) {
-      return c - o.c;
-    }
-  }
-
-  private static int find (int x) {
+  private static int find(int x) {
     return (x == id[x]) ? x : (id[x] = find(id[x]));
   }
 
-  private static boolean merge (int x, int y) {
+  private static boolean merge(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
     if (rootx == rooty)
@@ -133,29 +118,44 @@ public class UTS_Open_2014_Second_MST_V {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge implements Comparable<Edge> {
+    int a, b, c;
+
+    Edge(int a, int b, int c) {
+      this.a = a;
+      this.b = b;
+      this.c = c;
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+      return c - o.c;
+    }
   }
 }

@@ -13,10 +13,10 @@ public class UTS_Open_P2_Solution {
   static StringTokenizer st;
   static int[] map1, map2;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String c = "2";
     // letters, cases, length
-    UTS_Open_P2_Generation.main(new String[] {"3", "5", "5", c});
+    UTS_Open_P2_Generation.main(new String[]{"3", "5", "5", c});
     br = new BufferedReader(new FileReader("UTS - P2 - " + c + ".in"));
     ps = new PrintWriter("UTS - P2 - " + c + ".out");
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +31,8 @@ public class UTS_Open_P2_Solution {
       map2[x] = readCharacter() - 'a';
     }
     int q = readInt();
-    main : for (int x = 0; x < q; x++) {
+    main:
+    for (int x = 0; x < q; x++) {
       char[] in = next().toCharArray();
       char[] out = next().toCharArray();
       for (int y = 0; y < n; y++) {
@@ -62,7 +63,7 @@ public class UTS_Open_P2_Solution {
     ps.close();
   }
 
-  private static boolean checkOthers (int i, int n, boolean[] alreadyMapped, int[] map) {
+  private static boolean checkOthers(int i, int n, boolean[] alreadyMapped, int[] map) {
     if (i == n)
       return true;
     if (map[i] == -1) {
@@ -82,29 +83,29 @@ public class UTS_Open_P2_Solution {
     return checkOthers(i + 1, n, alreadyMapped, map);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

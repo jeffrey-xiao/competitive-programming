@@ -10,13 +10,12 @@ import java.util.StringTokenizer;
 
 public class USACO_2014_Guard_Mark {
 
+  static final int INF = 1 << 30;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  static final int INF = 1 << 30;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     long h = readLong();
     Cow[] c = new Cow[n];
@@ -43,10 +42,36 @@ public class USACO_2014_Guard_Mark {
     System.out.println(ans == -INF ? "Mark is too tall" : ans);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     long height, safe;
 
-    State (long height, long safe) {
+    State(long height, long safe) {
       this.height = height;
       this.safe = safe;
     }
@@ -55,36 +80,10 @@ public class USACO_2014_Guard_Mark {
   static class Cow {
     long height, weight, strength;
 
-    Cow (long height, long weight, long strength) {
+    Cow(long height, long weight, long strength) {
       this.height = height;
       this.weight = weight;
       this.strength = strength;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

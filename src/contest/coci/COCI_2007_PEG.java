@@ -12,7 +12,7 @@ public class COCI_2007_PEG {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {1, -1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     char[][] grid = new char[7][];
     for (int x = 0; x < 7; x++)
       grid[x] = readLine().toCharArray();
@@ -23,7 +23,7 @@ public class COCI_2007_PEG {
     System.out.println(sum);
   }
 
-  private static int check (char[][] c, int x, int y) {
+  private static int check(char[][] c, int x, int y) {
     if (c[x][y] != 'o')
       return 0;
     int sum = 0;
@@ -38,25 +38,25 @@ public class COCI_2007_PEG {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine();
   }
 }

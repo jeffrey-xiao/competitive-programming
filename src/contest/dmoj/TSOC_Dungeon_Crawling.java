@@ -24,7 +24,7 @@ public class TSOC_Dungeon_Crawling {
   static int[] dist;
   static long cnt = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -74,7 +74,7 @@ public class TSOC_Dungeon_Crawling {
     pr.close();
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     v[i] = true;
     for (int j : adj.get(i))
       dfs(j);
@@ -82,29 +82,29 @@ public class TSOC_Dungeon_Crawling {
       cnt++;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

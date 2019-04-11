@@ -14,7 +14,7 @@ public class CCC_2010_Stage_2_Space_Miner {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Planet[] p = new Planet[n];
     for (int x = 0; x < n; x++) {
@@ -46,13 +46,13 @@ public class CCC_2010_Stage_2_Space_Miner {
           double dist1 = Math.sqrt(dx1 * dx1 + dy1 * dy1 + dz1 * dz1);
           double dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2 + dz2 * dz2);
           if (dist1 <= minD + p[j].r || dist2 <= minD + p[j].r) {
-            total += (int)p[j].v;
+            total += (int) p[j].v;
             p[j].collected = true;
           }
         } else {
           double dist = Math.sqrt(a * x1 * x1 + b * x1 + c);
           if (dist <= minD + p[j].r) {
-            total += (int)p[j].v;
+            total += (int) p[j].v;
             p[j].collected = true;
           }
         }
@@ -61,12 +61,38 @@ public class CCC_2010_Stage_2_Space_Miner {
     System.out.println(total);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Planet {
     Point p;
     double v, r;
     boolean collected;
 
-    Planet (double x, double y, double z, double v, double r) {
+    Planet(double x, double y, double z, double v, double r) {
       collected = false;
       p = new Point(x, y, z);
       this.v = v;
@@ -77,36 +103,10 @@ public class CCC_2010_Stage_2_Space_Miner {
   static class Point {
     double x, y, z;
 
-    Point (double x, double y, double z) {
+    Point(double x, double y, double z) {
       this.x = x;
       this.y = y;
       this.z = z;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

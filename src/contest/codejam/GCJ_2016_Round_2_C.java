@@ -17,7 +17,7 @@ public class GCJ_2016_Round_2_C {
   static int[] lover;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -25,7 +25,8 @@ public class GCJ_2016_Round_2_C {
 
     T = readInt();
 
-    main : for (int t = 1; t <= T; t++) {
+    main:
+    for (int t = 1; t <= T; t++) {
       out.printf("Case #%d: \n", t);
       R = readInt();
       C = readInt();
@@ -40,7 +41,8 @@ public class GCJ_2016_Round_2_C {
         lover[b] = a;
       }
 
-      inner : for (int i = 0; i < 1 << (R * C); i++) {
+      inner:
+      for (int i = 0; i < 1 << (R * C); i++) {
         g = new char[R][C];
         for (int j = 0; j < R * C; j++) {
           if ((i & 1 << j) > 0) {
@@ -102,7 +104,7 @@ public class GCJ_2016_Round_2_C {
     out.close();
   }
 
-  static int getLover (int currR, int currC, int dir) {
+  static int getLover(int currR, int currC, int dir) {
     while (currR >= 0 && currR < R && currC >= 0 && currC < C) {
       if (g[currR][currC] == '/') {
         if (dir == 2) {
@@ -137,7 +139,7 @@ public class GCJ_2016_Round_2_C {
     return getId(currR, currC);
   }
 
-  static int getId (int currR, int currC) {
+  static int getId(int currR, int currC) {
     if (currR < 0) {
       return currC + 1;
     } else if (currR >= R) {
@@ -153,29 +155,29 @@ public class GCJ_2016_Round_2_C {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

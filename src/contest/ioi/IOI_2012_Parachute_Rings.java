@@ -20,7 +20,7 @@ public class IOI_2012_Parachute_Rings {
   static int[] degree;
   static ArrayList<Integer> u, v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -99,11 +99,37 @@ public class IOI_2012_Parachute_Rings {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class DSU {
     int size, cycleSize, cycles, exclude, bigNodes;
     int[] id, sz, deg;
 
-    DSU (int size, int exclude) {
+    DSU(int size, int exclude) {
       this.cycleSize = 0;
       this.cycles = 0;
       this.size = size;
@@ -118,11 +144,11 @@ public class IOI_2012_Parachute_Rings {
       }
     }
 
-    int find (int u) {
+    int find(int u) {
       return u == id[u] ? u : (id[u] = find(id[u]));
     }
 
-    void merge (int u, int v) {
+    void merge(int u, int v) {
       if (u == exclude || v == exclude)
         return;
 
@@ -150,31 +176,5 @@ public class IOI_2012_Parachute_Rings {
         id[u] = v;
       }
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

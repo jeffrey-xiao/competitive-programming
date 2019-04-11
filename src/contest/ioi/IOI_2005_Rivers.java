@@ -22,7 +22,7 @@ public class IOI_2005_Rivers {
   static long dp[][][];
   static int color = 1;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     Node[] nodes = new Node[n + 1];
@@ -54,7 +54,7 @@ public class IOI_2005_Rivers {
       Node[] prev = new Node[size];
       for (int y = 0; y < size; y++)
         prev[y] = nodes[x].child.get(y).clone();
-      for (int gap = (int)(Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
+      for (int gap = (int) (Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
         size = prev.length;
         Node[] level = new Node[(size + 1) / 2];
         for (int y = 0; y < level.length; y++) {
@@ -81,7 +81,7 @@ public class IOI_2005_Rivers {
     System.out.println(compute(nodes[0], k, nodes[0]));
   }
 
-  private static long compute (Node n, int k, Node last) {
+  private static long compute(Node n, int k, Node last) {
     if (dp[n.id][k][last.id] != -1)
       return dp[n.id][k][last.id];
     long min = 100000000;
@@ -103,7 +103,7 @@ public class IOI_2005_Rivers {
     return min;
   }
 
-  private static void traverse (Node n, int totalLength) {
+  private static void traverse(Node n, int totalLength) {
     n.id = count++;
     n.length = totalLength;
     if (n.child.size() >= 1) {
@@ -114,6 +114,28 @@ public class IOI_2005_Rivers {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     int length;
     int trees;
@@ -121,42 +143,20 @@ public class IOI_2005_Rivers {
     int index;
     ArrayList<Node> child = new ArrayList<Node>();
 
-    Node () {
+    Node() {
     }
 
-    Node (int length, int trees) {
+    Node(int length, int trees) {
       this.length = length;
       this.trees = trees;
     }
 
     @Override
-    public Node clone () {
+    public Node clone() {
       Node newNode = new Node(length, trees);
       for (Node n : child)
         newNode.child.add(n);
       return newNode;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

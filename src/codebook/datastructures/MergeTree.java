@@ -19,14 +19,14 @@ public class MergeTree {
   private int[] a;
   private int n;
 
-  public MergeTree (int n, int[] a) {
+  public MergeTree(int n, int[] a) {
     this.n = n;
     this.a = Arrays.copyOf(a, n);
     this.tree = new int[4 * n][];
     build(1, 1, n);
   }
 
-  private int[] merge (int[] a, int[] b) {
+  private int[] merge(int[] a, int[] b) {
     int[] res = new int[a.length + b.length];
     int j = 0;
     int k = 0;
@@ -39,7 +39,7 @@ public class MergeTree {
     return res;
   }
 
-  private void build (int n, int l, int r) {
+  private void build(int n, int l, int r) {
     tree[n] = new int[(r - l) + 1];
     if (l == r) {
       tree[n][0] = a[l - 1];
@@ -51,7 +51,7 @@ public class MergeTree {
     tree[n] = merge(tree[n << 1], tree[n << 1 | 1]);
   }
 
-  public int query (int l, int r, int k) {
+  public int query(int l, int r, int k) {
     int lo = -1000000000, hi = 1000000000;
     while (lo <= hi) {
       int mid = lo + (hi - lo) / 2;
@@ -63,7 +63,7 @@ public class MergeTree {
     return lo;
   }
 
-  private int query (int n, int l, int r, int ql, int qr, int val) {
+  private int query(int n, int l, int r, int ql, int qr, int val) {
     if (ql == l && qr == r) {
       int lo = 0, hi = r - l;
       while (lo <= hi) {
@@ -84,11 +84,11 @@ public class MergeTree {
       return query(n << 1, l, mid, ql, mid, val) + query(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
   }
 
-  public void update (int x, int val) {
+  public void update(int x, int val) {
     update(1, 1, n, x, val);
   }
 
-  private void update (int n, int l, int r, int x, int val) {
+  private void update(int n, int l, int r, int x, int val) {
     if (x == l && x == r) {
       tree[n][0] = val;
       return;

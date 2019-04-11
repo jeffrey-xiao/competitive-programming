@@ -33,7 +33,7 @@ public class MaxFlowPushRelabel {
   static boolean[] active;
   static Queue<Integer> q = new ArrayDeque<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -64,7 +64,7 @@ public class MaxFlowPushRelabel {
     out.close();
   }
 
-  static int getFlow (int s, int t) {
+  static int getFlow(int s, int t) {
     count[0] = n - 1;
     count[n] = 1;
 
@@ -85,7 +85,7 @@ public class MaxFlowPushRelabel {
     return totalFlow;
   }
 
-  static void discharge (int v) {
+  static void discharge(int v) {
     for (int i = last[v]; i != -1 && excess[v] > 0; i = e[i].next)
       push(i);
     if (excess[v] > 0) {
@@ -96,7 +96,7 @@ public class MaxFlowPushRelabel {
     }
   }
 
-  static void relabel (int v) {
+  static void relabel(int v) {
     count[height[v]]--;
     height[v] = 2 * n;
     for (int i = last[v]; i != -1; i = e[i].next)
@@ -106,7 +106,7 @@ public class MaxFlowPushRelabel {
     add(v);
   }
 
-  static void gap (int h) {
+  static void gap(int h) {
     for (int i = 0; i < n; i++) {
       if (height[i] < h)
         continue;
@@ -117,7 +117,7 @@ public class MaxFlowPushRelabel {
     }
   }
 
-  static void push (int i) {
+  static void push(int i) {
     int flow = Math.min(excess[e[i].src], e[i].cap - e[i].flow);
     if (height[e[i].src] <= height[e[i].dest] || flow == 0)
       return;
@@ -128,55 +128,55 @@ public class MaxFlowPushRelabel {
     add(e[i].dest);
   }
 
-  static void add (int i) {
+  static void add(int i) {
     if (!active[i] && excess[i] > 0) {
       active[i] = true;
       q.offer(i);
     }
   }
 
-  static void addEdge (int x, int y, int xy, int yx) {
+  static void addEdge(int x, int y, int xy, int yx) {
     e[cnt] = new Edge(x, y, xy, 0, last[x]);
     last[x] = cnt++;
     e[cnt] = new Edge(y, x, yx, 0, last[y]);
     last[y] = cnt++;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int src, dest, cap, flow, next;
 
-    Edge (int src, int dest, int cap, int flow, int next) {
+    Edge(int src, int dest, int cap, int flow, int next) {
       this.src = src;
       this.dest = dest;
       this.cap = cap;
       this.flow = flow;
       this.next = next;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -14,7 +14,7 @@ public class DMOPC_2013_Math_On_Titan {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Line[] l = new Line[n];
     Point[] p = new Point[2 * n];
@@ -77,17 +77,43 @@ public class DMOPC_2013_Math_On_Titan {
     System.out.println(max + "\n" + A + "\n" + B);
   }
 
-  private static double round (double value) {
+  private static double round(double value) {
     long factor = 10000000000l;
     value = value * factor;
-    long tmp = (long)(value + 0.5);
-    return (double)tmp / factor;
+    long tmp = (long) (value + 0.5);
+    return (double) tmp / factor;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Line {
     int x, y1, y2;
 
-    Line (int x, int y1, int y2) {
+    Line(int x, int y1, int y2) {
       this.x = x;
       this.y1 = y1;
       this.y2 = y2;
@@ -97,35 +123,9 @@ public class DMOPC_2013_Math_On_Titan {
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

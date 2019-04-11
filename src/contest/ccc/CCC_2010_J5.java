@@ -9,7 +9,7 @@ class CCC_2010_J5 {
   public static int endY;
   public static int[][] board = {{100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}, {100, 100, 100, 100, 100, 100, 100, 100}};
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String point1 = scan.nextLine();
     String point2 = scan.nextLine();
     String[] arrayPoint1 = point1.split(" ");
@@ -22,7 +22,7 @@ class CCC_2010_J5 {
     System.out.println(minMoves);
   }
 
-  public static void checkMove (int startX, int startY, int currentMoves) {
+  public static void checkMove(int startX, int startY, int currentMoves) {
 
     if (startX == endX && startY == endY && minMoves > currentMoves) {
       minMoves = currentMoves;

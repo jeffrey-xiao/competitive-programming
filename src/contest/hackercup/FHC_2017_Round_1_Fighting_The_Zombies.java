@@ -11,15 +11,14 @@ import java.util.StringTokenizer;
 
 public class FHC_2017_Round_1_Fighting_The_Zombies {
 
+  static final double EPS = 1e-9;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int T, N;
   static int R;
-  static final double EPS = 1e-9;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -73,13 +72,13 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
     out.close();
   }
 
-  static boolean inSquare (int bot, int left, int r, int x, int y) {
+  static boolean inSquare(int bot, int left, int r, int x, int y) {
     if (bot <= y && y <= bot + r && left <= x && x <= left + r)
       return true;
     return false;
   }
 
-  static boolean inCircle (double centerx, double centery, double r, double x, double y) {
+  static boolean inCircle(double centerx, double centery, double r, double x, double y) {
     double dx = centerx - x;
     double dy = centery - y;
     if (dx * dx + dy * dy <= r * r * (EPS + 1))
@@ -87,43 +86,43 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
     return false;
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    @Override
-    public String toString () {
-      return String.format("(%d, %d)", x, y);
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public String toString() {
+      return String.format("(%d, %d)", x, y);
+    }
   }
 }

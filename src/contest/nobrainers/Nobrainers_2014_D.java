@@ -14,7 +14,7 @@ public class Nobrainers_2014_D {
   static byte[] change1 = {3, 2, 1, 0};
   static byte[] change2 = {1, 0, 3, 2};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     char[][] grid = new char[r][];
@@ -45,25 +45,25 @@ public class Nobrainers_2014_D {
     System.out.println(second - 1);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

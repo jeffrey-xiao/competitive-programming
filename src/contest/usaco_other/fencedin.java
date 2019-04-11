@@ -21,7 +21,7 @@ public class fencedin {
   static int N, M, A, B;
   static int[] length, height, x, y;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("fencedin.in"));
     out = new PrintWriter(new FileWriter("fencedin.out"));
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -66,9 +66,9 @@ public class fencedin {
 
     while (i <= N || j <= M) {
       if ((j == M + 1) || (i <= N && length[i] < height[j])) {
-        ans += length[i++] * (long)(i <= 1 || j <= 1 ? M : M - j + 1);
+        ans += length[i++] * (long) (i <= 1 || j <= 1 ? M : M - j + 1);
       } else {
-        ans += height[j++] * (long)(i <= 1 || j <= 1 ? N : N - i + 1);
+        ans += height[j++] * (long) (i <= 1 || j <= 1 ? N : N - i + 1);
       }
     }
 
@@ -78,25 +78,25 @@ public class fencedin {
     System.exit(0);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

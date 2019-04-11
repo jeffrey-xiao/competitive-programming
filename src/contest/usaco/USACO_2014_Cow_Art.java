@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class USACO_2014_Cow_Art {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     char[][] grid = new char[scan.nextInt()][];
     char[][] grid1 = new char[grid.length][];
     for (int x = 0; x < grid.length; x++) {
@@ -45,7 +45,7 @@ public class USACO_2014_Cow_Art {
     System.out.printf("%d %d", RGB, other);
   }
 
-  private static void remove (char[][] grid, int x, int y, char c, char c2) {
+  private static void remove(char[][] grid, int x, int y, char c, char c2) {
     if (x < 0 || y < 0 || x >= grid.length || y >= grid.length)
       return;
     if (grid[x][y] != c && grid[x][y] != c2)

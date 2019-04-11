@@ -16,11 +16,11 @@ public class StringAutomaton {
   private char[] pat;
   private int len;
 
-  public StringAutomaton (String pattern) {
+  public StringAutomaton(String pattern) {
     this(pattern.toCharArray());
   }
 
-  public StringAutomaton (char[] pattern) {
+  public StringAutomaton(char[] pattern) {
     this.pat = Arrays.copyOf(pattern, pattern.length);
     this.len = this.pat.length;
 
@@ -33,11 +33,11 @@ public class StringAutomaton {
     }
   }
 
-  public int search (String text) {
+  public int search(String text) {
     return search(text.toCharArray());
   }
 
-  public int search (char[] text) {
+  public int search(char[] text) {
     int i, j;
     for (i = 0, j = 0; i < text.length && j < len; i++) {
       j = dfa[text[i]][j];

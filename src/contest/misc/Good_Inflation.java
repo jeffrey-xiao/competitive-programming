@@ -18,7 +18,7 @@ public class Good_Inflation {
   static int n;
   static long[] s, m; // start and slope
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -72,7 +72,7 @@ public class Good_Inflation {
     out.close();
   }
 
-  static long brute () {
+  static long brute() {
     Line[] line = new Line[n];
     line[0] = new Line(s[0], m[0], 0);
     for (int i = 1; i < n; i++) {
@@ -87,54 +87,54 @@ public class Good_Inflation {
     return ans;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Line implements Comparable<Line> {
     long s, m;
     Long x; // if x1 <= x, choose this Line
 
-    Line (long s, long m, long x) {
+    Line(long s, long m, long x) {
       this.s = s;
       this.m = m;
       this.x = x;
     }
 
     @Override
-    public int compareTo (Line l) {
+    public int compareTo(Line l) {
       return x.compareTo(l.x);
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Line) {
-        Line l = (Line)o;
+        Line l = (Line) o;
         return s == l.s && m == l.m && x.compareTo(l.x) == 0;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

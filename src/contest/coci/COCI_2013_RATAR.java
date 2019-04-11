@@ -17,7 +17,7 @@ public class COCI_2013_RATAR {
   static int N;
   static int[][] val;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -76,36 +76,36 @@ public class COCI_2013_RATAR {
     out.close();
   }
 
-  static int getSum (int x1, int y1, int x2, int y2) {
+  static int getSum(int x1, int y1, int x2, int y2) {
     assert x1 <= x2 && y1 <= y2;
     x1--;
     y1--;
     return val[x2][y2] - val[x1][y2] - val[x2][y1] + val[x1][y1];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

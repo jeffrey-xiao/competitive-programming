@@ -14,7 +14,7 @@ public class Kth_Ancestor {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -63,11 +63,37 @@ public class Kth_Ancestor {
     out.close();
   }
 
-  static Node dfs (Node n) {
+  static Node dfs(Node n) {
     n.computeParent();
     for (int i = 0; i < n.child.size(); i++)
       n.child.set(i, dfs(n.child.get(i)));
     return n;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Node {
@@ -75,27 +101,27 @@ public class Kth_Ancestor {
     ArrayList<Node> child = new ArrayList<Node>();
     int index;
 
-    Node (int index) {
+    Node(int index) {
       this.index = index;
       child = new ArrayList<Node>();
       par = new Node[14];
     }
 
-    void addChild (Node n) {
+    void addChild(Node n) {
       child.add(n);
     }
 
-    void addParent (Node n) {
+    void addParent(Node n) {
       par[0] = n;
     }
 
-    void computeParent () {
+    void computeParent() {
       for (int i = 1; i < 14; i++)
         if (par[i - 1] != null)
           par[i] = par[i - 1].par[i - 1];
     }
 
-    int getParent (int k) {
+    int getParent(int k) {
       if (k == 0)
         return index;
       for (int i = 13; i >= 0; i--) {
@@ -108,31 +134,5 @@ public class Kth_Ancestor {
       }
       return 0;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

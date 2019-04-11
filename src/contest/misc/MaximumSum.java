@@ -5,7 +5,7 @@ import java.util.Scanner;
 class MaximumSum {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int length = scan.nextInt();
     int[] nums = new int[length];
     for (int x = 0; x < length; x++)
@@ -20,7 +20,7 @@ class MaximumSum {
     System.out.println(table[length - 1]);
   }
 
-  public static int max (int a, int b) {
+  public static int max(int a, int b) {
     return a > b ? a : b;
   }
 }

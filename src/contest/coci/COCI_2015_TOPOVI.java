@@ -21,7 +21,7 @@ public class COCI_2015_TOPOVI {
   static HashMap<Point, Integer> toValue = new HashMap<Point, Integer>();
   static long rowTotal = 0, colTotal = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -176,7 +176,7 @@ public class COCI_2015_TOPOVI {
     out.close();
   }
 
-  static boolean equal (Integer a, Integer b) {
+  static boolean equal(Integer a, Integer b) {
     if (a == null)
       a = 0;
     if (b == null)
@@ -184,7 +184,7 @@ public class COCI_2015_TOPOVI {
     return a.equals(b);
   }
 
-  static void insert (HashMap<Integer, Integer> values, HashMap<Integer, Long> occ, int index, int val, boolean isCol) {
+  static void insert(HashMap<Integer, Integer> values, HashMap<Integer, Long> occ, int index, int val, boolean isCol) {
     if (!values.containsKey(index))
       values.put(index, 0);
     Integer oldVal = values.get(index);
@@ -215,52 +215,52 @@ public class COCI_2015_TOPOVI {
     }
   }
 
-  static class Point {
-    int r, c;
-
-    Point (int r, int c) {
-      this.r = r;
-      this.c = c;
-    }
-
-    @Override
-    public int hashCode () {
-      return r * 31 + c;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Point) {
-        Point p = (Point)o;
-        return r == p.r && c == p.c;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int r, c;
+
+    Point(int r, int c) {
+      this.r = r;
+      this.c = c;
+    }
+
+    @Override
+    public int hashCode() {
+      return r * 31 + c;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Point) {
+        Point p = (Point) o;
+        return r == p.r && c == p.c;
+      }
+      return false;
+    }
   }
 }

@@ -13,21 +13,20 @@ import java.util.StringTokenizer;
 
 public class CCC_2006_Stage_2_Dominoes {
 
+  static final int SIZE = 50001;
+  static final int INF = 1 << 30;
   static BufferedReader br;
-  static PrintWriter ps;
-  static StringTokenizer st;
 
   /*
    * Solution sketch: For each case (odd-even, odd-odd, even-even): Create the
    * edges (2, 4, 1) respectively Use MST logic
    */
-
+  static PrintWriter ps;
+  static StringTokenizer st;
   static int[] sz;
   static int[] id;
-  static final int SIZE = 50001;
-  static final int INF = 1 << 30;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -142,59 +141,11 @@ public class CCC_2006_Stage_2_Dominoes {
     ps.close();
   }
 
-  static class Pair implements Comparable<Pair> {
-    int a, b;
-
-    Pair (int a, int b) {
-      this.a = a;
-      this.b = b;
-    }
-
-    @Override
-    public int compareTo (Pair e) {
-      if (a == e.a)
-        return b - e.b;
-      return a - e.a;
-    }
-  }
-
-  static class Edge implements Comparable<Edge> {
-    int id1, id2;
-    int a, b;
-    int addo1, addo2;
-
-    Edge (int id1_, int id2_, int a_, int b_, int addo1_, int addo2_) {
-      id1 = id1_;
-      id2 = id2_;
-      a = a_;
-      b = b_;
-      addo1 = addo1_;
-      addo2 = addo2_;
-    }
-
-    @Override
-    public int compareTo (Edge e) {
-      if (a == e.a)
-        return b - e.b;
-      return a - e.a;
-    }
-  }
-
-  static class State {
-    int id, se, so;
-
-    State (int id, int se, int so) {
-      this.id = id;
-      this.se = se;
-      this.so = so;
-    }
-  }
-
-  static int find (int x) {
+  static int find(int x) {
     return id[x] == x ? x : (id[x] = find(id[x]));
   }
 
-  static boolean merge (int x, int y) {
+  static boolean merge(int x, int y) {
     int rx = find(x);
     int ry = find(y);
     if (rx == ry)
@@ -210,29 +161,77 @@ public class CCC_2006_Stage_2_Dominoes {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Pair implements Comparable<Pair> {
+    int a, b;
+
+    Pair(int a, int b) {
+      this.a = a;
+      this.b = b;
+    }
+
+    @Override
+    public int compareTo(Pair e) {
+      if (a == e.a)
+        return b - e.b;
+      return a - e.a;
+    }
+  }
+
+  static class Edge implements Comparable<Edge> {
+    int id1, id2;
+    int a, b;
+    int addo1, addo2;
+
+    Edge(int id1_, int id2_, int a_, int b_, int addo1_, int addo2_) {
+      id1 = id1_;
+      id2 = id2_;
+      a = a_;
+      b = b_;
+      addo1 = addo1_;
+      addo2 = addo2_;
+    }
+
+    @Override
+    public int compareTo(Edge e) {
+      if (a == e.a)
+        return b - e.b;
+      return a - e.a;
+    }
+  }
+
+  static class State {
+    int id, se, so;
+
+    State(int id, int se, int so) {
+      this.id = id;
+      this.se = se;
+      this.so = so;
+    }
   }
 }

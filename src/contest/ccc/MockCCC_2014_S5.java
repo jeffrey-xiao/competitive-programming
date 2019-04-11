@@ -15,7 +15,7 @@ public class MockCCC_2014_S5 {
   static boolean[] visited;
   static int[] prev;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     l = readInt();
     r = readInt();
     prev = new int[r];
@@ -41,7 +41,7 @@ public class MockCCC_2014_S5 {
     System.out.println(count * 2);
   }
 
-  private static boolean hungary (int x) {
+  private static boolean hungary(int x) {
     for (int y = 0; y < r; y++) {
       if (adj[x][y] && !visited[y]) {
         visited[y] = true;
@@ -54,29 +54,29 @@ public class MockCCC_2014_S5 {
     return false;
   }
 
-  private static int gcf (int a, int b) {
+  private static int gcf(int a, int b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -16,7 +16,7 @@ public class IOI_2010_Traffic_Congestion {
   static int[] dp;
   static ArrayList<ArrayList<Integer>> adjlist;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     adjlist = new ArrayList<ArrayList<Integer>>();
     sum = new int[n];
@@ -47,7 +47,7 @@ public class IOI_2010_Traffic_Congestion {
     System.out.println(index);
   }
 
-  private static int dfs (int c) {
+  private static int dfs(int c) {
     visited[c] = true;
     int total = sum[c];
     for (int x = 0; x < adjlist.get(c).size(); x++) {
@@ -62,25 +62,25 @@ public class IOI_2010_Traffic_Congestion {
     return total;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

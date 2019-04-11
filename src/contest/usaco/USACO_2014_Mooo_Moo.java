@@ -11,7 +11,7 @@ public class USACO_2014_Mooo_Moo {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int numOfFields = readInt();
     int numOfCows = readInt();
 
@@ -37,7 +37,7 @@ public class USACO_2014_Mooo_Moo {
     System.out.println(counter);
   }
 
-  private static int[] solve (int fieldVolume, int[] cows) {
+  private static int[] solve(int fieldVolume, int[] cows) {
     int[] field = new int[fieldVolume + 1];
     for (int x = 1; x < field.length; x++)
       field[x] = Integer.MAX_VALUE - 50000;
@@ -49,25 +49,25 @@ public class USACO_2014_Mooo_Moo {
     return field;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

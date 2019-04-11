@@ -18,7 +18,7 @@ public class Woburn_Challenge_2001_Cool_Runnings {
   static int[] movex = {-1, -1, 0, 1, 1, 1, 0, -1};
   static int[] movey = {0, 1, 1, 1, 0, -1, -1, -1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       int[][] grid = new int[n][n];
@@ -54,10 +54,36 @@ public class Woburn_Challenge_2001_Cool_Runnings {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int x, y, p, dir;
 
-    State (int x, int y, int p, int dir) {
+    State(int x, int y, int p, int dir) {
       this.x = x;
       this.y = y;
       this.p = p;
@@ -65,34 +91,8 @@ public class Woburn_Challenge_2001_Cool_Runnings {
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       return p - o.p;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

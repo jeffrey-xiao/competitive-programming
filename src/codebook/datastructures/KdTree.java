@@ -20,35 +20,35 @@ public class KdTree {
   private int size;
   private Node root;
 
-  public KdTree () {
+  public KdTree() {
     root = null;
   }
 
-  public boolean isEmpty () {
+  public boolean isEmpty() {
     return size == 0;
   }
 
-  public int size () {
+  public int size() {
     return size;
   }
 
-  public void insert (Point p) {
+  public void insert(Point p) {
     if (p == null)
       return;
     root = insert(root, p, 0, 0.0, 0.0, 1.0, 1.0);
   }
 
-  public boolean contains (Point p) {
+  public boolean contains(Point p) {
     return search(root, p, 0);
   }
 
-  public Point nearest (Point p) {
+  public Point nearest(Point p) {
     if (isEmpty())
       return null;
     return nearest(root, p, null);
   }
 
-  private Point nearest (Node curr, Point p, Point min) {
+  private Point nearest(Node curr, Point p, Point min) {
     if (curr == null || (min != null && min.distanceSquaredTo(p) <= curr.area.distanceSquaredTo(p)))
       return min;
     if (min == null || curr.value.distanceSquaredTo(p) < min.distanceSquaredTo(p))
@@ -63,7 +63,7 @@ public class KdTree {
     return min;
   }
 
-  public Iterable<Point> range (Rect rect) {
+  public Iterable<Point> range(Rect rect) {
     ArrayList<Point> ps = new ArrayList<Point>();
     Stack<Node> moves = new Stack<Node>();
     if (root != null)
@@ -80,7 +80,7 @@ public class KdTree {
     return ps;
   }
 
-  private Node insert (Node n, Point v, int height, double xmin, double ymin, double xmax, double ymax) {
+  private Node insert(Node n, Point v, int height, double xmin, double ymin, double xmax, double ymax) {
     if (n == null) {
       size++;
       return new Node(v, height, new Rect(xmin, ymin, xmax, ymax));
@@ -101,7 +101,7 @@ public class KdTree {
     return n;
   }
 
-  private int compare (Point p1, Point p2, int height) {
+  private int compare(Point p1, Point p2, int height) {
     if (height % 2 == 0) {
       int result = new Double(p1.getX()).compareTo(p2.getX());
       if (result == 0)
@@ -114,7 +114,7 @@ public class KdTree {
     return result;
   }
 
-  private boolean search (Node n, Point v, int height) {
+  private boolean search(Node n, Point v, int height) {
     if (n == null)
       return false;
     double compare = compare(n.value, v, height);
@@ -133,7 +133,7 @@ public class KdTree {
     Node left, right;
     Rect area;
 
-    Node (Point value, int height, Rect area) {
+    Node(Point value, int height, Rect area) {
       this.value = value;
       this.height = height;
       this.area = area;
@@ -144,25 +144,25 @@ public class KdTree {
     private double x, y;
 
     @SuppressWarnings("unused")
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
 
     @SuppressWarnings("unused")
-    public double distanceTo (Point p) {
+    public double distanceTo(Point p) {
       return Math.sqrt(distanceSquaredTo(p));
     }
 
-    public double distanceSquaredTo (Point p) {
+    public double distanceSquaredTo(Point p) {
       return (x - p.x) * (x - p.x) + (y - p.x) * (y - p.y);
     }
 
-    public double getX () {
+    public double getX() {
       return x;
     }
 
-    public double getY () {
+    public double getY() {
       return y;
     }
   }
@@ -170,7 +170,7 @@ public class KdTree {
   public class Rect {
     private double xmin, ymin, xmax, ymax;
 
-    public Rect (double xmin, double ymin, double xmax, double ymax) {
+    public Rect(double xmin, double ymin, double xmax, double ymax) {
       if (xmax < xmin || ymax < ymin)
         throw new IllegalArgumentException("Invalid rectangle");
       this.xmin = xmin;
@@ -179,39 +179,39 @@ public class KdTree {
       this.ymax = ymax;
     }
 
-    public double xmin () {
+    public double xmin() {
       return xmin;
     }
 
-    public double ymin () {
+    public double ymin() {
       return ymin;
     }
 
-    public double xmax () {
+    public double xmax() {
       return xmax;
     }
 
-    public double ymax () {
+    public double ymax() {
       return ymax;
     }
 
-    public boolean intersects (Rect rect) {
+    public boolean intersects(Rect rect) {
       if (rect == null)
         throw new NullPointerException();
       return this.xmax >= rect.xmin && this.ymax >= rect.ymin && rect.xmax >= this.xmin && rect.ymax >= this.ymin;
     }
 
-    public boolean contains (Point p) {
+    public boolean contains(Point p) {
       if (p == null)
         throw new NullPointerException();
       return (p.getX() >= xmin) && (p.getX() <= xmax) && (p.getY() >= ymin) && (p.getY() <= ymax);
     }
 
-    public double distanceTo (Point p) {
+    public double distanceTo(Point p) {
       return Math.sqrt(distanceSquaredTo(p));
     }
 
-    public double distanceSquaredTo (Point p) {
+    public double distanceSquaredTo(Point p) {
       double dx = 0.0, dy = 0.0;
       if (contains(p))
         return 0.0d;

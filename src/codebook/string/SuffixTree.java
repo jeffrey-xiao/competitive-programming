@@ -29,21 +29,26 @@ public class SuffixTree {
   private boolean firstNodeCreated;
   private Node lastNodeCreated;
 
-  SuffixTree (String input) {
+  SuffixTree(String input) {
     this.input = input;
     initialize();
   }
 
-  public void setString (String string) {
+  public static void main(String[] args) {
+    SuffixTree st = new SuffixTree("abcabxabcd$");
+    st.printTree();
+  }
+
+  public String getString() {
+    return input;
+  }
+
+  public void setString(String string) {
     this.input = string;
     initialize();
   }
 
-  public String getString () {
-    return input;
-  }
-
-  private void initialize () {
+  private void initialize() {
     this.len = input.length();
     this.root = new Node(0, 0);
     this.activeEdge = 0;
@@ -58,11 +63,11 @@ public class SuffixTree {
       addSuffix();
   }
 
-  public void printTree () {
+  public void printTree() {
     printTree(root, 0);
   }
 
-  private void printTree (Node curr, int depth) {
+  private void printTree(Node curr, int depth) {
     for (int i = 0; i < 256; i++) {
       if (curr.child[i] != null) {
         for (int j = 0; j < depth; j++)
@@ -73,7 +78,7 @@ public class SuffixTree {
     }
   }
 
-  private void addSuffix () {
+  private void addSuffix() {
     // how many previous suffixes do we need to compute
     remainder++;
     firstNodeCreated = true;
@@ -150,7 +155,7 @@ public class SuffixTree {
     }
   }
 
-  private void addSuffixLink (Node curr) {
+  private void addSuffixLink(Node curr) {
     if (firstNodeCreated == false)
       lastNodeCreated.suffix = curr;
     firstNodeCreated = false;
@@ -163,20 +168,15 @@ public class SuffixTree {
     Node[] child;
     Node suffix;
 
-    Node (int start, int end) {
+    Node(int start, int end) {
       child = new Node[256];
       suffix = null;
       this.start = start;
       this.end = end;
     }
 
-    private int getLength () {
+    private int getLength() {
       return Math.min(currentPos + 1, end) - start;
     }
-  }
-
-  public static void main (String[] args) {
-    SuffixTree st = new SuffixTree("abcabxabcd$");
-    st.printTree();
   }
 }

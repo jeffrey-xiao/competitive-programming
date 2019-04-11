@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class SuffixAutomaton {
 
   // constants
-  static final int MAXN = (int)(1e6);
+  static final int MAXN = (int) (1e6);
 
   // attributes of the input data
   private String input;
@@ -36,21 +36,33 @@ public class SuffixAutomaton {
   // current amount of states
   private int sz;
 
-  SuffixAutomaton (String input) {
+  SuffixAutomaton(String input) {
     this.input = input;
     initialize();
   }
 
-  public void setString (String string) {
+  public static void main(String[] args) {
+    String s1 = "abcabxabcd";
+    SuffixAutomaton st = new SuffixAutomaton(s1);
+
+    for (int i = 0; i < s1.length(); i++)
+      assert st.isAccepted(s1.substring(i));
+
+    assert !st.isAccepted("xabc");
+    assert !st.isAccepted("c");
+
+  }
+
+  public String getString() {
+    return input;
+  }
+
+  public void setString(String string) {
     this.input = string;
     initialize();
   }
 
-  public String getString () {
-    return input;
-  }
-
-  private void initialize () {
+  private void initialize() {
     link = new int[MAXN];
     len = new int[MAXN];
     finalState = new boolean[MAXN];
@@ -67,7 +79,7 @@ public class SuffixAutomaton {
       addCharacter(input.charAt(i), i == input.length() - 1);
   }
 
-  private void addCharacter (char c, boolean mark) {
+  private void addCharacter(char c, boolean mark) {
     // state of string s
     int prev = last;
 
@@ -114,7 +126,7 @@ public class SuffixAutomaton {
 
   }
 
-  public boolean isAccepted (String s) {
+  public boolean isAccepted(String s) {
     int currState = 0;
     for (int i = 0; i < s.length(); i++) {
       if (to.get(currState).get(s.charAt(i)) == null)
@@ -122,17 +134,5 @@ public class SuffixAutomaton {
       currState = to.get(currState).get(s.charAt(i));
     }
     return finalState[currState];
-  }
-
-  public static void main (String[] args) {
-    String s1 = "abcabxabcd";
-    SuffixAutomaton st = new SuffixAutomaton(s1);
-
-    for (int i = 0; i < s1.length(); i++)
-      assert st.isAccepted(s1.substring(i));
-
-    assert !st.isAccepted("xabc");
-    assert !st.isAccepted("c");
-
   }
 }

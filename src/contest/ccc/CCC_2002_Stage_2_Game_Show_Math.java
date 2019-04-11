@@ -11,13 +11,13 @@ import java.util.StringTokenizer;
 
 public class CCC_2002_Stage_2_Game_Show_Math {
 
+  static final int K = 44000;
+  static final int S = 12000;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-  static final int K = 44000;
-  static final int S = 12000;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       boolean[][] poss = new boolean[2][K];
@@ -39,25 +39,25 @@ public class CCC_2002_Stage_2_Game_Show_Math {
             next = (y - S) + nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short)(y - S);
+              prev[x][next] = (short) (y - S);
               op[x][next] = 1;
             }
             next = (y - S) - nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short)(y - S);
+              prev[x][next] = (short) (y - S);
               op[x][next] = 2;
             }
             next = (y - S) * nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short)(y - S);
+              prev[x][next] = (short) (y - S);
               op[x][next] = 3;
             }
             next = (y - S) / nums[x] + S;
             if (next >= 0 && next < K && (y - S) % nums[x] == 0) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short)(y - S);
+              prev[x][next] = (short) (y - S);
               op[x][next] = 4;
             }
           }
@@ -82,7 +82,7 @@ public class CCC_2002_Stage_2_Game_Show_Math {
     }
   }
 
-  private static String getString (byte b) {
+  private static String getString(byte b) {
     switch (b) {
       case 1:
         return "+";
@@ -96,25 +96,25 @@ public class CCC_2002_Stage_2_Game_Show_Math {
     return "";
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

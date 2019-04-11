@@ -22,7 +22,7 @@ public class CCC_2006_S5 {
   static int[] movey = {-1, 0, 1, -1, 1, -1, 0, 1};
   static int end;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     m = readInt();
     n = readInt();
     a = readInt();
@@ -60,7 +60,7 @@ public class CCC_2006_S5 {
     System.out.println(res == 1 << 30 ? -1 : res);
   }
 
-  static int compute (int s, boolean b) {
+  static int compute(int s, boolean b) {
     v[s] = true;
     if (s == end)
       return steps[s] = 0;
@@ -77,7 +77,7 @@ public class CCC_2006_S5 {
     return (steps[s] = next + 1);
   }
 
-  static void print (boolean[][] ds) {
+  static void print(boolean[][] ds) {
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++)
         System.out.print(ds[i][j] ? 1 : 0);
@@ -86,7 +86,7 @@ public class CCC_2006_S5 {
     System.out.println();
   }
 
-  static boolean[][] nextState (boolean[][] s) {
+  static boolean[][] nextState(boolean[][] s) {
     boolean[][] ns = new boolean[m][n];
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
@@ -114,7 +114,7 @@ public class CCC_2006_S5 {
     return ns;
   }
 
-  static int getIndex (boolean[][] state) {
+  static int getIndex(boolean[][] state) {
     int total = 0;
     for (int i = 0; i < m; i++)
       for (int j = 0; j < n; j++)
@@ -122,7 +122,7 @@ public class CCC_2006_S5 {
     return total;
   }
 
-  static boolean[][] getState (int index) {
+  static boolean[][] getState(int index) {
     boolean[][] state = new boolean[m][n];
     for (int i = m - 1; i >= 0; i--)
       for (int j = n - 1; j >= 0; j--) {
@@ -132,29 +132,29 @@ public class CCC_2006_S5 {
     return state;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

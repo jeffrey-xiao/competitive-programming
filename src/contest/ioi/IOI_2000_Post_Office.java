@@ -12,7 +12,7 @@ public class IOI_2000_Post_Office {
   static StringTokenizer st;
   static int[] r;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     r = new int[n];
@@ -71,7 +71,7 @@ public class IOI_2000_Post_Office {
 
   }
 
-  private static int cost (int y, int z) {
+  private static int cost(int y, int z) {
     int cost = 0;
     for (int x = y + 1; x <= z; x++) {
       cost += Math.min(r[x] - r[y], r[z] - r[x]);
@@ -79,25 +79,25 @@ public class IOI_2000_Post_Office {
     return cost;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

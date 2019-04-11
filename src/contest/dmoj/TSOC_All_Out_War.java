@@ -17,7 +17,7 @@ public class TSOC_All_Out_War {
   static Node[] tree = new Node[30001 * 3];
   static int[] a = new int[30001];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -39,7 +39,7 @@ public class TSOC_All_Out_War {
     pr.close();
   }
 
-  static void build (int l, int r, int n) {
+  static void build(int l, int r, int n) {
     tree[n] = new Node(l, r);
     if (l == r) {
       tree[n].min = a[l];
@@ -51,7 +51,7 @@ public class TSOC_All_Out_War {
     pushUp(n);
   }
 
-  static void update (int l, int r, int n, int a) {
+  static void update(int l, int r, int n, int a) {
     if (tree[n].l == l && tree[n].r == r) {
       tree[n].p += a;
       tree[n].min = Math.max(0, tree[n].min - a);
@@ -71,7 +71,7 @@ public class TSOC_All_Out_War {
     pushUp(n);
   }
 
-  static int query (int l, int r, int n) {
+  static int query(int l, int r, int n) {
     if (tree[n].r == r && tree[n].l == l)
       return tree[n].min;
     if (tree[n].p != 0)
@@ -84,11 +84,11 @@ public class TSOC_All_Out_War {
     return Math.min(query(l, mid, 2 * n), query(mid + 1, r, 2 * n + 1));
   }
 
-  static void pushUp (int n) {
+  static void pushUp(int n) {
     tree[n].min = Math.min(tree[2 * n].min, tree[2 * n + 1].min);
   }
 
-  static void pushDown (int n) {
+  static void pushDown(int n) {
     tree[2 * n].min = Math.max(0, tree[2 * n].min - tree[n].p);
     tree[2 * n + 1].min = Math.max(0, tree[2 * n + 1].min - tree[n].p);
     tree[2 * n].p += tree[n].p;
@@ -96,39 +96,39 @@ public class TSOC_All_Out_War {
     tree[n].p = 0;
   }
 
-  static class Node {
-    int l, r, min;
-    int p;
-
-    Node (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    int l, r, min;
+    int p;
+
+    Node(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
   }
 }

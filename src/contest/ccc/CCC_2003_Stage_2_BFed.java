@@ -10,7 +10,7 @@ public class CCC_2003_Stage_2_BFed {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String c = "";
     String next = readLine();
     c += next;
@@ -23,13 +23,13 @@ public class CCC_2003_Stage_2_BFed {
     int currCell = 0;
     char[] commands = c.toCharArray();
     short[] v = new short[30001];
-    for (int x = 0; x < commands.length;) {
+    for (int x = 0; x < commands.length; ) {
       if (commands[x] == '+')
-        v[currCell] = (short)((v[currCell] + 257) % 256);
+        v[currCell] = (short) ((v[currCell] + 257) % 256);
       else if (commands[x] == '-')
-        v[currCell] = (short)((v[currCell] + 255) % 256);
+        v[currCell] = (short) ((v[currCell] + 255) % 256);
       else if (commands[x] == '.')
-        System.out.print((char)v[currCell]);
+        System.out.print((char) v[currCell]);
       else if (commands[x] == '>') {
         currCell++;
       } else if (commands[x] == '<')
@@ -55,25 +55,25 @@ public class CCC_2003_Stage_2_BFed {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

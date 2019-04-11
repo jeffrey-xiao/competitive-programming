@@ -19,7 +19,7 @@ public class RootSolver {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,37 +44,14 @@ public class RootSolver {
     out.close();
   }
 
-  static class Monomial {
-    BigDecimal coefficient;
-    int exponent;
-
-    Monomial (BigDecimal coefficient, int exponent) {
-      this.coefficient = coefficient.setScale(PRECISION, RoundingMode.HALF_UP);
-      this.exponent = exponent;
-    }
-
-    Monomial (String coefficient, int exponent) {
-      this.coefficient = new BigDecimal(coefficient).setScale(PRECISION, RoundingMode.HALF_UP);
-      this.exponent = exponent;
-    }
-
-    BigDecimal evaluate (BigDecimal x) {
-      return coefficient.multiply(x.pow(exponent));
-    }
-
-    public String toString () {
-      return String.format("%sx^%d", coefficient.toString(), exponent);
-    }
-  }
-
-  static BigDecimal evaluate (ArrayList<Monomial> polynomial, BigDecimal x) {
+  static BigDecimal evaluate(ArrayList<Monomial> polynomial, BigDecimal x) {
     BigDecimal ret = BigDecimal.ZERO.setScale(PRECISION, RoundingMode.HALF_UP);
     for (Monomial m : polynomial)
       ret = ret.add(m.evaluate(x));
     return ret;
   }
 
-  static BigDecimal findRoot (ArrayList<Monomial> polynomial, BigDecimal x1, BigDecimal x2) {
+  static BigDecimal findRoot(ArrayList<Monomial> polynomial, BigDecimal x1, BigDecimal x2) {
     BigDecimal y1 = evaluate(polynomial, x1), y2 = evaluate(polynomial, x2);
     boolean neg1 = y1.compareTo(BigDecimal.ZERO) < 0, neg2 = y2.compareTo(BigDecimal.ZERO) < 0;
 
@@ -100,7 +77,7 @@ public class RootSolver {
     return x1;
   }
 
-  static ArrayList<BigDecimal> findAllRoots (ArrayList<Monomial> polynomial) {
+  static ArrayList<BigDecimal> findAllRoots(ArrayList<Monomial> polynomial) {
     ArrayList<Monomial> diff = new ArrayList<Monomial>();
     ArrayList<BigDecimal> ret = new ArrayList<BigDecimal>();
 
@@ -126,29 +103,52 @@ public class RootSolver {
     return ret;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Monomial {
+    BigDecimal coefficient;
+    int exponent;
+
+    Monomial(BigDecimal coefficient, int exponent) {
+      this.coefficient = coefficient.setScale(PRECISION, RoundingMode.HALF_UP);
+      this.exponent = exponent;
+    }
+
+    Monomial(String coefficient, int exponent) {
+      this.coefficient = new BigDecimal(coefficient).setScale(PRECISION, RoundingMode.HALF_UP);
+      this.exponent = exponent;
+    }
+
+    BigDecimal evaluate(BigDecimal x) {
+      return coefficient.multiply(x.pow(exponent));
+    }
+
+    public String toString() {
+      return String.format("%sx^%d", coefficient.toString(), exponent);
+    }
   }
 }

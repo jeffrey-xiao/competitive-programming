@@ -11,18 +11,16 @@ import java.util.StringTokenizer;
 
 public class IOI_2009_Salesman {
 
+  static final int INF = 1 << 27;
+  static final int SIZE = 500001;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int N, U, D, S;
   static Trade[] t;
   static int[] up, down;
 
-  static final int INF = 1 << 27;
-  static final int SIZE = 500001;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -86,18 +84,18 @@ public class IOI_2009_Salesman {
     out.close();
   }
 
-  static void updateProfit (int pos, int profit) {
+  static void updateProfit(int pos, int profit) {
     update(down, 1, 1, SIZE, pos, profit - D * pos);
     update(up, 1, 1, SIZE, pos, profit + U * pos);
   }
 
-  static int queryCost (int pos) {
+  static int queryCost(int pos) {
     int downQuery = query(down, 1, 1, SIZE, pos, SIZE) + D * pos;
     int upQuery = query(up, 1, 1, SIZE, 1, pos) - U * pos;
     return Math.max(downQuery, upQuery);
   }
 
-  static int query (int[] val, int n, int l, int r, int ql, int qr) {
+  static int query(int[] val, int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return val[n];
 
@@ -109,7 +107,7 @@ public class IOI_2009_Salesman {
     return Math.max(query(val, n << 1, l, mid, ql, mid), query(val, n << 1 | 1, mid + 1, r, mid + 1, qr));
   }
 
-  static void update (int[] val, int n, int l, int r, int x, int profit) {
+  static void update(int[] val, int n, int l, int r, int x, int profit) {
     if (l == x && x == r) {
       val[n] = Math.max(val[n], profit);
       return;
@@ -124,7 +122,7 @@ public class IOI_2009_Salesman {
     val[n] = Math.max(val[n << 1], val[n << 1 | 1]);
   }
 
-  static void buildDown (int n, int l, int r) {
+  static void buildDown(int n, int l, int r) {
     if (l == r) {
       if (l == S)
         down[n] = -D * l;
@@ -138,7 +136,7 @@ public class IOI_2009_Salesman {
     down[n] = Math.max(down[n << 1], down[n << 1 | 1]);
   }
 
-  static void buildUp (int n, int l, int r) {
+  static void buildUp(int n, int l, int r) {
     if (l == r) {
       if (l == S)
         up[n] = +U * l;
@@ -152,50 +150,50 @@ public class IOI_2009_Salesman {
     up[n] = Math.max(up[n << 1], up[n << 1 | 1]);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Trade implements Comparable<Trade> {
     int day, pos, profit;
 
-    Trade (int day, int pos, int profit) {
+    Trade(int day, int pos, int profit) {
       this.day = day;
       this.pos = pos;
       this.profit = profit;
     }
 
     @Override
-    public int compareTo (Trade t) {
+    public int compareTo(Trade t) {
       if (day == t.day)
         return pos - t.pos;
       return day - t.day;
     }
 
-    public String toString () {
+    public String toString() {
       return String.format("(%d %d %d)", day, pos, profit);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

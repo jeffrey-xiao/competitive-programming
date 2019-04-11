@@ -12,7 +12,7 @@ public class CCC_1999_P2 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     readInt();
     while (br.ready()) {
       String in = br.readLine();
@@ -99,12 +99,12 @@ public class CCC_1999_P2 {
     }
   }
 
-  static String toMonth (int monthIndex) {
+  static String toMonth(int monthIndex) {
     String[] validYears = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     return validYears[monthIndex - 1];
   }
 
-  static int getMonth (String year) {
+  static int getMonth(String year) {
     String[] validYears = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     for (int i = 0; i < 12; i++)
       if (year.equals(validYears[i]))
@@ -112,11 +112,11 @@ public class CCC_1999_P2 {
     return -1;
   }
 
-  static boolean isLeapYear (int year) {
+  static boolean isLeapYear(int year) {
     return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
   }
 
-  static boolean isValidDate (int day, int month, int year) {
+  static boolean isValidDate(int day, int month, int year) {
     int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31};
     if (isLeapYear(year))
       days[1]++;
@@ -127,25 +127,25 @@ public class CCC_1999_P2 {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class IOI_2009_Garage {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int[][] rate = new int[scan.nextInt()][2];// 0 is value, 1 is occ
     int[][] cars = new int[scan.nextInt()][2];// 0 is kg, 1 is place
     for (int x = 0; x < rate.length; x++)

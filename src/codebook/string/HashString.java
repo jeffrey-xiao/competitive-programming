@@ -17,21 +17,21 @@ public class HashString {
   private long[] hash;
   private long[] pow;
 
-  HashString (String text) {
+  HashString(String text) {
     this.text = " " + text;
     initialize();
   }
 
-  public void setText (String text) {
+  public String getText() {
+    return text;
+  }
+
+  public void setText(String text) {
     this.text = text;
     initialize();
   }
 
-  public String getText () {
-    return text;
-  }
-
-  private void initialize () {
+  private void initialize() {
     hash = new long[text.length()];
     pow[0] = 1;
     hash[0] = 0;
@@ -41,7 +41,7 @@ public class HashString {
     }
   }
 
-  public long getHash () {
+  public long getHash() {
     return getHash(1, text.length() - 1);
   }
 
@@ -49,7 +49,7 @@ public class HashString {
   // hash[0, r] = S[0] * BASE ^ r + S[1] * BASE ^ (r-1) + ... + S[r-1] * BASE ^ 1 + S[r] * BASE ^ 0
   // Since we want the hash of [l, r], we must get rid of the hash of [0, l-1]
   // The hash of [0, l-1] in hash[0, r] is BASE^(r - (l - 1)) times greater than the hash of [0, l-1] in hash[0, r]
-  public long getHash (int l, int r) {
+  public long getHash(int l, int r) {
     return (hash[r] - hash[l - 1] * pow[r - (l - 1)] % MOD + MOD) % MOD;
   }
 }

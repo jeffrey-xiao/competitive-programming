@@ -18,7 +18,7 @@ public class COCI_2007_JEDNAKOST_2 {
   static int[][] dp;
   static int n, target;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String[] input = next().split("=");
     a = input[0];
     target = Integer.parseInt(input[1]);
@@ -30,7 +30,7 @@ public class COCI_2007_JEDNAKOST_2 {
     print(0, target);
   }
 
-  private static void print (int i, int t) {
+  private static void print(int i, int t) {
     if (i == n) {
       System.out.println("=" + target);
       return;
@@ -48,7 +48,7 @@ public class COCI_2007_JEDNAKOST_2 {
     }
   }
 
-  private static int solve (int i, int t) {
+  private static int solve(int i, int t) {
     if (i == n)
       return dp[i][t] = (t == 0 ? 0 : 1 << 30);
     if (dp[i][t] != -1)
@@ -64,29 +64,29 @@ public class COCI_2007_JEDNAKOST_2 {
     return dp[i][t] = res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

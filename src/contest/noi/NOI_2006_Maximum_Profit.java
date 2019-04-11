@@ -20,7 +20,7 @@ public class NOI_2006_Maximum_Profit {
   static int[] dist;
   static int cnt = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     last = new int[n + m + 2];
@@ -43,7 +43,7 @@ public class NOI_2006_Maximum_Profit {
     System.out.println(total - getFlow());
   }
 
-  static int getFlow () {
+  static int getFlow() {
     int res = 0;
     int curr = 0;
     while (getPath())
@@ -52,7 +52,7 @@ public class NOI_2006_Maximum_Profit {
     return res;
   }
 
-  static boolean getPath () {
+  static boolean getPath() {
     dist = new int[n + m + 2];
     for (int i = 0; i < n + m + 2; i++)
       dist[i] = -1;
@@ -71,7 +71,7 @@ public class NOI_2006_Maximum_Profit {
     return dist[n + m + 1] != -1;
   }
 
-  static int dfs (int curr, int flow) {
+  static int dfs(int curr, int flow) {
     if (curr == n + m + 1)
       return flow;
     for (int i = last[curr]; i != -1; i = e[i].next) {
@@ -87,42 +87,42 @@ public class NOI_2006_Maximum_Profit {
     return 0;
   }
 
-  static void addEdge (int x, int y, int xy, int yx) {
+  static void addEdge(int x, int y, int xy, int yx) {
     e[cnt] = new Edge(y, xy, last[x]);
     last[x] = cnt++;
     e[cnt] = new Edge(x, yx, last[y]);
     last[y] = cnt++;
   }
 
-  static class Edge {
-    int dest, cost, next;
-
-    Edge (int dest, int cost, int next) {
-      this.dest = dest;
-      this.cost = cost;
-      this.next = next;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, cost, next;
+
+    Edge(int dest, int cost, int next) {
+      this.dest = dest;
+      this.cost = cost;
+      this.next = next;
+    }
   }
 }

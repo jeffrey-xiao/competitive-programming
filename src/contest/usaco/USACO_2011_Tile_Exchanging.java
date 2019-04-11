@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class USACO_2011_Tile_Exchanging {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfTiles = scan.nextInt();
     int area = scan.nextInt();
     int[] tiles = new int[numOfTiles + 1];

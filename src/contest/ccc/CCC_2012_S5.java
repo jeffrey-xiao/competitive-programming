@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2012_S5 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int[][] lab = new int[scan.nextInt()][scan.nextInt()];
     for (int mouses = scan.nextInt(); mouses > 0; mouses--)
       lab[scan.nextInt() - 1][scan.nextInt() - 1] = -1;

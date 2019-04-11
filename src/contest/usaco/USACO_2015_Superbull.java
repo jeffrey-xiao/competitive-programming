@@ -19,7 +19,7 @@ public class USACO_2015_Superbull {
   static int[] id = new int[2000];
   static int[] sz = new int[2000];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int i = 0; i < 200; i++)
       id[i] = i;
     int n = readInt();
@@ -41,11 +41,11 @@ public class USACO_2015_Superbull {
     System.out.println(res);
   }
 
-  private static int find (int i) {
+  private static int find(int i) {
     return i == id[i] ? i : (id[i] = find(id[i]));
   }
 
-  private static boolean merge (int x, int y) {
+  private static boolean merge(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
     if (rootx == rooty)
@@ -60,45 +60,45 @@ public class USACO_2015_Superbull {
     return true;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int a, b;
     Long c;
 
-    Edge (int a, int b, Long c) {
+    Edge(int a, int b, Long c) {
       this.a = a;
       this.b = b;
       this.c = c;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return o.c.compareTo(c);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

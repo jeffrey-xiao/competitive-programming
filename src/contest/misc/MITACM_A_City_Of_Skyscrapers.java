@@ -12,7 +12,7 @@ public class MITACM_A_City_Of_Skyscrapers {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
 
@@ -57,7 +57,7 @@ public class MITACM_A_City_Of_Skyscrapers {
     System.out.printf("Minimum: %d, maximum: %d", min * c, max * C);
   }
 
-  public static void sortUp (int[] a) {
+  public static void sortUp(int[] a) {
     int length = a.length;
     int[] aux = new int[length];
     for (int gap = 1; gap < length; gap *= 2)
@@ -65,7 +65,7 @@ public class MITACM_A_City_Of_Skyscrapers {
         merge(a, aux, low, low + gap - 1, Math.min(length - 1, low + gap + gap - 1));
   }
 
-  private static void merge (int[] a, int[] aux, int low, int mid, int high) {
+  private static void merge(int[] a, int[] aux, int low, int mid, int high) {
     for (int i = low; i <= high; i++)
       aux[i] = a[i];
     int x = low;
@@ -82,11 +82,11 @@ public class MITACM_A_City_Of_Skyscrapers {
     }
   }
 
-  private static boolean checkImpossible (int[] rows, int[] columns, int n, int m) {
+  private static boolean checkImpossible(int[] rows, int[] columns, int n, int m) {
     return rows[n - 1] != columns[m - 1];
   }
 
-  private static int getMax (int[] r, int[] c, int n, int m) {
+  private static int getMax(int[] r, int[] c, int n, int m) {
     int max = 0;
     int nextValue = 0;
     for (int x = 0; x < n; x++) {
@@ -103,25 +103,25 @@ public class MITACM_A_City_Of_Skyscrapers {
     return max;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

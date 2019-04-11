@@ -12,8 +12,9 @@ public class ACM_NAQ_2016_K {
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
+  static int x, y;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -96,7 +97,7 @@ public class ACM_NAQ_2016_K {
   }
 
   // computes x and y such that ax + by = c; on failure, x = y = -1
-  static void linearDiophantine (int a, int b, int c) {
+  static void linearDiophantine(int a, int b, int c) {
     int d = gcd(a, b);
     if (c % d != 0) {
       x = y = -1 << 30;
@@ -110,10 +111,8 @@ public class ACM_NAQ_2016_K {
     }
   }
 
-  static int x, y;
-
   // returns d = gcd(a, b); finds x, y such that d = ax * by
-  public static int[] euclid (int a, int b) {
+  public static int[] euclid(int a, int b) {
     int x = 1, y = 0, x1 = 0, y1 = 1, t;
     while (b != 0) {
       int q = a / b;
@@ -127,44 +126,44 @@ public class ACM_NAQ_2016_K {
       b = a - q * b;
       a = t;
     }
-    return a > 0 ? new int[] {a, x, y} : new int[] {-a, -x, -y};
+    return a > 0 ? new int[]{a, x, y} : new int[]{-a, -x, -y};
   }
 
-  static int gcd (int a, int b) {
+  static int gcd(int a, int b) {
     return b == 0 ? a : (gcd(b, a % b));
   }
 
-  static int lcm (int a, int b) {
+  static int lcm(int a, int b) {
     return a / gcd(a, b) * b;
   }
 
-  static int mod (int a, int b) {
+  static int mod(int a, int b) {
     return ((a % b) + b) % b;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

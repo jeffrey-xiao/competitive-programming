@@ -13,18 +13,17 @@ import java.util.StringTokenizer;
 
 public class CCC_2015_Stage_2_Solar_Flight {
 
+  static final double EPS = 0.000001;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int x, k, n, q;
   static int[] a, b, c;
-  static final double EPS = 0.000001;
   static ArrayList<LinkedList<Collision>> max = new ArrayList<LinkedList<Collision>>();
   static PriorityQueue<Collision> col = new PriorityQueue<Collision>();
   static long[] curr;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -53,9 +52,9 @@ public class CCC_2015_Stage_2_Solar_Flight {
         } else if (a[j] > a[i]) {
           col.add(new Collision(0.0, i, j));
         }
-        double s1 = (double)(b[i] - a[i]) / x;
-        double s2 = (double)(b[j] - a[j]) / x;
-        double cx = (double)(a[j] - a[i]) / (s1 - s2);
+        double s1 = (double) (b[i] - a[i]) / x;
+        double s2 = (double) (b[j] - a[j]) / x;
+        double cx = (double) (a[j] - a[i]) / (s1 - s2);
         if (0 <= cx && cx <= x) {
           if (b[i] > b[j])
             col.offer(new Collision(cx, j, i));
@@ -91,23 +90,49 @@ public class CCC_2015_Stage_2_Solar_Flight {
     out.close();
   }
 
-  static void add (Collision c, int plane) {
+  static void add(Collision c, int plane) {
     while (!max.get(plane).isEmpty() && (max.get(plane).getLast().val <= c.val || Math.abs(max.get(plane).getLast().pos - c.pos) < EPS))
       max.get(plane).pollLast();
     max.get(plane).addLast(c);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Query implements Comparable<Query> {
     int index, plane, position;
 
-    Query (int index, int plane, int position) {
+    Query(int index, int plane, int position) {
       this.index = index;
       this.plane = plane;
       this.position = position;
     }
 
     @Override
-    public int compareTo (Query q) {
+    public int compareTo(Query q) {
       return position - q.position;
     }
   }
@@ -117,46 +142,20 @@ public class CCC_2015_Stage_2_Solar_Flight {
     int inc, dec;
     long val;
 
-    Collision (double pos, long val) {
+    Collision(double pos, long val) {
       this.pos = pos;
       this.val = val;
     }
 
-    Collision (double pos, int inc, int dec) {
+    Collision(double pos, int inc, int dec) {
       this.pos = pos;
       this.inc = inc;
       this.dec = dec;
     }
 
     @Override
-    public int compareTo (Collision c) {
+    public int compareTo(Collision c) {
       return pos.compareTo(c.pos);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

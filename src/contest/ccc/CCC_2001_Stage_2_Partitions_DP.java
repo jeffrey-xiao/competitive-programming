@@ -12,8 +12,9 @@ public class CCC_2001_Stage_2_Partitions_DP {
   static StringTokenizer st;
   static int[][] dp = new int[101][101];
 
-  public static void main (String[] args) throws IOException {
-    main : for (int q = readInt(); q > 0; q--) {
+  public static void main(String[] args) throws IOException {
+    main:
+    for (int q = readInt(); q > 0; q--) {
       int n = readInt();
       int a = readInt();
       ArrayList<Integer> nums = new ArrayList<Integer>();
@@ -43,7 +44,7 @@ public class CCC_2001_Stage_2_Partitions_DP {
     }
   }
 
-  static int compute (int n, int a) {
+  static int compute(int n, int a) {
     if (a == 1 || n == 0 || n == a)
       return 1;
     if (a > n)
@@ -55,25 +56,25 @@ public class CCC_2001_Stage_2_Partitions_DP {
     return dp[n][a];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

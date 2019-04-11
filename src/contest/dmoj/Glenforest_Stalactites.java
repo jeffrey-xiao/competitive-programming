@@ -17,7 +17,7 @@ public class Glenforest_Stalactites {
   static int N;
   static long[][][] bit;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     N = readInt();
     bit = new long[N + 1][N + 1][N + 1];
     int Q = readInt();
@@ -43,11 +43,11 @@ public class Glenforest_Stalactites {
     System.out.println(res);
   }
 
-  static long query (int x1, int y1, int z1, int x2, int y2, int z2) {
+  static long query(int x1, int y1, int z1, int x2, int y2, int z2) {
     return +query(x2, y2, z2) - query(x1, y2, z2) - query(x2, y1, z2) - query(x2, y2, z1) + query(x1, y1, z2) + query(x2, y1, z1) + query(x1, y2, z1) - query(x1, y1, z1);
   }
 
-  static void update (int indx, int indy, int indz, long value) {
+  static void update(int indx, int indy, int indz, long value) {
     for (int x = indx; x <= N; x += (x & -x)) {
       for (int y = indy; y <= N; y += (y & -y)) {
         for (int z = indz; z <= N; z += (z & -z)) {
@@ -57,7 +57,7 @@ public class Glenforest_Stalactites {
     }
   }
 
-  static long query (int indx, int indy, int indz) {
+  static long query(int indx, int indy, int indz) {
     long sum = 0;
     for (int x = indx; x > 0; x -= (x & -x)) {
       for (int y = indy; y > 0; y -= (y & -y)) {
@@ -69,29 +69,29 @@ public class Glenforest_Stalactites {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

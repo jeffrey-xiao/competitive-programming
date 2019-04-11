@@ -26,7 +26,7 @@ public class IOI_2005_Mountains {
   static int[] sum;
   static int[] max;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -91,7 +91,7 @@ public class IOI_2005_Mountains {
     out.close();
   }
 
-  static int query (int n, int l, int r, int ql, int qr) {
+  static int query(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return sum[n];
     int mid = (l + r) >> 1;
@@ -112,7 +112,7 @@ public class IOI_2005_Mountains {
     return query(n << 1, l, mid, ql, mid) + query(n << 1 | 1, mid + 1, r, mid + 1, qr);
   }
 
-  static int search (int n, int l, int r, int h) {
+  static int search(int n, int l, int r, int h) {
     if (l == r)
       return l;
     int mid = (l + r) >> 1;
@@ -132,7 +132,7 @@ public class IOI_2005_Mountains {
       return search(n << 1 | 1, mid + 1, r, h - sum[n << 1]);
   }
 
-  static void update (int n, int l, int r, int ql, int qr, int val) {
+  static void update(int n, int l, int r, int ql, int qr, int val) {
     if (ql == l && qr == r) {
       sum[n] = (toVal.get(qr) - toVal.get(ql - 1)) * val;
       max[n] = sum[n];
@@ -163,43 +163,43 @@ public class IOI_2005_Mountains {
     max[n] = Math.max(max[n << 1], sum[n << 1] + max[n << 1 | 1]);
   }
 
-  static class Query {
-    int a, b, c;
-
-    Query (int a) {
-      this(a, -1, -1);
-    }
-
-    Query (int a, int b, int c) {
-      this.a = a;
-      this.b = b;
-      this.c = c;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Query {
+    int a, b, c;
+
+    Query(int a) {
+      this(a, -1, -1);
+    }
+
+    Query(int a, int b, int c) {
+      this.a = a;
+      this.b = b;
+      this.c = c;
+    }
   }
 }

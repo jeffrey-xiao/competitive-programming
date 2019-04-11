@@ -25,7 +25,7 @@ public class VMSS_Jayden_Plays_Video_Games {
 
   static ArrayDeque<Integer> poss = new ArrayDeque<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -98,7 +98,7 @@ public class VMSS_Jayden_Plays_Video_Games {
     out.close();
   }
 
-  static void build (int[] min, int n, int lo, int hi) {
+  static void build(int[] min, int n, int lo, int hi) {
     min[n] = 1 << 30;
     if (lo == hi)
       return;
@@ -107,7 +107,7 @@ public class VMSS_Jayden_Plays_Video_Games {
     build(min, n << 1 | 1, mid + 1, hi);
   }
 
-  static void update (int[] min, int n, int lo, int hi, int x, int val) {
+  static void update(int[] min, int n, int lo, int hi, int x, int val) {
     if (x == lo && x == hi) {
       min[n] = val;
       return;
@@ -120,7 +120,7 @@ public class VMSS_Jayden_Plays_Video_Games {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static int query (int[] min, int n, int lo, int hi, int qlo, int qhi) {
+  static int query(int[] min, int n, int lo, int hi, int qlo, int qhi) {
     if (lo == qlo && hi == qhi) {
       return min[n];
     }
@@ -133,49 +133,49 @@ public class VMSS_Jayden_Plays_Video_Games {
       return Math.min(query(min, n << 1, lo, mid, qlo, mid), query(min, n << 1 | 1, mid + 1, hi, mid + 1, qhi));
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Domino implements Comparable<Domino> {
     int pos, height, index;
 
-    Domino (int pos, int height) {
+    Domino(int pos, int height) {
       this.pos = pos;
       this.height = height;
     }
 
-    Domino (int pos, int height, int index) {
+    Domino(int pos, int height, int index) {
       this.pos = pos;
       this.height = height;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Domino d) {
+    public int compareTo(Domino d) {
       return pos - d.pos;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

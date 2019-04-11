@@ -17,7 +17,7 @@ public class DMOPC_2014_Nia_And_Dominoes {
   static int A, B, M;
   static long N;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     A = readInt();
     B = readInt();
     M = readInt();
@@ -41,38 +41,11 @@ public class DMOPC_2014_Nia_And_Dominoes {
     out.close();
   }
 
-  static class Cycle {
-    long start, length;
-
-    Cycle (long start, long length) {
-      this.start = start;
-      this.length = length;
-    }
-  }
-
-  static class State {
-    long a, b;
-
-    State (long a, long b) {
-      this.a = a;
-      this.b = b;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State s = (State)o;
-        return a == s.a && s.b == b;
-      }
-      return false;
-    }
-  }
-
-  static State f (State s) {
+  static State f(State s) {
     return new State((s.a * A % M + s.b * B % M) % M, s.a);
   }
 
-  static Cycle getCycle (State s) {
+  static Cycle getCycle(State s) {
     long power = 1;
     long length = 1;
     State tortoise = new State(s.a, s.b);
@@ -103,29 +76,56 @@ public class DMOPC_2014_Nia_And_Dominoes {
     return new Cycle(start, length);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Cycle {
+    long start, length;
+
+    Cycle(long start, long length) {
+      this.start = start;
+      this.length = length;
+    }
+  }
+
+  static class State {
+    long a, b;
+
+    State(long a, long b) {
+      this.a = a;
+      this.b = b;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State s = (State) o;
+        return a == s.a && s.b == b;
+      }
+      return false;
+    }
   }
 }

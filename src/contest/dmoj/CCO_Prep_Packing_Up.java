@@ -19,7 +19,7 @@ public class CCO_Prep_Packing_Up {
   static long[] dp;
   static int[] li = new int[2000010];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -54,49 +54,49 @@ public class CCO_Prep_Packing_Up {
     ps.close();
   }
 
-  static long sqr (long x) {
+  static long sqr(long x) {
     return x * x;
   }
 
-  static long top (int a, int b) {
+  static long top(int a, int b) {
     return dp[a] - dp[b] + sqr(s[a]) - sqr(s[b]);
   }
 
-  static long bottom (int a, int b) {
+  static long bottom(int a, int b) {
     return 2 * (s[a] - s[b]);
   }
 
-  static double f (int a, int b) {
-    return (double)(top(b, a)) / (double)(bottom(b, a));
+  static double f(int a, int b) {
+    return (double) (top(b, a)) / (double) (bottom(b, a));
   }
 
-  static boolean greater (int a, int b, int c, int d) {
+  static boolean greater(int a, int b, int c, int d) {
     return top(b, a) * bottom(d, c) > top(d, c) * bottom(b, a);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -3,7 +3,7 @@ package contest.woburn;
 import java.util.Scanner;
 
 public class Woburn_Challenge_1996_Different_Base_Multiplication {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     for (int x = 5; x > 0; x--) {
 

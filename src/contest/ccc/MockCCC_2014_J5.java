@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MockCCC_2014_J5 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int r = scan.nextInt();
     int c = scan.nextInt();
     int t = scan.nextInt();
@@ -29,7 +29,7 @@ public class MockCCC_2014_J5 {
     // 0 = moves, 1 = rows, 2 = columns, 3 = dimension
     Queue<int[]> moves = new LinkedList<int[]>();
 
-    moves.add(new int[] {0, r1, c1, 0});
+    moves.add(new int[]{0, r1, c1, 0});
     while (!moves.isEmpty()) {
       int[] curr = moves.poll();
 
@@ -43,14 +43,14 @@ public class MockCCC_2014_J5 {
       }
 
       visited[curr[3]][curr[1]][curr[2]] = true;
-      moves.add(new int[] {curr[0] + 1, curr[1] + 1, curr[2], curr[3]});
-      moves.add(new int[] {curr[0] + 1, curr[1] - 1, curr[2], curr[3]});
-      moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1, curr[3]});
-      moves.add(new int[] {curr[0] + 1, curr[1], curr[2] - 1, curr[3]});
+      moves.add(new int[]{curr[0] + 1, curr[1] + 1, curr[2], curr[3]});
+      moves.add(new int[]{curr[0] + 1, curr[1] - 1, curr[2], curr[3]});
+      moves.add(new int[]{curr[0] + 1, curr[1], curr[2] + 1, curr[3]});
+      moves.add(new int[]{curr[0] + 1, curr[1], curr[2] - 1, curr[3]});
 
       for (int x = 0; x < t; x++)
         if (x != curr[3])
-          moves.add(new int[] {curr[0] + 1, curr[1], curr[2], x});
+          moves.add(new int[]{curr[0] + 1, curr[1], curr[2], x});
 
     }
     System.out.println(-1);

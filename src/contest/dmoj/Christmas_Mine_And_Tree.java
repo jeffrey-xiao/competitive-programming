@@ -22,7 +22,7 @@ public class Christmas_Mine_And_Tree {
   static int[] size, parent, depth;
   static int[] chainPos, chain, head, toIndex;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -81,7 +81,7 @@ public class Christmas_Mine_And_Tree {
 
   }
 
-  static int lca (int i, int j) {
+  static int lca(int i, int j) {
     while (chain[i] != chain[j]) {
       if (depth[head[chain[i]]] < depth[head[chain[j]]])
         j = parent[head[chain[j]]];
@@ -93,7 +93,7 @@ public class Christmas_Mine_And_Tree {
     return j;
   }
 
-  static Node solve (int u, int v, boolean isRev, boolean isInclude) {
+  static Node solve(int u, int v, boolean isRev, boolean isInclude) {
     Node res = new Node();
     while (chain[u] != chain[v]) {
       if (isRev)
@@ -118,7 +118,7 @@ public class Christmas_Mine_And_Tree {
     return res;
   }
 
-  static Node merge (Node n1, Node n2) {
+  static Node merge(Node n1, Node n2) {
     Node res = new Node();
     res.dp.x = n1.dp.x * n2.percent;
     res.dp.y = n1.dp.y * n2.percent;
@@ -130,7 +130,7 @@ public class Christmas_Mine_And_Tree {
     return res;
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       tree1[n] = a[toIndex[l]];
       tree2[n] = a[toIndex[l]];
@@ -143,7 +143,7 @@ public class Christmas_Mine_And_Tree {
     tree2[n] = merge(tree2[n << 1 | 1], tree2[n << 1]);
   }
 
-  static Node query (int n, int l, int r, int ql, int qr, boolean rev) {
+  static Node query(int n, int l, int r, int ql, int qr, boolean rev) {
     if (l == ql && r == qr)
       return rev ? tree2[n] : tree1[n];
     int mid = (l + r) >> 1;
@@ -156,7 +156,7 @@ public class Christmas_Mine_And_Tree {
     return rev ? merge(n2, n1) : merge(n1, n2);
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (x == l && x == r) {
       tree1[n] = a[toIndex[l]];
       tree2[n] = a[toIndex[l]];
@@ -171,7 +171,7 @@ public class Christmas_Mine_And_Tree {
     tree2[n] = merge(tree2[n << 1 | 1], tree2[n << 1]);
   }
 
-  static void hld (int i, int par) {
+  static void hld(int i, int par) {
     if (head[currChain] == -1)
       head[currChain] = i;
     chain[i] = currChain;
@@ -191,7 +191,7 @@ public class Christmas_Mine_And_Tree {
       }
   }
 
-  static int dfs (int i, int par, int d) {
+  static int dfs(int i, int par, int d) {
     parent[i] = par;
     depth[i] = d;
     size[i] = 1;
@@ -201,7 +201,7 @@ public class Christmas_Mine_And_Tree {
     return size[i];
   }
 
-  static Point rotate (Point p, double angle) {
+  static Point rotate(Point p, double angle) {
     double sin = Math.sin(angle / 180 * Math.PI);
     double cos = Math.cos(angle / 180 * Math.PI);
     double x = p.x * cos - p.y * sin;
@@ -209,7 +209,7 @@ public class Christmas_Mine_And_Tree {
     return new Point(x, y);
   }
 
-  static Node readNode () throws IOException {
+  static Node readNode() throws IOException {
     char c = readCharacter();
     if (c == 'R')
       return new Node(readInt(), 0, 0, 1);
@@ -225,10 +225,36 @@ public class Christmas_Mine_And_Tree {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     double x, y;
 
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
@@ -239,44 +265,18 @@ public class Christmas_Mine_And_Tree {
     Point dp;
     double percent;
 
-    Node () {
+    Node() {
       this(0, 0, 0, 1);
     }
 
-    Node (double rotate, double dx, double dy, double percent) {
+    Node(double rotate, double dx, double dy, double percent) {
       this.rotate = rotate;
       this.dp = new Point(dx, dy);
       this.percent = percent;
     }
 
-    public String toString () {
+    public String toString() {
       return String.format("(%f, %f) with %f and %f", dp.x, dp.y, rotate, percent);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

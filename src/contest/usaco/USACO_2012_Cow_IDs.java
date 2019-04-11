@@ -8,15 +8,15 @@ import java.util.StringTokenizer;
 
 public class USACO_2012_Cow_IDs {
 
+  static final int SIZE = 6000;
+  static final int MAX = 1 << 25;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintStream ps = new PrintStream(System.out);
   static StringTokenizer st;
-  static final int SIZE = 6000;
-  static final int MAX = 1 << 25;
   static int[][] dp;
   static boolean leading = true;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     if (k == 1) {
@@ -50,39 +50,39 @@ public class USACO_2012_Cow_IDs {
     }
   }
 
-  static class State {
-    int n, k, curr;
-
-    State (int n, int k, int curr) {
-      this.n = n;
-      this.k = k;
-      this.curr = curr;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int n, k, curr;
+
+    State(int n, int k, int curr) {
+      this.n = n;
+      this.k = k;
+      this.curr = curr;
+    }
   }
 }

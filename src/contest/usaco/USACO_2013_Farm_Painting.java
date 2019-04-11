@@ -17,7 +17,7 @@ public class USACO_2013_Farm_Painting {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<Event> e = new ArrayList<Event>();
     TreeSet<HoriEvent> ts = new TreeSet<HoriEvent>();
@@ -49,24 +49,50 @@ public class USACO_2013_Farm_Painting {
     System.out.println(total);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class HoriEvent implements Comparable<HoriEvent> {
     int y;
     boolean add;
 
-    HoriEvent (int y, boolean add) {
+    HoriEvent(int y, boolean add) {
       this.y = y;
       this.add = add;
     }
 
     @Override
-    public int compareTo (HoriEvent o) {
+    public int compareTo(HoriEvent o) {
       return -y + o.y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof HoriEvent) {
-        HoriEvent e = (HoriEvent)o;
+        HoriEvent e = (HoriEvent) o;
         return y == e.y && add == e.add;
       }
       return false;
@@ -77,7 +103,7 @@ public class USACO_2013_Farm_Painting {
     int x, y1, y2, i;
     boolean add;
 
-    Event (int x, int y1, int y2, boolean add) {
+    Event(int x, int y1, int y2, boolean add) {
       this.x = x;
       this.y1 = y1;
       this.y2 = y2;
@@ -85,36 +111,10 @@ public class USACO_2013_Farm_Painting {
     }
 
     @Override
-    public int compareTo (Event o) {
+    public int compareTo(Event o) {
       if (x == o.x)
         return y1 - o.y1;
       return x - o.x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

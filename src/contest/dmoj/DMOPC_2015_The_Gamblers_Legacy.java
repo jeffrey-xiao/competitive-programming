@@ -15,7 +15,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
 
   static int N;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -34,22 +34,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
     out.close();
   }
 
-  static class State {
-    int start, length, val;
-
-    State (int start, int length, int val) {
-      this.start = start;
-      this.length = length;
-      this.val = val;
-    }
-
-    @Override
-    public String toString () {
-      return "Start: " + start + "; Length: " + length;
-    }
-  }
-
-  static State getCycle (int x) {
+  static State getCycle(int x) {
     int tortoise = f(x), hare = f(f(x));
     while (tortoise != hare) {
       tortoise = f(tortoise);
@@ -71,8 +56,8 @@ public class DMOPC_2015_The_Gamblers_Legacy {
     return new State(start, length, tortoise);
   }
 
-  static int f (int x) {
-    int p = (int)Math.log10(x) + 1;
+  static int f(int x) {
+    int p = (int) Math.log10(x) + 1;
     int ret = 0;
     while (x > 0) {
       ret += pow(x % 10, p);
@@ -81,7 +66,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
     return ret;
   }
 
-  static int pow (int b, int p) {
+  static int pow(int b, int p) {
     if (p == 0)
       return 1;
     if (p == 1)
@@ -89,29 +74,44 @@ public class DMOPC_2015_The_Gamblers_Legacy {
     return p % 2 == 0 ? pow(b * b, p / 2) : b * pow(b * b, p / 2);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int start, length, val;
+
+    State(int start, int length, int val) {
+      this.start = start;
+      this.length = length;
+      this.val = val;
+    }
+
+    @Override
+    public String toString() {
+      return "Start: " + start + "; Length: " + length;
+    }
   }
 }

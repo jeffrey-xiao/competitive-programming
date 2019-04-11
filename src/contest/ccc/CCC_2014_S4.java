@@ -13,7 +13,7 @@ public class CCC_2014_S4 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();
     HashMap<Integer, Integer> toCoord = new HashMap<Integer, Integer>();
     int n = readInt();
@@ -47,7 +47,7 @@ public class CCC_2014_S4 {
       for (int x = 0; x < count; x++) {
         currTotal += line[x];
         if (lastx != Integer.MIN_VALUE && currTotal >= minTint && x != count - 1) {
-          totalArea += (currx - lastx) * ((long)toCoord.get(x + 1) - (long)toCoord.get(x));
+          totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
         }
 
       }
@@ -63,13 +63,35 @@ public class CCC_2014_S4 {
     System.out.println(totalArea);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Event implements Comparable<Event> {
     int x;
     int y1;
     int y2;
     int value;
 
-    Event (int x, int y1, int y2, int value) {
+    Event(int x, int y1, int y2, int value) {
       this.x = x;
       this.y1 = y1;
       this.y2 = y2;
@@ -77,30 +99,8 @@ public class CCC_2014_S4 {
     }
 
     @Override
-    public int compareTo (Event o) {
+    public int compareTo(Event o) {
       return x - o.x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

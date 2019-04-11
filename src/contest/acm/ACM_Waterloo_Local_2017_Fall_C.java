@@ -8,7 +8,7 @@ public class ACM_Waterloo_Local_2017_Fall_C {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -41,51 +41,52 @@ public class ACM_Waterloo_Local_2017_Fall_C {
     out.close();
   }
 
-  static class State implements Comparable<State> {
-    int index, pos;
-    State (int index, int pos) {
-      this.index = index;
-      this.pos = pos;
-    }
-
-    @Override
-    public int compareTo (State s) {
-      return pos - s.pos;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State s = (State)o;
-        return index == s.index && pos == s.pos;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int index, pos;
+
+    State(int index, int pos) {
+      this.index = index;
+      this.pos = pos;
+    }
+
+    @Override
+    public int compareTo(State s) {
+      return pos - s.pos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State s = (State) o;
+        return index == s.index && pos == s.pos;
+      }
+      return false;
+    }
   }
 }

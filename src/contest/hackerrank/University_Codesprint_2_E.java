@@ -9,18 +9,16 @@ import java.util.StringTokenizer;
 
 public class University_Codesprint_2_E {
 
+  static final int MOD = (int) (1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int MOD = (int)(1e9 + 7);
-
   static int N;
   static int[] val, seg;
   static long[] fact;
   static long[][] dp, choose;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -60,7 +58,7 @@ public class University_Codesprint_2_E {
     out.close();
   }
 
-  static long compute (int n, int k) {
+  static long compute(int n, int k) {
     if (n == N)
       return 1;
     if (dp[n][k] != -1)
@@ -72,7 +70,7 @@ public class University_Codesprint_2_E {
     return dp[n][k] = ret;
   }
 
-  static void update (int n, int l, int r, int ql, int qr, int val) {
+  static void update(int n, int l, int r, int ql, int qr, int val) {
     if (ql == l && qr == r) {
       seg[n] += val;
       return;
@@ -89,7 +87,7 @@ public class University_Codesprint_2_E {
     }
   }
 
-  static int query (int n, int l, int r, int x) {
+  static int query(int n, int l, int r, int x) {
     if (l == x && x == r)
       return seg[n];
     pushDown(n);
@@ -100,7 +98,7 @@ public class University_Codesprint_2_E {
       return query(n << 1 | 1, mid + 1, r, x);
   }
 
-  static void pushDown (int n) {
+  static void pushDown(int n) {
     if (seg[n] != 0) {
       seg[n << 1] += seg[n];
       seg[n << 1 | 1] += seg[n];
@@ -108,29 +106,29 @@ public class University_Codesprint_2_E {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

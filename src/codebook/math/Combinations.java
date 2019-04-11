@@ -6,10 +6,10 @@ import static codebook.math.Combinatorics.choose;
 
 public class Combinations {
 
-  static boolean nextCombination (int n, int k, int[] a) {
+  static boolean nextCombination(int n, int k, int[] a) {
     for (int i = k - 1; i >= 0; i--) {
       if (a[i] < n - k + i) {
-        for (++a[i]; ++i < k;)
+        for (++a[i]; ++i < k; )
           a[i] = a[i - 1] + 1;
         return true;
       }
@@ -17,10 +17,10 @@ public class Combinations {
     return false;
   }
 
-  static boolean nextCombinationRepeat (int n, int k, int[] a) {
+  static boolean nextCombinationRepeat(int n, int k, int[] a) {
     for (int i = k - 1; i >= 0; i--) {
       if (a[i] < n - 1) {
-        for (++a[i]; ++i < k;)
+        for (++a[i]; ++i < k; )
           a[i] = a[i - 1];
         return true;
       }
@@ -29,17 +29,17 @@ public class Combinations {
   }
 
   // next binary combination
-  static long nextCombination (long x) {
+  static long nextCombination(long x) {
     long s = x & -x, r = x + s;
     return r | (((x ^ r) >> 2) / s);
   }
 
-  static int[] combinationByRank (int n, int k, long x) {
+  static int[] combinationByRank(int n, int k, long x) {
     int[] ret = new int[k];
     int cnt = n;
     for (int i = 0; i < k; i++) {
       int j = 1;
-      for (;; j++) {
+      for (; ; j++) {
         long num = choose(cnt - j, k - 1 - i);
         if (x < num)
           break;
@@ -51,7 +51,7 @@ public class Combinations {
     return ret;
   }
 
-  static long rankByCombination (int n, int k, int[] a) {
+  static long rankByCombination(int n, int k, int[] a) {
     long ret = 0;
     int prev = -1;
     for (int i = 0; i < k; i++) {

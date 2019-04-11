@@ -14,7 +14,7 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
   static int[][] dp;
   static boolean[][] visited;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = nextInt();
     for (int x = 0; x < n; x++)
       p.add(new ArrayList<int[]>());
@@ -24,7 +24,7 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
       int c = nextInt();
       int v = nextInt();
       int i = nextInt() - 1;
-      p.get(i).add(new int[] {c, v});
+      p.get(i).add(new int[]{c, v});
     }
     int b = nextInt();
     dp = new int[n][b + 1];
@@ -33,7 +33,7 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
     System.out.println(m);
   }
 
-  private static int compute (int pt, int b, int n) {
+  private static int compute(int pt, int b, int n) {
     if (pt == n)
       return 0;
     if (visited[pt][b])
@@ -51,25 +51,25 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
     return m;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int nextInt () throws IOException {
+  static int nextInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

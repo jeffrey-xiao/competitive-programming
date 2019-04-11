@@ -21,8 +21,9 @@ public class NOI_2002_Island_Of_Caveman {
 
   static int n, max;
   static int[] start, move, life;
+  static int x1 = 0, y1 = 0, d = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     start = new int[n];
     move = new int[n];
@@ -35,7 +36,8 @@ public class NOI_2002_Island_Of_Caveman {
       max = Math.max(max, start[x]);
     }
 
-    main : for (int b = max;; b++) {
+    main:
+    for (int b = max; ; b++) {
       for (int x = 0; x < n; x++) {
         for (int y = x + 1; y < n; y++) {
           int a = move[x] - move[y];
@@ -64,17 +66,15 @@ public class NOI_2002_Island_Of_Caveman {
     }
   }
 
-  static int x1 = 0, y1 = 0, d = 0;
-
-  public static int gcf (int a, int b) {
+  public static int gcf(int a, int b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  public static int lcm (int a, int b) {
+  public static int lcm(int a, int b) {
     return a * b / gcf(a, b);
   }
 
-  public static void extended (int a, int b) {
+  public static void extended(int a, int b) {
     if (b == 0) {
       x1 = 1;
       y1 = 0;
@@ -89,29 +89,29 @@ public class NOI_2002_Island_Of_Caveman {
 
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

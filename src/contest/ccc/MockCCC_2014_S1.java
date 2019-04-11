@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MockCCC_2014_S1 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     StringBuilder s = new StringBuilder(scan.nextLine());
     String find = scan.nextLine();
     int index = s.reverse().indexOf(find);

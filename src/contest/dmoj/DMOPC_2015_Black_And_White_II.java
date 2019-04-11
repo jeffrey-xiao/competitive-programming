@@ -21,7 +21,7 @@ public class DMOPC_2015_Black_And_White_II {
   static char[][] g;
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -64,15 +64,15 @@ public class DMOPC_2015_Black_And_White_II {
     out.close();
   }
 
-  static int getIn (int r, int c) {
+  static int getIn(int r, int c) {
     return (r * M + c) * 2 + 1;
   }
 
-  static int getOut (int r, int c) {
+  static int getOut(int r, int c) {
     return (r * M + c) * 2 + 2;
   }
 
-  static int getFlow () {
+  static int getFlow() {
     int res = 0;
     int curr = 0;
     v = new boolean[N * M * 2 + 2];
@@ -83,7 +83,7 @@ public class DMOPC_2015_Black_And_White_II {
     return res;
   }
 
-  static int dfs (int curr, int flow) {
+  static int dfs(int curr, int flow) {
     v[curr] = true;
     if (curr == sink)
       return flow;
@@ -100,7 +100,7 @@ public class DMOPC_2015_Black_And_White_II {
     return 0;
   }
 
-  static void addEdge (int x, int y, int xy, int yx) {
+  static void addEdge(int x, int y, int xy, int yx) {
     boolean valid = true;
     for (int i = last[x]; i != -1; i = e.get(i).next) {
       if (e.get(i).dest == y) {
@@ -117,39 +117,39 @@ public class DMOPC_2015_Black_And_White_II {
     }
   }
 
-  static class Edge {
-    int dest, cost, next;
-
-    Edge (int dest, int cost, int next) {
-      this.dest = dest;
-      this.cost = cost;
-      this.next = next;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, cost, next;
+
+    Edge(int dest, int cost, int next) {
+      this.dest = dest;
+      this.cost = cost;
+      this.next = next;
+    }
   }
 }

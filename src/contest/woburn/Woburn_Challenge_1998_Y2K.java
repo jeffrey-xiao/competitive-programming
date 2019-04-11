@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1998_Y2K {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfPoints = scan.nextInt();
     Point[] points = new Point[numOfPoints];
     int min = 16001;
@@ -17,7 +17,7 @@ public class Woburn_Challenge_1998_Y2K {
     for (int x = 0; x < points.length; x++) {
       points[x] = new Point(scan.nextInt(), scan.nextInt());
       if (points[x].getY() < min) {
-        min = (int)points[x].getY();
+        min = (int) points[x].getY();
         index = x;
       }
     }
@@ -27,7 +27,7 @@ public class Woburn_Challenge_1998_Y2K {
     final Point startPoint = points[0];
     Arrays.sort(points, 1, points.length, new Comparator<Point>() {
       @Override
-      public int compare (Point p1, Point p2) {
+      public int compare(Point p1, Point p2) {
         return p1.getX() * p2.getY() + p2.getX() * startPoint.getY() + startPoint.getX() * p1.getY() - p2.getY() * startPoint.getX() - startPoint.getY() * p1.getX() - p1.getY() * p2.getX() > 0 ? -1 : 1;
       }
 
@@ -54,21 +54,21 @@ public class Woburn_Challenge_1998_Y2K {
     }
 
     for (int x = convexHull.size() - 1; x >= 0; x--) {
-      System.out.println((int)convexHull.get(x).getX() + " " + (int)convexHull.get(x).getY());
+      System.out.println((int) convexHull.get(x).getX() + " " + (int) convexHull.get(x).getY());
     }
   }
 
   @SuppressWarnings("unused")
-  private static double crossProduct (Point p1, Point p2) {
+  private static double crossProduct(Point p1, Point p2) {
     return p1.getX() * p2.getY() - p1.getY() * p2.getX();
   }
 
-  private static double ccw (Point p1, Point p2, Point p3) {
+  private static double ccw(Point p1, Point p2, Point p3) {
     return (p2.getX() - p1.getX()) * (p3.getY() - p1.getY()) - (p2.getY() - p1.getY()) * (p3.getX() - p1.getX());
   }
 
   @SuppressWarnings("unused")
-  private static double polar (Point p1, Point p2, Point startPoint) {
+  private static double polar(Point p1, Point p2, Point startPoint) {
     return p1.getX() * p2.getY() + p2.getX() * startPoint.getY() + startPoint.getX() * p1.getY() - p2.getY() * startPoint.getX() - startPoint.getY() * p1.getX() - p1.getY() * p2.getX() > 0 ? -1 : 1;
   }
 }

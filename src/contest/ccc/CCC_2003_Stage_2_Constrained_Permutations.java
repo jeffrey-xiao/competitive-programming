@@ -14,7 +14,7 @@ public class CCC_2003_Stage_2_Constrained_Permutations {
   static HashMap<Integer, HashSet<Integer>> cons;
   static int count = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     cons = new HashMap<Integer, HashSet<Integer>>();
     int n = readInt();
     int m = readInt();
@@ -24,12 +24,13 @@ public class CCC_2003_Stage_2_Constrained_Permutations {
     System.out.println(count);
   }
 
-  private static void permute (int n, int curr, HashSet<Integer> v) {
+  private static void permute(int n, int curr, HashSet<Integer> v) {
     if (curr == 0) {
       count++;
       return;
     }
-    main : for (int x = 1; x <= n; x++) {
+    main:
+    for (int x = 1; x <= n; x++) {
       if (!v.contains(x)) {
         HashSet<Integer> c = cons.get(x);
         if (c != null)
@@ -43,31 +44,31 @@ public class CCC_2003_Stage_2_Constrained_Permutations {
     }
   }
 
-  private static void add (int x, int y) {
+  private static void add(int x, int y) {
     if (cons.get(y) == null)
       cons.put(y, new HashSet<Integer>());
     cons.get(y).add(x);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

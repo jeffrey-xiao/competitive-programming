@@ -11,7 +11,7 @@ public class CCC_2009_J4 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     String[] words = {"WELCOME", "TO", "CCC", "GOOD", "LUCK", "TODAY"};
     Integer[] lengths = {7, 2, 3, 4, 4, 5};
@@ -42,7 +42,7 @@ public class CCC_2009_J4 {
     }
   }
 
-  private static int[] getGap (int i, int j) {
+  private static int[] getGap(int i, int j) {
     int[] gaps = new int[i];
     int total = 0;
     if (i != 1) {
@@ -62,32 +62,32 @@ public class CCC_2009_J4 {
     return gaps;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static String getDot (int n) {
+  static String getDot(int n) {
     String s = "";
     for (int x = 0; x < n; x++)
       s += ".";
     return s;
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

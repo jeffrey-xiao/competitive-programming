@@ -23,7 +23,7 @@ public class ACM_NEERC_2014_B {
   static HashMap<Integer, LinkedList<Integer>> pos = new HashMap<Integer, LinkedList<Integer>>();
   static TreeSet<State> ts = new TreeSet<State>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -102,45 +102,45 @@ public class ACM_NEERC_2014_B {
     out.close();
   }
 
-  static class State implements Comparable<State> {
-    int occ, color;
-
-    State (int color, int occ) {
-      this.color = color;
-      this.occ = occ;
-    }
-
-    @Override
-    public int compareTo (State o) {
-      if (occ == o.occ)
-        return color - o.color;
-      return occ - o.occ;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int occ, color;
+
+    State(int color, int occ) {
+      this.color = color;
+      this.occ = occ;
+    }
+
+    @Override
+    public int compareTo(State o) {
+      if (occ == o.occ)
+        return color - o.color;
+      return occ - o.occ;
+    }
   }
 }

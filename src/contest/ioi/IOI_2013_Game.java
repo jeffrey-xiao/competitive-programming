@@ -10,15 +10,15 @@ import java.util.StringTokenizer;
 
 public class IOI_2013_Game {
 
+  static final Random generator = new Random(0);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final Random generator = new Random(0);
   static int R, C, N;
   static Seg root;
+  static long lastVal;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -48,7 +48,7 @@ public class IOI_2013_Game {
     out.close();
   }
 
-  static long query (Seg s, int r1, int r2, int c1, int c2) {
+  static long query(Seg s, int r1, int r2, int c1, int c2) {
     if (s == null)
       return 0;
     if (r1 == s.l && s.r == r2) {
@@ -64,7 +64,7 @@ public class IOI_2013_Game {
       return gcd(query(s.left, r1, mid, c1, c2), query(s.right, mid + 1, r2, c1, c2));
   }
 
-  static void check (Node n) {
+  static void check(Node n) {
     if (n == null)
       return;
     check(n.left);
@@ -72,9 +72,7 @@ public class IOI_2013_Game {
     n = update(n);
   }
 
-  static long lastVal;
-
-  static Seg update (Seg s, int r, int c, long val) {
+  static Seg update(Seg s, int r, int c, long val) {
     if (s.l == s.r) {
       s.treap = add(s.treap, c, val);
       lastVal = val;
@@ -100,41 +98,7 @@ public class IOI_2013_Game {
     return s;
   }
 
-  static class Seg {
-    int l, r;
-    Node treap;
-    Seg left, right;
-
-    Seg (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-  }
-
-  static class Node {
-    double priority;
-    int key;
-    long value, agg;
-    Node left, right;
-    int min, max;
-
-    Node (int key, long value) {
-      this.priority = generator.nextDouble();
-      this.min = this.max = this.key = key;
-      this.value = this.agg = value;
-    }
-  }
-
-  static class NodePair {
-    Node left, right;
-
-    NodePair (Node left, Node right) {
-      this.left = left;
-      this.right = right;
-    }
-  }
-
-  static long query (Node n, int l, int r) {
+  static long query(Node n, int l, int r) {
     if (n == null)
       return 0;
     if (l <= n.min && n.max <= r) {
@@ -156,12 +120,12 @@ public class IOI_2013_Game {
     return ret;
   }
 
-  static Node add (Node n, int key, long value) {
+  static Node add(Node n, int key, long value) {
     NodePair res = split(n, key);
     return merge(res.left, merge(new Node(key, value), res.right));
   }
 
-  static Node merge (Node t1, Node t2) {
+  static Node merge(Node t1, Node t2) {
     if (t1 == null) {
       t2 = update(t2);
       return t2;
@@ -181,7 +145,7 @@ public class IOI_2013_Game {
     }
   }
 
-  static NodePair split (Node n, int key) {
+  static NodePair split(Node n, int key) {
     NodePair res = new NodePair(null, null);
     if (n == null)
       return res;
@@ -205,7 +169,7 @@ public class IOI_2013_Game {
     }
   }
 
-  static Node update (Node n) {
+  static Node update(Node n) {
     if (n == null)
       return n;
     n.max = n.min = n.key;
@@ -224,33 +188,67 @@ public class IOI_2013_Game {
     return n;
   }
 
-  static long gcd (long a, long b) {
+  static long gcd(long a, long b) {
     return b == 0 ? a : gcd(b, a % b);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Seg {
+    int l, r;
+    Node treap;
+    Seg left, right;
+
+    Seg(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
+  }
+
+  static class Node {
+    double priority;
+    int key;
+    long value, agg;
+    Node left, right;
+    int min, max;
+
+    Node(int key, long value) {
+      this.priority = generator.nextDouble();
+      this.min = this.max = this.key = key;
+      this.value = this.agg = value;
+    }
+  }
+
+  static class NodePair {
+    Node left, right;
+
+    NodePair(Node left, Node right) {
+      this.left = left;
+      this.right = right;
+    }
   }
 }

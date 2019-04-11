@@ -11,7 +11,7 @@ public class ECOO_2002_Stack_Print {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = 5; t > 0; t--) {
       int n = readInt();
       Job[] jobs = new Job[n];
@@ -59,7 +59,7 @@ public class ECOO_2002_Stack_Print {
     }
   }
 
-  private static boolean lessThan (Job job, int[] times) {
+  private static boolean lessThan(Job job, int[] times) {
     if (job.hours > times[0])
       return false;
     else if (job.hours < times[0])
@@ -77,7 +77,7 @@ public class ECOO_2002_Stack_Print {
     return true;
   }
 
-  private static void adjust (int[] times) {
+  private static void adjust(int[] times) {
     if (times[2] >= 60) {
       times[1] += times[2] / 60;
       times[2] %= 60;
@@ -88,6 +88,28 @@ public class ECOO_2002_Stack_Print {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Job {
     int hours;
     int minutes;
@@ -95,7 +117,7 @@ public class ECOO_2002_Stack_Print {
     int taken;
     String name;
 
-    Job (String time, int taken, String name) {
+    Job(String time, int taken, String name) {
       hours = Integer.parseInt(time.substring(0, 2));
       minutes = Integer.parseInt(time.substring(2, 4));
       seconds = Integer.parseInt(time.substring(4, 6));
@@ -103,27 +125,5 @@ public class ECOO_2002_Stack_Print {
       this.name = name;
 
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

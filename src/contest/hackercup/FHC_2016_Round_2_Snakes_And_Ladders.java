@@ -14,13 +14,12 @@ import java.util.TreeSet;
 
 public class FHC_2016_Round_2_Snakes_And_Ladders {
 
+  static final int MOD = (int) (1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
 
-  static final int MOD = (int)(1e9 + 7);
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -91,45 +90,45 @@ public class FHC_2016_Round_2_Snakes_And_Ladders {
     out.close();
   }
 
-  static class Ladder implements Comparable<Ladder> {
-    int pos, height;
-
-    Ladder (int pos, int height) {
-      this.pos = pos;
-      this.height = height;
-    }
-
-    @Override
-    public int compareTo (Ladder l) {
-      if (l.height == height)
-        return pos - l.pos;
-      return l.height - height;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Ladder implements Comparable<Ladder> {
+    int pos, height;
+
+    Ladder(int pos, int height) {
+      this.pos = pos;
+      this.height = height;
+    }
+
+    @Override
+    public int compareTo(Ladder l) {
+      if (l.height == height)
+        return pos - l.pos;
+      return l.height - height;
+    }
   }
 }

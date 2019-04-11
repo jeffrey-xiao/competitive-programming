@@ -20,7 +20,7 @@ public class ACM_Hong_Kong_2016_F {
   static int[] total, diff;
   static int res = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -35,7 +35,7 @@ public class ACM_Hong_Kong_2016_F {
     man = new int[N + 1];
     woman = new int[N + 1];
 
-    sz = (int)Math.sqrt(N);
+    sz = (int) Math.sqrt(N);
 
     for (int i = 1; i <= N; i++)
       man[i] = readInt();
@@ -81,7 +81,7 @@ public class ACM_Hong_Kong_2016_F {
     out.close();
   }
 
-  static void remove (int i) {
+  static void remove(int i) {
     if (diff[man[i]] <= 0)
       res--;
     diff[man[i]]--;
@@ -90,7 +90,7 @@ public class ACM_Hong_Kong_2016_F {
     diff[woman[i]]++;
   }
 
-  static void update (int i) {
+  static void update(int i) {
     if (diff[man[i]] <= -1)
       res++;
     diff[man[i]]++;
@@ -100,46 +100,46 @@ public class ACM_Hong_Kong_2016_F {
     diff[woman[i]]--;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Query implements Comparable<Query> {
     int l, r, index;
 
-    Query (int l, int r, int index) {
+    Query(int l, int r, int index) {
       this.l = l;
       this.r = r;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Query o) {
+    public int compareTo(Query o) {
       if ((l - 1) / sz != (o.l - 1) / sz)
         return (l - 1) / sz - (o.l - 1) / sz;
       return r - o.r;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

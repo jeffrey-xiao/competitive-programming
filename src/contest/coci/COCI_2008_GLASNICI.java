@@ -17,7 +17,7 @@ public class COCI_2008_GLASNICI {
   static int n;
   static double k;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     k = readDouble();
     n = readInt();
     m = new double[n];
@@ -36,7 +36,7 @@ public class COCI_2008_GLASNICI {
     System.out.println(lo);
   }
 
-  private static boolean isPossible (double mid) {
+  private static boolean isPossible(double mid) {
     double nextDist = m[0] + mid;
     for (int x = 1; x < n; x++) {
       if (m[x] > nextDist + k + mid)
@@ -46,29 +46,29 @@ public class COCI_2008_GLASNICI {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

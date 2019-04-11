@@ -11,25 +11,25 @@ public class ZAlgorithm {
   private String text;
   private int[] z;
 
-  ZAlgorithm (String text) {
+  ZAlgorithm(String text) {
     this.text = text;
     compute();
   }
 
-  public String getText () {
+  public String getText() {
     return text;
   }
 
-  public void setText (String text) {
+  public void setText(String text) {
     this.text = text;
     compute();
   }
 
-  public int[] getPrefixSubstringLengths () {
+  public int[] getPrefixSubstringLengths() {
     return z;
   }
 
-  private void compute () {
+  private void compute() {
     z = new int[text.length()];
     // [l, r] represents the largest prefix substring of a previous index
     int l = 0, r = 0;
@@ -48,7 +48,7 @@ public class ZAlgorithm {
         int j = i - l;
         if (z[j] < r - i + 1)
           z[i] = z[j];
-        // if the size of the prefix substring at j is larger than the boundary, then we have to extend it
+          // if the size of the prefix substring at j is larger than the boundary, then we have to extend it
         else {
 
           l = i;

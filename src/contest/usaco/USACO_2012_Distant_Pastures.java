@@ -17,7 +17,7 @@ public class USACO_2012_Distant_Pastures {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     a = readInt();
     b = readInt();
@@ -34,7 +34,7 @@ public class USACO_2012_Distant_Pastures {
     System.out.println(max);
   }
 
-  private static int bfs (int x, int y, char[][] grid) {
+  private static int bfs(int x, int y, char[][] grid) {
     PriorityQueue<Point> moves = new PriorityQueue<Point>();
     int[][] min = new int[n][n];
 
@@ -82,51 +82,51 @@ public class USACO_2012_Distant_Pastures {
     return max;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     int x;
     int y;
     int time;
 
-    Point (int x, int y, int time) {
+    Point(int x, int y, int time) {
       this.x = x;
       this.y = y;
       this.time = time;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       return time - p.time;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return x == p.x && y == p.y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

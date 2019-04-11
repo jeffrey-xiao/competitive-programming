@@ -18,7 +18,7 @@ public class New_Year_2017_The_Christmas_Swap {
   static char[] in;
   static ArrayList<ArrayList<Integer>> pos = new ArrayList<ArrayList<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,8 +44,8 @@ public class New_Year_2017_The_Christmas_Swap {
     out.close();
   }
 
-  static int compute (int index) {
-    int lo = 1, hi = count(in, (char)(index + '0'));
+  static int compute(int index) {
+    int lo = 1, hi = count(in, (char) (index + '0'));
 
     while (lo <= hi) {
       int mid = (lo + hi) >> 1;
@@ -101,7 +101,7 @@ public class New_Year_2017_The_Christmas_Swap {
     return hi;
   }
 
-  static int computeNextAnswer (int prevAns, int i, int mid, int index, boolean inverse, int lastLeft) {
+  static int computeNextAnswer(int prevAns, int i, int mid, int index, boolean inverse, int lastLeft) {
     int nextAns = prevAns;
     left = Math.max(left, l - 1);
 
@@ -123,7 +123,7 @@ public class New_Year_2017_The_Christmas_Swap {
     return nextAns;
   }
 
-  static int count (char[] line, char c) {
+  static int count(char[] line, char c) {
     int ans = 0;
     for (int i = 0; i < line.length; i++)
       if (line[i] == c)
@@ -131,29 +131,29 @@ public class New_Year_2017_The_Christmas_Swap {
     return ans;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

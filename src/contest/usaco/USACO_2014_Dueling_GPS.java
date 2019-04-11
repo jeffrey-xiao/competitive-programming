@@ -14,7 +14,7 @@ public class USACO_2014_Dueling_GPS {
   static int n;
   static ArrayList<ArrayList<Edge>> newList = null;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     ArrayList<ArrayList<Edge>> reverseA = new ArrayList<ArrayList<Edge>>();
     ArrayList<ArrayList<Edge>> reverseB = new ArrayList<ArrayList<Edge>>();
@@ -39,7 +39,7 @@ public class USACO_2014_Dueling_GPS {
     printShortestPath(0, n - 1, newList);
   }
 
-  private static void shortestPath (int s, int d, ArrayList<ArrayList<Edge>> currList) {
+  private static void shortestPath(int s, int d, ArrayList<ArrayList<Edge>> currList) {
     int[] min = new int[n];
     for (int x = 0; x < n; x++)
       if (x != s)
@@ -64,7 +64,7 @@ public class USACO_2014_Dueling_GPS {
     }
   }
 
-  private static void printShortestPath (int s, int d, ArrayList<ArrayList<Edge>> currList) {
+  private static void printShortestPath(int s, int d, ArrayList<ArrayList<Edge>> currList) {
     boolean[] visited = new boolean[n];
     int[] min = new int[n];
     for (int x = 0; x < n; x++)
@@ -92,26 +92,48 @@ public class USACO_2014_Dueling_GPS {
     System.out.println(min[d]);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     int cost;
     int prev;
 
-    Vertex (int index, int cost, int prev) {
+    Vertex(int index, int cost, int prev) {
       this.index = index;
       this.cost = cost;
       this.prev = prev;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return cost - o.cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Vertex) {
-        Vertex v = (Vertex)o;
+        Vertex v = (Vertex) o;
         return index == v.index;
       }
       return false;
@@ -122,40 +144,18 @@ public class USACO_2014_Dueling_GPS {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge v = (Edge)o;
+        Edge v = (Edge) o;
         return dest == v.dest;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

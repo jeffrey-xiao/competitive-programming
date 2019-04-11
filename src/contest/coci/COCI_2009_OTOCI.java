@@ -33,14 +33,14 @@ public class COCI_2009_OTOCI {
   static int[][] seg;
   static int[] chainSize;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     n = readInt();
-    sn = (int)(Math.sqrt(n));
+    sn = (int) (Math.sqrt(n));
     id = new int[n + 1];
     size = new int[n + 1];
     val = new int[n + 1];
@@ -118,7 +118,7 @@ public class COCI_2009_OTOCI {
     out.close();
   }
 
-  static int getSum (int i, int j) {
+  static int getSum(int i, int j) {
     int res = 0;
     while (chain[i] != chain[j]) {
       if (depth[head[chain[i]]] < depth[head[chain[j]]]) {
@@ -136,7 +136,7 @@ public class COCI_2009_OTOCI {
     return res + query(seg[chain[j]], 1, 1, chainSize[chain[j]], chainIndex[j], chainIndex[i]);
   }
 
-  static int getLen (int a) {
+  static int getLen(int a) {
     int cnt = 0;
     while (parent[head[chain[a]]] != -1) {
       a = parent[head[chain[a]]];
@@ -146,7 +146,7 @@ public class COCI_2009_OTOCI {
     return cnt;
   }
 
-  static void getUnused (int i, int prev, boolean newChain) {
+  static void getUnused(int i, int prev, boolean newChain) {
     if (newChain) {
       unusedChains.offer(chain[i]);
       seg[chain[i]] = new int[0];
@@ -156,7 +156,7 @@ public class COCI_2009_OTOCI {
         getUnused(j, i, chain[i] != chain[j]);
   }
 
-  static void hld (int i, int prev, boolean newChain) {
+  static void hld(int i, int prev, boolean newChain) {
     if (newChain)
       head[chainNo] = i;
     chainIndex[i] = index++;
@@ -184,7 +184,7 @@ public class COCI_2009_OTOCI {
     update(seg[chain[i]], 1, 1, chainSize[chain[i]], chainIndex[i], val[i]);
   }
 
-  static void dfs (int i, int d, int prev) {
+  static void dfs(int i, int d, int prev) {
     parent[i] = prev;
     subsize[i] = 1;
     depth[i] = d;
@@ -193,7 +193,7 @@ public class COCI_2009_OTOCI {
         dfs(j, d + 1, i);
   }
 
-  static void update (int[] tree, int n, int lo, int hi, int i, int val) {
+  static void update(int[] tree, int n, int lo, int hi, int i, int val) {
     if (lo == i && i == hi) {
       tree[n] = val;
       return;
@@ -206,7 +206,7 @@ public class COCI_2009_OTOCI {
     tree[n] = tree[n << 1] + tree[n << 1 | 1];
   }
 
-  static int query (int[] tree, int n, int lo, int hi, int qlo, int qhi) {
+  static int query(int[] tree, int n, int lo, int hi, int qlo, int qhi) {
     if (lo == qlo && hi == qhi)
       return tree[n];
     int mid = (lo + hi) >> 1;
@@ -217,11 +217,11 @@ public class COCI_2009_OTOCI {
     return query(tree, n << 1, lo, mid, qlo, mid) + query(tree, n << 1 | 1, mid + 1, hi, mid + 1, qhi);
   }
 
-  static int find (int i) {
+  static int find(int i) {
     return i == id[i] ? i : (id[i] = find(id[i]));
   }
 
-  static void merge (int i, int j) {
+  static void merge(int i, int j) {
     int rx = find(i);
     int ry = find(j);
     if (size[rx] > size[ry]) {
@@ -233,29 +233,29 @@ public class COCI_2009_OTOCI {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

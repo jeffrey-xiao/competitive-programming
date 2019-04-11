@@ -7,14 +7,13 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2014_Revenge_Of_The_Bins {
 
-  private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  private static StringTokenizer st;
-
   static int n;
   static int[] a;
   static Node[] tree = new Node[100005 * 3];
+  private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  private static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     a = new int[n];
     for (int i = 0; i < n; i++)
@@ -34,7 +33,7 @@ public class DMOPC_2014_Revenge_Of_The_Bins {
     System.out.println(ans);
   }
 
-  static void update (int l, int r, int n, int v) {
+  static void update(int l, int r, int n, int v) {
     if (tree[n].l == l && tree[n].r == r) {
       tree[n].p += v;
       tree[n].min += v;
@@ -59,7 +58,7 @@ public class DMOPC_2014_Revenge_Of_The_Bins {
     tree[n].min = Math.min(tree[2 * n].min, tree[2 * n + 1].min);
   }
 
-  static void build (int l, int r, int n) {
+  static void build(int l, int r, int n) {
     tree[n] = new Node(l, r);
     if (l == r)
       return;
@@ -68,22 +67,22 @@ public class DMOPC_2014_Revenge_Of_The_Bins {
     build(mid + 1, r, 2 * n + 1);
   }
 
-  static class Node {
-    int l, r, min, p;
-
-    Node (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-  }
-
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
+  }
+
+  static class Node {
+    int l, r, min, p;
+
+    Node(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
   }
 }

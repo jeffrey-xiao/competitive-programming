@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2000_Stage_2_Packet_Routing {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     int[][] edges = new int[scan.nextInt()][3];
     int numOfTest = scan.nextInt();

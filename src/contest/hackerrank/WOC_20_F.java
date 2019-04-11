@@ -23,7 +23,7 @@ public class WOC_20_F {
   static int[] ans;
   static ArrayList<ArrayList<Integer>> start;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -68,7 +68,7 @@ public class WOC_20_F {
     out.close();
   }
 
-  static int query (int n, int l, int r, int ql, int qr, int val) {
+  static int query(int n, int l, int r, int ql, int qr, int val) {
     if (l == ql && r == qr)
       return seg[n].query(val);
 
@@ -81,7 +81,7 @@ public class WOC_20_F {
     return Math.min(query(n << 1, l, mid, ql, mid, val), query(n << 1 | 1, mid + 1, r, mid + 1, qr, val));
   }
 
-  static int compute (int l, int r) {
+  static int compute(int l, int r) {
     if (l > r)
       return 0;
 
@@ -93,7 +93,7 @@ public class WOC_20_F {
     return compute(l, L[index] - 1) + compute(R[index] + 1, r) + (R[index] - L[index] + 1);
   }
 
-  static void init (int n, int l, int r) {
+  static void init(int n, int l, int r) {
     if (l == r) {
       seg[n].init(l);
       return;
@@ -106,7 +106,7 @@ public class WOC_20_F {
     seg[n].init(seg[n << 1].values, seg[n << 1 | 1].values);
   }
 
-  static void update (int n, int l, int r, int x, int val) {
+  static void update(int n, int l, int r, int x, int val) {
     seg[n].update(R[val], val);
     if (l == x && r == x)
       return;
@@ -119,17 +119,43 @@ public class WOC_20_F {
       update(n << 1 | 1, mid + 1, r, x, val);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Fenwick {
     ArrayList<Integer> values;
     int sz;
     int[] tree;
 
-    Fenwick () {
+    Fenwick() {
       values = new ArrayList<Integer>();
       values.add(-1);
     }
 
-    void init (int x) {
+    void init(int x) {
       values.addAll(start.get(x));
       Collections.sort(values);
 
@@ -148,7 +174,7 @@ public class WOC_20_F {
       Arrays.fill(tree, 1 << 30);
     }
 
-    void init (ArrayList<Integer> a, ArrayList<Integer> b) {
+    void init(ArrayList<Integer> a, ArrayList<Integer> b) {
       int i = 0, j = 0;
       while (i < a.size() || j < b.size()) {
         int valToAdd = 0;
@@ -167,11 +193,11 @@ public class WOC_20_F {
       Arrays.fill(tree, 1 << 30);
     }
 
-    void insert (int val) {
+    void insert(int val) {
       values.add(val);
     }
 
-    int getIndex (int x) {
+    int getIndex(int x) {
       int lo = 0;
       int hi = values.size() - 1;
       while (lo <= hi) {
@@ -186,7 +212,7 @@ public class WOC_20_F {
       return hi;
     }
 
-    int query (int x) {
+    int query(int x) {
       x = getIndex(x);
 
       int ret = 1 << 30;
@@ -197,7 +223,7 @@ public class WOC_20_F {
       return ret;
     }
 
-    void update (int x, int val) {
+    void update(int x, int val) {
       x = getIndex(x);
 
       if (x == 0)
@@ -206,31 +232,5 @@ public class WOC_20_F {
       for (int i = x; i < sz; i += (i & -i))
         tree[i] = Math.min(tree[i], val);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

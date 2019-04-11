@@ -11,7 +11,7 @@ public class IOI_2008_Linear_Garden {
   static StringTokenizer st;
   static int[][][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     long k = readLong();
     char[] s = next().toCharArray();
@@ -32,7 +32,7 @@ public class IOI_2008_Linear_Garden {
     System.out.println((sum + 1) % k);
   }
 
-  static int compute (int left, int lo, int hi, int curr) {
+  static int compute(int left, int lo, int hi, int curr) {
     if (hi - lo > 2 || Math.abs(curr) > 2)
       return 0;
     if (left == 0) {
@@ -50,25 +50,25 @@ public class IOI_2008_Linear_Garden {
     return next;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -14,16 +14,14 @@ import java.util.StringTokenizer;
 
 public class CCC_2012_J5 {
 
+  static final int RADIX = 8;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
-  static final int RADIX = 8;
-
   static int n;
   static HashSet<Integer> v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     while ((n = readInt()) != 0) {
       boolean possible = false;
       v = new HashSet<Integer>();
@@ -86,16 +84,7 @@ public class CCC_2012_J5 {
     }
   }
 
-  static class Pos {
-    int moves, curr;
-
-    Pos (int curr, int moves) {
-      this.curr = curr;
-      this.moves = moves;
-    }
-  }
-
-  static int toIndex (State s) {
+  static int toIndex(State s) {
     State ns = new State();
     for (int x = 0; x < n; x++)
       ns.s[x].addAll(s.s[x]);
@@ -107,30 +96,65 @@ public class CCC_2012_J5 {
     return res;
   }
 
-  static State toState (Integer i) {
+  static State toState(Integer i) {
     State res = new State();
     for (int x = n; x >= 1; x--) {
-      res.s[i / (int)(Math.pow(RADIX, x)) - 1].push(x);
-      i %= (int)(Math.pow(RADIX, x));
+      res.s[i / (int) (Math.pow(RADIX, x)) - 1].push(x);
+      i %= (int) (Math.pow(RADIX, x));
     }
     return res;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class Pos {
+    int moves, curr;
+
+    Pos(int curr, int moves) {
+      this.curr = curr;
+      this.moves = moves;
+    }
   }
 
   static class State {
     @SuppressWarnings("unchecked")
     Stack<Integer>[] s = new Stack[n];
 
-    State () {
+    State() {
       for (int x = 0; x < n; x++)
         s[x] = new Stack<Integer>();
     }
 
-    private void move (int i, int j) {
+    private void move(int i, int j) {
       s[j].push(s[i].pop());
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       String st = "";
       for (int x = 0; x < n; x++) {
         for (Integer i : s[x])
@@ -139,31 +163,5 @@ public class CCC_2012_J5 {
       }
       return st;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

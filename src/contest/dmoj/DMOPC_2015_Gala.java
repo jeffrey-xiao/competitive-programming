@@ -10,16 +10,15 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2015_Gala {
 
+  static final int MOD = 1000000007;
+  static final int SIZE = 1501;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int n;
-  static final int MOD = 1000000007;
-  static final int SIZE = 1501;
   static long[] dp = new long[SIZE];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -60,7 +59,7 @@ public class DMOPC_2015_Gala {
     out.close();
   }
 
-  private static int msb (int x) {
+  private static int msb(int x) {
     int bval[] = {0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4};
 
     int base = 0;
@@ -79,21 +78,7 @@ public class DMOPC_2015_Gala {
     return base + bval[x];
   }
 
-  static class Interval implements Comparable<Interval> {
-    int l, r;
-
-    Interval (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-
-    @Override
-    public int compareTo (Interval o) {
-      return -(r - l) + (o.r - o.l);
-    }
-  }
-
-  static long catalan (int n) {
+  static long catalan(int n) {
     if (n % 2 == 1)
       return 0;
     if (n < 0)
@@ -101,7 +86,7 @@ public class DMOPC_2015_Gala {
     return dp[n / 2];
   }
 
-  static void compute (int n, int m) {
+  static void compute(int n, int m) {
     dp[0] = dp[1] = 1;
     for (int i = 2; i <= n; i++) {
       for (int j = 0; j <= i - 1; j++)
@@ -110,29 +95,43 @@ public class DMOPC_2015_Gala {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Interval implements Comparable<Interval> {
+    int l, r;
+
+    Interval(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
+
+    @Override
+    public int compareTo(Interval o) {
+      return -(r - l) + (o.r - o.l);
+    }
   }
 }

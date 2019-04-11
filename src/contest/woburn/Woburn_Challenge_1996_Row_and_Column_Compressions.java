@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1996_Row_and_Column_Compressions {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int t = 0; t < 5; t++) {
       int r = scan.nextInt();
       int c = scan.nextInt();

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2007_S3 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     int[] friends = new int[9999];
     for (int x = 0; x < n; x++) {

@@ -25,7 +25,7 @@ public class IOI_2011_Race {
   static int[] minCnt;
   static ArrayList<Node> inTree = new ArrayList<Node>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -89,7 +89,7 @@ public class IOI_2011_Race {
     out.close();
   }
 
-  static int getSize (int curr, int par) {
+  static int getSize(int curr, int par) {
     int sz = 1;
     for (Edge next : adj.get(curr))
       if (next.dest != par && !exclude[next.dest])
@@ -97,7 +97,7 @@ public class IOI_2011_Race {
     return sz;
   }
 
-  static int getCentroid (int curr, int par, int size) {
+  static int getCentroid(int curr, int par, int size) {
     int n = size;
     int sz = 1;
     boolean valid = true;
@@ -114,7 +114,7 @@ public class IOI_2011_Race {
     return valid ? curr : -sz;
   }
 
-  static void getDist (int curr) {
+  static void getDist(int curr) {
     Stack<State> s = new Stack<State>();
     s.push(new State(curr, -1, 0, 0, -1));
     while (!s.isEmpty()) {
@@ -128,10 +128,36 @@ public class IOI_2011_Race {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     int curr, branch;
 
-    Node (int curr, int branch) {
+    Node(int curr, int branch) {
       this.curr = curr;
       this.branch = branch;
     }
@@ -140,15 +166,15 @@ public class IOI_2011_Race {
   static class State {
     int curr, par, distTo, cntTo, branch;
 
-    State (int curr, int distTo) {
+    State(int curr, int distTo) {
       this(curr, 0, distTo, 0, 0);
     }
 
-    State (int curr, int par, int distTo) {
+    State(int curr, int par, int distTo) {
       this(curr, par, distTo, 0, 0);
     }
 
-    State (int curr, int par, int distTo, int cntTo, int branch) {
+    State(int curr, int par, int distTo, int cntTo, int branch) {
       this.curr = curr;
       this.par = par;
       this.distTo = distTo;
@@ -160,35 +186,9 @@ public class IOI_2011_Race {
   static class Edge {
     int dest, cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

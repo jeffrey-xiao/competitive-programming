@@ -5,7 +5,7 @@ import java.util.Scanner;
 class CCC_2010_J3 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int a = 0, b = 0;
     int input = scan.nextInt();
     while (input != 7) {

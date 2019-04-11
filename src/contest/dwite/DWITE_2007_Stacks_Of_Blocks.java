@@ -5,7 +5,7 @@ import java.util.Scanner;
 class DWITE_2007_Stacks_Of_Blocks {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int height = scan.nextInt();
     int numOfBlocks = scan.nextInt();
     int[] blocks = new int[numOfBlocks];

@@ -11,14 +11,14 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_King_And_Weber {
 
-  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  static StringTokenizer st;
   static final boolean P = true;
   static final boolean I = false;
+  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  static StringTokenizer st;
   static ArrayList<ArrayList<Edge>> adj;
   static int[] types;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int q = readInt();
     adj = new ArrayList<ArrayList<Edge>>();
@@ -61,7 +61,7 @@ public class CCC_2008_Stage_2_King_And_Weber {
     }
   }
 
-  static boolean isImpossible () {
+  static boolean isImpossible() {
     types = new int[adj.size()];
     for (int x = 0; x < types.length; x++)
       types[x] = -1;
@@ -90,35 +90,35 @@ public class CCC_2008_Stage_2_King_And_Weber {
     return false;
   }
 
-  static class Edge {
-    int dest;
-    boolean type;
-
-    Edge (int dest, boolean type) {
-      this.dest = dest;
-      this.type = type;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest;
+    boolean type;
+
+    Edge(int dest, boolean type) {
+      this.dest = dest;
+      this.type = type;
+    }
   }
 }

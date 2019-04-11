@@ -28,7 +28,7 @@ public class CatalanNumbers {
   static long[] dp;
   static ArrayList<HashMap<Integer, Integer>> factors = new ArrayList<HashMap<Integer, Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,7 +44,7 @@ public class CatalanNumbers {
     out.close();
   }
 
-  static void compute (int n, int m) {
+  static void compute(int n, int m) {
     dp[0] = dp[1] = 1;
     for (int i = 2; i <= n; i++) {
       for (int j = 0; j <= i - 1; j++)
@@ -53,7 +53,7 @@ public class CatalanNumbers {
     }
   }
 
-  static long computeIth (int n, int m) {
+  static long computeIth(int n, int m) {
     fillFactors(n);
     HashMap<Integer, Integer> res = new HashMap<Integer, Integer>();
     for (int i = 2; i <= n; i++) {
@@ -66,7 +66,7 @@ public class CatalanNumbers {
     return ans;
   }
 
-  static long modpow (long base, long pow, long m) {
+  static long modpow(long base, long pow, long m) {
     if (pow == 0)
       return 1;
     if (pow == 1)
@@ -76,7 +76,7 @@ public class CatalanNumbers {
     return base * modpow(base * base, pow / 2, m) % m;
   }
 
-  static void factor (int n, int type, HashMap<Integer, Integer> res) {
+  static void factor(int n, int type, HashMap<Integer, Integer> res) {
     for (Map.Entry<Integer, Integer> entry : factors.get(n).entrySet()) {
       if (!res.containsKey(entry.getKey()))
         res.put(entry.getKey(), 0);
@@ -84,7 +84,7 @@ public class CatalanNumbers {
     }
   }
 
-  static void fillFactors (int n) {
+  static void fillFactors(int n) {
     for (int i = 0; i <= 2 * n; i++)
       factors.add(new HashMap<Integer, Integer>());
     boolean[] isComposite = new boolean[2 * n + 1];
@@ -105,29 +105,29 @@ public class CatalanNumbers {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

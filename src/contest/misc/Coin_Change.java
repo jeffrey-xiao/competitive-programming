@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Coin_Change {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int amount = scan.nextInt();
     int numOfCoins = scan.nextInt();
     int[][] table = new int[amount + 1][2];
@@ -36,11 +36,11 @@ public class Coin_Change {
     System.out.println(table[amount][1]);
   }
 
-  public static int min (int a, int b) {
+  public static int min(int a, int b) {
     return a < b ? a : b;
   }
 
-  public static int max (int a, int b) {
+  public static int max(int a, int b) {
     return a < b ? a : b;
   }
 }

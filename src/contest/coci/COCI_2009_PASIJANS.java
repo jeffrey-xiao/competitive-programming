@@ -9,13 +9,11 @@ import java.util.StringTokenizer;
 
 public class COCI_2009_PASIJANS {
 
+  static final long BASE = 137;
+  static final long MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final long BASE = 137;
-  static final long MOD = 1000000007;
-
   static int n;
   static int[] index;
 
@@ -26,7 +24,7 @@ public class COCI_2009_PASIJANS {
   static int[] minIndex;
   static int[] minValue;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -72,7 +70,7 @@ public class COCI_2009_PASIJANS {
     out.close();
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       minIndex[n] = l;
       minValue[n] = a[l][index[l]];
@@ -84,7 +82,7 @@ public class COCI_2009_PASIJANS {
     pushUp(n);
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (l == x && x == r) {
       minIndex[n] = l;
       minValue[n] = a[l][index[l]];
@@ -98,7 +96,7 @@ public class COCI_2009_PASIJANS {
     pushUp(n);
   }
 
-  static void pushUp (int n) {
+  static void pushUp(int n) {
     if (minValue[n << 1] < minValue[n << 1 | 1]) {
       minValue[n] = minValue[n << 1];
       minIndex[n] = minIndex[n << 1];
@@ -147,33 +145,33 @@ public class COCI_2009_PASIJANS {
     }
   }
 
-  static long hash (int i, int l, int r) {
+  static long hash(int i, int l, int r) {
     return ((hash[i][r] - hash[i][l - 1] * pow[r - l + 1]) % MOD + MOD) % MOD;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

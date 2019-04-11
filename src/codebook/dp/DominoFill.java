@@ -7,7 +7,7 @@ public class DominoFill {
    * ..234
    * 01
    */
-  public static int method1 (int R, int C) {
+  public static int method1(int R, int C) {
     int[] prev = new int[1 << C];
     prev[(1 << C) - 1] = 1;
 
@@ -37,7 +37,7 @@ public class DominoFill {
    * ..012
    * 34
    */
-  public static int method2 (int R, int C) {
+  public static int method2(int R, int C) {
     int[] prev = new int[1 << C];
     prev[(1 << C) - 1] = 1;
 

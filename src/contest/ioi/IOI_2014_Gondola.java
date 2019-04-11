@@ -13,13 +13,12 @@ import java.util.StringTokenizer;
 
 public class IOI_2014_Gondola {
 
+  static final long MOD = 1000000009;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  static final long MOD = 1000000009;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int s = readInt();
     int[] input = new int[s];
@@ -40,7 +39,7 @@ public class IOI_2014_Gondola {
     ps.close();
   }
 
-  public static long countReplacement (int n, int[] seq) {
+  public static long countReplacement(int n, int[] seq) {
     if (valid(n, seq) == 0)
       return 0;
     boolean fixed = false;
@@ -68,7 +67,7 @@ public class IOI_2014_Gondola {
     return total;
   }
 
-  public static long pow (long n, long m) {
+  public static long pow(long n, long m) {
     if (m == 0)
       return 1;
     if (m == 1)
@@ -78,7 +77,7 @@ public class IOI_2014_Gondola {
     return n * pow(n * n % MOD, m / 2) % MOD;
   }
 
-  public static int valid (int n, int[] inputSeq) {
+  public static int valid(int n, int[] inputSeq) {
     HashSet<Integer> hs = new HashSet<Integer>();
     int r = 0;
     for (int x = 0; x < n; x++)
@@ -97,7 +96,7 @@ public class IOI_2014_Gondola {
     return 0;
   }
 
-  public static ArrayList<Entry> replacement (int n, int[] seq) {
+  public static ArrayList<Entry> replacement(int n, int[] seq) {
     int maxValue = 0;
     int original = 0;
     HashSet<Integer> hs = new HashSet<Integer>();
@@ -134,44 +133,44 @@ public class IOI_2014_Gondola {
     return list;
   }
 
-  static class Entry implements Comparable<Entry> {
-    int original;
-    int replacement;
-
-    Entry (int original, int replacement) {
-      this.original = original;
-      this.replacement = replacement;
-    }
-
-    @Override
-    public int compareTo (Entry o) {
-      return replacement - o.replacement;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Entry implements Comparable<Entry> {
+    int original;
+    int replacement;
+
+    Entry(int original, int replacement) {
+      this.original = original;
+      this.replacement = replacement;
+    }
+
+    @Override
+    public int compareTo(Entry o) {
+      return replacement - o.replacement;
+    }
   }
 }

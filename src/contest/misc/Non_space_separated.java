@@ -9,7 +9,7 @@ public class Non_space_separated {
   static Scanner scan = new Scanner(System.in);
   static TreeMap<BigInteger, Integer> m = new TreeMap<BigInteger, Integer>();
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String s = scan.next();
     getSums(s, new BigInteger("0"));
     int max = 0;
@@ -23,7 +23,7 @@ public class Non_space_separated {
     System.out.printf("%d%s", m.size(), key);
   }
 
-  private static void getSums (String s, BigInteger i) {
+  private static void getSums(String s, BigInteger i) {
     if (s.length() == 0) {
       if (m.get(i) == null)
         m.put(i, 1);

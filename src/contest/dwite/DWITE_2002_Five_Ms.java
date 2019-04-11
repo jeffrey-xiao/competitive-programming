@@ -11,9 +11,9 @@ public class DWITE_2002_Five_Ms {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     double n = readInt();
-    double[] numbers = new double[(int)n];
+    double[] numbers = new double[(int) n];
     double total = 0;
     for (int x = 0; x < n; x++)
       total += (numbers[x] = readDouble());
@@ -34,28 +34,28 @@ public class DWITE_2002_Five_Ms {
         currCount = 1;
       }
     }
-    System.out.printf("%.2f\n%.2f\n%.2f\n%.2f\n%.2f\n", total / n, (numbers[(int)(Math.floor((n - 1) / 2))] + numbers[(int)(Math.ceil((n - 1) / 2))]) / 2.0d, maxMode, numbers[(int)(n - 1)], numbers[0]);
+    System.out.printf("%.2f\n%.2f\n%.2f\n%.2f\n%.2f\n", total / n, (numbers[(int) (Math.floor((n - 1) / 2))] + numbers[(int) (Math.ceil((n - 1) / 2))]) / 2.0d, maxMode, numbers[(int) (n - 1)], numbers[0]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

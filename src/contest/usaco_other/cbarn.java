@@ -22,7 +22,7 @@ public class cbarn {
   static long[] cows;
   static long[][][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("cbarn.in"));
     out = new PrintWriter(new FileWriter("cbarn.out"));
     //br = new BufferedReader(new InputStreamReader(System.in));
@@ -79,7 +79,7 @@ public class cbarn {
     System.exit(0);
   }
 
-  static void compute (int doors, int first, int i, int j, int l, int r) {
+  static void compute(int doors, int first, int i, int j, int l, int r) {
     if (i > j)
       return;
 
@@ -98,25 +98,25 @@ public class cbarn {
     compute(doors, first, mid + 1, j, bestIndex, r);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

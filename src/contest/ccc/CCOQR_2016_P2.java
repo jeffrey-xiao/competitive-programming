@@ -21,7 +21,7 @@ public class CCOQR_2016_P2 {
   static ArrayList<HashMap<Integer, Integer>> adj = new ArrayList<HashMap<Integer, Integer>>();
   static HashSet<State> visited = new HashSet<State>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -104,50 +104,50 @@ public class CCOQR_2016_P2 {
 
   }
 
-  static class State {
-    int from, to;
-
-    State (int from, int to) {
-      this.from = from;
-      this.to = to;
-    }
-
-    public int hashCode () {
-      return new Integer(from).hashCode() * 31 + new Integer(to).hashCode();
-    }
-
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State s = (State)(o);
-        return from == s.from && to == s.to;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int from, to;
+
+    State(int from, int to) {
+      this.from = from;
+      this.to = to;
+    }
+
+    public int hashCode() {
+      return new Integer(from).hashCode() * 31 + new Integer(to).hashCode();
+    }
+
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State s = (State) (o);
+        return from == s.from && to == s.to;
+      }
+      return false;
+    }
   }
 }

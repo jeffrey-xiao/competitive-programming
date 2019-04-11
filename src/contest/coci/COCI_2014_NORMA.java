@@ -10,17 +10,15 @@ import java.util.StringTokenizer;
 
 public class COCI_2014_NORMA {
 
+  static final int MOD = 1000000000;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int n;
   static int[] a;
   static Node[] tree;
 
-  static final int MOD = 1000000000;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     //br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -67,7 +65,7 @@ public class COCI_2014_NORMA {
     out.close();
   }
 
-  static void updateLen (int n, int l, int r, int ql, int qr, long val) {
+  static void updateLen(int n, int l, int r, int ql, int qr, long val) {
     if (l == ql && r == qr) {
       tree[n].l = (tree[n].l + val * (r - l + 1)) % MOD;
       tree[n].lm = (tree[n].lm + val * tree[n].m) % MOD;
@@ -92,7 +90,7 @@ public class COCI_2014_NORMA {
     pushUp(n);
   }
 
-  static void updateMin (int n, int l, int r, int ql, int qr, long val) {
+  static void updateMin(int n, int l, int r, int ql, int qr, long val) {
     if (l == ql && r == qr) {
       tree[n].m = (val * (r - l + 1)) % MOD;
       tree[n].mM = (val * tree[n].M) % MOD;
@@ -117,7 +115,7 @@ public class COCI_2014_NORMA {
     pushUp(n);
   }
 
-  static void updateMax (int n, int l, int r, int ql, int qr, long val) {
+  static void updateMax(int n, int l, int r, int ql, int qr, long val) {
     if (l == ql && r == qr) {
       tree[n].M = (val * (r - l + 1)) % MOD;
       tree[n].mM = (val * tree[n].m) % MOD;
@@ -142,7 +140,7 @@ public class COCI_2014_NORMA {
     pushUp(n);
   }
 
-  static void pushUp (int n) {
+  static void pushUp(int n) {
     tree[n].l = (tree[n << 1].l + tree[n << 1 | 1].l) % MOD;
     tree[n].m = (tree[n << 1].m + tree[n << 1 | 1].m) % MOD;
     tree[n].M = (tree[n << 1].M + tree[n << 1 | 1].M) % MOD;
@@ -152,7 +150,7 @@ public class COCI_2014_NORMA {
     tree[n].lmM = (tree[n << 1].lmM + tree[n << 1 | 1].lmM) % MOD;
   }
 
-  static void pushDownLen (int n, int l, int r, int mid) {
+  static void pushDownLen(int n, int l, int r, int mid) {
     if (tree[n].lazyl == 0)
       return;
 
@@ -173,7 +171,7 @@ public class COCI_2014_NORMA {
     tree[n].lazyl = 0;
   }
 
-  static void pushDownMin (int n, int l, int r, int mid) {
+  static void pushDownMin(int n, int l, int r, int mid) {
     if (tree[n].lazym == 0)
       return;
 
@@ -193,7 +191,7 @@ public class COCI_2014_NORMA {
     tree[n].lazym = 0;
   }
 
-  static void pushDownMax (int n, int l, int r, int mid) {
+  static void pushDownMax(int n, int l, int r, int mid) {
     if (tree[n].lazyM == 0)
       return;
 
@@ -213,7 +211,7 @@ public class COCI_2014_NORMA {
     tree[n].lazyM = 0;
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     tree[n] = new Node();
     if (l == r)
       return;
@@ -222,34 +220,34 @@ public class COCI_2014_NORMA {
     build(n << 1 | 1, mid + 1, r);
   }
 
-  static class Node {
-    long l, m, M, lm, lM, mM, lmM;
-    long lazyM, lazym, lazyl;
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    long l, m, M, lm, lM, mM, lmM;
+    long lazyM, lazym, lazyl;
   }
 }

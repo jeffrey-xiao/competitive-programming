@@ -12,7 +12,7 @@ public class USACO_2013_Fuel_Economy {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int maxGas = readInt();
     int curr = readInt();
@@ -62,41 +62,41 @@ public class USACO_2013_Fuel_Economy {
     }
   }
 
-  static class Station implements Comparable<Station> {
-    int pos;
-    int index;
-    int cost;
-
-    Station (int pos, int cost) {
-      this.pos = pos;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Station o) {
-      return pos - o.pos;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Station implements Comparable<Station> {
+    int pos;
+    int index;
+    int cost;
+
+    Station(int pos, int cost) {
+      this.pos = pos;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Station o) {
+      return pos - o.pos;
+    }
   }
 }

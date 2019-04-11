@@ -10,7 +10,7 @@ public class CCC_2002_Stage_2_Duathlon {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int dist = readInt();
     int n = readInt();
     double[][] speeds = new double[n - 1][2];
@@ -38,34 +38,34 @@ public class CCC_2002_Stage_2_Duathlon {
       }
     }
     if (maxTime >= 0)
-      System.out.printf("The cheater can win by %d seconds with r = %.2fkm and k = %.2fkm.", (int)Math.round(maxTime * 60 * 60), distance, dist - distance);
+      System.out.printf("The cheater can win by %d seconds with r = %.2fkm and k = %.2fkm.", (int) Math.round(maxTime * 60 * 60), distance, dist - distance);
     else
       System.out.println("The cheater cannot win.");
   }
 
-  private static double getTime (double a, double b, double c, double d) {
+  private static double getTime(double a, double b, double c, double d) {
     return (a / c + b / d);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

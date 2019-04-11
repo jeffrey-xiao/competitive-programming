@@ -14,7 +14,7 @@ public class USACO_2013_Perimeter_Bronze {
   static boolean[][] visited = new boolean[102][102];
   static int count;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     for (int z = 0; z < n; z++) {
       int x = readInt();
@@ -44,22 +44,7 @@ public class USACO_2013_Perimeter_Bronze {
     System.out.println(count);
   }
 
-  static class Point {
-    int x;
-    int y;
-    int px;
-    int py;
-
-    Point (int x, int y, int px, int py) {
-      this.x = x;
-      this.y = y;
-      this.px = px;
-      this.py = py;
-
-    }
-  }
-
-  static void fill (int x, int y) {
+  static void fill(int x, int y) {
     if (x < 0 || y < 0 || x >= 101 || y >= 101)
       return;
     if (grid[x][y]) {
@@ -75,25 +60,40 @@ public class USACO_2013_Perimeter_Bronze {
     fill(x, y - 1);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x;
+    int y;
+    int px;
+    int py;
+
+    Point(int x, int y, int px, int py) {
+      this.x = x;
+      this.y = y;
+      this.px = px;
+      this.py = py;
+
+    }
   }
 }

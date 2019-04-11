@@ -27,7 +27,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
   static int[] phi;
   static int[] prev, dist, index;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -59,7 +59,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
     out.close();
   }
 
-  static State getMinCostMaxFlow () {
+  static State getMinCostMaxFlow() {
     int flow = 0;
     int cost = 0;
     bellmanFord();
@@ -86,14 +86,14 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
     return new State(flow, cost);
   }
 
-  static void reduceCost () {
+  static void reduceCost() {
     for (int i = 0; i < cnt; i += 2) {
       e[i].cost += phi[e[i].orig] - phi[e[i].dest];
       e[i ^ 1].cost = 0;
     }
   }
 
-  static void bellmanFord () {
+  static void bellmanFord() {
     for (int i = 0; i < n; i++)
       phi[i] = 1 << 25;
     phi[src] = 0;
@@ -104,7 +104,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
 
   }
 
-  static boolean dijkstra () {
+  static boolean dijkstra() {
     for (int i = 0; i < n; i++) {
       dist[i] = 1 << 30;
       prev[i] = -1;
@@ -127,17 +127,43 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
     return dist[sink] != 1 << 30;
   }
 
-  static void addEdge (int x, int y, int costxy, int costyx, int flowxy, int flowyx) {
+  static void addEdge(int x, int y, int costxy, int costyx, int flowxy, int flowyx) {
     e[cnt] = new Edge(x, y, costxy, flowxy, last[x]);
     last[x] = cnt++;
     e[cnt] = new Edge(y, x, costyx, flowyx, last[y]);
     last[y] = cnt++;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int flow, cost;
 
-    State (int flow, int cost) {
+    State(int flow, int cost) {
       this.flow = flow;
       this.cost = cost;
     }
@@ -146,13 +172,13 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
   static class Vertex implements Comparable<Vertex> {
     int index, cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return cost - v.cost;
     }
   }
@@ -160,7 +186,7 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
   static class Edge {
     int orig, dest, origCost, cost, flow, last;
 
-    Edge (int orig, int dest, int cost, int flow, int last) {
+    Edge(int orig, int dest, int cost, int flow, int last) {
       this.orig = orig;
       this.dest = dest;
       this.origCost = cost;
@@ -168,31 +194,5 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
       this.flow = flow;
       this.last = last;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

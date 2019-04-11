@@ -21,7 +21,7 @@ public class COCI_2008_SLIKAR {
 
   static int[][] state = {{1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4}, {2, 2, 3, 3, 4, 4, 1, 1, 3, 3, 4, 4, 1, 1, 2, 2, 4, 4, 1, 1, 2, 2, 3, 3}, {3, 4, 2, 4, 2, 3, 4, 3, 4, 1, 1, 3, 2, 4, 1, 4, 2, 1, 2, 3, 1, 3, 1, 2}, {4, 3, 4, 2, 3, 2, 3, 4, 1, 4, 3, 1, 4, 2, 4, 1, 1, 2, 3, 2, 3, 1, 2, 1}};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     N = readInt();
     g = new char[N][N];
     ng = new char[N][N];
@@ -36,7 +36,7 @@ public class COCI_2008_SLIKAR {
   }
 
   // 1 = white, 2 = black, 3 = white/black
-  private static State solve (int x1, int x2, int y1, int y2) {
+  private static State solve(int x1, int x2, int y1, int y2) {
     State s = new State();
     if (x1 == x2 && y1 == y2) {
       s.type[0] = g[x1][y1] == '0' ? 0 : 1;
@@ -76,33 +76,33 @@ public class COCI_2008_SLIKAR {
     return s;
   }
 
-  static class State {
-    int[] type = new int[3];
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int[] type = new int[3];
   }
 }

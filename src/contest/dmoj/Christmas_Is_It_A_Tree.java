@@ -17,7 +17,7 @@ public class Christmas_Is_It_A_Tree {
   static boolean[][] adj = new boolean[4][4];
   static boolean[] v = new boolean[4];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = 0; x < 4; x++)
       for (int y = 0; y < 4; y++)
         adj[x][y] = readInt() == 1;
@@ -31,7 +31,7 @@ public class Christmas_Is_It_A_Tree {
       System.out.println("No");
   }
 
-  private static boolean dfs (int i, int prev) {
+  private static boolean dfs(int i, int prev) {
     v[i] = true;
     for (int x = 0; x < 4; x++) {
       if (x != prev && adj[i][x]) {
@@ -44,29 +44,29 @@ public class Christmas_Is_It_A_Tree {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

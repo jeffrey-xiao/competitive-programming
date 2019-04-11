@@ -17,7 +17,7 @@ public class IOI_2005_Polish_Flag {
   static long N, L, B, R;
   static long lWhite, lRed, bWhite, bRed, rRed, rWhite;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -132,7 +132,7 @@ public class IOI_2005_Polish_Flag {
     out.close();
   }
 
-  static boolean valid (long[] sz1, long[] sz2, long diff) {
+  static boolean valid(long[] sz1, long[] sz2, long diff) {
     if (Math.abs(sz1[0] - sz2[0]) != 0 && diff != 1 && Math.abs(sz1[0] - sz2[0]) % (diff - 1) != 0)
       return false;
     if (Math.abs(sz1[1] - sz2[1]) != 0 && diff != 1 && Math.abs(sz1[1] - sz2[1]) % (diff - 1) != 0)
@@ -142,12 +142,12 @@ public class IOI_2005_Polish_Flag {
     return true;
   }
 
-  static long getSize (long a, long b, long x, long y, long beg, long end) {
+  static long getSize(long a, long b, long x, long y, long beg, long end) {
     long diff = Math.abs(b - a) + 1;
     return (a + b) * diff / 2 + (x - beg) * a + (end - y) * b;
   }
 
-  static String toString (long[] row) {
+  static String toString(long[] row) {
     long[] sz = toSize(row);
     String ret = "";
 
@@ -161,11 +161,11 @@ public class IOI_2005_Polish_Flag {
     return ret;
   }
 
-  static long[] toSize (long[] row) {
-    return new long[] {row[0], row[1] - row[0], row[2] - row[1]};
+  static long[] toSize(long[] row) {
+    return new long[]{row[0], row[1] - row[0], row[2] - row[1]};
   }
 
-  static long[] getRow (long row) {
+  static long[] getRow(long row) {
     long[] ret = new long[3];
 
     // getting last L occurrence
@@ -207,33 +207,33 @@ public class IOI_2005_Polish_Flag {
     return ret;
   }
 
-  static long dist (long r1, long c1, long r2, long c2) {
+  static long dist(long r1, long c1, long r2, long c2) {
     return Math.abs(r1 - r2) + Math.abs(c1 - c2);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

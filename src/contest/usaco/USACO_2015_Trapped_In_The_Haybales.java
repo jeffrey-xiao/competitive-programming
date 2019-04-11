@@ -18,7 +18,7 @@ public class USACO_2015_Trapped_In_The_Haybales {
   static int sz[], id[];
   static Seg seg[];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +38,7 @@ public class USACO_2015_Trapped_In_The_Haybales {
     PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
 
       @Override
-      public int compare (Integer o1, Integer o2) {
+      public int compare(Integer o1, Integer o2) {
         return seg[o1].compareTo(seg[o2]);
       }
 
@@ -81,12 +81,12 @@ public class USACO_2015_Trapped_In_The_Haybales {
     pr.close();
   }
 
-  static int find (int x) {
+  static int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
   // x is left and y is right
-  static void merge (int rl, int rr) {
+  static void merge(int rl, int rr) {
     if (seg[rl].compareTo(seg[rr]) < 0) {
       sz[rl] += sz[rr];
       seg[rl] = new Seg(seg[rl].l, seg[rr].r, seg[rl].lm, seg[rr].rm, seg[rl].li, rl, seg[rr].ri, seg[rl].area + seg[rr].area);
@@ -100,13 +100,39 @@ public class USACO_2015_Trapped_In_The_Haybales {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Seg implements Comparable<Seg> {
     int l, r;
     int lm, rm;
     int area;
     int li, ci, ri;
 
-    Seg (int l, int r, int lm, int rm, int li, int ci, int ri, int area) {
+    Seg(int l, int r, int lm, int rm, int li, int ci, int ri, int area) {
       this.l = l;
       this.r = r;
       this.lm = lm;
@@ -118,36 +144,10 @@ public class USACO_2015_Trapped_In_The_Haybales {
     }
 
     @Override
-    public int compareTo (Seg o) {
+    public int compareTo(Seg o) {
       if ((r - l) - (o.r - o.l) == 0)
         return l - o.l;
       return (r - l) - (o.r - o.l);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

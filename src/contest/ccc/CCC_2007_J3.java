@@ -10,7 +10,7 @@ public class CCC_2007_J3 {
   public static Scanner scan = new Scanner(System.in);
   public static List<Integer> briefcases = new ArrayList<Integer>(Arrays.asList(100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 500000, 1000000));
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int openedNumCases = scan.nextInt();
     ArrayList<Integer> openedCases = new ArrayList<Integer>();
     for (int x = 0; x < openedNumCases; x++) {

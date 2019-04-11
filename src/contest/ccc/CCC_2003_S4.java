@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class CCC_2003_S4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int length = scan.nextInt();
     scan.nextLine();
     for (; length > 0; length--) {
@@ -27,7 +27,7 @@ public class CCC_2003_S4 {
     }
   }
 
-  private static int LCP (String string, String string2) {
+  private static int LCP(String string, String string2) {
     int counter = 0;
     for (int x = 0; x < Math.min(string.length(), string2.length()); x++) {
       if (string.charAt(x) != string2.charAt(x))

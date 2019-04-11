@@ -12,7 +12,7 @@ public class COCI_2006_PRASE {
   static StringTokenizer st;
   static HashMap<String, Integer> hs = new HashMap<String, Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int count = 0;
     for (int x = 1; x <= n; x++) {
@@ -24,32 +24,32 @@ public class COCI_2006_PRASE {
     System.out.println(count);
   }
 
-  private static void add (String n) {
+  private static void add(String n) {
     if (hs.get(n) == null)
       hs.put(n, 1);
     else
       hs.put(n, hs.get(n) + 1);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

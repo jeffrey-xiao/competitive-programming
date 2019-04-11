@@ -11,19 +11,16 @@ import java.util.TreeSet;
 
 public class Woburn_Challenge_2015_Stakeout {
 
+  static final int MOD = (int) (1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int N, M, Q;
   static int[] l, r;
   static TreeSet<Building> ts = new TreeSet<Building>();
-
   static int[] min, lazy, pow;
 
-  static final int MOD = (int)(1e9 + 7);
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -105,7 +102,7 @@ public class Woburn_Challenge_2015_Stakeout {
     out.close();
   }
 
-  static void update (int n, int l, int r, int ql, int qr, int add) throws IOException {
+  static void update(int n, int l, int r, int ql, int qr, int add) throws IOException {
     if (ql == l && qr == r) {
       min[n] += add;
       lazy[n] += add;
@@ -130,7 +127,7 @@ public class Woburn_Challenge_2015_Stakeout {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static void pushDown (int n) {
+  static void pushDown(int n) {
     if (lazy[n] != 0) {
       min[n << 1] += lazy[n];
       min[n << 1 | 1] += lazy[n];
@@ -140,16 +137,42 @@ public class Woburn_Challenge_2015_Stakeout {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Building implements Comparable<Building> {
     int pos, index;
 
-    Building (int pos, int index) {
+    Building(int pos, int index) {
       this.pos = pos;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Building o) {
+    public int compareTo(Building o) {
       if (pos < o.pos)
         return -1;
       else if (pos > o.pos)
@@ -157,31 +180,5 @@ public class Woburn_Challenge_2015_Stakeout {
       else
         return 0;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -3,10 +3,10 @@ package contest.woburn;
 import java.util.Scanner;
 
 public class Woburn_Challenge_2001_Austin_Powers_III_Time_To_Get_Medieval {
-  static Scanner scan = new Scanner(System.in);
   static final int init = 5000000;
+  static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int testCases = scan.nextInt(); testCases > 0; testCases--) {
       int numOfTimes = scan.nextInt();
       int numOfEdges = scan.nextInt();

@@ -16,7 +16,7 @@ public class COCI_2008_CAVLI {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<Point> points = new ArrayList<Point>();
     for (int x = 0; x < n; x++)
@@ -86,7 +86,7 @@ public class COCI_2008_CAVLI {
     }
   }
 
-  private static double getArea (ArrayList<Point> l) {
+  private static double getArea(ArrayList<Point> l) {
     double area = 0;
     int n = l.size();
     for (int z = 0; z < n; z++) {
@@ -96,54 +96,54 @@ public class COCI_2008_CAVLI {
   }
 
   // CCW > 0 counter clockwise
-  static long ccw (Point p1, Point p2, Point p3) {
+  static long ccw(Point p1, Point p2, Point p3) {
     return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Point implements Comparable<Point> {
     long x, y;
 
-    Point (long x, long y) {
+    Point(long x, long y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public int compareTo (Point o) {
+    public int compareTo(Point o) {
       if (x == o.x)
         return y < o.y ? -1 : 1;
       return x < o.x ? -1 : 1;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "(" + x + "," + y + ")";
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

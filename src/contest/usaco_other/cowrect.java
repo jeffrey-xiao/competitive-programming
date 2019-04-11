@@ -21,7 +21,7 @@ public class cowrect {
   static PrintWriter pr;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("cowrect.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("cowrect.out")));
@@ -108,43 +108,43 @@ public class cowrect {
     System.exit(0);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Cow implements Comparable<Cow> {
     int x, y;
     int h;
 
-    Cow (int x, int y, int h) {
+    Cow(int x, int y, int h) {
       this.x = x;
       this.y = y;
       this.h = h;
     }
 
     @Override
-    public int compareTo (Cow o) {
+    public int compareTo(Cow o) {
       if (x == o.x)
         return h - o.h;
       return x - o.x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

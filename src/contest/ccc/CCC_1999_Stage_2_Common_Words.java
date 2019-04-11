@@ -12,7 +12,7 @@ public class CCC_1999_Stage_2_Common_Words {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int testCases = readInt(); testCases > 0; testCases--) {
       int n = readInt();
       int m = readInt();
@@ -62,27 +62,49 @@ public class CCC_1999_Stage_2_Common_Words {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Word implements Comparable<Word> {
     String word;
     int occ;
 
-    Word (String word) {
+    Word(String word) {
       this.word = word;
       occ = 1;
     }
 
-    void incOcc () {
+    void incOcc() {
       occ++;
     }
 
     @Override
-    public int compareTo (Word o) {
+    public int compareTo(Word o) {
       if (o.occ == occ)
         return compare(word, o.word);
       return o.occ - occ;
     }
 
-    private int compare (String s1, String s2) {
+    private int compare(String s1, String s2) {
       for (int x = 0; x < Math.min(s1.length(), s2.length()); x++) {
         if (s1.charAt(x) < s2.charAt(x))
           return 1;
@@ -93,34 +115,12 @@ public class CCC_1999_Stage_2_Common_Words {
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Word) {
-        Word w = (Word)o;
+        Word w = (Word) o;
         return word.equals(w.word);
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

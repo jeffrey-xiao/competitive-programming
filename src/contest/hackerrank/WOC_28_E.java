@@ -10,15 +10,14 @@ import java.util.StringTokenizer;
 
 public class WOC_28_E {
 
+  static final int FULL_MASK = Integer.MAX_VALUE;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int FULL_MASK = Integer.MAX_VALUE;
   static int N, K;
   static HashMap<Integer, Double> dp = new HashMap<Integer, Double>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +37,7 @@ public class WOC_28_E {
     out.close();
   }
 
-  static double compute (int mask, int k) {
+  static double compute(int mask, int k) {
     if (k == K)
       return 0.0;
     if (dp.containsKey(mask | 1 << (N - k)))
@@ -59,7 +58,7 @@ public class WOC_28_E {
     return ret;
   }
 
-  static int reverse (int mask, int len) {
+  static int reverse(int mask, int len) {
     int ret = 0;
     for (int i = 0; i < len; i++)
       if ((mask & 1 << i) > 0)
@@ -67,36 +66,36 @@ public class WOC_28_E {
     return ret;
   }
 
-  static int remove (int bitmask, int i) {
+  static int remove(int bitmask, int i) {
     int upperMask = FULL_MASK ^ ((1 << (i + 1)) - 1);
     int lowerMask = (1 << i) - 1;
 
     return (bitmask & upperMask) >> 1 | (bitmask & lowerMask);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

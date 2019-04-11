@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MockCCC_2014_J1 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     double d1 = scan.nextInt();
     int d2 = scan.nextInt();
     int dose = scan.nextInt();

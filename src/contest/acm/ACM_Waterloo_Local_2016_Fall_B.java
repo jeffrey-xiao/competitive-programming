@@ -16,9 +16,9 @@ public class ACM_Waterloo_Local_2016_Fall_B {
   static long[][] dp;
   static int N;
   static long M;
-  static long MAX = (long)(2e18);
+  static long MAX = (long) (2e18);
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +38,7 @@ public class ACM_Waterloo_Local_2016_Fall_B {
     out.close();
   }
 
-  static void print (int pos, int val, long m) {
+  static void print(int pos, int val, long m) {
     if (pos == N - 1) {
       if (val == 1)
         System.out.println(")");
@@ -56,7 +56,7 @@ public class ACM_Waterloo_Local_2016_Fall_B {
     }
   }
 
-  static long dp (int pos, int val) {
+  static long dp(int pos, int val) {
     if (pos == N)
       return val == 0 ? 1 : 0;
     if (dp[pos][val] != -1)
@@ -73,29 +73,29 @@ public class ACM_Waterloo_Local_2016_Fall_B {
     return dp[pos][val];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2007_S5 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int x = scan.nextInt(); x > 0; x--) {
       int numOfBowlingPins = scan.nextInt();
       int numOfBalls = scan.nextInt();

@@ -15,7 +15,7 @@ public class Peg_Test_2014_C_2spooky4me {
   static HashMap<Integer, Integer> toX = new HashMap<Integer, Integer>();
   static HashMap<Integer, Integer> toIndex = new HashMap<Integer, Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int l = readInt();
     int s = readInt();
@@ -58,44 +58,44 @@ public class Peg_Test_2014_C_2spooky4me {
     System.out.println(l - c);
   }
 
-  static class Event implements Comparable<Event> {
-    int x;
-    int cost;
-
-    Event (int x, int cost) {
-      this.x = x;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Event o) {
-      return x - o.x;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Event implements Comparable<Event> {
+    int x;
+    int cost;
+
+    Event(int x, int cost) {
+      this.x = x;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Event o) {
+      return x - o.x;
+    }
   }
 }

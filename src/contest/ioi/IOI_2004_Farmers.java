@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class IOI_2004_Farmers {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int trees = scan.nextInt();
     int field = scan.nextInt();
     int strip = scan.nextInt();

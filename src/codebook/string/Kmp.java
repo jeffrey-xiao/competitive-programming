@@ -20,16 +20,22 @@ public class Kmp {
     buildLCP();
   }
 
-  public String getPattern () {
+  public static void main(String[] args) {
+    Kmp kmp = new Kmp("ISS");
+    assert kmp.search("MISSISSIPPI") == 1;
+    assert kmp.search("IS") == -1;
+  }
+
+  public String getPattern() {
     return pattern;
   }
 
-  public void setPattern (String pattern) {
+  public void setPattern(String pattern) {
     this.pattern = pattern;
     buildLCP();
   }
 
-  public int search (String text) {
+  public int search(String text) {
     int j = 0;
     for (int i = 0; i < text.length(); i++) {
       // loop until we find a prefix whose next character matches the current character are on
@@ -44,7 +50,7 @@ public class Kmp {
     return -1;
   }
 
-  private void buildLCP () {
+  private void buildLCP() {
     LCP = new int[pattern.length()];
     for (int i = 1; i < pattern.length(); i++) {
       // attempt to build on the previous LCP
@@ -58,11 +64,5 @@ public class Kmp {
 
       LCP[i] = j;
     }
-  }
-
-  public static void main (String[] args) {
-    Kmp kmp = new Kmp("ISS");
-    assert kmp.search("MISSISSIPPI") == 1;
-    assert kmp.search("IS") == -1;
   }
 }

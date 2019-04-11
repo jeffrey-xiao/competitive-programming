@@ -12,8 +12,9 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
   static int[] values;
   static int start;
 
-  public static void main (String[] args) throws IOException {
-    testcases : for (int t = readInt(); t > 0; t--) {
+  public static void main(String[] args) throws IOException {
+    testcases:
+    for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       int index = readInt();
       start = n;
@@ -29,7 +30,8 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
 
       int next = 0;
       int sum = 0;
-      main : while (index != 0 || sum == n) {
+      main:
+      while (index != 0 || sum == n) {
         int currSum = 0;
 
         for (int x = 1; x < n + 1; x++) {
@@ -61,7 +63,7 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
 
   }
 
-  private static int compute (int n, int sum, int prev) {
+  private static int compute(int n, int sum, int prev) {
     System.out.println(n);
     int total = 0;
     if (n == 0)
@@ -84,25 +86,25 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
     return total;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -16,7 +16,7 @@ public class CCC_2002_J5_S3 {
   static int[] movex = {-1, 0, 1, 0};
   static int[] movey = {0, 1, 0, -1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     grid = new char[r][];
@@ -41,7 +41,7 @@ public class CCC_2002_J5_S3 {
     }
   }
 
-  private static boolean check (int x, int y, int z) {
+  private static boolean check(int x, int y, int z) {
     for (int m = com.length - 1; m >= 0; m--) {
       char curr = com[m];
       if (curr == 'R')
@@ -58,25 +58,25 @@ public class CCC_2002_J5_S3 {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

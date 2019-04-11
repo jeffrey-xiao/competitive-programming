@@ -16,7 +16,7 @@ public class BOI_2009_Rectangle {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Point[] p = new Point[n];
     for (int x = 0; x < n; x++)
@@ -47,28 +47,54 @@ public class BOI_2009_Rectangle {
     System.out.println((Math.round(max)));
   }
 
-  static double dist (Point p1, Point p2) {
+  static double dist(Point p1, Point p2) {
     double x = p1.x - p2.x;
     double y = p1.y - p2.y;
     return Math.sqrt(x * x + y * y);
   }
 
-  static Point mid (Point p1, Point p2) {
+  static Point mid(Point p1, Point p2) {
     return new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class State implements Comparable<State> {
     double dist;
     int a, b;
 
-    State (double dist, int a, int b) {
+    State(double dist, int a, int b) {
       this.dist = dist;
       this.a = a;
       this.b = b;
     }
 
     @Override
-    public int compareTo (State s) {
+    public int compareTo(State s) {
       if (dist == s.dist)
         return 0;
       return dist < s.dist ? -1 : 1;
@@ -78,40 +104,14 @@ public class BOI_2009_Rectangle {
   static class Point {
     double x, y;
 
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "(" + x + "," + y + ")";
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

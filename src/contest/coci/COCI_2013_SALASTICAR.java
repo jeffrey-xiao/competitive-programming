@@ -25,7 +25,7 @@ public class COCI_2013_SALASTICAR {
   static int[] ans, min, toIndex, sum;
   static State[] states;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -77,7 +77,7 @@ public class COCI_2013_SALASTICAR {
     out.close();
   }
 
-  static int bruteforceFirstSuffix (String s) {
+  static int bruteforceFirstSuffix(String s) {
     String in = new String(input);
     for (int i = 0; i < in.length() - s.length(); i++)
       if (in.substring(i, i + s.length()).equals(s))
@@ -85,7 +85,7 @@ public class COCI_2013_SALASTICAR {
     return N;
   }
 
-  static int getAnswer (String code) {
+  static int getAnswer(String code) {
     int ret = 0;
     int lo = 0;
     int hi = N - 1;
@@ -102,7 +102,7 @@ public class COCI_2013_SALASTICAR {
     return ret;
   }
 
-  static int getFirstSuffix (String code) {
+  static int getFirstSuffix(String code) {
     int lo = 0;
     int hi = N - 1;
     for (int i = 0; i < code.length(); i++) {
@@ -117,7 +117,7 @@ public class COCI_2013_SALASTICAR {
     return minQuery(1, 0, N - 1, lo, hi);
   }
 
-  public static int bsearchCeil (int lo, int hi, char val, int pos) {
+  public static int bsearchCeil(int lo, int hi, char val, int pos) {
     while (lo <= hi) {
       int mid = lo + ((hi - lo) >> 1);
       if (res[mid] + pos >= N || input[res[mid] + pos] < val)
@@ -128,7 +128,7 @@ public class COCI_2013_SALASTICAR {
     return lo;
   }
 
-  public static int bsearchFloor (int lo, int hi, char val, int pos) {
+  public static int bsearchFloor(int lo, int hi, char val, int pos) {
     while (lo <= hi) {
       int mid = lo + ((hi - lo) >> 1);
       if (res[mid] + pos >= N || input[res[mid] + pos] <= val)
@@ -139,7 +139,7 @@ public class COCI_2013_SALASTICAR {
     return hi;
   }
 
-  static void sumUpdate (int n, int l, int r, int x, int val) {
+  static void sumUpdate(int n, int l, int r, int x, int val) {
     if (l == x && x == r) {
       sum[n] += val;
       return;
@@ -155,7 +155,7 @@ public class COCI_2013_SALASTICAR {
     sum[n] = sum[n << 1] + sum[n << 1 | 1];
   }
 
-  static int sumQuery (int n, int l, int r, int ql, int qr) {
+  static int sumQuery(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return sum[n];
 
@@ -169,7 +169,7 @@ public class COCI_2013_SALASTICAR {
       return sumQuery(n << 1, l, mid, ql, mid) + sumQuery(n << 1 | 1, mid + 1, r, mid + 1, qr);
   }
 
-  static int minQuery (int n, int l, int r, int ql, int qr) {
+  static int minQuery(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return min[n];
 
@@ -183,7 +183,7 @@ public class COCI_2013_SALASTICAR {
       return Math.min(minQuery(n << 1, l, mid, ql, mid), minQuery(n << 1 | 1, mid + 1, r, mid + 1, qr));
   }
 
-  static void minBuild (int n, int l, int r) {
+  static void minBuild(int n, int l, int r) {
     if (l == r) {
       min[n] = res[l];
       return;
@@ -194,32 +194,16 @@ public class COCI_2013_SALASTICAR {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static class State implements Comparable<State> {
-    String code;
-    int firstMatch, index;
-
-    State (String code, int firstMatch, int index) {
-      this.code = code;
-      this.firstMatch = firstMatch;
-      this.index = index;
-    }
-
-    @Override
-    public int compareTo (State s) {
-      return firstMatch - s.firstMatch;
-    }
-  }
-
-  static Integer[] computeSuffixArray () {
+  static Integer[] computeSuffixArray() {
     for (int i = 0; i < N; i++) {
       res[i] = i;
-      order[i] = (int)(input[i] - '0');
+      order[i] = (int) (input[i] - '0');
       newOrder[i] = 0;
     }
 
     final SuffixComparator C = new SuffixComparator();
 
-    for (sz = 1;; sz <<= 1) {
+    for (sz = 1; ; sz <<= 1) {
       Arrays.sort(res, C);
       for (int i = 0; i < N - 1; i++)
         newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);
@@ -231,40 +215,56 @@ public class COCI_2013_SALASTICAR {
     return res;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    String code;
+    int firstMatch, index;
+
+    State(String code, int firstMatch, int index) {
+      this.code = code;
+      this.firstMatch = firstMatch;
+      this.index = index;
+    }
+
+    @Override
+    public int compareTo(State s) {
+      return firstMatch - s.firstMatch;
+    }
+  }
+
   static class SuffixComparator implements Comparator<Integer> {
     @Override
-    public int compare (Integer o1, Integer o2) {
+    public int compare(Integer o1, Integer o2) {
       if (order[o1] != order[o2])
         return order[o1] - order[o2];
       if ((o1 += sz) < N & (o2 += sz) < N)
         return order[o1] - order[o2];
       return o2 - o1;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

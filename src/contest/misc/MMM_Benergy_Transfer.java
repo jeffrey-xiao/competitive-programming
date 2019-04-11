@@ -11,7 +11,7 @@ public class MMM_Benergy_Transfer {
   static StringTokenizer st;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     double[] initialB = new double[n];
     double[] speedB = new double[n];
@@ -39,7 +39,7 @@ public class MMM_Benergy_Transfer {
     System.out.println(lower);
   }
 
-  static double[] setDistance (double[] ori, double[] speed, double time) {
+  static double[] setDistance(double[] ori, double[] speed, double time) {
     double[] curr = new double[n];
     for (int x = 0; x < n; x++) {
       curr[x] = (ori[x] + speed[x] * time);
@@ -47,7 +47,7 @@ public class MMM_Benergy_Transfer {
     return curr;
   }
 
-  static double getDistance (double[] pos1, double[] pos2) {
+  static double getDistance(double[] pos1, double[] pos2) {
     double total = 0;
     for (int x = 0; x < pos1.length; x++) {
       double a = pos1[x];
@@ -57,29 +57,29 @@ public class MMM_Benergy_Transfer {
     return Math.sqrt(total);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static float readFloat () throws IOException {
+  static float readFloat() throws IOException {
     return Float.parseFloat(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

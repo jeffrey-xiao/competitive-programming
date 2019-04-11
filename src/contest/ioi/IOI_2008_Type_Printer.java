@@ -15,7 +15,7 @@ public class IOI_2008_Type_Printer {
   static StringTokenizer st;
   static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int num = readInt();
     String[] words = new String[num];
     int longest = -1;
@@ -34,7 +34,7 @@ public class IOI_2008_Type_Printer {
     final String longestS = words[0];
     Arrays.sort(words, 1, words.length, new Comparator<String>() {
       @Override
-      public int compare (String o1, String o2) {
+      public int compare(String o1, String o2) {
         int counter1 = 0;
         int counter2 = 0;
         for (int x = 0; x < Math.min(o1.length(), o2.length()); x++) {
@@ -60,7 +60,8 @@ public class IOI_2008_Type_Printer {
     int nextIndex = 0;
     StringBuilder finalS = new StringBuilder();
     int operations = 0;
-    main : for (int x = words.length - 1; x >= 0; x--) {
+    main:
+    for (int x = words.length - 1; x >= 0; x--) {
       int common = 0;
       if (x == 0) {
         String ss = words[x].substring(nextIndex, words[x].length());
@@ -90,17 +91,17 @@ public class IOI_2008_Type_Printer {
     pr.close();
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(readLine());
     return st.nextToken();
   }
 
-  static Integer readInt () throws IOException {
+  static Integer readInt() throws IOException {
     return Integer.parseInt(next());
   }
 }

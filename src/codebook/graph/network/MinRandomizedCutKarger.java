@@ -25,7 +25,7 @@ public class MinRandomizedCutKarger {
   static ArrayList<Edge> e;
   static int n, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -47,7 +47,7 @@ public class MinRandomizedCutKarger {
     int nodesLeft = n;
 
     while (nodesLeft > 2) {
-      int ran = (int)(Math.random() * currSize);
+      int ran = (int) (Math.random() * currSize);
       int rx = find(e.get(ran).a);
       int ry = find(e.get(ran).b);
       if (rx != ry) {
@@ -66,11 +66,11 @@ public class MinRandomizedCutKarger {
     out.close();
   }
 
-  static int find (int x) {
+  static int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
-  static void merge (int x, int y) {
+  static void merge(int x, int y) {
     if (sz[x] > sz[y]) {
       sz[x] += sz[y];
       id[y] = x;
@@ -80,39 +80,39 @@ public class MinRandomizedCutKarger {
     }
   }
 
-  static class Edge {
-    int a, b, cost;
-
-    Edge (int a, int b, int cost) {
-      this.a = a;
-      this.b = b;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int a, b, cost;
+
+    Edge(int a, int b, int cost) {
+      this.a = a;
+      this.b = b;
+      this.cost = cost;
+    }
   }
 }

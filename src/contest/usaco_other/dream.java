@@ -26,7 +26,7 @@ public class dream {
   static int[][][] min;
   static int[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("dream.in"));
     out = new PrintWriter(new FileWriter("dream.out"));
     //br = new BufferedReader(new InputStreamReader(System.in));
@@ -76,40 +76,40 @@ public class dream {
     System.exit(0);
   }
 
-  static boolean valid (int r, int c, int orange) {
+  static boolean valid(int r, int c, int orange) {
     return 0 <= r && r < n && 0 <= c && c < m && g[r][c] != 0 && !(g[r][c] == 3 && orange == 0);
   }
 
-  static class State {
-    int r, c, orange, moves;
-
-    State (int r, int c, int orange, int moves) {
-      this.r = r;
-      this.c = c;
-      this.orange = orange;
-      this.moves = moves;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int r, c, orange, moves;
+
+    State(int r, int c, int orange, int moves) {
+      this.r = r;
+      this.c = c;
+      this.orange = orange;
+      this.moves = moves;
+    }
   }
 }

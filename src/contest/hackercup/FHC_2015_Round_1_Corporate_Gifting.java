@@ -20,7 +20,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
   static int n;
   static int ln;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -29,7 +29,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
     int t = readInt();
     for (int qq = 1; qq <= t; qq++) {
       n = readInt();
-      ln = (int)(Math.ceil(Math.log(n) / Math.log(2)));
+      ln = (int) (Math.ceil(Math.log(n) / Math.log(2)));
       adj = new ArrayList<ArrayList<Integer>>();
       dp1 = new State[n];
       dp2 = new State[n];
@@ -47,7 +47,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
     out.close();
   }
 
-  private static void compute (int i) {
+  private static void compute(int i) {
     if (adj.get(i).size() == 0) {
       dp1[i] = new State(1);
       dp1[i].curr.add(1);
@@ -89,39 +89,39 @@ public class FHC_2015_Round_1_Corporate_Gifting {
     dp2[i] = new State(second, secondC);
   }
 
-  static class State {
-    int value;
-    ArrayList<Integer> curr = new ArrayList<Integer>();
-
-    State (int value, ArrayList<Integer> curr) {
-      this.value = value;
-      this.curr = curr;
-    }
-
-    State (int value) {
-      this.value = value;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int value;
+    ArrayList<Integer> curr = new ArrayList<Integer>();
+
+    State(int value, ArrayList<Integer> curr) {
+      this.value = value;
+      this.curr = curr;
+    }
+
+    State(int value) {
+      this.value = value;
+    }
   }
 }

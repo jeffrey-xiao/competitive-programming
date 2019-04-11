@@ -17,7 +17,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
   static int N, M, K, Q;
   static int[] R, C;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -42,7 +42,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
     out.close();
   }
 
-  static long getArea (int q) {
+  static long getArea(int q) {
     Point[] ver = new Point[2 * K];
     Point[] hor = new Point[2 * K];
     boolean[] use = new boolean[K];
@@ -100,45 +100,45 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
     return horRet;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     Long pos;
     int index, type;
 
-    Point (long pos, int index, int type) {
+    Point(long pos, int index, int type) {
       this.pos = pos;
       this.index = index;
       this.type = type;
     }
 
     @Override
-    public int compareTo (Point o) {
+    public int compareTo(Point o) {
       return pos.compareTo(o.pos);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

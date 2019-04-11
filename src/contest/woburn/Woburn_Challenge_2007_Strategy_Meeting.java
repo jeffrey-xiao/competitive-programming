@@ -13,7 +13,7 @@ public class Woburn_Challenge_2007_Strategy_Meeting {
   static int[][] adj;
   static int[][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int t = readInt();
     for (int qq = 0; qq < t; qq++) {
 
@@ -34,7 +34,7 @@ public class Woburn_Challenge_2007_Strategy_Meeting {
     }
   }
 
-  static int solve (int v, int curr) {
+  static int solve(int v, int curr) {
     if (dp[v][curr] != -1)
       return dp[v][curr];
     if (curr == n - 1) {
@@ -51,13 +51,13 @@ public class Woburn_Challenge_2007_Strategy_Meeting {
     return dp[v][curr] = res;
   }
 
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 }

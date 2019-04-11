@@ -35,7 +35,7 @@ public class TwoSat {
   static Stack<Integer> s = new Stack<Integer>();
   static int cnt, idCnt = 1;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
 
@@ -72,7 +72,7 @@ public class TwoSat {
     out.close();
   }
 
-  static void dfs (int u) {
+  static void dfs(int u) {
     disc[u] = lo[u] = ++cnt;
     s.push(u);
 
@@ -96,30 +96,30 @@ public class TwoSat {
     }
   }
 
-  static int toNode (int val) {
+  static int toNode(int val) {
     return val < 0 ? (-val - 1) * 2 + 1 : (val - 1) * 2;
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens()) {
       st = new StringTokenizer(readLine());
     }
     return st.nextToken();
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 }

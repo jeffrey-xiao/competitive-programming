@@ -15,25 +15,11 @@ package codebook.algorithms;
 
 public class CycleDetectionBrent {
 
-  static class State {
-    int start, length;
-
-    State (int start, int length) {
-      this.start = start;
-      this.length = length;
-    }
-
-    @Override
-    public String toString () {
-      return "Start: " + start + "; Length: " + length;
-    }
-  }
-
-  static int f (int x) {
+  static int f(int x) {
     return (125978 * x * x + 2630) % 6349;
   }
 
-  static State getCycle (int x) {
+  static State getCycle(int x) {
     int power = 1;
     int length = 1;
     int tortoise = x;
@@ -64,7 +50,21 @@ public class CycleDetectionBrent {
     return new State(start, length);
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(getCycle(0));
+  }
+
+  static class State {
+    int start, length;
+
+    State(int start, int length) {
+      this.start = start;
+      this.length = length;
+    }
+
+    @Override
+    public String toString() {
+      return "Start: " + start + "; Length: " + length;
+    }
   }
 }

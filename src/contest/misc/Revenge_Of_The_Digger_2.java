@@ -20,7 +20,7 @@ public class Revenge_Of_The_Digger_2 {
   static Edge[] e;
   static int[] dist, last;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -54,15 +54,15 @@ public class Revenge_Of_The_Digger_2 {
     out.close();
   }
 
-  static int in (int x) {
+  static int in(int x) {
     return 2 * x;
   }
 
-  static int out (int x) {
+  static int out(int x) {
     return 2 * x + 1;
   }
 
-  static int getFlow () {
+  static int getFlow() {
     int res = 0;
     int curr = 0;
     while (getPath())
@@ -71,7 +71,7 @@ public class Revenge_Of_The_Digger_2 {
     return res;
   }
 
-  static boolean getPath () {
+  static boolean getPath() {
     dist = new int[2 * N];
     for (int i = 0; i < 2 * N; i++)
       dist[i] = -1;
@@ -91,7 +91,7 @@ public class Revenge_Of_The_Digger_2 {
     return dist[sink] != -1;
   }
 
-  static int dfs (int curr, int flow) {
+  static int dfs(int curr, int flow) {
     if (curr == sink)
       return flow;
     for (int i = last[curr]; i != -1; i = e[i].next) {
@@ -107,46 +107,46 @@ public class Revenge_Of_The_Digger_2 {
     return 0;
   }
 
-  static void addEdge (int x, int y, int xy, int yx) {
+  static void addEdge(int x, int y, int xy, int yx) {
     e[cnt] = new Edge(y, xy, last[x]);
     last[x] = cnt++;
     e[cnt] = new Edge(x, yx, last[y]);
     last[y] = cnt++;
   }
 
-  static class Edge {
-    int dest, cost, next;
-
-    Edge (int dest, int cost, int next) {
-      this.dest = dest;
-      this.cost = cost;
-      this.next = next;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, cost, next;
+
+    Edge(int dest, int cost, int next) {
+      this.dest = dest;
+      this.cost = cost;
+      this.next = next;
+    }
   }
 }

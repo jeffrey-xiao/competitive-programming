@@ -20,7 +20,7 @@ public class Bloomberg_Qualifier_2017_E {
   static PriorityQueue<Integer> pq;
   static ArrayList<Event> e;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -51,7 +51,7 @@ public class Bloomberg_Qualifier_2017_E {
     out.close();
   }
 
-  static boolean can (int sz) {
+  static boolean can(int sz) {
     PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
     for (int i = 0; i < sz; i++)
       pq.offer(0);
@@ -65,43 +65,43 @@ public class Bloomberg_Qualifier_2017_E {
     return true;
   }
 
-  static class Event implements Comparable<Event> {
-    int start, end;
-
-    Event (int start, int end) {
-      this.start = start;
-      this.end = end;
-    }
-
-    @Override
-    public int compareTo (Event e) {
-      return end - e.end;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Event implements Comparable<Event> {
+    int start, end;
+
+    Event(int start, int end) {
+      this.start = start;
+      this.end = end;
+    }
+
+    @Override
+    public int compareTo(Event e) {
+      return end - e.end;
+    }
   }
 }

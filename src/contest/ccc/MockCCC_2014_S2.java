@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MockCCC_2014_S2 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int maxSequence = 0;
     int stage = -2; // -1 going down, 0 is stay, 1 is going up
     int currSeqLength = 1;

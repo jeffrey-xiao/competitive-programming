@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2010_J4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int input = scan.nextInt();
     while (input != 0) {
       int[] diff = new int[input - 1];
@@ -23,7 +23,8 @@ public class CCC_2010_J4 {
       }
       // assume cycle length is 1 and continue;
       int x = 1;
-      main : for (; x < diff.length; x++) {
+      main:
+      for (; x < diff.length; x++) {
         for (int y = x; y < diff.length; y++) {
           if (diff[y - x] != diff[y])
             continue main;

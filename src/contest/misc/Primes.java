@@ -3,7 +3,7 @@ package contest.misc;
 import java.util.Scanner;
 
 public class Primes {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     int end = 542; // where you want to end
     int num = scan.nextInt();// first how many primes

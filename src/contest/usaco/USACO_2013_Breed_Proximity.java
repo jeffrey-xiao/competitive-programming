@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class USACO_2013_Breed_Proximity {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     int k = scan.nextInt();
     int[] cows = new int[n];

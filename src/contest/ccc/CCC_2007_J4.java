@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class CCC_2007_J4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     char[] s1 = scan.nextLine().replaceAll("\\s+", "").toCharArray();
     char[] s2 = scan.nextLine().replaceAll("\\s+", "").toCharArray();
     Arrays.sort(s1);

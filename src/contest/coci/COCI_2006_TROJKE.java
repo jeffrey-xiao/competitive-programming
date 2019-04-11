@@ -11,7 +11,7 @@ public class COCI_2006_TROJKE {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     ArrayList<Point> p = new ArrayList<Point>();
     int n = readInt();
     for (int x = 0; x < n; x++) {
@@ -33,7 +33,7 @@ public class COCI_2006_TROJKE {
     System.out.println(count);
   }
 
-  private static double slope (Point p1, Point p2) {
+  private static double slope(Point p1, Point p2) {
     double x1 = p1.x;
     double y1 = p1.y;
     double x2 = p2.x;
@@ -41,34 +41,34 @@ public class COCI_2006_TROJKE {
     return (y2 - y1) / (x2 - x1);
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

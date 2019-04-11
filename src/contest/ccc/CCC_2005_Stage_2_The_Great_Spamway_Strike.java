@@ -19,7 +19,7 @@ public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
   static int[][] adj;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     lag = new int[n + 1];
     adj = new int[n + 1][];
@@ -53,41 +53,41 @@ public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
     System.out.println(max);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int index, depth, lagTime;
 
-    State (int index, int depth, int lagTime) {
+    State(int index, int depth, int lagTime) {
       this.index = index;
       this.depth = depth;
       this.lagTime = lagTime;
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       return (depth * 10 * 2 + lagTime * 2 + lag[index]) - (o.depth * 10 * 2 + o.lagTime * 2 + lag[o.index]);
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

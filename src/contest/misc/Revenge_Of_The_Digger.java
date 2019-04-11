@@ -18,7 +18,7 @@ public class Revenge_Of_The_Digger {
   static ArrayList<ArrayList<Integer>> adjlist;
   static int end;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int m = readInt();
     adjlist = new ArrayList<ArrayList<Integer>>();
@@ -46,14 +46,14 @@ public class Revenge_Of_The_Digger {
     System.out.println(total);
   }
 
-  static int[] ff (int[] flow) {
+  static int[] ff(int[] flow) {
     int[] augmented = Arrays.copyOf(flow, flow.length);
     while (bfs(augmented))
       ;
     return augmented;
   }
 
-  static boolean bfs (int[] augmented) {
+  static boolean bfs(int[] augmented) {
     int[] prev = new int[n];
     boolean[] visited = new boolean[n];
     prev[0] = -1;
@@ -91,25 +91,25 @@ public class Revenge_Of_The_Digger {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

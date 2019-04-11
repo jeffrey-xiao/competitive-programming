@@ -22,7 +22,7 @@ public class learning {
   static StringTokenizer st;
   static int a, b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("learning.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("learning.out")));
@@ -133,53 +133,53 @@ public class learning {
     System.exit(0);
   }
 
-  private static int bal (int x) {
+  private static int bal(int x) {
     return Math.min(Math.max(a, x), b);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Cow implements Comparable<Cow> {
     boolean spot;
     int weight;
 
-    Cow (boolean spot, int weight) {
+    Cow(boolean spot, int weight) {
       this.spot = spot;
       this.weight = weight;
     }
 
     @Override
-    public int compareTo (Cow o) {
+    public int compareTo(Cow o) {
       return weight - o.weight;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Cow) {
-        Cow c = (Cow)o;
+        Cow c = (Cow) o;
         return weight == c.weight;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

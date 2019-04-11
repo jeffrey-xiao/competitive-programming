@@ -17,7 +17,7 @@ public class IOI_2009_Hiring {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int N = readInt();
     long W = readLong();
     Person[] p = new Person[N];
@@ -27,7 +27,7 @@ public class IOI_2009_Hiring {
     Arrays.sort(p);
     PriorityQueue<Person> pq = new PriorityQueue<Person>(N + 10, new Comparator<Person>() {
       @Override
-      public int compare (Person o1, Person o2) {
+      public int compare(Person o1, Person o2) {
         return o2.quality - o1.quality;
       }
     });
@@ -69,46 +69,46 @@ public class IOI_2009_Hiring {
     ps.close();
   }
 
-  static class Person implements Comparable<Person> {
-    int pay, quality, index;
-    Double rate;
-
-    Person (int pay, int quality, int index) {
-      this.pay = pay;
-      this.quality = quality;
-      this.rate = ((double)(pay)) / ((double)(quality));
-      this.index = index;
-    }
-
-    @Override
-    public int compareTo (Person o) {
-      return pay * o.quality - o.pay * quality;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Person implements Comparable<Person> {
+    int pay, quality, index;
+    Double rate;
+
+    Person(int pay, int quality, int index) {
+      this.pay = pay;
+      this.quality = quality;
+      this.rate = ((double) (pay)) / ((double) (quality));
+      this.index = index;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+      return pay * o.quality - o.pay * quality;
+    }
   }
 }

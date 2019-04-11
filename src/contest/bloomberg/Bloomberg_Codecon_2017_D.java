@@ -21,7 +21,7 @@ public class Bloomberg_Codecon_2017_D {
   static ArrayList<String> ans = new ArrayList<String>();
   static HashMap<String, ArrayList<Edge>> adj = new HashMap<String, ArrayList<Edge>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -66,7 +66,7 @@ public class Bloomberg_Codecon_2017_D {
     out.close();
   }
 
-  static void bruteforce (State s) {
+  static void bruteforce(State s) {
     if (s.vis.size() > ans.size()) {
       ans = new ArrayList<String>();
       for (String st : s.vis)
@@ -86,11 +86,37 @@ public class Bloomberg_Codecon_2017_D {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     String dest;
     int type, cost;
 
-    Edge (String dest, int type, int cost) {
+    Edge(String dest, int type, int cost) {
       this.dest = dest;
       this.type = type;
       this.cost = cost;
@@ -102,35 +128,9 @@ public class Bloomberg_Codecon_2017_D {
     String curr;
     int[] tickets;
 
-    State (String curr, int[] tickets) {
+    State(String curr, int[] tickets) {
       this.curr = curr;
       this.tickets = tickets;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

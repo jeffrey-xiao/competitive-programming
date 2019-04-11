@@ -17,7 +17,7 @@ public class COCI_2008_CIJEVI {
   static int r, c;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     g = new char[r][c];
@@ -45,45 +45,45 @@ public class COCI_2008_CIJEVI {
     }
   }
 
-  static boolean up (int x, int y) {
+  static boolean up(int x, int y) {
     return x - 1 >= 0 && (g[x - 1][y] == '|' || g[x - 1][y] == '+' || g[x - 1][y] == '1' || g[x - 1][y] == '4');
   }
 
-  static boolean down (int x, int y) {
+  static boolean down(int x, int y) {
     return x + 1 < r && (g[x + 1][y] == '|' || g[x + 1][y] == '+' || g[x + 1][y] == '2' || g[x + 1][y] == '3');
   }
 
-  static boolean left (int x, int y) {
+  static boolean left(int x, int y) {
     return y - 1 >= 0 && (g[x][y - 1] == '-' || g[x][y - 1] == '+' || g[x][y - 1] == '1' || g[x][y - 1] == '2');
   }
 
-  static boolean right (int x, int y) {
+  static boolean right(int x, int y) {
     return y + 1 < c && (g[x][y + 1] == '-' || g[x][y + 1] == '+' || g[x][y + 1] == '3' || g[x][y + 1] == '4');
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

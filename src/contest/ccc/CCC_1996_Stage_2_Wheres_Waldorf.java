@@ -17,7 +17,7 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
   static boolean d;
   static boolean e;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       r = readInt();
       c = readInt();
@@ -30,7 +30,8 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
       for (int x1 = 0; x1 < n; x1++) {
         String s = next().toLowerCase();
         TreeSet<Point> p = new TreeSet<Point>();
-        main : for (int x = 0; x < r; x++) {
+        main:
+        for (int x = 0; x < r; x++) {
           for (int y = 0; y < c; y++) {
             if (find(x, y, grid, s)) {
               p.add(new Point(x + 1, y + 1));
@@ -55,29 +56,7 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
     }
   }
 
-  static class Point implements Comparable<Point> {
-    int x;
-    int y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    @Override
-    public int compareTo (Point o) {
-      if (this.x == o.x)
-        return this.y - o.y;
-      return this.x - o.x;
-    }
-
-    @Override
-    public String toString () {
-      return (x) + " " + (y);
-    }
-  }
-
-  private static boolean find (int x, int y, char[][] grid, String s) {
+  private static boolean find(int x, int y, char[][] grid, String s) {
     a = true;
     b = true;
     d = true;
@@ -96,25 +75,47 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
     return a || b || d || e;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point implements Comparable<Point> {
+    int x;
+    int y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+      if (this.x == o.x)
+        return this.y - o.y;
+      return this.x - o.x;
+    }
+
+    @Override
+    public String toString() {
+      return (x) + " " + (y);
+    }
   }
 }

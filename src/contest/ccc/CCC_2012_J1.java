@@ -5,7 +5,7 @@ import java.util.Scanner;
 class CCC_2012_J1 {
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int speedLimit = scan.nextInt();
     int recordedSpeed = scan.nextInt();
     int fine = 0;

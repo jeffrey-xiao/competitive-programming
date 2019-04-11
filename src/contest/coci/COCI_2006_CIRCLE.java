@@ -20,7 +20,7 @@ public class COCI_2006_CIRCLE {
   static State s2;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int k = readInt();
     State s = new State();
@@ -47,7 +47,7 @@ public class COCI_2006_CIRCLE {
     System.out.println(ans.size());
   }
 
-  static void prevState (String s) {
+  static void prevState(String s) {
     s1 = new State();
     s2 = new State();
     s1.s += "W";
@@ -97,7 +97,7 @@ public class COCI_2006_CIRCLE {
     }
   }
 
-  static State nextState (String s) {
+  static State nextState(String s) {
     State res = new State();
 
     for (int i = 0; i < n; i++) {
@@ -112,47 +112,47 @@ public class COCI_2006_CIRCLE {
     return res;
   }
 
-  static class State {
-    String s = "";
-    Integer W = 0;
-    Integer B = 0;
-
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State s = (State)o;
-        return (s.s + s.s).contains(this.s);
-      }
-      return false;
-    }
-
-    public int hashCode () {
-      return W + B;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    String s = "";
+    Integer W = 0;
+    Integer B = 0;
+
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State s = (State) o;
+        return (s.s + s.s).contains(this.s);
+      }
+      return false;
+    }
+
+    public int hashCode() {
+      return W + B;
+    }
   }
 }

@@ -11,14 +11,14 @@ public class COCI_2006_NPUZZLE {
   static StringTokenizer st;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     g = new char[4][];
     for (int x = 0; x < 4; x++)
       g[x] = next().toCharArray();
     System.out.println(scatter());
   }
 
-  public static int scatter () {
+  public static int scatter() {
     int count = 0;
     for (int x = 0; x < 4; x++)
       for (int y = 0; y < 4; y++) {
@@ -32,25 +32,25 @@ public class COCI_2006_NPUZZLE {
     return count;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -12,16 +12,20 @@ import java.util.StringTokenizer;
 
 public class UTS_Open_2014_Second_MST_E {
 
+  static final int VSIZE = 50500;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
-  static final int VSIZE = 50500;
   static int[] id = new int[VSIZE];
   static int[] size = new int[VSIZE];
   static int n, m;
+  static int N, len, num;
+  static int[] paths = new int[N];
+  static int[] dp = new int[N];
+  static boolean[] visited = new boolean[N];
+  static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     ArrayList<Edge> e = new ArrayList<Edge>();
@@ -52,13 +56,7 @@ public class UTS_Open_2014_Second_MST_E {
     ps.close();
   }
 
-  static int N, len, num;
-  static int[] paths = new int[N];
-  static int[] dp = new int[N];
-  static boolean[] visited = new boolean[N];
-  static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-
-  static void dfs (int i) {
+  static void dfs(int i) {
     visited[i] = true;
     if (paths[i] == 0)
       paths[i] = 1;
@@ -82,31 +80,16 @@ public class UTS_Open_2014_Second_MST_E {
     }
   }
 
-  static class Edge implements Comparable<Edge> {
-    int a, b, c;
-
-    Edge (int a, int b, int c) {
-      this.a = a;
-      this.b = b;
-      this.c = c;
-    }
-
-    @Override
-    public int compareTo (Edge o) {
-      return c - o.c;
-    }
-  }
-
-  private static void init () {
+  private static void init() {
     for (int x = 0; x < VSIZE; x++)
       id[x] = x;
   }
 
-  private static int find (int x) {
+  private static int find(int x) {
     return (x == id[x]) ? x : (id[x] = find(id[x]));
   }
 
-  private static boolean merge (int x, int y) {
+  private static boolean merge(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
     if (rootx == rooty)
@@ -121,29 +104,44 @@ public class UTS_Open_2014_Second_MST_E {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge implements Comparable<Edge> {
+    int a, b, c;
+
+    Edge(int a, int b, int c) {
+      this.a = a;
+      this.b = b;
+      this.c = c;
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+      return c - o.c;
+    }
   }
 }

@@ -17,7 +17,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
   static int[] damage;
   static int[] seg;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -51,7 +51,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
     out.close();
   }
 
-  static int query (int n, int l, int r, int ql, int qr) {
+  static int query(int n, int l, int r, int ql, int qr) {
     if (ql == l && qr == r)
       return seg[n];
     int mid = (l + r) >> 1;
@@ -62,7 +62,7 @@ public class Woburn_Challenge_2015_Energy_Absorption {
     return Math.min(query(n << 1, l, mid, ql, mid), query(n << 1 | 1, mid + 1, r, mid + 1, qr));
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       seg[n] = damage[l];
       return;
@@ -73,29 +73,29 @@ public class Woburn_Challenge_2015_Energy_Absorption {
     seg[n] = Math.min(seg[n << 1], seg[n << 1 | 1]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

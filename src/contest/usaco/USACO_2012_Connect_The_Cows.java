@@ -16,7 +16,7 @@ public class USACO_2012_Connect_The_Cows {
 
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     Point[] p = new Point[12];
     for (int x = 1; x <= n; x++) {
@@ -26,7 +26,7 @@ public class USACO_2012_Connect_The_Cows {
     System.out.println(permutate(1, p));
   }
 
-  private static int permutate (int i, Point[] p) {
+  private static int permutate(int i, Point[] p) {
     if (i == n)
       return check(p);
     int ans = 0;
@@ -38,7 +38,7 @@ public class USACO_2012_Connect_The_Cows {
     return ans;
   }
 
-  private static int check (Point[] p) {
+  private static int check(Point[] p) {
     for (int x = 0; x <= n; x++)
       if (direction(p[x], p[x + 1]) == -1)
         return 0;
@@ -48,7 +48,7 @@ public class USACO_2012_Connect_The_Cows {
     return 1;
   }
 
-  private static int direction (Point p1, Point p2) {
+  private static int direction(Point p1, Point p2) {
     if (p1.x != p2.x && p1.y != p2.y)
       return -1;
     if (p1.x == p2.x && p1.y > p2.y)
@@ -62,44 +62,44 @@ public class USACO_2012_Connect_The_Cows {
     return -1;
   }
 
-  private static void exch (Point[] p, int x, int y) {
+  private static void exch(Point[] p, int x, int y) {
     Point temp = p[x];
     p[x] = p[y];
     p[y] = temp;
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

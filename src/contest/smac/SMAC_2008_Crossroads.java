@@ -17,7 +17,7 @@ public class SMAC_2008_Crossroads {
   static int total = 0;
   static int[][] grid, tl, tr, bl, br;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     c = readInt();
     r = readInt();
     b = readInt();
@@ -64,7 +64,7 @@ public class SMAC_2008_Crossroads {
     System.out.println(max);
   }
 
-  private static boolean poss (int row, int col) {
+  private static boolean poss(int row, int col) {
     for (int x = 1; x + row - 1 <= r; x++) {
       for (int y = 1; y + col - 1 <= c; y++) {
         int cost = total - tl[x - 1][y - 1] - tr[x - 1][y + col] - bl[x + row][y - 1] - br[x + row][y + col];
@@ -75,29 +75,29 @@ public class SMAC_2008_Crossroads {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(buff.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return buff.readLine().trim();
   }
 }

@@ -19,14 +19,15 @@ public class FHC_2015_Qualification_Laser_Maze {
   static int[] movex = {-1, 0, 1, 0};
   static int[] movey = {0, 1, 0, -1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     int n = readInt();
-    main : for (int t = 1; t <= n; t++) {
+    main:
+    for (int t = 1; t <= n; t++) {
       int r = readInt();
       int c = readInt();
       int sx = 0, sy = 0, ex = 0, ey = 0;
@@ -99,15 +100,41 @@ public class FHC_2015_Qualification_Laser_Maze {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     int x, y, time;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
-    Point (int x, int y, int time) {
+    Point(int x, int y, int time) {
       this.x = x;
       this.y = y;
       this.time = time;
@@ -118,35 +145,9 @@ public class FHC_2015_Qualification_Laser_Maze {
     Point p;
     int direction;
 
-    Lazer (int x, int y, int direction) {
+    Lazer(int x, int y, int direction) {
       p = new Point(x, y);
       this.direction = direction;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -9,17 +9,16 @@ import java.util.StringTokenizer;
 
 public class ACM_NAQ_2016_L {
 
+  static final double EPS = 1e-10;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int T;
   static Point[] p;
   static double prob;
   static int[] ans;
-  static final double EPS = 1e-10;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -43,7 +42,7 @@ public class ACM_NAQ_2016_L {
     out.close();
   }
 
-  static void permute (int i) {
+  static void permute(int i) {
     if (i == 7) {
       boolean valid = true;
 
@@ -89,18 +88,18 @@ public class ACM_NAQ_2016_L {
     }
   }
 
-  static boolean within (Point a, Point b, Point x) {
+  static boolean within(Point a, Point b, Point x) {
     return Math.min(a.x, b.x) <= x.x && x.x <= Math.max(a.x, b.x) && Math.min(a.y, b.y) <= x.y && x.y <= Math.max(a.y, b.y);
   }
 
-  static double area () {
+  static double area() {
     double ret = 0;
     for (int i = 0; i < 7; i++)
       ret += p[i].x * p[(i + 1) % 7].y - p[(i + 1) % 7].x * p[i].y;
     return Math.abs(ret / 2);
   }
 
-  static Point intersect (Point a, Point b, Point c, Point d) {
+  static Point intersect(Point a, Point b, Point c, Point d) {
     double A1 = a.y - b.y;
     double B1 = b.x - a.x;
     double C1 = -A1 * a.x - B1 * a.y;
@@ -116,60 +115,60 @@ public class ACM_NAQ_2016_L {
       return new Point(-1, (B1 * C2 - B2 * C1) / det, (A2 * C1 - A1 * C2) / det);
   }
 
-  static void swap (int i, int j) {
+  static void swap(int i, int j) {
     Point temp = p[i];
     p[i] = p[j];
     p[j] = temp;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Point {
     int index;
     double x, y;
 
-    Point (int index, double x, double y) {
+    Point(int index, double x, double y) {
       this.index = index;
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return Math.abs(p.x - x) < EPS && Math.abs(p.y - y) < EPS;
       }
       return false;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("(%f, %f)", x, y);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

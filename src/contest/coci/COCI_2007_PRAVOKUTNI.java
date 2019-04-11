@@ -17,7 +17,7 @@ public class COCI_2007_PRAVOKUTNI {
   static int N;
   static Point[] p;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -55,14 +55,40 @@ public class COCI_2007_PRAVOKUTNI {
     out.close();
   }
 
-  static int gcd (int a, int b) {
+  static int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Fraction {
     int num, den;
 
-    Fraction (int num, int den) {
+    Fraction(int num, int den) {
       if (num == 0) {
         den = 1;
       } else if (den == 0) {
@@ -82,14 +108,14 @@ public class COCI_2007_PRAVOKUTNI {
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return num ^ den;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Fraction) {
-        Fraction f = (Fraction)o;
+        Fraction f = (Fraction) o;
         return num == f.num && den == f.den;
       }
       return false;
@@ -99,35 +125,9 @@ public class COCI_2007_PRAVOKUTNI {
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

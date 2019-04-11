@@ -19,7 +19,7 @@ public class IOI_1995_Shopping_Offers {
   static int s;
   static int b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     s = readInt();
     offers = new Offer[s];
     for (int x = 0; x < s; x++) {
@@ -45,14 +45,15 @@ public class IOI_1995_Shopping_Offers {
     System.out.println(compute(start));
   }
 
-  private static int compute (State start) {
+  private static int compute(State start) {
     if (dp.get(start) != null)
       return dp.get(start);
 
     int next = Integer.MAX_VALUE;
     boolean end = true;
 
-    main : for (int x = 0; x < s; x++) {
+    main:
+    for (int x = 0; x < s; x++) {
       State nextState = new State(b);
       nextState.items = Arrays.copyOf(start.items, start.items.length);
       for (int y = 0; y < offers[x].items.size(); y++) {
@@ -75,15 +76,37 @@ public class IOI_1995_Shopping_Offers {
     return next;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int[] items;
 
-    State (int n) {
+    State(int n) {
       items = new int[n];
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       int s = 0;
       int curr = 1;
       for (int x = 0; x < items.length; x++) {
@@ -94,9 +117,9 @@ public class IOI_1995_Shopping_Offers {
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         for (int x = 0; x < items.length; x++)
           if (s.items[x] != items[x])
             return false;
@@ -110,27 +133,5 @@ public class IOI_1995_Shopping_Offers {
     ArrayList<Integer> items;
     ArrayList<Integer> num;
     int price;
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

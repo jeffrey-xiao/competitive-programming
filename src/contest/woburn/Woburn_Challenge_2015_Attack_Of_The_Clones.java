@@ -17,7 +17,7 @@ public class Woburn_Challenge_2015_Attack_Of_The_Clones {
   static int N;
   static TreeSet<Point> points = new TreeSet<Point>();
 
-  public static void main (String[] args) throws IOException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,49 +44,49 @@ public class Woburn_Challenge_2015_Attack_Of_The_Clones {
     out.close();
   }
 
-  static int dist (Point p1, Point p2) {
+  static int dist(Point p1, Point p2) {
     return Math.abs(p1.x - p2.x) + Math.abs(Math.abs(p1.y) - Math.abs(p2.y));
   }
 
-  static class Point implements Comparable<Point> {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    @Override
-    public int compareTo (Point o) {
-      if (x == o.x)
-        return y - o.y;
-      return x - o.x;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point implements Comparable<Point> {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+      if (x == o.x)
+        return y - o.y;
+      return x - o.x;
+    }
   }
 }

@@ -11,17 +11,15 @@ import java.util.StringTokenizer;
 
 public class Glenforest_Starry_Sky {
 
+  static final long MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final long MOD = 1000000007;
-
   static int r, c;
   static HashMap<Integer, Long> newHm = new HashMap<Integer, Long>();
   static HashMap<Integer, Long> hm = new HashMap<Integer, Long>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -77,7 +75,7 @@ public class Glenforest_Starry_Sky {
     out.close();
   }
 
-  static boolean valid (int pattern) {
+  static boolean valid(int pattern) {
     if ((pattern & 1) > 0 || (pattern & 1 << (c - 1)) > 0)
       return false;
     for (int j = 2; j < c; j++)
@@ -86,29 +84,29 @@ public class Glenforest_Starry_Sky {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

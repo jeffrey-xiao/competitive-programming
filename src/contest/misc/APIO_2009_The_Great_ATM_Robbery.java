@@ -21,7 +21,7 @@ public class APIO_2009_The_Great_ATM_Robbery {
   static int n;
   static int m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     id = new int[n];
@@ -75,7 +75,7 @@ public class APIO_2009_The_Great_ATM_Robbery {
     System.out.println(maxValue(id[start], cValues, g, ends));
   }
 
-  private static int maxValue (int start, int[] values, ArrayList<HashSet<Integer>> g, HashSet<Integer> ends) {
+  private static int maxValue(int start, int[] values, ArrayList<HashSet<Integer>> g, HashSet<Integer> ends) {
     int[] max = new int[n];
     max[start] = values[start];
     int ans = 0;
@@ -96,22 +96,7 @@ public class APIO_2009_The_Great_ATM_Robbery {
     return ans;
   }
 
-  static class Vertex implements Comparable<Vertex> {
-    int index;
-    int value;
-
-    Vertex (int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
-
-    @Override
-    public int compareTo (Vertex o) {
-      return o.value - value;
-    }
-  }
-
-  private static void computeG (int x, boolean[] v, int c) {
+  private static void computeG(int x, boolean[] v, int c) {
     id[x] = c;
     v[x] = true;
     for (Integer i : adj.get(x)) {
@@ -121,7 +106,7 @@ public class APIO_2009_The_Great_ATM_Robbery {
     }
   }
 
-  private static void computeS (int x, boolean[] v) {
+  private static void computeS(int x, boolean[] v) {
     v[x] = true;
     for (Integer i : rev.get(x)) {
       if (v[i])
@@ -131,25 +116,40 @@ public class APIO_2009_The_Great_ATM_Robbery {
     s.push(x);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Vertex implements Comparable<Vertex> {
+    int index;
+    int value;
+
+    Vertex(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    @Override
+    public int compareTo(Vertex o) {
+      return o.value - value;
+    }
   }
 }

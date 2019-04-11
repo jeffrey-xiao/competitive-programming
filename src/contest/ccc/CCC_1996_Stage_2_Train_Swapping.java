@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_1996_Stage_2_Train_Swapping {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int t = scan.nextInt(); t > 0; t--) {
       int num = scan.nextInt();
       int[] nums = new int[num];

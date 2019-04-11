@@ -7,7 +7,7 @@
 package codebook.algorithms;
 
 public class BinaryExponentiation {
-  public long modpow (long b, long p, long m) {
+  public long modpow(long b, long p, long m) {
     if (p == 0)
       return 1;
     if (p == 1)
@@ -17,7 +17,7 @@ public class BinaryExponentiation {
     return b * modpow(b * b % m, p / 2, m) % m;
   }
 
-  public long pow (long b, long p) {
+  public long pow(long b, long p) {
     if (p == 0)
       return 1;
     if (p == 1)

@@ -12,7 +12,7 @@ class CCC_2003_J5_S3 {
   private static int rows;
   private static int cols;
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int flooring = scan.nextInt();
     rows = scan.nextInt();
     cols = scan.nextInt();
@@ -42,7 +42,7 @@ class CCC_2003_J5_S3 {
     System.out.println((roomsFilled == 1 ? "1 room, " : roomsFilled + " rooms, ") + flooring + " square metre(s) left over");
   }
 
-  private static int getLinkedSpaceArea (int row, int col, int count) {
+  private static int getLinkedSpaceArea(int row, int col, int count) {
     if (row >= 0 && row < rows && col >= 0 && col < cols && house[row][col] == '.') {
       house[row][col] = 'X';
       count++;

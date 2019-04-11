@@ -13,7 +13,7 @@ public class COCI_2006_BOND {
   static int[][] prob;
   static double ans = 0.0d;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     prob = new int[n][n];
     for (int x = 0; x < n; x++) {
@@ -26,7 +26,7 @@ public class COCI_2006_BOND {
     System.out.printf("%.6f\n", ans * 100);
   }
 
-  private static void compute (int i, int n, HashSet<Integer> v, double a) {
+  private static void compute(int i, int n, HashSet<Integer> v, double a) {
     if (i == n) {
       System.out.println(a);
       ans = Math.max(a, ans);
@@ -47,25 +47,25 @@ public class COCI_2006_BOND {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

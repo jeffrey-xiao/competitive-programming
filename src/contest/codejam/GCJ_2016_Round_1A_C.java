@@ -24,7 +24,7 @@ public class GCJ_2016_Round_1A_C {
   static Stack<Integer> s = new Stack<Integer>();
   static ArrayList<HashSet<Integer>> g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -107,7 +107,7 @@ public class GCJ_2016_Round_1A_C {
     out.close();
   }
 
-  static int compute (int u) {
+  static int compute(int u) {
     int curr = 0;
     for (int v : g.get(u)) {
       curr = Math.max(curr, compute(v));
@@ -115,7 +115,7 @@ public class GCJ_2016_Round_1A_C {
     return curr + sz[u];
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     disc[i] = lo[i] = ++cnt;
     inStack[i] = true;
     s.push(i);
@@ -139,29 +139,29 @@ public class GCJ_2016_Round_1A_C {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

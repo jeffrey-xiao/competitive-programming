@@ -31,7 +31,7 @@ public class IOI_2012_Ideal_City {
 
   static Queue<Point> q = new ArrayDeque<Point>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -55,7 +55,7 @@ public class IOI_2012_Ideal_City {
     out.close();
   }
 
-  static void compute (int i) {
+  static void compute(int i) {
     boolean[] vis = new boolean[1000001];
     Queue<Integer> q = new ArrayDeque<Integer>();
     Stack<Integer> rev = new Stack<Integer>();
@@ -82,7 +82,7 @@ public class IOI_2012_Ideal_City {
     }
   }
 
-  static void init () {
+  static void init() {
     adj.clear();
     for (int i = 0; i <= 100000; i++)
       adj.add(new ArrayList<Integer>());
@@ -93,13 +93,13 @@ public class IOI_2012_Ideal_City {
     cnt = 0;
   }
 
-  static void createNewComponent (int currComponent) {
+  static void createNewComponent(int currComponent) {
     adj.get(currComponent).add(cnt);
     adj.get(cnt).add(currComponent);
     e.add(new Edge(currComponent, cnt));
   }
 
-  static void build (Point point, boolean isHorizontal) {
+  static void build(Point point, boolean isHorizontal) {
     q.offer(point);
     while (!q.isEmpty()) {
       Point next = q.poll();
@@ -112,7 +112,7 @@ public class IOI_2012_Ideal_City {
     }
   }
 
-  static void dfs (Point point, boolean isHorizontal) {
+  static void dfs(Point point, boolean isHorizontal) {
     v.add(point);
     Stack<Point> s = new Stack<Point>();
     s.push(point);
@@ -142,10 +142,36 @@ public class IOI_2012_Ideal_City {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int from, to;
 
-    Edge (int from, int to) {
+    Edge(int from, int to) {
       this.from = from;
       this.to = to;
     }
@@ -154,53 +180,27 @@ public class IOI_2012_Ideal_City {
   static class Point {
     Integer x, y, prev;
 
-    Point (Integer x, Integer y) {
+    Point(Integer x, Integer y) {
       this(x, y, -1);
     }
 
-    Point (Integer x, Integer y, Integer prev) {
+    Point(Integer x, Integer y, Integer prev) {
       this.x = x;
       this.y = y;
       this.prev = prev;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return x.hashCode() * 31 + y.hashCode();
     }
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x.compareTo(x) == 0 && p.y.compareTo(y) == 0;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

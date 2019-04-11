@@ -16,7 +16,7 @@ public class DMOPC_2014_Not_Enough_Servers {
   static StringTokenizer st;
   static int n, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -90,10 +90,36 @@ public class DMOPC_2014_Not_Enough_Servers {
     pr.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int bitmask, cost, cnt;
 
-    State (int bitmask, int cost) {
+    State(int bitmask, int cost) {
       this.bitmask = bitmask;
       this.cost = cost;
       for (int i = 0; i < m; i++)
@@ -102,36 +128,10 @@ public class DMOPC_2014_Not_Enough_Servers {
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       if (cnt == o.cnt)
         return cost - o.cost;
       return cnt - o.cnt;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

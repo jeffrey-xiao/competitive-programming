@@ -16,7 +16,7 @@ public class Glenforest_Mostly_Talking {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
@@ -61,17 +61,43 @@ public class Glenforest_Mostly_Talking {
     System.out.println(ans == Integer.MAX_VALUE ? -1 : ans);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index, cost, type;
 
-    Vertex (int index, int cost, int type) {
+    Vertex(int index, int cost, int type) {
       this.index = index;
       this.cost = cost;
       this.type = type;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return cost - o.cost;
     }
   }
@@ -80,36 +106,10 @@ public class Glenforest_Mostly_Talking {
     int dest, cost;
     boolean secret;
 
-    Edge (int dest, int cost, boolean secret) {
+    Edge(int dest, int cost, boolean secret) {
       this.dest = dest;
       this.cost = cost;
       this.secret = secret;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

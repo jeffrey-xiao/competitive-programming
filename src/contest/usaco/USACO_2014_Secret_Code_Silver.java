@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class USACO_2014_Secret_Code_Silver {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String input = scan.nextLine();
     int ways = count(input);
 
     System.out.println(ways);
   }
 
-  private static int count (String s) {
+  private static int count(String s) {
     if (s.length() % 2 == 0 || s.length() == 1)
       return 0;
 

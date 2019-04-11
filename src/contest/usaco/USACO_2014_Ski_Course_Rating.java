@@ -15,29 +15,29 @@ public class USACO_2014_Ski_Course_Rating {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
+  static int r, c;
   private static int[] id;
   private static int[] size;
   private static int[] min;
 
-  public static int find (int i) {
+  public static int find(int i) {
     while (i != id[i]) {
       i = id[i];
     }
     return i;
   }
 
-  public static int getLocalMin (int i) {
+  public static int getLocalMin(int i) {
     while (min[i] == -1)
       i = id[i];
     return min[i];
   }
 
-  public static boolean connected (int x, int y) {
+  public static boolean connected(int x, int y) {
     return find(x) == find(y);
   }
 
-  public static void union (int x, int y) {
+  public static void union(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
     if (rootx == rooty)
@@ -51,9 +51,7 @@ public class USACO_2014_Ski_Course_Rating {
     }
   }
 
-  static int r, c;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     int k = readInt();
@@ -114,48 +112,48 @@ public class USACO_2014_Ski_Course_Rating {
     System.out.println(total);
   }
 
+  static int toIndex(int x, int y) {
+    return x * c + y;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int a, b, cost;
 
-    Edge (int a, int b, int cost) {
+    Edge(int a, int b, int cost) {
       this.a = a;
       this.b = b;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return cost - o.cost;
     }
-  }
-
-  static int toIndex (int x, int y) {
-    return x * c + y;
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

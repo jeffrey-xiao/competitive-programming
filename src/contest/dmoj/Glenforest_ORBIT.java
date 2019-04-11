@@ -18,7 +18,7 @@ public class Glenforest_ORBIT {
   static Node[] tree;
   static int[] a;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -45,7 +45,7 @@ public class Glenforest_ORBIT {
     out.close();
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (l == x && x == r) {
       tree[n] = new Node(a[x], a[x], a[x], a[x]);
       return;
@@ -62,7 +62,7 @@ public class Glenforest_ORBIT {
     tree[n].max = Math.max(tree[n << 1 | 1].left | tree[n << 1].right, Math.max(tree[n << 1].max, tree[n << 1 | 1].max));
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       tree[n] = new Node(a[l], a[l], a[l], a[l]);
       return;
@@ -77,7 +77,7 @@ public class Glenforest_ORBIT {
     tree[n].max = Math.max(tree[n << 1 | 1].left | tree[n << 1].right, Math.max(tree[n << 1].max, tree[n << 1 | 1].max));
   }
 
-  static int[] getAdd (int n) {
+  static int[] getAdd(int n) {
     int[] bit = new int[32];
     for (int i = 0; i < 32; i++)
       if ((n & (1 << i)) > 0)
@@ -95,44 +95,44 @@ public class Glenforest_ORBIT {
     return bit;
   }
 
-  static class Node {
-
-    int left, right, max, total;
-
-    Node () {
-    }
-
-    Node (int left, int right, int max, int total) {
-      this.left = left;
-      this.right = right;
-      this.max = max;
-      this.total = total;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+
+    int left, right, max, total;
+
+    Node() {
+    }
+
+    Node(int left, int right, int max, int total) {
+      this.left = left;
+      this.right = right;
+      this.max = max;
+      this.total = total;
+    }
   }
 }

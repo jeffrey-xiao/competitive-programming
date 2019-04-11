@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class CCC_2014_Stage_2_Wheres_That_Fuel {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     ArrayList<Integer[]> planets = new ArrayList<Integer[]>();
     int length = scan.nextInt();
     int startingPos = scan.nextInt();
@@ -22,14 +22,14 @@ public class CCC_2014_Stage_2_Wheres_That_Fuel {
       }
       if (temp < temp1)
         continue;
-      planets.add(new Integer[] {temp - temp1, temp1});
+      planets.add(new Integer[]{temp - temp1, temp1});
     }
     Collections.sort(planets, new Comparator<Object>() {
       @Override
-      public int compare (Object arg0, Object arg1) {
-        if (((Integer[])arg0)[1].intValue() < ((Integer[])arg1)[1].intValue())
+      public int compare(Object arg0, Object arg1) {
+        if (((Integer[]) arg0)[1].intValue() < ((Integer[]) arg1)[1].intValue())
           return 1;
-        else if (((Integer[])arg0)[1].intValue() > ((Integer[])arg1)[1].intValue())
+        else if (((Integer[]) arg0)[1].intValue() > ((Integer[]) arg1)[1].intValue())
           return -1;
         return 0;
       }

@@ -14,7 +14,7 @@ public class CCC_2006_Stage_2_R_And_J {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     Point a = new Point(readInt(), readInt(), readInt());
     Point b = new Point(readInt(), readInt(), readInt());
     int n = readInt();
@@ -26,7 +26,7 @@ public class CCC_2006_Stage_2_R_And_J {
     System.out.println(count);
   }
 
-  private static boolean checkIntersection (Point a, Point b, Point c, double r) {
+  private static boolean checkIntersection(Point a, Point b, Point c, double r) {
     double x1 = (b.x - a.x);
     double y1 = (b.y - a.y);
     double z1 = (b.z - a.z);
@@ -66,35 +66,35 @@ public class CCC_2006_Stage_2_R_And_J {
     return false;
   }
 
-  static class Point {
-    double x, y, z;
-
-    Point (double x, double y, double z) {
-      this.x = x;
-      this.y = y;
-      this.z = z;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    double x, y, z;
+
+    Point(double x, double y, double z) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    }
   }
 }

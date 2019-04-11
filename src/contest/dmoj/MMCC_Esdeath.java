@@ -23,7 +23,7 @@ public class MMCC_Esdeath {
   static int count, n, k;
   static int[] index;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     k = readInt();
     nodes = new State[n];
@@ -56,7 +56,7 @@ public class MMCC_Esdeath {
     System.out.println(lo);
   }
 
-  private static int isPossible (int r) {
+  private static int isPossible(int r) {
     tv = new boolean[n];
     int count = 0;
     for (int x = 0; x < n; x++) {
@@ -70,7 +70,7 @@ public class MMCC_Esdeath {
     return count;
   }
 
-  private static void markNodes (int i, int r) {
+  private static void markNodes(int i, int r) {
     if (r == -1)
       return;
     v[i] = true;
@@ -80,13 +80,13 @@ public class MMCC_Esdeath {
         markNodes(next, r - 1);
   }
 
-  private static int findCenter (int x, int r) {
+  private static int findCenter(int x, int r) {
     if (r == 0)
       return x;
     return findCenter(nodes[index[x]].parent, r - 1);
   }
 
-  private static void getDepth (int i, int d) {
+  private static void getDepth(int i, int d) {
     nodes[i].depth = d++;
     for (Integer next : adj.get(i))
       if (nodes[next].depth == 0) {
@@ -95,43 +95,43 @@ public class MMCC_Esdeath {
       }
   }
 
-  static class State implements Comparable<State> {
-    int id, depth, parent;
-
-    State (int id, int depth) {
-      this.id = id;
-      this.depth = depth;
-    }
-
-    @Override
-    public int compareTo (State o) {
-      return o.depth - depth;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int id, depth, parent;
+
+    State(int id, int depth) {
+      this.id = id;
+      this.depth = depth;
+    }
+
+    @Override
+    public int compareTo(State o) {
+      return o.depth - depth;
+    }
   }
 }

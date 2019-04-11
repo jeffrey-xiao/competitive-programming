@@ -11,18 +11,15 @@ import java.util.StringTokenizer;
 
 public class New_Year_Tiles {
 
+  static final int MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int n, m;
-
   static long[][][][] dp;
-
-  static final int MOD = 1000000007;
   static ArrayList<Integer> states;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -63,7 +60,7 @@ public class New_Year_Tiles {
     out.close();
   }
 
-  static long choose (long n, int k) {
+  static long choose(long n, int k) {
     BigInteger res = new BigInteger("1");
     for (long i = n - k + 1; i <= n; i++)
       res = res.multiply(new BigInteger(Long.toString(i)));
@@ -72,7 +69,7 @@ public class New_Year_Tiles {
     return Long.parseLong(res.mod(new BigInteger(Integer.toString(MOD))).toString());
   }
 
-  static long getGroups (int m, int groups, int left, int prev) {
+  static long getGroups(int m, int groups, int left, int prev) {
     if (left < 0 || groups < 0)
       return 0;
     if (m == 0 && groups == 0 && left == 0)
@@ -99,29 +96,29 @@ public class New_Year_Tiles {
     return dp[m][groups][left][prev] = res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -21,7 +21,7 @@ public class IOI_2007_Pairs {
   static int b, n, d, m, size;
   static long ans;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -116,18 +116,18 @@ public class IOI_2007_Pairs {
     out.close();
   }
 
-  static int query (int x1, int y1, int z1, int x2, int y2, int z2) {
+  static int query(int x1, int y1, int z1, int x2, int y2, int z2) {
     return query(x2, y2, z2) - query(x1, y2, z2) - query(x2, y1, z2) - query(x2, y2, z1) + query(x1, y1, z2) + query(x1, y2, z1) + query(x2, y1, z1) - query(x1, y1, z1);
   }
 
-  static void update (int x, int y, int z, int val) {
+  static void update(int x, int y, int z, int val) {
     for (int i = x; i <= size; i += (i & -i))
       for (int j = y; j <= size; j += (j & -j))
         for (int k = z; k <= size; k += (k & -k))
           bit2[i][j][k] += val;
   }
 
-  static int query (int x, int y, int z) {
+  static int query(int x, int y, int z) {
     int sum = 0;
     for (int i = Math.min(size, x); i > 0; i -= (i & -i))
       for (int j = Math.min(size, y); j > 0; j -= (j & -j))
@@ -136,27 +136,53 @@ public class IOI_2007_Pairs {
     return sum;
   }
 
-  static void update (int x, int val) {
+  static void update(int x, int val) {
     for (int i = x; i <= size; i += (i & -i))
       bit[i] += val;
   }
 
-  static int query (int x) {
+  static int query(int x) {
     int sum = 0;
     for (int i = Math.min(size, x); i > 0; i -= (i & -i))
       sum += bit[i];
     return sum;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     int a, b, c, d;
 
-    Point (int a, int b) {
+    Point(int a, int b) {
       this.a = a;
       this.b = b;
     }
 
-    Point (int a, int b, int c, int d) {
+    Point(int a, int b, int c, int d) {
       this.a = a;
       this.b = b;
       this.c = c;
@@ -164,34 +190,8 @@ public class IOI_2007_Pairs {
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       return a - p.a;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

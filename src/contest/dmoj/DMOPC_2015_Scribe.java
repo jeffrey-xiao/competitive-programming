@@ -16,7 +16,7 @@ public class DMOPC_2015_Scribe {
   static int[] sum1 = new int[10];
   static int[] sum2 = new int[10];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -49,7 +49,7 @@ public class DMOPC_2015_Scribe {
     out.close();
   }
 
-  static void getCnt (int n, int pow, int[] sum, boolean sub) {
+  static void getCnt(int n, int pow, int[] sum, boolean sub) {
     int temp = n / pow(10, pow);
     for (int i = 0; i < temp; i++)
       sum[i] += pow(10, pow);
@@ -68,7 +68,7 @@ public class DMOPC_2015_Scribe {
     getCnt(n % pow(10, pow), pow - 1, sum, false);
   }
 
-  static int pow (int n, int m) {
+  static int pow(int n, int m) {
     if (m == 0)
       return 1;
     if (m == 1)
@@ -79,29 +79,29 @@ public class DMOPC_2015_Scribe {
       return n * pow(n * n, m / 2);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

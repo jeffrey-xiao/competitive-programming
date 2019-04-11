@@ -20,7 +20,7 @@ public class DWITE_2007_Velociraptor_Maze {
   static int ey;
   static boolean[][] path;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     char[][] grid = new char[r][];
@@ -97,7 +97,7 @@ public class DWITE_2007_Velociraptor_Maze {
     dfs(numMoves, new Point(ex, ey), prevh);
     check(numMoves, new Point(ex, ey), prevv);
     if (flag && numMoves[ex][ey] > fast) {
-      lastMove = (int)numMoves[ex][ey];
+      lastMove = (int) numMoves[ex][ey];
       flag = false;
     }
     if (flag)
@@ -106,7 +106,7 @@ public class DWITE_2007_Velociraptor_Maze {
       System.out.println(lastMove);
   }
 
-  private static float dfs (float[][] numMoves, Point p, Point[][] prev) {
+  private static float dfs(float[][] numMoves, Point p, Point[][] prev) {
     if (p.x == -1 && p.y == -1)
       return 0;
     path[p.x][p.y] = true;
@@ -115,7 +115,7 @@ public class DWITE_2007_Velociraptor_Maze {
 
   }
 
-  private static float check (float[][] numMoves, Point p, Point[][] prev) {
+  private static float check(float[][] numMoves, Point p, Point[][] prev) {
     if (p.x == -1 && p.y == -1)
       return -0.5f;
 
@@ -124,7 +124,7 @@ public class DWITE_2007_Velociraptor_Maze {
     if (path[p.x][p.y] && flag && numMoves[p.x][p.y] == Math.ceil(value)) {
       flag = false;
 
-      lastMove = (int)numMoves[p.x][p.y];
+      lastMove = (int) numMoves[p.x][p.y];
     }
 
     if (p.x == ex && p.y == ey) {
@@ -134,35 +134,35 @@ public class DWITE_2007_Velociraptor_Maze {
 
   }
 
-  static class Point {
-    int x;
-    int y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x;
+    int y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

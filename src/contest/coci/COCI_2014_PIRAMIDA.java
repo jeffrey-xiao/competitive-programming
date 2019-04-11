@@ -16,7 +16,7 @@ public class COCI_2014_PIRAMIDA {
 
   static long n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     ps = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -52,11 +52,11 @@ public class COCI_2014_PIRAMIDA {
       long diff = l - 1;
       int left = 0, right = 0;
       if (l % 2 == 0) {
-        left = (int)((((l - 1) % N) * (l / 2 % N)) % N + 1);
-        right = (int)((((l + 1) % N) * (l / 2 % N) - 1) % N + 1);
+        left = (int) ((((l - 1) % N) * (l / 2 % N)) % N + 1);
+        right = (int) ((((l + 1) % N) * (l / 2 % N) - 1) % N + 1);
       } else {
-        left = (int)((((l - 1) / 2 % N) * (l % N)) % N + 1);
-        right = (int)((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
+        left = (int) ((((l - 1) / 2 % N) * (l % N)) % N + 1);
+        right = (int) ((((l + 1) / 2 % N) * (l % N) - 1) % N + 1);
       }
 
       long num = ((diff + 1 + N - 1)) / N;
@@ -72,46 +72,46 @@ public class COCI_2014_PIRAMIDA {
     ps.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Query implements Comparable<Query> {
     long line;
     char c;
     int index;
 
-    Query (long line, char c, int index) {
+    Query(long line, char c, int index) {
       this.line = line;
       this.c = c;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Query o) {
+    public int compareTo(Query o) {
       return c - o.c;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

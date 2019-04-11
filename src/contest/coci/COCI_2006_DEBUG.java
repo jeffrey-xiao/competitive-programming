@@ -9,16 +9,15 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_DEBUG {
 
+  static final int SIZE = 18;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int R, C;
   static int[][] g;
   static long[][][] pre;
-  static final int SIZE = 18;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -105,7 +104,7 @@ public class COCI_2006_DEBUG {
     out.close();
   }
 
-  static boolean canExpandBig2 (int i, int j, int currSize) {
+  static boolean canExpandBig2(int i, int j, int currSize) {
     for (int k = -(currSize + SIZE); k <= currSize + SIZE + 1; k++) {
       if (pre[1][i + k][j - currSize] != pre[3][i - k + 1][j + currSize + 1])
         return false;
@@ -115,7 +114,7 @@ public class COCI_2006_DEBUG {
     return true;
   }
 
-  static boolean canExpandBig1 (int i, int j, int currSize) {
+  static boolean canExpandBig1(int i, int j, int currSize) {
     for (int k = -(currSize + SIZE); k <= currSize + SIZE; k++) {
       if (pre[1][i + k][j - currSize] != pre[3][i - k][j + currSize])
         return false;
@@ -125,7 +124,7 @@ public class COCI_2006_DEBUG {
     return true;
   }
 
-  static boolean canExpandSmall2 (int i, int j, int currSize) {
+  static boolean canExpandSmall2(int i, int j, int currSize) {
     for (int k = -(currSize + 1); k <= currSize + 2; k++) {
       if (g[i + k][j - currSize - 1] != g[i + 1 - k][j + currSize + 2])
         return false;
@@ -135,7 +134,7 @@ public class COCI_2006_DEBUG {
     return true;
   }
 
-  static boolean canExpandSmall1 (int i, int j, int currSize) {
+  static boolean canExpandSmall1(int i, int j, int currSize) {
     for (int k = -(currSize + 1); k <= currSize + 1; k++) {
       if (g[i + k][j - currSize - 1] != g[i - k][j + currSize + 1])
         return false;
@@ -145,29 +144,29 @@ public class COCI_2006_DEBUG {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

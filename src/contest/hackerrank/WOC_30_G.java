@@ -30,7 +30,7 @@ public class WOC_30_G {
   static double LOG_2 = Math.log(2);
   static double[] log = new double[2000001];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -65,7 +65,7 @@ public class WOC_30_G {
 
     sa = SA.computeSuffixArray(text);
     lcp = getLcp(sa, text);
-    ln = 1 + (int)(Math.ceil(Math.log(lcp.length - 1) / Math.log(2)));
+    ln = 1 + (int) (Math.ceil(Math.log(lcp.length - 1) / Math.log(2)));
 
     // computing the word associated with each index
     for (int i = 0; i < totalLen; i++) {
@@ -156,80 +156,13 @@ public class WOC_30_G {
     out.close();
   }
 
-  static class Pair {
-    int x, y;
-
-    Pair (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    @Override
-    public int hashCode () {
-      return x * 31 + y;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Pair) {
-        Pair p = (Pair)o;
-        return x == p.x && y == p.y;
-      }
-      return false;
-    }
-  }
-
-  static int getRangeMin (int l, int r) {
+  static int getRangeMin(int l, int r) {
     int sz = r - l + 1;
-    int lnSz = (int)(log[sz] / LOG_2);
+    int lnSz = (int) (log[sz] / LOG_2);
     return Math.min(rmq[l][lnSz], rmq[r - (1 << lnSz) + 1][lnSz]);
   }
 
-  static class SA {
-    static final SuffixComparator C = new SuffixComparator();
-    static int[] order;
-    static int sz, len;
-
-    static Integer[] computeSuffixArray (int[] input) {
-      len = input.length;
-      Integer[] res = new Integer[len];
-      order = new int[len];
-      int[] newOrder = new int[len];
-      sz = 0;
-
-      for (int i = 0; i < len; i++) {
-        res[i] = i;
-        order[i] = input[i];
-        newOrder[i] = 0;
-      }
-
-      for (sz = 1;; sz <<= 1) {
-        Arrays.sort(res, C);
-        for (int i = 0; i < len - 1; i++)
-          newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);
-        for (int i = 0; i < len; i++)
-          order[res[i]] = newOrder[i];
-        if (newOrder[len - 1] == len - 1)
-          break;
-      }
-
-      return res;
-    }
-
-    // Comparator for suffixes
-    static class SuffixComparator implements Comparator<Integer> {
-      @Override
-      public int compare (Integer o1, Integer o2) {
-        if (order[o1] != order[o2])
-          return order[o1] - order[o2];
-        if ((o1 += sz) < len & (o2 += sz) < len)
-          return order[o1] - order[o2];
-        return o2 - o1;
-      }
-    }
-  }
-
-  static int[] getLcp (Integer[] sa, int[] text) {
+  static int[] getLcp(Integer[] sa, int[] text) {
     int len = text.length;
     int[] rank = new int[len];
     int[] LCP = new int[len - 1];
@@ -251,29 +184,96 @@ public class WOC_30_G {
     return LCP;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Pair {
+    int x, y;
+
+    Pair(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public int hashCode() {
+      return x * 31 + y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Pair) {
+        Pair p = (Pair) o;
+        return x == p.x && y == p.y;
+      }
+      return false;
+    }
+  }
+
+  static class SA {
+    static final SuffixComparator C = new SuffixComparator();
+    static int[] order;
+    static int sz, len;
+
+    static Integer[] computeSuffixArray(int[] input) {
+      len = input.length;
+      Integer[] res = new Integer[len];
+      order = new int[len];
+      int[] newOrder = new int[len];
+      sz = 0;
+
+      for (int i = 0; i < len; i++) {
+        res[i] = i;
+        order[i] = input[i];
+        newOrder[i] = 0;
+      }
+
+      for (sz = 1; ; sz <<= 1) {
+        Arrays.sort(res, C);
+        for (int i = 0; i < len - 1; i++)
+          newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);
+        for (int i = 0; i < len; i++)
+          order[res[i]] = newOrder[i];
+        if (newOrder[len - 1] == len - 1)
+          break;
+      }
+
+      return res;
+    }
+
+    // Comparator for suffixes
+    static class SuffixComparator implements Comparator<Integer> {
+      @Override
+      public int compare(Integer o1, Integer o2) {
+        if (order[o1] != order[o2])
+          return order[o1] - order[o2];
+        if ((o1 += sz) < len & (o2 += sz) < len)
+          return order[o1] - order[o2];
+        return o2 - o1;
+      }
+    }
   }
 }

@@ -20,7 +20,7 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
   static double p;
   static Node root;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -67,7 +67,7 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
     out.close();
   }
 
-  static void addWord (String s) {
+  static void addWord(String s) {
     Node curr = root;
     for (int i = 0; i < s.length(); i++) {
       char c = s.charAt(i);
@@ -80,6 +80,32 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     boolean isEnd;
     int depth;
@@ -87,38 +113,12 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
     ArrayList<Node> list = new ArrayList<Node>();
     int[] min = new int[101];
 
-    Node (boolean isEnd, int depth) {
+    Node(boolean isEnd, int depth) {
       this.isEnd = isEnd;
       this.depth = depth;
       child = new Node[26];
       for (int i = 0; i <= 100; i++)
         min[i] = 1 << 29;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

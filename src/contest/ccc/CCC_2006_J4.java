@@ -16,7 +16,7 @@ public class CCC_2006_J4 {
   public static ArrayList<Integer> before = new ArrayList<Integer>(Arrays.asList(temp1));
   public static ArrayList<Integer> after = new ArrayList<Integer>(Arrays.asList(temp2));
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int value = scan.nextInt();
     int value2 = scan.nextInt();
     while (value != 0 && value2 != 0) {
@@ -49,7 +49,7 @@ public class CCC_2006_J4 {
 
   }
 
-  public static boolean checkCanDo (int task) {
+  public static boolean checkCanDo(int task) {
     for (int x = 0; x < after.size(); x++) {
       if (after.get(x) == task && !done.contains(before.get(x))) {
         return false;

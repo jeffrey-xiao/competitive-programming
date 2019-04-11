@@ -16,7 +16,7 @@ public class CCC_2004_J5 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int level = readInt();
     int width = readInt();
     int targetx = readInt();
@@ -116,10 +116,36 @@ public class CCC_2004_J5 {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class HLine {
     int x1, x2, y;
 
-    HLine (int x1, int x2, int y) {
+    HLine(int x1, int x2, int y) {
       this.x1 = x1;
       this.x2 = x2;
       this.y = y;
@@ -129,36 +155,10 @@ public class CCC_2004_J5 {
   static class VLine {
     int y1, y2, x;
 
-    VLine (int y1, int y2, int x) {
+    VLine(int y1, int y2, int x) {
       this.y1 = y1;
       this.y2 = y2;
       this.x = x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

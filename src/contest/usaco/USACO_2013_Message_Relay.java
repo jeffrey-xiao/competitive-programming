@@ -11,7 +11,7 @@ public class USACO_2013_Message_Relay {
   static StringTokenizer st;
   static boolean[] loopy = new boolean[0];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     loopy = new boolean[n];
     int[] adjlist = new int[n];
@@ -34,7 +34,7 @@ public class USACO_2013_Message_Relay {
     System.out.println(n - counter);
   }
 
-  private static boolean dfs (int x, boolean[] visited, int[] adjlist) {
+  private static boolean dfs(int x, boolean[] visited, int[] adjlist) {
     if (visited[x]) {
       loopy[x] = true;
       return true;
@@ -48,25 +48,25 @@ public class USACO_2013_Message_Relay {
     return isLoopy;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

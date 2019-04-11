@@ -9,18 +9,16 @@ import java.util.StringTokenizer;
 
 public class Clash_May_2016_P2 {
 
+  static final int MOD = 252;
+  static final long M = 1l << 32;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static long N;
-  static final int MOD = 252;
   static long[][] dp;
-
   static Matrix A, T, I;
-  static final long M = 1l << 32;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -54,10 +52,36 @@ public class Clash_May_2016_P2 {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Matrix {
     long[][] data = new long[MOD][MOD];
 
-    Matrix multiply (Matrix m) {
+    Matrix multiply(Matrix m) {
       Matrix ret = new Matrix();
       for (int i = 0; i < MOD; i++)
         for (int k = 0; k < MOD; k++)
@@ -65,31 +89,5 @@ public class Clash_May_2016_P2 {
             ret.data[i][j] = (ret.data[i][j] + data[i][k] * m.data[k][j] % M) % M;
       return ret;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

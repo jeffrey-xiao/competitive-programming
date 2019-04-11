@@ -12,7 +12,7 @@ public class IOI_2001_Mobile_Phones {
   static int[][] tree;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     readInt();
     n = readInt();
     tree = new int[n + 1][n + 1];
@@ -35,7 +35,7 @@ public class IOI_2001_Mobile_Phones {
     }
   }
 
-  static void update (int idxx, int idxy, int val) {
+  static void update(int idxx, int idxy, int val) {
     int y = idxy;
     while (idxx <= n) {
       idxy = y;
@@ -47,7 +47,7 @@ public class IOI_2001_Mobile_Phones {
     }
   }
 
-  static int freqTo (int idxx, int idxy) {
+  static int freqTo(int idxx, int idxy) {
     int sum = 0;
     int y = idxy;
     while (idxx > 0) {
@@ -61,25 +61,25 @@ public class IOI_2001_Mobile_Phones {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

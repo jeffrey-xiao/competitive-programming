@@ -20,7 +20,7 @@ public class Christmas_Tree_Cutting {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     int sx = 0, sy = 0, ex = 0, ey = 0;
@@ -81,15 +81,41 @@ public class Christmas_Tree_Cutting {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int x, y, moves, trees;
 
-    State (int x, int y) {
+    State(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
-    State (int x, int y, int moves, int trees) {
+    State(int x, int y, int moves, int trees) {
       this.x = x;
       this.y = y;
       this.moves = moves;
@@ -97,34 +123,8 @@ public class Christmas_Tree_Cutting {
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       return moves - o.moves;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

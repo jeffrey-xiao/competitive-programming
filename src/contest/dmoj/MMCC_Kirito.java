@@ -17,7 +17,7 @@ public class MMCC_Kirito {
   static String[] grid;
   static int n, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -58,7 +58,7 @@ public class MMCC_Kirito {
     out.close();
   }
 
-  static void update (int i) {
+  static void update(int i) {
     if (i <= 1 || i > n)
       return;
     int j = 0;
@@ -69,7 +69,7 @@ public class MMCC_Kirito {
     update(1, 1, n, i);
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (x == l && x == r) {
       tree[n] = lcp[x];
       return;
@@ -82,7 +82,7 @@ public class MMCC_Kirito {
     tree[n] = Math.min(tree[n << 1], tree[n << 1 | 1]);
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       tree[n] = lcp[l];
       return;
@@ -93,7 +93,7 @@ public class MMCC_Kirito {
     tree[n] = Math.min(tree[n << 1], tree[n << 1 | 1]);
   }
 
-  static int query (int n, int l, int r, int ql, int qr) {
+  static int query(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr) {
       return tree[n];
     }
@@ -106,29 +106,29 @@ public class MMCC_Kirito {
       return Math.min(query(n << 1, l, mid, ql, mid), query(n << 1 | 1, mid + 1, r, mid + 1, qr));
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

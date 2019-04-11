@@ -22,7 +22,7 @@ public class CCC_2016_Stage_2_Legends {
   static Edge[] e;
   static int[] last;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -63,10 +63,44 @@ public class CCC_2016_Stage_2_Legends {
     out.close();
   }
 
+  static void addEdge(int a, int b, Edge[] e, int cnt) {
+    e[cnt] = new Edge(b, last[a]);
+    last[a] = cnt++;
+
+    e[cnt] = new Edge(a, last[b]);
+    last[b] = cnt++;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Solve1 {
     int[] par, depth, occ;
 
-    Solve1 () {
+    Solve1() {
       par = new int[N];
       depth = new int[N];
       occ = new int[N];
@@ -77,7 +111,7 @@ public class CCC_2016_Stage_2_Legends {
       }
     }
 
-    int getDepth (int a) {
+    int getDepth(int a) {
       if (depth[a] != -1)
         return depth[a];
       if (par[a] == a)
@@ -85,7 +119,7 @@ public class CCC_2016_Stage_2_Legends {
       return depth[a] = getDepth(par[a]) + 1;
     }
 
-    boolean solve () {
+    boolean solve() {
       Queue<Integer> q = new ArrayDeque<Integer>();
       q.offer(0);
       par[0] = 0;
@@ -128,7 +162,7 @@ public class CCC_2016_Stage_2_Legends {
   }
 
   static class Solve2 {
-    boolean solve () {
+    boolean solve() {
       return M >= N;
     }
   }
@@ -136,7 +170,7 @@ public class CCC_2016_Stage_2_Legends {
   static class Solve3 {
     int[] par, depth, occ;
 
-    Solve3 () {
+    Solve3() {
       par = new int[N];
       depth = new int[N];
       occ = new int[N];
@@ -147,7 +181,7 @@ public class CCC_2016_Stage_2_Legends {
       }
     }
 
-    boolean solve () {
+    boolean solve() {
       Queue<Integer> q = new ArrayDeque<Integer>();
       q.offer(0);
       par[0] = 0;
@@ -195,11 +229,11 @@ public class CCC_2016_Stage_2_Legends {
   static class Solve4 {
     int[] degree;
 
-    Solve4 () {
+    Solve4() {
       degree = new int[N];
     }
 
-    boolean solve () {
+    boolean solve() {
       for (int i = 0; i < 2 * M; i++)
         degree[e[i].to]++;
 
@@ -216,14 +250,14 @@ public class CCC_2016_Stage_2_Legends {
     int[] degree;
     Stack<Integer> edgeStack;
 
-    Solve5 () {
+    Solve5() {
       vis = new boolean[N];
       visE = new boolean[M * 2];
       degree = new int[N];
       edgeStack = new Stack<Integer>();
     }
 
-    boolean isValid (int u, int prevEdge) {
+    boolean isValid(int u, int prevEdge) {
       vis[u] = true;
       boolean ret = false;
       for (int v = last[u]; v != -1; v = e[v].last) {
@@ -263,7 +297,7 @@ public class CCC_2016_Stage_2_Legends {
       return ret;
     }
 
-    boolean solve () {
+    boolean solve() {
       for (int i = 0; i < 2 * M; i++)
         degree[e[i].to]++;
 
@@ -271,46 +305,12 @@ public class CCC_2016_Stage_2_Legends {
     }
   }
 
-  static void addEdge (int a, int b, Edge[] e, int cnt) {
-    e[cnt] = new Edge(b, last[a]);
-    last[a] = cnt++;
-
-    e[cnt] = new Edge(a, last[b]);
-    last[b] = cnt++;
-  }
-
   static class Edge {
     int to, last;
 
-    Edge (int to, int last) {
+    Edge(int to, int last) {
       this.to = to;
       this.last = last;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

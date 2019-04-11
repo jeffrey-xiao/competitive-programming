@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2004_S5 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int width = scan.nextInt();
     scan.nextLine();
     while (width != 0) {

@@ -14,7 +14,7 @@ public class Valentines_P2 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     Cage[] c = new Cage[n + 1];
@@ -41,38 +41,38 @@ public class Valentines_P2 {
     System.out.println(max);
   }
 
-  static class Cage {
-    int p, t;
-
-    Cage (int p, int t) {
-      this.p = p;
-      this.t = t;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Cage {
+    int p, t;
+
+    Cage(int p, int t) {
+      this.p = p;
+      this.t = t;
+    }
   }
 }

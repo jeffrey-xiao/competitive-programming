@@ -11,17 +11,15 @@ import java.util.TreeSet;
 
 public class CCC_2015_Stage_2_Eggscavation {
 
+  static final int BIT_SIZE = 100001;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int BIT_SIZE = 100001;
-
   static int N, K, M, T;
   static int[][] val;
   static int[] bit = new int[BIT_SIZE];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -129,28 +127,14 @@ public class CCC_2015_Stage_2_Eggscavation {
     out.close();
   }
 
-  static class Pair implements Comparable<Pair> {
-    int col, val;
-
-    Pair (int col, int val) {
-      this.col = col;
-      this.val = val;
-    }
-
-    @Override
-    public int compareTo (Pair o) {
-      return col - o.col;
-    }
-  }
-
-  static void update (int x, int val) {
+  static void update(int x, int val) {
     if (x == 0)
       return;
     for (int i = x; i < BIT_SIZE; i += (i & -i))
       bit[i] += val;
   }
 
-  static int query (int x) {
+  static int query(int x) {
     x = Math.min(BIT_SIZE - 1, x);
     int sum = 0;
     for (int i = x; i > 0; i -= (i & -i))
@@ -158,29 +142,43 @@ public class CCC_2015_Stage_2_Eggscavation {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Pair implements Comparable<Pair> {
+    int col, val;
+
+    Pair(int col, int val) {
+      this.col = col;
+      this.val = val;
+    }
+
+    @Override
+    public int compareTo(Pair o) {
+      return col - o.col;
+    }
   }
 }

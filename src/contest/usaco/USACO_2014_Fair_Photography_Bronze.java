@@ -16,7 +16,7 @@ public class USACO_2014_Fair_Photography_Bronze {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[] sum = new int[n + 1];
     Cow[] cows = new Cow[n + 1];
@@ -26,7 +26,7 @@ public class USACO_2014_Fair_Photography_Bronze {
       cows[x] = new Cow(readInt(), readCharacter() == 'G');
     }
     Arrays.sort(cows, 1, cows.length);
-    for (int x = 1; x <= n;) {
+    for (int x = 1; x <= n; ) {
       int sizeOfOne = 1;
       while (x + sizeOfOne <= n && cows[x].isG == cows[x + sizeOfOne].isG)
         sizeOfOne++;
@@ -46,44 +46,44 @@ public class USACO_2014_Fair_Photography_Bronze {
     System.out.println(largest);
   }
 
-  static class Cow implements Comparable<Cow> {
-    boolean isG;
-    int dist;
-
-    Cow (int dist, boolean isG) {
-      this.dist = dist;
-      this.isG = isG;
-    }
-
-    @Override
-    public int compareTo (Cow o) {
-      return dist - o.dist;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Cow implements Comparable<Cow> {
+    boolean isG;
+    int dist;
+
+    Cow(int dist, boolean isG) {
+      this.dist = dist;
+      this.isG = isG;
+    }
+
+    @Override
+    public int compareTo(Cow o) {
+      return dist - o.dist;
+    }
   }
 }

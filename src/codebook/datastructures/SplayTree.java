@@ -15,30 +15,24 @@ public class SplayTree {
   // root of the tree
   Node root = null;
 
-  // object representing a node of the tree
-  class Node implements Comparable<Node> {
-    int key;
-    int value;
-    Node left, right;
-
-    Node (int key) {
-      this.key = key;
-      this.value = key;
+  public static void main(String[] args) {
+    SplayTree t = new SplayTree();
+    long c = System.currentTimeMillis();
+    for (int x = 0; x < 100; x++) {
+      int ran = (int) (Math.random() * (100)) + 5;
+      t.add(ran);
     }
-
-    Node (int key, int value) {
-      this.key = key;
-      this.value = value;
-    }
-
-    @Override
-    public int compareTo (Node o) {
-      return key - o.key;
-    }
+    t.traverse(t.root);
+    t.add(1);
+    System.out.println(t.contains(1));
+    System.out.println(t.contains(2));
+    t.remove(1);
+    System.out.println(t.contains(1));
+    System.out.println(System.currentTimeMillis() - c);
   }
 
   // in order traversal of the tree
-  public void traverse (Node n) {
+  public void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -46,11 +40,11 @@ public class SplayTree {
     traverse(n.right);
   }
 
-  public void add (Integer k) {
+  public void add(Integer k) {
     add(k, k);
   }
 
-  public void add (Integer k, Integer v) {
+  public void add(Integer k, Integer v) {
     // empty tree
     if (root == null) {
       root = new Node(k, v);
@@ -80,19 +74,19 @@ public class SplayTree {
       root.value = v;
   }
 
-  public boolean contains (Integer k) {
+  public boolean contains(Integer k) {
     root = splay(root, k);
     return k.compareTo(root.key) == 0;
   }
 
-  public Integer get (Integer k) {
+  public Integer get(Integer k) {
     root = splay(root, k);
     if (k.compareTo(root.key) != 0)
       return null;
     return root.value;
   }
 
-  public void remove (Integer k) {
+  public void remove(Integer k) {
     // empty tree
     if (root == null)
       return;
@@ -105,8 +99,8 @@ public class SplayTree {
       // if it has only one child
       if (root.left == null)
         root = root.right;
-      // move the rightmost node from the left subtree up to replace the
-      // node
+        // move the rightmost node from the left subtree up to replace the
+        // node
       else {
         Node right = root.right;
         root = root.left;
@@ -118,7 +112,7 @@ public class SplayTree {
   }
 
   // splay method
-  public Node splay (Node n, Integer k) {
+  public Node splay(Node n, Integer k) {
     if (n == null)
       return null;
     int cmp1 = k.compareTo(n.key);
@@ -171,7 +165,7 @@ public class SplayTree {
   }
 
   // left rotation
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -179,27 +173,33 @@ public class SplayTree {
   }
 
   // right rotation
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
     return x;
   }
 
-  public static void main (String[] args) {
-    SplayTree t = new SplayTree();
-    long c = System.currentTimeMillis();
-    for (int x = 0; x < 100; x++) {
-      int ran = (int)(Math.random() * (100)) + 5;
-      t.add(ran);
+  // object representing a node of the tree
+  class Node implements Comparable<Node> {
+    int key;
+    int value;
+    Node left, right;
+
+    Node(int key) {
+      this.key = key;
+      this.value = key;
     }
-    t.traverse(t.root);
-    t.add(1);
-    System.out.println(t.contains(1));
-    System.out.println(t.contains(2));
-    t.remove(1);
-    System.out.println(t.contains(1));
-    System.out.println(System.currentTimeMillis() - c);
+
+    Node(int key, int value) {
+      this.key = key;
+      this.value = value;
+    }
+
+    @Override
+    public int compareTo(Node o) {
+      return key - o.key;
+    }
   }
 
 }

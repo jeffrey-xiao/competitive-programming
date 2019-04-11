@@ -17,7 +17,7 @@ public class Mkthnum {
   static int[] a;
   static int n, q;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -39,7 +39,7 @@ public class Mkthnum {
     out.close();
   }
 
-  static int[] merge (int[] a, int[] b) {
+  static int[] merge(int[] a, int[] b) {
     int[] res = new int[a.length + b.length];
     int j = 0;
     int k = 0;
@@ -52,7 +52,7 @@ public class Mkthnum {
     return res;
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     tree[n] = new int[(r - l) + 1];
     if (l == r) {
       tree[n][0] = a[l - 1];
@@ -64,7 +64,7 @@ public class Mkthnum {
     tree[n] = merge(tree[n << 1], tree[n << 1 | 1]);
   }
 
-  static int query (int l, int r, int k) {
+  static int query(int l, int r, int k) {
     int lo = -1000000000, hi = 1000000000;
     while (lo <= hi) {
       int mid = lo + (hi - lo) / 2;
@@ -76,7 +76,7 @@ public class Mkthnum {
     return lo;
   }
 
-  static int query (int n, int l, int r, int ql, int qr, int val) {
+  static int query(int n, int l, int r, int ql, int qr, int val) {
     if (ql == l && qr == r) {
       int lo = 0, hi = r - l;
       while (lo <= hi) {
@@ -97,29 +97,29 @@ public class Mkthnum {
       return query(n << 1, l, mid, ql, mid, val) + query(n << 1 | 1, mid + 1, r, mid + 1, qr, val);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

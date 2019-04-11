@@ -17,7 +17,7 @@ public class COCI_2008_SKAKAVAC {
   static int n, r, c;
   static int[] poss = {-1, 1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     r = readInt() - 1;
     c = readInt() - 1;
@@ -55,45 +55,45 @@ public class COCI_2008_SKAKAVAC {
     System.out.println(max);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     short x, y;
     int p;
 
-    Point (short x, short y, int p) {
+    Point(short x, short y, int p) {
       this.x = x;
       this.y = y;
       this.p = p;
     }
 
     @Override
-    public int compareTo (Point o) {
+    public int compareTo(Point o) {
       return p - o.p;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 class CCC_2006_J5 {
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String input = scan.nextLine();
     String[] inputarr = input.split(" ");
     char config = inputarr[0].charAt(0);
@@ -17,7 +17,8 @@ class CCC_2006_J5 {
   }
 
   static class Othello_Board {
-    private int[][] array = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};;
+    private int[][] array = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+    ;
     private char config;
     private int numOfBlack;
     private int numOfWhite;
@@ -25,13 +26,13 @@ class CCC_2006_J5 {
     private int[] movex = {-1, -1, -1, 0, 0, 1, 1, 1};
     private int[] movey = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-    Othello_Board (char config) {
+    Othello_Board(char config) {
       blackToMove = true;
       this.config = config;
       setConfig();
     }
 
-    private void setConfig () {
+    private void setConfig() {
       if (config == 'a') {
         array[3][3] = 2;
         array[3][4] = 1;
@@ -53,7 +54,7 @@ class CCC_2006_J5 {
       }
     }
 
-    public void move (int x, int y) {
+    public void move(int x, int y) {
       x--;
       y--;
       int pieceNum = blackToMove ? 2 : 1;
@@ -85,7 +86,7 @@ class CCC_2006_J5 {
       sameNum = !blackToMove ? 2 : 1;
     }
 
-    public void countPieces () {
+    public void countPieces() {
       numOfBlack = 0;
       numOfWhite = 0;
       for (int x = 0; x < 8; x++) {
@@ -99,23 +100,23 @@ class CCC_2006_J5 {
       }
     }
 
-    public int getnumOfBlack () {
+    public int getnumOfBlack() {
       return numOfBlack;
     }
 
-    public void setnumOfBlack (int numOfBlack) {
+    public void setnumOfBlack(int numOfBlack) {
       this.numOfBlack = numOfBlack;
     }
 
-    public int getnumOfWhite () {
+    public int getnumOfWhite() {
       return numOfWhite;
     }
 
-    public void setnumOfWhite (int numOfWhite) {
+    public void setnumOfWhite(int numOfWhite) {
       this.numOfWhite = numOfWhite;
     }
 
-    public void printArray () {
+    public void printArray() {
       for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
           System.out.print(array[x][y]);

@@ -10,7 +10,7 @@ public class COCI_2007_LEKTIRA {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String s = next();
     String currLow = new String(s);
     for (int x = 1; x < s.length() - 1; x++) {
@@ -26,7 +26,7 @@ public class COCI_2007_LEKTIRA {
     System.out.println(currLow);
   }
 
-  private static int compare (String s1, String s2) {
+  private static int compare(String s1, String s2) {
     for (int x = 0; x < s1.length(); x++) {
       if (s1.charAt(x) != s2.charAt(x))
         return new Integer(s1.charAt(x)).compareTo(new Integer(s2.charAt(x)));
@@ -35,25 +35,25 @@ public class COCI_2007_LEKTIRA {
     return 0;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -22,7 +22,7 @@ public class NEERC_2010_Ideal_Path {
   static int[] color;
   static int[] prev;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     for (int x = 0; x < n; x++)
@@ -68,45 +68,45 @@ public class NEERC_2010_Ideal_Path {
     print(n - 1);
   }
 
-  private static void print (int i) {
+  private static void print(int i) {
     if (i != 0) {
       print(prev[i]);
       System.out.println(i + " " + color[i] + " " + dist[i]);
     }
   }
 
-  static class Edge {
-    int dest, color;
-
-    Edge (int dest_, int color_) {
-      dest = dest_;
-      color = color_;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, color;
+
+    Edge(int dest_, int color_) {
+      dest = dest_;
+      color = color_;
+    }
   }
 }

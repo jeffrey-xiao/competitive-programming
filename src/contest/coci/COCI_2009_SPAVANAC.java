@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class COCI_2009_SPAVANAC {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int min = scan.nextInt() * 60 + scan.nextInt() - 45;
     if (min < 0)
       min += 1440;

@@ -7,7 +7,7 @@ public class CCC_2014_J4_S1 {
 
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     ArrayList<Integer> people = new ArrayList<Integer>();
     int k = scan.nextInt();
     for (int x = 0; x < k; x++)

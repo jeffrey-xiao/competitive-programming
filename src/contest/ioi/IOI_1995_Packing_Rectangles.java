@@ -21,7 +21,7 @@ public class IOI_1995_Packing_Rectangles {
   static int cr;
   static int cc;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +38,7 @@ public class IOI_1995_Packing_Rectangles {
     out.close();
   }
 
-  static void permute (int i) {
+  static void permute(int i) {
     if (i == 3) {
       for (int j = 0; j < 1 << 4; j++) {
         cr = r[0][j >> 0 & 1] + r[1][j >> 1 & 1] + r[2][j >> 2 & 1] + r[3][j >> 3 & 1];
@@ -66,7 +66,7 @@ public class IOI_1995_Packing_Rectangles {
     }
   }
 
-  static void add (int r, int c) {
+  static void add(int r, int c) {
     if (r * c < min) {
       min = r * c;
       ans.clear();
@@ -76,70 +76,70 @@ public class IOI_1995_Packing_Rectangles {
     }
   }
 
-  static int max (int... val) {
+  static int max(int... val) {
     int ret = 0;
     for (int x : val)
       ret = Math.max(ret, x);
     return ret;
   }
 
-  static void swap (int i, int j) {
+  static void swap(int i, int j) {
     int[] temp = r[i];
     r[i] = r[j];
     r[j] = temp;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Rect implements Comparable<Rect> {
     int r, c;
 
-    Rect (int r, int c) {
+    Rect(int r, int c) {
       this.r = r;
       this.c = c;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return r + c;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Rect) {
-        Rect rect = (Rect)o;
+        Rect rect = (Rect) o;
         return r == rect.r && c == rect.c;
       }
       return false;
     }
 
     @Override
-    public int compareTo (Rect rect) {
+    public int compareTo(Rect rect) {
       return r - rect.r;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -17,7 +17,7 @@ public class DMOPC_2014_Yokan {
   static int n, m;
   static Candy[] cc;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -42,7 +42,7 @@ public class DMOPC_2014_Yokan {
       int res = 0;
       hs.clear();
       for (int j = 0; j < 25; j++) {
-        int rand = (int)(Math.random() * (r - l + 1) + l);
+        int rand = (int) (Math.random() * (r - l + 1) + l);
         int cnt = lower(in[rand], r) - Math.max(0, higher(in[rand], l)) + 1;
         if (cnt * 3 >= (r - l + 1) * 2) {
           valid = true;
@@ -61,7 +61,7 @@ public class DMOPC_2014_Yokan {
     pr.close();
   }
 
-  static int lower (int v, int i) {
+  static int lower(int v, int i) {
     int lo = 0;
     int hi = n - 1;
     while (lo <= hi) {
@@ -74,7 +74,7 @@ public class DMOPC_2014_Yokan {
     return hi;
   }
 
-  static int higher (int v, int i) {
+  static int higher(int v, int i) {
     int lo = 0;
     int hi = n - 1;
     while (lo <= hi) {
@@ -87,46 +87,46 @@ public class DMOPC_2014_Yokan {
     return lo;
   }
 
-  static class Candy implements Comparable<Candy> {
-    int v, i;
-
-    Candy (int v, int i) {
-      this.v = v;
-      this.i = i;
-    }
-
-    @Override
-    public int compareTo (Candy o) {
-      if (v == o.v)
-        return i - o.i;
-      return v - o.v;
-    }
-
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Candy implements Comparable<Candy> {
+    int v, i;
+
+    Candy(int v, int i) {
+      this.v = v;
+      this.i = i;
+    }
+
+    @Override
+    public int compareTo(Candy o) {
+      if (v == o.v)
+        return i - o.i;
+      return v - o.v;
+    }
+
   }
 }

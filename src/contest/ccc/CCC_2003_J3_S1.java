@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2003_J3_S1 {
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int square = 1;
     int dice = scan.nextInt();
     while (dice != 0) {
@@ -21,7 +21,7 @@ public class CCC_2003_J3_S1 {
     System.out.println(square == 100 ? "You Win!" : "You Quit!");
   }
 
-  public static int checkMove (int square) {
+  public static int checkMove(int square) {
     switch (square) {
       case 9:
         square = 34;

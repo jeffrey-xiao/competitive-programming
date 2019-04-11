@@ -21,7 +21,7 @@ public class PalindromeTreeSmart {
   private int ans = 0;
 
   // initializing the tree and the roots
-  PalindromeTreeSmart () {
+  PalindromeTreeSmart() {
     tree = new ArrayList<Node>();
     seq = new ArrayList<Character>();
     // the root has a length of negative one for convenience
@@ -33,28 +33,19 @@ public class PalindromeTreeSmart {
     tree.add(root);
   }
 
-  class Node {
-    // suffix link goes to the next suffix
-    // smart link goes to the next suffix with a different character
-    private int num, len;
-    private Node suffixLink;
-    private Node smartLink;
-    private Node[] nextLink;
-
-    Node () {
-      this(0, 0);
-    }
-
-    Node (int num, int len) {
-      this.num = num;
-      this.len = len;
-      this.suffixLink = null;
-      this.smartLink = null;
-      this.nextLink = new Node[26];
-    }
+  public static void main(String[] args) {
+    PalindromeTreeSmart m = new PalindromeTreeSmart();
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 1;
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 3;
+    m.deleteCharacter();
+    m.deleteCharacter();
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 1;
   }
 
-  private Node getMatchingSuffix (Node n) {
+  private Node getMatchingSuffix(Node n) {
     // while we haven't found the new suffix, we travel down the smart and suffix links
     while (seq.size() - n.len - 2 < 0 || seq.get(seq.size() - n.len - 2) != seq.get(seq.size() - 1)) {
       // if the next suffix link leads to an appropriate suffix, then we go down the suffix link
@@ -67,7 +58,7 @@ public class PalindromeTreeSmart {
     return n;
   }
 
-  public void addCharacter (char c) {
+  public void addCharacter(char c) {
     seq.add(c);
     // find the suffix to extend so that when we add character c it will be a palindrome
     Node curr = getMatchingSuffix(tree.get(tree.size() - 1));
@@ -98,7 +89,7 @@ public class PalindromeTreeSmart {
     ans += next.num;
   }
 
-  public void deleteCharacter () {
+  public void deleteCharacter() {
     // subtract answer by the number of palindromes contained by the node to delete
     ans -= tree.get(tree.size() - 1).num;
     // delete the node and the previous character added
@@ -106,19 +97,28 @@ public class PalindromeTreeSmart {
     seq.remove(tree.size() - 1);
   }
 
-  public int getPalindromeCount () {
+  public int getPalindromeCount() {
     return ans;
   }
 
-  public static void main (String[] args) {
-    PalindromeTreeSmart m = new PalindromeTreeSmart();
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 1;
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 3;
-    m.deleteCharacter();
-    m.deleteCharacter();
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 1;
+  class Node {
+    // suffix link goes to the next suffix
+    // smart link goes to the next suffix with a different character
+    private int num, len;
+    private Node suffixLink;
+    private Node smartLink;
+    private Node[] nextLink;
+
+    Node() {
+      this(0, 0);
+    }
+
+    Node(int num, int len) {
+      this.num = num;
+      this.len = len;
+      this.suffixLink = null;
+      this.smartLink = null;
+      this.nextLink = new Node[26];
+    }
   }
 }

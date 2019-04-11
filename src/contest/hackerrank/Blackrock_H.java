@@ -17,7 +17,7 @@ public class Blackrock_H {
   static int[] val;
   static int[][] cache;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -43,7 +43,8 @@ public class Blackrock_H {
     }
 
     // solving left bitmasks
-    main : for (int i = 0; i < (1 << half); i++) {
+    main:
+    for (int i = 0; i < (1 << half); i++) {
       int cnt = bitCount(i);
       if (cnt < half - cnt)
         continue;
@@ -80,7 +81,8 @@ public class Blackrock_H {
     long ans = 0;
 
     // solving right bitmasks
-    main : for (int i = 0; i < (1 << half); i++) {
+    main:
+    for (int i = 0; i < (1 << half); i++) {
       int cnt = bitCount(i);
       if (cnt < half - cnt)
         continue;
@@ -118,7 +120,7 @@ public class Blackrock_H {
     out.close();
   }
 
-  static int bitCount (int x) {
+  static int bitCount(int x) {
     x = x - ((x >> 1) & 0x55555555);
     x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
     x = (x + (x >> 4)) & 0x0F0F0F0F;
@@ -127,57 +129,57 @@ public class Blackrock_H {
     return x & 0x0000003F;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int mask, length;
 
-    State (int mask, int length) {
+    State(int mask, int length) {
       this.mask = mask;
       this.length = length;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         return s.mask == mask && s.length == length;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return mask * 31 + length;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("(%d, %d)", mask, length);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

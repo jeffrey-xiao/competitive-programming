@@ -5,7 +5,7 @@ import java.util.Scanner;
 class CCC_2012_J2 {
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String reading = "";
     int[] depthsRecorded = new int[4];
     for (int x = 0; x < 4; x++) {

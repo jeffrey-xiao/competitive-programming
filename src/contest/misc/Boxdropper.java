@@ -16,7 +16,7 @@ public class Boxdropper {
   static Box[] b = new Box[500];
   static double[][] d = new double[500][500];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -48,17 +48,41 @@ public class Boxdropper {
     pr.close();
   }
 
+  static String next() throws IOException {
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Box {
     double minx, maxx, miny, maxy;
 
-    Box (int x1, int y1, int x2, int y2) {
+    Box(int x1, int y1, int x2, int y2) {
       minx = Math.min(x1, x2);
       maxx = Math.max(x1, x2);
       miny = Math.min(y1, y2);
       maxy = Math.max(y1, y2);
     }
 
-    public double distTo (Box b) {
+    public double distTo(Box b) {
       if (minx <= b.maxx && maxx >= b.minx && miny <= b.maxy && maxy >= b.miny) {
         return 0;
       } else if (b.minx >= maxx && b.miny >= maxy) {
@@ -81,32 +105,8 @@ public class Boxdropper {
       return Double.NaN;
     }
 
-    public double dist (double x1, double y1, double x2, double y2) {
+    public double dist(double x1, double y1, double x2, double y2) {
       return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
-  }
-
-  static String next () throws IOException {
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

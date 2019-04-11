@@ -31,7 +31,7 @@ public class IOI_2014_Holiday {
   static long[] val3;
   static long[] val4;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -81,7 +81,7 @@ public class IOI_2014_Holiday {
     out.close();
   }
 
-  static void solve2 (int d1, int d2, int l, int r) {
+  static void solve2(int d1, int d2, int l, int r) {
     if (d1 > d2 || l > r)
       return;
     int targetD = (d1 + d2) >> 1;
@@ -106,7 +106,7 @@ public class IOI_2014_Holiday {
     solve2(d1, targetD - 1, dp2[targetD], r);
   }
 
-  static void solve1 (int d1, int d2, int l, int r) {
+  static void solve1(int d1, int d2, int l, int r) {
     if (d1 > d2 || l > r)
       return;
     int targetD = (d1 + d2) >> 1;
@@ -131,7 +131,7 @@ public class IOI_2014_Holiday {
     solve1(d1, targetD - 1, l, dp1[targetD]);
   }
 
-  static void solve4 (int d1, int d2, int l, int r) {
+  static void solve4(int d1, int d2, int l, int r) {
     if (d1 > d2 || l > r)
       return;
     int targetD = (d1 + d2) >> 1;
@@ -156,7 +156,7 @@ public class IOI_2014_Holiday {
     solve4(d1, targetD - 1, dp4[targetD], r);
   }
 
-  static void solve3 (int d1, int d2, int l, int r) {
+  static void solve3(int d1, int d2, int l, int r) {
     if (d1 > d2 || l > r)
       return;
     int targetD = (d1 + d2) >> 1;
@@ -181,7 +181,7 @@ public class IOI_2014_Holiday {
     solve3(d1, targetD - 1, l, dp3[targetD]);
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (l == x && x == r) {
       cnt[n] = (cnt[n] + 1) % 2;
       tree[n] = cnt[n] * c[l].cnt;
@@ -196,7 +196,7 @@ public class IOI_2014_Holiday {
     cnt[n] = cnt[n << 1] + cnt[n << 1 | 1];
   }
 
-  static long query (int n, int num) {
+  static long query(int n, int num) {
     if (num <= 0)
       return 0;
     if (cnt[n] <= num)
@@ -204,44 +204,44 @@ public class IOI_2014_Holiday {
     return query(n << 1, num - cnt[n << 1 | 1]) + query(n << 1 | 1, num);
   }
 
-  static class City implements Comparable<City> {
-    int index;
-    Long cnt;
-
-    City (int index, long cnt) {
-      this.index = index;
-      this.cnt = cnt;
-    }
-
-    @Override
-    public int compareTo (City c) {
-      return cnt.compareTo(c.cnt);
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class City implements Comparable<City> {
+    int index;
+    Long cnt;
+
+    City(int index, long cnt) {
+      this.index = index;
+      this.cnt = cnt;
+    }
+
+    @Override
+    public int compareTo(City c) {
+      return cnt.compareTo(c.cnt);
+    }
   }
 }

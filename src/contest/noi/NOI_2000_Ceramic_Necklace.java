@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class NOI_2000_Ceramic_Necklace {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int v = scan.nextInt();
     int v0 = scan.nextInt();
     int max = 0;

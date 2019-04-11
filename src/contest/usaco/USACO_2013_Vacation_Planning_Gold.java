@@ -13,7 +13,7 @@ public class USACO_2013_Vacation_Planning_Gold {
   static int n;
   static int m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     int k = readInt();
@@ -61,7 +61,7 @@ public class USACO_2013_Vacation_Planning_Gold {
     System.out.println(count + "\n" + totalCost);
   }
 
-  private static int[] shortestPath (ArrayList<ArrayList<Edge>> l, int s, int d) {
+  private static int[] shortestPath(ArrayList<ArrayList<Edge>> l, int s, int d) {
     int[] min = new int[n];
     for (int x = 0; x < n; x++) {
       if (x != s)
@@ -85,12 +85,34 @@ public class USACO_2013_Vacation_Planning_Gold {
     return min;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int source;
     int dest;
     int cost;
 
-    Edge (int source, int dest, int cost) {
+    Edge(int source, int dest, int cost) {
       this.source = source;
       this.dest = dest;
       this.cost = cost;
@@ -101,45 +123,23 @@ public class USACO_2013_Vacation_Planning_Gold {
     int cost;
     int index;
 
-    Node (int index, int cost) {
+    Node(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Node arg0) {
+    public int compareTo(Node arg0) {
       return this.cost - arg0.cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Node) {
-        Node n = (Node)o;
+        Node n = (Node) o;
         return this.index == n.index;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

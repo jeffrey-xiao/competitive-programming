@@ -11,7 +11,7 @@ public class USACO_2012_Rope_Folding {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     @SuppressWarnings("unused")
     int l = readInt();
@@ -35,7 +35,7 @@ public class USACO_2012_Rope_Folding {
     System.out.println(count);
   }
 
-  private static boolean checkPalin (int start, int end, int[] diff) {
+  private static boolean checkPalin(int start, int end, int[] diff) {
     int l = end - start + 1;
     for (int y = 0; y < l / 2; y++) {
       if (diff[start + y] != diff[end - y])
@@ -44,25 +44,25 @@ public class USACO_2012_Rope_Folding {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

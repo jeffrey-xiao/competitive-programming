@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2005_J5 {
   private static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     // input words
     while (true) {
       String inputWords = scan.next();
@@ -15,7 +15,7 @@ public class CCC_2005_J5 {
     }
   }
 
-  public static boolean isMonkeyLang (String words) {
+  public static boolean isMonkeyLang(String words) {
     if (words.length() > 0) {
       int indxN = words.indexOf("N");
       if (indxN >= 0) {
@@ -38,7 +38,7 @@ public class CCC_2005_J5 {
     return false;
   }
 
-  public static boolean isA_Word (String words) {
+  public static boolean isA_Word(String words) {
     if (words.length() > 0) {
       int indxS = words.lastIndexOf("S");
       if (words.equals("A"))

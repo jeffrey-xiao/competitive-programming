@@ -13,7 +13,7 @@ public class UnionFind {
   private int[] id;
   private int[] sz;
 
-  public UnionFind (int n) {
+  public UnionFind(int n) {
     id = new int[n];
     sz = new int[n];
     for (int x = 0; x < n; x++) {
@@ -22,15 +22,15 @@ public class UnionFind {
     }
   }
 
-  public boolean isSame (int x, int y) {
+  public boolean isSame(int x, int y) {
     return find(x) == find(y);
   }
 
-  public int find (int x) {
+  public int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
-  public void union (int x, int y) {
+  public void union(int x, int y) {
     int rx = find(x);
     int ry = find(y);
     if (sz[rx] > sz[ry]) {
@@ -42,7 +42,7 @@ public class UnionFind {
     }
   }
 
-  public void print () {
+  public void print() {
     for (int i : id)
       System.out.print(i + " ");
     System.out.println();

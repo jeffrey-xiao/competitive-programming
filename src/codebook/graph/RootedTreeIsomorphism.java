@@ -19,8 +19,12 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class RootedTreeIsomorphism {
+  static BufferedReader br;
+  static PrintWriter out;
+  static StringTokenizer st;
+
   // precondition: t1 and t2 represent trees and they are rooted at vertex 0
-  public static boolean equal (ArrayList<ArrayList<Integer>> t1, ArrayList<ArrayList<Integer>> t2) {
+  public static boolean equal(ArrayList<ArrayList<Integer>> t1, ArrayList<ArrayList<Integer>> t2) {
     if (t1.size() != t2.size())
       return false;
     int n = t1.size();
@@ -99,11 +103,7 @@ public class RootedTreeIsomorphism {
     return true;
   }
 
-  static BufferedReader br;
-  static PrintWriter out;
-  static StringTokenizer st;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -132,29 +132,29 @@ public class RootedTreeIsomorphism {
     out.close();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

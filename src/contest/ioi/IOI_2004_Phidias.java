@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IOI_2004_Phidias {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     /*
      * optimal substructure at every point iterate through all the possible
      * blocks that fit and choose the max(dp[x-x1][y] + dp[x1][y-y1],

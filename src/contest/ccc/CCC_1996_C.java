@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_1996_C {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int[][] cases = new int[scan.nextInt()][2];
     for (int x = 0; x < cases.length; x++) {
       cases[x][0] = scan.nextInt();
@@ -18,7 +18,7 @@ public class CCC_1996_C {
     }
   }
 
-  private static void printPatterns (int i, int j, String s) {
+  private static void printPatterns(int i, int j, String s) {
     if (i == 0 && j == 0) {
       System.out.println(s);
       return;

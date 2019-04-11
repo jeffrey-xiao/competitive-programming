@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2004_S4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int x = scan.nextInt();
     int y = scan.nextInt();
     int z = scan.nextInt();

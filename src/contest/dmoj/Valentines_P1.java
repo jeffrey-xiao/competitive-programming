@@ -18,7 +18,7 @@ public class Valentines_P1 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int count = 0;
     ArrayList<Group> g = new ArrayList<Group>();
@@ -61,7 +61,7 @@ public class Valentines_P1 {
       System.out.println(gr.index + 1);
   }
 
-  private static boolean isPrincess (String match, String pattern) {
+  private static boolean isPrincess(String match, String pattern) {
     Pattern p = Pattern.compile(pattern);
     Matcher m = p.matcher(match);
     int count = 0;
@@ -71,48 +71,48 @@ public class Valentines_P1 {
     return count == 1;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Group implements Comparable<Group> {
     int size, time, index;
 
-    Group (int size, int time, int index) {
+    Group(int size, int time, int index) {
       this.size = size;
       this.time = time;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Group o) {
+    public int compareTo(Group o) {
       if (time == o.time && o.size == size)
         return index - o.index;
       if (time == o.time)
         return o.size - size;
       return time - o.time;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class USACO_2012_Wifi_Setup {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     // cost is a+b*r
     int a = scan.nextInt();

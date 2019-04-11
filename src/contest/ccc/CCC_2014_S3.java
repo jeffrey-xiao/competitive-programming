@@ -6,7 +6,7 @@ import java.util.Stack;
 public class CCC_2014_S3 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int x = scan.nextInt(); x > 0; x--) {
       int size = scan.nextInt();
       Stack<Integer> start = new Stack<Integer>();

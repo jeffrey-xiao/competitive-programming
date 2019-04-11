@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IOI_2014_Station {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfStations = scan.nextInt();
     int maxDistance = scan.nextInt();
     int stations[] = new int[numOfStations + 1];
@@ -16,7 +16,8 @@ public class IOI_2014_Station {
         days[x] = -1;
     }
 
-    main : for (int x = 1; x < days.length; x++) {
+    main:
+    for (int x = 1; x < days.length; x++) {
       for (int y = Math.min(days.length - 1, x + maxDistance); y > x; y--) {
         if (days[x] != -1 && stations[y] == 1) {
           if (days[y] == -1) {

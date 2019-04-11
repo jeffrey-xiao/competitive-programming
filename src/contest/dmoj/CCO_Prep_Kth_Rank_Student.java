@@ -13,8 +13,11 @@ public class CCO_Prep_Kth_Rank_Student {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
+  static Node[] root;
+  static int[] id;
+  static int[] size;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     root = new Node[n];
@@ -43,7 +46,7 @@ public class CCO_Prep_Kth_Rank_Student {
     ps.close();
   }
 
-  private static int query (Node n, int k) {
+  private static int query(Node n, int k) {
     if (k > getSize(n))
       return -2;
     if (getSize(n.left) + 1 == k)
@@ -53,11 +56,7 @@ public class CCO_Prep_Kth_Rank_Student {
     return query(n.right, k - getSize(n.left) - 1);
   }
 
-  static Node[] root;
-  static int[] id;
-  static int[] size;
-
-  private static void build (int a, int b) {
+  private static void build(int a, int b) {
     int prevA = find(a);
     int prevB = find(b);
     merge(prevA, prevB);
@@ -67,11 +66,11 @@ public class CCO_Prep_Kth_Rank_Student {
       root[prevB] = traverse(root[prevA], root[prevB]);
   }
 
-  private static int find (int x) {
+  private static int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
-  private static void merge (int rootx, int rooty) {
+  private static void merge(int rootx, int rooty) {
     if (size[rootx] > size[rooty]) {
       size[rootx] += size[rooty];
       id[rooty] = rootx;
@@ -81,20 +80,7 @@ public class CCO_Prep_Kth_Rank_Student {
     }
   }
 
-  static class Node {
-    Integer value, size, id;
-    Double priority;
-    Node left = null, right = null;
-
-    Node (int value, int id) {
-      this.value = value;
-      priority = Math.random();
-      this.size = 1;
-      this.id = id;
-    }
-  }
-
-  public static void traverse (Node n) {
+  public static void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -102,7 +88,7 @@ public class CCO_Prep_Kth_Rank_Student {
     traverse(n.right);
   }
 
-  public static Node traverse (Node n, Node root) {
+  public static Node traverse(Node n, Node root) {
     if (n == null)
       return root;
     root = traverse(n.left, root);
@@ -111,12 +97,12 @@ public class CCO_Prep_Kth_Rank_Student {
     return root;
   }
 
-  private static int getSize (Node n) {
+  private static int getSize(Node n) {
     return n == null ? 0 : n.size;
   }
 
   // auxiliary function to insert
-  private static Node add (Node n, Integer v, Integer id) {
+  private static Node add(Node n, Integer v, Integer id) {
     if (n == null) {
       return new Node(v, id);
     }
@@ -141,7 +127,7 @@ public class CCO_Prep_Kth_Rank_Student {
   }
 
   // rotate left
-  private static Node rotateLeft (Node n) {
+  private static Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -150,7 +136,7 @@ public class CCO_Prep_Kth_Rank_Student {
   }
 
   // rotate right
-  private static Node rotateRight (Node n) {
+  private static Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -158,29 +144,42 @@ public class CCO_Prep_Kth_Rank_Student {
     return x;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    Integer value, size, id;
+    Double priority;
+    Node left = null, right = null;
+
+    Node(int value, int id) {
+      this.value = value;
+      priority = Math.random();
+      this.size = 1;
+      this.id = id;
+    }
   }
 }

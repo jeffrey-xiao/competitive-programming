@@ -15,8 +15,9 @@ public class Woburn_Challenge_1999_The_Phantom_Lucas {
   static int n;
   static ArrayList<ArrayList<Edge>> adj;
 
-  public static void main (String[] args) throws IOException {
-    cases : for (int t = readInt(); t > 0; t--) {
+  public static void main(String[] args) throws IOException {
+    cases:
+    for (int t = readInt(); t > 0; t--) {
       n = readInt();
       adj = new ArrayList<ArrayList<Edge>>();
       for (int x = 0; x < n; x++)
@@ -43,7 +44,7 @@ public class Woburn_Challenge_1999_The_Phantom_Lucas {
     }
   }
 
-  private static int bfs (int y, boolean[] v) {
+  private static int bfs(int y, boolean[] v) {
     Integer min = Integer.MAX_VALUE;
     for (int x = 0; x < adj.get(y).size(); x++) {
       Edge next = adj.get(y).get(x);
@@ -56,35 +57,35 @@ public class Woburn_Challenge_1999_The_Phantom_Lucas {
     return min;
   }
 
-  static class Edge {
-    int cost;
-    int dest;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int cost;
+    int dest;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

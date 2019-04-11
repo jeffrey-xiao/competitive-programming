@@ -13,7 +13,7 @@ public class IOI_1995_Barcodes {
   static StringTokenizer st;
   static int[][][] dp = new int[34][34][34];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     int m = readInt();
@@ -47,7 +47,7 @@ public class IOI_1995_Barcodes {
     }
   }
 
-  static int count (int n, int k, int m) {
+  static int count(int n, int k, int m) {
     if (n == 0 && k == 0)
       return 1;
     if (n <= 0 || k <= 0)
@@ -61,25 +61,25 @@ public class IOI_1995_Barcodes {
     return dp[n][k][m] = res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -22,14 +22,14 @@ public class ACM_Hong_Kong_2016_C {
   static int[] indegree;
   static int[][] pa;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     N = readInt();
-    LN = (int)(Math.ceil(Math.log(N) / Math.log(2)) + 1);
+    LN = (int) (Math.ceil(Math.log(N) / Math.log(2)) + 1);
 
     id = new int[N];
     sz = new int[N];
@@ -69,7 +69,8 @@ public class ACM_Hong_Kong_2016_C {
     for (int i = 0; i < M; i++) {
       int cnt = readInt();
       HashMap<Integer, ArrayList<Integer>> hm = new HashMap<Integer, ArrayList<Integer>>();
-      main : for (int j = 0; j < cnt; j++) {
+      main:
+      for (int j = 0; j < cnt; j++) {
         int x = readInt() - 1;
         int root = find(x);
         if (!hm.containsKey(root)) {
@@ -98,7 +99,7 @@ public class ACM_Hong_Kong_2016_C {
     out.close();
   }
 
-  static int getLca (int i, int j) {
+  static int getLca(int i, int j) {
     if (depth[i] < depth[j]) {
       int temp = i;
       i = j;
@@ -118,16 +119,7 @@ public class ACM_Hong_Kong_2016_C {
     return pa[i][0];
   }
 
-  static class State {
-    int node, cnt;
-
-    State (int node, int cnt) {
-      this.node = node;
-      this.cnt = cnt;
-    }
-  }
-
-  static void dfs (int i, int d) {
+  static void dfs(int i, int d) {
     depth[i] = d;
     sz[i] = 1;
     for (int j : adj.get(i)) {
@@ -136,40 +128,49 @@ public class ACM_Hong_Kong_2016_C {
     }
   }
 
-  static int find (int x) {
+  static int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
-  static void merge (int x, int y) {
+  static void merge(int x, int y) {
     x = find(x);
     y = find(y);
 
     id[x] = y;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int node, cnt;
+
+    State(int node, int cnt) {
+      this.node = node;
+      this.cnt = cnt;
+    }
   }
 }

@@ -23,7 +23,7 @@ public class IncidenceList {
   static int[] last;
   static int n, m, cnt;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -54,46 +54,46 @@ public class IncidenceList {
     out.close();
   }
 
-  static void addEdge (int a, int b, int ab, int ba) {
+  static void addEdge(int a, int b, int ab, int ba) {
     edges[cnt] = new Edge(b, ab, last[a]);
     last[a] = cnt++;
     edges[cnt] = new Edge(a, ba, last[b]);
     last[b] = cnt++;
   }
 
-  static class Edge {
-    int dest, cost, lastEdge;
-
-    Edge (int dest, int cost, int lastEdge) {
-      this.dest = dest;
-      this.cost = cost;
-      this.lastEdge = lastEdge;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, cost, lastEdge;
+
+    Edge(int dest, int cost, int lastEdge) {
+      this.dest = dest;
+      this.cost = cost;
+      this.lastEdge = lastEdge;
+    }
   }
 }

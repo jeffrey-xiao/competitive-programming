@@ -15,7 +15,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
   static int[][] minDistanceTo = null;
   static int[][] minDistanceFrom = null;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int m = readInt();
     int k = readInt();
@@ -32,8 +32,8 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
       int a = readInt() - 1;
       int b = readInt() - 1;
       int c = readInt();
-      straight.get(a).add(new int[] {b, c});
-      reverse.get(b).add(new int[] {a, c});
+      straight.get(a).add(new int[]{b, c});
+      reverse.get(b).add(new int[]{a, c});
     }
     ArrayList<Integer> hubs = new ArrayList<Integer>();
     for (int x = 0; x < k; x++)
@@ -64,7 +64,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
     System.out.println(totalCost);
   }
 
-  private static void shortest_path (int i, ArrayList<ArrayList<int[]>> adjlist, int index, boolean isStraight) {
+  private static void shortest_path(int i, ArrayList<ArrayList<int[]>> adjlist, int index, boolean isStraight) {
     int[] min = new int[n];
     for (int x = 0; x < n; x++)
       if (x != i)
@@ -89,49 +89,49 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
     }
   }
 
-  static class Vertex implements Comparable<Vertex> {
-    int index;
-    int cost;
-
-    Vertex (int index, int cost) {
-      this.index = index;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Vertex o) {
-      return cost - o.cost;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Vertex) {
-        Vertex v = (Vertex)o;
-        return index == v.index;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Vertex implements Comparable<Vertex> {
+    int index;
+    int cost;
+
+    Vertex(int index, int cost) {
+      this.index = index;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Vertex o) {
+      return cost - o.cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Vertex) {
+        Vertex v = (Vertex) o;
+        return index == v.index;
+      }
+      return false;
+    }
   }
 }

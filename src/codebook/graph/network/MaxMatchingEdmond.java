@@ -28,7 +28,7 @@ public class MaxMatchingEdmond {
   static boolean[] mark, used;
   static int[] match, par, id;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -50,7 +50,7 @@ public class MaxMatchingEdmond {
     out.close();
   }
 
-  static int getMaxMatching () {
+  static int getMaxMatching() {
     match = new int[n];
     par = new int[n];
     id = new int[n];
@@ -78,7 +78,7 @@ public class MaxMatchingEdmond {
     return res / 2;
   }
 
-  static int getAugmentingPath (int src) {
+  static int getAugmentingPath(int src) {
     Arrays.fill(par, -1);
     used = new boolean[n];
     for (int i = 0; i < n; i++)
@@ -124,7 +124,7 @@ public class MaxMatchingEdmond {
   }
 
   // Auxiliary function that marks the blossom
-  static void markPath (boolean[] blossom, int i, int b, int j) {
+  static void markPath(boolean[] blossom, int i, int b, int j) {
     for (; id[i] != b; i = par[match[i]]) {
       blossom[id[i]] = blossom[id[match[i]]] = true;
       par[i] = j;
@@ -133,7 +133,7 @@ public class MaxMatchingEdmond {
   }
 
   // Auxiliary function that finds the lca in the BFS tree
-  static int lca (int i, int j) {
+  static int lca(int i, int j) {
     boolean[] v = new boolean[n];
     while (true) {
       i = id[i];
@@ -150,29 +150,29 @@ public class MaxMatchingEdmond {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

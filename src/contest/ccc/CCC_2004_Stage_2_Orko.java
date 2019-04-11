@@ -16,8 +16,9 @@ public class CCC_2004_Stage_2_Orko {
 
   static boolean[] isA;
   static byte[][] dp = new byte[1 << 20][2];
+  static int count = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String in = readLine();
     while (!in.equals("* * * * * * * * * *")) {
       String[] s = in.split(" ");
@@ -40,14 +41,12 @@ public class CCC_2004_Stage_2_Orko {
         num += s[i].charAt(1) - '1';
         isA[num] = true;
       }
-      System.out.println(compute((1 << 20) - 1, true, (byte)10));
+      System.out.println(compute((1 << 20) - 1, true, (byte) 10));
       in = readLine();
     }
   }
 
-  static int count = 0;
-
-  private static byte compute (int i, boolean isATurn, byte size) {
+  private static byte compute(int i, boolean isATurn, byte size) {
     if (size == 0)
       return 0;
     if (dp[i][isATurn ? 1 : 0] != -1)
@@ -66,9 +65,9 @@ public class CCC_2004_Stage_2_Orko {
             i ^= 1 << next;
             // other player wins
             if (k > j % 5) {
-              min = (byte)Math.min(min, size - 1 - compute(i, !isATurn, (byte)(size - 1)));
+              min = (byte) Math.min(min, size - 1 - compute(i, !isATurn, (byte) (size - 1)));
             } else {
-              min = (byte)Math.min(min, 1 + compute(i, isATurn, (byte)(size - 1)));
+              min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
             }
             i ^= 1 << next;
           }
@@ -78,42 +77,42 @@ public class CCC_2004_Stage_2_Orko {
           for (int k = 0; k < 20; k++) {
             if ((i & 1 << k) != 0 && isA[k] != isATurn) {
               i ^= (1 << k);
-              min = (byte)Math.min(min, 1 + compute(i, isATurn, (byte)(size - 1)));
+              min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
               i ^= (1 << k);
             }
 
           }
         }
         i ^= 1 << j;
-        best = (byte)Math.max(best, min);
+        best = (byte) Math.max(best, min);
       }
     }
     return dp[i][isATurn ? 1 : 0] = best;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

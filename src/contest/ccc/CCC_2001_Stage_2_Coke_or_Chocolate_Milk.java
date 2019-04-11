@@ -34,7 +34,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
   static Stack<Integer> s = new Stack<Integer>();
   static int cnt = 0, comNum = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -56,7 +56,8 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
     comNum = 0;
     n = 0;
     int Q = -1;
-    main : while ((Q = readInt()) != 0) {
+    main:
+    while ((Q = readInt()) != 0) {
       for (int i = 0; i < 2000; i++) {
         adj.add(new HashSet<Integer>());
         disc[i] = low[i] = com[i] = -1;
@@ -174,7 +175,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
     pr.close();
   }
 
-  static void dfs (int u) {
+  static void dfs(int u) {
     disc[u] = low[u] = cnt++;
     s.push(u);
     for (Integer v : adj.get(u)) {
@@ -196,7 +197,7 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
   }
 
   // adds name if didn't yet
-  static void addName (String name) {
+  static void addName(String name) {
     if (!toIndex.containsKey(name)) {
       toIndex.put(name, n);
       toName.put(n, name);
@@ -204,29 +205,29 @@ public class CCC_2001_Stage_2_Coke_or_Chocolate_Milk {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

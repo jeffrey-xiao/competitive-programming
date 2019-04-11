@@ -13,7 +13,7 @@ public class IOI_2009_Museum {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<Integer> vases = new ArrayList<Integer>();
     // even first
@@ -22,10 +22,10 @@ public class IOI_2009_Museum {
     Collections.sort(vases, new Comparator<Integer>() {
 
       @Override
-      public int compare (Integer o1, Integer o2) {
+      public int compare(Integer o1, Integer o2) {
         StringBuilder b1 = new StringBuilder(" ");
         StringBuilder b2 = new StringBuilder(" ");
-        for (int x = (int)Math.pow(2, (int)(Math.log(o1) / Math.log(2))); x >= 1; x /= 2) {
+        for (int x = (int) Math.pow(2, (int) (Math.log(o1) / Math.log(2))); x >= 1; x /= 2) {
           if (o1 >= x) {
             b1.append("1");
             o1 -= x;
@@ -33,7 +33,7 @@ public class IOI_2009_Museum {
             b1.append("0");
           }
         }
-        for (int x = (int)Math.pow(2, (int)(Math.log(o2) / Math.log(2))); x >= 1; x /= 2) {
+        for (int x = (int) Math.pow(2, (int) (Math.log(o2) / Math.log(2))); x >= 1; x /= 2) {
           if (o2 >= x) {
             b2.append("1");
             o2 -= x;
@@ -63,25 +63,25 @@ public class IOI_2009_Museum {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

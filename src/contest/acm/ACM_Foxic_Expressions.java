@@ -20,7 +20,7 @@ public class ACM_Foxic_Expressions {
 
   static String fox = "FOXn";
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -53,7 +53,7 @@ public class ACM_Foxic_Expressions {
     out.close();
   }
 
-  static boolean isValid (String s1, String s2) {
+  static boolean isValid(String s1, String s2) {
     if (!validExpression(s2))
       return false;
     String[] curr = ("n" + s2).split("n");
@@ -77,7 +77,7 @@ public class ACM_Foxic_Expressions {
     return dp[M][N];
   }
 
-  static boolean validExpression (String s) {
+  static boolean validExpression(String s) {
     if (s.length() == 0)
       return false;
     for (int i = 1; i < s.length(); i++)
@@ -86,7 +86,7 @@ public class ACM_Foxic_Expressions {
     return !(s.charAt(0) == 'n');
   }
 
-  static boolean checkEqual (String s1, String s2, boolean exact) {
+  static boolean checkEqual(String s1, String s2, boolean exact) {
     if (exact)
       return s1.equals(s2);
     if (s1.length() == s2.length() - 1)
@@ -102,29 +102,29 @@ public class ACM_Foxic_Expressions {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

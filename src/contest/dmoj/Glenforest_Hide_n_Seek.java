@@ -24,7 +24,7 @@ public class Glenforest_Hide_n_Seek {
   static int r, c, t;
   static boolean[] vis;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     t = readInt();
@@ -40,11 +40,11 @@ public class Glenforest_Hide_n_Seek {
         if (g[i][j] == 'G') {
           X[0] = i;
           Y[0] = j;
-          g[i][j] = (char)0;
+          g[i][j] = (char) 0;
         } else if (g[i][j] == 'H') {
           X[index] = i;
           Y[index] = j;
-          g[i][j] = (char)index;
+          g[i][j] = (char) index;
           index++;
         }
       }
@@ -75,7 +75,7 @@ public class Glenforest_Hide_n_Seek {
     System.out.println(compute(0, 0, t));
   }
 
-  private static int compute (int i, int total, int left) {
+  private static int compute(int i, int total, int left) {
     if (left == 0)
       return total;
     int min = 1 << 30;
@@ -89,39 +89,39 @@ public class Glenforest_Hide_n_Seek {
     return min;
   }
 
-  static class Point {
-    int x, y, time;
-
-    Point (int x, int y, int time) {
-      this.x = x;
-      this.y = y;
-      this.time = time;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y, time;
+
+    Point(int x, int y, int time) {
+      this.x = x;
+      this.y = y;
+      this.time = time;
+    }
   }
 }

@@ -26,7 +26,7 @@ public class IOI_2003_Amazing_Robots {
   static ArrayList<Guard> guard1 = new ArrayList<Guard>(), guard2 = new ArrayList<Guard>();
   static Point[][][] pos;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -124,7 +124,7 @@ public class IOI_2003_Amazing_Robots {
     out.close();
   }
 
-  static Point getPoint (Guard g, int time) {
+  static Point getPoint(Guard g, int time) {
     int gr = g.r, gc = g.c;
     int move = Math.min(time % (g.len * 2 - 2), Math.abs(time % (g.len * 2 - 2) - g.len * 2 + 2));
     if (g.dir == 'E') {
@@ -139,16 +139,42 @@ public class IOI_2003_Amazing_Robots {
     return new Point(gr, gc);
   }
 
-  static boolean isGuarded (int r, int c, int nr, int nc, int gid, int time) {
+  static boolean isGuarded(int r, int c, int nr, int nc, int gid, int time) {
     Point g = pos[gid >> 1][time][gid & 1];
     Point ng = pos[gid >> 1][(time + 1) % 12][gid & 1];
     return ng.r == nr && ng.c == nc || (ng.r == r && ng.c == c && nr == g.r && nc == g.c);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     int r, c;
 
-    Point (int r, int c) {
+    Point(int r, int c) {
       this.r = r;
       this.c = c;
     }
@@ -158,7 +184,7 @@ public class IOI_2003_Amazing_Robots {
     int r, c, len;
     char dir;
 
-    Guard (int r, int c, int len, char dir) {
+    Guard(int r, int c, int len, char dir) {
       this.r = r;
       this.c = c;
       this.len = len;
@@ -170,11 +196,11 @@ public class IOI_2003_Amazing_Robots {
     int r1, c1, r2, c2, time;
     char dir;
 
-    State (int r1, int c1, int r2, int c2, int time) {
+    State(int r1, int c1, int r2, int c2, int time) {
       this(r1, c1, r2, c2, time, ' ');
     }
 
-    State (int r1, int c1, int r2, int c2, int time, char dir) {
+    State(int r1, int c1, int r2, int c2, int time, char dir) {
       this.r1 = r1;
       this.c1 = c1;
       this.r2 = r2;
@@ -182,31 +208,5 @@ public class IOI_2003_Amazing_Robots {
       this.time = time;
       this.dir = dir;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

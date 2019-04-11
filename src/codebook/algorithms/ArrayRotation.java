@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class ArrayRotation {
 
-  static void rotate1 (int[] a, int lo, int mid, int hi) {
+  static void rotate1(int[] a, int lo, int mid, int hi) {
     int next = mid;
     while (lo != next) {
       swap(a, lo++, next++);
@@ -23,13 +23,13 @@ public class ArrayRotation {
     }
   }
 
-  static void rotate2 (int[] a, int lo, int mid, int hi) {
+  static void rotate2(int[] a, int lo, int mid, int hi) {
     reverse(a, lo, mid);
     reverse(a, mid, hi);
     reverse(a, lo, hi);
   }
 
-  static void rotate3 (int[] a, int lo, int mid, int hi) {
+  static void rotate3(int[] a, int lo, int mid, int hi) {
     int n = hi - lo, jump = mid - lo;
     int gcf = gcf(jump, n), cycle = n / gcf;
     for (int i = 0; i < gcf; i++) {
@@ -44,23 +44,23 @@ public class ArrayRotation {
     }
   }
 
-  static int gcf (int a, int b) {
+  static int gcf(int a, int b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  static void reverse (int[] a, int i, int j) {
+  static void reverse(int[] a, int i, int j) {
     while (i != j && i != --j)
       swap(a, i++, j);
   }
 
-  static void swap (int[] a, int i, int j) {
+  static void swap(int[] a, int i, int j) {
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
   }
 
-  public static void main (String[] args) throws IOException {
-    int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
+  public static void main(String[] args) throws IOException {
+    int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
     rotate3(a, 0, 5, 8);
     System.out.println(Arrays.toString(a));
 

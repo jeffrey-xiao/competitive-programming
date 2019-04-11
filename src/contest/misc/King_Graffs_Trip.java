@@ -18,7 +18,7 @@ public class King_Graffs_Trip {
   static int n;
   static HashSet<Integer> shrines = new HashSet<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     ArrayList<ArrayList<Edge>> adjlist = new ArrayList<ArrayList<Edge>>();
     n = readInt();
     int m = readInt();
@@ -43,7 +43,7 @@ public class King_Graffs_Trip {
     System.out.println(shortest == Long.MAX_VALUE ? -1 : shortest);
   }
 
-  private static long shortestPath (ArrayList<ArrayList<Edge>> adjlist, int s, int d) {
+  private static long shortestPath(ArrayList<ArrayList<Edge>> adjlist, int s, int d) {
     long[] min = new long[n];
     for (int x = 0; x < n; x++) {
       if (x != s)
@@ -77,13 +77,35 @@ public class King_Graffs_Trip {
     return min[d];
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     long time;
     long maxStretch;
     long currStretch;
 
-    Vertex (int index, long time, long maxStretch, long currStretch) {
+    Vertex(int index, long time, long maxStretch, long currStretch) {
       this.index = index;
       this.time = time;
       this.maxStretch = maxStretch;
@@ -91,7 +113,7 @@ public class King_Graffs_Trip {
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       if (maxStretch < o.maxStretch)
         return -1;
       else if (maxStretch > o.maxStretch)
@@ -104,31 +126,9 @@ public class King_Graffs_Trip {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

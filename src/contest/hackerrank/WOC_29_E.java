@@ -13,20 +13,18 @@ import java.util.StringTokenizer;
 
 public class WOC_29_E {
 
-  static BufferedReader br;
-  static PrintWriter out;
-  static StringTokenizer st;
-
   static final BigDecimal PI = new BigDecimal("3.1415926535897932384626433832795028841971693993751");
   static final BigDecimal DECIMAL_PI = PI.subtract(new BigDecimal("3"));
   static final int PRECISION = 50;
   static final long LIMIT = 5000000;
-
+  static BufferedReader br;
+  static PrintWriter out;
+  static StringTokenizer st;
   static BigDecimal best;
   static long bestNum, bestDen;
   static long min, max;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -41,7 +39,7 @@ public class WOC_29_E {
       bestDen = 1;
 
       // starting points
-      Rational candidate = new Rational((long)Math.round(min * PI.doubleValue()) % min, min);
+      Rational candidate = new Rational((long) Math.round(min * PI.doubleValue()) % min, min);
 
       if (DECIMAL_PI.subtract(candidate.toBigDecimal()).abs().compareTo(best) < 0) {
         best = DECIMAL_PI.subtract(candidate.toBigDecimal()).abs();
@@ -49,7 +47,7 @@ public class WOC_29_E {
         bestDen = candidate.den;
       }
 
-      candidate = new Rational((long)Math.round(max * PI.doubleValue()) % max, max);
+      candidate = new Rational((long) Math.round(max * PI.doubleValue()) % max, max);
 
       if (DECIMAL_PI.subtract(candidate.toBigDecimal()).abs().compareTo(best) < 0) {
         best = DECIMAL_PI.subtract(candidate.toBigDecimal()).abs();
@@ -86,26 +84,11 @@ public class WOC_29_E {
     out.close();
   }
 
-  static class State {
-    Rational curr, prev, next;
-
-    State (Rational curr, Rational prev, Rational next) {
-      this.curr = curr;
-      this.prev = prev;
-      this.next = next;
-    }
-
-    @Override
-    public String toString () {
-      return String.format("(%s, %s, %s)", curr, prev, next);
-    }
-  }
-
-  static void setBest (State[] curr) {
+  static void setBest(State[] curr) {
     for (int i = 0; i < curr.length; i++) {
       long num = curr[i].curr.num;
       long den = curr[i].curr.den;
-      long factor = (long)Math.ceil(1.0 * min / den);
+      long factor = (long) Math.ceil(1.0 * min / den);
       num *= factor;
       den *= factor;
       if (den <= max) {
@@ -118,7 +101,7 @@ public class WOC_29_E {
     }
   }
 
-  static boolean equal (State[] a, State[] b) {
+  static boolean equal(State[] a, State[] b) {
     if (a.length != b.length)
       return false;
     for (int i = 0; i < a.length; i++)
@@ -127,7 +110,7 @@ public class WOC_29_E {
     return true;
   }
 
-  static State[] generateNextSequence (State[] curr) {
+  static State[] generateNextSequence(State[] curr) {
     State[] ret = new State[curr.length * 2];
     for (int i = 0; i < curr.length; i++) {
       ret[i * 2] = new State(new Rational(curr[i].prev.num + curr[i].curr.num, curr[i].prev.den + curr[i].curr.den), curr[i].prev, curr[i].curr);
@@ -136,7 +119,7 @@ public class WOC_29_E {
     return ret;
   }
 
-  static State[] prune (State[] curr) {
+  static State[] prune(State[] curr) {
     ArrayList<State> ret = new ArrayList<State>();
     for (int i = 0; i < curr.length; i++) {
       boolean add = true;
@@ -157,61 +140,75 @@ public class WOC_29_E {
     return ret.toArray(new State[ret.size()]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 
-  static class Rational implements Comparable<Rational> {
-    final long num, den;
+  static class State {
+    Rational curr, prev, next;
 
+    State(Rational curr, Rational prev, Rational next) {
+      this.curr = curr;
+      this.prev = prev;
+      this.next = next;
+    }
+
+    @Override
+    public String toString() {
+      return String.format("(%s, %s, %s)", curr, prev, next);
+    }
+  }
+
+  static class Rational implements Comparable<Rational> {
     public static final Rational ZERO = new Rational(0);
     public static final Rational ONE = new Rational(1);
     public static final Rational POS_INF = new Rational(1, 0);
     public static final Rational NEG_INF = new Rational(-1, 0);
+    final long num, den;
 
-    public Rational (long num) {
+    public Rational(long num) {
       this.num = num;
       this.den = 1;
     }
 
-    public Rational (long num, long den) {
+    public Rational(long num, long den) {
       this.num = num;
       this.den = den;
     }
 
-    public BigDecimal toBigDecimal () {
+    public BigDecimal toBigDecimal() {
       return new BigDecimal(num).divide(new BigDecimal(den), PRECISION, BigDecimal.ROUND_HALF_EVEN);
     }
 
     @Override
-    public int compareTo (Rational r) {
+    public int compareTo(Rational r) {
       return this.toBigDecimal().compareTo(r.toBigDecimal());
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("%d/%d", num, den);
     }
   }

@@ -10,17 +10,15 @@ import java.util.StringTokenizer;
 
 public class GCJ_2017_Round_1C_C {
 
+  static final double EPS = 1e-15;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int T, N, K;
   static double U;
   static double[] prob;
 
-  static final double EPS = 1e-15;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -75,7 +73,7 @@ public class GCJ_2017_Round_1C_C {
     out.close();
   }
 
-  static double getUsed (int i, double mid) {
+  static double getUsed(int i, double mid) {
     double total = 0;
     for (int j = i; j < N; j++)
       if (prob[j] < mid)
@@ -83,7 +81,7 @@ public class GCJ_2017_Round_1C_C {
     return total;
   }
 
-  static double compute (double[] prob) {
+  static double compute(double[] prob) {
     double[] dp = new double[N + 1];
     dp[0] = 1.0;
     for (int i = 0; i < N; i++)
@@ -97,29 +95,29 @@ public class GCJ_2017_Round_1C_C {
     return ret;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -10,20 +10,17 @@ import java.util.StringTokenizer;
 
 public class DMOPC_2015_World_Line_Convergence {
 
+  static final long MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int N;
   static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-
   static int[] toIndex;
   static long[] bit;
   static int root;
 
-  static final long MOD = 1000000007;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -59,7 +56,7 @@ public class DMOPC_2015_World_Line_Convergence {
     out.close();
   }
 
-  static void dfs (int u, int prev) {
+  static void dfs(int u, int prev) {
     long subtract = query(toIndex[u]);
     for (int v : adj.get(u)) {
       if (v != prev) {
@@ -69,45 +66,45 @@ public class DMOPC_2015_World_Line_Convergence {
     update(toIndex[u], query(toIndex[u]) + 1 - subtract);
   }
 
-  static long query (int x) {
+  static long query(int x) {
     long sum = 0;
     for (int i = x; i > 0; i -= (i & -i))
       sum = (sum + bit[i]) % MOD;
     return sum;
   }
 
-  static void update (int x, long val) {
+  static void update(int x, long val) {
     for (int i = x; i <= N; i += (i & -i))
       bit[i] = (bit[i] + val) % MOD;
   }
 
-  static long queryAt (int x) {
+  static long queryAt(int x) {
     return (query(x) - query(x - 1) + MOD) % MOD;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

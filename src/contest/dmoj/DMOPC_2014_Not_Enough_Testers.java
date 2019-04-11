@@ -13,7 +13,7 @@ public class DMOPC_2014_Not_Enough_Testers {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int[] num = new int[100001];
     for (int i = 1; i <= 100000; i++) {
       int curr = i;
@@ -48,7 +48,7 @@ public class DMOPC_2014_Not_Enough_Testers {
     }
   }
 
-  static int bsearch (ArrayList<Integer> a, int i, boolean lower) {
+  static int bsearch(ArrayList<Integer> a, int i, boolean lower) {
     int lo = 0;
     int hi = a.size() - 1;
     while (lo <= hi) {
@@ -68,13 +68,13 @@ public class DMOPC_2014_Not_Enough_Testers {
     return lower ? hi : lo;
   }
 
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 }

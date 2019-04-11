@@ -12,7 +12,7 @@ public class CCC_2001_J3_S1 {
   static StringTokenizer st;
   static String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String input = next();
     ArrayList<ArrayList<Character>> hands = new ArrayList<ArrayList<Character>>();
     for (int x = 0; x < 4; x++)
@@ -61,25 +61,25 @@ public class CCC_2001_J3_S1 {
     System.out.println("Total " + total);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

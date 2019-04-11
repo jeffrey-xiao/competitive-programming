@@ -17,7 +17,7 @@ public class DMOPC_2015_Lelei_and_Contest {
   static long[] tree;
   static long[] lazy;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -49,7 +49,7 @@ public class DMOPC_2015_Lelei_and_Contest {
     out.close();
   }
 
-  static long query (int n, int l, int r, int ql, int qr, int m) {
+  static long query(int n, int l, int r, int ql, int qr, int m) {
     if (l == ql && r == qr) {
       return tree[n];
     }
@@ -68,7 +68,7 @@ public class DMOPC_2015_Lelei_and_Contest {
     return (query(n << 1, l, mid, ql, mid, m) + query(n << 1 | 1, mid + 1, r, mid + 1, qr, m)) % m;
   }
 
-  static void update (int n, int l, int r, int ql, int qr, long val, int m) {
+  static void update(int n, int l, int r, int ql, int qr, long val, int m) {
     if (l == ql && r == qr) {
       long add = val;
       tree[n] = (tree[n] + (r - l + 1) * add) % m;
@@ -94,7 +94,7 @@ public class DMOPC_2015_Lelei_and_Contest {
     tree[n] = (tree[n << 1] + tree[n << 1 | 1]) % m;
   }
 
-  static void build (int n, int l, int r, int m) {
+  static void build(int n, int l, int r, int m) {
     if (l == r) {
       tree[n] = pow(a[l], m, m);
       return;
@@ -105,7 +105,7 @@ public class DMOPC_2015_Lelei_and_Contest {
     tree[n] = (tree[n << 1] + tree[n << 1 | 1]) % m;
   }
 
-  static long pow (long n, long k, long m) {
+  static long pow(long n, long k, long m) {
     if (k == 0)
       return 1;
     if (k == 1)
@@ -115,29 +115,29 @@ public class DMOPC_2015_Lelei_and_Contest {
     return n * pow(n * n % m, k / 2, m) % m;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

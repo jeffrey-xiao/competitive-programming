@@ -12,7 +12,7 @@ public class BinaryIndexedTree2D {
   private int[][] tree1, tree2, tree3, tree4;
   private int rows, columns;
 
-  BinaryIndexedTree2D (int rows, int columns) {
+  BinaryIndexedTree2D(int rows, int columns) {
     this.rows = rows;
     this.columns = columns;
     this.tree1 = new int[rows][columns];
@@ -41,13 +41,13 @@ public class BinaryIndexedTree2D {
   */
   // range update and range query
 
-  private void update (int[][] tree, int idx, int idy, int val) {
+  private void update(int[][] tree, int idx, int idy, int val) {
     for (int x = idx; x < rows; x += (x & -x))
       for (int y = idy; y < columns; y += (y & -y))
         tree[x][y] += val;
   }
 
-  private void auxUpdate (int idx, int idy, int val) {
+  private void auxUpdate(int idx, int idy, int val) {
     update(tree1, 1, 1, val);
     update(tree1, 1, idy + 1, -val);
     update(tree2, 1, idy + 1, val * idy);
@@ -59,18 +59,18 @@ public class BinaryIndexedTree2D {
     update(tree4, idx + 1, idy + 1, val * idx * idy);
   }
 
-  public void update (int x1, int y1, int x2, int y2, int val) {
+  public void update(int x1, int y1, int x2, int y2, int val) {
     auxUpdate(x2 + 1, y2 + 1, val);
     auxUpdate(x1, y2 + 1, -val);
     auxUpdate(x2 + 1, y1, -val);
     auxUpdate(x1, y1, val);
   }
 
-  public void update (int x, int y, int val) {
+  public void update(int x, int y, int val) {
     update(x, y, x, y, val);
   }
 
-  public int query (int idx, int idy) {
+  public int query(int idx, int idy) {
     idx++;
     idy++;
     int s1 = 0, s2 = 0, s3 = 0, s4 = 0;

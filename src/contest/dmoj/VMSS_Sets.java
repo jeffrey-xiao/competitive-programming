@@ -16,7 +16,7 @@ public class VMSS_Sets {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<TreeSet<Character>> l = new ArrayList<TreeSet<Character>>();
     boolean[] exist = new boolean[26];
@@ -41,7 +41,7 @@ public class VMSS_Sets {
         l.get(first.get(i)).addAll(l.get(second.get(i)));
     for (int i = 0; i < 26; i++) {
       if (exist[i]) {
-        System.out.print((char)(i + 'A') + " = {");
+        System.out.print((char) (i + 'A') + " = {");
         int k = 0;
         for (Character c : l.get(i)) {
           System.out.print(c);
@@ -54,29 +54,29 @@ public class VMSS_Sets {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

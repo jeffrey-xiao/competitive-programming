@@ -9,14 +9,13 @@ import java.util.StringTokenizer;
 
 public class FHC_2017_Round_1_Beach_Umbreallas {
 
+  static final long MOD = (long) (1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static long[] fact = new long[2001];
-  static final long MOD = (long)(1e9 + 7);
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -69,7 +68,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
     out.close();
   }
 
-  static long choose (int n, int k) {
+  static long choose(int n, int k) {
     if (k > n - k)
       k = n - k;
     long ret = 1;
@@ -78,11 +77,11 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
     return divMod(ret, fact[k]);
   }
 
-  static long divMod (long i, long j) {
+  static long divMod(long i, long j) {
     return i * pow(j, MOD - 2) % MOD;
   }
 
-  static long pow (long a, long b) {
+  static long pow(long a, long b) {
     if (b == 0)
       return 1;
     if (b == 1)
@@ -92,29 +91,29 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
     return a * pow(a * a % MOD, b / 2) % MOD;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

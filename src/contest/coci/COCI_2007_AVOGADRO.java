@@ -24,7 +24,7 @@ public class COCI_2007_AVOGADRO {
   static int[][] occ; // first is number, second is row
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     N = readInt();
     for (int i = 0; i < N; i++)
       col.add(new LinkedList<Integer>());
@@ -68,29 +68,29 @@ public class COCI_2007_AVOGADRO {
     System.out.println(res);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

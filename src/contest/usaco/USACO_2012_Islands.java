@@ -12,7 +12,7 @@ public class USACO_2012_Islands {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[][] islands = new int[n][2];
     boolean[] gone = new boolean[n];
@@ -22,7 +22,7 @@ public class USACO_2012_Islands {
     }
     Arrays.sort(islands, new Comparator<int[]>() {
       @Override
-      public int compare (int[] arg0, int[] arg1) {
+      public int compare(int[] arg0, int[] arg1) {
         return arg0[0] - arg1[0];
       }
     });
@@ -45,25 +45,25 @@ public class USACO_2012_Islands {
     System.out.println(max);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

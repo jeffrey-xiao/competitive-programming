@@ -23,7 +23,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
   static int[] movex = {-1, 0, 1, 0};
   static int[] movey = {0, 1, 0, -1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -84,39 +84,39 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
     out.close();
   }
 
-  static class State {
-    int r, c, d;
-
-    State (int r, int c, int d) {
-      this.r = r;
-      this.c = c;
-      this.d = d;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int r, c, d;
+
+    State(int r, int c, int d) {
+      this.r = r;
+      this.c = c;
+      this.d = d;
+    }
   }
 }

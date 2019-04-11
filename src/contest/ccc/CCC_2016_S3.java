@@ -21,7 +21,7 @@ public class CCC_2016_S3 {
   static int[] dist;
   static int totalDist;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -76,7 +76,7 @@ public class CCC_2016_S3 {
     out.close();
   }
 
-  static void computeDist (int u, int prev, int depth) {
+  static void computeDist(int u, int prev, int depth) {
     dist[u] = depth;
     for (int v : adj.get(u)) {
       if (v != prev && marked[v]) {
@@ -85,7 +85,7 @@ public class CCC_2016_S3 {
     }
   }
 
-  static void mark (int u, int prev) {
+  static void mark(int u, int prev) {
     if (isPho[u])
       marked[u] = true;
 
@@ -100,29 +100,29 @@ public class CCC_2016_S3 {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

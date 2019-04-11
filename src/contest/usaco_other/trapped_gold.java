@@ -23,7 +23,7 @@ public class trapped_gold {
   static int id[];
   static Seg seg[];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("trapped.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("trapped.out")));
@@ -75,39 +75,12 @@ public class trapped_gold {
     pr.close();
   }
 
-  static class Hay implements Comparable<Hay> {
-    int size, pos;
-
-    Hay (int size, int pos) {
-      this.size = size;
-      this.pos = pos;
-    }
-
-    @Override
-    public int compareTo (Hay o) {
-      return pos - o.pos;
-    }
-  }
-
-  static class Int implements Comparable<Int> {
-    int i;
-
-    Int (int i) {
-      this.i = i;
-    }
-
-    @Override
-    public int compareTo (Int o) {
-      return seg[i].compareTo(seg[o.i]);
-    }
-  }
-
-  static int find (int x) {
+  static int find(int x) {
     return x == id[x] ? x : (id[x] = find(id[x]));
   }
 
   // x is left and y is right
-  static void merge (int rl, int rr) {
+  static void merge(int rl, int rr) {
     if (seg[rl].compareTo(seg[rr]) < 0) {
       seg[rl] = new Seg(seg[rl].l, seg[rr].r, seg[rl].lm, seg[rr].rm, seg[rl].li, rl, seg[rr].ri, seg[rl].area + seg[rr].area);
       seg[rr].area = 0;
@@ -119,13 +92,66 @@ public class trapped_gold {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class Hay implements Comparable<Hay> {
+    int size, pos;
+
+    Hay(int size, int pos) {
+      this.size = size;
+      this.pos = pos;
+    }
+
+    @Override
+    public int compareTo(Hay o) {
+      return pos - o.pos;
+    }
+  }
+
+  static class Int implements Comparable<Int> {
+    int i;
+
+    Int(int i) {
+      this.i = i;
+    }
+
+    @Override
+    public int compareTo(Int o) {
+      return seg[i].compareTo(seg[o.i]);
+    }
+  }
+
   static class Seg implements Comparable<Seg> {
     int l, r;
     int lm, rm;
     int area;
     int li, ci, ri;
 
-    Seg (int l, int r, int lm, int rm, int li, int ci, int ri, int area) {
+    Seg(int l, int r, int lm, int rm, int li, int ci, int ri, int area) {
       this.l = l;
       this.r = r;
       this.lm = lm;
@@ -137,36 +163,10 @@ public class trapped_gold {
     }
 
     @Override
-    public int compareTo (Seg o) {
+    public int compareTo(Seg o) {
       if ((r - l) - (o.r - o.l) == 0)
         return l - o.l;
       return (r - l) - (o.r - o.l);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

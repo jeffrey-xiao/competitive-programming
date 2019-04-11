@@ -10,11 +10,12 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 public class ACM_Greater_New_York_2015_I {
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
     int P = Integer.parseInt(in.readLine());
-    main : while (P-- > 0) {
+    main:
+    while (P-- > 0) {
       StringTokenizer st = new StringTokenizer(in.readLine());
       int K = Integer.parseInt(st.nextToken());
       int M = Integer.parseInt(st.nextToken());
@@ -61,7 +62,7 @@ public class ACM_Greater_New_York_2015_I {
     }
   }
 
-  static String rats (String s) {
+  static String rats(String s) {
     String r = new StringBuilder(s).reverse().toString();
     BigInteger ss = new BigInteger(s), rs = new BigInteger(r);
     char[] nxt = ss.add(rs).toString().toCharArray();

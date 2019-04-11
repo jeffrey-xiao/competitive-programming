@@ -11,7 +11,7 @@ public class CCC_1997_B {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       if (isNasty(n))
@@ -21,7 +21,7 @@ public class CCC_1997_B {
     }
   }
 
-  private static boolean isNasty (int n) {
+  private static boolean isNasty(int n) {
     HashSet<Integer> nums = new HashSet<Integer>();
     for (int x = 1; x * x <= n; x++) {
       if (n % x == 0) {
@@ -35,25 +35,25 @@ public class CCC_1997_B {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

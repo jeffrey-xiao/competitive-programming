@@ -17,7 +17,7 @@ public class FHC_2016_Round_1_Yachtzee {
   static long a, b;
   static long[] c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -40,11 +40,12 @@ public class FHC_2016_Round_1_Yachtzee {
     out.close();
   }
 
-  static double sum (long end) {
+  static double sum(long end) {
     long sum = 0;
     double res = 0;
     double curr = 0;
-    outer : while (true) {
+    outer:
+    while (true) {
       curr = 0;
       for (int i = 0; i < n; i++) {
         // [l, r)
@@ -64,29 +65,29 @@ public class FHC_2016_Round_1_Yachtzee {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

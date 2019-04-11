@@ -21,7 +21,7 @@ public class DMOPC_2015_Event_Horizon {
   static int[] cnt;
   static boolean[] vis;
 
-  public static void main (String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -72,19 +72,19 @@ public class DMOPC_2015_Event_Horizon {
     out.close();
   }
 
-  static void add (int i, int j) {
+  static void add(int i, int j) {
     if (adj.get(i).get(j) == null)
       adj.get(i).put(j, 0);
     adj.get(i).put(j, adj.get(i).get(j) + 1);
   }
 
-  static void remove (int i, int j) {
+  static void remove(int i, int j) {
     adj.get(i).put(j, adj.get(i).get(j) - 1);
     if (adj.get(i).get(j) == 0)
       adj.get(i).remove(j);
   }
 
-  static State dfs (int u) {
+  static State dfs(int u) {
     State s = new State();
     s.min = cnt[u];
     vis[u] = true;
@@ -103,6 +103,32 @@ public class DMOPC_2015_Event_Horizon {
     return s;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int min = 1 << 30;
     ArrayList<Edge> e = new ArrayList<Edge>();
@@ -111,35 +137,9 @@ public class DMOPC_2015_Event_Horizon {
   static class Edge {
     int a, b;
 
-    Edge (int a, int b) {
+    Edge(int a, int b) {
       this.a = a;
       this.b = b;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

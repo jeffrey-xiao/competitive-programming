@@ -13,20 +13,17 @@ import java.util.StringTokenizer;
 
 public class ECOO_2016_R3_P4 {
 
+  static final int TEST_CASES = 10;
+  static final int MAX = 10000;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int TEST_CASES = 10;
-
   static char[] use;
   static int target;
   static HashMap<Integer, String> vis = new HashMap<Integer, String>();
   static HashMap<Integer, String> base = new HashMap<Integer, String>();
 
-  static final int MAX = 10000;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt")); // DATA41.txt
@@ -143,58 +140,58 @@ public class ECOO_2016_R3_P4 {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int num;
     String op;
 
-    State (int num, String op) {
+    State(int num, String op) {
       this.num = num;
       this.op = op;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Integer(num).hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         return num == s.num;
       }
       return false;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("(%d %s)", num, op);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

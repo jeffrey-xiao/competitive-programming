@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class DWITE_2006_Floppy_Disc {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int t = 0; t < 5; t++) {
       boolean[] disc = new boolean[1441];
       disc[0] = true;

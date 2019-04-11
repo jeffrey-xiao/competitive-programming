@@ -20,7 +20,7 @@ public class ShortestHamilitonPath {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -40,7 +40,7 @@ public class ShortestHamilitonPath {
       int[] p = new int[n];
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
-          dist[i][j] = (int)(Math.random() * 1000);
+          dist[i][j] = (int) (Math.random() * 1000);
         dist[i][i] = 0;
         p[i] = i;
       }
@@ -49,7 +49,7 @@ public class ShortestHamilitonPath {
     out.close();
   }
 
-  static int brute (int[] p, int[][] dist, int i) {
+  static int brute(int[] p, int[][] dist, int i) {
     if (i == p.length - 1) {
       int ret = 0;
       for (int j = 0; j < p.length - 1; j++)
@@ -65,13 +65,13 @@ public class ShortestHamilitonPath {
     return min;
   }
 
-  static void swap (int[] a, int i, int j) {
+  static void swap(int[] a, int i, int j) {
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
   }
 
-  static int minDist (int[][] dist) {
+  static int minDist(int[][] dist) {
     int n = dist.length;
 
     int[][] dp = new int[1 << n][n];
@@ -109,29 +109,29 @@ public class ShortestHamilitonPath {
     return min;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

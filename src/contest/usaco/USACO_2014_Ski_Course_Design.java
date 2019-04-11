@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class USACO_2014_Ski_Course_Design {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
 
     int hills[] = new int[101];
     int max = -1;

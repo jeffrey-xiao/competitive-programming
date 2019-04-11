@@ -7,7 +7,7 @@ import java.util.Collections;
 public class Primes {
 
   // Sieve of Eratosthenes in O(N log log N)
-  static ArrayList<Integer> getPrimesEratosthenes (int N) {
+  static ArrayList<Integer> getPrimesEratosthenes(int N) {
     boolean[] prime = new boolean[N + 1];
     ArrayList<Integer> ret = new ArrayList<Integer>();
 
@@ -25,7 +25,7 @@ public class Primes {
     return ret;
   }
 
-  static ArrayList<Integer> getPrimesLinear (int N) {
+  static ArrayList<Integer> getPrimesLinear(int N) {
     int[] lp = new int[N + 1];
     ArrayList<Integer> ret = new ArrayList<Integer>();
 
@@ -43,7 +43,7 @@ public class Primes {
     return ret;
   }
 
-  static ArrayList<Integer> getPrimesAtkins (int N) {
+  static ArrayList<Integer> getPrimesAtkins(int N) {
     boolean[] prime = new boolean[N + 1];
     ArrayList<Integer> ret = new ArrayList<Integer>();
 
@@ -82,9 +82,9 @@ public class Primes {
     return ret;
   }
 
-  static ArrayList<Integer> genPrimes (int l, int h) {
-    int sqrth = (int)Math.ceil(Math.sqrt(h));
-    int sqrtsqrth = (int)Math.ceil(Math.sqrt(sqrth));
+  static ArrayList<Integer> genPrimes(int l, int h) {
+    int sqrth = (int) Math.ceil(Math.sqrt(h));
+    int sqrtsqrth = (int) Math.ceil(Math.sqrt(sqrth));
 
     boolean[] prime1 = new boolean[sqrth + 1];
     boolean[] prime2 = new boolean[h - l + 1];
@@ -111,7 +111,7 @@ public class Primes {
     return ret;
   }
 
-  static boolean isPrime (int n) {
+  static boolean isPrime(int n) {
     if (n <= 1)
       return false;
     if (n == 2)
@@ -134,7 +134,7 @@ public class Primes {
     return true;
   }
 
-  static void primeFactors (int n) {
+  static void primeFactors(int n) {
     while (n % 2 == 0) {
       System.out.println("2 ");
       n = n / 2;
@@ -149,7 +149,7 @@ public class Primes {
       System.out.println(n + " ");
   }
 
-  static int countDivisors (int n) {
+  static int countDivisors(int n) {
     int x = 2;
     int numOfFactors = 0;
     while (x * x <= n) {
@@ -164,10 +164,10 @@ public class Primes {
     return numOfFactors;
   }
 
-  static long fermat (long n) {
+  static long fermat(long n) {
     if (n % 2 == 0)
       return 2;
-    long x = (long)(Math.sqrt(n)), y = 0;
+    long x = (long) (Math.sqrt(n)), y = 0;
     long r = x * x - y * y - n;
     while (r != 0) {
       if (r < 0) {
@@ -181,7 +181,7 @@ public class Primes {
     return x != y ? x - y : x + y;
   }
 
-  static ArrayList<Integer> getDivisors (int n) {
+  static ArrayList<Integer> getDivisors(int n) {
     ArrayList<Integer> ret = new ArrayList<Integer>();
     for (int d = 1; d * d <= n; d++) {
       if (n % d == 0) {
@@ -194,7 +194,7 @@ public class Primes {
     return ret;
   }
 
-  static int eulerPhiDirect (int n) {
+  static int eulerPhiDirect(int n) {
     int result = n;
     for (int i = 2; i <= n; i++) {
       if (isPrime(i))
@@ -203,11 +203,11 @@ public class Primes {
     return result;
   }
 
-  static long gcd (long a, long b) {
+  static long gcd(long a, long b) {
     return b == 0 ? a : gcd(b, a % b);
   }
 
-  static long multmod (long a, long b, long m) {
+  static long multmod(long a, long b, long m) {
     long x = 0, y = a % m;
     for (; b > 0; b >>= 1) {
       if ((b & 1) == 1)
@@ -217,11 +217,11 @@ public class Primes {
     return x % m;
   }
 
-  static long randLong (long n) {
-    return (long)(Math.random() * n);
+  static long randLong(long n) {
+    return (long) (Math.random() * n);
   }
 
-  static long brent (long n) {
+  static long brent(long n) {
     if (n % 2 == 0)
       return 2;
     long y = randLong(n - 1) + 1;
@@ -256,7 +256,7 @@ public class Primes {
     return g;
   }
 
-  static ArrayList<Long> getDivisorsBig (long n) {
+  static ArrayList<Long> getDivisorsBig(long n) {
     ArrayList<Long> ret = new ArrayList<Long>();
     if (n <= 0)
       return ret;
@@ -292,7 +292,7 @@ public class Primes {
     return ret;
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(getDivisorsBig(1000003l * 137 * 37 * 100003).toString());
     ArrayList<Integer> ret1 = getPrimesEratosthenes(123456789);
     ArrayList<Integer> ret2 = getPrimesLinear(123456789);

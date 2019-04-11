@@ -15,25 +15,38 @@ public class BinarySearchTree {
   // root of the tree
   Node root = null;
 
-  // object representing the nodes of the tree
-  class Node {
-    Integer key, value;
-    Node left, right;
-
-    Node (int key, int value) {
-      this.key = key;
-      this.value = value;
+  public static void main(String[] args) {
+    BinarySearchTree t = new BinarySearchTree();
+    long c = System.currentTimeMillis();
+    for (int x = 0; x < 10000; x++) {
+      int ran = (int) (Math.random() * (1 << 30)) + 5;
+      t.add(ran);
     }
-
-    Node (int key) {
-      this.key = key;
-      this.value = key;
-    }
+    // t.traverse(root);
+    t.add(1);
+    System.out.println(t.contains(t.root, 1));
+    System.out.println(t.contains(t.root, 2));
+    t.remove(1);
+    System.out.println(t.contains(t.root, 1));
+    System.out.println(System.currentTimeMillis() - c);
+    // t.add(9);
+    // t.add(5);
+    // t.add(10);
+    // t.add(0);
+    // t.add(6);
+    // t.add(11);
+    // t.add(-1);
+    // t.add(1);
+    // t.add(2);
+    // traverse(root);
+    // t.remove(10);
+    // System.out.println();
+    // t.traverse(root);
 
   }
 
   // in order traversal of tree
-  public void traverse (Node n) {
+  public void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -41,16 +54,16 @@ public class BinarySearchTree {
     traverse(n.right);
   }
 
-  public boolean contains (Integer k) {
+  public boolean contains(Integer k) {
     return contains(root, k);
   }
 
-  public Integer get (Integer k) {
+  public Integer get(Integer k) {
     return get(root, k);
   }
 
   // auxiliary method for get
-  private Integer get (Node n, Integer k) {
+  private Integer get(Node n, Integer k) {
     if (n == null)
       return null;
     int cmp = k.compareTo(n.key);
@@ -62,7 +75,7 @@ public class BinarySearchTree {
   }
 
   // auxiliary method for contains
-  private boolean contains (Node n, Integer k) {
+  private boolean contains(Node n, Integer k) {
     if (n == null)
       return false;
     int cmp = k.compareTo(n.key);
@@ -73,12 +86,12 @@ public class BinarySearchTree {
     return true;
   }
 
-  public void remove (int k) {
+  public void remove(int k) {
     root = remove(root, k);
   }
 
   // auxiliary method for move
-  private Node remove (Node n, Integer k) {
+  private Node remove(Node n, Integer k) {
     if (n == null)
       return n;
     int cmp = k.compareTo(n.key);
@@ -104,23 +117,23 @@ public class BinarySearchTree {
     return n;
   }
 
-  private Node minV (Node n) {
+  private Node minV(Node n) {
     while (n.left != null)
       ;
     n = n.left;
     return n;
   }
 
-  public void add (int k, int v) {
+  public void add(int k, int v) {
     root = add(root, k, v);
   }
 
-  public void add (int k) {
+  public void add(int k) {
     root = add(root, k, k);
   }
 
   // auxiliary method for add
-  private Node add (Node n, Integer k, Integer v) {
+  private Node add(Node n, Integer k, Integer v) {
     if (n == null)
       return new Node(k, v);
     int cmp = k.compareTo(n.key);
@@ -133,33 +146,20 @@ public class BinarySearchTree {
     return n;
   }
 
-  public static void main (String[] args) {
-    BinarySearchTree t = new BinarySearchTree();
-    long c = System.currentTimeMillis();
-    for (int x = 0; x < 10000; x++) {
-      int ran = (int)(Math.random() * (1 << 30)) + 5;
-      t.add(ran);
+  // object representing the nodes of the tree
+  class Node {
+    Integer key, value;
+    Node left, right;
+
+    Node(int key, int value) {
+      this.key = key;
+      this.value = value;
     }
-    // t.traverse(root);
-    t.add(1);
-    System.out.println(t.contains(t.root, 1));
-    System.out.println(t.contains(t.root, 2));
-    t.remove(1);
-    System.out.println(t.contains(t.root, 1));
-    System.out.println(System.currentTimeMillis() - c);
-    // t.add(9);
-    // t.add(5);
-    // t.add(10);
-    // t.add(0);
-    // t.add(6);
-    // t.add(11);
-    // t.add(-1);
-    // t.add(1);
-    // t.add(2);
-    // traverse(root);
-    // t.remove(10);
-    // System.out.println();
-    // t.traverse(root);
+
+    Node(int key) {
+      this.key = key;
+      this.value = key;
+    }
 
   }
 }

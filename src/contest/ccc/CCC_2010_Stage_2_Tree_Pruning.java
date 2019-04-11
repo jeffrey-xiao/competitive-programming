@@ -7,15 +7,15 @@ import java.util.StringTokenizer;
 
 public class CCC_2010_Stage_2_Tree_Pruning {
 
-  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  static StringTokenizer st;
   static final boolean WHITE = true;
   static final boolean BLACK = false;
+  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  static StringTokenizer st;
   static Node[] nodes;
   static int mod;
   static int[][] minPrune;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     // INPUT
     int n = readInt();
     int d = readInt();
@@ -44,7 +44,7 @@ public class CCC_2010_Stage_2_Tree_Pruning {
     System.out.println(search(nodes[0], diff));
   }
 
-  private static int search (Node node, int diff) {
+  private static int search(Node node, int diff) {
     int total = -node.numWhite + node.numBlack;
     if (diff == 0)
       return 0;
@@ -75,7 +75,7 @@ public class CCC_2010_Stage_2_Tree_Pruning {
     return minPrune[node.index][Math.abs(diff)];
   }
 
-  private static void computeColors (Node n) {
+  private static void computeColors(Node n) {
     if (n.color == WHITE)
       n.numWhite++;
     else if (n.color == BLACK)
@@ -93,6 +93,28 @@ public class CCC_2010_Stage_2_Tree_Pruning {
 
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     boolean color;
     int index;
@@ -101,31 +123,9 @@ public class CCC_2010_Stage_2_Tree_Pruning {
     int numWhite = 0;
     int numBlack = 0;
 
-    Node (int color, int index) {
+    Node(int color, int index) {
       this.color = color == 1;
       this.index = index;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

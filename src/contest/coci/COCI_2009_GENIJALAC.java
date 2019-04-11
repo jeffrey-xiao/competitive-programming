@@ -19,7 +19,7 @@ public class COCI_2009_GENIJALAC {
   static boolean[] v;
   static int[] cycle;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int a = readInt();
     int b = readInt();
@@ -41,15 +41,15 @@ public class COCI_2009_GENIJALAC {
     System.out.println((b + lcm - 1) / (lcm) - (a + lcm - 2) / lcm);
   }
 
-  private static int lcm (int a, int b) {
+  private static int lcm(int a, int b) {
     return a * b / gcf(a, b);
   }
 
-  private static int gcf (int a, int b) {
+  private static int gcf(int a, int b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  private static void findCycle (int i) {
+  private static void findCycle(int i) {
     ArrayList<Integer> visited = new ArrayList<Integer>();
     v[i] = true;
     visited.add(i);
@@ -64,29 +64,29 @@ public class COCI_2009_GENIJALAC {
       cycle[j] = count;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

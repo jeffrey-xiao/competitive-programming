@@ -10,15 +10,13 @@ import java.util.StringTokenizer;
 
 public class WOC_29_F {
 
+  static final int GROUPS = 25;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int GROUPS = 25;
-
   static Point[][] p = new Point[GROUPS][12];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -28,7 +26,7 @@ public class WOC_29_F {
     for (int a = -12; a <= 12; a++) {
       for (int b = -12; b <= 12; b++) {
         double dist = Math.sqrt(a * a + b * b);
-        if (dist == (int)dist)
+        if (dist == (int) dist)
           continue;
         Point target = new Point(a, b);
         initPoints();
@@ -62,12 +60,12 @@ public class WOC_29_F {
     out.close();
   }
 
-  static boolean isValid (int i) {
+  static boolean isValid(int i) {
     double dist = 0;
     for (int j = 0; j < 12; j++) {
       dist += Math.sqrt(p[i][j].x * p[i][j].x + p[i][j].y * p[i][j].y);
     }
-    dist -= (int)dist;
+    dist -= (int) dist;
     dist = Math.min(Math.abs(dist), Math.abs(1 - dist));
     if (dist > 1e-12)
       return false;
@@ -78,13 +76,13 @@ public class WOC_29_F {
     }
     for (int j = 0; j < 12; j++) {
       dist = Math.sqrt(p[i][j].x * p[i][j].x + p[i][j].y * p[i][j].y);
-      if (dist == (int)dist)
+      if (dist == (int) dist)
         return false;
     }
     return true;
   }
 
-  static void change (int i, int j) {
+  static void change(int i, int j) {
     if (!exists(i, -p[i][j].x, p[i][j].y)) {
       p[i][j].x = -p[i][j].x;
       p[i][j].y = p[i][j].y;
@@ -123,14 +121,14 @@ public class WOC_29_F {
     assert false;
   }
 
-  static boolean exists (int i, int x, int y) {
+  static boolean exists(int i, int x, int y) {
     for (int j = 0; j < 12; j++)
       if (p[i][j].x == x && p[i][j].y == y)
         return true;
     return false;
   }
 
-  static void initPoints () {
+  static void initPoints() {
     p[0][0] = new Point(1, 1);
     p[0][1] = new Point(1, 2);
     p[0][2] = new Point(1, 3);
@@ -457,7 +455,7 @@ public class WOC_29_F {
     p[24][11] = new Point(4, -9);
   }
 
-  static boolean isSimilar (Point p1, Point p2) {
+  static boolean isSimilar(Point p1, Point p2) {
     if (p1.x == p2.x && p1.y == p2.y)
       return true;
     if (p1.x == -p2.x && p1.y == p2.y)
@@ -477,52 +475,52 @@ public class WOC_29_F {
     return false;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("(%d, %d)", x, y);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -24,7 +24,7 @@ public class IOI_1998_Starry_Night {
   static int[] mover = {-1, -1, -1, 0, 0, 1, 1, 1};
   static int[] movec = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -78,7 +78,7 @@ public class IOI_1998_Starry_Night {
           }
 
           for (Point p : curr) {
-            g[p.x][p.y] = (char)('a' + index);
+            g[p.x][p.y] = (char) ('a' + index);
           }
 
           if (!exists) {
@@ -94,7 +94,7 @@ public class IOI_1998_Starry_Night {
     out.close();
   }
 
-  static boolean equals (ArrayList<Point> p1, ArrayList<Point> p2) {
+  static boolean equals(ArrayList<Point> p1, ArrayList<Point> p2) {
     Collections.sort(p1);
     Collections.sort(p2);
     if (p1.size() != p2.size())
@@ -106,7 +106,7 @@ public class IOI_1998_Starry_Night {
     return true;
   }
 
-  static void dfs (int r, int c) {
+  static void dfs(int r, int c) {
     g[r][c] = '0';
     curr.add(new Point(r, c));
 
@@ -120,17 +120,43 @@ public class IOI_1998_Starry_Night {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Cluster {
     int height, width;
     ArrayList<Point> points;
 
-    Cluster (int height, int width) {
+    Cluster(int height, int width) {
       this.height = height;
       this.width = width;
       this.points = new ArrayList<Point>();
     }
 
-    void rotate () {
+    void rotate() {
       int newHeight = width;
       int newWidth = height;
 
@@ -144,13 +170,13 @@ public class IOI_1998_Starry_Night {
       height = newHeight;
     }
 
-    void flip () {
+    void flip() {
       for (int i = 0; i < points.size(); i++) {
         points.get(i).y = width - points.get(i).y - 1;
       }
     }
 
-    public String toString () {
+    public String toString() {
       StringBuilder ret = new StringBuilder();
       for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -170,56 +196,30 @@ public class IOI_1998_Starry_Night {
   static class Point implements Comparable<Point> {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       if (x == p.x)
         return y - p.y;
       return x - p.x;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("(%d %d)", x, y);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

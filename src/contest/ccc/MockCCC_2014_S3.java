@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MockCCC_2014_S3 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int rows = scan.nextInt();
     int columns = scan.nextInt();
     int[][] sheet = new int[rows][columns];
@@ -18,7 +18,7 @@ public class MockCCC_2014_S3 {
       final int column = scan.nextInt() - 1;
       Arrays.sort(sheet, new Comparator<int[]>() {
         @Override
-        public int compare (int[] arg0, int[] arg1) {
+        public int compare(int[] arg0, int[] arg1) {
           if (arg0[column] == arg1[column])
             return 0;
           return arg0[column] < arg1[column] ? -1 : 1;

@@ -17,7 +17,7 @@ public class Bloomberg_Codecon_2017_C {
   static Pokemon[] opp, team;
   static int max = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -41,7 +41,7 @@ public class Bloomberg_Codecon_2017_C {
     out.close();
   }
 
-  static int simulate () {
+  static int simulate() {
     int i = 0;
     int j = 0;
     double hp1 = opp[i].health;
@@ -66,7 +66,7 @@ public class Bloomberg_Codecon_2017_C {
     return N - j;
   }
 
-  static void permute (int i) {
+  static void permute(int i) {
     if (i == N) {
       max = Math.max(max, simulate());
       return;
@@ -78,45 +78,45 @@ public class Bloomberg_Codecon_2017_C {
     }
   }
 
-  static void swap (int i, int j) {
+  static void swap(int i, int j) {
     Pokemon temp = team[i];
     team[i] = team[j];
     team[j] = temp;
   }
 
-  static class Pokemon {
-    double health, attack, defence;
-
-    Pokemon (double health, double attack, double defence) {
-      this.health = health;
-      this.attack = attack;
-      this.defence = defence;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Pokemon {
+    double health, attack, defence;
+
+    Pokemon(double health, double attack, double defence) {
+      this.health = health;
+      this.attack = attack;
+      this.defence = defence;
+    }
   }
 }

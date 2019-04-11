@@ -15,7 +15,7 @@ public class COCI_2009_SORT {
   static StringTokenizer st;
 
   @SuppressWarnings("unused")
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
     int n = readInt();
     int c = readInt();
@@ -43,45 +43,45 @@ public class COCI_2009_SORT {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Value implements Comparable<Value> {
     int index;
     int value;
     int count;
 
-    Value (int index, int value, int count) {
+    Value(int index, int value, int count) {
       this.index = index;
       this.value = value;
       this.count = count;
     }
 
     @Override
-    public int compareTo (Value o) {
+    public int compareTo(Value o) {
       if (o.count == count)
         return index - o.index;
       return o.count - count;
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

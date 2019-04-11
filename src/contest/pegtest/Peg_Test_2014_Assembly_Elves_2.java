@@ -19,7 +19,7 @@ public class Peg_Test_2014_Assembly_Elves_2 {
   static TreeSet<Integer>[][] dp = new TreeSet[101][101];
   static boolean[][] mem = new boolean[101][101];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     TreeSet<Integer> best = compute(n, new TreeSet<Integer>(), 0);
     System.out.println(best.size());
@@ -28,9 +28,9 @@ public class Peg_Test_2014_Assembly_Elves_2 {
     }
   }
 
-  private static TreeSet<Integer> compute (int i, TreeSet<Integer> prev, int with) {
+  private static TreeSet<Integer> compute(int i, TreeSet<Integer> prev, int with) {
     if (mem[i][with])
-      return (TreeSet<Integer>)dp[i][with].headSet(i, true);
+      return (TreeSet<Integer>) dp[i][with].headSet(i, true);
 
     TreeSet<Integer> curr = new TreeSet<Integer>();
     curr.addAll(prev);
@@ -70,29 +70,29 @@ public class Peg_Test_2014_Assembly_Elves_2 {
     return curr;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

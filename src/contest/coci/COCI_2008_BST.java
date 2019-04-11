@@ -11,7 +11,7 @@ public class COCI_2008_BST {
   static StringTokenizer st;
   static int count = -1;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
 
     int x = readInt();
     Node n = new Node(0);
@@ -22,16 +22,38 @@ public class COCI_2008_BST {
 
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node {
     int value;
     Node leftNode;
     Node rightNode;
 
-    Node (int value) {
+    Node(int value) {
       this.value = value;
     }
 
-    void insert (int value) {
+    void insert(int value) {
       Node curr = this;
       count++;
       while (curr.value != 0) {
@@ -53,27 +75,5 @@ public class COCI_2008_BST {
       }
       curr.value = value;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

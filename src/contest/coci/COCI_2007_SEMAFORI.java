@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class COCI_2007_SEMAFORI {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     int d = scan.nextInt();
     int[][] stoplights = new int[n][3];

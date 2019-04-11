@@ -7,7 +7,9 @@ import java.util.Arrays;
 
 public class Partitions {
 
-  static boolean nextPartition (ArrayList<Integer> p) {
+  static long[][] dp = new long[101][101];
+
+  static boolean nextPartition(ArrayList<Integer> p) {
     int n = p.size();
     if (n <= 1)
       return false;
@@ -17,12 +19,12 @@ public class Partitions {
       s += p.get(i);
       p.remove(p.size() - 1);
     }
-    for (p.set(i, p.get(i) + 1); s-- > 0;)
+    for (p.set(i, p.get(i) + 1); s-- > 0; )
       p.add(1);
     return true;
   }
 
-  static long countPartitions (int n) {
+  static long countPartitions(int n) {
     long[] dp = new long[n + 1];
     dp[0] = 1;
     for (int i = 1; i <= n; i++)
@@ -31,9 +33,7 @@ public class Partitions {
     return dp[n];
   }
 
-  static long[][] dp = new long[101][101];
-
-  static long partition (int i, int j) {
+  static long partition(int i, int j) {
     if (i == 0 || j == 1 || i == j)
       return 1;
     if (j > i)
@@ -46,7 +46,7 @@ public class Partitions {
   }
 
   // one indexed
-  static ArrayList<Integer> partitionByRank (int n, long x) {
+  static ArrayList<Integer> partitionByRank(int n, long x) {
     ArrayList<Integer> ret = new ArrayList<Integer>();
     while (n > 0) {
       for (int i = 1; i <= n; i++) {
@@ -62,7 +62,7 @@ public class Partitions {
     return ret;
   }
 
-  static long rankByPartition (ArrayList<Integer> p) {
+  static long rankByPartition(ArrayList<Integer> p) {
     long ret = 0;
     int sum = 0;
     for (int i = 0; i < p.size(); i++)
@@ -75,7 +75,7 @@ public class Partitions {
     return ret + 1;
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(partitionByRank(10, 14).toString());
     ArrayList<Integer> a = new ArrayList<Integer>(Arrays.asList(3, 3, 3, 1));
     System.out.println(rankByPartition(a));

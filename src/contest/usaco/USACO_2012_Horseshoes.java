@@ -14,7 +14,7 @@ public class USACO_2012_Horseshoes {
   static int max = 0;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     char[][] grid = new char[n][];
     for (int x = 0; x < n; x++)
@@ -28,7 +28,7 @@ public class USACO_2012_Horseshoes {
     }
   }
 
-  private static void compute (int x, int y, boolean[][] v, char[][] g, int open, int close, boolean onOpen) {
+  private static void compute(int x, int y, boolean[][] v, char[][] g, int open, int close, boolean onOpen) {
     if (open == close)
       max = Math.max(open * 2, max);
 
@@ -49,25 +49,25 @@ public class USACO_2012_Horseshoes {
     v[x][y] = false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

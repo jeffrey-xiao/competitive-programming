@@ -10,7 +10,7 @@ public class CCC_2000_S4_2 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int d = readInt();
     int n = readInt();
     int[] c = new int[n + 1];
@@ -23,13 +23,13 @@ public class CCC_2000_S4_2 {
       System.out.println("Roberta acknowledges defeat.");
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int knapSack (int W, int c[], int n) {
+  private static int knapSack(int W, int c[], int n) {
     // W = capacity of backpack; wt = weights of items; val = values of
     // items; n = # of items
     int[][] matrix = new int[n + 1][W + 1]; // build a matrix n+1 by W+1
@@ -47,19 +47,19 @@ public class CCC_2000_S4_2 {
     return matrix[n][W];
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

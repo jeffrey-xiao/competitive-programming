@@ -14,13 +14,12 @@ TASK: guard
 import java.util.StringTokenizer;
 
 public class guard {
+  static final int INF = 1 << 30;
   static BufferedReader br;
   static PrintWriter pr;
   static StringTokenizer st;
 
-  static final int INF = 1 << 30;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("guard.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("guard.out")));
@@ -53,10 +52,32 @@ public class guard {
     System.exit(0);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Cow {
     long height, weight, strength;
 
-    Cow (long height, long weight, long strength) {
+    Cow(long height, long weight, long strength) {
       this.height = height;
       this.weight = weight;
       this.strength = strength;
@@ -66,31 +87,9 @@ public class guard {
   static class State {
     long height, safe;
 
-    State (long height, long safe) {
+    State(long height, long safe) {
       this.height = height;
       this.safe = safe;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

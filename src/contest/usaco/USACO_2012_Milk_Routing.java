@@ -16,7 +16,7 @@ public class USACO_2012_Milk_Routing {
   static int n;
   static int milk;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int m = readInt();
     milk = readInt();
@@ -39,7 +39,7 @@ public class USACO_2012_Milk_Routing {
     System.out.println(min);
   }
 
-  private static int shortestPath (Integer currCost) {
+  private static int shortestPath(Integer currCost) {
     boolean[] visited = new boolean[n];
     int[] minCost = new int[n];
     for (int x = 1; x < n; x++)
@@ -55,12 +55,12 @@ public class USACO_2012_Milk_Routing {
         if (next.capacity < currCost)
           continue;
 
-        float f = curr.latency + next.latency + ((float)milk) / (Math.min(curr.capacity, next.capacity));
+        float f = curr.latency + next.latency + ((float) milk) / (Math.min(curr.capacity, next.capacity));
 
         if (minCost[next.dest] < f)
           continue;
 
-        minCost[next.dest] = (int)f;
+        minCost[next.dest] = (int) f;
         visited[next.dest] = true;
 
         pq.add(new Node(next.dest, curr.latency + next.latency, Math.min(curr.capacity, next.capacity)));
@@ -69,30 +69,52 @@ public class USACO_2012_Milk_Routing {
     return minCost[n - 1];
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Node implements Comparable<Node> {
     int curr;
     int latency;
     int capacity;
 
-    Node (int curr, int latency, int capacity) {
+    Node(int curr, int latency, int capacity) {
       this.curr = curr;
       this.latency = latency;
       this.capacity = capacity;
     }
 
     @Override
-    public int compareTo (Node n) {
-      float f1 = latency + ((float)(milk) / capacity);
-      float f2 = n.latency + ((float)(milk) / n.capacity);
+    public int compareTo(Node n) {
+      float f1 = latency + ((float) (milk) / capacity);
+      float f2 = n.latency + ((float) (milk) / n.capacity);
       if (f1 == f2)
         return 0;
       return f1 - f2 < 0 ? -1 : 1;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Node) {
-        Node n = (Node)o;
+        Node n = (Node) o;
         return curr == n.curr;
       }
       return false;
@@ -104,32 +126,10 @@ public class USACO_2012_Milk_Routing {
     int latency;
     int capacity;
 
-    Edge (int dest, int latency, int capacity) {
+    Edge(int dest, int latency, int capacity) {
       this.dest = dest;
       this.latency = latency;
       this.capacity = capacity;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

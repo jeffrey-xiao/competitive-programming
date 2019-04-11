@@ -17,7 +17,7 @@ public class USACO_2011_Cow_Lineup {
   static StringTokenizer st;
   static Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[][] cows = new int[n][2];
     Set<Integer> i = new HashSet<Integer>();
@@ -29,7 +29,7 @@ public class USACO_2011_Cow_Lineup {
     int numOfIds = i.size();
     Arrays.sort(cows, new Comparator<int[]>() {
       @Override
-      public int compare (int[] o1, int[] o2) {
+      public int compare(int[] o1, int[] o2) {
         return o1[0] - o2[0];
       }
     });
@@ -51,39 +51,39 @@ public class USACO_2011_Cow_Lineup {
     System.out.println(min);
   }
 
-  private static void add (int id) {
+  private static void add(int id) {
     if (m.get(id) == null)
       m.put(id, 1);
     else
       m.put(id, m.get(id) + 1);
   }
 
-  private static void remove (int id) {
+  private static void remove(int id) {
     if (m.get(id) <= 1) {
       m.remove(id);
     } else
       m.put(id, m.get(id) - 1);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -17,7 +17,7 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
   static int[][] bit = new int[3100][3100];
   static boolean[][] taken = new boolean[1501][1001];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int L = readInt();
     int T = readInt();
     for (int i = 0; i < T; i++) {
@@ -65,11 +65,11 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
     System.out.println(min + minSecond);
   }
 
-  static int point (int x, int y) {
+  static int point(int x, int y) {
     return query(x, y) - query(x - 1, y) - query(x, y - 1) + query(x - 1, y - 1);
   }
 
-  static void update (int idxx, int idxy, int value) {
+  static void update(int idxx, int idxy, int value) {
     for (int x = idxx; x <= 3002; x += (x & -x)) {
       for (int y = idxy; y <= 3002; y += (y & -y)) {
         bit[x][y] += value;
@@ -77,7 +77,7 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
     }
   }
 
-  static int query (int idxx, int idxy) {
+  static int query(int idxx, int idxy) {
     int sum = 0;
     for (int x = idxx; x > 0; x -= (x & -x)) {
       for (int y = idxy; y > 0; y -= (y & -y)) {
@@ -87,42 +87,42 @@ public class CCC_2013_Stage_2_Romantic_Movie_Outing {
     return sum;
   }
 
-  static Point getPoint (Point p) {
+  static Point getPoint(Point p) {
     return new Point(p.r - p.c + 1500, p.r + p.c);
   }
 
-  static class Point {
-    int r, c;
-
-    Point (int r, int c) {
-      this.r = r;
-      this.c = c;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int r, c;
+
+    Point(int r, int c) {
+      this.r = r;
+      this.c = c;
+    }
   }
 }

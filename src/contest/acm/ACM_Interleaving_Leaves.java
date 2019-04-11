@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ACM_Interleaving_Leaves {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int z = scan.nextInt(); z > 0; z--) {
       int length = scan.nextInt();
       scan.nextLine();

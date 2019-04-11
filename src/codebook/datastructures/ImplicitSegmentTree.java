@@ -13,35 +13,26 @@ public class ImplicitSegmentTree {
   private Node root;
   private int size;
 
-  ImplicitSegmentTree (int size) {
+  ImplicitSegmentTree(int size) {
     this.size = size;
   }
 
-  class Node {
-    Node left, right;
-    int value;
-    int lazy;
+  public static void main(String[] args) {
+    ImplicitSegmentTree t = new ImplicitSegmentTree(10);
+    t.update(1, 5, 5);
 
-    Node (int value) {
-      this.value = value;
-    }
+    System.out.println(t.query(1, 5));
+    System.out.println(t.query(2, 5));
+    System.out.println(t.query(3, 5));
+    System.out.println(t.query(4, 5));
+    System.out.println(t.query(5, 5));
   }
 
-  class Query {
-    int res;
-    Node n;
-
-    Query (int res, Node n) {
-      this.res = res;
-      this.n = n;
-    }
-  }
-
-  public void update (int qlo, int qhi, int value) {
+  public void update(int qlo, int qhi, int value) {
     root = update(root, 1, size, qlo, qhi, value);
   }
 
-  private Node update (Node n, int lo, int hi, int qlo, int qhi, int value) {
+  private Node update(Node n, int lo, int hi, int qlo, int qhi, int value) {
     if (n == null)
       n = new Node(0);
     if (lo == qlo && hi == qhi) {
@@ -73,13 +64,13 @@ public class ImplicitSegmentTree {
     return n;
   }
 
-  public int query (int qlo, int qhi) {
+  public int query(int qlo, int qhi) {
     Query q = query(root, 1, size, qlo, qhi);
     root = q.n;
     return q.res;
   }
 
-  private Query query (Node n, int lo, int hi, int qlo, int qhi) {
+  private Query query(Node n, int lo, int hi, int qlo, int qhi) {
     if (n == null)
       n = new Node(0);
     if (lo == qlo && hi == qhi)
@@ -114,14 +105,23 @@ public class ImplicitSegmentTree {
     }
   }
 
-  public static void main (String[] args) {
-    ImplicitSegmentTree t = new ImplicitSegmentTree(10);
-    t.update(1, 5, 5);
+  class Node {
+    Node left, right;
+    int value;
+    int lazy;
 
-    System.out.println(t.query(1, 5));
-    System.out.println(t.query(2, 5));
-    System.out.println(t.query(3, 5));
-    System.out.println(t.query(4, 5));
-    System.out.println(t.query(5, 5));
+    Node(int value) {
+      this.value = value;
+    }
+  }
+
+  class Query {
+    int res;
+    Node n;
+
+    Query(int res, Node n) {
+      this.res = res;
+      this.n = n;
+    }
   }
 }

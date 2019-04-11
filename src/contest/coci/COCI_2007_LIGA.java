@@ -14,7 +14,7 @@ public class COCI_2007_LIGA {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     for (int k = 0; k < n; k++) {
       int a = input();
@@ -37,7 +37,8 @@ public class COCI_2007_LIGA {
         c1 = (c2 = c);
       else if (b != -1 && a != -1 && d != -1)
         c1 = (c2 = a - b - d);
-      main : for (int x = a1; x <= a2; x++) {
+      main:
+      for (int x = a1; x <= a2; x++) {
         for (int y = b1; y <= b2; y++) {
           for (int z = c1; z <= c2; z++) {
             int i = (x - y - z);
@@ -54,36 +55,36 @@ public class COCI_2007_LIGA {
 
   }
 
-  private static int input () throws IOException {
+  private static int input() throws IOException {
     String next = next().trim();
     if (next.equals("?"))
       return -1;
     return Integer.parseInt(next);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

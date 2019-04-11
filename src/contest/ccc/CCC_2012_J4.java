@@ -7,7 +7,7 @@ class CCC_2012_J4 {
   public static Scanner scan = new Scanner(System.in);
   public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int parameter = scan.nextInt();
     String rawCode = scan.next();
     char[] code = rawCode.toCharArray();

@@ -6,7 +6,7 @@ import static codebook.math.Combinatorics.permute;
 
 public class Arrangements {
 
-  static boolean nextArrangement (int n, int k, int[] a) {
+  static boolean nextArrangement(int n, int k, int[] a) {
     boolean[] used = new boolean[n];
     for (int i = 0; i < k; i++)
       used[a[i]] = true;
@@ -26,7 +26,7 @@ public class Arrangements {
     return false;
   }
 
-  static boolean nextArrangementRepeat (int n, int k, int[] a) {
+  static boolean nextArrangementRepeat(int n, int k, int[] a) {
     for (int i = k - 1; i >= 0; i--) {
       if (a[i] < n - 1) {
         a[i]++;
@@ -38,13 +38,13 @@ public class Arrangements {
     return false;
   }
 
-  static int[] arrangementByRank (int n, int k, long x) {
+  static int[] arrangementByRank(int n, int k, long x) {
     int[] free = new int[n], ret = new int[k];
     for (int i = 0; i < n; i++)
       free[i] = i;
     for (int i = 0; i < k; i++) {
       long cnt = permute(n - 1 - i, k - 1 - i);
-      int pos = (int)(x / cnt);
+      int pos = (int) (x / cnt);
       x %= cnt;
       ret[i] = free[pos];
       for (int j = pos; j < n - 1; j++)
@@ -53,7 +53,7 @@ public class Arrangements {
     return ret;
   }
 
-  static long rankByArrangement (int n, int k, int[] a) {
+  static long rankByArrangement(int n, int k, int[] a) {
     long ret = 0;
     boolean[] used = new boolean[n];
     for (int i = 0; i < k; i++) {

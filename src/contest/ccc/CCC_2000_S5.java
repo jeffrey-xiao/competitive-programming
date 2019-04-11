@@ -10,7 +10,7 @@ public class CCC_2000_S5 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Point[] points = new Point[n];
     Segment[] segments = new Segment[n];
@@ -44,7 +44,7 @@ public class CCC_2000_S5 {
     }
   }
 
-  private static double getMedian (Point p1, Point p2) {
+  private static double getMedian(Point p1, Point p2) {
     double slope = -1.0d / ((p1.y - p2.y) / (p1.x - p2.x));
     Point middle = getMiddle(p1, p2);
     if (slope == Double.POSITIVE_INFINITY || slope == Double.NEGATIVE_INFINITY)
@@ -56,15 +56,37 @@ public class CCC_2000_S5 {
     return x;
   }
 
-  private static Point getMiddle (Point p1, Point p2) {
+  private static Point getMiddle(Point p1, Point p2) {
     return new Point((p1.x + p2.x) / 2.0d, (p1.y + p2.y) / 2.0d);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Segment {
     double lo;
     double hi;
 
-    Segment (double lo, double hi) {
+    Segment(double lo, double hi) {
       this.lo = lo;
       this.hi = hi;
     }
@@ -74,36 +96,14 @@ public class CCC_2000_S5 {
     double x;
     double y;
 
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "(" + x + ", " + y + ")";
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

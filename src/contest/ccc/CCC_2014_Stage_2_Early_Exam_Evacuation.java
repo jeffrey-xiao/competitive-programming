@@ -17,7 +17,7 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
   static Long[] up;
   static Long[] down;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     // INPUT
     nx = readInt();
     ny = 6;
@@ -80,34 +80,23 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
     System.out.println(total);
   }
 
-  static class StudentCompare implements Comparator<Integer> {
-    @Override
-    public int compare (Integer o1, Integer o2) {
-      long compare = (down[o1] - up[o1]) - (down[o2] - up[o2]);
-      if (compare == 0)
-        return down[o1].compareTo(down[o2]);
-      return compare < 0 ? -1 : 1;
-      // return down[o1]-down[o2];
-    }
-  }
-
-  static long getArea (int x1, int y1, int x2, int y2) {
+  static long getArea(int x1, int y1, int x2, int y2) {
     x1--;
     y1--;
     return freqTo(x2, y2) + freqTo(x1, y1) - freqTo(x2, y1) - freqTo(x1, y2);
   }
 
-  static long getValue (int x, int y) {
+  static long getValue(int x, int y) {
     return getArea(x, y, x, y);
   }
 
-  private static void update (int idxx, int idxy, int val) {
+  private static void update(int idxx, int idxy, int val) {
     for (int x = idxx; x <= nx; x += (x & -x))
       for (int y = idxy; y <= ny; y += (y & -y))
         tree[x][y] += val;
   }
 
-  private static long freqTo (int idxx, int idxy) {
+  private static long freqTo(int idxx, int idxy) {
     long sum = 0;
     for (int x = idxx; x > 0; x -= (x & -x))
       for (int y = idxy; y > 0; y -= (y & -y))
@@ -115,25 +104,36 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class StudentCompare implements Comparator<Integer> {
+    @Override
+    public int compare(Integer o1, Integer o2) {
+      long compare = (down[o1] - up[o1]) - (down[o2] - up[o2]);
+      if (compare == 0)
+        return down[o1].compareTo(down[o2]);
+      return compare < 0 ? -1 : 1;
+      // return down[o1]-down[o2];
+    }
   }
 }

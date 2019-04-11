@@ -20,7 +20,7 @@ public class Round_142B {
   static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
   static ArrayList<TreeSet<Interval>> p = new ArrayList<TreeSet<Interval>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -81,16 +81,42 @@ public class Round_142B {
     pr.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index, cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return cost - o.cost;
     }
   }
@@ -98,13 +124,13 @@ public class Round_142B {
   static class Interval implements Comparable<Interval> {
     int l, r;
 
-    Interval (int l, int r) {
+    Interval(int l, int r) {
       this.l = l;
       this.r = r;
     }
 
     @Override
-    public int compareTo (Interval o) {
+    public int compareTo(Interval o) {
       return l - o.l;
     }
   }
@@ -112,35 +138,9 @@ public class Round_142B {
   static class Edge {
     int dest, cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

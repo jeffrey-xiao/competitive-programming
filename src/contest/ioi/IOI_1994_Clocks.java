@@ -10,7 +10,7 @@ public class IOI_1994_Clocks {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int a = readInt() / 3 - 1;
     int b = readInt() / 3 - 1;
     int c = readInt() / 3 - 1;
@@ -20,9 +20,10 @@ public class IOI_1994_Clocks {
     int g = readInt() / 3 - 1;
     int h = readInt() / 3 - 1;
     int i = readInt() / 3 - 1;
-    byte[][] moves = new byte[][] {{1, 1, 0, 1, 1, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 1, 1, 0, 0, 0}, {1, 0, 0, 1, 0, 0, 1, 0, 0}, {0, 1, 0, 1, 1, 1, 0, 1, 0}, {0, 0, 1, 0, 0, 1, 0, 0, 1}, {0, 0, 0, 1, 1, 0, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 1, 1, 1}, {0, 0, 0, 0, 1, 1, 0, 1, 1}};
+    byte[][] moves = new byte[][]{{1, 1, 0, 1, 1, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 1, 1, 0, 0, 0}, {1, 0, 0, 1, 0, 0, 1, 0, 0}, {0, 1, 0, 1, 1, 1, 0, 1, 0}, {0, 0, 1, 0, 0, 1, 0, 0, 1}, {0, 0, 0, 1, 1, 0, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 1, 1, 1}, {0, 0, 0, 0, 1, 1, 0, 1, 1}};
     String s = "";
-    main : for (int x1 = 0; x1 < 4; x1++) {
+    main:
+    for (int x1 = 0; x1 < 4; x1++) {
       for (int x2 = 0; x2 < 4; x2++) {
         for (int x3 = 0; x3 < 4; x3++) {
           for (int x4 = 0; x4 < 4; x4++) {
@@ -60,25 +61,25 @@ public class IOI_1994_Clocks {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

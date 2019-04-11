@@ -15,7 +15,7 @@ public class GCJ_2016_Qualification_D {
 
   static int T, K, C, S;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -60,7 +60,7 @@ public class GCJ_2016_Qualification_D {
     out.close();
   }
 
-  static long pow (long base, long pow) {
+  static long pow(long base, long pow) {
     if (pow == 0)
       return 1;
     if (pow == 1)
@@ -70,7 +70,7 @@ public class GCJ_2016_Qualification_D {
     return base * pow(base * base, pow / 2);
   }
 
-  static void compute (int sz, int com) {
+  static void compute(int sz, int com) {
 
     for (int i = 0; i < 1 << sz; i++) {
       String res = String.format("%03d", Integer.parseInt(Integer.toString(i, 2)));
@@ -89,29 +89,29 @@ public class GCJ_2016_Qualification_D {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

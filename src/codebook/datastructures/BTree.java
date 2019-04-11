@@ -17,20 +17,28 @@ public class BTree {
   private Node root;
   private int height;
 
-  BTree () {
+  BTree() {
     this(4);
   }
 
-  BTree (int M) {
+  BTree(int M) {
     this.M = M;
     this.root = new Node(0);
   }
 
-  public Integer get (Integer key) {
+  public static void main(String[] args) {
+    BTree t = new BTree();
+    for (int i = 0; i < 100; i++)
+      t.put(i, i);
+    for (int i = 0; i < 100; i++)
+      System.out.println(t.get(i));
+  }
+
+  public Integer get(Integer key) {
     return get(root, key, height);
   }
 
-  private Integer get (Node n, Integer key, Integer h) {
+  private Integer get(Node n, Integer key, Integer h) {
     if (h == 0) {
       for (int i = 0; i < n.m; i++)
         if (key == n.child[i].key)
@@ -43,7 +51,7 @@ public class BTree {
     return null;
   }
 
-  public void put (Integer key, Integer value) {
+  public void put(Integer key, Integer value) {
     Node newNode = put(root, key, value, height);
     if (newNode == null)
       return;
@@ -55,7 +63,7 @@ public class BTree {
     height++;
   }
 
-  private Node put (Node n, Integer key, Integer value, Integer h) {
+  private Node put(Node n, Integer key, Integer value, Integer h) {
     Entry newEntry = new Entry(key, value, null);
     int i;
     if (h == 0) {
@@ -83,7 +91,7 @@ public class BTree {
     return split(n);
   }
 
-  private Node split (Node n) {
+  private Node split(Node n) {
     Node newNode = new Node(M / 2);
     n.m = M / 2;
     for (int i = 0; i < M / 2; i++)
@@ -95,7 +103,7 @@ public class BTree {
     private int m;
     private Entry[] child = new Entry[M];
 
-    private Node (int m) {
+    private Node(int m) {
       this.m = m;
     }
   }
@@ -104,18 +112,10 @@ public class BTree {
     private Integer key, value;
     private Node next;
 
-    private Entry (Integer key, Integer value, Node next) {
+    private Entry(Integer key, Integer value, Node next) {
       this.key = key;
       this.value = value;
       this.next = next;
     }
-  }
-
-  public static void main (String[] args) {
-    BTree t = new BTree();
-    for (int i = 0; i < 100; i++)
-      t.put(i, i);
-    for (int i = 0; i < 100; i++)
-      System.out.println(t.get(i));
   }
 }

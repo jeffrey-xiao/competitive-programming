@@ -12,7 +12,7 @@ public class CCC_2010_Stage_2_Shuffle {
   static int[] cycles = new int[27];
   static boolean[] visited = new boolean[27];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     char[] c = new char[27];
 
     for (int x = 0; x < 27; x++)
@@ -34,11 +34,11 @@ public class CCC_2010_Stage_2_Shuffle {
     System.out.println(new String(s));
   }
 
-  private static int lcm (int a, int b) {
+  private static int lcm(int a, int b) {
     return a * b / (gcf(a, b));
   }
 
-  private static char[] nextState (char[] table, char[] s) {
+  private static char[] nextState(char[] table, char[] s) {
     char[] c = s;
     for (int x = 0; x < s.length; x++) {
       c[x] = table[toCode(c[x])];
@@ -46,11 +46,11 @@ public class CCC_2010_Stage_2_Shuffle {
     return c;
   }
 
-  private static int gcf (int a, int b) {
+  private static int gcf(int a, int b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  public static int findCycles (char[] table, char curr, int count) {
+  public static int findCycles(char[] table, char curr, int count) {
     if (visited[toCode(curr)])
       return count;
     visited[toCode(curr)] = true;
@@ -59,38 +59,38 @@ public class CCC_2010_Stage_2_Shuffle {
     return cycles[toCode(curr)];
   }
 
-  public static char toChar (int x) {
+  public static char toChar(int x) {
     if (x == 26)
       x = 30;
-    return (char)(x + 65);
+    return (char) (x + 65);
   }
 
-  public static int toCode (char c) {
+  public static int toCode(char c) {
     int x = c - 65;
     if (x == 30)
       x = 26;
     return x;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

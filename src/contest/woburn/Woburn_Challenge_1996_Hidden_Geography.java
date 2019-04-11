@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1996_Hidden_Geography {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String alpha = "abcdefghijklmnopqrstuvwxyz";
     for (int d = 0; d < 5; d++) {
       StringBuilder s = new StringBuilder(scan.nextLine().toLowerCase());

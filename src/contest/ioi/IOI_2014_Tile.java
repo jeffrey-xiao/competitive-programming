@@ -15,7 +15,7 @@ public class IOI_2014_Tile {
   static StringTokenizer st;
   static ArrayList<Tile> res = new ArrayList<Tile>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -31,7 +31,7 @@ public class IOI_2014_Tile {
     pr.close();
   }
 
-  private static void compute (int x1, int x2, int y1, int y2, int x, int y) {
+  private static void compute(int x1, int x2, int y1, int y2, int x, int y) {
     if (x1 == x2 && y1 == y2)
       return;
     int midx = (x1 + x2) / 2;
@@ -64,12 +64,38 @@ public class IOI_2014_Tile {
 
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Tile {
     int x1, y1;
     int x2, y2;
     int x3, y3;
 
-    Tile (int x1, int y1, int x2, int y2, int x3, int y3) {
+    Tile(int x1, int y1, int x2, int y2, int x3, int y3) {
       this.x1 = x1;
       this.y1 = y1;
       this.x2 = x2;
@@ -77,31 +103,5 @@ public class IOI_2014_Tile {
       this.x3 = x3;
       this.y3 = y3;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

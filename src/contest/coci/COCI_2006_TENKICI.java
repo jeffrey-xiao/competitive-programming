@@ -16,7 +16,7 @@ public class COCI_2006_TENKICI {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Pos[] r = new Pos[n];
     Pos[] c = new Pos[n];
@@ -49,11 +49,37 @@ public class COCI_2006_TENKICI {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Command {
     int index;
     char c;
 
-    Command (int index, char c) {
+    Command(int index, char c) {
       this.index = index;
       this.c = c;
     }
@@ -62,41 +88,15 @@ public class COCI_2006_TENKICI {
   static class Pos implements Comparable<Pos> {
     int index, c;
 
-    Pos (int index, int c) {
+    Pos(int index, int c) {
       this.index = index;
       this.c = c;
     }
 
     @Override
-    public int compareTo (Pos o) {
+    public int compareTo(Pos o) {
       return c - o.c;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 
 }

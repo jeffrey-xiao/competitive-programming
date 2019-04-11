@@ -12,15 +12,33 @@ import java.util.PriorityQueue;
 
 public class HuffmanTree {
 
+  private Node root = null;
+  private HashMap<Character, Node> leaves = new HashMap<Character, Node>();
   // requires a dictionary that maps a character value to its frequency
-  HuffmanTree (Map<Character, Integer> map) {
+  HuffmanTree(Map<Character, Integer> map) {
     buildTree(map);
   }
 
-  private Node root = null;
-  private HashMap<Character, Node> leaves = new HashMap<Character, Node>();
+  public static void main(String[] args) {
+    HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+    hm.put('e', (int) (Math.random() * 10));
+    hm.put('n', (int) (Math.random() * 10));
+    hm.put('o', (int) (Math.random() * 10));
+    hm.put('u', (int) (Math.random() * 10));
+    hm.put('a', (int) (Math.random() * 10));
+    hm.put('t', (int) (Math.random() * 10));
+    hm.put('m', (int) (Math.random() * 10));
+    hm.put('i', (int) (Math.random() * 10));
+    hm.put('x', (int) (Math.random() * 10));
+    hm.put('p', (int) (Math.random() * 10));
+    hm.put('h', (int) (Math.random() * 10));
+    hm.put('s', (int) (Math.random() * 10));
+    hm.put('r', (int) (Math.random() * 10));
+    HuffmanTree tree = new HuffmanTree(hm);
+    tree.traverse();
+  }
 
-  private void buildTree (Map<Character, Integer> map) {
+  private void buildTree(Map<Character, Integer> map) {
     PriorityQueue<Node> pq = new PriorityQueue<Node>();
     for (Map.Entry<Character, Integer> entry : map.entrySet())
       pq.offer(new Node(entry.getKey(), entry.getValue()));
@@ -39,11 +57,11 @@ public class HuffmanTree {
     root = pq.poll();
   }
 
-  public void traverse () {
+  public void traverse() {
     traverse(root);
   }
 
-  private void traverse (Node n) {
+  private void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -57,11 +75,11 @@ public class HuffmanTree {
     private Integer freq;
     private Node left, right, par;
 
-    Node (Character value, Integer freq) {
+    Node(Character value, Integer freq) {
       this(value, freq, null, null);
     }
 
-    Node (Character value, Integer freq, Node left, Node right) {
+    Node(Character value, Integer freq, Node left, Node right) {
       this.value = value;
       this.freq = freq;
       this.left = left;
@@ -70,27 +88,8 @@ public class HuffmanTree {
     }
 
     @Override
-    public int compareTo (Node o) {
+    public int compareTo(Node o) {
       return freq - o.freq;
     }
-  }
-
-  public static void main (String[] args) {
-    HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
-    hm.put('e', (int)(Math.random() * 10));
-    hm.put('n', (int)(Math.random() * 10));
-    hm.put('o', (int)(Math.random() * 10));
-    hm.put('u', (int)(Math.random() * 10));
-    hm.put('a', (int)(Math.random() * 10));
-    hm.put('t', (int)(Math.random() * 10));
-    hm.put('m', (int)(Math.random() * 10));
-    hm.put('i', (int)(Math.random() * 10));
-    hm.put('x', (int)(Math.random() * 10));
-    hm.put('p', (int)(Math.random() * 10));
-    hm.put('h', (int)(Math.random() * 10));
-    hm.put('s', (int)(Math.random() * 10));
-    hm.put('r', (int)(Math.random() * 10));
-    HuffmanTree tree = new HuffmanTree(hm);
-    tree.traverse();
   }
 }

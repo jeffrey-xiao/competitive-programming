@@ -27,7 +27,7 @@ public class USACO_2015_Grass_Cownoisseur {
   static Stack<Integer> curr;
   static int count = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("grass.in"));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("grass.out")));
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -98,7 +98,7 @@ public class USACO_2015_Grass_Cownoisseur {
     System.exit(0);
   }
 
-  private static void solve (int i, int s) {
+  private static void solve(int i, int s) {
     dp[i] = s + size[i];
     for (int x : revG.get(i)) {
       if (reachable[x]) {
@@ -112,7 +112,7 @@ public class USACO_2015_Grass_Cownoisseur {
     }
   }
 
-  private static void precompute (int i, int s) {
+  private static void precompute(int i, int s) {
     dp[i] = s + size[i];
     for (Integer x : revG.get(i)) {
       if (dp[x] < dp[i] + size[x])
@@ -120,7 +120,7 @@ public class USACO_2015_Grass_Cownoisseur {
     }
   }
 
-  private static void getReachable (int i, ArrayList<HashSet<Integer>> g) {
+  private static void getReachable(int i, ArrayList<HashSet<Integer>> g) {
     reachable[i] = true;
     for (Integer x : g.get(i)) {
       if (!reachable[x]) {
@@ -129,7 +129,7 @@ public class USACO_2015_Grass_Cownoisseur {
     }
   }
 
-  private static void dfs (int x) {
+  private static void dfs(int x) {
     // labeling current vertex
     disc[x] = low[x] = index++;
     curr.push(x);
@@ -156,34 +156,34 @@ public class USACO_2015_Grass_Cownoisseur {
     }
   }
 
-  static class Edge {
-    int a, b;
-
-    Edge (int a, int b) {
-      this.a = a;
-      this.b = b;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int a, b;
+
+    Edge(int a, int b) {
+      this.a = a;
+      this.b = b;
+    }
   }
 }

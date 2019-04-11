@@ -12,12 +12,10 @@ import java.util.StringTokenizer;
 
 public class COCI_2014_KAMP {
 
+  static final int SIZE = 500001;
   static BufferedReader br;
   static OutputStream ps;
   static StringTokenizer st;
-
-  static final int SIZE = 500001;
-
   static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
   static int n, k;
   static long total = 0;
@@ -28,7 +26,7 @@ public class COCI_2014_KAMP {
   static long[] maxChain = new long[SIZE];
   static long[] min = new long[SIZE];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     ps = new BufferedOutputStream(System.out);
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -89,7 +87,7 @@ public class COCI_2014_KAMP {
     ps.close();
   }
 
-  static void dfs2 (int i, int prev, long prevV) {
+  static void dfs2(int i, int prev, long prevV) {
     maxChain[i] = Math.max(prevV, max1[i]);
     for (Edge next : adj.get(i)) {
       if (next.dest == prev || !inTree[next.dest])
@@ -101,7 +99,7 @@ public class COCI_2014_KAMP {
     }
   }
 
-  static void dfs1 (int i, int prev) {
+  static void dfs1(int i, int prev) {
     boolean hasNext = false;
     for (Edge next : adj.get(i)) {
       if (!inTree[next.dest] || next.dest == prev)
@@ -114,7 +112,7 @@ public class COCI_2014_KAMP {
       max1[i] = 0;
   }
 
-  static void adjust (long v, int i, int j) {
+  static void adjust(long v, int i, int j) {
     if (v >= max1[i]) {
       max2[i] = max1[i];
       max1[i] = v;
@@ -124,7 +122,7 @@ public class COCI_2014_KAMP {
     }
   }
 
-  static boolean buildTree (int i, int prev) {
+  static boolean buildTree(int i, int prev) {
     boolean has = false;
     for (Edge next : adj.get(i)) {
       if (next.dest == prev)
@@ -138,38 +136,38 @@ public class COCI_2014_KAMP {
     return inTree[i] |= has;
   }
 
-  static class Edge {
-    int cost, dest;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int cost, dest;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

@@ -10,7 +10,7 @@ public class IOI_1995_Word_Chains {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     IOI_1995_Word_Chains.TrieNode tn = new IOI_1995_Word_Chains().new TrieNode('\u0000', false);
     String s = next();
     while (!s.equals(".")) {
@@ -20,19 +20,41 @@ public class IOI_1995_Word_Chains {
     tn.printWords("");
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   class TrieNode {
     char letter;
     TrieNode[] links;
     boolean fullWord;
     int totalWords;
 
-    TrieNode (char letter, boolean fullWord) {
+    TrieNode(char letter, boolean fullWord) {
       this.letter = letter;
       links = new TrieNode[26];
       this.fullWord = fullWord;
     }
 
-    int addWord (String s) {
+    int addWord(String s) {
       if (s.length() == 0) {
         totalWords++;
         return totalWords;
@@ -68,7 +90,7 @@ public class IOI_1995_Word_Chains {
       return totalWords;
     }
 
-    void printWords (String s) {
+    void printWords(String s) {
       int max = -1;
       int index = -1;
       for (int x = 0; x < links.length; x++) {
@@ -86,7 +108,7 @@ public class IOI_1995_Word_Chains {
 
     }
 
-    void debug (String s) {
+    void debug(String s) {
       for (int x = 0; x < links.length; x++) {
         if (links[x] == null)
           break;
@@ -95,27 +117,5 @@ public class IOI_1995_Word_Chains {
       if (fullWord)
         System.out.println(s + letter + " " + totalWords);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

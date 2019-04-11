@@ -17,7 +17,7 @@ public class VMSS_Pollos {
   static boolean[] obliged;
   static int n, k;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     k = readInt();
     dist = new int[n];
@@ -38,12 +38,12 @@ public class VMSS_Pollos {
     System.out.println(lo > (1 << 30) ? "DEA Bust!" : lo);
   }
 
-  private static int getMoves (int t) {
+  private static int getMoves(int t) {
     int curr = 0;
     int total = 0;
     if (dist[0] - curr > t)
       return Integer.MAX_VALUE;
-    for (int x = 0; x < n - 1;) {
+    for (int x = 0; x < n - 1; ) {
       if (obliged[x]) {
         if (dist[x] - curr > t)
           return Integer.MAX_VALUE;
@@ -60,29 +60,29 @@ public class VMSS_Pollos {
     return total + 1;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

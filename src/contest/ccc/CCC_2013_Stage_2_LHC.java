@@ -17,7 +17,7 @@ public class CCC_2013_Stage_2_LHC {
   static ArrayList<ArrayList<Integer>> adj;
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     adj = new ArrayList<ArrayList<Integer>>();
     for (int x = 0; x < n; x++)
@@ -78,7 +78,7 @@ public class CCC_2013_Stage_2_LHC {
     // CENTERS
     ArrayList<Integer> centers = new ArrayList<Integer>();
     double split = (path.size() - 1) / 2.0d;
-    for (int x = (int)Math.floor(split); x <= (int)Math.ceil(split); x++)
+    for (int x = (int) Math.floor(split); x <= (int) Math.ceil(split); x++)
       centers.add(path.get(x));
     for (int x = 0; x < centers.size() - 1; x++) {
       int a = centers.get(x);
@@ -127,7 +127,7 @@ public class CCC_2013_Stage_2_LHC {
     System.out.println(pathLength + 1 + " " + sum);
   }
 
-  private static long dfs (Integer i, int l) {
+  private static long dfs(Integer i, int l) {
     long total = 0;
     for (Integer next : adj.get(i)) {
       if (!v[next]) {
@@ -142,35 +142,35 @@ public class CCC_2013_Stage_2_LHC {
     return total;
   }
 
-  static class State {
-    int moves;
-    int dest;
-
-    State (int dest, int moves) {
-      this.dest = dest;
-      this.moves = moves;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int moves;
+    int dest;
+
+    State(int dest, int moves) {
+      this.dest = dest;
+      this.moves = moves;
+    }
   }
 }

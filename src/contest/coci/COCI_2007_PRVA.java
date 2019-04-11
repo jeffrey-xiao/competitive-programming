@@ -20,7 +20,7 @@ public class COCI_2007_PRVA {
   static char[][] g;
   static ArrayList<String> words = new ArrayList<String>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     g = new char[r + 2][c + 2];
@@ -46,7 +46,7 @@ public class COCI_2007_PRVA {
     }
     Collections.sort(words, new Comparator<String>() {
       @Override
-      public int compare (String o1, String o2) {
+      public int compare(String o1, String o2) {
         for (int x = 0; x < Math.min(o1.length(), o2.length()); x++)
           if (o1.charAt(x) != o2.charAt(x))
             return o1.charAt(x) - o2.charAt(x);
@@ -56,7 +56,7 @@ public class COCI_2007_PRVA {
     System.out.println(words.get(0));
   }
 
-  private static void dfs (int x, int y, int dir, String s) {
+  private static void dfs(int x, int y, int dir, String s) {
     for (int z = 0; z < 2; z++) {
       int nx = x + movex[z];
       int ny = y + movey[z];
@@ -74,25 +74,25 @@ public class COCI_2007_PRVA {
 
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

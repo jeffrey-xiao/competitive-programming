@@ -19,7 +19,7 @@ public class USACO_2014_Cow_Decathlon {
   static int[][] dp;
   static int n, k;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     k = readInt();
     awards = new Award[k];
@@ -46,7 +46,7 @@ public class USACO_2014_Cow_Decathlon {
   }
 
   // k is previous cow added
-  public static int compute (boolean[] s, int k, int prev) {
+  public static int compute(boolean[] s, int k, int prev) {
     int i = toIndex(s);
     if (i == ((1 << n) - 1))
       return prev;
@@ -72,7 +72,7 @@ public class USACO_2014_Cow_Decathlon {
     return max;
   }
 
-  public static int toIndex (boolean[] s) {
+  public static int toIndex(boolean[] s) {
     int b = 1;
     int total = 0;
     for (int x = 0; x < s.length; x++, b *= 2)
@@ -81,43 +81,43 @@ public class USACO_2014_Cow_Decathlon {
     return total;
   }
 
-  static class Award {
-    int events, min, points;
-
-    Award (int events, int min, int points) {
-      this.events = events;
-      this.min = min;
-      this.points = points;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static short readShort () throws IOException {
+  static short readShort() throws IOException {
     return Short.parseShort(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Award {
+    int events, min, points;
+
+    Award(int events, int min, int points) {
+      this.events = events;
+      this.min = min;
+      this.points = points;
+    }
   }
 }

@@ -18,7 +18,7 @@ public class WOC_28_F {
   static int G, ans;
   static char[] sorted;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -37,7 +37,7 @@ public class WOC_28_F {
     out.close();
   }
 
-  static String preprocess (String s) {
+  static String preprocess(String s) {
     char[] sorted = s.toCharArray();
     Arrays.sort(sorted);
     int index = 0;
@@ -49,7 +49,7 @@ public class WOC_28_F {
     return s.substring(best);
   }
 
-  static int solve (String s) {
+  static int solve(String s) {
     if (s.equals(""))
       return 0;
     String ss = s + s;
@@ -65,14 +65,14 @@ public class WOC_28_F {
     return ans;
   }
 
-  static int compute (StringBuilder w) {
+  static int compute(StringBuilder w) {
     Interval prev = null;
     ArrayList<ArrayList<Interval>> intervals = new ArrayList<ArrayList<Interval>>();
 
     for (int i = 0; i < 26; i++)
       intervals.add(new ArrayList<Interval>());
 
-    for (int i = 0; i < w.length();) {
+    for (int i = 0; i < w.length(); ) {
       char c = w.charAt(i++);
       Interval curr = new Interval(1);
       while (i < w.length() && w.charAt(i) == c) {
@@ -135,40 +135,40 @@ public class WOC_28_F {
     return currAns;
   }
 
-  static class Interval {
-    int sz;
-    int canSub;
-    Interval left, right;
-
-    Interval (int sz) {
-      this.sz = sz;
-      this.canSub = -1;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Interval {
+    int sz;
+    int canSub;
+    Interval left, right;
+
+    Interval(int sz) {
+      this.sz = sz;
+      this.canSub = -1;
+    }
   }
 }

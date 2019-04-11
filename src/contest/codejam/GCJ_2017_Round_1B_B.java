@@ -17,7 +17,7 @@ public class GCJ_2017_Round_1B_B {
   static int T;
   static char first;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -25,7 +25,8 @@ public class GCJ_2017_Round_1B_B {
 
     T = readInt();
 
-    main : for (int t = 1; t <= T; t++) {
+    main:
+    for (int t = 1; t <= T; t++) {
       int N = readInt();
       int R = readInt();
       int O = readInt();
@@ -143,17 +144,43 @@ public class GCJ_2017_Round_1B_B {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     char c;
     int occ;
 
-    State (char c, int occ) {
+    State(char c, int occ) {
       this.c = c;
       this.occ = occ;
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       if (occ == o.occ) {
         if (c == o.c)
           return 0;
@@ -165,31 +192,5 @@ public class GCJ_2017_Round_1B_B {
       }
       return o.occ - occ;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1999_Good_Will_Hunting {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     double x = scan.nextDouble();
     while (x != 0) {
       double r = 10.0;

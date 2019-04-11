@@ -11,14 +11,14 @@ import java.util.StringTokenizer;
 
 public class COCI_2008_SKAKAVAC_2 {
 
+  static final short INF = 1 << 14;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
   static int n, r, c;
   static int[] poss = {-1, 1};
-  static final short INF = 1 << 14;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     r = readInt() - 1;
     c = readInt() - 1;
@@ -51,13 +51,13 @@ public class COCI_2008_SKAKAVAC_2 {
       for (y = x; y < n * n && p[x].p == p[y].p; y++) {
         short max = p[y].dp;
         if (p[y].x > 0)
-          max = (short)Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
+          max = (short) Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
         if (p[y].x + 1 < n)
-          max = (short)Math.max(max, 1 + getMax(br, p[y].x + 1, p[y]));
+          max = (short) Math.max(max, 1 + getMax(br, p[y].x + 1, p[y]));
         if (p[y].y > 0)
-          max = (short)Math.max(max, 1 + getMax(bc, p[y].y - 1, p[y]));
+          max = (short) Math.max(max, 1 + getMax(bc, p[y].y - 1, p[y]));
         if (p[y].y + 1 < n)
-          max = (short)Math.max(max, 1 + getMax(bc, p[y].y + 1, p[y]));
+          max = (short) Math.max(max, 1 + getMax(bc, p[y].y + 1, p[y]));
         p[y].dp = max;
         total = Math.max(p[y].dp, total);
       }
@@ -69,7 +69,7 @@ public class COCI_2008_SKAKAVAC_2 {
     System.out.println(total);
   }
 
-  private static short getMax (State[][] a, int i, Point p) {
+  private static short getMax(State[][] a, int i, Point p) {
     for (int x = 0; x < 4; x++) {
       if (Math.abs(p.y - a[i][x].y) <= 1 && Math.abs(p.x - a[i][x].x) <= 1)
         continue;
@@ -78,7 +78,7 @@ public class COCI_2008_SKAKAVAC_2 {
     return -INF;
   }
 
-  private static void update (State[][] a, int i, Point p) {
+  private static void update(State[][] a, int i, Point p) {
     State c = new State();
     c.x = p.x;
     c.y = p.y;
@@ -92,6 +92,32 @@ public class COCI_2008_SKAKAVAC_2 {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     short x, y;
     short dp;
@@ -102,44 +128,18 @@ public class COCI_2008_SKAKAVAC_2 {
     int p;
     short dp;
 
-    Point () {
+    Point() {
     }
 
-    Point (short x, short y, int p) {
+    Point(short x, short y, int p) {
       this.x = x;
       this.y = y;
       this.p = p;
     }
 
     @Override
-    public int compareTo (Point o) {
+    public int compareTo(Point o) {
       return p - o.p;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ACM_A_Careful_Reply {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfStrings = scan.nextInt();
     scan.nextLine();
     for (; numOfStrings > 0; numOfStrings--) {

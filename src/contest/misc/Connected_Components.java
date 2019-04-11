@@ -14,7 +14,7 @@ public class Connected_Components {
   static boolean[][] matrix;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     matrix = new boolean[n][n];
     for (int x = 0; x < n; x++)
@@ -33,7 +33,7 @@ public class Connected_Components {
     }
   }
 
-  private static void bfs (int y, boolean[] v) {
+  private static void bfs(int y, boolean[] v) {
     ts.add(y);
     for (int x = 0; x < n; x++)
       if (matrix[y][x] && !v[x]) {
@@ -42,25 +42,25 @@ public class Connected_Components {
       }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

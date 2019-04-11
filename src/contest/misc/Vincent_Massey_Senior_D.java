@@ -16,7 +16,7 @@ public class Vincent_Massey_Senior_D {
   static int[] dp;
   static int t;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     t = readInt();
     dp = new int[n + 2];
@@ -72,42 +72,42 @@ public class Vincent_Massey_Senior_D {
     System.out.println(dp[0]);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int pos;
     int cost;
     boolean side;
 
-    State (int pos, int cost, boolean side) {
+    State(int pos, int cost, boolean side) {
       this.pos = pos;
       this.cost = cost;
       this.side = side;
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       return pos - o.pos;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

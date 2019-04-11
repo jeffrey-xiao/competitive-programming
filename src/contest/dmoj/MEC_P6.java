@@ -16,7 +16,7 @@ public class MEC_P6 {
 
   static int C, R, M, Q;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -105,7 +105,7 @@ public class MEC_P6 {
     out.close();
   }
 
-  static int pow (int base, int pow) {
+  static int pow(int base, int pow) {
     if (pow == 0)
       return 1;
     if (pow == 1)
@@ -115,43 +115,43 @@ public class MEC_P6 {
     return base * pow(base * base, pow / 2);
   }
 
-  static class Interval implements Comparable<Interval> {
-    int lo, hi;
-
-    Interval (int lo, int hi) {
-      this.lo = lo;
-      this.hi = hi;
-    }
-
-    @Override
-    public int compareTo (Interval o) {
-      return lo - o.lo;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Interval implements Comparable<Interval> {
+    int lo, hi;
+
+    Interval(int lo, int hi) {
+      this.lo = lo;
+      this.hi = hi;
+    }
+
+    @Override
+    public int compareTo(Interval o) {
+      return lo - o.lo;
+    }
   }
 }

@@ -19,7 +19,7 @@ public class NOI_2005_Maintaining_The_Sequence {
   static Node root = null;
   static Random rand = new Random();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -81,32 +81,7 @@ public class NOI_2005_Maintaining_The_Sequence {
     out.close();
   }
 
-  static class Node {
-    Node left, right;
-    double p;
-    int size, value, same;
-    int maxPrefix, maxSuffix, maxSubarray, sum;
-    boolean reverse;
-
-    Node (int value) {
-      this.value = value;
-      this.p = rand.nextDouble();
-      this.size = 1;
-      this.same = 1 << 30;
-      this.reverse = false;
-    }
-  }
-
-  static class Nodepair {
-    Node left, right;
-
-    Nodepair (Node left, Node right) {
-      this.left = left;
-      this.right = right;
-    }
-  }
-
-  static Nodepair split (Node n, int k, int lower) {
+  static Nodepair split(Node n, int k, int lower) {
     if (n == null)
       return new Nodepair(null, null);
 
@@ -131,7 +106,7 @@ public class NOI_2005_Maintaining_The_Sequence {
     }
   }
 
-  static Node merge (Node a, Node b) {
+  static Node merge(Node a, Node b) {
     if (a == null)
       return b;
     if (b == null)
@@ -151,15 +126,15 @@ public class NOI_2005_Maintaining_The_Sequence {
     }
   }
 
-  static int getSize (Node n) {
+  static int getSize(Node n) {
     return n == null ? 0 : n.size;
   }
 
-  static int getSum (Node n) {
+  static int getSum(Node n) {
     return n == null ? 0 : n.sum;
   }
 
-  static Node update (Node n) {
+  static Node update(Node n) {
     if (n == null)
       return n;
 
@@ -209,7 +184,7 @@ public class NOI_2005_Maintaining_The_Sequence {
     return n;
   }
 
-  static Node reverse (Node n) {
+  static Node reverse(Node n) {
     if (n == null)
       return n;
     n.reverse = !n.reverse;
@@ -224,7 +199,7 @@ public class NOI_2005_Maintaining_The_Sequence {
     return n;
   }
 
-  static Node makeSame (Node n, int c) {
+  static Node makeSame(Node n, int c) {
     if (n == null)
       return n;
     n.value = c;
@@ -236,29 +211,54 @@ public class NOI_2005_Maintaining_The_Sequence {
     return n;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    Node left, right;
+    double p;
+    int size, value, same;
+    int maxPrefix, maxSuffix, maxSubarray, sum;
+    boolean reverse;
+
+    Node(int value) {
+      this.value = value;
+      this.p = rand.nextDouble();
+      this.size = 1;
+      this.same = 1 << 30;
+      this.reverse = false;
+    }
+  }
+
+  static class Nodepair {
+    Node left, right;
+
+    Nodepair(Node left, Node right) {
+      this.left = left;
+      this.right = right;
+    }
   }
 }

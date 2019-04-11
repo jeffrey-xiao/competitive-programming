@@ -17,7 +17,7 @@ public class Subway_Routes {
   static ArrayList<ArrayList<Integer>> adj;
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     adj = new ArrayList<ArrayList<Integer>>();
     for (int x = 0; x < n; x++)
@@ -73,7 +73,7 @@ public class Subway_Routes {
     // CENTERS
     ArrayList<Integer> centers = new ArrayList<Integer>();
     double split = (best.path.size() - 1) / 2.0d;
-    for (int x = (int)Math.floor(split); x <= (int)Math.ceil(split); x++)
+    for (int x = (int) Math.floor(split); x <= (int) Math.ceil(split); x++)
       centers.add(best.path.get(x));
     for (int x = 0; x < centers.size() - 1; x++) {
       int a = centers.get(x);
@@ -123,7 +123,7 @@ public class Subway_Routes {
     System.out.println(sum);
   }
 
-  private static long dfs (Integer i, int l) {
+  private static long dfs(Integer i, int l) {
     long total = 0;
     for (Integer next : adj.get(i)) {
       if (!v[next]) {
@@ -138,44 +138,44 @@ public class Subway_Routes {
     return total;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int moves;
     int dest;
     ArrayList<Integer> path;
 
-    State (int dest, int moves) {
+    State(int dest, int moves) {
       this.dest = dest;
       this.moves = moves;
     }
 
-    State (int dest, int moves, ArrayList<Integer> a) {
+    State(int dest, int moves, ArrayList<Integer> a) {
       this.dest = dest;
       this.moves = moves;
       path = new ArrayList<Integer>();
       for (Integer i : a)
         path.add(i);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -13,14 +13,13 @@ TASK: fortmoo
 import java.util.StringTokenizer;
 
 public class fortmoo {
+  static final int SIZE = 202;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int n, m;
-  static final int SIZE = 202;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("fortmoo.in"));
     out = new PrintWriter(new FileWriter("fortmoo.out"));
     //br = new BufferedReader(new InputStreamReader(System.in));
@@ -77,25 +76,25 @@ public class fortmoo {
     System.exit(0);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

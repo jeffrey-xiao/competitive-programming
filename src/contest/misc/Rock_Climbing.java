@@ -9,7 +9,7 @@ public class Rock_Climbing {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = nextInt();
     int m = nextInt();
     int e = nextInt();
@@ -41,7 +41,7 @@ public class Rock_Climbing {
     System.out.println(visited[n] ? "Too easy!" : "Unfair!");
   }
 
-  static String next () {
+  static String next() {
     while (st == null || !st.hasMoreTokens()) {
       try {
         st = new StringTokenizer(br.readLine().trim());
@@ -51,11 +51,11 @@ public class Rock_Climbing {
     return st.nextToken();
   }
 
-  static int nextInt () {
+  static int nextInt() {
     return Integer.parseInt(next());
   }
 
-  static String nextLine () {
+  static String nextLine() {
     String s = "";
     try {
       s = br.readLine().trim();

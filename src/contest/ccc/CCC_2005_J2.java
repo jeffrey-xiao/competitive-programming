@@ -10,7 +10,7 @@ public class CCC_2005_J2 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int s = readInt();
     int e = readInt();
     int count = 0;
@@ -19,7 +19,7 @@ public class CCC_2005_J2 {
     System.out.printf("The number of RSA numbers between %d and %d is %d\n", s, e, count);
   }
 
-  private static boolean isRSA (int n) {
+  private static boolean isRSA(int n) {
     int count = 0;
     for (int x = 1; x * x <= n; x++) {
       if (n % x == 0) {
@@ -32,25 +32,25 @@ public class CCC_2005_J2 {
     return count == 4;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

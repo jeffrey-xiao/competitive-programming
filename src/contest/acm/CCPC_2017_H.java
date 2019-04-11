@@ -22,7 +22,7 @@ public class CCPC_2017_H {
   static int[] mover = {0, 0, -1, 1};
   static int[] movec = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -54,7 +54,7 @@ public class CCPC_2017_H {
     out.close();
   }
 
-  static void bfs (int r, int c) {
+  static void bfs(int r, int c) {
     Queue<Point> q = new ArrayDeque<Point>();
 
     q.offer(new Point(r, c));
@@ -91,38 +91,38 @@ public class CCPC_2017_H {
       sink[p.r][p.c] = isSink;
   }
 
-  static class Point {
-    int r, c;
-
-    Point (int r, int c) {
-      this.r = r;
-      this.c = c;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int r, c;
+
+    Point(int r, int c) {
+      this.r = r;
+      this.c = c;
+    }
   }
 }

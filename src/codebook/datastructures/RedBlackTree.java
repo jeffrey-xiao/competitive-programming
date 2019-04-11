@@ -19,7 +19,7 @@ public class RedBlackTree {
   // represents the root of the tree
   private Node root;
 
-  public void remove (int key) {
+  public void remove(int key) {
     // if both children of the root are black, set root to red
     if (!isRed(root.left) && !isRed(root.right))
       root.color = RED;
@@ -28,7 +28,7 @@ public class RedBlackTree {
       root.color = BLACK;
   }
 
-  private Node remove (Node n, int key) {
+  private Node remove(Node n, int key) {
     if (n == null)
       return n;
     if (key < n.key) {
@@ -53,11 +53,11 @@ public class RedBlackTree {
     return balance(n);
   }
 
-  public boolean contains (int key) {
+  public boolean contains(int key) {
     return contains(root, key);
   }
 
-  private boolean contains (Node n, int key) {
+  private boolean contains(Node n, int key) {
     if (n == null)
       return false;
     if (key < n.key)
@@ -68,11 +68,11 @@ public class RedBlackTree {
       return true;
   }
 
-  public Integer get (int key) {
+  public Integer get(int key) {
     return get(root, key);
   }
 
-  private Integer get (Node n, int key) {
+  private Integer get(Node n, int key) {
     if (n == null)
       return null;
     if (key < n.key)
@@ -82,12 +82,12 @@ public class RedBlackTree {
     return n.value;
   }
 
-  public void add (int key, int value) {
+  public void add(int key, int value) {
     root = add(root, key, value);
     root.color = BLACK;
   }
 
-  private Node add (Node n, int key, int value) {
+  private Node add(Node n, int key, int value) {
     if (n == null)
       return new Node(key, value, RED);
     if (key < n.key)
@@ -106,7 +106,7 @@ public class RedBlackTree {
     return n;
   }
 
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -115,7 +115,7 @@ public class RedBlackTree {
     return x;
   }
 
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -124,19 +124,19 @@ public class RedBlackTree {
     return x;
   }
 
-  private void flipColors (Node n) {
+  private void flipColors(Node n) {
     n.color = RED;
     n.left.color = n.right.color = BLACK;
   }
 
-  private boolean isRed (Node n) {
+  private boolean isRed(Node n) {
     if (n == null)
       return false;
     return n.color == RED;
   }
 
   // restore red-black tree invariant
-  private Node balance (Node n) {
+  private Node balance(Node n) {
     if (isRed(n.right))
       n = rotateLeft(n);
     if (isRed(n.left) && isRed(n.left.left))
@@ -148,7 +148,7 @@ public class RedBlackTree {
 
   // Assuming that h is red and both h.left and h.left.left
   // are black, make h.left or one of its children red.
-  private Node shiftLeft (Node n) {
+  private Node shiftLeft(Node n) {
     flipColors(n);
     if (isRed(n.right.left)) {
       n.right = rotateRight(n.right);
@@ -160,7 +160,7 @@ public class RedBlackTree {
 
   // Assuming that h is red and both h.right and h.right.left
   // are black, make h.right or one of its children red.
-  private Node shiftRight (Node n) {
+  private Node shiftRight(Node n) {
     flipColors(n);
     if (isRed(n.left.left)) {
       n = rotateRight(n);
@@ -169,21 +169,21 @@ public class RedBlackTree {
     return n;
   }
 
-  public Node getMinNode (Node n) {
+  public Node getMinNode(Node n) {
     Node curr = n;
     while (curr.left != null)
       curr = curr.left;
     return curr;
   }
 
-  public Node getMaxNode (Node n) {
+  public Node getMaxNode(Node n) {
     Node curr = n;
     while (curr.right != null)
       curr = curr.right;
     return curr;
   }
 
-  private Node removeMinNode (Node n) {
+  private Node removeMinNode(Node n) {
     if (n.left == null)
       return null;
     if (!isRed(n.left) && !isRed(n.left.left))
@@ -193,7 +193,7 @@ public class RedBlackTree {
   }
 
   @SuppressWarnings("unused")
-  private Node removeMaxNode (Node n) {
+  private Node removeMaxNode(Node n) {
     if (n.right == null)
       return null;
     if (!isRed(n.right) && !isRed(n.right.left))
@@ -208,7 +208,7 @@ public class RedBlackTree {
     Node left, right;
     boolean color;
 
-    Node (int key, int value, boolean color) {
+    Node(int key, int value, boolean color) {
       this.key = key;
       this.value = value;
       this.color = color;

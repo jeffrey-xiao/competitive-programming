@@ -17,7 +17,7 @@ public class COCI_2009_BAKICE {
   static int[] movey = {-1, 1, 0, 0};
   static int r, c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     char[][] g = new char[r][];
@@ -69,6 +69,28 @@ public class COCI_2009_BAKICE {
     System.out.println(count);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int x;
     int y;
@@ -76,14 +98,14 @@ public class COCI_2009_BAKICE {
     boolean[][] visited = new boolean[r][c];
     HashSet<Point> points = new HashSet<Point>();
 
-    State (int x, int y) {
+    State(int x, int y) {
       this.x = x;
       this.y = y;
       visited[x][y] = true;
       this.minDistance = Integer.MAX_VALUE;
     }
 
-    double getDist (Point p) {
+    double getDist(Point p) {
       int x1 = p.x - x;
       int y1 = p.y - y;
       return Math.sqrt(x1 * x1 + y1 * y1);
@@ -95,32 +117,10 @@ public class COCI_2009_BAKICE {
     int y;
     int stateNum;
 
-    Point (int x, int y, int state) {
+    Point(int x, int y, int state) {
       this.x = x;
       this.y = y;
       this.stateNum = state;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

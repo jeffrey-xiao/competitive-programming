@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MockCCC_2014_J4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int b1 = toMinutes(scan.next());
     int b2 = toMinutes(scan.next());
     String[][] shifts = new String[scan.nextInt()][2];
@@ -28,7 +28,7 @@ public class MockCCC_2014_J4 {
       System.out.println(shifts[index][0] + " " + shifts[index][1]);
   }
 
-  private static int toMinutes (String s) {
+  private static int toMinutes(String s) {
     int m = 0;
     m += Integer.parseInt(s.substring(0, 2)) * 60;
     m += Integer.parseInt(s.substring(3, 5));

@@ -25,7 +25,7 @@ public class IOI_2007_Sails {
   static long[] diff;
   static Mast[] m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -77,7 +77,7 @@ public class IOI_2007_Sails {
     out.close();
   }
 
-  static void traverse (Node n) {
+  static void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -85,7 +85,7 @@ public class IOI_2007_Sails {
     traverse(n.right);
   }
 
-  static void merge (int left, int right) {
+  static void merge(int left, int right) {
     if (diff[left] == 0) {
       removed = null;
       root = remove(root, left);
@@ -98,7 +98,7 @@ public class IOI_2007_Sails {
     }
   }
 
-  static Node splitLast (Node n, int left, int right) {
+  static Node splitLast(Node n, int left, int right) {
     if (n == null || n.r == right || left > right)
       return n;
     if (n.r > right && right >= n.l) {
@@ -116,7 +116,7 @@ public class IOI_2007_Sails {
     return n;
   }
 
-  static Node splitFirst (Node n, int left, int right) {
+  static Node splitFirst(Node n, int left, int right) {
     if (n == null || n.l == left || left > right)
       return n;
     if (n.l < left && left <= n.r) {
@@ -135,21 +135,7 @@ public class IOI_2007_Sails {
     return n;
   }
 
-  static class Mast implements Comparable<Mast> {
-    int height, cnt;
-
-    Mast (int height, int cnt) {
-      this.height = height;
-      this.cnt = cnt;
-    }
-
-    @Override
-    public int compareTo (Mast m) {
-      return height - m.height;
-    }
-  }
-
-  static Node remove (Node n, Integer k) {
+  static Node remove(Node n, Integer k) {
     if (n == null)
       return n;
     int cmp = k - n.l;
@@ -177,13 +163,13 @@ public class IOI_2007_Sails {
     return balance(n);
   }
 
-  static Node minV (Node n) {
+  static Node minV(Node n) {
     while (n.left != null)
       n = n.left;
     return n;
   }
 
-  static Node add (Node n, Node add) {
+  static Node add(Node n, Node add) {
     if (n == null)
       return add;
     if (n.r + 1 == add.l && diff[add.l] == 0) {
@@ -198,25 +184,15 @@ public class IOI_2007_Sails {
     return balance(n);
   }
 
-  static class Node {
-    int l, r, height;
-    Node left, right;
-
-    Node (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-  }
-
-  static int getHeight (Node n) {
+  static int getHeight(Node n) {
     return n == null ? -1 : n.height;
   }
 
-  static void resetHeight (Node n) {
+  static void resetHeight(Node n) {
     n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
   }
 
-  static Node rotateLeft (Node n) {
+  static Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -225,7 +201,7 @@ public class IOI_2007_Sails {
     return x;
   }
 
-  static Node rotateRight (Node n) {
+  static Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -234,7 +210,7 @@ public class IOI_2007_Sails {
     return x;
   }
 
-  static Node balance (Node n) {
+  static Node balance(Node n) {
     resetHeight(n);
     int diff1 = getHeight(n.left) - getHeight(n.right);
     if (diff1 >= 2) {
@@ -251,29 +227,53 @@ public class IOI_2007_Sails {
     return n;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Mast implements Comparable<Mast> {
+    int height, cnt;
+
+    Mast(int height, int cnt) {
+      this.height = height;
+      this.cnt = cnt;
+    }
+
+    @Override
+    public int compareTo(Mast m) {
+      return height - m.height;
+    }
+  }
+
+  static class Node {
+    int l, r, height;
+    Node left, right;
+
+    Node(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
   }
 }

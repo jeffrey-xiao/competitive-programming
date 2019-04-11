@@ -10,15 +10,14 @@ import java.util.StringTokenizer;
 
 public class USACO_2011_Binary_Sudoku {
 
+  static final int INF = 5000;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
   static char[][] grid = new char[9][];
   static int[][][][][] dp = new int[9][9][1 << 9][1 << 3][2];
-  static final int INF = 5000;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = 0; x < 9; x++) {
       grid[x] = next().toCharArray();
     }
@@ -35,7 +34,7 @@ public class USACO_2011_Binary_Sudoku {
     System.out.println(compute(0, 0, 0, 0, 0));
   }
 
-  private static int compute (int r, int c, int bp, int cp, int rp) {
+  private static int compute(int r, int c, int bp, int cp, int rp) {
     if (r < 9 && c < 9 && dp[r][c][cp][bp][rp] != -1)
       return dp[r][c][cp][bp][rp];
     if (r == 9)
@@ -50,29 +49,29 @@ public class USACO_2011_Binary_Sudoku {
     return dp[r][c][cp][bp][rp];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

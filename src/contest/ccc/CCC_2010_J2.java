@@ -6,7 +6,7 @@ class CCC_2010_J2 {
 
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int NikkyForward = scan.nextInt();
     int NikkyBackward = scan.nextInt();
     int ByronForward = scan.nextInt();
@@ -18,10 +18,10 @@ class CCC_2010_J2 {
     int ByronAverageForward = ByronForward - ByronBackward;
     int NTotal = 0;
     int BTotal = 0;
-    NikkySteps = (int)Math.floor(steps / (NikkyForward + NikkyBackward)) * NikkyAverageForward;
-    ByronSteps = (int)Math.floor(steps / (ByronForward + ByronBackward)) * ByronAverageForward;
-    NTotal = (int)Math.floor(steps / (NikkyForward + NikkyBackward)) * (NikkyForward + NikkyBackward);
-    BTotal = (int)Math.floor(steps / (ByronForward + ByronBackward)) * (ByronForward + ByronBackward);
+    NikkySteps = (int) Math.floor(steps / (NikkyForward + NikkyBackward)) * NikkyAverageForward;
+    ByronSteps = (int) Math.floor(steps / (ByronForward + ByronBackward)) * ByronAverageForward;
+    NTotal = (int) Math.floor(steps / (NikkyForward + NikkyBackward)) * (NikkyForward + NikkyBackward);
+    BTotal = (int) Math.floor(steps / (ByronForward + ByronBackward)) * (ByronForward + ByronBackward);
     if (NTotal + NikkyForward > steps) {
       NikkySteps += steps - NTotal;
     } else if (NikkySteps + NikkyForward + NikkyBackward > steps) {

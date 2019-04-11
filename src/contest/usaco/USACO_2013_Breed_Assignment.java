@@ -18,7 +18,7 @@ public class USACO_2013_Breed_Assignment {
   static int k;
   static int[] b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     k = readInt();
     adj = new char[n][n];
@@ -33,11 +33,12 @@ public class USACO_2013_Breed_Assignment {
     System.out.println(compute(0));
   }
 
-  private static int compute (int i) {
+  private static int compute(int i) {
     if (i == n)
       return 1;
     int count = 0;
-    main : for (int x = 1; x <= 3; x++) {
+    main:
+    for (int x = 1; x <= 3; x++) {
       for (int y = 0; y < i; y++) {
         if (b[y] == x && adj[y][i] == 'D')
           continue main;
@@ -51,25 +52,25 @@ public class USACO_2013_Breed_Assignment {
     return count;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

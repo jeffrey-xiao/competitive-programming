@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class DWITE_2007_Vanilla_Primes {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(isPrime(scan.nextInt()) ? "prime" : "not");
   }
 
-  private static boolean isPrime (int n) {
+  private static boolean isPrime(int n) {
     if (n <= 1)
       return false;
     if (n == 2)

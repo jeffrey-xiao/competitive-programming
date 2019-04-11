@@ -27,7 +27,7 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
   static boolean[] bridge = new boolean[100001];
   static Stack<Integer> s = new Stack<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -126,7 +126,7 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
     pr.close();
   }
 
-  private static void dfs (int i, int prev) {
+  private static void dfs(int i, int prev) {
     low[i] = disc[i] = cnt++;
     s.push(i);
     for (Edge j : adj.get(i)) {
@@ -152,17 +152,43 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     Long cost;
 
-    Vertex (int index, long cost) {
+    Vertex(int index, long cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return cost.compareTo(o.cost);
     }
   }
@@ -170,35 +196,9 @@ public class DMOPC_2014_Attack_On_Anti_Spiral {
   static class Edge {
     int dest, cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

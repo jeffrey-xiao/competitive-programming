@@ -9,16 +9,14 @@ import java.util.StringTokenizer;
 
 public class CCO_Mashup_Largest_Permutation {
 
+  static final int SIZE = 100005;
   static BufferedReader br;
   static PrintWriter pr;
   static StringTokenizer st;
-
-  static final int SIZE = 100005;
-
   static Node[] seg = new Node[SIZE * 3];
   static int[] a = new int[SIZE];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -54,7 +52,7 @@ public class CCO_Mashup_Largest_Permutation {
     pr.close();
   }
 
-  static void update (int x, int n, int v) {
+  static void update(int x, int n, int v) {
     if (seg[n].l == x && x == seg[n].r) {
       seg[n].max = v;
       return;
@@ -73,7 +71,7 @@ public class CCO_Mashup_Largest_Permutation {
     }
   }
 
-  static State query (int l, int r, int n) {
+  static State query(int l, int r, int n) {
     if (seg[n].l == l && seg[n].r == r) {
       return new State(seg[n].index, seg[n].max);
     }
@@ -89,7 +87,7 @@ public class CCO_Mashup_Largest_Permutation {
     return s2;
   }
 
-  static void build (int l, int r, int n) {
+  static void build(int l, int r, int n) {
     seg[n] = new Node(l, r);
     if (l == r) {
       seg[n].max = a[l];
@@ -108,10 +106,36 @@ public class CCO_Mashup_Largest_Permutation {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int index, max;
 
-    State (int index, int min) {
+    State(int index, int min) {
       this.index = index;
       this.max = min;
     }
@@ -120,35 +144,9 @@ public class CCO_Mashup_Largest_Permutation {
   static class Node {
     int l, r, max, index;
 
-    Node (int l, int r) {
+    Node(int l, int r) {
       this.l = l;
       this.r = r;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

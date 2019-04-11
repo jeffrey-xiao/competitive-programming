@@ -14,7 +14,7 @@ public class CCC_1998_C {
   static int[] curr;
   static byte dir;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       dir = 0;
       int x = 0;
@@ -26,20 +26,20 @@ public class CCC_1998_C {
           x += movex[dir] * moves;
           y += movey[dir] * moves;
         } else if (command == 2)
-          dir = (byte)((dir + 5) % 4);
+          dir = (byte) ((dir + 5) % 4);
         else
-          dir = (byte)((dir + 3) % 4);
+          dir = (byte) ((dir + 3) % 4);
         command = readInt();
       }
       System.out.println("Distance is " + (Math.abs(x) + Math.abs(y)));
-      curr = new int[] {x, y};
+      curr = new int[]{x, y};
       while (curr[0] != 0 || curr[1] != 0)
         move();
     }
   }
 
   // right is 2, left is 3
-  private static void move () {
+  private static void move() {
     int x = curr[0];
     int y = curr[1];
     if (x < 0 && y < 0) {
@@ -167,25 +167,25 @@ public class CCC_1998_C {
     curr[1] = y;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

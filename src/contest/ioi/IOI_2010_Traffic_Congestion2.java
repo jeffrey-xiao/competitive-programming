@@ -16,7 +16,7 @@ public class IOI_2010_Traffic_Congestion2 {
   static int[] dp;
   static ArrayList<ArrayList<Integer>> adjlist;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     adjlist = new ArrayList<ArrayList<Integer>>();
     sum = new int[n];
@@ -35,7 +35,7 @@ public class IOI_2010_Traffic_Congestion2 {
     Stack<Integer> moves = new Stack<Integer>();
     Stack<int[]> bottom = new Stack<int[]>();
     moves.push(0);
-    bottom.push(new int[] {0, -1});
+    bottom.push(new int[]{0, -1});
     while (!moves.isEmpty()) {
       int curr = moves.pop();
       visited[curr] = true;
@@ -44,7 +44,7 @@ public class IOI_2010_Traffic_Congestion2 {
         if (visited[next])
           continue;
         moves.push(next);
-        bottom.push(new int[] {next, curr});
+        bottom.push(new int[]{next, curr});
       }
     }
     while (!bottom.isEmpty()) {
@@ -75,25 +75,25 @@ public class IOI_2010_Traffic_Congestion2 {
     System.out.println(index);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

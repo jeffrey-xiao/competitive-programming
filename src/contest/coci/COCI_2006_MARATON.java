@@ -14,7 +14,7 @@ public class COCI_2006_MARATON {
   static int n;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     g = new char[n][n];
     for (int x = 0; x < n; x++)
@@ -34,7 +34,7 @@ public class COCI_2006_MARATON {
     System.out.println("ongoing");
   }
 
-  private static boolean check (int x, int y, int dx, int dy, int i, char c) {
+  private static boolean check(int x, int y, int dx, int dy, int i, char c) {
     if (x < 0 || x >= n || y < 0 || y >= n || g[x][y] != c)
       return false;
     if (i == 0)
@@ -42,25 +42,25 @@ public class COCI_2006_MARATON {
     return check(x + dx, y + dy, dx, dy, i - 1, c);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

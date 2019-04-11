@@ -21,54 +21,62 @@ public class Treap {
   // root of the tree
   Node root = null;
 
-  // object representing the nodes of the tree
-  class Node {
-    Integer key;
-    Integer value;
-    Double priority;
-    Node left, right;
-
-    Node (int key, int value) {
-      this.key = key;
-      this.value = value;
-      priority = Math.random();
+  public static void main(String[] args) {
+    Treap t = new Treap();
+    long c = System.currentTimeMillis();
+    TreeSet<Integer> hs = new TreeSet<Integer>();
+    for (int x = 0; x < 100000; x++) {
+      int ran = (int) (Math.random() * (100000)) + 5;
+      hs.add(ran);
+      t.add(ran);
     }
-
-    Node (int key) {
-      this.key = key;
-      this.value = key;
-      priority = Math.random();
+    System.out.println(hs.size());
+    for (Integer i : hs)
+      System.out.print(i + " ");
+    System.out.println();
+    t.traverse(t.root);
+    System.out.println();
+    t.add(1);
+    assert t.contains(t.root, 1);
+    assert !t.contains(t.root, 2);
+    t.remove(1);
+    assert !t.contains(t.root, 1);
+    System.out.println(System.currentTimeMillis() - c);
+    for (Integer i : hs) {
+      t.remove(i);
+      assert !t.contains(t.root, i);
     }
+    System.out.println("SUCCESS");
   }
 
-  public void remove (Integer k) {
+  public void remove(Integer k) {
     root = remove(root, k);
   }
 
-  public void add (Integer k) {
+  public void add(Integer k) {
     root = add(root, k, k);
   }
 
-  public void add (Integer k, Integer v) {
+  public void add(Integer k, Integer v) {
     root = add(root, k, v);
   }
 
-  public boolean contains (Integer k) {
+  public boolean contains(Integer k) {
     return contains(root, k);
   }
 
-  public Integer get (Integer k) {
+  public Integer get(Integer k) {
     return get(root, k);
   }
 
-  public Iterable<Integer> range (Integer loK, Integer hiK) {
+  public Iterable<Integer> range(Integer loK, Integer hiK) {
     Queue<Integer> res = new ArrayDeque<Integer>();
     range(root, loK, hiK, res);
     return res;
   }
 
   // in order traversal of nodes
-  public void traverse (Node n) {
+  public void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -77,7 +85,7 @@ public class Treap {
   }
 
   // auxiliary function for range
-  private void range (Node n, Integer loK, Integer hiK, Queue<Integer> res) {
+  private void range(Node n, Integer loK, Integer hiK, Queue<Integer> res) {
     if (n == null)
       return;
     if (n.key > hiK)
@@ -92,7 +100,7 @@ public class Treap {
   }
 
   // auxiliary function for contains
-  private boolean contains (Node n, Integer k) {
+  private boolean contains(Node n, Integer k) {
     if (n == null)
       return false;
     int cmp = k.compareTo(n.key);
@@ -104,7 +112,7 @@ public class Treap {
   }
 
   // auxiliary function for get
-  private Integer get (Node n, Integer k) {
+  private Integer get(Node n, Integer k) {
     if (n == null)
       return null;
     int cmp = k.compareTo(n.key);
@@ -116,7 +124,7 @@ public class Treap {
   }
 
   // auxiliary function to delete
-  private Node remove (Node n, Integer k) {
+  private Node remove(Node n, Integer k) {
     if (n == null)
       return n;
     int cmp = k.compareTo(n.key);
@@ -139,7 +147,7 @@ public class Treap {
   }
 
   // auxiliary function to insert
-  private Node add (Node n, Integer k, Integer v) {
+  private Node add(Node n, Integer k, Integer v) {
     if (n == null)
       return new Node(k, v);
     int cmp = k.compareTo(n.key);
@@ -160,28 +168,28 @@ public class Treap {
     return n;
   }
 
-  public Integer getFirst () {
+  public Integer getFirst() {
     return getFirst(root).value;
   }
 
-  public Integer getLast () {
+  public Integer getLast() {
     return getLast(root).value;
   }
 
-  private Node getFirst (Node n) {
+  private Node getFirst(Node n) {
     while (n.left != null)
       n = n.left;
     return n;
   }
 
-  private Node getLast (Node n) {
+  private Node getLast(Node n) {
     while (n.right != null)
       n = n.right;
     return n;
   }
 
   // rotate left
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -189,38 +197,30 @@ public class Treap {
   }
 
   // rotate right
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
     return x;
   }
 
-  public static void main (String[] args) {
-    Treap t = new Treap();
-    long c = System.currentTimeMillis();
-    TreeSet<Integer> hs = new TreeSet<Integer>();
-    for (int x = 0; x < 100000; x++) {
-      int ran = (int)(Math.random() * (100000)) + 5;
-      hs.add(ran);
-      t.add(ran);
+  // object representing the nodes of the tree
+  class Node {
+    Integer key;
+    Integer value;
+    Double priority;
+    Node left, right;
+
+    Node(int key, int value) {
+      this.key = key;
+      this.value = value;
+      priority = Math.random();
     }
-    System.out.println(hs.size());
-    for (Integer i : hs)
-      System.out.print(i + " ");
-    System.out.println();
-    t.traverse(t.root);
-    System.out.println();
-    t.add(1);
-    assert t.contains(t.root, 1);
-    assert !t.contains(t.root, 2);
-    t.remove(1);
-    assert !t.contains(t.root, 1);
-    System.out.println(System.currentTimeMillis() - c);
-    for (Integer i : hs) {
-      t.remove(i);
-      assert !t.contains(t.root, i);
+
+    Node(int key) {
+      this.key = key;
+      this.value = key;
+      priority = Math.random();
     }
-    System.out.println("SUCCESS");
   }
 }

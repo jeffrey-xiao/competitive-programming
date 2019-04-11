@@ -11,7 +11,7 @@ public class CCC_2009_Stage_2_A_Weighty_Problem {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int c = readInt();
     int n = readInt();
     int k = readInt();
@@ -58,7 +58,7 @@ public class CCC_2009_Stage_2_A_Weighty_Problem {
     System.out.printf("%.2f", min);
   }
 
-  static double diff (int c, Coin[] coins, double weight) {
+  static double diff(int c, Coin[] coins, double weight) {
     double newWeight = 0;
     for (int x = 0; x < coins.length; x++) {
       newWeight += c / coins[x].value * coins[x].weight;
@@ -67,40 +67,40 @@ public class CCC_2009_Stage_2_A_Weighty_Problem {
     return weight - newWeight;
   }
 
-  static class Coin implements Comparable<Coin> {
-    int value;
-    double weight;
-
-    Coin (int value, double weight) {
-      this.value = value;
-      this.weight = weight;
-    }
-
-    @Override
-    public int compareTo (Coin o) {
-      return o.value - value;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Coin implements Comparable<Coin> {
+    int value;
+    double weight;
+
+    Coin(int value, double weight) {
+      this.value = value;
+      this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Coin o) {
+      return o.value - value;
+    }
   }
 }

@@ -15,17 +15,15 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class balancing {
+  static final int SIZE = 1000000;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int SIZE = 1000000;
-
   static HashMap<Integer, ArrayList<Integer>> xCows = new HashMap<Integer, ArrayList<Integer>>();
   static int N;
   static int[] left = new int[SIZE + 1], right = new int[SIZE + 1];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("balancing.in"));
     out = new PrintWriter(new FileWriter("balancing.out"));
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -91,46 +89,46 @@ public class balancing {
     System.exit(0);
   }
 
-  static void update (int[] bit, int x, int val) {
+  static void update(int[] bit, int x, int val) {
     for (int i = x; i <= SIZE; i += (i & -i))
       bit[i] += val;
   }
 
-  static int query (int[] bit, int x) {
+  static int query(int[] bit, int x) {
     int sum = 0;
     for (int i = x; i > 0; i -= (i & -i))
       sum += bit[i];
     return sum;
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

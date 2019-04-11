@@ -18,7 +18,7 @@ public class New_Year_Message_To_Mars {
   static String text;
   static ArrayList<HashSet<Integer>> cnt = new ArrayList<HashSet<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     text = readLine();
     int n = readInt();
 
@@ -49,21 +49,7 @@ public class New_Year_Message_To_Mars {
     System.out.println(ans);
   }
 
-  static class Seg implements Comparable<Seg> {
-    int l, r;
-
-    Seg (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-
-    @Override
-    public int compareTo (Seg s) {
-      return l - s.l;
-    }
-  }
-
-  public static void search (String pattern) {
+  public static void search(String pattern) {
     int[] LCP = buildLCP(pattern);
     int j = 0;
     for (int i = 0; i < text.length(); i++) {
@@ -78,7 +64,7 @@ public class New_Year_Message_To_Mars {
     }
   }
 
-  private static int[] buildLCP (String pattern) {
+  private static int[] buildLCP(String pattern) {
     int[] LCP = new int[pattern.length()];
     for (int i = 1; i < pattern.length(); i++) {
       int j = LCP[i - 1];
@@ -91,25 +77,39 @@ public class New_Year_Message_To_Mars {
     return LCP;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Seg implements Comparable<Seg> {
+    int l, r;
+
+    Seg(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
+
+    @Override
+    public int compareTo(Seg s) {
+      return l - s.l;
+    }
   }
 }

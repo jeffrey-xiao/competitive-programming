@@ -18,7 +18,7 @@ public class MockCCC_2015_J5 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Map<Integer, ArrayList<Integer>> xC = new HashMap<Integer, ArrayList<Integer>>();
     Map<Integer, ArrayList<Integer>> yC = new HashMap<Integer, ArrayList<Integer>>();
@@ -68,7 +68,7 @@ public class MockCCC_2015_J5 {
     System.out.println(res);
   }
 
-  private static int bs (ArrayList<Integer> a, int i, boolean lower) {
+  private static int bs(ArrayList<Integer> a, int i, boolean lower) {
     int lo = 0;
     int hi = a.size() - 1;
     while (lo <= hi) {
@@ -88,29 +88,29 @@ public class MockCCC_2015_J5 {
     return lower ? hi : lo;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

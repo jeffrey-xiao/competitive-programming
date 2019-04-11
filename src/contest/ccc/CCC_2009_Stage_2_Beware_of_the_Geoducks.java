@@ -15,7 +15,7 @@ public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
   static int[] pathM;
   static int s, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int v = readInt();
     int e = readInt();
     s = readInt();
@@ -84,7 +84,7 @@ public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
     System.out.println("NO");
   }
 
-  private static boolean checkTrue (int si, int mi, double sd, double md) {
+  private static boolean checkTrue(int si, int mi, double sd, double md) {
     if (si == s - 1 || mi == m - 1)
       return false;
     if (pathS[si] == pathM[mi] && pathS[si + 1] == pathM[mi + 1])
@@ -94,34 +94,34 @@ public class CCC_2009_Stage_2_Beware_of_the_Geoducks {
     return false;
   }
 
-  static class Edge {
-    int dest, cost;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, cost;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

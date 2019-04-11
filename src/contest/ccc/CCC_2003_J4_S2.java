@@ -11,7 +11,7 @@ public class CCC_2003_J4_S2 {
   static StringTokenizer st;
   static String vowels = "aeiouAEIOU ";
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       String s1 = getLast(readLine());
       String s2 = getLast(readLine());
@@ -30,7 +30,7 @@ public class CCC_2003_J4_S2 {
     }
   }
 
-  private static String getLast (String s) {
+  private static String getLast(String s) {
     String result = "";
     for (int x = s.length() - 1; x >= 0; x--) {
       char c = s.charAt(x);
@@ -41,25 +41,25 @@ public class CCC_2003_J4_S2 {
     return result.toLowerCase();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

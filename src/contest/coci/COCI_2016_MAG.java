@@ -20,7 +20,7 @@ public class COCI_2016_MAG {
   static int[] val;
   static Fraction best;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -57,7 +57,7 @@ public class COCI_2016_MAG {
     out.close();
   }
 
-  static void compute (int u, int par, int maxLen) {
+  static void compute(int u, int par, int maxLen) {
     // consider one path of ones
     if (val[u] == 1) {
       Fraction curr = new Fraction(1, dp[u][0].max + dp[u][1].max - 1);
@@ -88,7 +88,7 @@ public class COCI_2016_MAG {
     }
   }
 
-  static void dfs (int u, int par) {
+  static void dfs(int u, int par) {
     dp[u][0] = new State(0, -1);
     dp[u][1] = new State(0, -1);
     if (val[u] != 1) {
@@ -108,7 +108,7 @@ public class COCI_2016_MAG {
     }
   }
 
-  static void replace (int u, State s) {
+  static void replace(int u, State s) {
     if (dp[u][0].max < s.max) {
       dp[u][1] = dp[u][0];
       dp[u][0] = s;
@@ -117,23 +117,49 @@ public class COCI_2016_MAG {
     }
   }
 
+  static long gcd(long a, long b) {
+    return b == 0 ? a : gcd(b, a % b);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int max, index;
 
-    State (int max, int index) {
+    State(int max, int index) {
       this.max = max;
       this.index = index;
     }
   }
 
-  static long gcd (long a, long b) {
-    return b == 0 ? a : gcd(b, a % b);
-  }
-
   static class Fraction implements Comparable<Fraction> {
     long a, b;
 
-    Fraction (long a, long b) {
+    Fraction(long a, long b) {
       long gcd = gcd(a, b);
       if (gcd != 0) {
         a /= gcd;
@@ -144,40 +170,14 @@ public class COCI_2016_MAG {
     }
 
     @Override
-    public int compareTo (Fraction f) {
+    public int compareTo(Fraction f) {
       return new Long(a * f.b).compareTo(new Long(f.a * b));
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("%d/%d", a, b);
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

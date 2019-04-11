@@ -28,7 +28,7 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
 
   static int[] precomputedAnswers = {-1, 3, 5, 8, 10, 13, 16, 19, 21, 24, 27, 29, 32, 35};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -76,7 +76,7 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
     out.close();
   }
 
-  static void solve (Point s, Point curr, int len) {
+  static void solve(Point s, Point curr, int len) {
     vis[curr.r][curr.c] = true;
     if (ans[N] == precomputedAnswers[N])
       return;
@@ -98,7 +98,7 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
     vis[curr.r][curr.c] = false;
   }
 
-  static boolean valid (Point curr, Point prev) {
+  static boolean valid(Point curr, Point prev) {
     if (vis[curr.r][curr.c])
       return false;
     for (int i = 0; i < 4; i++) {
@@ -111,46 +111,46 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
     return true;
   }
 
-  static class Point {
-    int r, c;
-
-    Point (int r, int c) {
-      this.r = r;
-      this.c = c;
-    }
-
-    public boolean equals (Object o) {
-      if (o instanceof Point) {
-        Point p = (Point)o;
-        return r == p.r && c == p.c;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int r, c;
+
+    Point(int r, int c) {
+      this.r = r;
+      this.c = c;
+    }
+
+    public boolean equals(Object o) {
+      if (o instanceof Point) {
+        Point p = (Point) o;
+        return r == p.r && c == p.c;
+      }
+      return false;
+    }
   }
 }

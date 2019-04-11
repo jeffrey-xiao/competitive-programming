@@ -18,7 +18,7 @@ public class CCC_2013_S4 {
   static int numOfPeople;
   static int numOfCon;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     numOfPeople = readInt();
     for (int x = 0; x < numOfPeople; x++)
       p.put(x, new ArrayList<Integer>());
@@ -35,7 +35,7 @@ public class CCC_2013_S4 {
       System.out.println("unknown");
   }
 
-  private static boolean isTaller (int x, int y) {
+  private static boolean isTaller(int x, int y) {
     Queue<Integer> moves = new LinkedList<Integer>();
     boolean[] visited = new boolean[numOfPeople];
     moves.offer(x);
@@ -56,25 +56,25 @@ public class CCC_2013_S4 {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

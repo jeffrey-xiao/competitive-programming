@@ -18,8 +18,9 @@ public class CCC_1996_Stage_2_Hoppers {
   static int c;
   static int r;
 
-  public static void main (String[] args) throws IOException {
-    main : for (int t = readInt(); t > 0; t--) {
+  public static void main(String[] args) throws IOException {
+    main:
+    for (int t = readInt(); t > 0; t--) {
       c = readInt();
       r = readInt();
       grid = new boolean[r][c];
@@ -41,7 +42,7 @@ public class CCC_1996_Stage_2_Hoppers {
       }
 
       Queue<int[]> q = new LinkedList<int[]>();
-      q.add(new int[] {startx, starty, 0, 0, 0});
+      q.add(new int[]{startx, starty, 0, 0, 0});
       while (!q.isEmpty()) {
         int[] next = q.poll();
         int x = next[0];
@@ -65,32 +66,32 @@ public class CCC_1996_Stage_2_Hoppers {
         for (int z = 0; z < 9; z++) {
           int nextsx = sx + movex[z];
           int nextsy = sy + movey[z];
-          q.add(new int[] {x + nextsx, y + nextsy, nextsx, nextsy, moves + 1});
+          q.add(new int[]{x + nextsx, y + nextsy, nextsx, nextsy, moves + 1});
         }
       }
       System.out.println("No solution.");
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

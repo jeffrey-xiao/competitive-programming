@@ -19,7 +19,7 @@ public class COCI_2014_ZGODAN {
   static BigInteger diff = new BigInteger("-1");
   static BigInteger target;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -35,13 +35,13 @@ public class COCI_2014_ZGODAN {
       System.out.println(s1 + " " + s2);
   }
 
-  private static void compute (char[] n, int i) {
+  private static void compute(char[] n, int i) {
     if (i == n.length)
       return;
     if (i == 0) {
       char org = n[i];
       for (int j = -1; j <= 1; j++) {
-        char c = (char)(n[i] + j);
+        char c = (char) (n[i] + j);
         if (c < '0' || c > '9')
           continue;
         n[i] = c;
@@ -57,7 +57,7 @@ public class COCI_2014_ZGODAN {
           org[j] = n[j];
         char c = n[i];
         if (c - 1 >= '0') {
-          n[i] = (char)(c - 1);
+          n[i] = (char) (c - 1);
           for (int j = i + 1; j < n.length; j++) {
             if ((n[j - 1] - '0') % 2 == 0)
               n[j] = '9';
@@ -67,7 +67,7 @@ public class COCI_2014_ZGODAN {
           replace(n);
         }
         if (c + 1 <= '9') {
-          n[i] = (char)(c + 1);
+          n[i] = (char) (c + 1);
           for (int j = i + 1; j < n.length; j++) {
             if ((n[j - 1] - '0') % 2 == 0)
               n[j] = '1';
@@ -82,7 +82,7 @@ public class COCI_2014_ZGODAN {
     }
   }
 
-  static void replace (char[] n) {
+  static void replace(char[] n) {
     BigInteger next = new BigInteger(new String(n));
     BigInteger d = target.subtract(next).abs();
     int cmp = d.compareTo(diff);
@@ -97,29 +97,29 @@ public class COCI_2014_ZGODAN {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

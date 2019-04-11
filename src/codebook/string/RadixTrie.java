@@ -11,25 +11,25 @@ public class RadixTrie {
   private static final int SHIFT = 'a';
   private Node root = new Node();
 
-  class Node {
-    private Node[] child;
-    private boolean isLeaf;
-    private String value;
-
-    Node () {
-      child = new Node[26];
-      isLeaf = false;
-      value = "";
-    }
+  public static void main(String[] args) {
+    RadixTrie t = new RadixTrie();
+    t.addWord("romane");
+    t.addWord("romanus");
+    t.addWord("romulus");
+    t.addWord("rubens");
+    t.addWord("ruber");
+    t.addWord("rubicon");
+    t.addWord("rubicundus");
+    t.print();
   }
 
-  public void addWord (String word) {
+  public void addWord(String word) {
     if (word == null || word.length() == 0)
       throw new IllegalArgumentException();
     root.child[word.charAt(0) - SHIFT] = addWord(root.child[word.charAt(0) - SHIFT], word);
   }
 
-  private Node addWord (Node n, String word) {
+  private Node addWord(Node n, String word) {
     if (n == null)
       n = new Node();
     if (word.length() == 0) {
@@ -65,11 +65,11 @@ public class RadixTrie {
     return n;
   }
 
-  public void print () {
+  public void print() {
     print(root, "");
   }
 
-  private void print (Node n, String curr) {
+  private void print(Node n, String curr) {
     if (n.isLeaf)
       System.out.println(curr);
     for (int i = 0; i < 26; i++)
@@ -78,15 +78,15 @@ public class RadixTrie {
       }
   }
 
-  public static void main (String[] args) {
-    RadixTrie t = new RadixTrie();
-    t.addWord("romane");
-    t.addWord("romanus");
-    t.addWord("romulus");
-    t.addWord("rubens");
-    t.addWord("ruber");
-    t.addWord("rubicon");
-    t.addWord("rubicundus");
-    t.print();
+  class Node {
+    private Node[] child;
+    private boolean isLeaf;
+    private String value;
+
+    Node() {
+      child = new Node[26];
+      isLeaf = false;
+      value = "";
+    }
   }
 }

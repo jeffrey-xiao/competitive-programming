@@ -20,8 +20,9 @@ public class ACM_MVP {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
-    main : for (int t = readInt(); t > 0; t--) {
+  public static void main(String[] args) throws IOException {
+    main:
+    for (int t = readInt(); t > 0; t--) {
       r = readInt();
       c = readInt();
       grid = new char[r][];
@@ -77,7 +78,7 @@ public class ACM_MVP {
     }
   }
 
-  private static int[][] bfs (int x, int y) {
+  private static int[][] bfs(int x, int y) {
     int[][] min = new int[r][c];
     boolean[][] v = new boolean[r][c];
     Queue<Point> moves = new LinkedList<Point>();
@@ -98,44 +99,44 @@ public class ACM_MVP {
     return min;
   }
 
-  static class Point {
-    int x, y, time;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    Point (int x, int y, int time) {
-      this.x = x;
-      this.y = y;
-      this.time = time;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y, time;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Point(int x, int y, int time) {
+      this.x = x;
+      this.y = y;
+      this.time = time;
+    }
   }
 }

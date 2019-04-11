@@ -10,15 +10,13 @@ import java.util.StringTokenizer;
 
 public class Mackenzie_Rocks {
 
+  static final int SIZE = 10000;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int SIZE = 10000;
-
   static int[] bit = new int[SIZE + 1];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -74,52 +72,52 @@ public class Mackenzie_Rocks {
     out.close();
   }
 
-  static int valueOf (String rock) {
+  static int valueOf(String rock) {
     int sum = 0;
     for (int i = 0; i < rock.length(); i++)
       sum += rock.charAt(i) - 'a' + 1;
     return sum;
   }
 
-  static int queryTo (int x) {
+  static int queryTo(int x) {
     int sum = 0;
     for (int i = x; i > 0; i -= (i & -i))
       sum += bit[i];
     return sum;
   }
 
-  static int queryAt (int x) {
+  static int queryAt(int x) {
     return queryTo(x) - queryTo(x - 1);
   }
 
-  static void update (int x, int val) {
+  static void update(int x, int val) {
     for (int i = x; i <= SIZE; i += (i & -i))
       bit[i] += val;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

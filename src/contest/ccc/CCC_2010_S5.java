@@ -14,7 +14,7 @@ public class CCC_2010_S5 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     Node root = new Node(-1);
     Node curr = root;
     char[] line = readLine().trim().toCharArray();
@@ -33,39 +33,39 @@ public class CCC_2010_S5 {
     }
   }
 
-  static class Node {
-    Node parent, left, right;
-    int value;
-    int[] dp = new int[2500];
-
-    Node (int value) {
-      this.value = value;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    Node parent, left, right;
+    int value;
+    int[] dp = new int[2500];
+
+    Node(int value) {
+      this.value = value;
+    }
   }
 }

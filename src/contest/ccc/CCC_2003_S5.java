@@ -14,7 +14,7 @@ public class CCC_2003_S5 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfCities = nextInt();
     int numOfEdges = nextInt();
     int citiesThatSell = nextInt();
@@ -30,8 +30,8 @@ public class CCC_2003_S5 {
       int a = nextInt() - 1;
       int b = nextInt() - 1;
       int c = nextInt();
-      adjlist.get(a).add(new int[] {b, c});
-      adjlist.get(b).add(new int[] {a, c});
+      adjlist.get(a).add(new int[]{b, c});
+      adjlist.get(b).add(new int[]{a, c});
     }
 
     boolean[] visited = new boolean[numOfCities];
@@ -43,7 +43,7 @@ public class CCC_2003_S5 {
 
     PriorityQueue<int[]> pq = new PriorityQueue<int[]>(numOfCities, new Comparator<int[]>() {
       @Override
-      public int compare (int[] arg0, int[] arg1) {
+      public int compare(int[] arg0, int[] arg1) {
         if (arg0[1] > arg1[1])
           return -1;
         else if (arg0[1] < arg1[1])
@@ -81,7 +81,7 @@ public class CCC_2003_S5 {
 
   }
 
-  static String next () {
+  static String next() {
     while (st == null || !st.hasMoreTokens()) {
       try {
         st = new StringTokenizer(br.readLine().trim());
@@ -91,11 +91,11 @@ public class CCC_2003_S5 {
     return st.nextToken();
   }
 
-  static int nextInt () {
+  static int nextInt() {
     return Integer.parseInt(next());
   }
 
-  static String nextLine () {
+  static String nextLine() {
     String s = "";
     try {
       s = br.readLine().trim();

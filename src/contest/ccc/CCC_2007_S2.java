@@ -12,7 +12,7 @@ public class CCC_2007_S2 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int numOfBoxes = readInt();
     int[][] boxes = new int[numOfBoxes][3];
     for (int x = 0; x < numOfBoxes; x++) {
@@ -31,11 +31,12 @@ public class CCC_2007_S2 {
     }
     Arrays.sort(boxes, new Comparator<int[]>() {
       @Override
-      public int compare (int[] o1, int[] o2) {
+      public int compare(int[] o1, int[] o2) {
         return o1[0] * o1[1] * o1[2] - o2[0] * o2[1] * o2[2];
       }
     });
-    main : for (int x = 0; x < numOfItems; x++) {
+    main:
+    for (int x = 0; x < numOfItems; x++) {
       for (int y = 0; y < numOfBoxes; y++) {
         if (items[x][0] <= boxes[y][0] && items[x][1] <= boxes[y][1] && items[x][2] <= boxes[y][2]) {
           System.out.println(boxes[y][0] * boxes[y][1] * boxes[y][2]);
@@ -46,25 +47,25 @@ public class CCC_2007_S2 {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

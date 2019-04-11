@@ -17,7 +17,7 @@ public class ACM_NA_East_Central_2015_H {
   static double r, h;
   static Vector p1, p2, p3, left, right;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -80,84 +80,84 @@ public class ACM_NA_East_Central_2015_H {
     out.close();
   }
 
-  static class Vector {
-    double x, y;
-
-    Vector (double x, double y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    Vector (Vector v) {
-      this.x = v.x;
-      this.y = v.y;
-    }
-
-    Vector (Vector v1, Vector v2) {
-      x = v2.x - v1.x;
-      y = v2.y - v1.y;
-    }
-
-    boolean intersect (Vector v1, double r) {
-      return Math.abs(v1.y - y - y / x * (v1.x - x)) / Math.sqrt(1 + y * y / x / x) / 2 < r && this.dist() > v1.dist();
-    }
-
-    double dot (Vector v) {
-      return x * v.x + y * v.y;
-    }
-
-    Vector multiply (double s) {
-      Vector ret = new Vector(x * s, y * s);
-      return ret;
-    }
-
-    Vector subtract (Vector v) {
-      Vector ret = new Vector(x - v.x, y - v.y);
-      return ret;
-    }
-
-    Vector normalize () {
-      double d = dist();
-      return new Vector(x / d, y / d);
-    }
-
-    Vector rotate (double angle) {
-      angle = angle / 180 * Math.PI;
-      return new Vector(Math.cos(angle) * x - Math.sin(angle) * y, Math.sin(angle) * x + Math.cos(angle) * y);
-    }
-
-    double dist () {
-      return Math.sqrt(x * x + y * y);
-    }
-
-    public String toString () {
-      return String.format("(%f, %f)", x, y);
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Vector {
+    double x, y;
+
+    Vector(double x, double y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Vector(Vector v) {
+      this.x = v.x;
+      this.y = v.y;
+    }
+
+    Vector(Vector v1, Vector v2) {
+      x = v2.x - v1.x;
+      y = v2.y - v1.y;
+    }
+
+    boolean intersect(Vector v1, double r) {
+      return Math.abs(v1.y - y - y / x * (v1.x - x)) / Math.sqrt(1 + y * y / x / x) / 2 < r && this.dist() > v1.dist();
+    }
+
+    double dot(Vector v) {
+      return x * v.x + y * v.y;
+    }
+
+    Vector multiply(double s) {
+      Vector ret = new Vector(x * s, y * s);
+      return ret;
+    }
+
+    Vector subtract(Vector v) {
+      Vector ret = new Vector(x - v.x, y - v.y);
+      return ret;
+    }
+
+    Vector normalize() {
+      double d = dist();
+      return new Vector(x / d, y / d);
+    }
+
+    Vector rotate(double angle) {
+      angle = angle / 180 * Math.PI;
+      return new Vector(Math.cos(angle) * x - Math.sin(angle) * y, Math.sin(angle) * x + Math.cos(angle) * y);
+    }
+
+    double dist() {
+      return Math.sqrt(x * x + y * y);
+    }
+
+    public String toString() {
+      return String.format("(%f, %f)", x, y);
+    }
   }
 }

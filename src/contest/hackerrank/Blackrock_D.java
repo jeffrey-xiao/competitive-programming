@@ -21,7 +21,7 @@ public class Blackrock_D {
   static int[] val;
   static long[][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -37,7 +37,7 @@ public class Blackrock_D {
     int curr = -1;
     int cnt = 0;
 
-    for (int i = 0; i < N;) {
+    for (int i = 0; i < N; ) {
       String c = next();
       if (!c.equals("#")) {
         adj.add(new ArrayList<Integer>());
@@ -69,7 +69,7 @@ public class Blackrock_D {
     out.close();
   }
 
-  static void solve (int u) {
+  static void solve(int u) {
     for (int v : adj.get(u))
       solve(v);
 
@@ -85,29 +85,29 @@ public class Blackrock_D {
     dp[u][1] = take;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

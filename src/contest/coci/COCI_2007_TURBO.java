@@ -16,7 +16,7 @@ public class COCI_2007_TURBO {
 
   static int[] bit = new int[100001];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[] p = new int[n + 1];
     for (int x = 1; x <= n; x++) {
@@ -38,41 +38,41 @@ public class COCI_2007_TURBO {
     }
   }
 
-  static int query (int X) {
+  static int query(int X) {
     int res = 0;
     for (int x = X; x > 0; x -= (x & -x))
       res += bit[x];
     return res;
   }
 
-  static void update (int X, int v) {
+  static void update(int X, int v) {
     for (int x = X; x < 100001; x += (x & -x))
       bit[x] += v;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

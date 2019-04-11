@@ -22,7 +22,7 @@ public class Peg_Test_2014_Gift_Delivery {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     int h = readInt();
@@ -48,7 +48,7 @@ public class Peg_Test_2014_Gift_Delivery {
     System.out.println(total);
   }
 
-  private static int bfs (Point s, Point e) {
+  private static int bfs(Point s, Point e) {
     boolean[][] v = new boolean[r][c];
     Queue<Point> q = new LinkedList<Point>();
     q.offer(new Point(s.x, s.y, 0));
@@ -74,58 +74,58 @@ public class Peg_Test_2014_Gift_Delivery {
     return -1;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     int x, y, moves;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
-    Point (int x, int y, int moves) {
+    Point(int x, int y, int moves) {
       this.x = x;
       this.y = y;
       this.moves = moves;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Integer(x).hashCode() * 31 + new Integer(x).hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return x == p.x && y == p.y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

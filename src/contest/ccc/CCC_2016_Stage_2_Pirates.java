@@ -21,7 +21,7 @@ public class CCC_2016_Stage_2_Pirates {
   static long[][] dp;
   static boolean contains = false;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -67,7 +67,7 @@ public class CCC_2016_Stage_2_Pirates {
     out.close();
   }
 
-  static void bf () {
+  static void bf() {
     dp = new long[N][N];
     dp[0][0] = K;
     out.println(K);
@@ -95,22 +95,7 @@ public class CCC_2016_Stage_2_Pirates {
     }
   }
 
-  static class State implements Comparable<State> {
-    Long val;
-    int index;
-
-    State (int index, long val) {
-      this.val = val;
-      this.index = index;
-    }
-
-    @Override
-    public int compareTo (State o) {
-      return val.compareTo(o.val);
-    }
-  }
-
-  static void traverse (Node n) {
+  static void traverse(Node n) {
     if (n == null) {
       return;
     }
@@ -119,7 +104,7 @@ public class CCC_2016_Stage_2_Pirates {
     traverse(n.right);
   }
 
-  static Node removeLargest (Node n, int amt) {
+  static Node removeLargest(Node n, int amt) {
     if (n == null || amt == 0)
       return null;
     if (n.totalSize == amt)
@@ -143,7 +128,7 @@ public class CCC_2016_Stage_2_Pirates {
     return n;
   }
 
-  static long querySmallest (Node n, int amt) {
+  static long querySmallest(Node n, int amt) {
     if (n == null || amt == 0)
       return 0;
 
@@ -161,43 +146,15 @@ public class CCC_2016_Stage_2_Pirates {
     }
   }
 
-  static long getSum (Node n) {
+  static long getSum(Node n) {
     return n == null ? 0 : n.sum;
   }
 
-  static int getTotalSize (Node n) {
+  static int getTotalSize(Node n) {
     return n == null ? 0 : n.totalSize;
   }
 
-  static class Node {
-    long val;
-    int size;
-    int totalSize;
-    long sum;
-    double p;
-    Node left, right;
-
-    Node (long val, double p, Node left, Node right, int size) {
-      this.val = val;
-      this.p = p;
-      this.size = size;
-      this.left = left;
-      this.right = right;
-      this.totalSize = getTotalSize(left) + getTotalSize(right) + this.size;
-      this.sum = getSum(left) + getSum(right) + this.val * this.size;
-    }
-  }
-
-  static class Pair {
-    Node left, right;
-
-    Pair (Node left, Node right) {
-      this.left = left;
-      this.right = right;
-    }
-  }
-
-  static Node merge (Node n, Node m) {
+  static Node merge(Node n, Node m) {
     if (n == null)
       return m;
     if (m == null)
@@ -210,7 +167,7 @@ public class CCC_2016_Stage_2_Pirates {
     }
   }
 
-  static Pair split (Node n, long val) {
+  static Pair split(Node n, long val) {
     if (n == null)
       return new Pair(null, null);
     if (n.val < val) {
@@ -226,7 +183,7 @@ public class CCC_2016_Stage_2_Pirates {
     }
   }
 
-  static Node inc (Node n, long val, int size) {
+  static Node inc(Node n, long val, int size) {
     if (n == null)
       return null;
     if (n.val < val)
@@ -243,7 +200,7 @@ public class CCC_2016_Stage_2_Pirates {
     return n;
   }
 
-  static Node insert (Node n, long val, int size) {
+  static Node insert(Node n, long val, int size) {
     contains = false;
     inc(n, val, size);
     if (contains)
@@ -253,29 +210,72 @@ public class CCC_2016_Stage_2_Pirates {
     return merge(res.left, merge(newNode, res.right));
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    Long val;
+    int index;
+
+    State(int index, long val) {
+      this.val = val;
+      this.index = index;
+    }
+
+    @Override
+    public int compareTo(State o) {
+      return val.compareTo(o.val);
+    }
+  }
+
+  static class Node {
+    long val;
+    int size;
+    int totalSize;
+    long sum;
+    double p;
+    Node left, right;
+
+    Node(long val, double p, Node left, Node right, int size) {
+      this.val = val;
+      this.p = p;
+      this.size = size;
+      this.left = left;
+      this.right = right;
+      this.totalSize = getTotalSize(left) + getTotalSize(right) + this.size;
+      this.sum = getSum(left) + getSum(right) + this.val * this.size;
+    }
+  }
+
+  static class Pair {
+    Node left, right;
+
+    Pair(Node left, Node right) {
+      this.left = left;
+      this.right = right;
+    }
   }
 }

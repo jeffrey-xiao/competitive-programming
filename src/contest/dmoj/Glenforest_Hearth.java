@@ -18,7 +18,7 @@ public class Glenforest_Hearth {
   static int n, t;
   static Card[] c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     t = readInt();
     c = new Card[n];
@@ -28,7 +28,7 @@ public class Glenforest_Hearth {
     compute(0, t, 0, "");
   }
 
-  private static void compute (int i, int t, int count, String curr) {
+  private static void compute(int i, int t, int count, String curr) {
     if (count == 3) {
       System.out.println(curr);
       return;
@@ -41,17 +41,43 @@ public class Glenforest_Hearth {
     compute(i + 1, t, count, curr);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Card implements Comparable<Card> {
     String name;
     int mana;
 
-    Card (String name, int mana) {
+    Card(String name, int mana) {
       this.name = name;
       this.mana = mana;
     }
 
     @Override
-    public int compareTo (Card o) {
+    public int compareTo(Card o) {
       for (int i = 0; i < Math.min(o.name.length(), name.length()); i++) {
         if (o.name.charAt(i) != name.charAt(i))
           return name.charAt(i) - o.name.charAt(i);
@@ -59,31 +85,5 @@ public class Glenforest_Hearth {
       return name.length() - o.name.length();
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

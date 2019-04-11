@@ -12,27 +12,36 @@ package codebook.datastructures;
 
 import java.util.Iterator;
 
-public class RandomizedQueue <Item> implements Iterable<Item> {
+public class RandomizedQueue<Item> implements Iterable<Item> {
   private Item[] queue;
   private int index;
   private int size;
 
   @SuppressWarnings("unchecked")
-  public RandomizedQueue () {
+  public RandomizedQueue() {
     index = 0;
     size = 1;
-    queue = (Item[])new Object[1];
+    queue = (Item[]) new Object[1];
   }
 
-  public boolean isEmpty () {
+  public static void main(String[] args) {
+    RandomizedQueue<Double> rq = new RandomizedQueue<Double>();
+    for (int x = 0; x < 100; x++)
+      rq.enqueue(Math.random());
+    for (int x = 0; x < 100; x++) {
+      System.out.print(rq.dequeue() + " ");
+    }
+  }
+
+  public boolean isEmpty() {
     return index == 0;
   }
 
-  public int size () {
+  public int size() {
     return index;
   }
 
-  public void enqueue (Item item) {
+  public void enqueue(Item item) {
     if (item == null)
       throw new NullPointerException();
     if (index + 1 > size)
@@ -40,7 +49,7 @@ public class RandomizedQueue <Item> implements Iterable<Item> {
     queue[index++] = item;
   }
 
-  public Item dequeue () {
+  public Item dequeue() {
     if (isEmpty())
       throw new java.util.NoSuchElementException();
 
@@ -53,14 +62,37 @@ public class RandomizedQueue <Item> implements Iterable<Item> {
     return i;
   }
 
-  public Item sample () {
+  public Item sample() {
     if (isEmpty())
       throw new java.util.NoSuchElementException();
     return queue[getRandom(index)];
   }
 
-  public Iterator<Item> iterator () {
+  public Iterator<Item> iterator() {
     return new QueueIterator();
+  }
+
+  private void addSize() {
+    size *= 2;
+    @SuppressWarnings("unchecked")
+    Item[] newQueue = (Item[]) new Object[size];
+    for (int x = 0; x < queue.length; x++)
+      newQueue[x] = queue[x];
+    queue = newQueue;
+  }
+
+  private void removeSize() {
+    size /= 2;
+    @SuppressWarnings("unchecked")
+    Item[] newQueue = (Item[]) new Object[size];
+    for (int x = 0; x < newQueue.length; x++)
+      newQueue[x] = queue[x];
+    queue = newQueue;
+  }
+
+  private int getRandom(int index) {
+    int i = (int) (Math.random() * index);
+    return i;
   }
 
   private class QueueIterator implements Iterator<Item> {
@@ -68,12 +100,12 @@ public class RandomizedQueue <Item> implements Iterable<Item> {
     private int[] shuffle = new int[index];
 
     @Override
-    public boolean hasNext () {
+    public boolean hasNext() {
       return i < index;
     }
 
     @Override
-    public Item next () {
+    public Item next() {
       if (i == 0) {
         for (int x = 0; x < index; x++)
           shuffle[x] = x;
@@ -90,40 +122,8 @@ public class RandomizedQueue <Item> implements Iterable<Item> {
     }
 
     @Override
-    public void remove () {
+    public void remove() {
       throw new UnsupportedOperationException();
-    }
-  }
-
-  private void addSize () {
-    size *= 2;
-    @SuppressWarnings("unchecked")
-    Item[] newQueue = (Item[])new Object[size];
-    for (int x = 0; x < queue.length; x++)
-      newQueue[x] = queue[x];
-    queue = newQueue;
-  }
-
-  private void removeSize () {
-    size /= 2;
-    @SuppressWarnings("unchecked")
-    Item[] newQueue = (Item[])new Object[size];
-    for (int x = 0; x < newQueue.length; x++)
-      newQueue[x] = queue[x];
-    queue = newQueue;
-  }
-
-  private int getRandom (int index) {
-    int i = (int)(Math.random() * index);
-    return i;
-  }
-
-  public static void main (String[] args) {
-    RandomizedQueue<Double> rq = new RandomizedQueue<Double>();
-    for (int x = 0; x < 100; x++)
-      rq.enqueue(Math.random());
-    for (int x = 0; x < 100; x++) {
-      System.out.print(rq.dequeue() + " ");
     }
   }
 }

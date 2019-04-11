@@ -10,8 +10,9 @@ public class CCC_2013_J3_S1 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
-    main : for (int x = readInt() + 1;; x++) {
+  public static void main(String[] args) throws IOException {
+    main:
+    for (int x = readInt() + 1; ; x++) {
       boolean[] nums = new boolean[10];
       int y = x;
       while (y != 0) {
@@ -25,25 +26,25 @@ public class CCC_2013_J3_S1 {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

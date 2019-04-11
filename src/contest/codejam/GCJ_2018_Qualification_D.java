@@ -11,7 +11,7 @@ public class GCJ_2018_Qualification_D {
 
   static double EPS = 1e-12;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -20,15 +20,15 @@ public class GCJ_2018_Qualification_D {
     int T = readInt();
 
     for (int t = 1; t <= T; t++) {
-      Point[] points = new Point[] {
-        new Point(0.5, 0.5, 0.5),
-        new Point(-0.5, 0.5, 0.5),
-        new Point(0.5, -0.5, 0.5),
-        new Point(-0.5, -0.5, 0.5),
-        new Point(0.5, 0.5, -0.5),
-        new Point(-0.5, 0.5, -0.5),
-        new Point(0.5, -0.5, -0.5),
-        new Point(-0.5, -0.5, -0.5),
+      Point[] points = new Point[]{
+          new Point(0.5, 0.5, 0.5),
+          new Point(-0.5, 0.5, 0.5),
+          new Point(0.5, -0.5, 0.5),
+          new Point(-0.5, -0.5, 0.5),
+          new Point(0.5, 0.5, -0.5),
+          new Point(-0.5, 0.5, -0.5),
+          new Point(0.5, -0.5, -0.5),
+          new Point(-0.5, -0.5, -0.5),
       };
       Point[] currPoints = new Point[8];
 
@@ -63,7 +63,7 @@ public class GCJ_2018_Qualification_D {
         }
       }
 
-      assert(Math.abs(targetArea - getArea(currPoints)) <= EPS);
+      assert (Math.abs(targetArea - getArea(currPoints)) <= EPS);
 
       out.printf("Case #%d:\n", t);
       printCenters(currPoints, targetArea);
@@ -72,7 +72,7 @@ public class GCJ_2018_Qualification_D {
     out.close();
   }
 
-  static void printCenters (Point[] points, double targetArea) {
+  static void printCenters(Point[] points, double targetArea) {
     Point p1 = getMiddle(points[0], points[3]);
     Point p2 = getMiddle(points[0], points[5]);
     Point p3 = getMiddle(points[0], points[6]);
@@ -81,59 +81,59 @@ public class GCJ_2018_Qualification_D {
     double dist2 = Math.sqrt(p2.x * p2.x + p2.y * p2.y + p2.z * p2.z);
     double dist3 = Math.sqrt(p3.x * p3.x + p3.y * p3.y + p3.z * p3.z);
 
-    assert(Math.abs(dist1 - 0.5) <= EPS);
-    assert(Math.abs(dist2 - 0.5) <= EPS);
-    assert(Math.abs(dist3 - 0.5) <= EPS);
-    assert((Math.abs((p1.x * p2.x + p1.y * p2.y + p1.z * p2.z) / (dist1 * dist2)) - 1) <= EPS);
-    assert((Math.abs((p1.x * p3.x + p1.y * p3.y + p1.z * p3.z) / (dist1 * dist3)) - 1) <= EPS);
-    assert((Math.abs((p2.x * p3.x + p2.y * p3.y + p2.z * p3.z) / (dist2 * dist3)) - 1) <= EPS);
+    assert (Math.abs(dist1 - 0.5) <= EPS);
+    assert (Math.abs(dist2 - 0.5) <= EPS);
+    assert (Math.abs(dist3 - 0.5) <= EPS);
+    assert ((Math.abs((p1.x * p2.x + p1.y * p2.y + p1.z * p2.z) / (dist1 * dist2)) - 1) <= EPS);
+    assert ((Math.abs((p1.x * p3.x + p1.y * p3.y + p1.z * p3.z) / (dist1 * dist3)) - 1) <= EPS);
+    assert ((Math.abs((p2.x * p3.x + p2.y * p3.y + p2.z * p3.z) / (dist2 * dist3)) - 1) <= EPS);
 
-    Point[] compute = new Point[] {
-      add(add(p1, p2), p3),
-      add(add(neg(p1), p2), p3),
-      add(add(p1, neg(p2)), p3),
-      add(add(neg(p1), neg(p2)), p3),
-      add(add(p1, p2), neg(p3)),
-      add(add(neg(p1), p2), neg(p3)),
-      add(add(p1, neg(p2)), neg(p3)),
-      add(add(neg(p1), neg(p2)), neg(p3))
+    Point[] compute = new Point[]{
+        add(add(p1, p2), p3),
+        add(add(neg(p1), p2), p3),
+        add(add(p1, neg(p2)), p3),
+        add(add(neg(p1), neg(p2)), p3),
+        add(add(p1, p2), neg(p3)),
+        add(add(neg(p1), p2), neg(p3)),
+        add(add(p1, neg(p2)), neg(p3)),
+        add(add(neg(p1), neg(p2)), neg(p3))
     };
-    assert(Math.abs(targetArea - getArea(compute)) <= EPS);
+    assert (Math.abs(targetArea - getArea(compute)) <= EPS);
 
     out.println(p1);
     out.println(p2);
     out.println(p3);
   }
 
-  static Point getMiddle (Point p1, Point p2) {
+  static Point getMiddle(Point p1, Point p2) {
     return new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2, (p1.z + p2.z) / 2);
   }
 
-  static Point neg (Point p) {
+  static Point neg(Point p) {
     return new Point(-p.x, -p.y, -p.z);
   }
 
-  static Point add (Point p1, Point p2) {
+  static Point add(Point p1, Point p2) {
     return new Point(p1.x + p2.x, p1.y + p2.y, p1.z + p2.z);
   }
 
-  static Point rotateX (Point p, double angle) {
+  static Point rotateX(Point p, double angle) {
     return new Point(
-      p.x,
-      p.y * Math.cos(angle) - p.z * Math.sin(angle),
-      p.y * Math.sin(angle) + p.z * Math.cos(angle)
+        p.x,
+        p.y * Math.cos(angle) - p.z * Math.sin(angle),
+        p.y * Math.sin(angle) + p.z * Math.cos(angle)
     );
   }
 
-  static Point rotateZ (Point p, double angle) {
+  static Point rotateZ(Point p, double angle) {
     return new Point(
-      p.x * Math.cos(angle) - p.y * Math.sin(angle),
-      p.x * Math.sin(angle) + p.y * Math.cos(angle),
-      p.z
+        p.x * Math.cos(angle) - p.y * Math.sin(angle),
+        p.x * Math.sin(angle) + p.y * Math.cos(angle),
+        p.z
     );
   }
 
-  static double getArea (Point[] points) {
+  static double getArea(Point[] points) {
     ArrayList<Point> u = new ArrayList<Point>();
     ArrayList<Point> l = new ArrayList<Point>();
 
@@ -171,20 +171,47 @@ public class GCJ_2018_Qualification_D {
     return Math.abs(area / 2);
   }
 
-  static double ccw (Point p1, Point p2, Point p3) {
+  static double ccw(Point p1, Point p2, Point p3) {
     return (p2.x - p1.x) * (p3.z - p1.z) - (p2.z - p1.z) * (p3.x - p1.x);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Point implements Comparable<Point> {
     double x, y, z;
-    Point (double x, double y, double z) {
+
+    Point(double x, double y, double z) {
       this.x = x;
       this.y = y;
       this.z = z;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       if (Math.abs(x - p.x) <= EPS) {
         return new Double(z).compareTo(p.z);
       }
@@ -192,34 +219,8 @@ public class GCJ_2018_Qualification_D {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("%.12f %.12f %.12f", x, y, z);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

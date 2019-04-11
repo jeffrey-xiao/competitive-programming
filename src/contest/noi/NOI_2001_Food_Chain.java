@@ -19,7 +19,7 @@ public class NOI_2001_Food_Chain {
   static int[] size;
   static ArrayList<HashSet<Integer>> eat = new ArrayList<HashSet<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     size = new int[n];
@@ -63,7 +63,7 @@ public class NOI_2001_Food_Chain {
     System.out.println(total);
   }
 
-  public static int find (int i) {
+  public static int find(int i) {
     while (i != id[i]) {
       id[i] = id[id[i]];
       i = id[i];
@@ -71,7 +71,7 @@ public class NOI_2001_Food_Chain {
     return i;
   }
 
-  public static void union (int x, int y) {
+  public static void union(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
     if (rootx == rooty)
@@ -87,29 +87,29 @@ public class NOI_2001_Food_Chain {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

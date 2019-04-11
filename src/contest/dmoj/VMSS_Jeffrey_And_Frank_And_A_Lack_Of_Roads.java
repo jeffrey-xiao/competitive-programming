@@ -14,7 +14,7 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -58,11 +58,37 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Apple implements Comparable<Apple> {
     String name;
     int value, cost, volume;
 
-    Apple (String name, int value, int cost, int volume) {
+    Apple(String name, int value, int cost, int volume) {
       this.name = name;
       this.value = value;
       this.cost = cost;
@@ -70,34 +96,8 @@ public class VMSS_Jeffrey_And_Frank_And_A_Lack_Of_Roads {
     }
 
     @Override
-    public int compareTo (Apple a) {
+    public int compareTo(Apple a) {
       return name.compareTo(a.name);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

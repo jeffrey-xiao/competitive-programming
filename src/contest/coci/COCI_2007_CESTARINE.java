@@ -18,7 +18,7 @@ public class COCI_2007_CESTARINE {
   static int[] entrance, exit;
   static long[] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -51,7 +51,7 @@ public class COCI_2007_CESTARINE {
     out.close();
   }
 
-  static long compute (int i, int k) {
+  static long compute(int i, int k) {
     int[] a = new int[k];
     int[] b = new int[k];
 
@@ -63,7 +63,7 @@ public class COCI_2007_CESTARINE {
     return minPermute(a, b, 0);
   }
 
-  static long minPermute (int[] a, int[] b, int i) {
+  static long minPermute(int[] a, int[] b, int i) {
     if (i == a.length) {
       long ret = 0;
       for (int j = 0; j < a.length; j++) {
@@ -82,35 +82,35 @@ public class COCI_2007_CESTARINE {
     return ret;
   }
 
-  static void swap (int[] a, int i, int j) {
+  static void swap(int[] a, int i, int j) {
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

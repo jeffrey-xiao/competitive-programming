@@ -21,7 +21,7 @@ public class haybales {
   static long[] total, lazy, min;
   static int[] a;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("haybales.in"));
     out = new PrintWriter(new FileWriter("haybales.out"));
     //br = new BufferedReader(new InputStreamReader(System.in));
@@ -57,16 +57,7 @@ public class haybales {
     System.exit(0);
   }
 
-  static class State {
-    long total, min;
-
-    State (long total, long min) {
-      this.total = total;
-      this.min = min;
-    }
-  }
-
-  static State query (int n, int l, int r, int ql, int qr) {
+  static State query(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr) {
       return new State(total[n], min[n]);
     }
@@ -91,7 +82,7 @@ public class haybales {
     }
   }
 
-  static void update (int n, int l, int r, int ql, int qr, long val) {
+  static void update(int n, int l, int r, int ql, int qr, long val) {
     if (l == ql && r == qr) {
       total[n] += (r - l + 1) * val;
       lazy[n] += val;
@@ -120,7 +111,7 @@ public class haybales {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       total[n] = a[l];
       min[n] = a[l];
@@ -133,25 +124,34 @@ public class haybales {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    long total, min;
+
+    State(long total, long min) {
+      this.total = total;
+      this.min = min;
+    }
   }
 }

@@ -7,31 +7,14 @@ public class PolynomialRootFinder {
   static final double EPS = 1e-9;
   static final double INF = 1e30;
 
-  static class Monomial {
-    double coefficient, exponent;
-
-    Monomial (double coefficient, double exponent) {
-      this.coefficient = coefficient;
-      this.exponent = exponent;
-    }
-
-    double evaluate (double x) {
-      return coefficient * Math.pow(x, exponent);
-    }
-
-    public String toString () {
-      return String.format("%fx^%f", coefficient, exponent);
-    }
-  }
-
-  static double evaluate (ArrayList<Monomial> polynomial, double x) {
+  static double evaluate(ArrayList<Monomial> polynomial, double x) {
     double ret = 0;
     for (Monomial m : polynomial)
       ret += m.evaluate(x);
     return ret;
   }
 
-  static double findRoot (ArrayList<Monomial> polynomial, double x1, double x2) {
+  static double findRoot(ArrayList<Monomial> polynomial, double x1, double x2) {
     double y1 = evaluate(polynomial, x1), y2 = evaluate(polynomial, x2);
     boolean neg1 = y1 < 0, neg2 = y2 < 0;
 
@@ -53,7 +36,7 @@ public class PolynomialRootFinder {
     return x1;
   }
 
-  static ArrayList<Double> findAllRoots (ArrayList<Monomial> polynomial) {
+  static ArrayList<Double> findAllRoots(ArrayList<Monomial> polynomial) {
     ArrayList<Monomial> diff = new ArrayList<Monomial>();
     ArrayList<Double> ret = new ArrayList<Double>();
 
@@ -78,7 +61,7 @@ public class PolynomialRootFinder {
     return ret;
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     ArrayList<Monomial> polynomial = new ArrayList<Monomial>();
     polynomial.add(new Monomial(2, 3));
     polynomial.add(new Monomial(-54, 0));
@@ -93,5 +76,22 @@ public class PolynomialRootFinder {
 
     // [-3.3333333336180133, 1.9999999997299984]
     System.out.println(findAllRoots(polynomial).toString());
+  }
+
+  static class Monomial {
+    double coefficient, exponent;
+
+    Monomial(double coefficient, double exponent) {
+      this.coefficient = coefficient;
+      this.exponent = exponent;
+    }
+
+    double evaluate(double x) {
+      return coefficient * Math.pow(x, exponent);
+    }
+
+    public String toString() {
+      return String.format("%fx^%f", coefficient, exponent);
+    }
   }
 }

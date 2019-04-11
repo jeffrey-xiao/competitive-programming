@@ -13,7 +13,7 @@ public class New_Year_Eggnog_Dilemma {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -27,7 +27,7 @@ public class New_Year_Eggnog_Dilemma {
       if (query == 1)
         out.println(getDays(n, m));
       else
-        for (int j = 0;; j++)
+        for (int j = 0; ; j++)
           if (pow(m + 1, j) >= n)
             out.println(j);
     }
@@ -35,19 +35,19 @@ public class New_Year_Eggnog_Dilemma {
     out.close();
   }
 
-  static int getDays (int n, int f) {
+  static int getDays(int n, int f) {
     if (n == 1)
       return 0;
     if (f >= 60)
       return 1;
     if (f == 1)
       return n - 1;
-    for (int i = 2;; i++)
+    for (int i = 2; ; i++)
       if (pow(i, f) >= n)
         return i - 1;
   }
 
-  static long pow (long n, long k) {
+  static long pow(long n, long k) {
     if (k == 0)
       return 1;
     if (k == 1)
@@ -58,29 +58,29 @@ public class New_Year_Eggnog_Dilemma {
       return n * pow(n * n, k / 2);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

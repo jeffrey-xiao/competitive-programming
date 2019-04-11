@@ -14,13 +14,12 @@ import java.util.TreeSet;
 
 public class DMOPC_2015_Sysadmin {
 
+  static final double EPS = 0.0000001;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
 
-  static final double EPS = 0.0000001;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,11 +43,11 @@ public class DMOPC_2015_Sysadmin {
       State last = s.getLast();
       if (l[i].m == last.m || l[i].index == min)
         continue;
-      Double x = (last.s - l[i].s) / (double)(l[i].m - last.m);
+      Double x = (last.s - l[i].s) / (double) (l[i].m - last.m);
       while (x > 0 && (x < last.x || (Math.abs(x - last.x) < EPS && l[i].m > last.m && l[i].index < last.index))) {
         s.removeLast();
         last = s.getLast();
-        x = (last.s - l[i].s) / (double)(l[i].m - last.m);
+        x = (last.s - l[i].s) / (double) (l[i].m - last.m);
       }
       if (x > 0)
         s.addLast(new State(x, l[i].s, l[i].m, l[i].index));
@@ -60,18 +59,18 @@ public class DMOPC_2015_Sysadmin {
     ts.add(new State(0, finalS.get(0).index));
     Collections.sort(finalS);
     for (int i = 1; i < finalS.size(); i++) {
-      double x = (finalS.get(i).s - finalS.get(i - 1).s) / (double)(finalS.get(i - 1).m - finalS.get(i).m);
+      double x = (finalS.get(i).s - finalS.get(i - 1).s) / (double) (finalS.get(i - 1).m - finalS.get(i).m);
       if (x == Math.ceil(x)) {
         if (finalS.get(i).index < finalS.get(i - 1).index) {
-          ts.remove(new State((int)Math.ceil(x), finalS.get(i).index));
-          ts.add(new State((int)Math.ceil(x), finalS.get(i).index));
+          ts.remove(new State((int) Math.ceil(x), finalS.get(i).index));
+          ts.add(new State((int) Math.ceil(x), finalS.get(i).index));
         } else {
-          ts.remove(new State((int)Math.ceil(x) + 1, finalS.get(i).index));
-          ts.add(new State((int)Math.ceil(x) + 1, finalS.get(i).index));
+          ts.remove(new State((int) Math.ceil(x) + 1, finalS.get(i).index));
+          ts.add(new State((int) Math.ceil(x) + 1, finalS.get(i).index));
         }
       } else {
-        ts.remove(new State((int)Math.ceil(x), finalS.get(i).index));
-        ts.add(new State((int)Math.ceil(x), finalS.get(i).index));
+        ts.remove(new State((int) Math.ceil(x), finalS.get(i).index));
+        ts.add(new State((int) Math.ceil(x), finalS.get(i).index));
       }
     }
     for (int i = 0; i < q; i++) {
@@ -83,16 +82,42 @@ public class DMOPC_2015_Sysadmin {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     Double x;
     Long s, m;
     int index;
 
-    State (double x, int index) {
+    State(double x, int index) {
       this(x, 0, 0, index);
     }
 
-    State (double x, long s, long m, int index) {
+    State(double x, long s, long m, int index) {
       this.x = x;
       this.s = s;
       this.m = m;
@@ -100,7 +125,7 @@ public class DMOPC_2015_Sysadmin {
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       if (x.compareTo(o.x) == 0)
         return m.compareTo(o.m);
       return x.compareTo(o.x);
@@ -111,14 +136,14 @@ public class DMOPC_2015_Sysadmin {
     Long s, m;
     int index;
 
-    Line (long s, long m, int index) {
+    Line(long s, long m, int index) {
       this.s = s;
       this.m = m;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Line l) {
+    public int compareTo(Line l) {
       int cmp1 = l.s.compareTo(s);
       int cmp2 = l.m.compareTo(m);
       int cmp3 = index - l.index;
@@ -131,31 +156,5 @@ public class DMOPC_2015_Sysadmin {
       return cmp1;
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

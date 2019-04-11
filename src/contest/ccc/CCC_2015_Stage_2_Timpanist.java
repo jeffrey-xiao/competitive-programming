@@ -20,7 +20,7 @@ public class CCC_2015_Stage_2_Timpanist {
   static int ns;
   static double[][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -48,7 +48,7 @@ public class CCC_2015_Stage_2_Timpanist {
     pr.close();
   }
 
-  private static double compute (int state, int i) {
+  private static double compute(int state, int i) {
     if (dp[state][i] != -1)
       return dp[state][i];
     double res = 0;
@@ -74,7 +74,7 @@ public class CCC_2015_Stage_2_Timpanist {
     return dp[state][i] = res;
   }
 
-  private static void computeStates (int i, ArrayList<Integer> a) {
+  private static void computeStates(int i, ArrayList<Integer> a) {
     if (i == n) {
       for (int j = 1; j < n; j++)
         if (a.get(j) <= a.get(j - 1))
@@ -91,29 +91,29 @@ public class CCC_2015_Stage_2_Timpanist {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

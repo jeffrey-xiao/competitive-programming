@@ -23,7 +23,7 @@ public class movie {
   static StringTokenizer st;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("movie.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("movie.out")));
@@ -79,7 +79,7 @@ public class movie {
     System.exit(0);
   }
 
-  private static int count (int nv) {
+  private static int count(int nv) {
     int c = 0;
     for (int x = 0; x < n; x++) {
       if ((nv & 1 << x) != 0)
@@ -88,35 +88,35 @@ public class movie {
     return c;
   }
 
-  static class State {
-    int v, index, movie;
-
-    State (int movie, int index, int v) {
-      this.movie = movie;
-      this.index = index;
-      this.v = v;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int v, index, movie;
+
+    State(int movie, int index, int v) {
+      this.movie = movie;
+      this.index = index;
+      this.v = v;
+    }
   }
 }

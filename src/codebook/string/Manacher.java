@@ -7,7 +7,7 @@
 package codebook.string;
 
 public class Manacher {
-  public static String getLongestPalindrome (String s) {
+  public static String getLongestPalindrome(String s) {
     int len = s.length() * 2 + 1;
     char[] text = new char[len];
     for (int i = 0; i < len; i++)
@@ -47,7 +47,7 @@ public class Manacher {
     return s.substring((index - maxLength + 1) / 2, (index - maxLength) / 2 + maxLength);
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(Manacher.getLongestPalindrome("BANANABANA"));
     System.out.println(Manacher.getLongestPalindrome("BANANAANA"));
   }

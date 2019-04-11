@@ -28,7 +28,7 @@ public class IOI_2008_Islands {
   static Stack<Integer> s = new Stack<Integer>();
   static ArrayList<Integer> currCycle;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -89,7 +89,7 @@ public class IOI_2008_Islands {
     out.close();
   }
 
-  static State getFarthest (int i, int root, int par, long dist) {
+  static State getFarthest(int i, int root, int par, long dist) {
     State res = new State(i, dist);
     for (int j = last[i]; j != -1; j = e[j].prev) {
       if (e[j].dest == par || (inCycle[e[j].dest] && e[j].dest != root))
@@ -101,14 +101,14 @@ public class IOI_2008_Islands {
     return res;
   }
 
-  static long computeSizes (int i, int prev) {
+  static long computeSizes(int i, int prev) {
     for (int j = last[i]; j != -1; j = e[j].prev)
       if (!inCycle[e[j].dest] && e[j].dest != prev)
         sz[i] = Math.max(sz[i], computeSizes(e[j].dest, i) + e[j].cost);
     return sz[i];
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     disc[i] = lo[i] = cnt++;
     s.push(i);
     for (int j = last[i]; j != -1; j = e[j].prev) {
@@ -135,17 +135,43 @@ public class IOI_2008_Islands {
     }
   }
 
-  static void addEdge (int i, int j, int dist) {
+  static void addEdge(int i, int j, int dist) {
     e[cnt] = new Edge(j, dist, last[i]);
     last[i] = cnt++;
     e[cnt] = new Edge(i, dist, last[j]);
     last[j] = cnt++;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int dest, cost, prev;
 
-    Edge (int dest, int cost, int prev) {
+    Edge(int dest, int cost, int prev) {
       this.dest = dest;
       this.cost = cost;
       this.prev = prev;
@@ -156,35 +182,9 @@ public class IOI_2008_Islands {
     int index;
     long value;
 
-    State (int index, long value) {
+    State(int index, long value) {
       this.index = index;
       this.value = value;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

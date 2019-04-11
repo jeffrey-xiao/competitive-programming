@@ -16,7 +16,7 @@ public class Peg_Test_2014_Assembly_Elves {
 
   static boolean[] used = new boolean[101];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int total = 0;
     used[1] = true;
@@ -48,7 +48,7 @@ public class Peg_Test_2014_Assembly_Elves {
         System.out.print(x + " ");
   }
 
-  private static int count (int next) {
+  private static int count(int next) {
     int res = 0;
     while (next != 0) {
       int bit = Integer.highestOneBit(next);
@@ -58,29 +58,29 @@ public class Peg_Test_2014_Assembly_Elves {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

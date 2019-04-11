@@ -19,7 +19,7 @@ public class IOI_1999_A_Strip_Of_Land {
   static int lc;
   static ArrayDeque<State> minq = new ArrayDeque<State>(), maxq = new ArrayDeque<State>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -28,7 +28,7 @@ public class IOI_1999_A_Strip_Of_Land {
     c = readInt();
     r = readInt();
     h = readInt();
-    lc = Math.min(1 + (int)(Math.log(c) / Math.log(2)), 1 + (int)(Math.log(100) / Math.log(2)));
+    lc = Math.min(1 + (int) (Math.log(c) / Math.log(2)), 1 + (int) (Math.log(100) / Math.log(2)));
     max = new int[r + 1][c + 1][lc];
     min = new int[r + 1][c + 1][lc];
     for (int i = 1; i <= r; i++)
@@ -82,48 +82,48 @@ public class IOI_1999_A_Strip_Of_Land {
     out.close();
   }
 
-  static class State {
-    int val, pos;
-
-    State (int val, int pos) {
-      this.val = val;
-      this.pos = pos;
-    }
-  }
-
-  static int getMax (int c1, int c2, int r) {
-    int sz = (int)(Math.log(c2 - c1 + 1) / Math.log(2));
+  static int getMax(int c1, int c2, int r) {
+    int sz = (int) (Math.log(c2 - c1 + 1) / Math.log(2));
     return Math.max(max[r][c1][sz], max[r][c2 - (1 << sz) + 1][sz]);
   }
 
-  static int getMin (int c1, int c2, int r) {
-    int sz = (int)(Math.log(c2 - c1 + 1) / Math.log(2));
+  static int getMin(int c1, int c2, int r) {
+    int sz = (int) (Math.log(c2 - c1 + 1) / Math.log(2));
     return Math.min(min[r][c1][sz], min[r][c2 - (1 << sz) + 1][sz]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int val, pos;
+
+    State(int val, int pos) {
+      this.val = val;
+      this.pos = pos;
+    }
   }
 }

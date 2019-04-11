@@ -22,7 +22,7 @@ public class King_Graffs_Trip_2 {
   static int n, m, s, e;
   static long t;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     s = readInt() - 1;
@@ -54,7 +54,7 @@ public class King_Graffs_Trip_2 {
     System.out.println(lo == Long.MAX_VALUE ? -1 : lo);
   }
 
-  private static boolean isPossible (long tt) {
+  private static boolean isPossible(long tt) {
     long[] min = new long[n];
     long[] minTime = new long[n];
     for (int x = 0; x < n; x++) {
@@ -93,11 +93,37 @@ public class King_Graffs_Trip_2 {
     return false;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int curr;
     Long time, currTemple, maxTemple;
 
-    Vertex (int curr, long time, long currTemple, long maxTemple) {
+    Vertex(int curr, long time, long currTemple, long maxTemple) {
       this.curr = curr;
       this.time = time;
       this.currTemple = currTemple;
@@ -105,7 +131,7 @@ public class King_Graffs_Trip_2 {
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       if (time == o.time)
         return maxTemple.compareTo(o.maxTemple);
       return time.compareTo(o.time);
@@ -116,35 +142,9 @@ public class King_Graffs_Trip_2 {
     int dest;
     long cost;
 
-    Edge (int dest, long cost) {
+    Edge(int dest, long cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

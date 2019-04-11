@@ -13,7 +13,7 @@ public class IOI_2012_Crayfish_Scrivener {
   static PrintWriter pr;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     fs = new FasterScanner();
     // pr = new PrintWriter(new FileWriter("out.txt"));
@@ -41,14 +41,14 @@ public class IOI_2012_Crayfish_Scrivener {
     pr.close();
   }
 
-  static void printWord (Node n) {
+  static void printWord(Node n) {
     if (n.c == '\u0000')
       return;
     printWord(n.par[0]);
     System.out.print(n.c);
   }
 
-  static char getCharacter (Node n, int depth) {
+  static char getCharacter(Node n, int depth) {
     Node curr = n;
     while (true) {
       if (curr.depth == depth)
@@ -61,7 +61,7 @@ public class IOI_2012_Crayfish_Scrivener {
     }
   }
 
-  static Node add (Node n, char c) {
+  static Node add(Node n, char c) {
     if (n.child[c - 'a'] == null)
       n.child[c - 'a'] = new Node(c, n.depth + 1, n);
     return n.child[c - 'a'];
@@ -73,7 +73,7 @@ public class IOI_2012_Crayfish_Scrivener {
     Node[] par;
     Node[] child;
 
-    Node (char c, int depth, Node parent) {
+    Node(char c, int depth, Node parent) {
       this.c = c;
       this.depth = depth;
       child = new Node[26];
@@ -91,15 +91,15 @@ public class IOI_2012_Crayfish_Scrivener {
     private int curChar;
     private int numChars;
 
-    public FasterScanner () {
+    public FasterScanner() {
       this(System.in);
     }
 
-    public FasterScanner (InputStream is) {
+    public FasterScanner(InputStream is) {
       mIs = is;
     }
 
-    public int read () {
+    public int read() {
       if (numChars == -1)
         throw new InputMismatchException();
       if (curChar >= numChars) {
@@ -115,7 +115,7 @@ public class IOI_2012_Crayfish_Scrivener {
       return buf[curChar++];
     }
 
-    public String nextLine () {
+    public String nextLine() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -127,7 +127,7 @@ public class IOI_2012_Crayfish_Scrivener {
       return res.toString();
     }
 
-    public String nextString () {
+    public String nextString() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -139,7 +139,7 @@ public class IOI_2012_Crayfish_Scrivener {
       return res.toString();
     }
 
-    public long nextLong () {
+    public long nextLong() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -159,14 +159,14 @@ public class IOI_2012_Crayfish_Scrivener {
       return res * sgn;
     }
 
-    public char nextChar () {
+    public char nextChar() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
-      return (char)c;
+      return (char) c;
     }
 
-    public int nextInt () {
+    public int nextInt() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -186,11 +186,11 @@ public class IOI_2012_Crayfish_Scrivener {
       return res * sgn;
     }
 
-    public boolean isSpaceChar (int c) {
+    public boolean isSpaceChar(int c) {
       return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
     }
 
-    public boolean isEndOfLine (int c) {
+    public boolean isEndOfLine(int c) {
       return c == '\n' || c == '\r' || c == -1;
     }
 

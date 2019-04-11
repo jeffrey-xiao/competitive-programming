@@ -21,7 +21,7 @@ public class ACM_NAQ_2016_C {
   static int[] A, B, C;
   static ArrayList<ArrayList<State>> adj = new ArrayList<ArrayList<State>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -68,7 +68,7 @@ public class ACM_NAQ_2016_C {
     out.close();
   }
 
-  static int[][] path (int u) {
+  static int[][] path(int u) {
     // 0: cost, 1: items
     int[][] ret = new int[2][N];
     Arrays.fill(ret[0], 1 << 30);
@@ -94,49 +94,49 @@ public class ACM_NAQ_2016_C {
     return ret;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int cost, index, items;
 
-    State (int index, int cost) {
+    State(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
-    State (int index, int cost, int items) {
+    State(int index, int cost, int items) {
       this.index = index;
       this.cost = cost;
       this.items = items;
     }
 
     @Override
-    public int compareTo (State s) {
+    public int compareTo(State s) {
       return cost - s.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

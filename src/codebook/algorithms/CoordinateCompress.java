@@ -16,7 +16,7 @@ import java.util.TreeSet;
 
 public class CoordinateCompress {
 
-  static void compress (int[] a, int lo, int hi) {
+  static void compress(int[] a, int lo, int hi) {
     TreeSet<Integer> ts = new TreeSet<Integer>();
     for (int i = lo; i <= hi; i++)
       ts.add(a[i]);
@@ -31,8 +31,8 @@ public class CoordinateCompress {
       a[i] = hm.get(a[i]);
   }
 
-  public static void main (String[] args) {
-    int[] a = new int[] {1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
+  public static void main(String[] args) {
+    int[] a = new int[]{1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
     compress(a, 0, 9);
     System.out.println(Arrays.toString(a));
   }

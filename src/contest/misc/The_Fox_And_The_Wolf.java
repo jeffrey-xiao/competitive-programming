@@ -20,7 +20,7 @@ public class The_Fox_And_The_Wolf {
   static int[] movey = {0, -1, 1, 0, 0};
   static boolean[][][][][][][] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     c = readInt();
@@ -89,10 +89,32 @@ public class The_Fox_And_The_Wolf {
     System.out.println(-1);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int x1, y1, x2, y2, time, b1, b2, c;
 
-    State (int x1, int y1, int x2, int y2, int b1, int b2, int c, int time) {
+    State(int x1, int y1, int x2, int y2, int b1, int b2, int c, int time) {
       this.x1 = x1;
       this.y1 = y1;
       this.x2 = x2;
@@ -103,27 +125,5 @@ public class The_Fox_And_The_Wolf {
       this.c = c;
     }
 
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

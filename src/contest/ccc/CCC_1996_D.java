@@ -7,7 +7,7 @@ public class CCC_1996_D {
   static Scanner scan = new Scanner(System.in);
   static TreeMap<Character, Integer> values = new TreeMap<Character, Integer>();
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     values.put('I', 1);
     values.put('V', 5);
     values.put('X', 10);
@@ -71,7 +71,7 @@ public class CCC_1996_D {
     }
   }
 
-  private static int getDecimal (String n) {
+  private static int getDecimal(String n) {
     if (n == null || n.length() == 0)
       return 0;
     int biggestValue = 0;

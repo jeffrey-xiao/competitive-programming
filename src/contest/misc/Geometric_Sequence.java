@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class Geometric_Sequence {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Double[] nums = new Double[scan.nextInt()];
     for (int x = 0; x < nums.length; x++)
       nums[x] = scan.nextDouble();
     Arrays.sort(nums, new Comparator<Double>() {
 
       @Override
-      public int compare (Double o1, Double o2) {
+      public int compare(Double o1, Double o2) {
         if (Math.abs(o1) < Math.abs(o2))
           return -1;
         else

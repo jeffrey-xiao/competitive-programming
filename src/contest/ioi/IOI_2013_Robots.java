@@ -24,7 +24,7 @@ public class IOI_2013_Robots {
   static ArrayList<Integer> weak, small;
   static LinkedList<Toy> toys = new LinkedList<Toy>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     t = readInt();
@@ -41,7 +41,7 @@ public class IOI_2013_Robots {
       toys.offer(new Toy(readInt(), readInt()));
     Collections.sort(toys, new Comparator<Toy>() {
       @Override
-      public int compare (Toy o1, Toy o2) {
+      public int compare(Toy o1, Toy o2) {
         if (o1.weight == o2.weight)
           return o1.size - o2.size;
         return o1.weight - o2.weight;
@@ -60,7 +60,7 @@ public class IOI_2013_Robots {
     System.out.println(lo == 501 ? -1 : lo);
   }
 
-  private static boolean isPossible (int t) {
+  private static boolean isPossible(int t) {
     Queue<Toy> curr = new LinkedList<Toy>(toys);
     // weak calculation
     PriorityQueue<Toy> pq = new PriorityQueue<Toy>();
@@ -91,43 +91,43 @@ public class IOI_2013_Robots {
     return pq.size() == 0;
   }
 
-  static class Toy implements Comparable<Toy> {
-    int weight, size;
-
-    Toy (int weight, int size) {
-      this.weight = weight;
-      this.size = size;
-    }
-
-    @Override
-    public int compareTo (Toy o) {
-      return size == o.size ? o.weight - weight : o.size - size;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Toy implements Comparable<Toy> {
+    int weight, size;
+
+    Toy(int weight, int size) {
+      this.weight = weight;
+      this.size = size;
+    }
+
+    @Override
+    public int compareTo(Toy o) {
+      return size == o.size ? o.weight - weight : o.size - size;
+    }
   }
 }

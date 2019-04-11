@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class USACO_2011_Cow_Lineup_2 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfCows = scan.nextInt();
     int maxBreed = scan.nextInt();
     int[] cows = new int[numOfCows];

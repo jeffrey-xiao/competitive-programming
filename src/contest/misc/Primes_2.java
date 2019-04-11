@@ -14,12 +14,12 @@ public class Primes_2 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int start = readInt() - 1;
     if (start == 0)
       start++;
     int end = readInt();
-    int end1 = (int)Math.sqrt(end);
+    int end1 = (int) Math.sqrt(end);
     boolean[] sieve1 = new boolean[end1];
     LinkedList<Integer> ll = new LinkedList<Integer>();
     sieve1[0] = true;
@@ -50,29 +50,29 @@ public class Primes_2 {
     ps.close();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

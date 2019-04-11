@@ -18,7 +18,7 @@ public class Hacker_Country {
   static int n, m;
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -46,11 +46,11 @@ public class Hacker_Country {
     int top = 0;
     int bottom = 0;
     for (int i = 0; i < n; i++) {
-      double best = ((double)(dist[n][i] - dist[0][i])) / n;
+      double best = ((double) (dist[n][i] - dist[0][i])) / n;
       int newTop = dist[n][i] - dist[0][i];
       int newBottom = n;
       for (int j = 1; j < n; j++) {
-        double val = (dist[n][i] - dist[j][i]) / ((double)(n - j));
+        double val = (dist[n][i] - dist[j][i]) / ((double) (n - j));
         if (val > best) {
           best = val;
           newTop = dist[n][i] - dist[j][i];
@@ -70,33 +70,33 @@ public class Hacker_Country {
     out.close();
   }
 
-  static int gcf (int x, int y) {
+  static int gcf(int x, int y) {
     return y == 0 ? x : gcf(y, x % y);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

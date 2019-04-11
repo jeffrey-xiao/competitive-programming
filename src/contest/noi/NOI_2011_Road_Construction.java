@@ -17,7 +17,7 @@ public class NOI_2011_Road_Construction {
   static long[] size;
   static ArrayList<ArrayList<Integer>> adj;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     size = new long[n];
     adj = new ArrayList<ArrayList<Integer>>();
@@ -43,7 +43,7 @@ public class NOI_2011_Road_Construction {
     System.out.println(cost);
   }
 
-  private static long dfs (int i, boolean[] v) {
+  private static long dfs(int i, boolean[] v) {
     v[i] = true;
     int total = 0;
     for (Integer x : adj.get(i))
@@ -53,39 +53,39 @@ public class NOI_2011_Road_Construction {
     return size[i];
   }
 
-  static class Edge {
-    int src, dest, cost;
-
-    Edge (int src, int dest, int cost) {
-      this.src = src;
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int src, dest, cost;
+
+    Edge(int src, int dest, int cost) {
+      this.src = src;
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

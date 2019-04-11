@@ -12,7 +12,7 @@ public class USACO_2013_Fuel_Economy_2 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int maxGas = readInt();
     int curr = readInt();
@@ -42,7 +42,7 @@ public class USACO_2013_Fuel_Economy_2 {
       }
       int needed = Math.min(maxGas, (nextSmall[x] == -1 ? end : stations[nextSmall[x]].pos) - stations[x].pos);
       if (needed > curr) {
-        cost += (long)(needed - curr) * (long)stations[x].cost;
+        cost += (long) (needed - curr) * (long) stations[x].cost;
         curr = needed;
       }
       curr -= (x == n - 1 ? end : stations[x + 1].pos) - stations[x].pos;
@@ -50,41 +50,41 @@ public class USACO_2013_Fuel_Economy_2 {
     System.out.println(curr < 0 ? "-1" : cost);
   }
 
-  static class Station implements Comparable<Station> {
-    int pos;
-    int index;
-    int cost;
-
-    Station (int pos, int cost) {
-      this.pos = pos;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Station o) {
-      return pos - o.pos;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Station implements Comparable<Station> {
+    int pos;
+    int index;
+    int cost;
+
+    Station(int pos, int cost) {
+      this.pos = pos;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Station o) {
+      return pos - o.pos;
+    }
   }
 }

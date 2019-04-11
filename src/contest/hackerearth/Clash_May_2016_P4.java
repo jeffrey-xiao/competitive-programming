@@ -29,7 +29,7 @@ public class Clash_May_2016_P4 implements Runnable {
 
   static long ans;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -65,7 +65,7 @@ public class Clash_May_2016_P4 implements Runnable {
     main.start();
   }
 
-  public static long getPathSums (int u, int prev, int sum) {
+  public static long getPathSums(int u, int prev, int sum) {
     sum += val[u];
     pathSums.add(sum);
 
@@ -87,7 +87,7 @@ public class Clash_May_2016_P4 implements Runnable {
     return ret;
   }
 
-  public static int getSize (int u, int par) {
+  public static int getSize(int u, int par) {
     int sz = 1;
     for (int v : adj.get(u)) {
       if (v == par || used[v])
@@ -97,7 +97,7 @@ public class Clash_May_2016_P4 implements Runnable {
     return sz;
   }
 
-  public static int getCentroid (int u, int par, int treeSize) {
+  public static int getCentroid(int u, int par, int treeSize) {
     int sz = 1;
     boolean valid = true;
     for (int v : adj.get(u)) {
@@ -113,34 +113,34 @@ public class Clash_May_2016_P4 implements Runnable {
     return valid ? u : -sz;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 
   @Override
-  public void run () {
+  public void run() {
     Queue<Integer> q = new ArrayDeque<Integer>();
     int initial = getCentroid(0, -1, getSize(0, -1));
     q.offer(initial);

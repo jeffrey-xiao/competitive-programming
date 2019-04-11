@@ -17,7 +17,7 @@ public class Bloomberg_Codecon_2017_B {
   static int N;
   static Card[][] c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -70,7 +70,7 @@ public class Bloomberg_Codecon_2017_B {
     out.close();
   }
 
-  static int getPoints (Card[] c) {
+  static int getPoints(Card[] c) {
     int[] occ = new int[4];
     int[] occValue = new int[15];
     int maxOcc = 0;
@@ -84,7 +84,7 @@ public class Bloomberg_Codecon_2017_B {
     return maxValue * maxOcc;
   }
 
-  static int getSuit (char c) {
+  static int getSuit(char c) {
     switch (c) {
       case 'h':
         return 0;
@@ -98,7 +98,7 @@ public class Bloomberg_Codecon_2017_B {
     return -1;
   }
 
-  static int getValue (char c) {
+  static int getValue(char c) {
     switch (c) {
       case 'J':
         return 11;
@@ -112,38 +112,38 @@ public class Bloomberg_Codecon_2017_B {
     return -1;
   }
 
-  static class Card {
-    int value, suit;
-
-    Card (int value, int suit) {
-      this.value = value;
-      this.suit = suit;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Card {
+    int value, suit;
+
+    Card(int value, int suit) {
+      this.value = value;
+      this.suit = suit;
+    }
   }
 }

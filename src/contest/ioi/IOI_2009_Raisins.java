@@ -11,7 +11,7 @@ public class IOI_2009_Raisins {
   static StringTokenizer st;
   static long[][] sum;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     long[][][][] dp = new long[r][r][c][c];
@@ -49,29 +49,29 @@ public class IOI_2009_Raisins {
     System.out.println(dp[0][r - 1][0][c - 1] - sum[r][c]);
   }
 
-  public static long freq (int x1, int x2, int y1, int y2) {
+  public static long freq(int x1, int x2, int y1, int y2) {
     return sum[x2][y2] + sum[x1][y1] - sum[x2][y1] - sum[x1][y2];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

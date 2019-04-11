@@ -13,14 +13,14 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_BICIKLI {
 
+  static final long M = 1000000000L;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-  static final long M = 1000000000L;
   static boolean[] reachable;
   static ArrayList<ArrayList<Integer>> adj;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[] in = new int[n];
     reachable = new boolean[n];
@@ -68,36 +68,36 @@ public class COCI_2006_BICIKLI {
       System.out.println(total[1] % M);
   }
 
-  public static void markReachable (int i) {
+  public static void markReachable(int i) {
     reachable[i] = true;
     for (Integer next : adj.get(i))
       if (!reachable[next])
         markReachable(next);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -13,7 +13,7 @@ public class IOI_2003_Balancing_Act {
   static int min = Integer.MAX_VALUE;
   static Node[] nodes;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     boolean[] added = new boolean[n];
     nodes = new Node[n];
@@ -23,7 +23,7 @@ public class IOI_2003_Balancing_Act {
     nodes[0] = new Node(u, 0);
     ArrayList<int[]> edges = new ArrayList<int[]>();
     for (int x = 0; x < n - 1; x++)
-      edges.add(new int[] {readInt() - 1, readInt() - 1});
+      edges.add(new int[]{readInt() - 1, readInt() - 1});
     while (!edges.isEmpty()) {
       for (int x = edges.size() - 1; x >= 0; x--) {
         int[] curr = edges.get(x);
@@ -52,7 +52,7 @@ public class IOI_2003_Balancing_Act {
     System.out.println(pos + 1 + " " + min);
   }
 
-  private static int getMin (Node node) {
+  private static int getMin(Node node) {
     int max = nodes[0].size - node.size;
     for (int x = 0; x < node.child.size(); x++) {
       max = Math.max(node.child.get(x).size, max);
@@ -60,12 +60,34 @@ public class IOI_2003_Balancing_Act {
     return max;
   }
 
-  private static int update (Node node) {
+  private static int update(Node node) {
     int size = 1;
     for (int x = 0; x < node.child.size(); x++)
       size += update(node.child.get(x));
     node.size = size;
     return size;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Node {
@@ -74,32 +96,10 @@ public class IOI_2003_Balancing_Act {
     int id;
     ArrayList<Node> child;
 
-    Node (Node parent, int id) {
+    Node(Node parent, int id) {
       this.parent = parent;
       this.id = id;
       child = new ArrayList<Node>();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

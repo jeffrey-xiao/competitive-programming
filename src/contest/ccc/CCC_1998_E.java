@@ -14,7 +14,7 @@ public class CCC_1998_E {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       n = readInt();
       int[][] grid = new int[n][n];
@@ -33,7 +33,7 @@ public class CCC_1998_E {
     }
   }
 
-  private static int compute (int s, int x, int y, int[][] g, boolean[][] v) {
+  private static int compute(int s, int x, int y, int[][] g, boolean[][] v) {
     v[x][y] = true;
     if (x == n - 1 && y == n - 1)
       return 0;
@@ -55,7 +55,7 @@ public class CCC_1998_E {
     return dp[x][y] >= 1000000 ? 1000001 : dp[x][y];
   }
 
-  public static boolean[][] cloneArray (boolean[][] v) {
+  public static boolean[][] cloneArray(boolean[][] v) {
     int length = v.length;
     boolean[][] target = new boolean[length][v[0].length];
     for (int i = 0; i < length; i++) {
@@ -64,25 +64,25 @@ public class CCC_1998_E {
     return target;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

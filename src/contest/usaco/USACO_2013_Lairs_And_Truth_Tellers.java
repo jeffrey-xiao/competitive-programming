@@ -20,7 +20,7 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
   static int[] size;
   static int[] state;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     id = new int[n];
@@ -65,13 +65,13 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
     System.out.println(x);
   }
 
-  static int find (int x) {
+  static int find(int x) {
     while (x != id[x])
       x = id[x];
     return x;
   }
 
-  static void merge (int x, int y) {
+  static void merge(int x, int y) {
     int rootx = find(x);
     int rooty = find(y);
 
@@ -84,40 +84,40 @@ public class USACO_2013_Lairs_And_Truth_Tellers {
     }
   }
 
-  static class Edge {
-    int a, b;
-    boolean same;
-
-    Edge (int a, int b, boolean same) {
-      this.a = a;
-      this.b = b;
-      this.same = same;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int a, b;
+    boolean same;
+
+    Edge(int a, int b, boolean same) {
+      this.a = a;
+      this.b = b;
+      this.same = same;
+    }
   }
 }

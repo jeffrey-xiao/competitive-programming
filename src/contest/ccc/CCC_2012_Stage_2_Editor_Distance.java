@@ -14,7 +14,7 @@ public class CCC_2012_Stage_2_Editor_Distance {
   static int[] movex = {0, 0, -1, 1};
   static int[] movey = {-1, 1, 0, 0};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     boolean[][] visited = new boolean[100001][81];
     int n = readInt();
     int[] rows = new int[n];
@@ -58,40 +58,40 @@ public class CCC_2012_Stage_2_Editor_Distance {
     }
   }
 
-  static class Point {
-    int x, y, count;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    Point (int x, int y, int count) {
-      this.x = x;
-      this.y = y;
-      this.count = count;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y, count;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Point(int x, int y, int count) {
+      this.x = x;
+      this.y = y;
+      this.count = count;
+    }
   }
 }

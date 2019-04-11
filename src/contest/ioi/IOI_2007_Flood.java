@@ -23,7 +23,7 @@ public class IOI_2007_Flood {
   static int[][] dir = {{1, 0, 3, 2}, {2, 1, 0, 3}, {3, 2, 1, 0}, {0, 3, 2, 1}};
   static TreeSet<Point> active = new TreeSet<Point>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -96,7 +96,7 @@ public class IOI_2007_Flood {
     out.close();
   }
 
-  static void remove (Edge e) {
+  static void remove(Edge e) {
     sum[e.index]++;
     for (int i = 0; i < 4; i++)
       if (map[e.a][i] != null && map[e.a][i].b == e.b)
@@ -106,10 +106,36 @@ public class IOI_2007_Flood {
         map[e.b][i] = null;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int a, b, index;
 
-    Edge (int a, int b, int index) {
+    Edge(int a, int b, int index) {
       this.a = a;
       this.b = b;
       this.index = index;
@@ -119,52 +145,26 @@ public class IOI_2007_Flood {
   static class Point implements Comparable<Point> {
     int x, y, index;
 
-    Point (int x, int y, int index) {
+    Point(int x, int y, int index) {
       this.x = x;
       this.y = y;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       if (x == p.x)
         return y - p.y;
       return x - p.x;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

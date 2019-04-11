@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IOI_2014_Square {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int size = scan.nextInt();
     int[][] grid = new int[size + 1][size + 1];
     for (int x = 1; x < size + 1; x++)

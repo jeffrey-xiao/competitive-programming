@@ -15,7 +15,7 @@ public class CCC_1999_Stage_2_Cant_Get_There {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       double c = readDouble();
       double r = readDouble();
@@ -145,53 +145,53 @@ public class CCC_1999_Stage_2_Cant_Get_There {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     short x, y, m;
 
-    Point (double x, double y, double m) {
-      this.x = (short)x;
-      this.y = (short)y;
-      this.m = (short)m;
+    Point(double x, double y, double m) {
+      this.x = (short) x;
+      this.y = (short) y;
+      this.m = (short) m;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y && p.m == m;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Short(x).hashCode() * 31 * 31 + new Short(y).hashCode() * 31 + new Short(m).hashCode();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

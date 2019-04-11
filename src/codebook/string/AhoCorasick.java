@@ -20,16 +20,24 @@ public class AhoCorasick {
   // Object representing the root of the search tree
   private Node root = new Node(0, 0);
 
-  AhoCorasick () {
+  AhoCorasick() {
     root = new Node(0, 0);
     root.parent = root;
   }
 
-  public void addWord (String s) {
+  public static void main(String[] args) {
+    AhoCorasick tree = new AhoCorasick();
+    tree.addWord("apple");
+    tree.addWord("banana");
+    tree.computeFall();
+    tree.search("askfjasjfklasjfasfjpabananasfjawofjoawjfopjapapple");
+  }
+
+  public void addWord(String s) {
     root.addWord(s);
   }
 
-  public void computeFall () {
+  public void computeFall() {
     Queue<Node> q = new LinkedList<Node>();
     // the fall of the root is the root
     root.fall = root;
@@ -58,7 +66,7 @@ public class AhoCorasick {
     }
   }
 
-  public void search (String s) {
+  public void search(String s) {
     Node currState = root;
     for (int i = 0; i < s.length(); i++) {
       char curr = s.charAt(i);
@@ -83,9 +91,9 @@ public class AhoCorasick {
     }
   }
 
-  private String printWord (Node n) {
+  private String printWord(Node n) {
     if (n != root)
-      return printWord(n.parent) + (char)(n.index + 'a');
+      return printWord(n.parent) + (char) (n.index + 'a');
     return "";
   }
 
@@ -97,7 +105,7 @@ public class AhoCorasick {
     boolean isEnd = false;
     ArrayList<Integer> c;
 
-    Node (int depth, int index) {
+    Node(int depth, int index) {
       this.depth = depth;
       this.index = index;
       child = new Node[26];
@@ -106,7 +114,7 @@ public class AhoCorasick {
         child[i] = null;
     }
 
-    private void addWord (String s) {
+    private void addWord(String s) {
       // marking it as a leaf node if it is the end of the word
       if (depth == s.length()) {
         isEnd = true;
@@ -124,20 +132,12 @@ public class AhoCorasick {
     }
 
     // auxiliary method to print out the words in the trie
-    public void printWord (String curr) {
+    public void printWord(String curr) {
       if (isEnd)
         System.out.println(curr);
       for (Integer i : c) {
-        child[i].printWord(curr + (char)(i + SHIFT));
+        child[i].printWord(curr + (char) (i + SHIFT));
       }
     }
-  }
-
-  public static void main (String[] args) {
-    AhoCorasick tree = new AhoCorasick();
-    tree.addWord("apple");
-    tree.addWord("banana");
-    tree.computeFall();
-    tree.search("askfjasjfklasjfasfjpabananasfjawofjoawjfopjapapple");
   }
 }

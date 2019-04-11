@@ -18,7 +18,7 @@ public class IOI_1995_Street_Race {
   static boolean isUnavoidable;
   static boolean isSplitting;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     adj = new ArrayList<ArrayList<Integer>>();
     while ((n = readInt()) != -1) {
       adj.add(new ArrayList<Integer>());
@@ -49,7 +49,7 @@ public class IOI_1995_Street_Race {
       System.out.print(i + " ");
   }
 
-  private static void check (int x) {
+  private static void check(int x) {
     boolean[] v = new boolean[count + 1];
     Queue<Integer> moves = new LinkedList<Integer>();
     moves.offer(0);
@@ -73,25 +73,25 @@ public class IOI_1995_Street_Race {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

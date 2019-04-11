@@ -15,7 +15,7 @@ public class CCC_2011_S4 {
   static int[] b = new int[8];
   static int[] p = new int[8];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
 
     for (int x = 0; x < 8; x++)
       b[x] = readInt();
@@ -56,32 +56,32 @@ public class CCC_2011_S4 {
     System.out.println(total + Math.max(total1, total2));
   }
 
-  public static int get (int x, int y) {
+  public static int get(int x, int y) {
     int z = Math.min(b[x], p[y]);
     b[x] -= z;
     p[y] -= z;
     return z;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

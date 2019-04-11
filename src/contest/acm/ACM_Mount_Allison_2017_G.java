@@ -17,12 +17,13 @@ public class ACM_Mount_Allison_2017_G {
   static StringTokenizer st;
 
   static int T, N, M, ans;
-  static HashMap<String, Integer> toIndex = new HashMap<String, Integer>();;
+  static HashMap<String, Integer> toIndex = new HashMap<String, Integer>();
+  ;
   static HashSet<Pair> badPairs = new HashSet<Pair>();
   static int[] curr, best;
   static String[] colors;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -65,7 +66,7 @@ public class ACM_Mount_Allison_2017_G {
     out.close();
   }
 
-  static void permute (int i) {
+  static void permute(int i) {
     if (i == N) {
       ans++;
       if (best == null)
@@ -94,58 +95,58 @@ public class ACM_Mount_Allison_2017_G {
     }
   }
 
-  static void swap (int i, int j) {
+  static void swap(int i, int j) {
     int temp = curr[i];
     curr[i] = curr[j];
     curr[j] = temp;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Pair {
     int x, y;
 
-    Pair (int x, int y) {
+    Pair(int x, int y) {
       this.x = Math.max(x, y);
       this.y = Math.min(x, y);
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair)o;
+        Pair p = (Pair) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return x * 13 + y;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

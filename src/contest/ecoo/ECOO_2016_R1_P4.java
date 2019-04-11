@@ -11,14 +11,13 @@ import java.util.StringTokenizer;
 
 public class ECOO_2016_R1_P4 {
 
+  static final int HOUSES = 100;
+  static final int TESTCASES = 10;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
 
-  static final int HOUSES = 100;
-  static final int TESTCASES = 10;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("DATA42.txt"));
@@ -65,21 +64,53 @@ public class ECOO_2016_R1_P4 {
           }
         }
       }
-      out.printf("%.1f\n", demo / (double)(cnt) * 100);
+      out.printf("%.1f\n", demo / (double) (cnt) * 100);
     }
     out.close();
+  }
+
+  static int dist(int x1, int y1, int x2, int y2) {
+    int dx = x1 - x2;
+    int dy = y1 - y2;
+    return dx * dx + dy * dy;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Pair implements Comparable<Pair> {
     int dist, type;
 
-    Pair (int dist, int type) {
+    Pair(int dist, int type) {
       this.dist = dist;
       this.type = type;
     }
 
     @Override
-    public int compareTo (Pair p) {
+    public int compareTo(Pair p) {
       return dist - p.dist;
     }
   }
@@ -87,54 +118,22 @@ public class ECOO_2016_R1_P4 {
   static class Point {
     int x, y, type;
 
-    Point (int x, int y, int type) {
+    Point(int x, int y, int type) {
       this.x = x;
       this.y = y;
       this.type = type;
     }
 
-    public int hashCode () {
+    public int hashCode() {
       return 31 * 31 * x + y * 31;
     }
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
-  }
-
-  static int dist (int x1, int y1, int x2, int y2) {
-    int dx = x1 - x2;
-    int dy = y1 - y2;
-    return dx * dx + dy * dy;
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

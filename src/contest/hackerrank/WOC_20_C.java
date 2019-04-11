@@ -22,7 +22,7 @@ public class WOC_20_C {
   static ArrayList<ArrayList<Pair>> cost;
   static int[] bit;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -107,7 +107,7 @@ public class WOC_20_C {
     out.close();
   }
 
-  static void getShortestPath (int u) {
+  static void getShortestPath(int u) {
     dist[u] = new int[N];
     Arrays.fill(dist[u], 1 << 30);
     PriorityQueue<Pair> pq = new PriorityQueue<Pair>();
@@ -126,16 +126,42 @@ public class WOC_20_C {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Pair implements Comparable<Pair> {
     int dest, cost;
 
-    Pair (int dest, int cost) {
+    Pair(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Pair o) {
+    public int compareTo(Pair o) {
       return cost - o.cost;
     }
   }
@@ -143,41 +169,15 @@ public class WOC_20_C {
   static class State implements Comparable<State> {
     int bits, curr, cost;
 
-    State (int bits, int curr, int cost) {
+    State(int bits, int curr, int cost) {
       this.bits = bits;
       this.curr = curr;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (State s) {
+    public int compareTo(State s) {
       return cost - s.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

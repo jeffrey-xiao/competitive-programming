@@ -9,11 +9,10 @@ import java.util.StringTokenizer;
 
 public class IOI_2015_Horses {
 
+  static final int MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int MOD = 1000000007;
   static int n, m;
   static double[] a;
   static double[] tree;
@@ -22,7 +21,7 @@ public class IOI_2015_Horses {
   static long[] mult;
   static long[] x, y;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -63,7 +62,7 @@ public class IOI_2015_Horses {
     out.close();
   }
 
-  static void build2 (int n, int l, int r) {
+  static void build2(int n, int l, int r) {
     if (l == r) {
       mult[n] = x[l];
       return;
@@ -74,7 +73,7 @@ public class IOI_2015_Horses {
     mult[n] = (mult[n << 1] * mult[n << 1 | 1]) % MOD;
   }
 
-  static void update2 (int n, int l, int r, int i) {
+  static void update2(int n, int l, int r, int i) {
     if (l == i && r == i) {
       mult[n] = x[i];
       return;
@@ -87,7 +86,7 @@ public class IOI_2015_Horses {
     mult[n] = (mult[n << 1] * mult[n << 1 | 1]) % MOD;
   }
 
-  static long query2 (int n, int l, int r, int ql, int qr) {
+  static long query2(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return mult[n];
     int mid = (l + r) >> 1;
@@ -98,7 +97,7 @@ public class IOI_2015_Horses {
     return (query2(n << 1, l, mid, ql, mid) * query2(n << 1 | 1, mid + 1, r, mid + 1, qr)) % MOD;
   }
 
-  static void build1 (int n, int l, int r) {
+  static void build1(int n, int l, int r) {
     if (l == r) {
       tree[n] = a[l];
       max[n] = l;
@@ -116,7 +115,7 @@ public class IOI_2015_Horses {
     }
   }
 
-  static void update1 (int n, int l, int r, int ql, int qr, double val) {
+  static void update1(int n, int l, int r, int ql, int qr, double val) {
     if (l == ql && r == qr) {
       tree[n] += val;
       lazy[n] += val;
@@ -147,29 +146,29 @@ public class IOI_2015_Horses {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

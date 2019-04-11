@@ -17,7 +17,7 @@ public class CCC_2015_J5 {
   static int n, m; // n represents the number of pies, m represents the number of people
   static int[][][] dp = new int[251][251][251]; // memoization array: dp[i][j][k] where i is the number of pies left, j is the number of people left, and k is the previous pie given
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     for (int i = 0; i <= 250; i++)
@@ -28,7 +28,7 @@ public class CCC_2015_J5 {
     out.close();
   }
 
-  private static int compute (int i, int j, int prev) {
+  private static int compute(int i, int j, int prev) {
     // if the previous value has been computed, we return the "cached" value
     if (dp[i][j][prev] != -1)
       return dp[i][j][prev];
@@ -47,29 +47,29 @@ public class CCC_2015_J5 {
     return dp[i][j][prev];
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

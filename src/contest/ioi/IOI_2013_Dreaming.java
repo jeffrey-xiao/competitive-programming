@@ -21,7 +21,7 @@ public class IOI_2013_Dreaming {
   static int n;
   static ArrayList<Integer> pathLengths = new ArrayList<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int m = readInt();
     int l = readInt();
@@ -72,7 +72,7 @@ public class IOI_2013_Dreaming {
     System.out.println(minDist);
   }
 
-  private static int getRadius (int i, int diameter) {
+  private static int getRadius(int i, int diameter) {
     int curr = i;
     int total = 0;
     int minR = Integer.MAX_VALUE;
@@ -85,7 +85,7 @@ public class IOI_2013_Dreaming {
     return minR == Integer.MAX_VALUE ? 0 : minR;
   }
 
-  private static int getPath (int i) {
+  private static int getPath(int i) {
     Stack<State> s = new Stack<State>();
     s.push(new State(i, 0, 0));
     while (!s.isEmpty()) {
@@ -105,7 +105,7 @@ public class IOI_2013_Dreaming {
     return max;
   }
 
-  private static void getEnd (int i) {
+  private static void getEnd(int i) {
     Stack<State> s = new Stack<State>();
     s.push(new State(i, 0, 0));
     while (!s.isEmpty()) {
@@ -123,19 +123,41 @@ public class IOI_2013_Dreaming {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge)o;
+        Edge e = (Edge) o;
         return dest == e.dest;
       }
       return false;
@@ -147,37 +169,15 @@ public class IOI_2013_Dreaming {
     int index;
     int cost;
 
-    State (int index, int count) {
+    State(int index, int count) {
       this.index = index;
       this.count = count;
     }
 
-    State (int index, int count, int cost) {
+    State(int index, int count, int cost) {
       this.index = index;
       this.count = count;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -16,7 +16,7 @@ public class MockCCC_2014_S4 {
   static int m;
   static ArrayList<Integer> shortestPath = new ArrayList<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     for (int x = 0; x < n; x++)
@@ -43,7 +43,7 @@ public class MockCCC_2014_S4 {
       System.out.println("No");
   }
 
-  static int shortestPath (int mod, boolean getShortest) {
+  static int shortestPath(int mod, boolean getShortest) {
     int[] min = new int[n];
     int[] prev = new int[n];
     PriorityQueue<Vertex> moves = new PriorityQueue<Vertex>();
@@ -76,24 +76,46 @@ public class MockCCC_2014_S4 {
     return min[n - 1];
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     int cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return cost - v.cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Vertex) {
-        Vertex v = (Vertex)o;
+        Vertex v = (Vertex) o;
         return index == v.index;
       }
       return false;
@@ -104,40 +126,18 @@ public class MockCCC_2014_S4 {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge v = (Edge)o;
+        Edge v = (Edge) o;
         return dest == v.dest;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

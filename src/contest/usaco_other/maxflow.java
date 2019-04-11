@@ -24,7 +24,7 @@ public class maxflow implements Runnable {
   static int n, k, chainNum, chainIndex;
   static int[] a, b;
 
-  public static void main (String[] args) throws IOException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException {
     //br = new BufferedReader(new FileReader("maxflow.in"));
     //out = new PrintWriter(new FileWriter("maxflow.out"));
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -69,24 +69,7 @@ public class maxflow implements Runnable {
     System.exit(0);
   }
 
-  @Override
-  public void run () {
-    dfs(0, 0, -1);
-    getHld(0, -1);
-
-    for (int i = 0; i < k; i++) {
-      query(a[i], b[i]);
-    }
-    int ans = 0;
-    for (int i = 1; i <= n; i++) {
-      ans = Math.max(ans, query(1, 1, n, i));
-    }
-    out.println(ans);
-    out.flush();
-    out.close();
-  }
-
-  static int query (int n, int l, int r, int x) {
+  static int query(int n, int l, int r, int x) {
     if (l == x && r == x)
       return tree[n];
     int mid = (r + l) >> 1;
@@ -103,7 +86,7 @@ public class maxflow implements Runnable {
       return query(n << 1 | 1, mid + 1, r, x);
   }
 
-  static void update (int n, int l, int r, int ql, int qr, int val) {
+  static void update(int n, int l, int r, int ql, int qr, int val) {
     if (l == ql && r == qr) {
       tree[n] += val * (r - l + 1);
       lazy[n] += val;
@@ -128,7 +111,7 @@ public class maxflow implements Runnable {
     tree[n] = tree[n << 1] + tree[n << 1 | 1];
   }
 
-  static void query (int i, int j) {
+  static void query(int i, int j) {
     while (chain[i] != chain[j]) {
       if (depth[head[chain[i]]] < depth[head[chain[j]]]) {
         update(1, 1, n, index[head[chain[j]]], index[j], 1);
@@ -141,7 +124,7 @@ public class maxflow implements Runnable {
     update(1, 1, n, Math.min(index[i], index[j]), Math.max(index[i], index[j]), 1);
   }
 
-  static void getHld (int i, int prev) {
+  static void getHld(int i, int prev) {
     if (head[chainNum] == -1) {
       head[chainNum] = i;
     }
@@ -161,7 +144,7 @@ public class maxflow implements Runnable {
 
   }
 
-  static void dfs (int i, int d, int prev) {
+  static void dfs(int i, int d, int prev) {
     depth[i] = d;
     parent[i] = prev;
     size[i] = 1;
@@ -173,26 +156,43 @@ public class maxflow implements Runnable {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  @Override
+  public void run() {
+    dfs(0, 0, -1);
+    getHld(0, -1);
+
+    for (int i = 0; i < k; i++) {
+      query(a[i], b[i]);
+    }
+    int ans = 0;
+    for (int i = 1; i <= n; i++) {
+      ans = Math.max(ans, query(1, 1, n, i));
+    }
+    out.println(ans);
+    out.flush();
+    out.close();
   }
 
 }

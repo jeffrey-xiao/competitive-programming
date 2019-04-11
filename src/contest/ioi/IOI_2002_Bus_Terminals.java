@@ -19,7 +19,7 @@ public class IOI_2002_Bus_Terminals {
   static Point[] points, sorted;
   static int[] hubA;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -126,52 +126,52 @@ public class IOI_2002_Bus_Terminals {
     out.close();
   }
 
+  static int dist(Point p1, Point p2) {
+    int dx = Math.abs(p1.x - p2.x);
+    int dy = Math.abs(p1.y - p2.y);
+    return dx + dy;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     int x, y, index;
 
-    Point (int x, int y, int index) {
+    Point(int x, int y, int index) {
       this.x = x;
       this.y = y;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       int d1 = dist(this, curr);
       int d2 = dist(p, curr);
       return d1 - d2;
     }
-  }
-
-  static int dist (Point p1, Point p2) {
-    int dx = Math.abs(p1.x - p2.x);
-    int dy = Math.abs(p1.y - p2.y);
-    return dx + dy;
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

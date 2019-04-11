@@ -20,18 +20,18 @@ import java.util.Arrays;
 
 public class Sort {
 
-  public static void shellSort (int[] seq) {
+  public static void shellSort(int[] seq) {
     for (int i = 0; i < seq.length; i++)
       for (int j = i + 4; j < seq.length; j += 4)
         if (seq[i] > seq[j])
           swap(seq, i, j);
   }
 
-  public static int quickSelect (int[] seq, int k) {
+  public static int quickSelect(int[] seq, int k) {
     return quickSelect(seq, 0, seq.length - 1, k);
   }
 
-  private static int quickSelect (int[] seq, int l, int r, int k) {
+  private static int quickSelect(int[] seq, int l, int r, int k) {
     while (true) {
       if (l == r)
         return l;
@@ -48,11 +48,11 @@ public class Sort {
     }
   }
 
-  public static void quickSort (int[] seq) {
+  public static void quickSort(int[] seq) {
     quickSort(seq, 0, seq.length - 1);
   }
 
-  private static void quickSort (int[] seq, int l, int r) {
+  private static void quickSort(int[] seq, int l, int r) {
     if (r <= l)
       return;
     int pivot = median(seq, l, r);
@@ -61,7 +61,7 @@ public class Sort {
     quickSort(seq, pivot + 1, r);
   }
 
-  private static int median (int[] seq, int l, int r) {
+  private static int median(int[] seq, int l, int r) {
     if (r - l + 1 <= 5) {
       Arrays.sort(seq, l, r + 1);
       return (l + r) / 2;
@@ -78,7 +78,7 @@ public class Sort {
     return quickSelect(seq, l, l + (r - l) / 5, l + (r - l) / 10);
   }
 
-  private static int partition (int[] seq, int l, int r, int pivot) {
+  private static int partition(int[] seq, int l, int r, int pivot) {
     swap(seq, pivot, l);
     int i = l;
     int j = r + 1;
@@ -97,7 +97,7 @@ public class Sort {
     return j;
   }
 
-  public static void LSD (int[] seq) {
+  public static void LSD(int[] seq) {
     int n = seq.length;
     int[] aux = new int[n];
     for (int i = 1; i <= 1000000000; i *= 10) {
@@ -113,12 +113,12 @@ public class Sort {
     }
   }
 
-  public static void MSD (int[] seq) {
+  public static void MSD(int[] seq) {
     int[] aux = new int[seq.length];
     MSD(seq, aux, 0, seq.length - 1, 1000000000);
   }
 
-  private static void MSD (int[] a, int[] aux, int l, int r, int d) {
+  private static void MSD(int[] a, int[] aux, int l, int r, int d) {
     if (r <= l || d == 0)
       return;
     int[] count = new int[11];
@@ -137,11 +137,11 @@ public class Sort {
       MSD(a, aux, l + count2[i], l + count2[i + 1] - 1, d / 10);
   }
 
-  public static void recursiveMergeSort (int[] seq) {
+  public static void recursiveMergeSort(int[] seq) {
     recursiveMergeSort(seq, new int[seq.length], 0, seq.length - 1);
   }
 
-  private static void recursiveMergeSort (int[] seq, int[] aux, int l, int r) {
+  private static void recursiveMergeSort(int[] seq, int[] aux, int l, int r) {
     if (r - l <= 0)
       return;
     int mid = (r + l) >> 1;
@@ -150,7 +150,7 @@ public class Sort {
     merge(seq, aux, l, mid, r);
   }
 
-  public static void iterativeMergeSort (int[] seq) {
+  public static void iterativeMergeSort(int[] seq) {
     int length = seq.length;
     int[] aux = new int[length];
     for (int gap = 1; gap < length; gap *= 2)
@@ -158,7 +158,7 @@ public class Sort {
         merge(seq, aux, l, l + gap - 1, Math.min(length - 1, l + gap + gap - 1));
   }
 
-  private static void merge (int[] seq, int[] aux, int l, int m, int r) {
+  private static void merge(int[] seq, int[] aux, int l, int m, int r) {
     for (int i = l; i <= m; i++)
       aux[i] = seq[i];
     for (int i = l, j = m + 1, k = l; k <= r; k++) {
@@ -169,7 +169,7 @@ public class Sort {
     }
   }
 
-  public static void heapSort (int[] seq) {
+  public static void heapSort(int[] seq) {
     for (int i = seq.length / 2 - 1; i >= 0; i--)
       pushDown(seq, i, seq.length);
     for (int i = seq.length - 1; i >= 0; i--) {
@@ -178,7 +178,7 @@ public class Sort {
     }
   }
 
-  private static void pushDown (int[] seq, int i, int n) {
+  private static void pushDown(int[] seq, int i, int n) {
     while (true) {
       int minChild = 2 * i + 1;
       if (minChild >= n)
@@ -192,14 +192,14 @@ public class Sort {
     }
   }
 
-  public static void bubbleSort (int[] seq) {
+  public static void bubbleSort(int[] seq) {
     for (int i = 0; i + 1 < seq.length; i++)
       for (int j = 0; j + 1 < seq.length; j++)
         if (seq[j + 1] < seq[j])
           swap(seq, j + 1, j);
   }
 
-  public static void insertionSort (int[] seq) {
+  public static void insertionSort(int[] seq) {
     for (int i = 1; i < seq.length; i++)
       for (int j = i; j > 0; j--) {
         if (seq[j - 1] > seq[j])
@@ -209,7 +209,7 @@ public class Sort {
       }
   }
 
-  public static void countingSort (int[] seq) {
+  public static void countingSort(int[] seq) {
     int max = 0;
     for (int val : seq)
       max = Math.max(max, val);
@@ -224,7 +224,7 @@ public class Sort {
     System.arraycopy(b, 0, seq, 0, seq.length);
   }
 
-  public static void selectionSort (int[] seq) {
+  public static void selectionSort(int[] seq) {
     int[] p = new int[seq.length];
     for (int i = 0; i < seq.length; i++)
       p[i] = i;
@@ -238,18 +238,18 @@ public class Sort {
     System.arraycopy(b, 0, seq, 0, seq.length);
   }
 
-  private static void swap (int[] seq, int i, int j) {
+  private static void swap(int[] seq, int i, int j) {
     int temp = seq[i];
     seq[i] = seq[j];
     seq[j] = temp;
   }
 
-  public static void main (String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     int[] a = new int[10000];
     int[] b = new int[10000];
 
     for (int j = 0; j < 10000; j++)
-      a[j] = (int)(Math.random() * 10000);
+      a[j] = (int) (Math.random() * 10000);
     System.arraycopy(a, 0, b, 0, a.length);
 
     Arrays.sort(b);
@@ -262,10 +262,10 @@ public class Sort {
     b = new int[10000];
 
     for (int j = 0; j < 10000; j++)
-      a[j] = (int)(Math.random() * 10000);
+      a[j] = (int) (Math.random() * 10000);
     System.arraycopy(a, 0, b, 0, a.length);
 
-    int k = (int)(Math.random() * 10000);
+    int k = (int) (Math.random() * 10000);
     Arrays.sort(a);
     int answer = b[quickSelect(b, 0, b.length - 1, k)];
     assert a[k] == answer;

@@ -17,11 +17,39 @@ public class AaTree {
   // represents the root of the tree
   private Node root;
 
-  public void remove (int key) {
+  public static void main(String[] args) {
+    AaTree t = new AaTree();
+    long c = System.currentTimeMillis();
+    TreeSet<Integer> hs = new TreeSet<Integer>();
+    for (int x = 0; x < 100000; x++) {
+      int ran = (int) (Math.random() * (100000)) + 5;
+      hs.add(ran);
+      t.add(ran);
+    }
+    System.out.println(hs.size());
+    for (Integer i : hs)
+      System.out.print(i + " ");
+    System.out.println();
+    t.traverse(t.root);
+    System.out.println();
+    t.add(1);
+    assert t.contains(t.root, 1);
+    assert !t.contains(t.root, 2);
+    t.remove(1);
+    assert !t.contains(t.root, 1);
+    System.out.println(System.currentTimeMillis() - c);
+    for (Integer i : hs) {
+      t.remove(i);
+      assert !t.contains(t.root, i);
+    }
+    System.out.println("SUCCESS");
+  }
+
+  public void remove(int key) {
     root = remove(root, key);
   }
 
-  private Node remove (Node n, int key) {
+  private Node remove(Node n, int key) {
     if (n == null)
       return n;
     if (key < n.key)
@@ -51,7 +79,7 @@ public class AaTree {
     return n;
   }
 
-  private Node decreaseLevel (Node n) {
+  private Node decreaseLevel(Node n) {
     int l = Math.min(getLevel(n.left), getLevel(n.right)) + 1;
     if (l < getLevel(n)) {
       n.level = l;
@@ -61,17 +89,17 @@ public class AaTree {
     return n;
   }
 
-  private int getLevel (Node n) {
+  private int getLevel(Node n) {
     if (n == null)
       return 0;
     return n.level;
   }
 
-  public boolean contains (int key) {
+  public boolean contains(int key) {
     return contains(root, key);
   }
 
-  private boolean contains (Node n, int key) {
+  private boolean contains(Node n, int key) {
     if (n == null)
       return false;
     if (key < n.key)
@@ -82,11 +110,11 @@ public class AaTree {
       return true;
   }
 
-  public Integer get (int key) {
+  public Integer get(int key) {
     return get(root, key);
   }
 
-  private Integer get (Node n, int key) {
+  private Integer get(Node n, int key) {
     if (n == null)
       return null;
     if (key < n.key)
@@ -97,15 +125,15 @@ public class AaTree {
       return n.value;
   }
 
-  public void add (int key) {
+  public void add(int key) {
     root = add(root, key, key);
   }
 
-  public void add (int key, int value) {
+  public void add(int key, int value) {
     root = add(root, key, value);
   }
 
-  private Node add (Node n, int key, int value) {
+  private Node add(Node n, int key, int value) {
     if (n == null)
       return new Node(key, value);
     if (key < n.key)
@@ -119,7 +147,7 @@ public class AaTree {
     return n;
   }
 
-  private Node skew (Node n) {
+  private Node skew(Node n) {
     if (n == null)
       return null;
     if (n.left == null)
@@ -129,7 +157,7 @@ public class AaTree {
     return n;
   }
 
-  private Node split (Node n) {
+  private Node split(Node n) {
     if (n == null)
       return null;
     if (n.right == null || n.right.right == null)
@@ -141,28 +169,28 @@ public class AaTree {
     return n;
   }
 
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
     return x;
   }
 
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
     return x;
   }
 
-  public Node getMinNode (Node n) {
+  public Node getMinNode(Node n) {
     Node curr = n;
     while (curr.left != null)
       curr = curr.left;
     return curr;
   }
 
-  public Node getMaxNode (Node n) {
+  public Node getMaxNode(Node n) {
     Node curr = n;
     while (curr.right != null)
       curr = curr.right;
@@ -170,7 +198,7 @@ public class AaTree {
   }
 
   // in order traversal of nodes
-  public void traverse (Node n) {
+  public void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -184,39 +212,11 @@ public class AaTree {
     Node left, right;
     int level;
 
-    Node (int key, int value) {
+    Node(int key, int value) {
       this.key = key;
       this.value = value;
       this.level = 1;
     }
-  }
-
-  public static void main (String[] args) {
-    AaTree t = new AaTree();
-    long c = System.currentTimeMillis();
-    TreeSet<Integer> hs = new TreeSet<Integer>();
-    for (int x = 0; x < 100000; x++) {
-      int ran = (int)(Math.random() * (100000)) + 5;
-      hs.add(ran);
-      t.add(ran);
-    }
-    System.out.println(hs.size());
-    for (Integer i : hs)
-      System.out.print(i + " ");
-    System.out.println();
-    t.traverse(t.root);
-    System.out.println();
-    t.add(1);
-    assert t.contains(t.root, 1);
-    assert !t.contains(t.root, 2);
-    t.remove(1);
-    assert !t.contains(t.root, 1);
-    System.out.println(System.currentTimeMillis() - c);
-    for (Integer i : hs) {
-      t.remove(i);
-      assert !t.contains(t.root, i);
-    }
-    System.out.println("SUCCESS");
   }
 
 }

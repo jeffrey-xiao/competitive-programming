@@ -13,17 +13,16 @@ import java.util.StringTokenizer;
 
 public class USACO_2015_Censoring_Gold {
 
+  static final int SHIFT = 'a';
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
-  static final int SHIFT = 'a';
   static Node root;
   static Node[] dp = new Node[100001];
   static char[] res = new char[100001];
   static int end = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     StringBuilder s = new StringBuilder(readLine());
     root = new Node(0, 0);
     root.parent = root;
@@ -63,7 +62,7 @@ public class USACO_2015_Censoring_Gold {
       System.out.print(res[i]);
   }
 
-  private static void computeFall () {
+  private static void computeFall() {
     Queue<Node> q = new LinkedList<Node>();
     // the fall of the root is the root
     root.fall = root;
@@ -87,25 +86,7 @@ public class USACO_2015_Censoring_Gold {
     }
   }
 
-  static class Node {
-    int depth, index;
-    Node[] child;
-    Node fall;
-    Node parent;
-    int endDepth = -1;
-    ArrayList<Integer> c;
-
-    Node (int depth, int index) {
-      this.depth = depth;
-      this.index = index;
-      child = new Node[26];
-      c = new ArrayList<Integer>();
-      for (int i = 0; i < 26; i++)
-        child[i] = null;
-    }
-  }
-
-  private static void addWord (String s) {
+  private static void addWord(String s) {
     Node curr = root;
     while (true) {
       if (curr.depth == s.length()) {
@@ -122,29 +103,47 @@ public class USACO_2015_Censoring_Gold {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    int depth, index;
+    Node[] child;
+    Node fall;
+    Node parent;
+    int endDepth = -1;
+    ArrayList<Integer> c;
+
+    Node(int depth, int index) {
+      this.depth = depth;
+      this.index = index;
+      child = new Node[26];
+      c = new ArrayList<Integer>();
+      for (int i = 0; i < 26; i++)
+        child[i] = null;
+    }
   }
 }

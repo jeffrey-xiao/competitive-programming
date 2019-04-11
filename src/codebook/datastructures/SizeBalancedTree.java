@@ -17,22 +17,39 @@ public class SizeBalancedTree {
   // represents the root of the tree
   private Node root;
 
-  private class Node {
-    Node left, right;
-    Integer key, value, size;
-
-    Node (Integer key, Integer value) {
-      this.key = key;
-      this.value = value;
-      this.size = 1;
+  public static void main(String[] args) {
+    SizeBalancedTree t = new SizeBalancedTree();
+    long c = System.currentTimeMillis();
+    TreeSet<Integer> hs = new TreeSet<Integer>();
+    for (int x = 0; x < 100000; x++) {
+      int ran = (int) (Math.random() * (100000)) + 5;
+      hs.add(ran);
+      t.add(ran);
     }
+    System.out.println(hs.size() + " " + t.getSize(t.root));
+    for (Integer i : hs)
+      System.out.print(i + " ");
+    System.out.println();
+    t.traverse(t.root);
+    System.out.println();
+    t.add(1);
+    assert t.contains(t.root, 1);
+    assert !t.contains(t.root, 2);
+    t.remove(1);
+    assert !t.contains(t.root, 1);
+    System.out.println(System.currentTimeMillis() - c);
+    for (Integer i : hs) {
+      t.remove(i);
+      assert !t.contains(t.root, i);
+    }
+    System.out.println("SUCCESS");
   }
 
-  public boolean contains (Integer key) {
+  public boolean contains(Integer key) {
     return contains(root, key);
   }
 
-  private boolean contains (Node n, Integer key) {
+  private boolean contains(Node n, Integer key) {
     if (n == null)
       return false;
     int cmp = key.compareTo(n.key);
@@ -44,11 +61,11 @@ public class SizeBalancedTree {
       return true;
   }
 
-  public Integer get (Integer key) {
+  public Integer get(Integer key) {
     return get(root, key);
   }
 
-  private Integer get (Node n, Integer key) {
+  private Integer get(Node n, Integer key) {
     if (n == null)
       return null;
     int cmp = key.compareTo(n.key);
@@ -60,11 +77,11 @@ public class SizeBalancedTree {
       return n.value;
   }
 
-  public void remove (Integer key) {
+  public void remove(Integer key) {
     root = remove(root, key);
   }
 
-  private Node remove (Node n, Integer k) {
+  private Node remove(Node n, Integer k) {
     if (n == null)
       return n;
     int cmp = k.compareTo(n.key);
@@ -87,15 +104,15 @@ public class SizeBalancedTree {
     return n;
   }
 
-  public void add (Integer key) {
+  public void add(Integer key) {
     add(key, key);
   }
 
-  public void add (Integer key, Integer value) {
+  public void add(Integer key, Integer value) {
     root = add(root, key, value);
   }
 
-  private Node add (Node n, Integer key, Integer value) {
+  private Node add(Node n, Integer key, Integer value) {
     if (n == null)
       return new Node(key, value);
     int cmp = key.compareTo(n.key);
@@ -110,7 +127,7 @@ public class SizeBalancedTree {
     return n;
   }
 
-  private Node maintain (Node n, boolean flag) {
+  private Node maintain(Node n, boolean flag) {
     if (n == null)
       return n;
     if (flag) {
@@ -143,37 +160,37 @@ public class SizeBalancedTree {
     return n;
   }
 
-  public Integer getFirst () {
+  public Integer getFirst() {
     return getFirst(root).value;
   }
 
-  public Integer getLast () {
+  public Integer getLast() {
     return getLast(root).value;
   }
 
-  private Node getFirst (Node n) {
+  private Node getFirst(Node n) {
     while (n.left != null)
       n = n.left;
     return n;
   }
 
-  private Node getLast (Node n) {
+  private Node getLast(Node n) {
     while (n.right != null)
       n = n.right;
     return n;
   }
 
-  private Node resetSize (Node n) {
+  private Node resetSize(Node n) {
     n.size = getSize(n.left) + getSize(n.right) + 1;
     return n;
   }
 
-  private Integer getSize (Node n) {
+  private Integer getSize(Node n) {
     return n == null ? 0 : n.size;
   }
 
   // rotate left
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -183,7 +200,7 @@ public class SizeBalancedTree {
   }
 
   // rotate right
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -193,7 +210,7 @@ public class SizeBalancedTree {
   }
 
   // in order traversal of nodes
-  public void traverse (Node n) {
+  public void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -201,31 +218,14 @@ public class SizeBalancedTree {
     traverse(n.right);
   }
 
-  public static void main (String[] args) {
-    SizeBalancedTree t = new SizeBalancedTree();
-    long c = System.currentTimeMillis();
-    TreeSet<Integer> hs = new TreeSet<Integer>();
-    for (int x = 0; x < 100000; x++) {
-      int ran = (int)(Math.random() * (100000)) + 5;
-      hs.add(ran);
-      t.add(ran);
+  private class Node {
+    Node left, right;
+    Integer key, value, size;
+
+    Node(Integer key, Integer value) {
+      this.key = key;
+      this.value = value;
+      this.size = 1;
     }
-    System.out.println(hs.size() + " " + t.getSize(t.root));
-    for (Integer i : hs)
-      System.out.print(i + " ");
-    System.out.println();
-    t.traverse(t.root);
-    System.out.println();
-    t.add(1);
-    assert t.contains(t.root, 1);
-    assert !t.contains(t.root, 2);
-    t.remove(1);
-    assert !t.contains(t.root, 1);
-    System.out.println(System.currentTimeMillis() - c);
-    for (Integer i : hs) {
-      t.remove(i);
-      assert !t.contains(t.root, i);
-    }
-    System.out.println("SUCCESS");
   }
 }

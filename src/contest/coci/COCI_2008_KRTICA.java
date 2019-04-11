@@ -22,7 +22,7 @@ public class COCI_2008_KRTICA {
   static ArrayList<ArrayList<Integer>> adj;
   static int ans = 1 << 30;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -57,7 +57,7 @@ public class COCI_2008_KRTICA {
     out.close();
   }
 
-  static void solve (int u, int p, int dist, int prevDiameter) {
+  static void solve(int u, int p, int dist, int prevDiameter) {
     int i, j;
     for (int v : adj.get(u)) {
       if (v != p) {
@@ -85,14 +85,14 @@ public class COCI_2008_KRTICA {
     }
   }
 
-  static int maxIndex (int[] vals, int[] indexes, HashSet<Integer> exclude) {
+  static int maxIndex(int[] vals, int[] indexes, HashSet<Integer> exclude) {
     for (int i = 0; i < 3; i++)
       if (!exclude.contains(indexes[i]))
         return i;
     return -1;
   }
 
-  static void computeLongestPaths (int u, int p) {
+  static void computeLongestPaths(int u, int p) {
     for (int v : adj.get(u)) {
       if (v != p) {
         computeLongestPaths(v, u);
@@ -107,7 +107,7 @@ public class COCI_2008_KRTICA {
     }
   }
 
-  static void replace (int[] vals, int[] indexes, int val, int index) {
+  static void replace(int[] vals, int[] indexes, int val, int index) {
     if (val > vals[0]) {
       vals[2] = vals[1];
       indexes[2] = indexes[1];
@@ -126,29 +126,29 @@ public class COCI_2008_KRTICA {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

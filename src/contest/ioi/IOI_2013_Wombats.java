@@ -9,17 +9,15 @@ import java.util.StringTokenizer;
 
 public class IOI_2013_Wombats {
 
+  static final int COMPRESSION_SIZE = 20;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int R, C, E;
   static int[][] H, V;
   static int[][][] seg;
 
-  static final int COMPRESSION_SIZE = 20;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -72,7 +70,7 @@ public class IOI_2013_Wombats {
     out.close();
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (l == x && x == r) {
       int a = x * COMPRESSION_SIZE;
       int b = Math.min(R - 1, (x + 1) * COMPRESSION_SIZE);
@@ -91,7 +89,7 @@ public class IOI_2013_Wombats {
     seg[n] = combine(seg[n << 1], seg[n << 1 | 1]);
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       int a = l * COMPRESSION_SIZE;
       int b = Math.min(R - 1, (l + 1) * COMPRESSION_SIZE);
@@ -108,7 +106,7 @@ public class IOI_2013_Wombats {
     seg[n] = combine(seg[n << 1], seg[n << 1 | 1]);
   }
 
-  static int[][] computeNextRow (int row) {
+  static int[][] computeNextRow(int row) {
     int[][] ret = new int[C][C];
 
     // computing current row first	
@@ -144,7 +142,7 @@ public class IOI_2013_Wombats {
   }
 
   // [X, Y], [Y, Z]
-  static int[][] combine (int[][] a, int[][] b) {
+  static int[][] combine(int[][] a, int[][] b) {
     int[][] ret = new int[C][C];
     int[][] best = new int[C][C];
 
@@ -201,29 +199,29 @@ public class IOI_2013_Wombats {
     return ret;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

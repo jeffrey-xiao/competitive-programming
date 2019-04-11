@@ -10,15 +10,14 @@ import java.util.StringTokenizer;
 
 public class CCC_2008_Stage_2_Mobile {
 
+  static final int NAN = -10000;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
-  static final int NAN = -10000;
   static Node r1 = new Node(NAN), r2 = new Node(NAN);
   static int[] a, b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     a = new int[n];
     b = new int[n];
@@ -41,7 +40,7 @@ public class CCC_2008_Stage_2_Mobile {
       System.out.println("Fred and Mary have different mobiles.");
   }
 
-  private static boolean compare (Node n1, Node n2) {
+  private static boolean compare(Node n1, Node n2) {
     if (n1.value != n2.value)
       return false;
     if (n1.value != NAN && n2.value != NAN)
@@ -50,7 +49,7 @@ public class CCC_2008_Stage_2_Mobile {
     return (compare(n1.left, n2.left) && compare(n1.right, n2.right));
   }
 
-  private static void add (int i, Node n) {
+  private static void add(int i, Node n) {
     if (a[i] < 0) {
       n.left = new Node(a[i]);
       n.left.v = a[i] * 1337 + 13371337;
@@ -73,39 +72,39 @@ public class CCC_2008_Stage_2_Mobile {
     }
   }
 
-  static class Node {
-    int value;
-    int v;
-    Node left, right;
-
-    Node (int value) {
-      this.value = value;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Node {
+    int value;
+    int v;
+    Node left, right;
+
+    Node(int value) {
+      this.value = value;
+    }
   }
 }

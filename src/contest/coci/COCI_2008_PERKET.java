@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class COCI_2008_PERKET {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int ingredients = scan.nextInt();
     int[][] items = new int[ingredients][2];
     for (int x = 0; x < items.length; x++) {
@@ -17,7 +17,7 @@ public class COCI_2008_PERKET {
     System.out.println(min);
   }
 
-  private static int minValue (int[][] items, int i, int s, int b) {
+  private static int minValue(int[][] items, int i, int s, int b) {
 
     if (i == items.length - 1) {
       if (s == 1 && b == 0)
@@ -31,7 +31,7 @@ public class COCI_2008_PERKET {
     return d1 < d2 ? d1 : d2;
   }
 
-  private static int diff (int sour, int bitter) {
+  private static int diff(int sour, int bitter) {
     return Math.abs(sour - bitter);
   }
 }

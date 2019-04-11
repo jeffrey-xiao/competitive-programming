@@ -10,7 +10,7 @@ class CCC_2009_J5_S3 {
   public static ArrayList<Integer> degrees = new ArrayList<Integer>();
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     // INSERTING EXISTING FRIENDSHIPS
     insertFriendship("6", "1");
     insertFriendship("6", "2");
@@ -64,7 +64,7 @@ class CCC_2009_J5_S3 {
     }
   }
 
-  public static void insertFriendship (String friend1, String friend2) {
+  public static void insertFriendship(String friend1, String friend2) {
     if (friends.containsKey(friend1)) {
       friends.get(friend1).add(friend2);
     } else {
@@ -79,11 +79,11 @@ class CCC_2009_J5_S3 {
     }
   }
 
-  public static void printFriends (String person) {
+  public static void printFriends(String person) {
     System.out.println(friends.get(person).size());
   }
 
-  public static void printFriendsOfFriends (String person, ArrayList<String> hasAlready) {
+  public static void printFriendsOfFriends(String person, ArrayList<String> hasAlready) {
     int count = 0;
     for (int x = 0; x < friends.get(person).size(); x++) {
       for (int y = 0; y < friends.get(friends.get(person).get(x)).size(); y++) {
@@ -96,12 +96,12 @@ class CCC_2009_J5_S3 {
     System.out.println(count);
   }
 
-  public static void deleteFriendship (String friend1, String friend2) {
+  public static void deleteFriendship(String friend1, String friend2) {
     friends.get(friend1).remove(friend2);
     friends.get(friend2).remove(friend1);
   }
 
-  public static void printSeperation (String person, String target, ArrayList<String> visited, int degree) {
+  public static void printSeperation(String person, String target, ArrayList<String> visited, int degree) {
     degree += 1;
     for (int x = 0; x < friends.get(person).size(); x++) {
 

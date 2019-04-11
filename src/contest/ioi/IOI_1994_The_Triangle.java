@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IOI_1994_The_Triangle {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int rows = scan.nextInt();
     int[][] triangle = new int[rows][];
     for (int x = 0; x < triangle.length; x++) {

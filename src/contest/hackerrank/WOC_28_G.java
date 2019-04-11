@@ -11,18 +11,16 @@ import java.util.StringTokenizer;
 
 public class WOC_28_G {
 
+  static final int MOD = 998244353;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int MOD = 998244353;
-
   static int N, M, K;
   static long[][] prob;
   static long[] dice;
   static int[] next;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -57,7 +55,7 @@ public class WOC_28_G {
     out.close();
   }
 
-  static long[] getOccurrences (int u, int m) {
+  static long[] getOccurrences(int u, int m) {
     long[] ret = new long[N];
     for (int i = 0; i < m; i++) {
       ret[u] = (ret[u] + dice[i]) % MOD;
@@ -66,7 +64,7 @@ public class WOC_28_G {
     return ret;
   }
 
-  static long[] multiply (long[] state, long[][] transition) {
+  static long[] multiply(long[] state, long[][] transition) {
     long[] ret = new long[N];
     for (int j = 0; j < N; j++)
       for (int k = 0; k < N; k++)
@@ -75,12 +73,12 @@ public class WOC_28_G {
   }
 
   // O(log P)
-  static long divMod (long i, long j, long p) {
+  static long divMod(long i, long j, long p) {
     return i * pow(j, p - 2, p) % p;
   }
 
   // O(log power)
-  static long pow (long base, long pow, long mod) {
+  static long pow(long base, long pow, long mod) {
     if (pow == 0)
       return 1;
     if (pow == 1)
@@ -90,39 +88,39 @@ public class WOC_28_G {
     return base * pow(base * base % mod, pow / 2, mod) % mod;
   }
 
-  static long mod (long a, long b) {
+  static long mod(long a, long b) {
     return ((a % b) + b) % b;
   }
 
   // precondition: m > 0 && gcd(a, m) = 1
-  public static long modInverse (long a, long m) {
+  public static long modInverse(long a, long m) {
     a = mod(a, m);
     return a == 0 ? 0 : mod((1 - modInverse(m % a, a) * m) / a, m);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

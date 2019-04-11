@@ -18,7 +18,7 @@ public class Woburn_Challenge_2015_Contest_Sites {
   static int n, m, k;
   static ArrayList<ArrayList<Edge>> adj;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -60,15 +60,15 @@ public class Woburn_Challenge_2015_Contest_Sites {
     long res = 0;
     for (int i = 0; i < n; i++) {
       if (diff.get(i).cost >= 0)
-        res += live[diff.get(i).index] * (long)path1[diff.get(i).index];
+        res += live[diff.get(i).index] * (long) path1[diff.get(i).index];
       else {
         int index = diff.get(i).index;
         if (live[index] > k) {
-          res += k * (long)path2[index];
-          res += (live[index] - k) * (long)path1[index];
+          res += k * (long) path2[index];
+          res += (live[index] - k) * (long) path1[index];
           k = 0;
         } else {
-          res += live[index] * (long)path2[index];
+          res += live[index] * (long) path2[index];
           k -= live[index];
         }
       }
@@ -77,7 +77,7 @@ public class Woburn_Challenge_2015_Contest_Sites {
     out.close();
   }
 
-  public static int[] path (int s) {
+  public static int[] path(int s) {
     int[] dist = new int[n];
     for (int i = 0; i < n; i++)
       dist[i] = 1 << 30;
@@ -96,17 +96,43 @@ public class Woburn_Challenge_2015_Contest_Sites {
     return dist;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     Integer cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return cost.compareTo(v.cost);
     }
   }
@@ -114,35 +140,9 @@ public class Woburn_Challenge_2015_Contest_Sites {
   static class Edge {
     int dest, cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

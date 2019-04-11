@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Shortest_Path {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     ArrayList<ArrayList<int[]>> adjlist = new ArrayList<ArrayList<int[]>>();
     for (int x = 0; x < n; x++)
@@ -14,7 +14,7 @@ public class Shortest_Path {
     // 0-> source, 1-> destination, 2-> distance
     int edges = scan.nextInt();
     for (int x = 0; x < edges; x++)
-      adjlist.get(scan.nextInt() - 1).add(new int[] {scan.nextInt() - 1, scan.nextInt()});
+      adjlist.get(scan.nextInt() - 1).add(new int[]{scan.nextInt() - 1, scan.nextInt()});
 
     int[] dist = new int[n];
     int[] pred = new int[n];

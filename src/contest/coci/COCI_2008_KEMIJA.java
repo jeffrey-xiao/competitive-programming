@@ -3,7 +3,7 @@ package contest.coci;
 import java.util.Scanner;
 
 public class COCI_2008_KEMIJA {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     StringBuilder s = new StringBuilder(scan.nextLine());
     String vowels = "aeiou";

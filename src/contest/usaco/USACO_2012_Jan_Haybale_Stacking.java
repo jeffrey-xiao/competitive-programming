@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class USACO_2012_Jan_Haybale_Stacking {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int n = scan.nextInt();
     int k = scan.nextInt();
     int[] input = new int[n + 1];

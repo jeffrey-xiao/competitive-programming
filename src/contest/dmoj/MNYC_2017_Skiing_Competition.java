@@ -17,12 +17,10 @@ import java.util.TreeSet;
 
 public class MNYC_2017_Skiing_Competition {
 
+  static final int SZ = 50;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int SZ = 50;
-
   static int N, M, A, B, Q;
   static int[] dist, min;
   static Edge[] prev;
@@ -37,7 +35,7 @@ public class MNYC_2017_Skiing_Competition {
 
   static boolean[] vis = new boolean[200];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -174,7 +172,7 @@ public class MNYC_2017_Skiing_Competition {
     out.close();
   }
 
-  static void dfs (int u, int cost, int min) {
+  static void dfs(int u, int cost, int min) {
     if (u == B) {
       if (!paths.containsKey(cost))
         paths.put(cost, min);
@@ -196,7 +194,7 @@ public class MNYC_2017_Skiing_Competition {
     }
   }
 
-  static Path shortestPath (int src, int sink) {
+  static Path shortestPath(int src, int sink) {
     Arrays.fill(dist, 1 << 30);
     Arrays.fill(prev, null);
     Arrays.fill(min, 1 << 30);
@@ -237,17 +235,43 @@ public class MNYC_2017_Skiing_Competition {
     return ret;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index, cost, min;
 
-    Vertex (int index, int cost, int min) {
+    Vertex(int index, int cost, int min) {
       this.index = index;
       this.cost = cost;
       this.min = min;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       if (cost == v.cost)
         return min - v.min;
       return cost - v.cost;
@@ -257,27 +281,27 @@ public class MNYC_2017_Skiing_Competition {
   static class Edge {
     int src, sink, cost;
 
-    Edge (int src, int sink, int cost) {
+    Edge(int src, int sink, int cost) {
       this.src = src;
       this.sink = sink;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge)o;
+        Edge e = (Edge) o;
         return (src == e.src && sink == e.sink && cost == e.cost);
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return 31 * src + sink;
     }
 
-    public Edge negate () {
+    public Edge negate() {
       return new Edge(sink, src, cost);
     }
   }
@@ -287,13 +311,13 @@ public class MNYC_2017_Skiing_Competition {
     int cost, min;
 
     @Override
-    public int compareTo (Path v) {
+    public int compareTo(Path v) {
       if (cost == v.cost)
         return min - v.min;
       return cost - v.cost;
     }
 
-    public void compute () {
+    public void compute() {
       cost = 0;
       min = 1 << 30;
       for (Edge edge : nodes) {
@@ -301,31 +325,5 @@ public class MNYC_2017_Skiing_Competition {
         min = Math.min(edge.cost, min);
       }
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

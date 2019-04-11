@@ -19,7 +19,7 @@ public class IOI_2002_Utopia_Divided {
   static int N;
   static int[] codes1, codes2, ans1, ans2, regions;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -89,41 +89,41 @@ public class IOI_2002_Utopia_Divided {
     out.close();
   }
 
-  static boolean isHorPos (int region) {
+  static boolean isHorPos(int region) {
     if (region == 1 || region == 4)
       return true;
     return false;
   }
 
-  static boolean isVerPos (int region) {
+  static boolean isVerPos(int region) {
     if (region == 1 || region == 2)
       return true;
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

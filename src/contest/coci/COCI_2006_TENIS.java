@@ -10,11 +10,12 @@ public class COCI_2006_TENIS {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String n1 = next();
     String n2 = next();
     int t = readInt();
-    main : for (int x = 0; x < t; x++) {
+    main:
+    for (int x = 0; x < t; x++) {
       String[] match = readLine().split(" ");
       int gamesA = 0;
       int gamesB = 0;
@@ -49,25 +50,25 @@ public class COCI_2006_TENIS {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

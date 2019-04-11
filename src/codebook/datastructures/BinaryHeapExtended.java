@@ -15,16 +15,7 @@ public class BinaryHeapExtended {
   private int index;
   private int size;
 
-  class Pair {
-    int first, second;
-
-    Pair (int first, int second) {
-      this.first = first;
-      this.second = second;
-    }
-  }
-
-  public BinaryHeapExtended () {
+  public BinaryHeapExtended() {
     index = 0;
     size = 1;
     heap = new Integer[1];
@@ -32,15 +23,27 @@ public class BinaryHeapExtended {
     toPos = new Integer[1];
   }
 
-  public boolean isEmpty () {
+  public static void main(String[] args) {
+    BinaryHeapExtended h = new BinaryHeapExtended();
+    for (int x = 0; x < 100; x++)
+      h.add(x, (int) (Math.random() * 100));
+    for (int x = 0; x < 100; x++)
+      h.changePriority(x, (int) (Math.random() * 100));
+    for (int x = 0; x < 100; x++) {
+      Pair res = h.remove();
+      System.out.println(res.first + " " + res.second);
+    }
+  }
+
+  public boolean isEmpty() {
     return index == 0;
   }
 
-  public int size () {
+  public int size() {
     return index;
   }
 
-  public void add (Integer id, Integer item) {
+  public void add(Integer id, Integer item) {
     if (item == null)
       throw new NullPointerException();
     if (index + 1 > size)
@@ -51,7 +54,7 @@ public class BinaryHeapExtended {
     heapifyUp(index++);
   }
 
-  public Pair remove () {
+  public Pair remove() {
     if (isEmpty())
       throw new java.util.NoSuchElementException();
     Integer removedId = toId[0];
@@ -65,13 +68,13 @@ public class BinaryHeapExtended {
     return new Pair(removedId, removedValue);
   }
 
-  public Pair peek () {
+  public Pair peek() {
     if (isEmpty())
       throw new java.util.NoSuchElementException();
     return new Pair(toId[0], heap[0]);
   }
 
-  public void changePriority (int id, int value) {
+  public void changePriority(int id, int value) {
     int pos = toPos[id];
     if (heap[pos] < value) {
       heap[pos] = value;
@@ -82,7 +85,7 @@ public class BinaryHeapExtended {
     }
   }
 
-  private void heapifyDown (int i) {
+  private void heapifyDown(int i) {
     int child = (i << 1) + 1;
     if (child >= index)
       return;
@@ -94,7 +97,7 @@ public class BinaryHeapExtended {
     heapifyDown(child);
   }
 
-  private void heapifyUp (int i) {
+  private void heapifyUp(int i) {
     while (i > 0) {
       if (heap[i].compareTo(heap[(i - 1) >> 1]) < 0)
         swap(i, (i - 1) >> 1);
@@ -102,7 +105,7 @@ public class BinaryHeapExtended {
     }
   }
 
-  private void swap (int i, int j) {
+  private void swap(int i, int j) {
     Integer temp = heap[i];
     heap[i] = heap[j];
     heap[j] = temp;
@@ -115,7 +118,7 @@ public class BinaryHeapExtended {
     toPos[toId[j]] = j;
   }
 
-  private void addSize () {
+  private void addSize() {
     size *= 2;
     int maxId = 0;
     for (int i = 0; i < index; i++)
@@ -133,7 +136,7 @@ public class BinaryHeapExtended {
     toPos = newToPos;
   }
 
-  private void removeSize () {
+  private void removeSize() {
     size /= 2;
     int maxId = 0;
     for (int i = 0; i < index; i++)
@@ -151,15 +154,12 @@ public class BinaryHeapExtended {
     toPos = newToPos;
   }
 
-  public static void main (String[] args) {
-    BinaryHeapExtended h = new BinaryHeapExtended();
-    for (int x = 0; x < 100; x++)
-      h.add(x, (int)(Math.random() * 100));
-    for (int x = 0; x < 100; x++)
-      h.changePriority(x, (int)(Math.random() * 100));
-    for (int x = 0; x < 100; x++) {
-      Pair res = h.remove();
-      System.out.println(res.first + " " + res.second);
+  class Pair {
+    int first, second;
+
+    Pair(int first, int second) {
+      this.first = first;
+      this.second = second;
     }
   }
 }

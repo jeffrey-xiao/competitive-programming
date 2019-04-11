@@ -13,7 +13,7 @@ public class Directed_Acyclic_Path {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
 
     ArrayList<ArrayList<Integer>> incoming = new ArrayList<ArrayList<Integer>>();
@@ -34,7 +34,7 @@ public class Directed_Acyclic_Path {
       int curr = q.poll();
       for (int x = 0; x < incoming.size(); x++) {
         if (incoming.get(x).contains(curr)) {
-          incoming.get(x).remove((Integer)curr);
+          incoming.get(x).remove((Integer) curr);
           if (incoming.get(x).size() == 0)
             q.add(x);
         }
@@ -49,25 +49,25 @@ public class Directed_Acyclic_Path {
     System.out.println("YES");
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

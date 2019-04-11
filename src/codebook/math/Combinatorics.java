@@ -3,7 +3,7 @@ package codebook.math;
 public class Combinatorics {
 
   // O(n)
-  static long factorial (long n, long m) {
+  static long factorial(long n, long m) {
     long ret = 1;
     for (int i = 2; i <= n; i++)
       ret = (ret * i) % m;
@@ -11,7 +11,7 @@ public class Combinatorics {
   }
 
   // O(p log n)
-  static long factorialPrime (long n, long p) {
+  static long factorialPrime(long n, long p) {
     long ret = 1, h = 0;
     while (n > 1) {
       ret = (ret * ((n / p) % 2 == 1 ? p - 1 : 1)) % p;
@@ -24,7 +24,7 @@ public class Combinatorics {
   }
 
   // O(log power)
-  static long pow (long base, long pow, long mod) {
+  static long pow(long base, long pow, long mod) {
     if (pow == 0)
       return 1;
     if (pow == 1)
@@ -35,7 +35,7 @@ public class Combinatorics {
   }
 
   // O(min(k, n-k))
-  static long choose (int n, int k, long p) {
+  static long choose(int n, int k, long p) {
     if (n < k)
       return 0;
     if (k > n - k)
@@ -49,7 +49,7 @@ public class Combinatorics {
     return num * pow(den, p - 2, p) % p;
   }
 
-  static long choose (long n, long k) {
+  static long choose(long n, long k) {
     if (k > n - k)
       k = n - k;
     long ret = 1;
@@ -59,22 +59,22 @@ public class Combinatorics {
   }
 
   // O(log P) if you precompute factorials
-  static long fastChoose (int n, int k, int p) {
+  static long fastChoose(int n, int k, int p) {
     return divMod(divMod(factorial(n, p), factorial(k, p), p), factorial(n - k, p), p);
   }
 
   // O(log P)
-  static long divMod (long i, long j, long p) {
+  static long divMod(long i, long j, long p) {
     return i * pow(j, p - 2, p) % p;
   }
 
   // O(k)
-  static long multichoose (int n, int k, long p) {
+  static long multichoose(int n, int k, long p) {
     return choose(n + k - 1, k, p);
   }
 
   // O(k)
-  static long permute (int n, int k) {
+  static long permute(int n, int k) {
     if (n < k)
       return 0;
     long ret = 1;
@@ -83,7 +83,7 @@ public class Combinatorics {
     return ret;
   }
 
-  static long permute (int n, int k, long m) {
+  static long permute(int n, int k, long m) {
     if (n < k)
       return 0;
     long ret = 1;
@@ -93,7 +93,7 @@ public class Combinatorics {
   }
 
   // O(n^2)
-  static long partitions (int n, long m) {
+  static long partitions(int n, long m) {
     long[] dp = new long[n + 1];
     dp[0] = 1;
     for (int i = 1; i <= n; i++)
@@ -103,7 +103,7 @@ public class Combinatorics {
   }
 
   // O(n * k)
-  static long partitions (int n, int k, long m) {
+  static long partitions(int n, int k, long m) {
     long[][] dp = new long[n + 1][k + 1];
     dp[0][1] = 1;
     for (int i = 1; i <= n; i++)
@@ -113,7 +113,7 @@ public class Combinatorics {
   }
 
   // O(n * k)
-  static long stirling1 (int n, int k, long m) {
+  static long stirling1(int n, int k, long m) {
     long[][] dp = new long[n + 1][k + 1];
     dp[0][0] = 1;
     for (int i = 1; i <= n; i++)
@@ -125,7 +125,7 @@ public class Combinatorics {
   }
 
   // O(n * k)
-  static long stirling2 (int n, int k, long m) {
+  static long stirling2(int n, int k, long m) {
     long[][] dp = new long[n + 1][k + 1];
     dp[0][0] = 1;
     for (int i = 1; i <= n; i++)
@@ -137,7 +137,7 @@ public class Combinatorics {
   }
 
   // O(n * k)
-  static long eulerian1 (int n, int k, long m) {
+  static long eulerian1(int n, int k, long m) {
     if (k > n - 1 - k)
       k = n - 1 - k;
     long[][] dp = new long[n + 1][k + 1];
@@ -152,7 +152,7 @@ public class Combinatorics {
   }
 
   // O(n * k)
-  static long eulerian2 (int n, int k, long m) {
+  static long eulerian2(int n, int k, long m) {
     long[][] dp = new long[n + 1][k + 1];
     for (int i = 1; i <= n; i++)
       for (int j = 1; j <= k; j++) {
@@ -167,7 +167,7 @@ public class Combinatorics {
   }
 
   // O(n)
-  static long catalan (int n, long p) {
+  static long catalan(int n, long p) {
     return choose(2 * n, n, p) * pow(n + 1, p - 2, p) % p;
   }
 }

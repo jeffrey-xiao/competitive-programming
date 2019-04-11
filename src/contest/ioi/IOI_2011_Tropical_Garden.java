@@ -22,7 +22,7 @@ public class IOI_2011_Tropical_Garden {
   static HashMap<Long, State> vis;
   static HashMap<Long, Integer> curr;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -105,7 +105,7 @@ public class IOI_2011_Tropical_Garden {
     out.close();
   }
 
-  static int dfs (int u, int prev, int depth, int firstOcc, int secondOcc) {
+  static int dfs(int u, int prev, int depth, int firstOcc, int secondOcc) {
 
     if (u == P) {
       if (firstOcc == -1)
@@ -208,7 +208,7 @@ public class IOI_2011_Tropical_Garden {
     }
   }
 
-  static PriorityQueue<Integer> makeUnique (PriorityQueue<Integer> pq) {
+  static PriorityQueue<Integer> makeUnique(PriorityQueue<Integer> pq) {
     PriorityQueue<Integer> ret = new PriorityQueue<Integer>();
     if (pq.isEmpty())
       return ret;
@@ -222,46 +222,46 @@ public class IOI_2011_Tropical_Garden {
     return ret;
   }
 
-  static long getStateIndex (int prev, int u) {
+  static long getStateIndex(int prev, int u) {
     if (adj.get(u).contains(prev))
       return 1l * prev * N + u;
     return 1l * adj.get(u).get(adj.get(u).size() - 1) * N + u;
   }
 
-  static class State {
-    int len, cycle, firstOcc, secondOcc;
-
-    State (int len, int cycle, int firstOcc, int secondOcc) {
-      this.len = len;
-      this.cycle = cycle;
-      this.firstOcc = firstOcc;
-      this.secondOcc = secondOcc;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int len, cycle, firstOcc, secondOcc;
+
+    State(int len, int cycle, int firstOcc, int secondOcc) {
+      this.len = len;
+      this.cycle = cycle;
+      this.firstOcc = firstOcc;
+      this.secondOcc = secondOcc;
+    }
   }
 }

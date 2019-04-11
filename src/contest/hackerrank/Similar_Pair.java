@@ -19,7 +19,7 @@ public class Similar_Pair {
   static int[] tree = new int[200001];
   static long ans = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,7 +44,7 @@ public class Similar_Pair {
     pr.close();
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     ans += query(i + 1 + t) - query(i + 1 - t - 1);
 
     update(i + 1, 1);
@@ -54,41 +54,41 @@ public class Similar_Pair {
 
   }
 
-  static void update (int x, int val) {
+  static void update(int x, int val) {
     for (; x <= 200000; x += (x & -x))
       tree[x] += val;
   }
 
-  static int query (int x) {
+  static int query(int x) {
     int sum = 0;
     for (; x > 0; x -= (x & -x))
       sum += tree[x];
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

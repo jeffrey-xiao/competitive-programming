@@ -19,16 +19,17 @@ public class palsquare {
   static PrintWriter pr;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("palsquare.in"));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("palsquare.out")));
 
     char[] c = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     int n = readInt();
-    main : for (int x = 1; x <= 300; x++) {
+    main:
+    for (int x = 1; x <= 300; x++) {
       ArrayList<Integer> currNums = new ArrayList<Integer>();
-      int currFactor = (int)Math.pow(n, (int)(Math.log(x * x) / Math.log(n)));
+      int currFactor = (int) Math.pow(n, (int) (Math.log(x * x) / Math.log(n)));
       int curr = x * x;
       while (currFactor != 0) {
         int next = curr / currFactor;
@@ -50,25 +51,25 @@ public class palsquare {
     System.exit(0);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

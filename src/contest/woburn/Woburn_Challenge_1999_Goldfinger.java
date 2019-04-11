@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1999_Goldfinger {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int input = scan.nextInt();
     while (input != -1) {
       boolean[] primes = new boolean[16000];

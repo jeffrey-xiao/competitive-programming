@@ -17,7 +17,7 @@ public class CCC_2009_Stage_2_Dinner_DP {
   static char[] in;
   static int[][][][] dp = new int[101][101][101][2];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -31,7 +31,7 @@ public class CCC_2009_Stage_2_Dinner_DP {
     pr.close();
   }
 
-  private static int solve (int i, int j, int l, int m) {
+  private static int solve(int i, int j, int l, int m) {
     if (i > j) {
       return l >= k ? 1 : 1 << 10;
     }
@@ -46,29 +46,29 @@ public class CCC_2009_Stage_2_Dinner_DP {
     return dp[i][j][l][m] = res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

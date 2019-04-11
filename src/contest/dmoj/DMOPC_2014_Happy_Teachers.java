@@ -14,7 +14,7 @@ public class DMOPC_2014_Happy_Teachers {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Teacher[] t = new Teacher[n + 1];
     for (int x = 1; x <= n; x++)
@@ -70,10 +70,36 @@ public class DMOPC_2014_Happy_Teachers {
     System.out.println(maxHappy + "\n" + minTime);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Teacher {
     int h, e, p;
 
-    Teacher (int h, int e, int p) {
+    Teacher(int h, int e, int p) {
       this.h = h;
       this.e = e;
       this.p = p;
@@ -83,35 +109,9 @@ public class DMOPC_2014_Happy_Teachers {
   static class State {
     int happy, time;
 
-    State (int happy, int time) {
+    State(int happy, int time) {
       this.happy = happy;
       this.time = time;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

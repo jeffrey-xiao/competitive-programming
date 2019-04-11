@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1996_Plentiful_Paths {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int m = scan.nextInt();
     int n = scan.nextInt();
     int[][] table = new int[m][n];

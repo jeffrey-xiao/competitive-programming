@@ -10,7 +10,7 @@ public class USACO_2013_Combination_Lock {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int a1 = readInt();
     int a2 = readInt();
@@ -30,13 +30,13 @@ public class USACO_2013_Combination_Lock {
     System.out.println(count);
   }
 
-  private static boolean close (int x, int y, int z, int a1, int a2, int a3, int n) {
+  private static boolean close(int x, int y, int z, int a1, int a2, int a3, int n) {
     if (valid(x, a1, n) && valid(y, a2, n) && valid(z, a3, n))
       return true;
     return false;
   }
 
-  private static boolean valid (int x, int a1, int n) {
+  private static boolean valid(int x, int a1, int n) {
     int abs = Math.abs(x - a1);
     if (abs <= 2)
       return true;
@@ -45,25 +45,25 @@ public class USACO_2013_Combination_Lock {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -11,7 +11,7 @@ public class CCC_1999_P1 {
   static StringTokenizer st;
   static int[] cards;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     cards = new int[52];
     for (int x = 0; x < 52; x++) {
       String s = next();
@@ -70,7 +70,7 @@ public class CCC_1999_P1 {
     System.out.println("Player B: " + pointsB + " point(s).");
   }
 
-  private static boolean checkHigh (int start, int i) {
+  private static boolean checkHigh(int start, int i) {
     if (start + i >= 52)
       return false;
     for (int x = start + 1; x <= start + i; x++) {
@@ -80,25 +80,25 @@ public class CCC_1999_P1 {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

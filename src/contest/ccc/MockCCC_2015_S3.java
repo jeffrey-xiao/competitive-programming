@@ -21,7 +21,7 @@ public class MockCCC_2015_S3 {
   static int n;
   static int count = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     p = new Point[n];
     v = new boolean[n];
@@ -32,9 +32,10 @@ public class MockCCC_2015_S3 {
     System.out.println(count / 2);
   }
 
-  public static void compute (int i) {
+  public static void compute(int i) {
     boolean done = true;
-    main : for (int x = 0; x < n; x++) {
+    main:
+    for (int x = 0; x < n; x++) {
       if (!v[x]) {
         done = false;
         Line l = new Line(p[i], p[x]);
@@ -62,30 +63,56 @@ public class MockCCC_2015_S3 {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     double x, y;
 
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return x == p.x && y == p.y;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Double(x).hashCode() * 31 + new Double(y).hashCode();
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "(" + x + "," + y + ")";
     }
   }
@@ -94,7 +121,7 @@ public class MockCCC_2015_S3 {
     double A, B, C;
     Point p1, p2;
 
-    Line (Point p1, Point p2) {
+    Line(Point p1, Point p2) {
       this.p1 = p1;
       this.p2 = p2;
       A = p2.y - p1.y;
@@ -102,7 +129,7 @@ public class MockCCC_2015_S3 {
       C = A * p1.x + B * p1.y;
     }
 
-    public boolean intersect (Line l) {
+    public boolean intersect(Line l) {
       double delta = A * l.B - l.A * B;
       if (delta == 0) {
         if (p1.equals(l.p1) || p1.equals(l.p2) || p2.equals(l.p1) || p2.equals(l.p2))
@@ -119,43 +146,17 @@ public class MockCCC_2015_S3 {
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Line) {
-        Line p = (Line)o;
+        Line p = (Line) o;
         return p1.equals(p.p1) && p2.equals(p.p2);
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return p1.hashCode() * 31 + p2.hashCode();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

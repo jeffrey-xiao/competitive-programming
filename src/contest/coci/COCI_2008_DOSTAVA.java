@@ -20,7 +20,7 @@ public class COCI_2008_DOSTAVA {
   static int[][] sum, dist;
   static ArrayList<ArrayList<Edge>> adj;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -97,7 +97,7 @@ public class COCI_2008_DOSTAVA {
     out.close();
   }
 
-  static int[] getDist (int u) {
+  static int[] getDist(int u) {
     int[] d = new int[2 * R];
     Arrays.fill(d, 1 << 30);
     d[u] = 0;
@@ -118,20 +118,46 @@ public class COCI_2008_DOSTAVA {
     return d;
   }
 
-  static int get (int r, int c) {
+  static int get(int r, int c) {
     return sum[r][c] - sum[r][c - 1];
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Vertex implements Comparable<Vertex> {
     int dest, cost;
 
-    Vertex (int dest, int cost) {
+    Vertex(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return cost - v.cost;
     }
   }
@@ -139,35 +165,9 @@ public class COCI_2008_DOSTAVA {
   static class Edge {
     int dest, cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

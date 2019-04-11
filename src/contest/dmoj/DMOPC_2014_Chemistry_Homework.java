@@ -22,7 +22,7 @@ public class DMOPC_2014_Chemistry_Homework {
   static int energy = 0;
   static int n, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     adj = new int[n + 1][n + 1];
@@ -55,7 +55,7 @@ public class DMOPC_2014_Chemistry_Homework {
     }
   }
 
-  private static void dfs (int i) {
+  private static void dfs(int i) {
     v[i] = true;
     if (size[i] == 4)
       C++;
@@ -75,29 +75,29 @@ public class DMOPC_2014_Chemistry_Homework {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -19,7 +19,7 @@ public class New_Year_DIY_Christmas_Tree {
   static ArrayList<Integer> ans;
   static int[] sz;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -53,7 +53,7 @@ public class New_Year_DIY_Christmas_Tree {
     out.close();
   }
 
-  static int getSizes (int u, int par) {
+  static int getSizes(int u, int par) {
     sz[u] = 1;
     for (int v : adj.get(u)) {
       if (par == v)
@@ -63,7 +63,7 @@ public class New_Year_DIY_Christmas_Tree {
     return sz[u];
   }
 
-  static void dfs (int u, int par, int min, int max, int prevLabel) {
+  static void dfs(int u, int par, int min, int max, int prevLabel) {
     ans.add(min);
     for (int v : adj.get(u)) {
       if (par == v)
@@ -73,29 +73,29 @@ public class New_Year_DIY_Christmas_Tree {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

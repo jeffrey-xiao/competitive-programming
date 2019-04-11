@@ -12,10 +12,10 @@ public class IOI_2014_Wall {
   static int[] up;
   static int[] down;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
-    int height = (int)Math.ceil(Math.log(n) / Math.log(2));
-    int size = 2 * (int)Math.pow(2, height) - 1;
+    int height = (int) Math.ceil(Math.log(n) / Math.log(2));
+    int size = 2 * (int) Math.pow(2, height) - 1;
     up = new int[size * 2 + 1];
     down = new int[size * 2 + 1];
     int k = readInt();
@@ -39,7 +39,7 @@ public class IOI_2014_Wall {
     print(0, n - 1, 0);
   }
 
-  private static void print (int x, int y, int j) {
+  private static void print(int x, int y, int j) {
     if (x == y)
       System.out.print(Math.min(up[j], down[j]) + " ");
     else {
@@ -49,7 +49,7 @@ public class IOI_2014_Wall {
     }
   }
 
-  static void combine (int n, int d, int u) {
+  static void combine(int n, int d, int u) {
     down[n] = Math.min(down[n], d);// adjusting min for child considering
     // min parent
     down[n] = Math.max(down[n], u);// adjusting min for child considering
@@ -60,7 +60,7 @@ public class IOI_2014_Wall {
     // parent
   }
 
-  static void update (int value, int x, int y, int sindex, int eindex, int curr, boolean build) {
+  static void update(int value, int x, int y, int sindex, int eindex, int curr, boolean build) {
     System.out.println(sindex + " " + eindex + " " + curr);
     if (eindex > x || sindex < y)
       return;
@@ -85,25 +85,25 @@ public class IOI_2014_Wall {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -17,7 +17,7 @@ public class CCC_2009_Stage_2_Parade {
   static Node[] tree = new Node[300005];
   static Command[] commands = new Command[100005];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int q = readInt();
     for (int x = 1; x <= n; x++)
@@ -37,7 +37,7 @@ public class CCC_2009_Stage_2_Parade {
     }
   }
 
-  private static void update (int x, int n, Command c) {
+  private static void update(int x, int n, Command c) {
     if (x == tree[n].left && x == tree[n].right) {
       tree[n].p = getCommand(c);
       return;
@@ -51,7 +51,7 @@ public class CCC_2009_Stage_2_Parade {
   }
 
   @SuppressWarnings("unused")
-  private static byte[][] query (int l, int r, int n) {
+  private static byte[][] query(int l, int r, int n) {
     if (tree[n].left == l && tree[n].right == r)
       return tree[n].p;
     int mid = m(tree[n].left, tree[n].right);
@@ -64,7 +64,7 @@ public class CCC_2009_Stage_2_Parade {
     return null;
   }
 
-  private static void build (int l, int r, int n) {
+  private static void build(int l, int r, int n) {
     tree[n] = new Node(l, r);
     if (l == r) {
       tree[n].p = getCommand(commands[l]);
@@ -76,7 +76,7 @@ public class CCC_2009_Stage_2_Parade {
     tree[n].p = product(tree[l(n)].p, tree[r(n)].p);
   }
 
-  private static byte[][] getCommand (Command c) {
+  private static byte[][] getCommand(Command c) {
     byte[][] p = new byte[4][4];
     byte[][] newP = new byte[4][4];
     byte cnt = 0;
@@ -97,7 +97,7 @@ public class CCC_2009_Stage_2_Parade {
     return newP;
   }
 
-  private static byte[][] product (byte[][] a, byte[][] b) {
+  private static byte[][] product(byte[][] a, byte[][] b) {
     byte[][] n = new byte[4][4];
     for (int i = 0; i < 4; i++) {
       for (int j = 0; j < 4; j++) {
@@ -108,26 +108,52 @@ public class CCC_2009_Stage_2_Parade {
     return n;
   }
 
-  private static void swap (byte[][] p, byte[][] np, int r, int c, int r2, int c2) {
+  private static void swap(byte[][] p, byte[][] np, int r, int c, int r2, int c2) {
     np[r2][c2] = p[r][c];
   }
 
-  static int l (int n) {
+  static int l(int n) {
     return 1 << n;
   }
 
-  static int r (int n) {
+  static int r(int n) {
     return 1 << n | 1;
   }
 
-  static int m (int x, int y) {
+  static int m(int x, int y) {
     return (x + y) / 2;
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Command {
     int r, c, k;
 
-    Command (int r, int c, int k) {
+    Command(int r, int c, int k) {
       this.r = r;
       this.c = c;
       this.k = k;
@@ -138,35 +164,9 @@ public class CCC_2009_Stage_2_Parade {
     int left, right;
     byte[][] p;
 
-    Node (int left, int right) {
+    Node(int left, int right) {
       this.left = left;
       this.right = right;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -18,7 +18,7 @@ public class CCC_2016_Stage_2_Field_Trip {
   static boolean[] vis;
   static int N, M, K;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -65,7 +65,7 @@ public class CCC_2016_Stage_2_Field_Trip {
     out.close();
   }
 
-  static State dfs (int u, int prev) {
+  static State dfs(int u, int prev) {
     State ret = new State(1, false);
     vis[u] = true;
 
@@ -84,39 +84,39 @@ public class CCC_2016_Stage_2_Field_Trip {
     return ret;
   }
 
-  static class State {
-    boolean isCycle;
-    int sz;
-
-    State (int sz, boolean isCycle) {
-      this.sz = sz;
-      this.isCycle = isCycle;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    boolean isCycle;
+    int sz;
+
+    State(int sz, boolean isCycle) {
+      this.sz = sz;
+      this.isCycle = isCycle;
+    }
   }
 }

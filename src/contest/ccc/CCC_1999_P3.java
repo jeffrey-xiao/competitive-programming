@@ -11,10 +11,10 @@ public class CCC_1999_P3 {
   static StringTokenizer st;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
-      int size = (int)Math.pow(3, n);
+      int size = (int) Math.pow(3, n);
       g = new char[size][size];
       for (int x = 0; x < size; x++)
         for (int y = 0; y < size; y++)
@@ -34,7 +34,7 @@ public class CCC_1999_P3 {
     }
   }
 
-  private static void fractal (int x1, int x2, int y1, int y2, int n) {
+  private static void fractal(int x1, int x2, int y1, int y2, int n) {
     int gapx = (x2 - x1) / 3 + 1;
     int startx = x1 + gapx;
     int gapy = (y2 - y1) / 3 + 1;
@@ -44,7 +44,7 @@ public class CCC_1999_P3 {
         g[x][y] = ' ';
     if (n == 0)
       return;
-    int d = (int)Math.pow(3, n) - 1;
+    int d = (int) Math.pow(3, n) - 1;
     fractal(x1, x1 + d, y2 - d, y2, n - 1);
     fractal(x1 + d + 1, x1 + 2 * d + 1, y2 - d, y2, n - 1);
     fractal(x2 - d, x2, y2 - d, y2, n - 1);
@@ -58,25 +58,25 @@ public class CCC_1999_P3 {
 
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

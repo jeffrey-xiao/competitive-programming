@@ -18,7 +18,7 @@ public class COCI_2015_SLON {
 
   static long P, M;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +38,7 @@ public class COCI_2015_SLON {
   }
 
   // finds all solutions to ax = b mod n
-  public static ArrayList<Long> linearEquationSolver (long a, long b, long n) {
+  public static ArrayList<Long> linearEquationSolver(long a, long b, long n) {
     ArrayList<Long> ret = new ArrayList<Long>();
     long[] res = euclid(a, n);
     long d = res[0], x = res[1];
@@ -53,7 +53,7 @@ public class COCI_2015_SLON {
   }
 
   // returns d = gcd(a, b); finds x, y such that d = ax * by
-  public static long[] euclid (long a, long b) {
+  public static long[] euclid(long a, long b) {
     long x = 1, y = 0, x1 = 0, y1 = 1, t;
     while (b != 0) {
       long q = a / b;
@@ -67,22 +67,22 @@ public class COCI_2015_SLON {
       b = a - q * b;
       a = t;
     }
-    return a > 0 ? new long[] {a, x, y} : new long[] {-a, -x, -y};
+    return a > 0 ? new long[]{a, x, y} : new long[]{-a, -x, -y};
   }
 
-  static long mod (long a, long b) {
+  static long mod(long a, long b) {
     return ((a % b) + b) % b;
   }
 
-  private static boolean isDelim (char c) {
+  private static boolean isDelim(char c) {
     return c == ' ';
   }
 
-  private static boolean isOperator (char c) {
+  private static boolean isOperator(char c) {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
   }
 
-  private static int getPriority (char op) {
+  private static int getPriority(char op) {
     switch (op) {
       case '+':
       case '-':
@@ -96,7 +96,7 @@ public class COCI_2015_SLON {
     }
   }
 
-  static void operate (LinkedList<Long> st, char op) {
+  static void operate(LinkedList<Long> st, char op) {
     long r = st.removeLast();
     long l = st.removeLast();
     switch (op) {
@@ -112,7 +112,7 @@ public class COCI_2015_SLON {
     }
   }
 
-  public static long eval (String s, long x) {
+  public static long eval(String s, long x) {
     LinkedList<Long> st = new LinkedList<>();
     LinkedList<Character> op = new LinkedList<>();
     for (int i = 0; i < s.length(); i++) {
@@ -146,29 +146,29 @@ public class COCI_2015_SLON {
     return st.get(0);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -16,7 +16,7 @@ public class Glenforest_Friendship_Is_A_Number {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<User> l = new ArrayList<User>();
     for (int i = 1; i <= n; i++) {
@@ -31,44 +31,44 @@ public class Glenforest_Friendship_Is_A_Number {
       System.out.println(l.get(i).id);
   }
 
-  static class User implements Comparable<User> {
-    int id;
-    Long point;
-
-    User (int id, long point) {
-      this.id = id;
-      this.point = point;
-    }
-
-    @Override
-    public int compareTo (User o) {
-      return o.point.compareTo(point);
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class User implements Comparable<User> {
+    int id;
+    Long point;
+
+    User(int id, long point) {
+      this.id = id;
+      this.point = point;
+    }
+
+    @Override
+    public int compareTo(User o) {
+      return o.point.compareTo(point);
+    }
   }
 }

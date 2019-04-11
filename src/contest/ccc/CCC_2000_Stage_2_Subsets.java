@@ -19,7 +19,7 @@ public class CCC_2000_Stage_2_Subsets {
   static boolean[] visited = new boolean[26];
   static TreeSet<Integer> setsToPrint;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = 0; x < 26; x++) {
       sets.add(new TreeSet<Character>());
       link.add(new ArrayList<Integer>());
@@ -32,7 +32,7 @@ public class CCC_2000_Stage_2_Subsets {
       next();
       int s = next().charAt(0);
       if (s >= 97)
-        sets.get(set).add((char)s);
+        sets.get(set).add((char) s);
       else {
         link.get(set).add(s - 65);
         if (!moves.contains(set))
@@ -48,13 +48,13 @@ public class CCC_2000_Stage_2_Subsets {
       for (char y : sets.get(x))
         s += "," + y;
       if (s.equals(""))
-        System.out.println((char)(x + 65) + " = {}");
+        System.out.println((char) (x + 65) + " = {}");
       else
-        System.out.println((char)(x + 65) + " = {" + s.substring(1, s.length()) + "}");
+        System.out.println((char) (x + 65) + " = {" + s.substring(1, s.length()) + "}");
     }
   }
 
-  private static void dfs (int curr) {
+  private static void dfs(int curr) {
     if (visited[curr])
       return;
     visited[curr] = true;
@@ -67,25 +67,25 @@ public class CCC_2000_Stage_2_Subsets {
     return;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 

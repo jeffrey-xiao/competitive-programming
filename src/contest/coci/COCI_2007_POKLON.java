@@ -19,7 +19,7 @@ public class COCI_2007_POKLON {
   static int[] dp;
   static int[] prev;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Range[] r = new Range[n];
     dp = new int[n];
@@ -51,7 +51,7 @@ public class COCI_2007_POKLON {
     }
   }
 
-  static int query (int X) {
+  static int query(int X) {
     int res = -1;
     for (int x = X; x > 0; x -= (x & -x)) {
       if (bit[x] != -1 && (res == -1 || dp[bit[x]] > dp[res])) {
@@ -61,52 +61,52 @@ public class COCI_2007_POKLON {
     return res;
   }
 
-  static void update (int X, int v) {
+  static void update(int X, int v) {
     for (int x = X; x < 1000001; x += (x & -x)) {
       if (bit[x] == -1 || dp[v] > dp[bit[x]])
         bit[x] = v;
     }
   }
 
-  static class Range implements Comparable<Range> {
-    int l, r;
-
-    Range (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-
-    @Override
-    public int compareTo (Range o) {
-      if (l == o.l)
-        return r - o.r;
-      return o.l - l;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Range implements Comparable<Range> {
+    int l, r;
+
+    Range(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
+
+    @Override
+    public int compareTo(Range o) {
+      if (l == o.l)
+        return r - o.r;
+      return o.l - l;
+    }
   }
 }

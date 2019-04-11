@@ -12,7 +12,7 @@ public class COCI_2007_PLATFORME {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int[][] platforms = new int[n + 1][3];
     platforms[0][0] = 0;
@@ -27,7 +27,7 @@ public class COCI_2007_PLATFORME {
     Arrays.sort(platforms, new Comparator<int[]>() {
 
       @Override
-      public int compare (int[] o1, int[] o2) {
+      public int compare(int[] o1, int[] o2) {
         return o1[0] - o2[0];
       }
 
@@ -49,25 +49,25 @@ public class COCI_2007_PLATFORME {
     System.out.println(count);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

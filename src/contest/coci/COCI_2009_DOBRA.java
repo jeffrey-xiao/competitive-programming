@@ -7,14 +7,14 @@ public class COCI_2009_DOBRA {
   static String vowels = "AEIOU";
   static String consonants = "BCDFGHJKLMNPQRSTVYXZ";
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     String s = scan.next();
     boolean isL = s.indexOf('L') == -1 ? false : true;
     int sum = getSum(s, isL);
     System.out.println(sum);
   }
 
-  private static int getSum (String s, boolean b) {
+  private static int getSum(String s, boolean b) {
     int sum = 0;
 
     int indexOf_ = s.indexOf('_');

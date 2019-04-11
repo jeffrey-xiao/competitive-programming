@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Hole_In_The_Bucket {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int volume = scan.nextInt();
     int numOfBuckets = scan.nextInt();
     while (volume != 0) {
@@ -40,11 +40,11 @@ public class Hole_In_The_Bucket {
     }
   }
 
-  public static int min (int a, int b) {
+  public static int min(int a, int b) {
     return a < b ? a : b;
   }
 
-  public static int max (int a, int b) {
+  public static int max(int a, int b) {
     return a < b ? a : b;
   }
 }

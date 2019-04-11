@@ -17,7 +17,7 @@ public class FHC_2016_Round_1_Laundro_Matt {
   static long[] min, wash;
   static int[] index;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -64,7 +64,7 @@ public class FHC_2016_Round_1_Laundro_Matt {
     out.close();
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       min[n] = wash[l];
       index[n] = l;
@@ -76,7 +76,7 @@ public class FHC_2016_Round_1_Laundro_Matt {
     pushUp(n);
   }
 
-  static void update (int n, int l, int r, int x) {
+  static void update(int n, int l, int r, int x) {
     if (l == x && x == r) {
       min[n] += wash[l];
       return;
@@ -89,7 +89,7 @@ public class FHC_2016_Round_1_Laundro_Matt {
     pushUp(n);
   }
 
-  static void pushUp (int n) {
+  static void pushUp(int n) {
     if (min[n << 1] < min[n << 1 | 1]) {
       min[n] = min[n << 1];
       index[n] = index[n << 1];
@@ -99,29 +99,29 @@ public class FHC_2016_Round_1_Laundro_Matt {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_2002_A_Planning_Session {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int t = scan.nextInt(); t > 0; t--) {
       String[] s = scan.next().split(":");
       int mins = (Integer.parseInt(s[0]) - 1) * 60 + Integer.parseInt(s[1]);

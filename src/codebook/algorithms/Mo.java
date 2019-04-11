@@ -28,14 +28,14 @@ public class Mo {
 
   static int res;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     n = readInt();
-    sz = (int)Math.sqrt(n);
+    sz = (int) Math.sqrt(n);
 
     a = new int[n + 1];
     for (int i = 1; i <= n; i++)
@@ -75,58 +75,58 @@ public class Mo {
     out.close();
   }
 
-  static void update (int i) {
+  static void update(int i) {
     cnt[i]++;
     if (cnt[i] == 1)
       res++;
   }
 
-  static void remove (int i) {
+  static void remove(int i) {
     cnt[i]--;
     if (cnt[i] == 0)
       res--;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Query implements Comparable<Query> {
     int l, r, index;
 
-    Query (int l, int r, int index) {
+    Query(int l, int r, int index) {
       this.l = l;
       this.r = r;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Query o) {
+    public int compareTo(Query o) {
       if ((l - 1) / sz != (o.l - 1) / sz)
         return (l - 1) / sz - (o.l - 1) / sz;
       return r - o.r;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

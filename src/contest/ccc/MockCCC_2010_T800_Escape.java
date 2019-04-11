@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class MockCCC_2010_T800_Escape {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     int r = scan.nextInt();
     int c = scan.nextInt();
@@ -25,7 +25,7 @@ public class MockCCC_2010_T800_Escape {
     }
     // 0 is r, 1 is c, 2 is moves, 3 is k
     Queue<int[]> moves = new LinkedList<int[]>();
-    moves.add(new int[] {r1, c1, 0, k});
+    moves.add(new int[]{r1, c1, 0, k});
     while (!moves.isEmpty()) {
       int[] curr = moves.poll();
 
@@ -42,15 +42,15 @@ public class MockCCC_2010_T800_Escape {
         return;
       }
       if (grid[curr[0]][curr[1]] == 'R') {
-        moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1, k - 1});
-        moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1, k - 1});
-        moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1, k - 1});
-        moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1, k - 1});
+        moves.add(new int[]{curr[0] - 1, curr[1], curr[2] + 1, k - 1});
+        moves.add(new int[]{curr[0] + 1, curr[1], curr[2] + 1, k - 1});
+        moves.add(new int[]{curr[0], curr[1] - 1, curr[2] + 1, k - 1});
+        moves.add(new int[]{curr[0], curr[1] + 1, curr[2] + 1, k - 1});
       } else {
-        moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1, curr[3] - 1});
-        moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1, curr[3] - 1});
-        moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1, curr[3] - 1});
-        moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1, curr[3] - 1});
+        moves.add(new int[]{curr[0] - 1, curr[1], curr[2] + 1, curr[3] - 1});
+        moves.add(new int[]{curr[0] + 1, curr[1], curr[2] + 1, curr[3] - 1});
+        moves.add(new int[]{curr[0], curr[1] - 1, curr[2] + 1, curr[3] - 1});
+        moves.add(new int[]{curr[0], curr[1] + 1, curr[2] + 1, curr[3] - 1});
       }
     }
     System.out.println("T-800 Terminated.");

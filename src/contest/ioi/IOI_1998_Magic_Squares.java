@@ -13,16 +13,14 @@ import java.util.StringTokenizer;
 
 public class IOI_1998_Magic_Squares {
 
+  static final int SIZE = 8;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
   static int count = 0;
-  static final int SIZE = 8;
-
   static HashMap<Perm, Integer> toIndex = new HashMap<Perm, Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     Perm p = new Perm();
     p.num[0] = 1;
     p.num[1] = 2;
@@ -98,17 +96,7 @@ public class IOI_1998_Magic_Squares {
     }
   }
 
-  static class State {
-    String s;
-    Perm p;
-
-    State (Perm p, String s) {
-      this.p = p;
-      this.s = s;
-    }
-  }
-
-  private static void generate (int i, Perm p) {
+  private static void generate(int i, Perm p) {
 
     if (i == SIZE - 1) {
       toIndex.put(p, count);
@@ -123,25 +111,65 @@ public class IOI_1998_Magic_Squares {
     generate(i + 1, new Perm(p));
   }
 
-  private static void swap (byte[] b, int x, int y) {
+  private static void swap(byte[] b, int x, int y) {
     byte temp = b[x];
     b[x] = b[y];
     b[y] = temp;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static byte readByte() throws IOException {
+    return Byte.parseByte(next());
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class State {
+    String s;
+    Perm p;
+
+    State(Perm p, String s) {
+      this.p = p;
+      this.s = s;
+    }
+  }
+
   static class Perm {
     byte[] num = new byte[8];
 
-    Perm () {
+    Perm() {
     }
 
-    Perm (Perm p) {
+    Perm(Perm p) {
       for (int x = 0; x < 8; x++)
         num[x] = p.num[x];
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       int res = 0;
       for (int x = 0; x < 8; x++)
         res = (res * 31) + new Byte(num[x]).hashCode();
@@ -149,9 +177,9 @@ public class IOI_1998_Magic_Squares {
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Perm) {
-        Perm p = (Perm)o;
+        Perm p = (Perm) o;
         for (int x = 0; x < 8; x++)
           if (num[x] != p.num[x])
             return false;
@@ -159,35 +187,5 @@ public class IOI_1998_Magic_Squares {
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static byte readByte () throws IOException {
-    return Byte.parseByte(next());
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

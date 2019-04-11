@@ -7,11 +7,11 @@ import java.io.InputStreamReader;
 public class Cyclopian_Puzzle {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-  public static void main (String[] args) throws NumberFormatException, IOException {
+  public static void main(String[] args) throws NumberFormatException, IOException {
     solve(Integer.parseInt(br.readLine()), 'A', 'B', 'C');
   }
 
-  public static void solve (int n, char origin, char temp, char dest) {
+  public static void solve(int n, char origin, char temp, char dest) {
     if (n == 0)
       return;
 

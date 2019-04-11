@@ -17,7 +17,7 @@ public class USACO_2012_Relocation {
   static int[][] paths;
   static int[] markets;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int m = readInt();
     int k = readInt();
@@ -41,7 +41,8 @@ public class USACO_2012_Relocation {
       getPath(markets[x], x);
     permute(k, k, new ArrayList<Integer>());
     int minValue = Integer.MAX_VALUE;
-    main : for (int x = 0; x < n; x++) {
+    main:
+    for (int x = 0; x < n; x++) {
       for (int y = 0; y < k; y++) {
         if (x == markets[y]) {
           continue main;
@@ -58,7 +59,7 @@ public class USACO_2012_Relocation {
     System.out.println(minValue);
   }
 
-  private static void permute (int i, int c, ArrayList<Integer> a) {
+  private static void permute(int i, int c, ArrayList<Integer> a) {
     if (c == 0) {
       int sum = 0;
       for (int x = 0; x < a.size() - 1; x++)
@@ -70,12 +71,12 @@ public class USACO_2012_Relocation {
       if (!a.contains(x)) {
         a.add(x);
         permute(i, c - 1, a);
-        a.remove((Integer)x);
+        a.remove((Integer) x);
       }
     }
   }
 
-  private static void getPath (int s, int i) {
+  private static void getPath(int s, int i) {
     int[] m = min.get(i);
     for (int x = 0; x < n; x++)
       if (x != s)
@@ -94,11 +95,33 @@ public class USACO_2012_Relocation {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
@@ -108,36 +131,14 @@ public class USACO_2012_Relocation {
     int index;
     int cost;
 
-    Vertex (int index, int cost) {
+    Vertex(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return cost - v.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

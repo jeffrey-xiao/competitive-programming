@@ -22,7 +22,7 @@ public class IOI_1996_Network_Of_Schools {
   static int n;
   static Stack<Integer> s = new Stack<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     id = new int[n];
     for (int x = 0; x < n; x++) {
@@ -80,7 +80,7 @@ public class IOI_1996_Network_Of_Schools {
     System.out.println(count == 1 ? 0 : Math.max(l1, l2));
   }
 
-  private static void computeG (int x, boolean[] v, int c) {
+  private static void computeG(int x, boolean[] v, int c) {
     id[x] = c;
     v[x] = true;
     for (Integer i : adj.get(x)) {
@@ -90,7 +90,7 @@ public class IOI_1996_Network_Of_Schools {
     }
   }
 
-  private static void computeS (int x, boolean[] v) {
+  private static void computeS(int x, boolean[] v) {
     v[x] = true;
     for (Integer i : rev.get(x)) {
       if (v[i])
@@ -100,7 +100,7 @@ public class IOI_1996_Network_Of_Schools {
     s.push(x);
   }
 
-  private static void find (int x) {
+  private static void find(int x) {
 
     boolean[] v = new boolean[n];
     v[x] = true;
@@ -124,25 +124,25 @@ public class IOI_1996_Network_Of_Schools {
     include.add(x);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

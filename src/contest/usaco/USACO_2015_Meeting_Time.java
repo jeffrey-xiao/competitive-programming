@@ -14,7 +14,7 @@ public class USACO_2015_Meeting_Time {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     boolean[][] poss1 = new boolean[n][15001];
@@ -50,39 +50,39 @@ public class USACO_2015_Meeting_Time {
     System.out.println("IMPOSSIBLE");
   }
 
-  static class Edge {
-    int dest, a, b;
-
-    Edge (int dest, int a, int b) {
-      this.dest = dest;
-      this.a = a;
-      this.b = b;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest, a, b;
+
+    Edge(int dest, int a, int b) {
+      this.dest = dest;
+      this.a = a;
+      this.b = b;
+    }
   }
 }

@@ -40,7 +40,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
   static boolean[] vis, inStack;
   static int[] lRange, rRange;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -173,28 +173,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     out.close();
   }
 
-  static class State implements Comparable<State> {
-    int x, index, cnt;
-
-    State (int x, int index, int cnt) {
-      this.x = x;
-      this.index = index;
-      this.cnt = cnt;
-    }
-
-    State (int x, int index) {
-      this(x, index, 0);
-    }
-
-    @Override
-    public int compareTo (State o) {
-      if (x == o.x)
-        return index - o.index;
-      return x - o.x;
-    }
-  }
-
-  static void order (int u) {
+  static void order(int u) {
     vis[u] = true;
     for (int v : g.get(u))
       if (!vis[v])
@@ -203,7 +182,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     q.addLast(u);
   }
 
-  static void dfs (int u) {
+  static void dfs(int u) {
     disc[u] = lo[u] = ++cnt;
     q.addLast(u);
     inStack[u] = true;
@@ -231,7 +210,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     }
   }
 
-  static int queryMin (int n, int l, int r, int ql, int qr) {
+  static int queryMin(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr) {
       return minIndex[n];
     }
@@ -252,7 +231,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     }
   }
 
-  static int queryMax (int n, int l, int r, int ql, int qr) {
+  static int queryMax(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr) {
       return maxIndex[n];
     }
@@ -273,7 +252,7 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     }
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       minIndex[n] = l;
       maxIndex[n] = l;
@@ -298,10 +277,57 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int x, index, cnt;
+
+    State(int x, int index, int cnt) {
+      this.x = x;
+      this.index = index;
+      this.cnt = cnt;
+    }
+
+    State(int x, int index) {
+      this(x, index, 0);
+    }
+
+    @Override
+    public int compareTo(State o) {
+      if (x == o.x)
+        return index - o.index;
+      return x - o.x;
+    }
+  }
+
   static class Mine implements Comparable<Mine> {
     int pos, l, r, index, cnt;
 
-    Mine (int pos, int l, int r, int cnt) {
+    Mine(int pos, int l, int r, int cnt) {
       this.pos = pos;
       this.l = l;
       this.r = r;
@@ -309,36 +335,10 @@ public class Woburn_Challenge_2015_Lex_Luthors_Landmines {
     }
 
     @Override
-    public int compareTo (Mine o) {
+    public int compareTo(Mine o) {
       if (pos == o.pos)
         return index - o.index;
       return pos - o.pos;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

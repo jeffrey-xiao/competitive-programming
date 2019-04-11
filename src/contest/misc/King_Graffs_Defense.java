@@ -20,7 +20,7 @@ public class King_Graffs_Defense {
   static int count = 0;
   static int n, m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -51,11 +51,11 @@ public class King_Graffs_Defense {
         total += (size) * (size - 1) / 2;
       }
     }
-    out.printf("%.5f\n", 1 - total / (double)((long)n * (n - 1) / 2));
+    out.printf("%.5f\n", 1 - total / (double) ((long) n * (n - 1) / 2));
     out.close();
   }
 
-  static int getSize (int i) {
+  static int getSize(int i) {
     int ret = 1;
     v[i] = true;
     for (Edge j : adj.get(i))
@@ -64,7 +64,7 @@ public class King_Graffs_Defense {
     return ret;
   }
 
-  static void dfs (int i, int prev) {
+  static void dfs(int i, int prev) {
     disc[i] = low[i] = count++;
     v[i] = true;
     for (int j = 0; j < adj.get(i).size(); j++) {
@@ -82,40 +82,40 @@ public class King_Graffs_Defense {
     }
   }
 
-  static class Edge {
-    int a, b;
-    boolean bridge;
-
-    Edge (int a, int b) {
-      this.a = a;
-      this.b = b;
-    }
-
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int a, b;
+    boolean bridge;
+
+    Edge(int a, int b) {
+      this.a = a;
+      this.b = b;
+    }
+
   }
 }

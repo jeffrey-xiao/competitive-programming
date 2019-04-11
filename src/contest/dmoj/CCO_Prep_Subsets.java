@@ -10,17 +10,15 @@ import java.util.StringTokenizer;
 
 public class CCO_Prep_Subsets {
 
+  static final int MOD = 1000000001;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final int MOD = 1000000001;
-
   static int n;
   static ArrayList<Integer> row;
   static int gln3;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -28,7 +26,7 @@ public class CCO_Prep_Subsets {
 
     n = readInt();
     row = new ArrayList<Integer>();
-    gln3 = (int)(Math.log(n) / Math.log(3)) + 1;
+    gln3 = (int) (Math.log(n) / Math.log(3)) + 1;
     for (int i = 0; i < 1 << gln3; i++) {
       boolean valid = true;
       for (int j = 0; j < gln3 - 1; j++)
@@ -47,8 +45,8 @@ public class CCO_Prep_Subsets {
     out.close();
   }
 
-  static int solve (int c) {
-    int ln2 = (int)(Math.log(n / c) / Math.log(2)) + 1;
+  static int solve(int c) {
+    int ln2 = (int) (Math.log(n / c) / Math.log(2)) + 1;
     int[][] dp = new int[2][1 << gln3];
     for (int i = 0; i < ln2; i++) {
       dp[i % 2] = new int[1 << gln3];
@@ -77,35 +75,35 @@ public class CCO_Prep_Subsets {
     return ans;
   }
 
-  static int mod (int x) {
+  static int mod(int x) {
     if (x > MOD)
       x -= MOD;
     return x;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

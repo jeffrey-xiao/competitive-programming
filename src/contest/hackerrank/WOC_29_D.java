@@ -12,17 +12,16 @@ import java.util.StringTokenizer;
 
 public class WOC_29_D {
 
+  static final long MAX_VALUE = (long) (1e15);
+  static final int UNCERTAINITY = 20;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final long MAX_VALUE = (long)(1e15);
-  static final int UNCERTAINITY = 20;
   static long A, B, ans;
   static ArrayList<Integer> primes = new ArrayList<Integer>();
   static Random rng = new Random(0);
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,7 +43,7 @@ public class WOC_29_D {
     out.close();
   }
 
-  static long nextCandidateMegaPrime (long n) {
+  static long nextCandidateMegaPrime(long n) {
     char[] temp = ("0" + Long.toString(n)).toCharArray();
     int[] value = new int[temp.length];
     for (int i = 0; i < temp.length; i++)
@@ -64,30 +63,30 @@ public class WOC_29_D {
     return megaPrimeToLong(value);
   }
 
-  static long megaPrimeToLong (int[] curr) {
+  static long megaPrimeToLong(int[] curr) {
     long ret = 0;
     for (int i = 0; i < curr.length; i++)
       ret = ret * 10 + curr[i];
     return ret;
   }
 
-  static long incrementMegaPrime (long n) {
+  static long incrementMegaPrime(long n) {
     long prev = n % 10;
-    long curr = getNextValue((int)prev);
+    long curr = getNextValue((int) prev);
     if (prev >= 7)
       return incrementMegaPrime(n / 10) * 10 + curr;
     else
       return n / 10 * 10 + curr;
   }
 
-  static void propagate (int[] value, int index) {
+  static void propagate(int[] value, int index) {
     int prev = value[index];
     value[index] = getNextValue(value[index]);
     if (prev >= 7)
       propagate(value, index - 1);
   }
 
-  static int getNextValue (int n) {
+  static int getNextValue(int n) {
     switch (n) {
       case 0:
       case 1:
@@ -109,33 +108,33 @@ public class WOC_29_D {
     return -1;
   }
 
-  static boolean isPrime (long n) {
+  static boolean isPrime(long n) {
     return new BigInteger(Long.toString(n)).isProbablePrime(UNCERTAINITY);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class COCI_2009_SOK {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     double a = scan.nextInt();
     double b = scan.nextInt();
     double c = scan.nextInt();

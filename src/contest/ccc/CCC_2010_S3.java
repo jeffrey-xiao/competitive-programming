@@ -8,13 +8,13 @@ import java.util.StringTokenizer;
 
 public class CCC_2010_S3 {
 
+  static final int LEN = 1000000;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
-  static final int LEN = 1000000;
   static int[] h;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     h = new int[2 * n];
     for (int x = 0; x < n; x++)
@@ -39,14 +39,14 @@ public class CCC_2010_S3 {
     System.out.println(lo);
   }
 
-  static int poss (int mid) {
+  static int poss(int mid) {
     int hydrants = 1 << 30;
     for (int i = 0; i < Math.min(n, 10); i++)
       hydrants = Math.min(hydrants, compute(i, mid));
     return hydrants;
   }
 
-  static int compute (int j, int mid) {
+  static int compute(int j, int mid) {
     int curr = j, hydrants = 1;
     for (int i = j; i < n + j; i++)
       if (h[i] - h[curr] > 2 * mid) {
@@ -56,25 +56,25 @@ public class CCC_2010_S3 {
     return hydrants;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

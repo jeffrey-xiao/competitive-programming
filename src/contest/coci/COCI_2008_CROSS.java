@@ -16,7 +16,7 @@ public class COCI_2008_CROSS {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int[][] pos = new int[9][9];
     int[][] num = new int[9][9];
     Queue<Point> q = new LinkedList<Point>();
@@ -67,7 +67,8 @@ public class COCI_2008_CROSS {
       }
       for (int n = 1; n <= 9; n++) {
         for (int i = 0; i < 3; i++) {
-          next : for (int j = 0; j < 3; j++) {
+          next:
+          for (int j = 0; j < 3; j++) {
             boolean has = false;
             int nx = 0;
             int ny = 0;
@@ -109,38 +110,38 @@ public class COCI_2008_CROSS {
     }
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

@@ -26,7 +26,7 @@ public class milk3 {
 
   static ArrayList<Integer> ts = new ArrayList<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("milk3.in"));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("milk3.out")));
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -49,7 +49,7 @@ public class milk3 {
     System.exit(0);
   }
 
-  private static void dfs (int x, int y, int z) {
+  private static void dfs(int x, int y, int z) {
     if (v[x][y][z])
       return;
     v[x][y][z] = true;
@@ -76,25 +76,25 @@ public class milk3 {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

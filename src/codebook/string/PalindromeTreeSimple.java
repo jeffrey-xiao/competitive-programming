@@ -21,7 +21,7 @@ public class PalindromeTreeSimple {
   private int ans = 0;
 
   // initializing the tree and the roots
-  PalindromeTreeSimple () {
+  PalindromeTreeSimple() {
     tree = new ArrayList<Node>();
     seq = new ArrayList<Character>();
     // the root has a length of negative one for convenience
@@ -33,24 +33,19 @@ public class PalindromeTreeSimple {
     tree.add(root);
   }
 
-  class Node {
-    private int num, len;
-    private Node suffixLink;
-    private Node[] nextLink;
-
-    Node () {
-      this(0, 0);
-    }
-
-    Node (int num, int len) {
-      this.num = num;
-      this.len = len;
-      this.suffixLink = null;
-      this.nextLink = new Node[26];
-    }
+  public static void main(String[] args) {
+    PalindromeTreeSimple m = new PalindromeTreeSimple();
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 1;
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 3;
+    m.deleteCharacter();
+    m.deleteCharacter();
+    m.addCharacter('a');
+    assert m.getPalindromeCount() == 1;
   }
 
-  public void addCharacter (char c) {
+  public void addCharacter(char c) {
     seq.add(c);
     Node curr = tree.get(tree.size() - 1);
     // find the suffix to extend so that when we add character c it will be a palindrome
@@ -83,7 +78,7 @@ public class PalindromeTreeSimple {
     tree.add(next);
   }
 
-  public void deleteCharacter () {
+  public void deleteCharacter() {
     // subtract the answer from the last palindrome node
     ans -= tree.get(tree.size() - 1).num;
     // remove the palindrome node and the last character added
@@ -91,19 +86,24 @@ public class PalindromeTreeSimple {
     seq.remove(tree.size() - 1);
   }
 
-  public int getPalindromeCount () {
+  public int getPalindromeCount() {
     return ans;
   }
 
-  public static void main (String[] args) {
-    PalindromeTreeSimple m = new PalindromeTreeSimple();
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 1;
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 3;
-    m.deleteCharacter();
-    m.deleteCharacter();
-    m.addCharacter('a');
-    assert m.getPalindromeCount() == 1;
+  class Node {
+    private int num, len;
+    private Node suffixLink;
+    private Node[] nextLink;
+
+    Node() {
+      this(0, 0);
+    }
+
+    Node(int num, int len) {
+      this.num = num;
+      this.len = len;
+      this.suffixLink = null;
+      this.nextLink = new Node[26];
+    }
   }
 }

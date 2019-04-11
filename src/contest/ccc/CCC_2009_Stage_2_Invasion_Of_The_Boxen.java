@@ -10,7 +10,7 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     Point s = new Point(0, 0);
     Point dir = new Point(readInt(), readInt());
@@ -55,10 +55,32 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     double x, y;
 
-    Point (double x, double y) {
+    Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
@@ -66,18 +88,16 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
   static class Box {
     Point[] p = new Point[4];
-
-    Box (Point p1, Point p2, Point p3, Point p4) {
+    Point inter;
+    double minDist;
+    Box(Point p1, Point p2, Point p3, Point p4) {
       p[0] = p1;
       p[1] = p2;
       p[2] = p3;
       p[3] = p4;
     }
 
-    Point inter;
-    double minDist;
-
-    public int checkIntersection (Point s, Point dir, boolean print) {
+    public int checkIntersection(Point s, Point dir, boolean print) {
       Point closest = null;
       double dist = Integer.MAX_VALUE;
       int index = -1;
@@ -127,13 +147,13 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
       return index;
     }
 
-    private double getDist (Point s, Point next) {
+    private double getDist(Point s, Point next) {
       double x = s.x - next.x;
       double y = s.y - next.y;
       return x * x + y * y;
     }
 
-    private Point getInter (Point s1, Point s2, Point p1, Point p2) {
+    private Point getInter(Point s1, Point s2, Point p1, Point p2) {
       double A1 = s2.y - s1.y;
       double B1 = s1.x - s2.x;
       double C1 = A1 * s1.x + B1 * s1.y;
@@ -150,27 +170,5 @@ public class CCC_2009_Stage_2_Invasion_Of_The_Boxen {
 
       return new Point(x, y);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

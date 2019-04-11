@@ -9,15 +9,15 @@ package codebook.algorithms;
 import java.util.LinkedList;
 
 public class ShuntingYard {
-  private static boolean isDelim (char c) {
+  private static boolean isDelim(char c) {
     return c == ' ';
   }
 
-  private static boolean isOperator (char c) {
+  private static boolean isOperator(char c) {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
   }
 
-  private static int getPriority (char op) {
+  private static int getPriority(char op) {
     switch (op) {
       case '+':
       case '-':
@@ -31,7 +31,7 @@ public class ShuntingYard {
     }
   }
 
-  static void operate (LinkedList<Integer> st, char op) {
+  static void operate(LinkedList<Integer> st, char op) {
     int r = st.removeLast();
     int l = st.removeLast();
     switch (op) {
@@ -53,7 +53,7 @@ public class ShuntingYard {
     }
   }
 
-  public static int eval (String s) {
+  public static int eval(String s) {
     LinkedList<Integer> st = new LinkedList<>();
     LinkedList<Character> op = new LinkedList<>();
     for (int i = 0; i < s.length(); i++) {
@@ -83,7 +83,7 @@ public class ShuntingYard {
     return st.get(0);
   }
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     System.out.println(eval("(1+3)*((5+2)*3)"));
   }
 }

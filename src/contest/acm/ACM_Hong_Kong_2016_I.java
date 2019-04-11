@@ -10,16 +10,14 @@ import java.util.StringTokenizer;
 
 public class ACM_Hong_Kong_2016_I {
 
+  static final double EPS = 1e-9;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
-  static final double EPS = 1e-9;
-
   static int N, M, s, t;
   static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -78,7 +76,7 @@ public class ACM_Hong_Kong_2016_I {
     out.close();
   }
 
-  public static double[][] solve (double[][] A) {
+  public static double[][] solve(double[][] A) {
     int M = A.length;
     int N = A[0].length - 1;
 
@@ -141,7 +139,7 @@ public class ACM_Hong_Kong_2016_I {
     return A;
   }
 
-  static int compare (double[] a, double[] b, int i) {
+  static int compare(double[] a, double[] b, int i) {
     for (int j = 0; j < a.length; j++) {
       if (a[j] > b[j])
         return 1;
@@ -151,33 +149,33 @@ public class ACM_Hong_Kong_2016_I {
     return 0;
   }
 
-  static int getIndex (int i, int j) {
+  static int getIndex(int i, int j) {
     return i * N + j;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

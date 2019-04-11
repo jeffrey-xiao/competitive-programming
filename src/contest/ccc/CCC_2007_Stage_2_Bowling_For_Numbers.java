@@ -17,7 +17,7 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
   static int[] sum, pins;
   static int n, k, w;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -45,7 +45,7 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
     pr.close();
   }
 
-  private static int compute (int k, int x) {
+  private static int compute(int k, int x) {
     System.out.println(k + " " + x);
     if (k <= 0 || x < 0)
       return 0;
@@ -65,29 +65,29 @@ public class CCC_2007_Stage_2_Bowling_For_Numbers {
     return dp[k][x] = res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -16,37 +16,34 @@ public class PersistentBinarySearchTree {
   private ArrayList<Node> versions;
   private int versionNumber;
 
-  private class Node {
-    private Integer value;
-    private Node left, right;
-
-    Node (Integer value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString () {
-      StringBuilder res = new StringBuilder("");
-      if (left != null)
-        res.append(left.toString());
-      res.append(value + " ");
-      if (right != null)
-        res.append(right.toString());
-      return res.toString();
-    }
-  }
-
-  PersistentBinarySearchTree () {
+  PersistentBinarySearchTree() {
     versions = new ArrayList<Node>();
     versions.add(null);
     versionNumber = 0;
   }
 
-  public void add (Integer val) {
+  public static void main(String[] args) {
+    PersistentBinarySearchTree bst = new PersistentBinarySearchTree();
+    bst.add(5);
+    bst.add(4);
+    bst.add(6);
+    bst.add(7);
+    bst.add(1);
+    bst.add(1);
+    bst.add(2);
+    bst.add(3);
+    bst.remove(3);
+    bst.add(10);
+    bst.remove(5);
+    bst.remove(4);
+    System.out.println(bst);
+  }
+
+  public void add(Integer val) {
     versions.add(add(versions.get(versionNumber++), val));
   }
 
-  private Node add (Node curr, Integer val) {
+  private Node add(Node curr, Integer val) {
     if (curr == null)
       return new Node(val);
     int cmp = val.compareTo(curr.value);
@@ -64,11 +61,11 @@ public class PersistentBinarySearchTree {
     return ret;
   }
 
-  public void remove (Integer val) {
+  public void remove(Integer val) {
     versions.add(remove(versions.get(versionNumber++), val));
   }
 
-  private Node remove (Node curr, Integer val) {
+  private Node remove(Node curr, Integer val) {
     if (curr == null)
       return null;
     int cmp = val.compareTo(curr.value);
@@ -94,14 +91,14 @@ public class PersistentBinarySearchTree {
     return ret;
   }
 
-  private Node getMin (Node curr) {
+  private Node getMin(Node curr) {
     while (curr.left != null)
       curr = curr.left;
     return curr;
   }
 
   @Override
-  public String toString () {
+  public String toString() {
     StringBuilder res = new StringBuilder();
     for (Node n : versions) {
       if (n == null)
@@ -112,20 +109,23 @@ public class PersistentBinarySearchTree {
     return res.toString();
   }
 
-  public static void main (String[] args) {
-    PersistentBinarySearchTree bst = new PersistentBinarySearchTree();
-    bst.add(5);
-    bst.add(4);
-    bst.add(6);
-    bst.add(7);
-    bst.add(1);
-    bst.add(1);
-    bst.add(2);
-    bst.add(3);
-    bst.remove(3);
-    bst.add(10);
-    bst.remove(5);
-    bst.remove(4);
-    System.out.println(bst);
+  private class Node {
+    private Integer value;
+    private Node left, right;
+
+    Node(Integer value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder res = new StringBuilder("");
+      if (left != null)
+        res.append(left.toString());
+      res.append(value + " ");
+      if (right != null)
+        res.append(right.toString());
+      return res.toString();
+    }
   }
 }

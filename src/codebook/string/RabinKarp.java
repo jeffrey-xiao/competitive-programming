@@ -17,12 +17,18 @@ public class RabinKarp {
   private String pattern;
   private long patternHash;
 
-  RabinKarp (String pattern) {
+  RabinKarp(String pattern) {
     this.pattern = pattern;
     initialize();
   }
 
-  public int search (String text) {
+  public static void main(String[] args) {
+    RabinKarp rk = new RabinKarp("ISS");
+    assert rk.search("MISSISSIPPI") == 1;
+    assert rk.search("IS") == -1;
+  }
+
+  public int search(String text) {
     if (pattern.length() > text.length())
       return -1;
     long currHash = getHash(text, pattern.length());
@@ -39,30 +45,24 @@ public class RabinKarp {
     return -1;
   }
 
-  public String getPattern () {
+  public String getPattern() {
     return pattern;
   }
 
-  public void setPattern (String pattern) {
+  public void setPattern(String pattern) {
     this.pattern = pattern;
     initialize();
   }
 
-  private void initialize () {
+  private void initialize() {
     patternHash = getHash(pattern, pattern.length());
-    pow = (long)(Math.pow(R, pattern.length() - 1) % MOD);
+    pow = (long) (Math.pow(R, pattern.length() - 1) % MOD);
   }
 
-  private long getHash (String s, int len) {
+  private long getHash(String s, int len) {
     long res = 0;
     for (int i = 0; i < len; i++)
       res = (R * res + s.charAt(i)) % MOD;
     return res;
-  }
-
-  public static void main (String[] args) {
-    RabinKarp rk = new RabinKarp("ISS");
-    assert rk.search("MISSISSIPPI") == 1;
-    assert rk.search("IS") == -1;
   }
 }

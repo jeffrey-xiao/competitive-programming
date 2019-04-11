@@ -14,7 +14,7 @@ public class COCI_2006_TRIK {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     char[] c = next().toCharArray();
     boolean[] move = {true, false, false};
     for (int i = 0; i < c.length; i++) {
@@ -33,35 +33,35 @@ public class COCI_2006_TRIK {
       System.out.println(3);
   }
 
-  static void swap (boolean[] b, int i, int j) {
+  static void swap(boolean[] b, int i, int j) {
     boolean temp = b[i];
     b[i] = b[j];
     b[j] = temp;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

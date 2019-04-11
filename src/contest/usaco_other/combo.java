@@ -18,7 +18,7 @@ public class combo {
   static PrintWriter pr;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("combo.in"));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("combo.out")));
 
@@ -44,13 +44,13 @@ public class combo {
     System.exit(0);
   }
 
-  private static boolean close (int x, int y, int z, int a1, int a2, int a3, int n) {
+  private static boolean close(int x, int y, int z, int a1, int a2, int a3, int n) {
     if (valid(x, a1, n) && valid(y, a2, n) && valid(z, a3, n))
       return true;
     return false;
   }
 
-  private static boolean valid (int x, int a1, int n) {
+  private static boolean valid(int x, int a1, int n) {
     int abs = Math.abs(x - a1);
     if (abs <= 2)
       return true;
@@ -59,25 +59,25 @@ public class combo {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

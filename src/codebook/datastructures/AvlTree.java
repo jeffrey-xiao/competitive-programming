@@ -15,40 +15,51 @@ public class AvlTree {
   // root of the tree
   Node root = null;
 
-  // object representing the nodes of the tree
-  class Node {
-    Integer key, value, height;
-    Node left, right;
-
-    Node (int key, int value) {
-      this.key = key;
-      this.value = value;
-      this.height = 0;
+  public static void main(String[] args) {
+    AvlTree t = new AvlTree();
+    long c = System.currentTimeMillis();
+    for (int x = 0; x < 1000000; x++) {
+      int ran = (int) (Math.random() * (1 << 30)) + 5;
+      t.add(ran);
     }
-
-    Node (int key) {
-      this.key = key;
-      this.value = key;
-      this.height = 0;
-    }
+    // t.traverse(root);
+    t.add(1);
+    System.out.println(t.contains(t.root, 1));
+    System.out.println(t.contains(t.root, 2));
+    t.remove(1);
+    System.out.println(t.contains(t.root, 1));
+    System.out.println(System.currentTimeMillis() - c);
+    // t.add(9);
+    // t.add(5);
+    // t.add(10);
+    // t.add(0);
+    // t.add(6);
+    // t.add(11);
+    // t.add(-1);
+    // t.add(1);
+    // t.add(2);
+    // traverse(root);
+    // t.remove(10);
+    // System.out.println();
+    // t.traverse(root);
 
   }
 
   // methods to reset and get the height of a node
-  private void resetHeight (Node n) {
+  private void resetHeight(Node n) {
     n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
   }
 
-  private int getHeight (Node n) {
+  private int getHeight(Node n) {
     return n == null ? -1 : n.height;
   }
 
-  public void traverse () {
+  public void traverse() {
     traverse(root);
   }
 
   // auxiliary method for traverse
-  private void traverse (Node n) {
+  private void traverse(Node n) {
     if (n == null)
       return;
     traverse(n.left);
@@ -56,12 +67,12 @@ public class AvlTree {
     traverse(n.right);
   }
 
-  public Integer get (Integer k) {
+  public Integer get(Integer k) {
     return get(root, k);
   }
 
   // auxiliary method for get
-  private Integer get (Node n, Integer k) {
+  private Integer get(Node n, Integer k) {
     if (n == null)
       return null;
     int cmp = k.compareTo(n.key);
@@ -72,12 +83,12 @@ public class AvlTree {
     return n.value;
   }
 
-  public boolean contains (Integer k) {
+  public boolean contains(Integer k) {
     return contains(root, k);
   }
 
   // auxiliary method for contains
-  private boolean contains (Node n, Integer k) {
+  private boolean contains(Node n, Integer k) {
     if (n == null)
       return false;
     int cmp = k.compareTo(n.key);
@@ -88,12 +99,12 @@ public class AvlTree {
     return true;
   }
 
-  public void remove (int k) {
+  public void remove(int k) {
     root = remove(root, k);
   }
 
   // auxiliary method for move
-  private Node remove (Node n, Integer k) {
+  private Node remove(Node n, Integer k) {
     if (n == null)
       return n;
     int cmp = k.compareTo(n.key);
@@ -119,22 +130,22 @@ public class AvlTree {
     return balance(n);
   }
 
-  private Node minV (Node n) {
+  private Node minV(Node n) {
     while (n.left != null)
       n = n.left;
     return n;
   }
 
-  public void add (int k, int v) {
+  public void add(int k, int v) {
     root = add(root, k, v);
   }
 
-  public void add (int k) {
+  public void add(int k) {
     root = add(root, k, k);
   }
 
   // auxiliary method for add
-  private Node add (Node n, Integer k, Integer v) {
+  private Node add(Node n, Integer k, Integer v) {
     if (n == null)
       return new Node(k, v);
     int cmp = k.compareTo(n.key);
@@ -148,7 +159,7 @@ public class AvlTree {
   }
 
   // auxiliary function to rebalance the tree
-  private Node balance (Node n) {
+  private Node balance(Node n) {
     resetHeight(n);
     int diff1 = getHeight(n.left) - getHeight(n.right);
     // rotating right
@@ -171,7 +182,7 @@ public class AvlTree {
   }
 
   // rotate left
-  private Node rotateLeft (Node n) {
+  private Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -181,7 +192,7 @@ public class AvlTree {
   }
 
   // rotate right
-  private Node rotateRight (Node n) {
+  private Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -190,33 +201,22 @@ public class AvlTree {
     return x;
   }
 
-  public static void main (String[] args) {
-    AvlTree t = new AvlTree();
-    long c = System.currentTimeMillis();
-    for (int x = 0; x < 1000000; x++) {
-      int ran = (int)(Math.random() * (1 << 30)) + 5;
-      t.add(ran);
+  // object representing the nodes of the tree
+  class Node {
+    Integer key, value, height;
+    Node left, right;
+
+    Node(int key, int value) {
+      this.key = key;
+      this.value = value;
+      this.height = 0;
     }
-    // t.traverse(root);
-    t.add(1);
-    System.out.println(t.contains(t.root, 1));
-    System.out.println(t.contains(t.root, 2));
-    t.remove(1);
-    System.out.println(t.contains(t.root, 1));
-    System.out.println(System.currentTimeMillis() - c);
-    // t.add(9);
-    // t.add(5);
-    // t.add(10);
-    // t.add(0);
-    // t.add(6);
-    // t.add(11);
-    // t.add(-1);
-    // t.add(1);
-    // t.add(2);
-    // traverse(root);
-    // t.remove(10);
-    // System.out.println();
-    // t.traverse(root);
+
+    Node(int key) {
+      this.key = key;
+      this.value = key;
+      this.height = 0;
+    }
 
   }
 }

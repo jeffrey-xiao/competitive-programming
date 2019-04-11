@@ -14,7 +14,7 @@ public class COCI_2007_VECI {
   static char[] ch;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     ch = Integer.toString(n).toCharArray();
     Arrays.sort(ch);
@@ -22,7 +22,7 @@ public class COCI_2007_VECI {
       System.out.println(0);
   }
 
-  private static boolean permute (int i, int c, ArrayList<Integer> a) {
+  private static boolean permute(int i, int c, ArrayList<Integer> a) {
     if (c == 0) {
       String s = "";
       for (int x = 0; x < a.size(); x++)
@@ -39,31 +39,31 @@ public class COCI_2007_VECI {
         if (permute(i, c - 1, a)) {
           return true;
         }
-        a.remove((Integer)x);
+        a.remove((Integer) x);
       }
     }
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

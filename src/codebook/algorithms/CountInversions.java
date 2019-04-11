@@ -22,7 +22,7 @@ public class CountInversions {
 
   static int ans = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -37,7 +37,7 @@ public class CountInversions {
     out.close();
   }
 
-  private static void sort (int[] a, int[] aux, int lo, int hi) {
+  private static void sort(int[] a, int[] aux, int lo, int hi) {
     if (hi - lo <= 0)
       return;
     int mid = (hi + lo) >> 1;
@@ -46,7 +46,7 @@ public class CountInversions {
     merge(a, aux, lo, mid, hi);
   }
 
-  private static void merge (int[] a, int[] aux, int lo, int mid, int hi) {
+  private static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
     for (int i = lo; i <= mid; i++)
       aux[i] = a[i];
     for (int i = lo, j = mid + 1, k = lo; k <= hi; k++) {
@@ -60,29 +60,29 @@ public class CountInversions {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

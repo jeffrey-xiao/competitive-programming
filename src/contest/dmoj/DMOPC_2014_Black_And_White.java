@@ -16,7 +16,7 @@ public class DMOPC_2014_Black_And_White {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -54,7 +54,7 @@ public class DMOPC_2014_Black_And_White {
       for (int x = 0; x < count; x++) {
         currTotal += line[x];
         if (lastx != Integer.MIN_VALUE && currTotal % 2 == 1 && x != count - 1) {
-          totalArea += (currx - lastx) * ((long)toCoord.get(x + 1) - (long)toCoord.get(x));
+          totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
         }
       }
       lastx = currx;
@@ -70,13 +70,39 @@ public class DMOPC_2014_Black_And_White {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Event implements Comparable<Event> {
     int x;
     int y1;
     int y2;
     int value;
 
-    Event (int x, int y1, int y2, int value) {
+    Event(int x, int y1, int y2, int value) {
       this.x = x;
       this.y1 = y1;
       this.y2 = y2;
@@ -84,34 +110,8 @@ public class DMOPC_2014_Black_And_White {
     }
 
     @Override
-    public int compareTo (Event o) {
+    public int compareTo(Event o) {
       return x - o.x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

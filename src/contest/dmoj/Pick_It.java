@@ -13,7 +13,7 @@ public class Pick_It {
   private static int[][] dp = new int[201][201];
   private static int[] a;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
 
     int n = 0;
     while ((n = readInt()) != 0) {
@@ -28,7 +28,7 @@ public class Pick_It {
     }
   }
 
-  private static int solve (int l, int r) {
+  private static int solve(int l, int r) {
     if (l == r)
       return 0;
     if (dp[l][r] != -1)
@@ -40,13 +40,13 @@ public class Pick_It {
     return dp[l][r] = res;
   }
 
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 }

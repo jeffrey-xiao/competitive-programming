@@ -18,7 +18,7 @@ public class MEC_P4 {
   static int N, M;
   static int[] id, sz, status;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -125,11 +125,11 @@ public class MEC_P4 {
     out.close();
   }
 
-  static int find (int i) {
+  static int find(int i) {
     return i == id[i] ? i : (id[i] = find(id[i]));
   }
 
-  static void merge (int i, int j) {
+  static void merge(int i, int j) {
     if (sz[i] >= sz[j]) {
       sz[i] += sz[j];
       id[j] = i;
@@ -139,10 +139,36 @@ public class MEC_P4 {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int x, y, weight, index;
 
-    Edge (int x, int y, int weight, int index) {
+    Edge(int x, int y, int weight, int index) {
       this.x = x;
       this.y = y;
       this.weight = weight;
@@ -150,34 +176,8 @@ public class MEC_P4 {
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return weight - o.weight;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

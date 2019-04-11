@@ -25,7 +25,7 @@ public class New_Year_Old_Christmas_Lights {
 
   static TreeMap<Integer, Integer> tm = new TreeMap<Integer, Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -38,7 +38,7 @@ public class New_Year_Old_Christmas_Lights {
     for (int i = 1; i <= n; i++)
       a[i] = readInt();
 
-    int ln = 1 + (int)(Math.ceil(Math.log(n) / Math.log(2)));
+    int ln = 1 + (int) (Math.ceil(Math.log(n) / Math.log(2)));
 
     min = new int[n + 1][ln];
     max = new int[n + 1][ln];
@@ -90,7 +90,7 @@ public class New_Year_Old_Christmas_Lights {
       int l = x;
       int r = endpoint - 1;
 
-      int sz = (int)(Math.log(endpoint - 1 - l + 1) / Math.log(2));
+      int sz = (int) (Math.log(endpoint - 1 - l + 1) / Math.log(2));
 
       if (sz >= 0) {
         if (maxAns[l][sz] >= maxAns[r - (1 << sz) + 1][sz]) {
@@ -114,7 +114,7 @@ public class New_Year_Old_Christmas_Lights {
     out.close();
   }
 
-  static int indexOverflow (int l, int r) {
+  static int indexOverflow(int l, int r) {
     int lo = l;
     int hi = r;
     while (lo <= hi) {
@@ -127,7 +127,7 @@ public class New_Year_Old_Christmas_Lights {
     return lo;
   }
 
-  static int getMin (int i, int l, int r) {
+  static int getMin(int i, int l, int r) {
     while (l <= r) {
       int mid = (l + r) >> 1;
       if (queryMax(i, mid) - queryMin(i, mid) <= k)
@@ -138,39 +138,39 @@ public class New_Year_Old_Christmas_Lights {
     return r - i + 1;
   }
 
-  static int queryMin (int l, int r) {
-    int sz = (int)(Math.log(r - l + 1) / Math.log(2));
+  static int queryMin(int l, int r) {
+    int sz = (int) (Math.log(r - l + 1) / Math.log(2));
     return Math.min(min[l][sz], min[r - (1 << sz) + 1][sz]);
   }
 
-  static int queryMax (int l, int r) {
-    int sz = (int)(Math.log(r - l + 1) / Math.log(2));
+  static int queryMax(int l, int r) {
+    int sz = (int) (Math.log(r - l + 1) / Math.log(2));
     return Math.max(max[l][sz], max[r - (1 << sz) + 1][sz]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

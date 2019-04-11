@@ -12,7 +12,7 @@ public class NOI_2000_Trie {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     TrieNode tn = new TrieNode('\u0000', false);
 
     String s = br.readLine();
@@ -24,7 +24,7 @@ public class NOI_2000_Trie {
     System.out.println(countNodes);
   }
 
-  static String next () {
+  static String next() {
     while (st == null || !st.hasMoreTokens()) {
       try {
         st = new StringTokenizer(br.readLine().trim());
@@ -39,13 +39,13 @@ public class NOI_2000_Trie {
     TrieNode[] links;
     boolean fullWord;
 
-    TrieNode (char letter, boolean fullWord) {
+    TrieNode(char letter, boolean fullWord) {
       this.letter = letter;
       links = new TrieNode[26];
       this.fullWord = fullWord;
     }
 
-    void addWord (String s) {
+    void addWord(String s) {
       if (s.length() == 0)
         return;
       for (int x = 0; x < links.length; x++) {
@@ -65,7 +65,7 @@ public class NOI_2000_Trie {
       }
     }
 
-    void printWords (boolean lastWord) {
+    void printWords(boolean lastWord) {
       boolean currLastWord = lastWord;
       if (fullWord) {
         end += letter;

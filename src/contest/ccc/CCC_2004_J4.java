@@ -8,7 +8,7 @@ public class CCC_2004_J4 {
   public static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   public static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     char[] encodeKey = scan.nextLine().toCharArray();
     char[] temp = scan.nextLine().toCharArray();
     List<Character> preEncode = new ArrayList<Character>();

@@ -24,7 +24,7 @@ public class BronKerbosch {
   static boolean[][] adj;
   static int[] w;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -50,11 +50,11 @@ public class BronKerbosch {
     out.close();
   }
 
-  static int solveWeighted (int nodes) {
+  static int solveWeighted(int nodes) {
     return solveWeighted(nodes, 0, (1 << nodes) - 1, 0);
   }
 
-  static int solveWeighted (int nodes, int curr, int pool, int excl) {
+  static int solveWeighted(int nodes, int curr, int pool, int excl) {
     if (pool == 0 && excl == 0) {
       int cnt = 0;
       for (int i = 0; i < nodes; i++)
@@ -88,11 +88,11 @@ public class BronKerbosch {
     return res;
   }
 
-  static int solveUnweighted (int nodes) {
+  static int solveUnweighted(int nodes) {
     return solveUnweighted(nodes, 0, (1 << nodes) - 1, 0);
   }
 
-  static int solveUnweighted (int nodes, int curr, int pool, int excl) {
+  static int solveUnweighted(int nodes, int curr, int pool, int excl) {
     if (pool == 0 && excl == 0) {
       int cnt = 0;
       for (int i = 0; i < nodes; i++)
@@ -126,29 +126,29 @@ public class BronKerbosch {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

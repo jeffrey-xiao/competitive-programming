@@ -19,7 +19,7 @@ public class COCI_2006_KAMEN {
   static Point[] curr;
   static Point[][] prev;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     g = new char[r][];
@@ -44,21 +44,47 @@ public class COCI_2006_KAMEN {
     }
   }
 
-  static boolean isValid (int x, int y) {
+  static boolean isValid(int x, int y) {
     if (0 <= x && x < r && 0 <= y && y < c && g[x][y] == '.')
       return true;
     return false;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
-    boolean adjust () {
+    boolean adjust() {
       if (x + 1 < r && g[x + 1][y] == 'O') {
         if (isValid(x, y - 1) && isValid(x + 1, y - 1)) {
           y--;
@@ -73,36 +99,10 @@ public class COCI_2006_KAMEN {
       return false;
     }
 
-    void fall () {
+    void fall() {
       while (x + 1 < r && g[x + 1][y] == '.') {
         x++;
       }
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

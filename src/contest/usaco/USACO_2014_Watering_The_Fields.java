@@ -13,7 +13,7 @@ public class USACO_2014_Watering_The_Fields {
   static int n;
   static int[][] matrix;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int c = readInt();
     matrix = new int[n][n];
@@ -37,7 +37,7 @@ public class USACO_2014_Watering_The_Fields {
     System.out.println(prim());
   }
 
-  private static int prim () {
+  private static int prim() {
     int[] minValue = new int[n];
     for (int x = 1; x < n; x++)
       minValue[x] = 2000000000;
@@ -66,55 +66,55 @@ public class USACO_2014_Watering_The_Fields {
     return totalCost;
   }
 
-  static class Edge implements Comparable<Edge> {
-    int dest;
-    int cost;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Edge e) {
-      return cost - e.cost;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Edge) {
-        Edge e = (Edge)o;
-        return dest == e.dest;
-      }
-      return false;
-    }
-  }
-
-  private static int getDist (int x1, int x2, int y1, int y2) {
+  private static int getDist(int x1, int x2, int y1, int y2) {
     int a = x1 - x2;
     int b = y1 - y2;
     return a * a + b * b;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge implements Comparable<Edge> {
+    int dest;
+    int cost;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Edge e) {
+      return cost - e.cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Edge) {
+        Edge e = (Edge) o;
+        return dest == e.dest;
+      }
+      return false;
+    }
   }
 }

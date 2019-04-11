@@ -19,7 +19,7 @@ public class COCI_2009_HRASTOVI {
   static int n, m;
   static Point[] p;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     p = new Point[n];
     for (int i = 0; i < n; i++)
@@ -31,7 +31,7 @@ public class COCI_2009_HRASTOVI {
     int[] sum = new int[m];
     Arrays.sort(p, new Comparator<Point>() {
       @Override
-      public int compare (Point o1, Point o2) {
+      public int compare(Point o1, Point o2) {
         if (o1.x == o2.x)
           return o1.y - o2.y;
         return o1.x - o2.x;
@@ -43,7 +43,7 @@ public class COCI_2009_HRASTOVI {
     }
     Arrays.sort(p, new Comparator<Point>() {
       @Override
-      public int compare (Point o1, Point o2) {
+      public int compare(Point o1, Point o2) {
         if (o1.y == o2.y)
           return o1.x - o2.x;
         return o1.y - o2.y;
@@ -56,7 +56,7 @@ public class COCI_2009_HRASTOVI {
     }
   }
 
-  static int search (boolean isX, Integer v, Integer u, boolean second) {
+  static int search(boolean isX, Integer v, Integer u, boolean second) {
     int lo = 0;
     int hi = n - 1;
     while (lo <= hi) {
@@ -87,10 +87,36 @@ public class COCI_2009_HRASTOVI {
     return lo;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Rect {
     int x1, y1, x2, y2;
 
-    Rect (int x1, int y1, int x2, int y2) {
+    Rect(int x1, int y1, int x2, int y2) {
       this.x1 = x1;
       this.y1 = y1;
       this.x2 = x2;
@@ -101,35 +127,9 @@ public class COCI_2009_HRASTOVI {
   static class Point {
     int x, y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

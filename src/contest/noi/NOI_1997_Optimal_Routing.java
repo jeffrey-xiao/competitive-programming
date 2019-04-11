@@ -18,7 +18,7 @@ public class NOI_1997_Optimal_Routing {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     ArrayList<HashSet<Integer>> adj = new ArrayList<HashSet<Integer>>();
@@ -50,16 +50,7 @@ public class NOI_1997_Optimal_Routing {
     System.out.println("NO");
   }
 
-  static class State {
-    int curr, moves;
-
-    State (int curr, int moves) {
-      this.curr = curr;
-      this.moves = moves;
-    }
-  }
-
-  private static int[] readInput () throws IOException {
+  private static int[] readInput() throws IOException {
     StringTokenizer s = new StringTokenizer(readLine().trim());
     int[] input = new int[s.countTokens()];
     int c = 0;
@@ -68,29 +59,38 @@ public class NOI_1997_Optimal_Routing {
     return input;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int curr, moves;
+
+    State(int curr, int moves) {
+      this.curr = curr;
+      this.moves = moves;
+    }
   }
 }

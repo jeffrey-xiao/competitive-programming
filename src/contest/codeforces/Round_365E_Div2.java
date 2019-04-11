@@ -21,7 +21,7 @@ public class Round_365E_Div2 {
   static long[] val;
   static State[][] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -123,7 +123,7 @@ public class Round_365E_Div2 {
     out.close();
   }
 
-  static long pow (long a, long b) {
+  static long pow(long a, long b) {
     if (b == 0)
       return 1;
     if (b == 1)
@@ -133,7 +133,7 @@ public class Round_365E_Div2 {
     return a * pow(a * a, b / 2);
   }
 
-  static int getFactorIndex (long x) {
+  static int getFactorIndex(long x) {
     int lo = 0;
     int hi = factors.size() - 1;
     while (lo <= hi) {
@@ -149,11 +149,11 @@ public class Round_365E_Div2 {
     return -1;
   }
 
-  static long gcf (long a, long b) {
+  static long gcf(long a, long b) {
     return b == 0 ? a : gcf(b, a % b);
   }
 
-  static void fillFactors (ArrayList<Factor> primes, int i, long curr) {
+  static void fillFactors(ArrayList<Factor> primes, int i, long curr) {
     if (i == primes.size()) {
       factors.add(curr);
       return;
@@ -165,7 +165,7 @@ public class Round_365E_Div2 {
     }
   }
 
-  static ArrayList<Factor> factor (long X) {
+  static ArrayList<Factor> factor(long X) {
     ArrayList<Factor> ret = new ArrayList<Factor>();
     for (long i = 2; i * i <= X; i++) {
       if (X % i == 0) {
@@ -183,11 +183,37 @@ public class Round_365E_Div2 {
     return ret;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int val, prev;
     long sum;
 
-    State (int val, int prev, long sum) {
+    State(int val, int prev, long sum) {
       this.val = val;
       this.prev = prev;
       this.sum = sum;
@@ -198,35 +224,9 @@ public class Round_365E_Div2 {
     long factor;
     int count;
 
-    Factor (long factor, int count) {
+    Factor(long factor, int count) {
       this.factor = factor;
       this.count = count;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

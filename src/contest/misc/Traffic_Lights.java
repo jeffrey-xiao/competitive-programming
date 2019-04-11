@@ -13,7 +13,7 @@ public class Traffic_Lights {
   static StringTokenizer st;
   static int m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     ArrayList<ArrayList<Edge>> adjlist = new ArrayList<ArrayList<Edge>>();
     int n = readInt();
     m = readInt();
@@ -28,12 +28,12 @@ public class Traffic_Lights {
     }
     ArrayList<int[]> cycles = new ArrayList<int[]>();
     for (int x = 0; x < m; x++) {
-      cycles.add(new int[] {readInt(), readInt()});
+      cycles.add(new int[]{readInt(), readInt()});
     }
     System.out.println(shortestPath(adjlist, cycles));
   }
 
-  private static int shortestPath (ArrayList<ArrayList<Edge>> adjlist, ArrayList<int[]> cycles) {
+  private static int shortestPath(ArrayList<ArrayList<Edge>> adjlist, ArrayList<int[]> cycles) {
     int[] min = new int[m];
     for (int x = 1; x < m; x++)
       min[x] = Integer.MAX_VALUE;
@@ -62,17 +62,39 @@ public class Traffic_Lights {
     return -1;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     int time;
 
-    Vertex (int index, int time) {
+    Vertex(int index, int time) {
       this.index = index;
       this.time = time;
     }
 
     @Override
-    public int compareTo (Vertex o) {
+    public int compareTo(Vertex o) {
       return time - o.time;
     }
   }
@@ -81,31 +103,9 @@ public class Traffic_Lights {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

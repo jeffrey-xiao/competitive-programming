@@ -24,7 +24,7 @@ public class FHC_2017_Round_1_Manic_Moving {
   static int[] ret;
   static int[][] dist;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     br = new BufferedReader(new FileReader("in.txt"));
@@ -115,11 +115,11 @@ public class FHC_2017_Round_1_Manic_Moving {
     out.close();
   }
 
-  static int[] getPath (int u) {
+  static int[] getPath(int u) {
     return dist[u];
   }
 
-  static int[] computePath (int u) {
+  static int[] computePath(int u) {
     int[] dist = new int[N];
     Arrays.fill(dist, 1 << 30);
     dist[u] = 0;
@@ -140,43 +140,43 @@ public class FHC_2017_Round_1_Manic_Moving {
     return dist;
   }
 
-  static class State implements Comparable<State> {
-    int dest, cost;
-
-    State (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (State o) {
-      return cost - o.cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State implements Comparable<State> {
+    int dest, cost;
+
+    State(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(State o) {
+      return cost - o.cost;
+    }
   }
 }

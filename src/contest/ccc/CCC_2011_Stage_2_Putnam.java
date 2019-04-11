@@ -11,7 +11,7 @@ public class CCC_2011_Stage_2_Putnam {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
 
     Score[] scores = new Score[n];
@@ -36,46 +36,46 @@ public class CCC_2011_Stage_2_Putnam {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Score implements Comparable<Score> {
     Long value;
     double average;
     int lo;
     int hi;
 
-    Score (Long value, double average) {
+    Score(Long value, double average) {
       this.value = value;
       this.average = average;
     }
 
     @Override
-    public int compareTo (Score o) {
+    public int compareTo(Score o) {
       return o.value.compareTo(value);
     }
 
-    private void setHi () {
-      hi = (int)(2 * average - lo);
+    private void setHi() {
+      hi = (int) (2 * average - lo);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

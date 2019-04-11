@@ -10,7 +10,7 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     char[][] grid = new char[n][];
     for (int x = n - 1; x >= 0; x--)
@@ -28,8 +28,8 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
           int y = i, x = j;
           char next = '*';
           for (int z = k; z > 0; z--) {
-            int ny = (int)(y / Math.pow(n, z - 1));
-            int nx = (int)(x / Math.pow(n, z - 1));
+            int ny = (int) (y / Math.pow(n, z - 1));
+            int nx = (int) (x / Math.pow(n, z - 1));
             if (grid[ny][nx] == '.') {
               next = ' ';
               break;
@@ -50,25 +50,25 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
 
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

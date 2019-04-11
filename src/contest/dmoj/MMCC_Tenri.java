@@ -22,7 +22,7 @@ public class MMCC_Tenri {
   static int n, s;
   static ArrayList<HashSet<Pair>> comp = new ArrayList<HashSet<Pair>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int y = 0; y < 1 << 11; y++)
       for (int z = 0; z < 16; z++)
         dp[y][z] = -1;
@@ -37,7 +37,7 @@ public class MMCC_Tenri {
     System.out.println(compute((1 << n) - 1, s));
   }
 
-  public static int compute (int box, int s) {
+  public static int compute(int box, int s) {
     if (dp[box][s] != -1)
       return dp[box][s];
 
@@ -70,7 +70,7 @@ public class MMCC_Tenri {
     return res;
   }
 
-  static int count (int i) {
+  static int count(int i) {
     int c = 0;
     for (int x = 0; x < n; x++)
       if ((i & (1 << x)) > 0)
@@ -78,7 +78,7 @@ public class MMCC_Tenri {
     return c;
   }
 
-  private static void generateSubsets (int s, int b, int res, HashSet<Pair> subsets) {
+  private static void generateSubsets(int s, int b, int res, HashSet<Pair> subsets) {
     if (s == n) {
       if (Integer.bitCount(res) % 2 == 1)
         subsets.add(new Pair(res, b & (~res)));
@@ -89,10 +89,36 @@ public class MMCC_Tenri {
     generateSubsets(s + 1, b, res, subsets);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Pair {
     Integer x, y;
 
-    Pair (int x, int y) {
+    Pair(int x, int y) {
       if (x > y) {
         this.x = x;
         this.y = y;
@@ -103,43 +129,17 @@ public class MMCC_Tenri {
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return x.hashCode() * 31 + y.hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair)o;
+        Pair p = (Pair) o;
         return x == p.x && y == p.y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

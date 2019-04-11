@@ -14,12 +14,12 @@ public class USACO_2012_Mountain_Climbing {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     PriorityQueue<int[]> pq = new PriorityQueue<int[]>(n, new Comparator<int[]>() {
 
       @Override
-      public int compare (int[] arg0, int[] arg1) {
+      public int compare(int[] arg0, int[] arg1) {
         if (arg0[0] < arg0[1]) {
           if (arg1[0] < arg1[1])
             return arg0[0] - arg1[0];
@@ -35,7 +35,7 @@ public class USACO_2012_Mountain_Climbing {
 
     });
     for (int x = 0; x < n; x++) {
-      pq.offer(new int[] {readInt(), readInt()});
+      pq.offer(new int[]{readInt(), readInt()});
     }
     Queue<int[]> d = new LinkedList<int[]>();
     int totalTimeUp = 0;
@@ -43,7 +43,7 @@ public class USACO_2012_Mountain_Climbing {
 
       int[] curr = pq.poll();
       totalTimeUp += curr[0];
-      d.offer(new int[] {curr[1], totalTimeUp});
+      d.offer(new int[]{curr[1], totalTimeUp});
     }
     int currTimeDown = 0;
     while (!d.isEmpty()) {
@@ -57,25 +57,25 @@ public class USACO_2012_Mountain_Climbing {
     System.out.println(currTimeDown);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

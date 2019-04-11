@@ -17,7 +17,7 @@ public class DMOPC_2014_Exam_Delay {
   static StringTokenizer st;
   static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int v = readInt();
     int e = readInt();
     for (int x = 0; x < v; x++)
@@ -40,7 +40,7 @@ public class DMOPC_2014_Exam_Delay {
     while (!pq.isEmpty()) {
       State curr = pq.poll();
       for (Edge next : adj.get(curr.index)) {
-        double nextTime = curr.time + next.dist / (double)next.speed;
+        double nextTime = curr.time + next.dist / (double) next.speed;
         int nextInter = curr.inter + 1;
         if (s[next.dest].time < nextTime || (s[next.dest].time == nextTime && s[next.dest].inter <= nextInter))
           continue;
@@ -57,22 +57,48 @@ public class DMOPC_2014_Exam_Delay {
       c = s[c].prev;
     }
     System.out.println(count);
-    System.out.println((int)(Math.round(60 * (delay - s[v - 1].time))));
+    System.out.println((int) (Math.round(60 * (delay - s[v - 1].time))));
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Edge implements Comparable<Edge> {
     int dest, dist, speed;
 
-    Edge (int dest, int dist, int speed) {
+    Edge(int dest, int dist, int speed) {
       this.dest = dest;
       this.dist = dist;
       this.speed = speed;
     }
 
     @Override
-    public int compareTo (Edge o) {
-      Double d1 = dist / (double)speed;
-      Double d2 = o.dist / (double)o.speed;
+    public int compareTo(Edge o) {
+      Double d1 = dist / (double) speed;
+      Double d2 = o.dist / (double) o.speed;
       return d1.compareTo(d2);
     }
   }
@@ -82,7 +108,7 @@ public class DMOPC_2014_Exam_Delay {
     double time;
     Edge prevE;
 
-    State (int index, double time, int inter, int prev, Edge prevE) {
+    State(int index, double time, int inter, int prev, Edge prevE) {
       this.index = index;
       this.time = time;
       this.inter = inter;
@@ -90,7 +116,7 @@ public class DMOPC_2014_Exam_Delay {
       this.prevE = prevE;
     }
 
-    State (double time, int inter, int prev, Edge prevE) {
+    State(double time, int inter, int prev, Edge prevE) {
       this.time = time;
       this.inter = inter;
       this.prev = prev;
@@ -98,34 +124,8 @@ public class DMOPC_2014_Exam_Delay {
     }
 
     @Override
-    public int compareTo (State o) {
+    public int compareTo(State o) {
       return new Double(time).compareTo(o.time);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

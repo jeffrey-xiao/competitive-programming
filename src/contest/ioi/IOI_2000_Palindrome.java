@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IOI_2000_Palindrome {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int length = scan.nextInt();
     scan.nextLine();
     String s1 = scan.nextLine();

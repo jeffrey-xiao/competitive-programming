@@ -17,7 +17,7 @@ public class ACM_Reverse_Fox_Hunt {
   static int c;
   static char[] grid;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       r = readInt();
       c = readInt();
@@ -51,7 +51,7 @@ public class ACM_Reverse_Fox_Hunt {
     }
   }
 
-  private static int maxFlow (int start, int end) {
+  private static int maxFlow(int start, int end) {
     while (bfs(start, end) != 0) {
     }
     int count = 0;
@@ -79,7 +79,7 @@ public class ACM_Reverse_Fox_Hunt {
     return count;
   }
 
-  private static int bfs (int start, int end) {
+  private static int bfs(int start, int end) {
     Queue<Integer> moves = new LinkedList<Integer>();
     boolean[] v = new boolean[r * c];
     int[] prev = new int[r * c];
@@ -118,44 +118,44 @@ public class ACM_Reverse_Fox_Hunt {
     return 1;
   }
 
-  static class Edge {
-    int dest;
-    int flow;
-
-    Edge (int dest, int flow) {
-      this.dest = dest;
-      this.flow = flow;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Edge) {
-        Edge e = (Edge)o;
-        return dest == e.dest;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest;
+    int flow;
+
+    Edge(int dest, int flow) {
+      this.dest = dest;
+      this.flow = flow;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Edge) {
+        Edge e = (Edge) o;
+        return dest == e.dest;
+      }
+      return false;
+    }
   }
 }

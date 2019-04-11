@@ -10,7 +10,7 @@ public class CCC_2004_S1 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = readInt(); x > 0; x--) {
       String q = next();
       String w = next();
@@ -22,37 +22,37 @@ public class CCC_2004_S1 {
     }
   }
 
-  static boolean q (String q, String w) {
+  static boolean q(String q, String w) {
     if (q.indexOf(w) == 0 || w.indexOf(q) == 0)
       return true;
     return false;
   }
 
-  static boolean w (String q, String w) {
+  static boolean w(String q, String w) {
     if ((q.indexOf(w) == q.length() - w.length() && q.indexOf(w) >= 0) || (w.indexOf(q) >= 0 && w.length() - q.length() == w.indexOf(q)))
       return true;
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

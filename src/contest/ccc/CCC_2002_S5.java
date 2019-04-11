@@ -10,7 +10,7 @@ public class CCC_2002_S5 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     double w = readInt();
     double h = readInt();
     double sx = readInt();
@@ -26,46 +26,46 @@ public class CCC_2002_S5 {
       // get x point on height edge
       x = (z * h) / slope + sx;
       // get the height and width of the blocks
-      int closeY = (int)((int)((y - h / 2) / h + 1) * h);
-      int closeX = (int)((int)((x - w / 2) / w + 1) * w);
+      int closeY = (int) ((int) ((y - h / 2) / h + 1) * h);
+      int closeX = (int) ((int) ((x - w / 2) / w + 1) * w);
       if (Math.abs(closeY - y) < 5) {
         if (closeY != y) {
-          System.out.println(z - 1 + (int)(y / h));
+          System.out.println(z - 1 + (int) (y / h));
           return;
         }
-        System.out.println(z - 1 + (int)(y / h) - 1);
+        System.out.println(z - 1 + (int) (y / h) - 1);
         return;
       } else if (Math.abs(closeX - x) < 5) {
         if (closeX != x) {
-          System.out.println(z - 1 + (int)(x / w));
+          System.out.println(z - 1 + (int) (x / w));
           return;
         }
-        System.out.println(z - 1 + (int)(x / w) - 1);
+        System.out.println(z - 1 + (int) (x / w) - 1);
         return;
       }
     }
     System.out.println(0);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

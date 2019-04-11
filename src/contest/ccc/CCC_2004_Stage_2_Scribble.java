@@ -10,7 +10,7 @@ public class CCC_2004_Stage_2_Scribble {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int numOfLetters = readInt();
     int[] letters = new int[26];
     int[] values = new int[26];
@@ -22,12 +22,13 @@ public class CCC_2004_Stage_2_Scribble {
     int numOfWords = readInt();
     int max = 0;
     String word = "";
-    main : for (int x = 0; x < numOfWords && (word = br.readLine()) != null; x++) {
+    main:
+    for (int x = 0; x < numOfWords && (word = br.readLine()) != null; x++) {
       int points = 0;
       for (int y = 97; y <= 122; y++) {
         int count = 0;
         String temp = word;
-        count = word.length() - temp.replace("" + (char)y, "").length();
+        count = word.length() - temp.replace("" + (char) y, "").length();
         if (letters[y - 97] >= count)
           points += values[y - 97] * count;
         else
@@ -39,25 +40,25 @@ public class CCC_2004_Stage_2_Scribble {
     System.out.println(max);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

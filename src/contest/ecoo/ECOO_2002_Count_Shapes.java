@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ECOO_2002_Count_Shapes {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int[] shapes = new int[5];
     for (int x = 0; x < 5; x++) {
       scan.nextInt();
@@ -23,7 +23,7 @@ public class ECOO_2002_Count_Shapes {
 
   }
 
-  private static int getShapes (char[][] image) {
+  private static int getShapes(char[][] image) {
     int numOfShapes = 0;
     for (int z = 0; z < image.length; z++) {
       for (int y = 0; y < image[z].length; y++) {
@@ -37,7 +37,7 @@ public class ECOO_2002_Count_Shapes {
     return numOfShapes;
   }
 
-  private static void removeShapes (char[][] image, int x, int y, int lastMove) {
+  private static void removeShapes(char[][] image, int x, int y, int lastMove) {
     if (x < 0 || y < 0 || x >= image.length || y >= image[x].length || image[x][y] == '.')
       return;
     image[x][y] = '.';

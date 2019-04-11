@@ -27,7 +27,7 @@ public class LowestCommonAncestorDp {
   static int[][] pa;
   static int n, q, ln;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -37,7 +37,7 @@ public class LowestCommonAncestorDp {
     n = readInt();
     // number of queries
     q = readInt();
-    ln = (int)(Math.ceil(Math.log(n) / Math.log(2)) + 1);
+    ln = (int) (Math.ceil(Math.log(n) / Math.log(2)) + 1);
 
     depth = new int[n];
     pa = new int[n][ln];
@@ -68,7 +68,7 @@ public class LowestCommonAncestorDp {
     out.close();
   }
 
-  static int getLca (int i, int j) {
+  static int getLca(int i, int j) {
     if (depth[i] < depth[j]) {
       int temp = i;
       i = j;
@@ -88,7 +88,7 @@ public class LowestCommonAncestorDp {
     return pa[i][0];
   }
 
-  static void dfs (int i, int d, int prev) {
+  static void dfs(int i, int d, int prev) {
     depth[i] = d;
     pa[i][0] = prev;
     for (int j : adj.get(i))
@@ -96,29 +96,29 @@ public class LowestCommonAncestorDp {
         dfs(j, d + 1, i);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -21,7 +21,7 @@ public class Woburn_Challenge_2015_Revenge_Of_The_Sith implements Runnable {
   static int sz = 0;
   static int color1 = 0;
 
-  public static void main (String[] args) throws IOException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -46,11 +46,7 @@ public class Woburn_Challenge_2015_Revenge_Of_The_Sith implements Runnable {
     out.close();
   }
 
-  public void run () {
-    solve();
-  }
-
-  static void solve () {
+  static void solve() {
     double total = n * n;
     double ways = 0;
     for (int i = 0; i < n; i++) {
@@ -67,7 +63,7 @@ public class Woburn_Challenge_2015_Revenge_Of_The_Sith implements Runnable {
     System.out.println(ways / total);
   }
 
-  static boolean dfs (int i, int c) {
+  static boolean dfs(int i, int c) {
     color[i] = c;
     if (c == 1)
       color1++;
@@ -84,29 +80,33 @@ public class Woburn_Challenge_2015_Revenge_Of_The_Sith implements Runnable {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  public void run() {
+    solve();
   }
 }

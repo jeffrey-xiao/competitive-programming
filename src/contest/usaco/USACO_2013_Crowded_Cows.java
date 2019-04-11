@@ -17,7 +17,7 @@ public class USACO_2013_Crowded_Cows {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int d = readInt();
     Cow[] cows = new Cow[n];
@@ -29,7 +29,7 @@ public class USACO_2013_Crowded_Cows {
     Arrays.sort(cows, new Comparator<Cow>() {
 
       @Override
-      public int compare (Cow o1, Cow o2) {
+      public int compare(Cow o1, Cow o2) {
         return o1.pos - o2.pos;
       }
 
@@ -55,57 +55,57 @@ public class USACO_2013_Crowded_Cows {
     System.out.println(count);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Cow implements Comparable<Cow> {
     int height;
     int pos;
     int index;
 
-    Cow (int height, int pos, int index) {
+    Cow(int height, int pos, int index) {
       this.height = height;
       this.pos = pos;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Cow o) {
+    public int compareTo(Cow o) {
       if (height == o.height)
         return index - o.index;
       return height - o.height;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Cow) {
-        Cow c = (Cow)o;
+        Cow c = (Cow) o;
         return c.index == index && c.height == height;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -18,7 +18,7 @@ public class COCI_2009_KLETVA {
 
   static int W, L, N;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -76,7 +76,7 @@ public class COCI_2009_KLETVA {
     out.close();
   }
 
-  static int[] compute (int[] a) {
+  static int[] compute(int[] a) {
     int[] top = new int[2 * L];
     int[] bot = new int[2 * L];
 
@@ -98,20 +98,7 @@ public class COCI_2009_KLETVA {
     return min(top, bot);
   }
 
-  static class ListComparator implements Comparator<ArrayList<Integer>> {
-    @Override
-    public int compare (ArrayList<Integer> a, ArrayList<Integer> b) {
-      for (int i = 0; i < a.size(); i++) {
-        if (a.get(i) < b.get(i))
-          return -1;
-        else if (a.get(i) > b.get(i))
-          return 1;
-      }
-      return 0;
-    }
-  }
-
-  static int[] min (int[] a, int[] b) {
+  static int[] min(int[] a, int[] b) {
     for (int i = 0; i < 2 * L; i++) {
       if (a[i] < b[i])
         return a;
@@ -121,29 +108,42 @@ public class COCI_2009_KLETVA {
     return a;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class ListComparator implements Comparator<ArrayList<Integer>> {
+    @Override
+    public int compare(ArrayList<Integer> a, ArrayList<Integer> b) {
+      for (int i = 0; i < a.size(); i++) {
+        if (a.get(i) < b.get(i))
+          return -1;
+        else if (a.get(i) > b.get(i))
+          return 1;
+      }
+      return 0;
+    }
   }
 }

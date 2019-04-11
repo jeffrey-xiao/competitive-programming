@@ -14,17 +14,17 @@ TASK: palpath
 import java.util.StringTokenizer;
 
 public class palpath {
+  static final int MOD = 1000000007;
   static BufferedReader br;
   static PrintWriter pr;
   static StringTokenizer st;
   static int[][][] dp;
-  static final int MOD = 1000000007;
   static int bruteans = 0;
   static int ans = 0;
   static int n;
   static char[][] g;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("palpath.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("palpath.out")));
@@ -80,55 +80,55 @@ public class palpath {
     System.exit(0);
   }
 
-  private static int get (int i, int j, int k) {
+  private static int get(int i, int j, int k) {
     int len = dp[i].length;
     if (j < 0 || k < 0 || j >= len || k >= len)
       return 0;
     return dp[i][j][k];
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     Integer l, r, lh, rh;
 
-    State (int l, int r, int lh, int rh) {
+    State(int l, int r, int lh, int rh) {
       this.l = l;
       this.r = r;
       this.lh = lh;
       this.rh = rh;
     }
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         return l == s.l && r == s.r && lh == s.lh && rh == s.rh;
       }
       return false;
     }
 
-    public int hashCode () {
+    public int hashCode() {
       return l.hashCode() * 31 * 31 * 31 + r.hashCode() * 31 * 31 + lh.hashCode() * 31 + rh.hashCode();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

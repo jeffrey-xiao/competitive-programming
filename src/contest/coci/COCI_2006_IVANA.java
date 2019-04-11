@@ -18,7 +18,7 @@ public class COCI_2006_IVANA {
   static int[] a;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     a = new int[n + 2];
     dp = new int[n + 2][n + 2][n + 2];
@@ -36,7 +36,7 @@ public class COCI_2006_IVANA {
     System.out.println(ans);
   }
 
-  static int solve (int l, int r, int s) {
+  static int solve(int l, int r, int s) {
     if (l == 0)
       l = n;
     if (r == n + 1)
@@ -65,29 +65,29 @@ public class COCI_2006_IVANA {
     return res;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

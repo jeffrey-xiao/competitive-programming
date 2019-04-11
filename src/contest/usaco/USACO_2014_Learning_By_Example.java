@@ -16,7 +16,7 @@ public class USACO_2014_Learning_By_Example {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int a = readInt();
     int b = readInt();
@@ -61,53 +61,53 @@ public class USACO_2014_Learning_By_Example {
     System.out.println(count);
   }
 
-  static class Cow implements Comparable<Cow> {
-    boolean spot;
-    int weight;
-
-    Cow (boolean spot, int weight) {
-      this.spot = spot;
-      this.weight = weight;
-    }
-
-    @Override
-    public int compareTo (Cow o) {
-      return weight - o.weight;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Cow) {
-        Cow c = (Cow)o;
-        return weight == c.weight;
-      }
-      return false;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Cow implements Comparable<Cow> {
+    boolean spot;
+    int weight;
+
+    Cow(boolean spot, int weight) {
+      this.spot = spot;
+      this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Cow o) {
+      return weight - o.weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Cow) {
+        Cow c = (Cow) o;
+        return weight == c.weight;
+      }
+      return false;
+    }
   }
 }

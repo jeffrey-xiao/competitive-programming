@@ -9,7 +9,7 @@ public class NOI_1997_Perfect_Tour {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int r = nextInt();
     int c = nextInt() - 1;
     int max = 0;
@@ -19,9 +19,10 @@ public class NOI_1997_Perfect_Tour {
     }
     for (int x = 0; x < r; x++)
       for (int y = 0; y < c; y++) {
-        grid[y] = (short)Math.max(grid[y], nextInt());
+        grid[y] = (short) Math.max(grid[y], nextInt());
       }
-    main : for (int x = 0; x < c; x++) {
+    main:
+    for (int x = 0; x < c; x++) {
       int sum = 0;
       for (int y = x; y < c; y++) {
         if (grid[y] < 0 && x == y) {
@@ -35,7 +36,7 @@ public class NOI_1997_Perfect_Tour {
     System.out.println(max);
   }
 
-  static String next () {
+  static String next() {
     while (st == null || !st.hasMoreTokens()) {
       try {
         st = new StringTokenizer(br.readLine().trim());
@@ -45,11 +46,11 @@ public class NOI_1997_Perfect_Tour {
     return st.nextToken();
   }
 
-  static int nextInt () {
+  static int nextInt() {
     return Integer.parseInt(next());
   }
 
-  static String nextLine () {
+  static String nextLine() {
     String s = "";
     try {
       s = br.readLine().trim();

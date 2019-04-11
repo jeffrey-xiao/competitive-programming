@@ -13,7 +13,7 @@ public class COCI_2009_KAJAK {
   static StringTokenizer st;
 
   @SuppressWarnings("unused")
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     int[][] places = new int[9][2];
@@ -31,7 +31,7 @@ public class COCI_2009_KAJAK {
     }
     Arrays.sort(places, new Comparator<int[]>() {
       @Override
-      public int compare (int[] a, int[] b) {
+      public int compare(int[] a, int[] b) {
         return b[1] - a[1];
       }
 
@@ -51,25 +51,25 @@ public class COCI_2009_KAJAK {
       System.out.println(i);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

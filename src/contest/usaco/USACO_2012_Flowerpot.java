@@ -17,7 +17,7 @@ public class USACO_2012_Flowerpot {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int d = readInt();
     Pot[] pots = new Pot[n];
@@ -27,7 +27,7 @@ public class USACO_2012_Flowerpot {
     Arrays.sort(pots, new Comparator<Pot>() {
 
       @Override
-      public int compare (Pot o1, Pot o2) {
+      public int compare(Pot o1, Pot o2) {
         if (o1.x == o2.x)
           return o1.y - o2.y;
         return o1.x - o2.x;
@@ -55,51 +55,51 @@ public class USACO_2012_Flowerpot {
     System.out.println(minWidth == Integer.MAX_VALUE ? -1 : minWidth);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Pot implements Comparable<Pot> {
     int x, y, index;
 
-    Pot (int x, int y, int i) {
+    Pot(int x, int y, int i) {
       this.x = x;
       this.y = y;
       index = i;
     }
 
     @Override
-    public int compareTo (Pot o) {
+    public int compareTo(Pot o) {
       if (y == o.y)
         return x - o.x;
       return y - o.y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Pot) {
-        Pot p = (Pot)o;
+        Pot p = (Pot) o;
         return y == p.y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

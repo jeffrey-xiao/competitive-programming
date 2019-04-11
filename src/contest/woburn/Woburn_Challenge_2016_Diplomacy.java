@@ -22,7 +22,7 @@ public class Woburn_Challenge_2016_Diplomacy {
 
   static int[] tree, lazy;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -68,7 +68,7 @@ public class Woburn_Challenge_2016_Diplomacy {
     out.close();
   }
 
-  static ArrayList<Integer> unique (ArrayList<Integer> a) {
+  static ArrayList<Integer> unique(ArrayList<Integer> a) {
     ArrayList<Integer> ret = new ArrayList<Integer>();
     if (a.isEmpty())
       return ret;
@@ -79,7 +79,7 @@ public class Woburn_Challenge_2016_Diplomacy {
     return ret;
   }
 
-  static int getIndex (ArrayList<Integer> a, int val) {
+  static int getIndex(ArrayList<Integer> a, int val) {
     int lo = 0;
     int hi = a.size() - 1;
     while (lo <= hi) {
@@ -92,7 +92,7 @@ public class Woburn_Challenge_2016_Diplomacy {
     return lo;
   }
 
-  static void update (int n, int lo, int hi, int qlo, int qhi, int val) {
+  static void update(int n, int lo, int hi, int qlo, int qhi, int val) {
     if (lo == qlo && hi == qhi) {
       lazy[n] += val;
       tree[n] += val;
@@ -120,10 +120,36 @@ public class Woburn_Challenge_2016_Diplomacy {
     tree[n] = Math.max(tree[n << 1], tree[n << 1 | 1]);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Event implements Comparable<Event> {
     int x, y1, y2, type;
 
-    Event (int x, int y1, int y2, int type) {
+    Event(int x, int y1, int y2, int type) {
       this.x = x;
       this.y1 = y1;
       this.y2 = y2;
@@ -131,36 +157,10 @@ public class Woburn_Challenge_2016_Diplomacy {
     }
 
     @Override
-    public int compareTo (Event e) {
+    public int compareTo(Event e) {
       if (x != e.x)
         return x - e.x;
       return type - e.type;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

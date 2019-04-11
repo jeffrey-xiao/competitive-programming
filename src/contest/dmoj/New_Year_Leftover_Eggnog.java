@@ -15,8 +15,9 @@ public class New_Year_Leftover_Eggnog {
   static PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
   static StringTokenizer st;
   static int a, b, k;
+  static HashSet<State> v = new HashSet<State>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     a = readInt();
     b = readInt();
     k = readInt();
@@ -75,7 +76,7 @@ public class New_Year_Leftover_Eggnog {
     System.out.println("Not possible");
   }
 
-  private static void print (State curr) {
+  private static void print(State curr) {
     if (curr.prev != null) {
       print(curr.prev);
       if (curr.x > curr.prev.x && curr.y < curr.prev.y)
@@ -93,52 +94,50 @@ public class New_Year_Leftover_Eggnog {
     }
   }
 
-  static HashSet<State> v = new HashSet<State>();
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
 
   static class State {
     int x, y;
     State prev;
 
-    State (int x, int y, State prev) {
+    State(int x, int y, State prev) {
       this.x = x;
       this.y = y;
       this.prev = prev;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Integer(x).hashCode() * 31 + new Integer(y).hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State p = (State)o;
+        State p = (State) o;
         return p.x == x && p.y == y;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

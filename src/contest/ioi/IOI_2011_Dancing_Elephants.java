@@ -20,7 +20,7 @@ public class IOI_2011_Dancing_Elephants {
   static int S, bucketCnt;
   static ArrayList<ArrayList<State>> b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -30,7 +30,7 @@ public class IOI_2011_Dancing_Elephants {
     L = readInt();
     M = readInt();
 
-    S = (int)(Math.sqrt(N));
+    S = (int) (Math.sqrt(N));
     bucketCnt = (N - 1) / S + 1;
     b = new ArrayList<ArrayList<State>>();
 
@@ -134,7 +134,7 @@ public class IOI_2011_Dancing_Elephants {
     out.close();
   }
 
-  static void remake () {
+  static void remake() {
     ArrayList<Integer> curr = new ArrayList<Integer>();
     for (int i = 0; i < bucketCnt; i++)
       for (int j = 0; j < b.get(i).size(); j++)
@@ -151,13 +151,13 @@ public class IOI_2011_Dancing_Elephants {
     rebuild();
   }
 
-  static void rebuild () {
+  static void rebuild() {
     for (int i = 0; i < bucketCnt; i++) {
       rebuildBucket(i);
     }
   }
 
-  static void rebuildBucket (int i) {
+  static void rebuildBucket(int i) {
     int index = b.get(i).size();
     for (int j = b.get(i).size() - 1; j >= 0; j--) {
       while (index - 1 > j && pos[b.get(i).get(index - 1).index] - pos[b.get(i).get(j).index] > L)
@@ -172,43 +172,43 @@ public class IOI_2011_Dancing_Elephants {
     }
   }
 
-  static class State {
-    int index, camerasNeeded, highestPosition;
-
-    State (int index, int camerasNeeded, int highestPosition) {
-      this.index = index;
-      this.camerasNeeded = camerasNeeded;
-      this.highestPosition = highestPosition;
-    }
-
-    public String toString () {
-      return String.format("(%d, %d, %d)", pos[index], camerasNeeded, highestPosition);
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int index, camerasNeeded, highestPosition;
+
+    State(int index, int camerasNeeded, int highestPosition) {
+      this.index = index;
+      this.camerasNeeded = camerasNeeded;
+      this.highestPosition = highestPosition;
+    }
+
+    public String toString() {
+      return String.format("(%d, %d, %d)", pos[index], camerasNeeded, highestPosition);
+    }
   }
 }

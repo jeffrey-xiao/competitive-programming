@@ -22,7 +22,7 @@ public class IOI_2004_Empodia {
   static ArrayList<ArrayList<Integer>> poss;
   static TreeSet<Interval> intervals;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -83,7 +83,7 @@ public class IOI_2004_Empodia {
     out.close();
   }
 
-  static void sweep (ArrayList<Integer> indexes) {
+  static void sweep(ArrayList<Integer> indexes) {
     PriorityQueue<Event> pq = new PriorityQueue<Event>();
     for (int i = 0; i < indexes.size(); i++) {
       pq.offer(new Event(lo[val[indexes.get(i)]] + 1, 1, indexes.get(i)));
@@ -138,10 +138,36 @@ public class IOI_2004_Empodia {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int val, index;
 
-    State (int val, int index) {
+    State(int val, int index) {
       this.val = val;
       this.index = index;
     }
@@ -150,14 +176,14 @@ public class IOI_2004_Empodia {
   static class Event implements Comparable<Event> {
     int x, index, type;
 
-    Event (int x, int type, int index) {
+    Event(int x, int type, int index) {
       this.x = x;
       this.type = type;
       this.index = index;
     }
 
     @Override
-    public int compareTo (Event e) {
+    public int compareTo(Event e) {
       if (x == e.x && type == e.type)
         return e.index - index;
       if (x == e.x)
@@ -169,40 +195,14 @@ public class IOI_2004_Empodia {
   static class Interval implements Comparable<Interval> {
     int l, r;
 
-    Interval (int l, int r) {
+    Interval(int l, int r) {
       this.l = l;
       this.r = r;
     }
 
     @Override
-    public int compareTo (Interval i) {
+    public int compareTo(Interval i) {
       return l - i.l;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

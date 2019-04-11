@@ -16,7 +16,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
   static int[] max, min;
   static int[] a;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -44,17 +44,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
     out.close();
   }
 
-  static class State {
-    int min, max, index;
-
-    State (int min, int max, int index) {
-      this.min = min;
-      this.max = max;
-      this.index = index;
-    }
-  }
-
-  static State query (int n, int l, int r, int x, int k, int minV, int maxV) {
+  static State query(int n, int l, int r, int x, int k, int minV, int maxV) {
     if (l == r) {
       maxV = Math.max(maxV, max[n]);
       minV = Math.min(minV, min[n]);
@@ -82,7 +72,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
     }
   }
 
-  static void buildMax (int n, int l, int r) {
+  static void buildMax(int n, int l, int r) {
     if (l == r) {
       max[n] = a[l];
       return;
@@ -93,7 +83,7 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
     max[n] = Math.max(max[n << 1], max[n << 1 | 1]);
   }
 
-  static void buildMin (int n, int l, int r) {
+  static void buildMin(int n, int l, int r) {
     if (l == r) {
       min[n] = a[l];
       return;
@@ -104,29 +94,39 @@ public class DMOPC_2016_A_Classic_Problem_Slow {
     min[n] = Math.min(min[n << 1], min[n << 1 | 1]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int min, max, index;
+
+    State(int min, int max, int index) {
+      this.min = min;
+      this.max = max;
+      this.index = index;
+    }
   }
 }

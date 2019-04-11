@@ -10,18 +10,18 @@ import java.util.Scanner;
 public class CCC_2007_S4 {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int destination = scan.nextInt();
     ArrayList<List<Integer>> slides = new ArrayList<List<Integer>>();
     int a;
     while ((a = scan.nextInt()) != 0)
-      slides.add(Arrays.asList(new Integer[] {a, scan.nextInt()}));
+      slides.add(Arrays.asList(new Integer[]{a, scan.nextInt()}));
     scan.nextInt();
     Collections.sort(slides, new Comparator<Object>() {
       @Override
       @SuppressWarnings("unchecked")
-      public int compare (Object arg0, Object arg1) {
-        return ((List<Integer>)arg0).get(1) < ((List<Integer>)arg1).get(1) ? 1 : -1;
+      public int compare(Object arg0, Object arg1) {
+        return ((List<Integer>) arg0).get(1) < ((List<Integer>) arg1).get(1) ? 1 : -1;
       }
     });
     int[] dp = new int[destination];

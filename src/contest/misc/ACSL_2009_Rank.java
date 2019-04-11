@@ -16,7 +16,7 @@ public class ACSL_2009_Rank {
   static ArrayList<ArrayList<Integer>> adjlist = new ArrayList<ArrayList<Integer>>();
   static Set<Integer> cycle = new HashSet<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     boolean visited[] = new boolean[n];
@@ -38,7 +38,7 @@ public class ACSL_2009_Rank {
     System.out.println(cycle.size());
   }
 
-  private static boolean dfs (boolean[] visited, int x, int start, int depth) {
+  private static boolean dfs(boolean[] visited, int x, int start, int depth) {
 
     if (depth != 0 && x == start)
       return true;
@@ -54,25 +54,25 @@ public class ACSL_2009_Rank {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -25,7 +25,7 @@ public class MinCostMatchingHungarian {
   static boolean[] assignedRow, assignedCol;
   static boolean[][] assigned;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -99,7 +99,7 @@ public class MinCostMatchingHungarian {
     out.close();
   }
 
-  static void reduceMatrix (int[][] aux) {
+  static void reduceMatrix(int[][] aux) {
     for (int i = 0; i < n; i++) {
       int min = 1 << 30;
       for (int j = 0; j < n; j++)
@@ -116,29 +116,29 @@ public class MinCostMatchingHungarian {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

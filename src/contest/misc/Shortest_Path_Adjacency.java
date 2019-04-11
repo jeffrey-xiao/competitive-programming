@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Shortest_Path_Adjacency {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int size = scan.nextInt();
     int[][] table = new int[size][size];
     for (int x = 0; x < size; x++) {

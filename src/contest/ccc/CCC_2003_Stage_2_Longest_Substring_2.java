@@ -8,12 +8,12 @@ import java.util.StringTokenizer;
 
 public class CCC_2003_Stage_2_Longest_Substring_2 {
 
+  static final int MAX = 65536;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
   static PrintStream ps = new PrintStream(System.out);
-  static final int MAX = 65536;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int[] seq = new int[MAX];
     int[] bs = new int[MAX];
     boolean[] nums = new boolean[MAX];
@@ -46,25 +46,25 @@ public class CCC_2003_Stage_2_Longest_Substring_2 {
       ps.println(bs[x % MAX]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

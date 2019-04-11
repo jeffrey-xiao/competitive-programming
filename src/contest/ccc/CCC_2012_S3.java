@@ -7,7 +7,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class CCC_2012_S3 {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     TreeMap<Integer, Integer> tm = new TreeMap<Integer, Integer>();
     for (int x = scan.nextInt(); x > 0; x--) {
@@ -45,14 +45,14 @@ public class CCC_2012_S3 {
   class KeyValuePair implements Comparable<KeyValuePair> {
     int key, value;
 
-    public KeyValuePair (int key, int value) {
+    public KeyValuePair(int key, int value) {
       super();
       this.key = key;
       this.value = value;
     }
 
     @Override
-    public int compareTo (KeyValuePair o) {
+    public int compareTo(KeyValuePair o) {
       return value == o.value ? o.key - key : o.value - value;
     }
   }

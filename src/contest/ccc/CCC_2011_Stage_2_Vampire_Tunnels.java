@@ -14,7 +14,7 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
   static int maxLight;
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     maxLight = readInt();
     n = readInt();
     ArrayList<ArrayList<Edge>> adjlist = new ArrayList<ArrayList<Edge>>();
@@ -33,7 +33,7 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
     System.out.println(shortest == Integer.MAX_VALUE ? -1 : shortest);
   }
 
-  private static int shortestPath (int s, int d, ArrayList<ArrayList<Edge>> adjlist) {
+  private static int shortestPath(int s, int d, ArrayList<ArrayList<Edge>> adjlist) {
     int[] min = new int[n];
     for (int x = 1; x < n; x++)
       min[x] = Integer.MAX_VALUE;
@@ -52,26 +52,48 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
     return min[d];
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Vertex implements Comparable<Vertex> {
     int index;
     int cost;
     int totalLight;
 
-    Vertex (int index, int cost, int totalLight) {
+    Vertex(int index, int cost, int totalLight) {
       this.index = index;
       this.cost = cost;
       this.totalLight = totalLight;
     }
 
     @Override
-    public int compareTo (Vertex v) {
+    public int compareTo(Vertex v) {
       return totalLight - v.totalLight;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Vertex) {
-        Vertex v = (Vertex)o;
+        Vertex v = (Vertex) o;
         return index == v.index && v.totalLight == totalLight;
       }
       return false;
@@ -83,41 +105,19 @@ public class CCC_2011_Stage_2_Vampire_Tunnels {
     int cost;
     int light;
 
-    Edge (int dest, int cost, int light) {
+    Edge(int dest, int cost, int light) {
       this.dest = dest;
       this.cost = cost;
       this.light = light;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge v = (Edge)o;
+        Edge v = (Edge) o;
         return dest == v.dest;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -12,7 +12,7 @@ public class USACO_2011_Simplifying_The_Farm {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     WeightedQuickUnion q = new WeightedQuickUnion(n);
@@ -26,7 +26,7 @@ public class USACO_2011_Simplifying_The_Farm {
     long counter = 1;
     int totalCost = 0;
     Arrays.sort(edges);
-    for (int x = 0; x < m && q.count > 1;) {
+    for (int x = 0; x < m && q.count > 1; ) {
       int y = x;
       int count = 0;
       int total = 0;
@@ -63,33 +63,55 @@ public class USACO_2011_Simplifying_The_Farm {
     System.out.println(totalCost + " " + counter % 1000000007);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int source;
     int dest;
     int cost;
 
-    Edge (int source, int dest, int cost) {
+    Edge(int source, int dest, int cost) {
       this.source = source;
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return this.cost - o.cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge)(o);
+        Edge e = (Edge) (o);
         return source == e.source && dest == e.dest;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return source * 100000 + dest;
     }
   }
@@ -99,7 +121,7 @@ public class USACO_2011_Simplifying_The_Farm {
     private int[] size;
     private int count;
 
-    public WeightedQuickUnion (int n) {
+    public WeightedQuickUnion(int n) {
       id = new int[n];
       size = new int[n];
       count = n;
@@ -109,7 +131,7 @@ public class USACO_2011_Simplifying_The_Farm {
       }
     }
 
-    public int root (int i) {
+    public int root(int i) {
       while (i != id[i]) {
         id[i] = id[id[i]];
         i = id[i];
@@ -117,15 +139,15 @@ public class USACO_2011_Simplifying_The_Farm {
       return i;
     }
 
-    public boolean find (int x, int y) {
+    public boolean find(int x, int y) {
       return root(x) == root(y);
     }
 
-    public int count () {
+    public int count() {
       return count;
     }
 
-    public boolean union (int x, int y) {
+    public boolean union(int x, int y) {
 
       int rootx = root(x);
       int rooty = root(y);
@@ -141,27 +163,5 @@ public class USACO_2011_Simplifying_The_Farm {
       }
       return true;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

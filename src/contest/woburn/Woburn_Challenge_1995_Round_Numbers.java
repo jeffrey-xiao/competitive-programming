@@ -15,7 +15,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     // first is digits, second is number of 0s
     long[][] dp = new long[33][33];
@@ -25,7 +25,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
       }
     }
     int sum = 0;
-    int length = (int)(Math.log(n) / Math.log(2)) + 1;
+    int length = (int) (Math.log(n) / Math.log(2)) + 1;
 
     for (int x = 1; x < length; x++) {
       for (int y = (x + 1) / 2; y < x; y++) {
@@ -68,7 +68,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
     System.out.printf("There are %d round numbers less than or equal to %d.\n", sum, n);
   }
 
-  private static long C (int n, int k) {
+  private static long C(int n, int k) {
     BigInteger result = new BigInteger("1");
     if (n - k < k)
       k = n - k;
@@ -80,29 +80,29 @@ public class Woburn_Challenge_1995_Round_Numbers {
     return result.longValue();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

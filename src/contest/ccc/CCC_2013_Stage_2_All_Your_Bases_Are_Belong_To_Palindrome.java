@@ -14,13 +14,13 @@ public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     Set<Long> num = new TreeSet<Long>();
     long input = readLong();
     for (long x = 2; x * x <= input; x++) {
       long y = input;
       ArrayList<Long> value = new ArrayList<Long>();
-      long curr = (long)Math.pow(x, (long)(Math.log(input) / Math.log(x)));
+      long curr = (long) Math.pow(x, (long) (Math.log(input) / Math.log(x)));
 
       while (curr != 0) {
 
@@ -33,7 +33,7 @@ public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
       if (value.equals(copy))
         num.add(x);
     }
-    for (int x = (int)Math.sqrt(input); x >= 1; x--) {
+    for (int x = (int) Math.sqrt(input); x >= 1; x--) {
       long value = (input - x);
       if (value / x > Math.cbrt(input) && input % (value / x) != 0)
         if (value % x == 0)
@@ -43,25 +43,25 @@ public class CCC_2013_Stage_2_All_Your_Bases_Are_Belong_To_Palindrome {
       System.out.println(x);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

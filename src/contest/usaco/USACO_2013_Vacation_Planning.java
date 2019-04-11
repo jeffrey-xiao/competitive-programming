@@ -14,7 +14,7 @@ public class USACO_2013_Vacation_Planning {
   static ArrayList<ArrayList<int[]>> con = new ArrayList<ArrayList<int[]>>();
   static int hubNum;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();
     hubNum = readInt() - 1;
@@ -25,7 +25,7 @@ public class USACO_2013_Vacation_Planning {
       int a = readInt() - 1;
       int b = readInt() - 1;
       int c = readInt();
-      con.get(a).add(new int[] {b, c});
+      con.get(a).add(new int[]{b, c});
     }
     int count = 0;
     int total = 0;
@@ -42,7 +42,7 @@ public class USACO_2013_Vacation_Planning {
     System.out.println(count + "\n" + total);
   }
 
-  private static int getMinCost (int o, int d, boolean[] v, int cost, boolean hubPassed) {
+  private static int getMinCost(int o, int d, boolean[] v, int cost, boolean hubPassed) {
     if (cost == Integer.MAX_VALUE)
       return cost;
     v[o] = true;
@@ -61,25 +61,25 @@ public class USACO_2013_Vacation_Planning {
     return min;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

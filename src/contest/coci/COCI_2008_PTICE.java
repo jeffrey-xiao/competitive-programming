@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class COCI_2008_PTICE {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     char[] a = {'A', 'B', 'C'};
     char[] b = {'B', 'A', 'B', 'C'};
     char[] c = {'C', 'C', 'A', 'A', 'B', 'B'};

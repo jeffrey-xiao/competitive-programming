@@ -15,7 +15,7 @@ public class Woburn_Challenge_1999_Where_In_The_World_Is_Will_And_Ethan_Hunt {
   static int[] prev;
   static boolean[][] adj;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       l = readInt();
       r = readInt();
@@ -43,7 +43,7 @@ public class Woburn_Challenge_1999_Where_In_The_World_Is_Will_And_Ethan_Hunt {
     }
   }
 
-  private static boolean hungary (int x) {
+  private static boolean hungary(int x) {
     for (int y = 0; y < l; y++) {
       if (adj[x][y] && !visited[y]) {
         visited[y] = true;
@@ -56,25 +56,25 @@ public class Woburn_Challenge_1999_Where_In_The_World_Is_Will_And_Ethan_Hunt {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

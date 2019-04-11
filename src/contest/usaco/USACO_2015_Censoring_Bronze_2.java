@@ -14,7 +14,7 @@ public class USACO_2015_Censoring_Bronze_2 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     StringBuilder s = new StringBuilder(readLine());
     char[] str = readLine().toCharArray();
     int[] prefix = computePrefix(str);
@@ -31,7 +31,7 @@ public class USACO_2015_Censoring_Bronze_2 {
     System.out.println(s);
   }
 
-  static int search (int[] prefix, char[] s1, StringBuilder s2) {
+  static int search(int[] prefix, char[] s1, StringBuilder s2) {
     int y = 0;
     for (int x = 0; x < s2.length(); x++) {
       while (y > 0 && s2.charAt(x) != s1[y])
@@ -46,7 +46,7 @@ public class USACO_2015_Censoring_Bronze_2 {
 
   }
 
-  static int[] computePrefix (char[] s) {
+  static int[] computePrefix(char[] s) {
     int[] LSP = new int[s.length];
     LSP[0] = 0;
     for (int x = 1; x < s.length; x++) {
@@ -61,29 +61,29 @@ public class USACO_2015_Censoring_Bronze_2 {
     return LSP;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

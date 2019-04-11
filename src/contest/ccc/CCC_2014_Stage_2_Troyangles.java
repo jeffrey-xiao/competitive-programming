@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CCC_2014_Stage_2_Troyangles {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     char[][] table = new char[scan.nextInt()][];
     scan.nextLine();
     for (int x = 0; x < table.length; x++)

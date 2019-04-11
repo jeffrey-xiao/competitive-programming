@@ -18,7 +18,7 @@ public class COCI_2007_PRINCEZA_2 {
 
   static int n, k;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     k = readInt();
 
@@ -38,13 +38,13 @@ public class COCI_2007_PRINCEZA_2 {
     }
     Arrays.sort(s1, new Comparator<State>() {
       @Override
-      public int compare (State o1, State o2) {
+      public int compare(State o1, State o2) {
         return o1.value == o2.value ? X[o1.index] - X[o2.index] : o1.value - o2.value;
       }
     });
     Arrays.sort(s2, new Comparator<State>() {
       @Override
-      public int compare (State o1, State o2) {
+      public int compare(State o1, State o2) {
         return o1.value == o2.value ? X[o1.index] - X[o2.index] : o1.value - o2.value;
       }
     });
@@ -94,38 +94,38 @@ public class COCI_2007_PRINCEZA_2 {
     System.out.println(X[curr] + " " + Y[curr]);
   }
 
-  static class State {
-    int index, value;
-
-    State (int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int index, value;
+
+    State(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
   }
 }

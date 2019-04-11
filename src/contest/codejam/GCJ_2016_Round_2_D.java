@@ -20,7 +20,7 @@ public class GCJ_2016_Round_2_D {
   static boolean[] vis;
   static int ans, edges, min;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -145,7 +145,7 @@ public class GCJ_2016_Round_2_D {
     out.close();
   }
 
-  static State dfs (int u) {
+  static State dfs(int u) {
     vis[u] = true;
 
     State ret = new State(0, 0);
@@ -165,54 +165,54 @@ public class GCJ_2016_Round_2_D {
     return ret;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     int a, b;
 
-    State (int a, int b) {
+    State(int a, int b) {
       this.a = a;
       this.b = b;
     }
 
     @Override
-    public int compareTo (State s) {
+    public int compareTo(State s) {
       if (a != s.a)
         return a - s.a;
       return b - s.a;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         return a == s.a && b == s.b;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

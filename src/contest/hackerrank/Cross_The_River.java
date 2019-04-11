@@ -23,7 +23,7 @@ public class Cross_The_River {
   static int N, H, DH, DW;
   static ArrayList<LinkedList<State>> buckets;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -94,17 +94,7 @@ public class Cross_The_River {
     out.close();
   }
 
-  static class Update {
-    int x;
-    State s;
-
-    Update (int x, State s) {
-      this.x = x;
-      this.s = s;
-    }
-  }
-
-  private static void update (int n, int x, int lo, int hi) {
+  private static void update(int n, int x, int lo, int hi) {
     if (x == lo && x == hi) {
       if (buckets.get(x).size() == 0)
         buckets.get(x).add(new State(-1 << 27, -1 << 27, lo));
@@ -122,11 +112,11 @@ public class Cross_The_River {
       tree[n] = tree[n << 1 | 1];
   }
 
-  private static void remove (int x) {
+  private static void remove(int x) {
     buckets.get(x).removeFirst();
   }
 
-  private static State query (int n, int lo, int hi, int qlo, int qhi) {
+  private static State query(int n, int lo, int hi, int qlo, int qhi) {
     if (lo == qlo && hi == qhi) {
       return tree[n];
     }
@@ -144,13 +134,13 @@ public class Cross_The_River {
     }
   }
 
-  private static void add (int x, State s) {
+  private static void add(int x, State s) {
     while (buckets.get(x).size() > 0 && buckets.get(x).getLast().points <= s.points)
       buckets.get(x).removeLast();
     buckets.get(x).add(s);
   }
 
-  private static void build (int n, int l, int r) {
+  private static void build(int n, int l, int r) {
     if (l == r) {
       tree[n] = new State(H, 0, l);
       return;
@@ -161,10 +151,46 @@ public class Cross_The_River {
     tree[n] = new State(H, 0, l);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class Update {
+    int x;
+    State s;
+
+    Update(int x, State s) {
+      this.x = x;
+      this.s = s;
+    }
+  }
+
   static class State {
     int y, points, index;
 
-    State (int y, int points, int index) {
+    State(int y, int points, int index) {
       this.y = y;
       this.points = points;
       this.index = index;
@@ -174,41 +200,15 @@ public class Cross_The_River {
   static class Rock implements Comparable<Rock> {
     int x, y, points;
 
-    Rock (int x, int y, int points) {
+    Rock(int x, int y, int points) {
       this.x = x;
       this.y = y;
       this.points = points;
     }
 
     @Override
-    public int compareTo (Rock o) {
+    public int compareTo(Rock o) {
       return o.y - y;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

@@ -10,7 +10,7 @@ public class SMAC_2008_Befungulator {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     boolean[][][] v = new boolean[r][c][4];
@@ -79,7 +79,7 @@ public class SMAC_2008_Befungulator {
     System.out.println(result);
   }
 
-  private static void nextState (int[] state, int d) {
+  private static void nextState(int[] state, int d) {
     switch (d) {
       case 0:
         state[0]--;
@@ -96,25 +96,25 @@ public class SMAC_2008_Befungulator {
     }
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

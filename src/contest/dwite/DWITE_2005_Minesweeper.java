@@ -15,7 +15,7 @@ public class DWITE_2005_Minesweeper {
   static char[][] grid = new char[16][];
   static int[][] grid1 = new int[16][30];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int x = 0; x < 16; x++)
       grid[x] = next().toCharArray();
     for (int z = 0; z < 5; z++) {
@@ -36,7 +36,7 @@ public class DWITE_2005_Minesweeper {
     }
   }
 
-  private static int floodFill (int x, int y, boolean[][] v) {
+  private static int floodFill(int x, int y, boolean[][] v) {
     int count = 1;
     v[x][y] = true;
     grid1[x][y] = 1;
@@ -54,7 +54,7 @@ public class DWITE_2005_Minesweeper {
     return count;
   }
 
-  private static int checkSquares (int x, int y) {
+  private static int checkSquares(int x, int y) {
     int count = 0;
     for (int z = 0; z < 8; z++) {
       int newx = x + movex[z];
@@ -67,25 +67,25 @@ public class DWITE_2005_Minesweeper {
     return count;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

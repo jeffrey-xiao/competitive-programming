@@ -12,14 +12,14 @@ public class USACO_2012_Grazing_Patterns {
   static boolean[][] visited = new boolean[5][5];
   static int numVisited = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     numVisited = readInt();
     for (int x = 0; x < numVisited; x++)
       visited[readInt() - 1][readInt() - 1] = true;
     System.out.println(compute(0, 0));
   }
 
-  private static int compute (int x, int y) {
+  private static int compute(int x, int y) {
     if (x < 0 || y < 0 || x >= 5 || y >= 5 || visited[x][y])
       return 0;
     visited[x][y] = true;
@@ -34,25 +34,25 @@ public class USACO_2012_Grazing_Patterns {
     return total;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -18,7 +18,7 @@ public class CCC_2008_Stage_2_Herding {
   static char[][] grid;
   static int[][] trap;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     grid = new char[r][];
@@ -58,42 +58,42 @@ public class CCC_2008_Stage_2_Herding {
     System.out.println(count);
   }
 
-  private static void checkPush (int x, int y, char d) {
+  private static void checkPush(int x, int y, char d) {
     if (x >= 0 && x < r && y >= 0 && y < c && grid[x][y] == d && trap[x][y] == 0) {
       trap[x][y] = count;
       q.offer(new Point(x, y));
     }
   }
 
-  static class Point {
-    int x;
-    int y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x;
+    int y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

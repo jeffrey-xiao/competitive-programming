@@ -13,7 +13,7 @@ public class CCC_2015_Stage_2_Artskjid {
   static int[][] adj;
   static int[][] dp = new int[1 << 18][19];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     adj = new int[n][n];
@@ -31,7 +31,7 @@ public class CCC_2015_Stage_2_Artskjid {
     System.out.println(solve(1, 0, 0));
   }
 
-  static int solve (int v, int curr, int cnt) {
+  static int solve(int v, int curr, int cnt) {
 
     if (dp[v][curr] != -1)
       return dp[v][curr];
@@ -49,22 +49,22 @@ public class CCC_2015_Stage_2_Artskjid {
     return dp[v][curr] = res;
   }
 
-  static class Edge {
-    int dest, cost;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
+  }
+
+  static class Edge {
+    int dest, cost;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

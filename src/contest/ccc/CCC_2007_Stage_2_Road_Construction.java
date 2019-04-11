@@ -26,7 +26,7 @@ public class CCC_2007_Stage_2_Road_Construction {
   static int[] low;
   static int numOfComponents;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     visited = new boolean[n];
     parent = new int[n];
@@ -74,17 +74,7 @@ public class CCC_2007_Stage_2_Road_Construction {
     System.out.println((leaves + 1) / 2);
   }
 
-  static class Edge {
-    int source;
-    int dest;
-
-    Edge (int source, int dest) {
-      this.source = source;
-      this.dest = dest;
-    }
-  }
-
-  private static void dfs (int x) {
+  private static void dfs(int x) {
     visited[x] = true;
     low[x] = d[x] = ++count;
     for (int y = 0; y < adj.get(x).size(); y++) {
@@ -103,7 +93,7 @@ public class CCC_2007_Stage_2_Road_Construction {
     }
   }
 
-  private static void addComponent (Integer x) {
+  private static void addComponent(Integer x) {
     if (s.isEmpty())
       return;
     Integer e = s.pop();
@@ -117,25 +107,35 @@ public class CCC_2007_Stage_2_Road_Construction {
     numOfComponents++;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int source;
+    int dest;
+
+    Edge(int source, int dest) {
+      this.source = source;
+      this.dest = dest;
+    }
   }
 }

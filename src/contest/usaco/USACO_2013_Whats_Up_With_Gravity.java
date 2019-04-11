@@ -16,7 +16,7 @@ public class USACO_2013_Whats_Up_With_Gravity {
   static int r;
   static int c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     grid = new char[r][];
@@ -76,22 +76,44 @@ public class USACO_2013_Whats_Up_With_Gravity {
     System.out.println(best == Integer.MAX_VALUE ? -1 : best);
   }
 
-  private static int[] getCoor (int x, int y, boolean regGrav) {
+  private static int[] getCoor(int x, int y, boolean regGrav) {
     int dir = regGrav ? 1 : -1;
     if (x + dir >= 0 && x + dir < r) {
       if (grid[x][y] == 'D')
-        return new int[] {x, y};
+        return new int[]{x, y};
       while (grid[x + dir][y] != '#') {
 
         x += dir;
         if (grid[x][y] == 'D')
-          return new int[] {x, y};
+          return new int[]{x, y};
         if (x + dir < 0 || x + dir >= r)
-          return new int[] {-1, -1};
+          return new int[]{-1, -1};
 
       }
     }
-    return new int[] {x, y};
+    return new int[]{x, y};
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Point {
@@ -100,33 +122,11 @@ public class USACO_2013_Whats_Up_With_Gravity {
     int time;
     boolean regGrav;
 
-    Point (int x, int y, int time, boolean regGrav) {
+    Point(int x, int y, int time, boolean regGrav) {
       this.x = x;
       this.y = y;
       this.time = time;
       this.regGrav = regGrav;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

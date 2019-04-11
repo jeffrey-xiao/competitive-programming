@@ -10,8 +10,9 @@ public class CCC_1996_Stage_2_Safebreaker {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
-    main : for (int t = readInt(); t > 0; t--) {
+  public static void main(String[] args) throws IOException {
+    main:
+    for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       String[] nums = new String[n];
       int[][] guesses = new int[n][2];
@@ -27,12 +28,13 @@ public class CCC_1996_Stage_2_Safebreaker {
       for (int a = 0; a <= 9; a++) {
         for (int b = 0; b <= 9; b++) {
           for (int c = 0; c <= 9; c++) {
-            inner : for (int d = 0; d <= 9; d++) {
+            inner:
+            for (int d = 0; d <= 9; d++) {
               for (int x = 0; x < n; x++) {
                 int correct = guesses[x][0];
                 int misplace = guesses[x][1];
-                int numCorrect = getCorrect(new int[] {a, b, c, d}, nums[x]);
-                int numMisplaced = getMisplaced(new int[] {a, b, c, d}, nums[x]);
+                int numCorrect = getCorrect(new int[]{a, b, c, d}, nums[x]);
+                int numMisplaced = getMisplaced(new int[]{a, b, c, d}, nums[x]);
                 if (correct != numCorrect || misplace != numMisplaced - numCorrect) {
                   continue inner;
                 }
@@ -54,7 +56,7 @@ public class CCC_1996_Stage_2_Safebreaker {
     }
   }
 
-  private static int getCorrect (int[] guess, String i) {
+  private static int getCorrect(int[] guess, String i) {
     int count = 0;
     StringBuilder s = new StringBuilder(i);
     for (int x = 0; x < 4; x++) {
@@ -66,7 +68,7 @@ public class CCC_1996_Stage_2_Safebreaker {
     return count;
   }
 
-  private static int getMisplaced (int[] guess, String i) {
+  private static int getMisplaced(int[] guess, String i) {
     StringBuilder s = new StringBuilder(i);
     int count = 0;
     for (int x = 0; x < 4; x++) {
@@ -81,25 +83,25 @@ public class CCC_1996_Stage_2_Safebreaker {
     return count;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

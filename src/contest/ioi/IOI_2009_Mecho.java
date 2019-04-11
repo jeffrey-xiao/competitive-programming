@@ -15,7 +15,7 @@ public class IOI_2009_Mecho {
   static byte[] movex = {-1, 1, 0, 0};
   static byte[] movey = {0, 0, -1, 1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     int speed = readInt();
     char[][] grid = new char[n][n];
@@ -27,7 +27,7 @@ public class IOI_2009_Mecho {
       for (int y = 0; y < n; y++) {
         grid[x][y] = s.charAt(y);
         if (s.charAt(y) == 'H') {
-          moves.offer(new int[] {x, y, speed});
+          moves.offer(new int[]{x, y, speed});
         } else if (grid[x][y] == 'M') {
           startx = x;
           starty = y;
@@ -45,7 +45,7 @@ public class IOI_2009_Mecho {
           continue;
         visited[newX][newY] = true;
         steps[newX][newY] = curr[2];
-        moves.add(new int[] {newX, newY, curr[2] + speed});
+        moves.add(new int[]{newX, newY, curr[2] + speed});
       }
     }
     int min = -1;
@@ -61,10 +61,10 @@ public class IOI_2009_Mecho {
     System.out.println(min);
   }
 
-  private static boolean bfs (char[][] grid, int[][] steps, int mid, int x, int y) {
+  private static boolean bfs(char[][] grid, int[][] steps, int mid, int x, int y) {
     boolean[][] visited = new boolean[n][n];
     Queue<int[]> moves = new LinkedList<int[]>();
-    moves.add(new int[] {x, y, mid});
+    moves.add(new int[]{x, y, mid});
     if (mid >= steps[x][y])
       return false;
     while (!moves.isEmpty()) {
@@ -77,31 +77,31 @@ public class IOI_2009_Mecho {
         if (newX < 0 || newY < 0 || newX >= n || newY >= n || visited[newX][newY] || grid[newX][newY] == 'T' || (curr[2] + 1 >= steps[newX][newY] && grid[newX][newY] != 'D'))
           continue;
         visited[newX][newY] = true;
-        moves.add(new int[] {newX, newY, curr[2] + 1});
+        moves.add(new int[]{newX, newY, curr[2] + 1});
       }
     }
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

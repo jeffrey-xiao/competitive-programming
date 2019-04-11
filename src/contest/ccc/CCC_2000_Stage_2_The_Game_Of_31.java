@@ -12,7 +12,7 @@ public class CCC_2000_Stage_2_The_Game_Of_31 {
   static StringTokenizer st;
   static int[][][][][][] win; // 1 is win, -1 is lose
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       win = new int[5][5][5][5][5][5];
       String s = readLine();
@@ -39,7 +39,7 @@ public class CCC_2000_Stage_2_The_Game_Of_31 {
     }
   }
 
-  private static void compute (int[] state, int sum) {
+  private static void compute(int[] state, int sum) {
     for (int x = 0; x < state.length; x++) {
       if (sum + x + 1 <= 31 && state[x] > 0) {
         state[x]--;
@@ -58,25 +58,25 @@ public class CCC_2000_Stage_2_The_Game_Of_31 {
     return;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

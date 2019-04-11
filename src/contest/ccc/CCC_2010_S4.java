@@ -16,7 +16,7 @@ public class CCC_2010_S4 {
   static ArrayList<ArrayList<Edge>> adj = new ArrayList<ArrayList<Edge>>();
   static int n;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     for (int x = 0; x <= n; x++)
       adj.add(new ArrayList<Edge>());
@@ -52,14 +52,15 @@ public class CCC_2010_S4 {
     System.out.println(i);
   }
 
-  private static int prim (int i) {
+  private static int prim(int i) {
     boolean[] visited = new boolean[n + 1];
     if (i != 0)
       visited[0] = true;
     PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
     pq.add(new Edge(i, 0));
     int sum = 0;
-    main : while (!pq.isEmpty()) {
+    main:
+    while (!pq.isEmpty()) {
       Edge curr = pq.poll();
       while (visited[curr.dest]) {
         if (pq.isEmpty())
@@ -80,24 +81,46 @@ public class CCC_2010_S4 {
     return sum;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Pair {
     int x, y, c;
 
-    Pair (int x, int y, int c) {
+    Pair(int x, int y, int c) {
       this.x = x;
       this.y = y;
       this.c = c;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return 31 * x + y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair)o;
+        Pair p = (Pair) o;
         return x == p.x && y == p.y;
       }
       return false;
@@ -108,36 +131,14 @@ public class CCC_2010_S4 {
     int dest;
     int cost;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge arg0) {
+    public int compareTo(Edge arg0) {
       return cost - arg0.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

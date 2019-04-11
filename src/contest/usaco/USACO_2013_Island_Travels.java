@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 
 public class USACO_2013_Island_Travels {
 
+  static final char SHIFT = 'A';
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
@@ -23,9 +24,8 @@ public class USACO_2013_Island_Travels {
   static int r, c;
   static int[][] adj;
   static int[][] dp;
-  static final char SHIFT = 'A';
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     grid = new char[r][];
@@ -41,7 +41,7 @@ public class USACO_2013_Island_Travels {
     for (int x = 0; x < count; x++) {
       bfs(x);
     }
-    int size = (int)(Math.pow(2, count));
+    int size = (int) (Math.pow(2, count));
     dp = new int[count][size];
     for (int y = 0; y < count; y++)
       for (int x = 0; x < size; x++)
@@ -69,7 +69,7 @@ public class USACO_2013_Island_Travels {
     System.out.println(min);
   }
 
-  private static int compute (boolean[] state, int start) {
+  private static int compute(boolean[] state, int start) {
     int index = toIndex(state);
     if (index == Math.pow(2, count) - 1)
       return 0;
@@ -88,7 +88,7 @@ public class USACO_2013_Island_Travels {
     return min;
   }
 
-  private static int toIndex (boolean[] state) {
+  private static int toIndex(boolean[] state) {
     int total = 0;
     int b = 1;
     for (int x = 0; x < state.length; x++, b *= 2)
@@ -97,7 +97,7 @@ public class USACO_2013_Island_Travels {
     return total;
   }
 
-  private static void bfs (int i) {
+  private static void bfs(int i) {
     Queue<Point> moves = new LinkedList<Point>();
     boolean[][] visited = new boolean[r][c];
     for (int x = 0; x < r; x++)
@@ -125,8 +125,8 @@ public class USACO_2013_Island_Travels {
 
   }
 
-  private static void fill (int x, int y, int id) {
-    grid[x][y] = (char)id;
+  private static void fill(int x, int y, int id) {
+    grid[x][y] = (char) id;
     for (int z = 0; z < 4; z++) {
       int nx = x + movex[z];
       int ny = y + movey[z];
@@ -136,39 +136,39 @@ public class USACO_2013_Island_Travels {
     }
   }
 
-  static class Point {
-    int x, y, moves;
-
-    Point (int x, int y, int moves) {
-      this.x = x;
-      this.y = y;
-      this.moves = moves;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y, moves;
+
+    Point(int x, int y, int moves) {
+      this.x = x;
+      this.y = y;
+      this.moves = moves;
+    }
   }
 }

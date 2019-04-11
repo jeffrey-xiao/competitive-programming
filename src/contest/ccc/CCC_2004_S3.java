@@ -10,7 +10,7 @@ public class CCC_2004_S3 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int[][] values = new int[10][9];
     String[][] mod = new String[10][9];
     for (int x = 0; x < 10; x++) {
@@ -74,14 +74,14 @@ public class CCC_2004_S3 {
     }
   }
 
-  static int[] getIndex (String s) {
+  static int[] getIndex(String s) {
     int[] coordinate = new int[2];
     coordinate[0] = s.charAt(0) - 65;
     coordinate[1] = s.charAt(1) - 49;
     return coordinate;
   }
 
-  static boolean isNumeric (String str) {
+  static boolean isNumeric(String str) {
     for (char c : str.toCharArray()) {
       if (!Character.isDigit(c))
         return false;
@@ -89,25 +89,25 @@ public class CCC_2004_S3 {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

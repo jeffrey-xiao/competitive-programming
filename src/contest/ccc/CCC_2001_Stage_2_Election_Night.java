@@ -16,7 +16,7 @@ public class CCC_2001_Stage_2_Election_Night {
   static int candidates;
   static ArrayList<ArrayList<Edge>> curr = new ArrayList<ArrayList<Edge>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     states = readInt();
     candidates = readInt();
     while (states != 0) {
@@ -56,7 +56,8 @@ public class CCC_2001_Stage_2_Election_Night {
           }
         }
       }
-      main : for (int x = 1; x <= candidates; x++) {
+      main:
+      for (int x = 1; x <= candidates; x++) {
         for (int y = 1; y <= candidates; y++) {
           if (x != y && possible[y] >= guarantee[x]) {
             continue main;
@@ -110,14 +111,14 @@ public class CCC_2001_Stage_2_Election_Night {
   }
 
   @SuppressWarnings("unchecked")
-  private static ArrayList<ArrayList<Edge>> cloneList (ArrayList<ArrayList<Edge>> adj) {
+  private static ArrayList<ArrayList<Edge>> cloneList(ArrayList<ArrayList<Edge>> adj) {
     ArrayList<ArrayList<Edge>> t = new ArrayList<ArrayList<Edge>>();
     for (ArrayList<Edge> a : adj)
-      t.add((ArrayList<Edge>)a.clone());
+      t.add((ArrayList<Edge>) a.clone());
     return t;
   }
 
-  private static boolean maxFlow () {
+  private static boolean maxFlow() {
 
     int augment = bfs();
     while (augment != 0) {
@@ -130,7 +131,7 @@ public class CCC_2001_Stage_2_Election_Night {
     return true;
   }
 
-  private static int bfs () {
+  private static int bfs() {
     int d = states + candidates + 1;
     Queue<State> moves = new LinkedList<State>();
     int[] max = new int[states + candidates + 2];
@@ -173,11 +174,33 @@ public class CCC_2001_Stage_2_Election_Night {
     return neck;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     int max;
     int index;
 
-    State (int index, int max) {
+    State(int index, int max) {
       this.index = index;
       this.max = max;
     }
@@ -187,45 +210,23 @@ public class CCC_2001_Stage_2_Election_Night {
     int cost;
     int dest;
 
-    Edge (int dest, int cost) {
+    Edge(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge)o;
+        Edge e = (Edge) o;
         return e.dest == dest;
       }
       return false;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return "Dest: " + dest + "; Cost:" + cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

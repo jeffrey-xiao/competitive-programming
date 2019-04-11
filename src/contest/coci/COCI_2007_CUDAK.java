@@ -18,7 +18,7 @@ public class COCI_2007_CUDAK {
   static HashMap<State, Long> hm = new HashMap<State, Long>();
   static HashMap<State, Long> hm2 = new HashMap<State, Long>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     long a = readLong();
     long b = readLong();
     int n = readInt();
@@ -38,7 +38,7 @@ public class COCI_2007_CUDAK {
     System.out.println(lo);
   }
 
-  static long dp2 (State st) {
+  static long dp2(State st) {
     long len = Long.toString(st.l).length();
     int firstD = Long.toString(st.l).charAt(0) - '0';
     if (st.s > len * 9 || st.s < 0)
@@ -52,12 +52,12 @@ public class COCI_2007_CUDAK {
     for (int i = st.s; i >= st.s - firstD + 1; i--) {
       res += dp1(new State(len - 1, i));
     }
-    res += dp2(new State(st.l - firstD * (long)Math.pow(10, len - 1), st.s - firstD));
+    res += dp2(new State(st.l - firstD * (long) Math.pow(10, len - 1), st.s - firstD));
     hm2.put(st, res);
     return res;
   }
 
-  static long dp1 (State st) {
+  static long dp1(State st) {
     if (hm.containsKey(st))
       return hm.get(st);
     if ((st.l >= 0) && st.s == 0) {
@@ -74,52 +74,52 @@ public class COCI_2007_CUDAK {
     return res;
   }
 
-  static class State {
-    long l;
-    int s;
-
-    State (long l, int s) {
-      this.l = l;
-      this.s = s;
-    }
-
-    public boolean equals (Object o) {
-      if (o instanceof State) {
-        State st = (State)o;
-        return l == st.l && s == st.s;
-      }
-      return false;
-    }
-
-    public int hashCode () {
-      return new Long(l).hashCode() * 31 + new Integer(s).hashCode();
-    }
-
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    long l;
+    int s;
+
+    State(long l, int s) {
+      this.l = l;
+      this.s = s;
+    }
+
+    public boolean equals(Object o) {
+      if (o instanceof State) {
+        State st = (State) o;
+        return l == st.l && s == st.s;
+      }
+      return false;
+    }
+
+    public int hashCode() {
+      return new Long(l).hashCode() * 31 + new Integer(s).hashCode();
+    }
+
   }
 }

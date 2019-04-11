@@ -27,7 +27,7 @@ public class IOI_2015_Teams {
   static Node[] nodes = new Node[12500000];
   static int nodeIndex = 0;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new OutputStreamWriter(System.out);
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -75,7 +75,8 @@ public class IOI_2015_Teams {
 
     M = readInt();
 
-    main : for (int i = 0; i < M; i++) {
+    main:
+    for (int i = 0; i < M; i++) {
       int currIndex = nodeIndex;
       nodes[nodeIndex].left = nodes[nodeIndex].right = nodeIndex;
       used = nodeIndex++;
@@ -117,7 +118,7 @@ public class IOI_2015_Teams {
     out.close();
   }
 
-  static int getSum (int curr, int used, int l, int r, int ql, int qr) {
+  static int getSum(int curr, int used, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return nodes[curr].cnt - nodes[used].cnt;
 
@@ -129,7 +130,7 @@ public class IOI_2015_Teams {
     return getSum(nodes[curr].left, nodes[used].left, l, mid, ql, mid) + getSum(nodes[curr].right, nodes[used].right, mid + 1, r, mid + 1, qr);
   }
 
-  static State query (int curr, int used, int K, int l, int r, int ql, int qr) {
+  static State query(int curr, int used, int K, int l, int r, int ql, int qr) {
     int mid = (l + r) >> 1;
     if (K == 0)
       return new State(0, used);
@@ -189,17 +190,7 @@ public class IOI_2015_Teams {
     }
   }
 
-  static class State {
-    int cnt;
-    int n;
-
-    State (int cnt, int n) {
-      this.cnt = cnt;
-      this.n = n;
-    }
-  }
-
-  static int findFloor (ArrayList<Integer> val, int x) {
+  static int findFloor(ArrayList<Integer> val, int x) {
     int lo = 0;
     int hi = val.size() - 1;
     while (lo <= hi) {
@@ -213,7 +204,7 @@ public class IOI_2015_Teams {
     return hi;
   }
 
-  static int findCeil (ArrayList<Integer> val, int x) {
+  static int findCeil(ArrayList<Integer> val, int x) {
     int lo = 0;
     int hi = val.size() - 1;
     while (lo <= hi) {
@@ -227,7 +218,7 @@ public class IOI_2015_Teams {
     return lo;
   }
 
-  static ArrayList<Integer> unique (ArrayList<Integer> val) {
+  static ArrayList<Integer> unique(ArrayList<Integer> val) {
     ArrayList<Integer> ret = new ArrayList<Integer>();
     if (val.isEmpty())
       return ret;
@@ -240,7 +231,7 @@ public class IOI_2015_Teams {
     return ret;
   }
 
-  static int update (int prev, int l, int r, int val, int inc) {
+  static int update(int prev, int l, int r, int val, int inc) {
     if (l <= val && val <= r) {
       if (l == r) {
         nodes[nodeIndex].cnt = nodes[prev].cnt + inc;
@@ -256,16 +247,52 @@ public class IOI_2015_Teams {
     return prev;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
+  static class State {
+    int cnt;
+    int n;
+
+    State(int cnt, int n) {
+      this.cnt = cnt;
+      this.n = n;
+    }
+  }
+
   static class Person implements Comparable<Person> {
     int lo, hi;
 
-    Person (int lo, int hi) {
+    Person(int lo, int hi) {
       this.lo = lo;
       this.hi = hi;
     }
 
     @Override
-    public int compareTo (Person p) {
+    public int compareTo(Person p) {
       return lo - p.lo;
     }
   }
@@ -274,40 +301,14 @@ public class IOI_2015_Teams {
     int left, right;
     int cnt;
 
-    Node (int cnt) {
+    Node(int cnt) {
       this(-1, -1, cnt);
     }
 
-    Node (int left, int right, int cnt) {
+    Node(int left, int right, int cnt) {
       this.left = left;
       this.right = right;
       this.cnt = cnt;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

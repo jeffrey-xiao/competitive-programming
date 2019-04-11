@@ -17,7 +17,7 @@ public class CCC_1999_Stage_2_Sum_of_Products {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -67,11 +67,11 @@ public class CCC_1999_Stage_2_Sum_of_Products {
     out.close();
   }
 
-  private static boolean isOperator (char c) {
+  private static boolean isOperator(char c) {
     return c == '+' || c == '*';
   }
 
-  private static void operate (LinkedList<Term> st, char op) {
+  private static void operate(LinkedList<Term> st, char op) {
     Term r = st.removeLast();
     Term l = st.removeLast();
     Term add = new Term();
@@ -90,7 +90,7 @@ public class CCC_1999_Stage_2_Sum_of_Products {
 
   }
 
-  private static int getPriority (char op) {
+  private static int getPriority(char op) {
     if (op == '+')
       return 1;
     else if (op == '*')
@@ -99,37 +99,37 @@ public class CCC_1999_Stage_2_Sum_of_Products {
       return -1;
   }
 
-  static class Term {
-    ArrayList<String> var;
-
-    Term () {
-      var = new ArrayList<String>();
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Term {
+    ArrayList<String> var;
+
+    Term() {
+      var = new ArrayList<String>();
+    }
   }
 }

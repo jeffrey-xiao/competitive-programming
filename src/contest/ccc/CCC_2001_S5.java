@@ -14,7 +14,7 @@ public class CCC_2001_S5 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     HashSet<State> visited = new HashSet<State>();
     int m = readInt();
     int k = readInt();
@@ -50,13 +50,35 @@ public class CCC_2001_S5 {
     System.out.println("No solution.");
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State {
     String a;
     String b;
     int length;
     ArrayList<Integer> moves;
 
-    State (String a, String b, int length, int move, ArrayList<Integer> moves) {
+    State(String a, String b, int length, int move, ArrayList<Integer> moves) {
       this.a = a;
       this.b = b;
       this.length = length;
@@ -64,7 +86,7 @@ public class CCC_2001_S5 {
       this.moves.add(move);
     }
 
-    public int trim () {
+    public int trim() {
       int l = Math.min(a.length(), b.length());
       if (!a.substring(0, l).equals(b.substring(0, l))) {
         return 0;
@@ -75,39 +97,17 @@ public class CCC_2001_S5 {
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return a.hashCode() * 31 + b.hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State)o;
+        State s = (State) o;
         return a.equals(s.a) && b.equals(s.b);
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

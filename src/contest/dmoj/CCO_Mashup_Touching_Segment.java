@@ -15,14 +15,13 @@ import java.util.TreeSet;
 
 public class CCO_Mashup_Touching_Segment {
 
+  static final int SIZE = 100005 * 2;
   static BufferedReader br;
   static PrintWriter pr;
   static StringTokenizer st;
-
-  static final int SIZE = 100005 * 2;
   static Node[] seg;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -52,7 +51,7 @@ public class CCO_Mashup_Touching_Segment {
       Arrays.sort(s);
       PriorityQueue<Seg> pq = new PriorityQueue<Seg>(new Comparator<Seg>() {
         @Override
-        public int compare (Seg o1, Seg o2) {
+        public int compare(Seg o1, Seg o2) {
           return o1.b - o2.b;
         }
       });
@@ -73,7 +72,7 @@ public class CCO_Mashup_Touching_Segment {
     pr.close();
   }
 
-  static int bsearch (int i, ArrayList<Integer> a) {
+  static int bsearch(int i, ArrayList<Integer> a) {
     int lo = 0;
     int hi = a.size() - 1;
     while (lo <= hi) {
@@ -89,21 +88,7 @@ public class CCO_Mashup_Touching_Segment {
     return -1;
   }
 
-  static class Seg implements Comparable<Seg> {
-    int a, b;
-
-    Seg (int a, int b) {
-      this.a = a;
-      this.b = b;
-    }
-
-    @Override
-    public int compareTo (Seg s) {
-      return a - s.a;
-    }
-  }
-
-  static void update (int l, int r, int n, int v) {
+  static void update(int l, int r, int n, int v) {
     if (seg[n].l == l && seg[n].r == r) {
       seg[n].max += v;
       seg[n].p += v;
@@ -128,7 +113,7 @@ public class CCO_Mashup_Touching_Segment {
     seg[n].max = Math.max(seg[2 * n].max, seg[2 * n + 1].max);
   }
 
-  static int query (int l, int r, int n) {
+  static int query(int l, int r, int n) {
     if (l > r)
       return 0;
     if (seg[n].l == l && seg[n].r == r) {
@@ -149,7 +134,7 @@ public class CCO_Mashup_Touching_Segment {
     return Math.max(query(l, mid, 2 * n), query(mid + 1, r, 2 * n + 1));
   }
 
-  static void build (int l, int r, int n) {
+  static void build(int l, int r, int n) {
     seg[n] = new Node(l, r);
     if (l == r) {
       seg[n].max = 0;
@@ -160,39 +145,53 @@ public class CCO_Mashup_Touching_Segment {
     build(mid + 1, r, 2 * n + 1);
   }
 
-  static class Node {
-    int l, r, max;
-    int p;
-
-    Node (int l, int r) {
-      this.l = l;
-      this.r = r;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Seg implements Comparable<Seg> {
+    int a, b;
+
+    Seg(int a, int b) {
+      this.a = a;
+      this.b = b;
+    }
+
+    @Override
+    public int compareTo(Seg s) {
+      return a - s.a;
+    }
+  }
+
+  static class Node {
+    int l, r, max;
+    int p;
+
+    Node(int l, int r) {
+      this.l = l;
+      this.r = r;
+    }
   }
 }

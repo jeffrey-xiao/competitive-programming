@@ -21,7 +21,7 @@ public class COCI_2008_RELJEF {
   static int[] movex = {-1, 1, 0, 0};
   static int[] movey = {0, 0, -1, 1};
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     g = new char[r][c];
@@ -67,7 +67,7 @@ public class COCI_2008_RELJEF {
     System.out.println();
   }
 
-  private static boolean adjust () {
+  private static boolean adjust() {
     if (p.size() != 0) {
       int adjust = Integer.MAX_VALUE;
       for (int j = 0; j < p.size(); j++) {
@@ -89,7 +89,7 @@ public class COCI_2008_RELJEF {
     return false;
   }
 
-  private static void fill (int x, int y) {
+  private static void fill(int x, int y) {
     if (x < 0 || x >= r || y < 0 || y >= c || g[x][y] == '.')
       return;
     g[x][y] = '.';
@@ -100,38 +100,38 @@ public class COCI_2008_RELJEF {
     fill(x, y + 1);
   }
 
-  static class Point {
-    int x, y;
-
-    Point (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Point {
+    int x, y;
+
+    Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }

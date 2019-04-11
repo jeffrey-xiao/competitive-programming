@@ -14,7 +14,7 @@ public class ACM_A_Pleasant_Stroll {
   static char[][] grid;
   static int r, c;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       r = readInt();
       c = readInt();
@@ -40,7 +40,7 @@ public class ACM_A_Pleasant_Stroll {
     }
   }
 
-  static int compute (int x, int y1, int y2) {
+  static int compute(int x, int y1, int y2) {
     if (dp[x][y1][y2] != -1)
       return dp[x][y1][y2];
     int total = 0;
@@ -67,35 +67,35 @@ public class ACM_A_Pleasant_Stroll {
     return total;
   }
 
-  static class State {
-    int x, y1, y2;
-
-    State (int x, int y1, int y2) {
-      this.x = x;
-      this.y1 = y1;
-      this.y2 = y2;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int x, y1, y2;
+
+    State(int x, int y1, int y2) {
+      this.x = x;
+      this.y1 = y1;
+      this.y2 = y2;
+    }
   }
 }

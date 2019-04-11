@@ -21,7 +21,7 @@ public class CCC_2012_Stage_2_Winds_Of_War {
 
   static int[][] dp, points;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -71,50 +71,50 @@ public class CCC_2012_Stage_2_Winds_Of_War {
     out.close();
   }
 
-  static long ccw (Point p1, Point p2, Point p3) {
+  static long ccw(Point p1, Point p2, Point p3) {
     return 1L * (p1.x - p3.x) * (p2.y - p3.y) - 1L * (p2.x - p3.x) * (p1.y - p3.y);
+  }
+
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
   }
 
   static class Point implements Comparable<Point> {
     int x, y, type;
 
-    Point (int x, int y, int type) {
+    Point(int x, int y, int type) {
       this.x = x;
       this.y = y;
       this.type = type;
     }
 
     @Override
-    public int compareTo (Point o) {
+    public int compareTo(Point o) {
       Double a1 = Math.atan2(y, x);
       Double a2 = Math.atan2(o.y, o.x);
       return a1.compareTo(a2);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

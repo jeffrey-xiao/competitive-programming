@@ -11,7 +11,7 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int num = readInt();
     int[] seq = new int[num];
     int numOfOne = 0;
@@ -26,7 +26,8 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
     int indexOne = 0;
     int count = 0;
     ArrayList<String> output = new ArrayList<String>();
-    main : for (int x = num - 1; numOfOne > 0 && x > indexOne; x--) {
+    main:
+    for (int x = num - 1; numOfOne > 0 && x > indexOne; x--) {
       if (seq[x] == 1) {
         for (int y = 0; y < numOfOne; y++) {
           if (seq[y] == 3) {
@@ -74,25 +75,25 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
       System.out.println(s);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

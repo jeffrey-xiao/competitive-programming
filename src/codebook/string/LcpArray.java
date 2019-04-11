@@ -6,7 +6,7 @@
 package codebook.string;
 
 public class LcpArray {
-  public static Integer[] getLcp (String s) {
+  public static Integer[] getLcp(String s) {
     char[] text = s.toCharArray();
     int len = s.length();
 

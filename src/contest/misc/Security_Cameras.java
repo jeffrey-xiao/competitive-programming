@@ -17,7 +17,7 @@ public class Security_Cameras {
   static int l;
   static int r;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     ArrayList<Interval> xs = new ArrayList<Interval>();
     ArrayList<Interval> ys = new ArrayList<Interval>();
@@ -56,26 +56,7 @@ public class Security_Cameras {
     System.out.println(count + (n - 2 * count));
   }
 
-  static class Interval {
-    int y1;
-    int y2;
-    int x1;
-    int x2;
-
-    Interval (int x1, int y1, int x2, int y2) {
-      this.y1 = y1;
-      this.y2 = y2;
-      this.x1 = x1;
-      this.x2 = x2;
-    }
-
-    @Override
-    public String toString () {
-      return "(" + x1 + ", " + y1 + "), (" + x2 + ", " + y2 + ")";
-    }
-  }
-
-  private static boolean hungary (int x) {
+  private static boolean hungary(int x) {
     for (int y = 0; y < r; y++) {
       if (adj[x][y] && !visited[y]) {
         visited[y] = true;
@@ -88,25 +69,44 @@ public class Security_Cameras {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Interval {
+    int y1;
+    int y2;
+    int x1;
+    int x2;
+
+    Interval(int x1, int y1, int x2, int y2) {
+      this.y1 = y1;
+      this.y2 = y2;
+      this.x1 = x1;
+      this.x2 = x2;
+    }
+
+    @Override
+    public String toString() {
+      return "(" + x1 + ", " + y1 + "), (" + x2 + ", " + y2 + ")";
+    }
   }
 }

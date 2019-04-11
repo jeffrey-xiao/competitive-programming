@@ -14,20 +14,14 @@ package codebook.datastructures;
 public class LinkCutTree {
   private Node[] nodes;
 
-  LinkCutTree (int n) {
+  LinkCutTree(int n) {
     nodes = new Node[n];
     for (int i = 0; i < n; i++)
       nodes[i] = new Node();
   }
 
-  private class Node {
-    Node path_parent;
-    // tree pointers
-    Node parent, left, right;
-  }
-
   // precondition: n must be a root node, and n and m must be in different trees
-  public void link (Node n, Node m) {
+  public void link(Node n, Node m) {
     access(n);
     access(m);
 
@@ -37,7 +31,7 @@ public class LinkCutTree {
   }
 
   // precondition: n is not a root node
-  public void cut (Node n) {
+  public void cut(Node n) {
     access(n);
     if (n.left != null) {
       n.left.parent = null;
@@ -46,7 +40,7 @@ public class LinkCutTree {
     }
   }
 
-  public Node getRoot (Node n) {
+  public Node getRoot(Node n) {
     access(n);
     while (n.left != null)
       n = n.left;
@@ -54,7 +48,7 @@ public class LinkCutTree {
     return n;
   }
 
-  public void access (Node n) {
+  public void access(Node n) {
     splay(n);
     if (n.right != null) {
       n.right.path_parent = n;
@@ -78,7 +72,7 @@ public class LinkCutTree {
     splay(n);
   }
 
-  private void splay (Node n) {
+  private void splay(Node n) {
     while (n.parent != null) {
       Node p = n.parent;
       Node pp = n.parent.parent;
@@ -94,7 +88,7 @@ public class LinkCutTree {
     }
   }
 
-  private void rotate (Node n) {
+  private void rotate(Node n) {
     Node p = n.parent;
     Node pp = n.parent.parent;
     if (p.left == n) {
@@ -121,7 +115,7 @@ public class LinkCutTree {
     p.path_parent = null;
   }
 
-  public Node lca (Node n, Node m) {
+  public Node lca(Node n, Node m) {
     if (getRoot(n) != getRoot(m))
       return null;
     access(m);
@@ -150,5 +144,11 @@ public class LinkCutTree {
     }
     splay(n);
     return res;
+  }
+
+  private class Node {
+    Node path_parent;
+    // tree pointers
+    Node parent, left, right;
   }
 }

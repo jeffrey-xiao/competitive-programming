@@ -6,16 +6,16 @@ import java.util.Arrays;
 
 public class Permutations {
 
-  static void swap (int i, int j, int[] a) {
+  static void swap(int i, int j, int[] a) {
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
   }
 
-  static boolean nextPermutation (int n, int[] a) {
+  static boolean nextPermutation(int n, int[] a) {
     for (int i = n - 1; i >= 0; i--) {
       if (a[i] < a[i + 1]) {
-        for (int j = n - 1;; j--) {
+        for (int j = n - 1; ; j--) {
           if (a[i] < a[j]) {
             swap(i, j, a);
             i++;
@@ -30,12 +30,12 @@ public class Permutations {
   }
 
   // binary permutation
-  static long nextPermutation (long x) {
+  static long nextPermutation(long x) {
     long s = x & -x, r = x + s;
     return r | (((x ^ r) >> 2) / s);
   }
 
-  static int[] permutationByRank (int n, long x) {
+  static int[] permutationByRank(int n, long x) {
     long[] fact = new long[n];
     fact[0] = 1;
     for (int i = 1; i < n; i++)
@@ -47,7 +47,7 @@ public class Permutations {
       free[i] = i;
 
     for (int i = 0; i < n; i++) {
-      int pos = (int)(x / fact[n - 1 - i]);
+      int pos = (int) (x / fact[n - 1 - i]);
       ret[i] = free[pos];
       for (int j = pos; j < n; j++)
         free[j] = free[j + 1];
@@ -56,7 +56,7 @@ public class Permutations {
     return ret;
   }
 
-  static long rankByPermutation (int n, int[] a) {
+  static long rankByPermutation(int n, int[] a) {
     long[] fact = new long[n];
     fact[0] = 1;
     for (int i = 1; i < n; i++)
@@ -76,7 +76,7 @@ public class Permutations {
   }
 
   // permutations of size n
-  static void printPermutations (int n, int[] p, int d) {
+  static void printPermutations(int n, int[] p, int d) {
     if (d == n) {
       System.out.println(Arrays.toString(p));
       return;

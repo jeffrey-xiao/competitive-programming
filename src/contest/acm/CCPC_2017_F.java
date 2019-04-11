@@ -10,20 +10,18 @@ import java.util.StringTokenizer;
 
 public class CCPC_2017_F {
 
-  static BufferedReader br;
-  static PrintWriter out;
-  static StringTokenizer st;
-
   static final int GOOD = 0;
   static final int BAD = 1;
   static final int OPTION = 2;
-
+  static BufferedReader br;
+  static PrintWriter out;
+  static StringTokenizer st;
   static int T, S;
   static int[] type;
   static int[][] next;
   static long[] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -62,7 +60,7 @@ public class CCPC_2017_F {
     out.close();
   }
 
-  static long solve (int curr) {
+  static long solve(int curr) {
     if (type[curr] == GOOD)
       return 1;
     if (type[curr] == BAD)
@@ -72,7 +70,7 @@ public class CCPC_2017_F {
     return dp[curr] = solve(next[0][curr]) + solve(next[1][curr]) + solve(next[2][curr]);
   }
 
-  static void reset () {
+  static void reset() {
     dp = new long[401];
     next = new int[3][400];
     type = new int[400];
@@ -80,7 +78,7 @@ public class CCPC_2017_F {
     Arrays.fill(dp, -1);
   }
 
-  static boolean isInteger (String s) {
+  static boolean isInteger(String s) {
     if (s.isEmpty())
       return false;
     for (int i = 0; i < s.length(); i++)
@@ -89,29 +87,29 @@ public class CCPC_2017_F {
     return true;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

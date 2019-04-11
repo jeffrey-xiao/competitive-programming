@@ -13,9 +13,9 @@ public class CCC_2013_Stage_2_Tourney {
   static PrintStream ps = new PrintStream(System.out);
   static Player[] b;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
-    int size = (int)Math.pow(2, n + 1);
+    int size = (int) Math.pow(2, n + 1);
     b = new Player[size];
     int m = readInt();
     for (int x = size / 2; x < size; x++) {
@@ -53,7 +53,7 @@ public class CCC_2013_Stage_2_Tourney {
     }
   }
 
-  private static void update (int x) {
+  private static void update(int x) {
     if (b[x * 2].skill > b[x * 2 + 1].skill)
       b[x] = new Player(b[x * 2].id, b[x * 2].skill);
     else
@@ -63,34 +63,34 @@ public class CCC_2013_Stage_2_Tourney {
     update(x / 2);
   }
 
-  static class Player {
-    int id, skill;
-
-    Player (int id, int skill) {
-      this.id = id;
-      this.skill = skill;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Player {
+    int id, skill;
+
+    Player(int id, int skill) {
+      this.id = id;
+      this.skill = skill;
+    }
   }
 }

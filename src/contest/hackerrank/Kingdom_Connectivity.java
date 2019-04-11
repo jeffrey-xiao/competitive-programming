@@ -10,10 +10,10 @@ import java.util.StringTokenizer;
 
 public class Kingdom_Connectivity {
 
+  static final int MOD = 1000000000;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-  static final int MOD = 1000000000;
   static int[] edge;
   static int[] next;
   static int[] last;
@@ -24,7 +24,7 @@ public class Kingdom_Connectivity {
   static boolean[] computed;
   static ArrayList<Integer> inCycle = new ArrayList<Integer>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -67,14 +67,14 @@ public class Kingdom_Connectivity {
     out.close();
   }
 
-  static void mark (int i) {
+  static void mark(int i) {
     v[i] = true;
     for (int j = last[i]; j != -1; j = next[j])
       if (!v[edge[j]])
         mark(edge[j]);
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     v[i] = true;
     for (int j = last[i]; j != -1; j = next[j]) {
       if (v[edge[j]] && !computed[edge[j]])
@@ -87,29 +87,29 @@ public class Kingdom_Connectivity {
     order.add(i);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

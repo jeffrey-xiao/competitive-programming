@@ -10,7 +10,7 @@ public class IOI_2010_Quality_Of_Living {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     int h = readInt() - 1;
@@ -26,7 +26,8 @@ public class IOI_2010_Quality_Of_Living {
     int low = 1;
     int high = max * 2;
     int mid = 0;
-    main : while (low != high) {
+    main:
+    while (low != high) {
       mid = (low + high) / 2;
       int[][] newGrid = new int[r + 1][c + 1];
       boolean justRight = false;
@@ -60,25 +61,25 @@ public class IOI_2010_Quality_Of_Living {
     System.out.println(mid);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

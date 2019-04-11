@@ -17,7 +17,7 @@ public class New_Year_2017_Christmas_Cozonac {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -59,7 +59,7 @@ public class New_Year_2017_Christmas_Cozonac {
     out.close();
   }
 
-  static ArrayList<String> tokenize (String s, char delimiter) {
+  static ArrayList<String> tokenize(String s, char delimiter) {
     ArrayList<String> list = new ArrayList<String>();
     int pos = 0, end;
     while ((end = s.indexOf(delimiter, pos)) >= 0) {
@@ -72,29 +72,29 @@ public class New_Year_2017_Christmas_Cozonac {
     return list;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

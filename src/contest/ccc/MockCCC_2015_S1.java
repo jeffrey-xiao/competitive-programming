@@ -15,7 +15,7 @@ public class MockCCC_2015_S1 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int P = readInt();
     int U = readInt();
     int R1 = readInt();
@@ -44,53 +44,53 @@ public class MockCCC_2015_S1 {
     System.out.println(hs.size());
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Ratio {
     int DU, U, D;
 
-    Ratio (int DU, int U, int D) {
+    Ratio(int DU, int U, int D) {
       this.DU = DU;
       this.U = U;
       this.D = D;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Ratio) {
-        Ratio r = (Ratio)o;
+        Ratio r = (Ratio) o;
         return DU == r.DU && U == r.U && D == r.D;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Integer(DU).hashCode() * 31 * 31 + new Integer(D).hashCode() * 31 + new Integer(U).hashCode();
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

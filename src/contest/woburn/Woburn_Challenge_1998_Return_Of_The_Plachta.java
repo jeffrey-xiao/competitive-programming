@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Woburn_Challenge_1998_Return_Of_The_Plachta {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     for (int x = 0; x <= 4; x++) {
       int a = scan.nextInt();
       int b = scan.nextInt();
@@ -24,7 +24,7 @@ public class Woburn_Challenge_1998_Return_Of_The_Plachta {
 
   }
 
-  public static int gcf (int a, int b) {
+  public static int gcf(int a, int b) {
     if (b == 1)
       return 1;
     if (b == 0)

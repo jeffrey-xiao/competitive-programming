@@ -22,7 +22,7 @@ public class piggyback {
   static int b, e, p, n;
   static ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new FileReader("piggyback.in"));
     // br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new BufferedWriter(new FileWriter("piggyback.out")));
@@ -57,7 +57,7 @@ public class piggyback {
     System.exit(0);
   }
 
-  private static void shortestPath (int i, ArrayList<ArrayList<Integer>> list, int[] min, int cost) {
+  private static void shortestPath(int i, ArrayList<ArrayList<Integer>> list, int[] min, int cost) {
     PriorityQueue<Vertex> pq = new PriorityQueue<Vertex>();
     pq.offer(new Vertex(i, 0));
     min[i] = 0;
@@ -72,40 +72,40 @@ public class piggyback {
     }
   }
 
-  static class Vertex implements Comparable<Vertex> {
-    int index, cost;
-
-    Vertex (int index, int cost) {
-      this.index = index;
-      this.cost = cost;
-    }
-
-    @Override
-    public int compareTo (Vertex o) {
-      return cost - o.cost;
-    }
-
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Vertex implements Comparable<Vertex> {
+    int index, cost;
+
+    Vertex(int index, int cost) {
+      this.index = index;
+      this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Vertex o) {
+      return cost - o.cost;
+    }
+
   }
 }

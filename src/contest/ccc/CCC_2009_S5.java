@@ -10,7 +10,7 @@ public class CCC_2009_S5 {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
     int[][] grid = new int[r][c + 1];
@@ -24,7 +24,7 @@ public class CCC_2009_S5 {
       int f = Math.min(r - 1, x + rd);
       for (int i = s; i <= f; i++) {
         int d = Math.abs((x - i));
-        int hori = (int)Math.sqrt(rd * rd - d * d);
+        int hori = (int) Math.sqrt(rd * rd - d * d);
         int start = Math.max(0, y - hori);
         int end = Math.min(c, y + hori + 1);
         grid[i][start] += b;
@@ -48,25 +48,25 @@ public class CCC_2009_S5 {
     System.out.println(max + "\n" + count);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

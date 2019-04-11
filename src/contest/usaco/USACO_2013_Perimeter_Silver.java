@@ -16,7 +16,7 @@ public class USACO_2013_Perimeter_Silver {
   static TreeSet<Point> points = new TreeSet<Point>();
   static HashSet<Point> visited = new HashSet<Point>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int sx = 0;
     int sy = 0;
@@ -52,7 +52,7 @@ public class USACO_2013_Perimeter_Silver {
     System.out.println(count);
   }
 
-  static boolean isIso (Point p) {
+  static boolean isIso(Point p) {
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
         if (points.contains(new Point(p.x + x, p.y + y)))
@@ -62,56 +62,56 @@ public class USACO_2013_Perimeter_Silver {
     return true;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Point implements Comparable<Point> {
     int x;
     int y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
       this.x = x;
       this.y = y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point)o;
+        Point p = (Point) o;
         return this.x == p.x && this.y == p.y;
       }
       return false;
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return x + y;
     }
 
     @Override
-    public int compareTo (Point p) {
+    public int compareTo(Point p) {
       if (x == p.x)
         return y - p.y;
       return x - p.x;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

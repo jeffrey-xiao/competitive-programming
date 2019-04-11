@@ -23,11 +23,11 @@ public class RangeTree {
   // root of the tree
   private Node root;
 
-  public void add (int x, int y) {
+  public void add(int x, int y) {
     root = add(root, x, y);
   }
 
-  private Node add (Node n, int x, int y) {
+  private Node add(Node n, int x, int y) {
     if (n == null)
       return new Node(x, y);
     n.bst.add(y, x);
@@ -38,7 +38,7 @@ public class RangeTree {
     return n;
   }
 
-  public void query (int x1, int y1, int x2, int y2) {
+  public void query(int x1, int y1, int x2, int y2) {
     // finding the node where n.x is in the x-interval
     Node n = root;
     while (n != null && !(x1 <= n.x && n.x <= x2)) {
@@ -55,7 +55,7 @@ public class RangeTree {
     queryR(n.right, x1, y1, x2, y2);
   }
 
-  private void queryL (Node n, int x1, int y1, int x2, int y2) {
+  private void queryL(Node n, int x1, int y1, int x2, int y2) {
     if (n == null)
       return;
     if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
@@ -67,7 +67,7 @@ public class RangeTree {
       queryL(n.right, x1, y1, x2, y2);
   }
 
-  private void queryR (Node n, int x1, int y1, int x2, int y2) {
+  private void queryR(Node n, int x1, int y1, int x2, int y2) {
     if (n == null)
       return;
     if (x1 <= n.x && n.x <= x2 && y1 <= n.y && n.y <= y2)
@@ -79,7 +79,7 @@ public class RangeTree {
       queryR(n.left, x1, y1, x2, y2);
   }
 
-  private void printAll (Node n, int y1, int y2) {
+  private void printAll(Node n, int y1, int y2) {
     if (n == null)
       return;
     for (Integer y : n.bst.range(y1, y2)) {
@@ -96,7 +96,7 @@ public class RangeTree {
     // BST for y coordinate
     Treap bst;
 
-    Node (int x, int y) {
+    Node(int x, int y) {
       this.x = x;
       this.y = y;
       this.bst = new Treap();

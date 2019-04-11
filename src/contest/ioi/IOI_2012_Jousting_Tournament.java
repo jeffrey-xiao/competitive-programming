@@ -25,7 +25,7 @@ public class IOI_2012_Jousting_Tournament {
   static Queue<Node> delete = new ArrayDeque<Node>();
   static Node root;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -100,35 +100,19 @@ public class IOI_2012_Jousting_Tournament {
     out.close();
   }
 
-  static void update (int i, int val) {
+  static void update(int i, int val) {
     for (int x = i; x <= n; x += (x & -x))
       bit[x] += val;
   }
 
-  static int query (int i) {
+  static int query(int i) {
     int sum = 0;
     for (int x = i; x > 0; x -= (x & -x))
       sum += bit[x];
     return sum;
   }
 
-  static class Tournament {
-    int l, r;
-    int indexLeft, advance;
-
-    Tournament (int l, int r) {
-      this(l, r, -1, -1);
-    }
-
-    Tournament (int l, int r, int indexLeft, int advance) {
-      this.l = l;
-      this.r = r;
-      this.advance = advance;
-      this.indexLeft = indexLeft;
-    }
-  }
-
-  private static Node remove (Node n, Node remove) {
+  private static Node remove(Node n, Node remove) {
     if (n == null)
       return n;
     int cmp = nodes[n.index].l - nodes[remove.index].l;
@@ -153,7 +137,7 @@ public class IOI_2012_Jousting_Tournament {
     return balance(n);
   }
 
-  private static void search (Node n, Node insert) {
+  private static void search(Node n, Node insert) {
     if (n == null)
       return;
     if (nodes[insert.index].l <= nodes[n.index].l && nodes[n.index].r <= nodes[insert.index].r) {
@@ -171,13 +155,13 @@ public class IOI_2012_Jousting_Tournament {
     }
   }
 
-  private static Node minV (Node n) {
+  private static Node minV(Node n) {
     while (n.left != null)
       n = n.left;
     return n;
   }
 
-  private static Node add (Node n, Node insert) {
+  private static Node add(Node n, Node insert) {
     if (n == null)
       return insert;
     int cmp = nodes[n.index].l - nodes[insert.index].l;
@@ -188,7 +172,7 @@ public class IOI_2012_Jousting_Tournament {
     return balance(n);
   }
 
-  private static Node balance (Node n) {
+  private static Node balance(Node n) {
     resetHeight(n);
     int diff1 = getHeight(n.left) - getHeight(n.right);
     if (diff1 >= 2) {
@@ -205,7 +189,7 @@ public class IOI_2012_Jousting_Tournament {
     return n;
   }
 
-  private static Node rotateLeft (Node n) {
+  private static Node rotateLeft(Node n) {
     Node x = n.right;
     n.right = x.left;
     x.left = n;
@@ -214,7 +198,7 @@ public class IOI_2012_Jousting_Tournament {
     return x;
   }
 
-  private static Node rotateRight (Node n) {
+  private static Node rotateRight(Node n) {
     Node x = n.left;
     n.left = x.right;
     x.right = n;
@@ -223,47 +207,63 @@ public class IOI_2012_Jousting_Tournament {
     return x;
   }
 
-  static class Node {
-    int index, height;
-    Node left, right;
-
-    Node (int index) {
-      this.index = index;
-      this.height = 0;
-    }
-  }
-
-  private static void resetHeight (Node n) {
+  private static void resetHeight(Node n) {
     n.height = Math.max(getHeight(n.left), getHeight(n.right)) + 1;
   }
 
-  private static int getHeight (Node n) {
+  private static int getHeight(Node n) {
     return n == null ? -1 : n.height;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Tournament {
+    int l, r;
+    int indexLeft, advance;
+
+    Tournament(int l, int r) {
+      this(l, r, -1, -1);
+    }
+
+    Tournament(int l, int r, int indexLeft, int advance) {
+      this.l = l;
+      this.r = r;
+      this.advance = advance;
+      this.indexLeft = indexLeft;
+    }
+  }
+
+  static class Node {
+    int index, height;
+    Node left, right;
+
+    Node(int index) {
+      this.index = index;
+      this.height = 0;
+    }
   }
 }

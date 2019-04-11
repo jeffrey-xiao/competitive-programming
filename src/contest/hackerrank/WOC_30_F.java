@@ -26,7 +26,7 @@ public class WOC_30_F {
   static double best = -1;
   static long ans = 1;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -118,7 +118,7 @@ public class WOC_30_F {
     out.close();
   }
 
-  static double bruteforce () {
+  static double bruteforce() {
     double best = -1;
     for (long i = 1; i < 1L << N; i++) {
       double currBest = 1.0 * countTriangles(i) / bitCount(i);
@@ -130,7 +130,7 @@ public class WOC_30_F {
     return best;
   }
 
-  static boolean dfs (int i) {
+  static boolean dfs(int i) {
     if (dfsVis[i])
       return (curr & 1L << i) > 0;
 
@@ -151,7 +151,7 @@ public class WOC_30_F {
     return false;
   }
 
-  static int bitCount (long state) {
+  static int bitCount(long state) {
     int ret = 0;
     while (state > 0) {
       ret += (state & 1);
@@ -160,7 +160,7 @@ public class WOC_30_F {
     return ret;
   }
 
-  static int countTriangles (long state) {
+  static int countTriangles(long state) {
     int ret = 0;
     for (int i = 0; i < N; i++)
       for (int j = i + 1; j < N; j++)
@@ -171,29 +171,29 @@ public class WOC_30_F {
     return ret;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

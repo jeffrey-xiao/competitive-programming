@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Cable_TV {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int numOfVertices = scan.nextInt();
     boolean[] visited = new boolean[numOfVertices];
     int[][] vertices = new int[numOfVertices][2];
@@ -25,8 +25,8 @@ public class Cable_TV {
       int b = scan.nextInt() - 1;
       int c = scan.nextInt();
       int d = scan.nextInt();
-      adjList.get(a).add(new int[] {b, c, d});
-      adjList.get(b).add(new int[] {a, c, d});
+      adjList.get(a).add(new int[]{b, c, d});
+      adjList.get(b).add(new int[]{a, c, d});
     }
     int curr = 0;
 

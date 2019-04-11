@@ -10,13 +10,12 @@ import java.util.StringTokenizer;
 
 public class COCI_2006_ZBRKA {
 
+  static final int MOD = 1000000007;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  static final int MOD = 1000000007;
-
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     // the row dp is symmetrical
     // the number of possibilities increase to when n = k then decrease
     int n = readInt();
@@ -41,29 +40,29 @@ public class COCI_2006_ZBRKA {
     System.out.println(dp[n % 2][k]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

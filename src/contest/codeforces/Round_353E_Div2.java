@@ -17,7 +17,7 @@ public class Round_353E_Div2 {
   static int[] val, max, index;
   static long[] dp;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -48,7 +48,7 @@ public class Round_353E_Div2 {
     out.close();
   }
 
-  static void build (int n, int l, int r) {
+  static void build(int n, int l, int r) {
     if (l == r) {
       max[n] = l;
       return;
@@ -64,7 +64,7 @@ public class Round_353E_Div2 {
       max[n] = max[n << 1 | 1];
   }
 
-  static int query (int n, int l, int r, int ql, int qr) {
+  static int query(int n, int l, int r, int ql, int qr) {
     if (l == ql && r == qr)
       return max[n];
 
@@ -83,38 +83,38 @@ public class Round_353E_Div2 {
     }
   }
 
-  static class State {
-    int index, min;
-
-    State (int min, int index) {
-      this.min = min;
-      this.index = index;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    int index, min;
+
+    State(int min, int index) {
+      this.min = min;
+      this.index = index;
+    }
   }
 }

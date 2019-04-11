@@ -23,7 +23,7 @@ public class ACM_NEERC_2014_C {
   static ArrayList<TreeMap<String, TreeSet<Attribute>>> toDepth = new ArrayList<TreeMap<String, TreeSet<Attribute>>>();
   static ArrayList<ArrayList<Attribute>> properties = new ArrayList<ArrayList<Attribute>>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -83,7 +83,7 @@ public class ACM_NEERC_2014_C {
     out.close();
   }
 
-  static void hld (int u, int par) {
+  static void hld(int u, int par) {
     chainId[u] = chain;
     for (int i = 0; i < properties.get(u).size(); i++) {
       String key = properties.get(u).get(i).key;
@@ -111,7 +111,7 @@ public class ACM_NEERC_2014_C {
       }
   }
 
-  static void dfs (int u, int par, int d) {
+  static void dfs(int u, int par, int d) {
     sz[u] = 1;
     depth[u] = d;
     parent[u] = par;
@@ -122,54 +122,54 @@ public class ACM_NEERC_2014_C {
       }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Attribute implements Comparable<Attribute> {
     String key, value;
     int depth;
 
-    Attribute (String key, String value) {
+    Attribute(String key, String value) {
       this(key, value, 0);
     }
 
-    Attribute (String key, String value, int depth) {
+    Attribute(String key, String value, int depth) {
       this.key = key;
       this.value = value;
       this.depth = depth;
     }
 
     @Override
-    public int compareTo (Attribute a) {
+    public int compareTo(Attribute a) {
       return depth - a.depth;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
       return String.format("%s:%s", key, value);
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

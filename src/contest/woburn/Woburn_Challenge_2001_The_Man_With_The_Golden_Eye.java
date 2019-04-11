@@ -15,7 +15,7 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
   static int min;
   static int start;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       min = Integer.MAX_VALUE;
@@ -40,7 +40,7 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
     }
   }
 
-  private static void dfs (int x, int s, int prev, boolean[] visited, int[] sum) {
+  private static void dfs(int x, int s, int prev, boolean[] visited, int[] sum) {
     if (s >= min)
       return;
     for (int y = 0; y < adj.get(x).size(); y++) {
@@ -56,35 +56,35 @@ public class Woburn_Challenge_2001_The_Man_With_The_Golden_Eye {
     }
   }
 
-  static class Edge {
-    int dest;
-    int cost;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest;
+    int cost;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
   }
 }

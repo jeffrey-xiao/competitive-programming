@@ -19,7 +19,7 @@ public class USACO_2015_Stampede {
   static StringTokenizer st;
 
   @SuppressWarnings("unchecked")
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     TreeSet<Integer> xV = new TreeSet<Integer>();
     ArrayList<Event> e = new ArrayList<Event>();
@@ -45,60 +45,60 @@ public class USACO_2015_Stampede {
         continue;
       if (!e1.equals(e2)) {
         res++;
-        SortedSet<Integer> ss = ((TreeSet<Integer>)(xV.clone())).subSet(e1, false, e2, false);
+        SortedSet<Integer> ss = ((TreeSet<Integer>) (xV.clone())).subSet(e1, false, e2, false);
         xV.removeAll(ss);
       }
     }
     System.out.println(res);
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Event implements Comparable<Event> {
     int y, l, r;
 
-    Event (int y, int l, int r) {
+    Event(int y, int l, int r) {
       this.y = y;
       this.l = l;
       this.r = r;
     }
 
     @Override
-    public int compareTo (Event o) {
+    public int compareTo(Event o) {
       return y - o.y;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Event) {
-        Event e = (Event)o;
+        Event e = (Event) o;
         return y == e.y && l == e.l && r == e.r;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

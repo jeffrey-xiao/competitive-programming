@@ -6,7 +6,7 @@ public class IOI_1999_Little_Shop_Of_Flowers {
   static Scanner scan = new Scanner(System.in);
   static int[][] pointValues = new int[0][0];
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int flowers = scan.nextInt();
     int vases = scan.nextInt();
     pointValues = new int[flowers + 1][vases + 1];
@@ -29,7 +29,7 @@ public class IOI_1999_Little_Shop_Of_Flowers {
     System.out.println(s.trim());
   }
 
-  private static String traverse (int[][] dp, int x, int y) {
+  private static String traverse(int[][] dp, int x, int y) {
     if (dp[x][y] == 0)
       return "";
     if (dp[x][y] == dp[x][y - 1])

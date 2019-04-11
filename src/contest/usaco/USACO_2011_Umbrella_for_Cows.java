@@ -6,7 +6,7 @@ import java.util.Scanner;
 class USACO_2011_Umbrella_for_Cows {
   static Scanner scan = new Scanner(System.in);
 
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     int[] cows = new int[scan.nextInt()];
     int[] stalls = new int[scan.nextInt()];
     for (int x = 0; x < cows.length; x++)

@@ -20,7 +20,7 @@ public class Good_Aim {
   static Team[] sorted;
   static Team[] org;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     FasterScanner fs = new FasterScanner();
     pr = new PrintWriter(new OutputStreamWriter(System.out));
     // pr = new PrintWriter(new FileWriter("out.txt"));
@@ -70,16 +70,16 @@ public class Good_Aim {
     pr.close();
   }
 
-  static void shuffle (Team[] s) {
+  static void shuffle(Team[] s) {
     for (int i = 0; i < n - 1; i++) {
-      int j = (int)(Math.random() * (n - i - 1) + (i + 1));
+      int j = (int) (Math.random() * (n - i - 1) + (i + 1));
       Team temp = s[j];
       s[j] = s[i];
       s[i] = temp;
     }
   }
 
-  static int bs (Team t, boolean lower) {
+  static int bs(Team t, boolean lower) {
     int lo = 0;
     int hi = n - 1;
     while (lo <= hi) {
@@ -100,7 +100,7 @@ public class Good_Aim {
     long x, y;
     long sz;
 
-    Team (long dx, long dy, int sz) {
+    Team(long dx, long dy, int sz) {
       this.dx = dx - X;
       this.dy = dy - Y;
       this.x = dx;
@@ -113,7 +113,7 @@ public class Good_Aim {
     }
 
     @Override
-    public int compareTo (Team o) {
+    public int compareTo(Team o) {
       long cmp = dy * o.dx - o.dy * dx;
       if (cmp == 0) {
         int cmpy = new Long(y).compareTo(new Long(o.y));
@@ -133,15 +133,15 @@ public class Good_Aim {
     private int curChar;
     private int numChars;
 
-    public FasterScanner () {
+    public FasterScanner() {
       this(System.in);
     }
 
-    public FasterScanner (InputStream is) {
+    public FasterScanner(InputStream is) {
       mIs = is;
     }
 
-    public int read () {
+    public int read() {
       if (numChars == -1)
         throw new InputMismatchException();
       if (curChar >= numChars) {
@@ -157,7 +157,7 @@ public class Good_Aim {
       return buf[curChar++];
     }
 
-    public String nextLine () {
+    public String nextLine() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -169,7 +169,7 @@ public class Good_Aim {
       return res.toString();
     }
 
-    public String nextString () {
+    public String nextString() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -181,7 +181,7 @@ public class Good_Aim {
       return res.toString();
     }
 
-    public long nextLong () {
+    public long nextLong() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -201,14 +201,14 @@ public class Good_Aim {
       return res * sgn;
     }
 
-    public char nextChar () {
+    public char nextChar() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
-      return (char)c;
+      return (char) c;
     }
 
-    public int nextInt () {
+    public int nextInt() {
       int c = read();
       while (isSpaceChar(c))
         c = read();
@@ -228,11 +228,11 @@ public class Good_Aim {
       return res * sgn;
     }
 
-    public boolean isSpaceChar (int c) {
+    public boolean isSpaceChar(int c) {
       return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
     }
 
-    public boolean isEndOfLine (int c) {
+    public boolean isEndOfLine(int c) {
       return c == '\n' || c == '\r' || c == -1;
     }
 

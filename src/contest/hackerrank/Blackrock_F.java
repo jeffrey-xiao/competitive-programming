@@ -22,7 +22,7 @@ public class Blackrock_F {
   static boolean[] used;
   static boolean[] usedK;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -46,7 +46,7 @@ public class Blackrock_F {
 
     Arrays.sort(sorted, new Comparator<Stock>() {
       @Override
-      public int compare (Stock s1, Stock s2) {
+      public int compare(Stock s1, Stock s2) {
         if (s1.expected.equals(s2.expected))
           return s1.price.compareTo(s2.price);
         return s2.expected.compareTo(s1.expected);
@@ -59,7 +59,7 @@ public class Blackrock_F {
     PriorityQueue<State> unusedVal = new PriorityQueue<State>();
     PriorityQueue<State> usedVal = new PriorityQueue<State>(1, new Comparator<State>() {
       @Override
-      public int compare (State o1, State o2) {
+      public int compare(State o1, State o2) {
         return o1.val.compareTo(o2.val);
       }
     });
@@ -106,17 +106,43 @@ public class Blackrock_F {
     out.close();
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class State implements Comparable<State> {
     Long val;
     int index;
 
-    State (long val, int index) {
+    State(long val, int index) {
       this.val = val;
       this.index = index;
     }
 
     @Override
-    public int compareTo (State s) {
+    public int compareTo(State s) {
       return s.val.compareTo(val);
     }
 
@@ -126,36 +152,10 @@ public class Blackrock_F {
     Long expected, price;
     int index;
 
-    Stock (long expected, long price, int index) {
+    Stock(long expected, long price, int index) {
       this.expected = expected;
       this.price = price;
       this.index = index;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

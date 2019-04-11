@@ -29,7 +29,7 @@ public class SccKosaraju {
   static Stack<Integer> order = new Stack<Integer>();
   static boolean[] v;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     // br = new BufferedReader(new FileReader("in.txt"));
@@ -67,7 +67,7 @@ public class SccKosaraju {
     out.close();
   }
 
-  static void dfs (int i) {
+  static void dfs(int i) {
     v[i] = true;
     for (int j : adj.get(i))
       if (!v[j])
@@ -75,7 +75,7 @@ public class SccKosaraju {
     order.push(i);
   }
 
-  static void mark (int i) {
+  static void mark(int i) {
     v[i] = true;
     id[i] = cnt;
     for (int j : rev.get(i))
@@ -83,29 +83,29 @@ public class SccKosaraju {
         mark(j);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

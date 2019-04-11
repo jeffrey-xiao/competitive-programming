@@ -15,12 +15,12 @@ public class SegmentTreeTest {
   static int start;
   static int end;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     start = 0;
     end = n - 1;
-    height = (int)Math.ceil(Math.log(n) / Math.log(2));
-    size = 2 * (int)Math.pow(2, height) - 1;
+    height = (int) Math.ceil(Math.log(n) / Math.log(2));
+    size = 2 * (int) Math.pow(2, height) - 1;
     tree = new int[size];
     for (int x = 0; x < size; x++)
       tree[x] = Integer.MAX_VALUE;
@@ -44,7 +44,7 @@ public class SegmentTreeTest {
 
   }
 
-  static int construct (int[] input, int sindex, int eindex, int curr) {
+  static int construct(int[] input, int sindex, int eindex, int curr) {
     if (sindex == eindex) {
       tree[curr] = input[sindex];
       return tree[curr];
@@ -54,7 +54,7 @@ public class SegmentTreeTest {
     return tree[curr];
   }
 
-  static void update (int value, int pos, int sindex, int eindex, int curr) {
+  static void update(int value, int pos, int sindex, int eindex, int curr) {
     if (pos < sindex || pos > eindex)
       return;
     if (pos == sindex && sindex == eindex)
@@ -67,7 +67,7 @@ public class SegmentTreeTest {
     }
   }
 
-  static int sum (int qstart, int qend, int sindex, int eindex, int curr) {
+  static int sum(int qstart, int qend, int sindex, int eindex, int curr) {
     if (qend < sindex || qstart > eindex)
       return -1;
     if (qstart <= sindex && eindex <= qend)
@@ -82,25 +82,25 @@ public class SegmentTreeTest {
     return Math.min(left, right);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

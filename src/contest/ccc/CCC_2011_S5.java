@@ -19,7 +19,7 @@ public class CCC_2011_S5 {
 
   static boolean[] v = new boolean[1 << 26];
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     boolean[] s = new boolean[n];
     for (int x = 0; x < n; x++)
@@ -49,7 +49,7 @@ public class CCC_2011_S5 {
 
   }
 
-  private static void adjust (boolean[] newS) {
+  private static void adjust(boolean[] newS) {
     int count = 0;
     for (int x = 0; x < newS.length; x++) {
       if (newS[x])
@@ -66,46 +66,46 @@ public class CCC_2011_S5 {
         newS[y] = false;
   }
 
-  private static int toIndex (boolean[] s) {
+  private static int toIndex(boolean[] s) {
     int sum = 0;
     for (int x = 0; x < s.length; x++)
       sum += (s[x] ? 1 << x : 0);
     return sum;
   }
 
-  static class State {
-    boolean[] s;
-    int moves;
-
-    State (boolean[] s, int moves) {
-      this.s = Arrays.copyOf(s, s.length);
-      this.moves = moves;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class State {
+    boolean[] s;
+    int moves;
+
+    State(boolean[] s, int moves) {
+      this.s = Arrays.copyOf(s, s.length);
+      this.moves = moves;
+    }
   }
 }

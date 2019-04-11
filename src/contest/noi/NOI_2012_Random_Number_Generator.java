@@ -14,7 +14,7 @@ public class NOI_2012_Random_Number_Generator {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     long m = readLong();
     long a = readLong();
     long c = readLong();
@@ -30,7 +30,7 @@ public class NOI_2012_Random_Number_Generator {
     System.out.println(ans % g);
   }
 
-  static long pow (long a, long b, long m) {
+  static long pow(long a, long b, long m) {
     if (b == 0)
       return 1;
     if (b == 1)
@@ -40,29 +40,29 @@ public class NOI_2012_Random_Number_Generator {
     return a * (pow((a * a) % m, b / 2, m)) % m;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

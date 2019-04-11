@@ -10,7 +10,7 @@ public class DMOPC_2014_Not_Enough_Time {
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   private static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int t = readInt();
     int[][] p = new int[n][3];
@@ -41,13 +41,13 @@ public class DMOPC_2014_Not_Enough_Time {
     System.out.println(max);
   }
 
-  private static String next () throws IOException {
+  private static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  private static int readInt () throws IOException {
+  private static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 }

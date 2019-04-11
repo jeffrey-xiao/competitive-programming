@@ -13,7 +13,7 @@ public class Mackenzie_Moores_Law {
   static PrintWriter out;
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -23,7 +23,7 @@ public class Mackenzie_Moores_Law {
     if (d == 2) {
       out.println("Now!");
     } else {
-      int days = (int)(Math.ceil(Math.log(d / 2.0) / Math.log(2) * 2 * 365));
+      int days = (int) (Math.ceil(Math.log(d / 2.0) / Math.log(2) * 2 * 365));
       int years = days / 365;
       days -= years * 365;
 
@@ -35,40 +35,40 @@ public class Mackenzie_Moores_Law {
 
       if (years > 0)
         out.print(years + "Y ");
-      if ((int)(months) > 0)
+      if ((int) (months) > 0)
         out.print(months + "M ");
-      if ((int)(weeks) > 0)
+      if ((int) (weeks) > 0)
         out.print(weeks + "W ");
-      if ((int)(days) > 0)
+      if ((int) (days) > 0)
         out.print(days + "D ");
     }
 
     out.close();
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -18,7 +18,7 @@ public class The_Unique_MST {
 
   static int[] size, id;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int t = readInt();
     for (int k = 0; k < t; k++) {
       ArrayList<Edge> e = new ArrayList<Edge>();
@@ -69,13 +69,13 @@ public class The_Unique_MST {
     }
   }
 
-  private static int find (int x) {
+  private static int find(int x) {
     while (id[x] != x)
       x = id[x];
     return x;
   }
 
-  private static void union (int rootx, int rooty) {
+  private static void union(int rootx, int rooty) {
     if (size[rootx] > size[rooty]) {
       size[rootx] += size[rooty];
       id[rooty] = id[rootx];
@@ -85,44 +85,44 @@ public class The_Unique_MST {
     }
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int src, dest, cost;
 
-    Edge (int src, int dest, int cost) {
+    Edge(int src, int dest, int cost) {
       this.src = src;
       this.dest = dest;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return cost - o.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

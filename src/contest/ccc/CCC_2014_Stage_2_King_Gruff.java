@@ -16,7 +16,7 @@ public class CCC_2014_Stage_2_King_Gruff {
   static int n;
   static int m;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     ArrayList<ArrayList<Path>> adjlist = new ArrayList<ArrayList<Path>>();
     ArrayList<ArrayList<Path>> revlist = new ArrayList<ArrayList<Path>>();
     ArrayList<Edge> edges = new ArrayList<Edge>();
@@ -63,7 +63,7 @@ public class CCC_2014_Stage_2_King_Gruff {
     }
   }
 
-  private static int bsearch (ArrayList<Edge> edges, int dist) {
+  private static int bsearch(ArrayList<Edge> edges, int dist) {
     int lower = 0;
     int higher = edges.size() - 1;
     while (lower <= higher) {
@@ -76,7 +76,7 @@ public class CCC_2014_Stage_2_King_Gruff {
     return lower;
   }
 
-  private static int[] shortestPath (ArrayList<ArrayList<Path>> l, int s) {
+  private static int[] shortestPath(ArrayList<ArrayList<Path>> l, int s) {
     int[] min = new int[n];
     for (int x = 0; x < n; x++) {
       if (x != s)
@@ -102,31 +102,53 @@ public class CCC_2014_Stage_2_King_Gruff {
     return min;
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Edge implements Comparable<Edge> {
     int source;
     int dest;
     int dist;
     int cost;
 
-    Edge (int source, int dest, int dist, int cost) {
+    Edge(int source, int dest, int dist, int cost) {
       this.source = source;
       this.dest = dest;
       this.cost = cost;
       this.dist = dist;
     }
 
-    Edge (int dist, int cost) {
+    Edge(int dist, int cost) {
       this.dist = dist;
       this.cost = cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       return false;
     }
 
     @Override
-    public int compareTo (Edge o) {
+    public int compareTo(Edge o) {
       return dist - o.dist;
     }
   }
@@ -135,7 +157,7 @@ public class CCC_2014_Stage_2_King_Gruff {
     int dest;
     int cost;
 
-    Path (int dest, int cost) {
+    Path(int dest, int cost) {
       this.dest = dest;
       this.cost = cost;
     }
@@ -145,45 +167,23 @@ public class CCC_2014_Stage_2_King_Gruff {
     int cost;
     int index;
 
-    Node (int index, int cost) {
+    Node(int index, int cost) {
       this.index = index;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Node arg0) {
+    public int compareTo(Node arg0) {
       return this.cost - arg0.cost;
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof Node) {
-        Node n = (Node)o;
+        Node n = (Node) o;
         return this.index == n.index;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

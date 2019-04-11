@@ -10,7 +10,7 @@ public class Woburn_Challenge_1995_Smallest_Latin_Square {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int i = readInt(); i > 0; i--) {
       int n = readInt();
       int[][] grid = new int[n][n];
@@ -23,7 +23,7 @@ public class Woburn_Challenge_1995_Smallest_Latin_Square {
     }
   }
 
-  public static boolean fillGrid (int[][] grid, int x, int y, int n) {
+  public static boolean fillGrid(int[][] grid, int x, int y, int n) {
     if (x == n)
       return true;
     for (int z = 1; z <= n; z++) {
@@ -43,7 +43,7 @@ public class Woburn_Challenge_1995_Smallest_Latin_Square {
     return false;
   }
 
-  public static boolean isDup (int[][] grid, int x, int y, int n) {
+  public static boolean isDup(int[][] grid, int x, int y, int n) {
     for (int z = 0; z < grid.length; z++) {
       if (grid[z][y] == n || grid[x][z] == n)
         return true;
@@ -51,25 +51,25 @@ public class Woburn_Challenge_1995_Smallest_Latin_Square {
     return false;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

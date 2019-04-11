@@ -14,8 +14,9 @@ public class Woburn_Challenge_2001_Blind_Date {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter pr = new PrintWriter(new OutputStreamWriter(System.out));
   static StringTokenizer st;
+  static HashSet<State> v = new HashSet<State>();
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     int k = readInt();
     while (n != -1) {
@@ -97,12 +98,32 @@ public class Woburn_Challenge_2001_Blind_Date {
     }
   }
 
-  static HashSet<State> v = new HashSet<State>();
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
 
   static class State {
     int x, y, z, moves;
 
-    State (int x, int y, int z, int moves) {
+    State(int x, int y, int z, int moves) {
       this.x = x;
       this.y = y;
       this.z = z;
@@ -110,39 +131,17 @@ public class Woburn_Challenge_2001_Blind_Date {
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
       return new Integer(x).hashCode() * 31 * 31 + new Integer(y).hashCode() * 31 + new Integer(z).hashCode();
     }
 
     @Override
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
       if (o instanceof State) {
-        State p = (State)o;
+        State p = (State) o;
         return p.x == x && p.y == y && p.z == z;
       }
       return false;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

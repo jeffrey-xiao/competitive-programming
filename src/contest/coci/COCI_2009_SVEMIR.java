@@ -21,7 +21,7 @@ public class COCI_2009_SVEMIR {
   static int[] union;
   static int[] size;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     int n = readInt();
     union = new int[n];
     size = new int[n];
@@ -36,7 +36,7 @@ public class COCI_2009_SVEMIR {
     // sorting by x-coordinates
     Arrays.sort(p, new Comparator<Planet>() {
       @Override
-      public int compare (Planet o1, Planet o2) {
+      public int compare(Planet o1, Planet o2) {
         return o1.x - o2.x;
       }
     });
@@ -47,7 +47,7 @@ public class COCI_2009_SVEMIR {
     // sorting by y-coordinates
     Arrays.sort(p, new Comparator<Planet>() {
       @Override
-      public int compare (Planet o1, Planet o2) {
+      public int compare(Planet o1, Planet o2) {
         return o1.y - o2.y;
       }
     });
@@ -58,7 +58,7 @@ public class COCI_2009_SVEMIR {
     // sorting by z-coordinates
     Arrays.sort(p, new Comparator<Planet>() {
       @Override
-      public int compare (Planet o1, Planet o2) {
+      public int compare(Planet o1, Planet o2) {
         return o1.z - o2.z;
       }
     });
@@ -80,14 +80,14 @@ public class COCI_2009_SVEMIR {
     System.out.println(cost);
   }
 
-  private static int find (int id) {
+  private static int find(int id) {
     while (id != union[id]) {
       id = union[id];
     }
     return id;
   }
 
-  private static void union (int x, int y) {
+  private static void union(int x, int y) {
     int findx = find(x);
     int findy = find(y);
     if (size[findx] >= size[findy]) {
@@ -99,17 +99,43 @@ public class COCI_2009_SVEMIR {
     }
   }
 
-  private static int getDist (Planet p1, Planet p2) {
+  private static int getDist(Planet p1, Planet p2) {
     int x = Math.abs(p1.x - p2.x);
     int y = Math.abs(p1.y - p2.y);
     int z = Math.abs(p1.z - p2.z);
     return Math.min(x, Math.min(y, z));
   }
 
+  static String next() throws IOException {
+    while (st == null || !st.hasMoreTokens())
+      st = new StringTokenizer(br.readLine().trim());
+    return st.nextToken();
+  }
+
+  static long readLong() throws IOException {
+    return Long.parseLong(next());
+  }
+
+  static int readInt() throws IOException {
+    return Integer.parseInt(next());
+  }
+
+  static double readDouble() throws IOException {
+    return Double.parseDouble(next());
+  }
+
+  static char readCharacter() throws IOException {
+    return next().charAt(0);
+  }
+
+  static String readLine() throws IOException {
+    return br.readLine().trim();
+  }
+
   static class Planet {
     int x, y, z, index;
 
-    Planet (int x, int y, int z, int index) {
+    Planet(int x, int y, int z, int index) {
       this.x = x;
       this.y = y;
       this.z = z;
@@ -120,41 +146,15 @@ public class COCI_2009_SVEMIR {
   static class Edge implements Comparable<Edge> {
     int x, y, cost;
 
-    Edge (int x, int y, int cost) {
+    Edge(int x, int y, int cost) {
       this.x = x;
       this.y = y;
       this.cost = cost;
     }
 
     @Override
-    public int compareTo (Edge o1) {
+    public int compareTo(Edge o1) {
       return cost - o1.cost;
     }
-  }
-
-  static String next () throws IOException {
-    while (st == null || !st.hasMoreTokens())
-      st = new StringTokenizer(br.readLine().trim());
-    return st.nextToken();
-  }
-
-  static long readLong () throws IOException {
-    return Long.parseLong(next());
-  }
-
-  static int readInt () throws IOException {
-    return Integer.parseInt(next());
-  }
-
-  static double readDouble () throws IOException {
-    return Double.parseDouble(next());
-  }
-
-  static char readCharacter () throws IOException {
-    return next().charAt(0);
-  }
-
-  static String readLine () throws IOException {
-    return br.readLine().trim();
   }
 }

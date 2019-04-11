@@ -13,7 +13,7 @@ public class CCC_2005_S5_2 {
   static int n;
   static int[] tree;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     tree = new int[n + 1];
     int[] indexes = new int[n];
@@ -39,29 +39,12 @@ public class CCC_2005_S5_2 {
       freq[indexes[x]]++;
     }
     f /= n;
-    if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int)(f * 100.0))) == 0.5 && (int)((f * 10 - (int)(f * 10)) * 10) % 2 == 0)
+    if (Double.parseDouble(String.format("%.2f", f * 100.0 - (int) (f * 100.0))) == 0.5 && (int) ((f * 10 - (int) (f * 10)) * 10) % 2 == 0)
       f -= 0.01;
     System.out.printf("%.2f", f);
   }
 
-  static class Score implements Comparable<Score> {
-    int score;
-    int index;
-
-    Score (int score, int index) {
-      this.score = score;
-      this.index = index;
-    }
-
-    @Override
-    public int compareTo (Score o) {
-      if (o.score == score)
-        return index - o.index;
-      return o.score - score;
-    }
-  }
-
-  private static void update (int x, int val) {
+  private static void update(int x, int val) {
     while (x <= n) {
       tree[x] += val;
       x += (x & -x);
@@ -69,11 +52,11 @@ public class CCC_2005_S5_2 {
   }
 
   @SuppressWarnings("unused")
-  private static int freqAt (int x) {
+  private static int freqAt(int x) {
     return freqTo(x) - freqTo(x - 1);
   }
 
-  private static int freqTo (int x) {
+  private static int freqTo(int x) {
     int sum = 0;
     while (x > 0) {
       sum += tree[x];
@@ -82,25 +65,42 @@ public class CCC_2005_S5_2 {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Score implements Comparable<Score> {
+    int score;
+    int index;
+
+    Score(int score, int index) {
+      this.score = score;
+      this.index = index;
+    }
+
+    @Override
+    public int compareTo(Score o) {
+      if (o.score == score)
+        return index - o.index;
+      return o.score - score;
+    }
   }
 }

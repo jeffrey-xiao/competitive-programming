@@ -16,7 +16,7 @@ public class COCI_2008_SLICICE {
   static int n, m, p;
   static int[][] input;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     n = readInt();
     m = readInt();
     input = new int[m + 1][2];
@@ -60,47 +60,14 @@ public class COCI_2008_SLICICE {
     maxFlow();
   }
 
-  static class Edge {
-    int dest;
-    int cost;
-
-    Edge (int dest, int cost) {
-      this.dest = dest;
-      this.cost = cost;
-    }
-
-    @Override
-    public boolean equals (Object o) {
-      if (o instanceof Edge) {
-        Edge e = (Edge)o;
-        return dest == e.dest;
-      }
-      return false;
-    }
-
-    @Override
-    public String toString () {
-      return "Dest: " + dest + "; Cost " + cost;
-    }
-  }
-
-  static class State {
-    int max;
-    int index;
-
-    State (int index, int max) {
-      this.index = index;
-      this.max = max;
-    }
-  }
-
-  private static boolean maxFlow () {
+  private static boolean maxFlow() {
     int augment = bfs();
     while (augment != 0) {
       augment = bfs();
     }
     int[] nums = new int[n];
-    main : for (int x = 1; x <= p; x++) {
+    main:
+    for (int x = 1; x <= p; x++) {
       if (x <= m) {
         int flow = Integer.MAX_VALUE - adj.get(x).get(adj.get(x).indexOf(new Edge(input[x][0], 0))).cost;
         System.out.println(input[x][0] - p + " " + (input[x][1] - p) + " " + flow);
@@ -135,7 +102,7 @@ public class COCI_2008_SLICICE {
     return true;
   }
 
-  private static int bfs () {
+  private static int bfs() {
     int d = n + p + 1;
     Queue<State> moves = new LinkedList<State>();
     int[] max = new int[n + p + 2];
@@ -181,25 +148,59 @@ public class COCI_2008_SLICICE {
     return neck;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Edge {
+    int dest;
+    int cost;
+
+    Edge(int dest, int cost) {
+      this.dest = dest;
+      this.cost = cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Edge) {
+        Edge e = (Edge) o;
+        return dest == e.dest;
+      }
+      return false;
+    }
+
+    @Override
+    public String toString() {
+      return "Dest: " + dest + "; Cost " + cost;
+    }
+  }
+
+  static class State {
+    int max;
+    int index;
+
+    State(int index, int max) {
+      this.index = index;
+      this.max = max;
+    }
   }
 }

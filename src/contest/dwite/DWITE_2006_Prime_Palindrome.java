@@ -3,7 +3,7 @@ package contest.dwite;
 import java.util.Scanner;
 
 public class DWITE_2006_Prime_Palindrome {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
 
     boolean[] primes = new boolean[999999];
@@ -29,7 +29,7 @@ public class DWITE_2006_Prime_Palindrome {
     scan.close();
   }
 
-  private static boolean isPalindrome (String x) {
+  private static boolean isPalindrome(String x) {
     return new StringBuilder(x).reverse().toString().equals(x);
   }
 

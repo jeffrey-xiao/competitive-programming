@@ -12,24 +12,23 @@ import java.util.StringTokenizer;
 
 public class CCC_2016_Stage_2_Splitting_Hares {
 
+  static final double EPS = 1e-8;
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-
   static int N;
   static int[] x, y, w;
-  static final double EPS = 1e-8;
   static final Comparator<Integer> pointComparator = new Comparator<Integer>() {
     @Override
     // small positive < big positive < big negative < small negative
-    public int compare (Integer i, Integer j) {
+    public int compare(Integer i, Integer j) {
       Double slope1 = 0.0;
       Double slope2 = 0.0;
 
       if (x[i] != 0)
-        slope1 = (double)(y[i]) / x[i];
+        slope1 = (double) (y[i]) / x[i];
       if (x[j] != 0)
-        slope2 = (double)(y[j]) / x[j];
+        slope2 = (double) (y[j]) / x[j];
 
       if (slope1 * slope2 > 0)
         return slope1.compareTo(slope2);
@@ -47,7 +46,7 @@ public class CCC_2016_Stage_2_Splitting_Hares {
     }
   };
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     out = new PrintWriter(new OutputStreamWriter(System.out));
     //br = new BufferedReader(new FileReader("in.txt"));
@@ -120,7 +119,7 @@ public class CCC_2016_Stage_2_Splitting_Hares {
     out.close();
   }
 
-  static int calc (ArrayList<Integer> plane1, ArrayList<Integer> plane2, int w1, int w2, int prefix, int suffix, int i) {
+  static int calc(ArrayList<Integer> plane1, ArrayList<Integer> plane2, int w1, int w2, int prefix, int suffix, int i) {
     int index1 = 0;
     int index2 = 0;
     int ret = 0;
@@ -163,37 +162,37 @@ public class CCC_2016_Stage_2_Splitting_Hares {
     return ret;
   }
 
-  static long cross (long x0, long y0, long x1, long y1) {
+  static long cross(long x0, long y0, long x1, long y1) {
     return x0 * y1 - x1 * y0;
   }
 
-  static long ccw (int p1, int p2, int p3) {
+  static long ccw(int p1, int p2, int p3) {
     return cross(x[p2] - x[p1], y[p2] - y[p1], x[p3] - x[p1], y[p3] - y[p1]);
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

@@ -11,7 +11,7 @@ public class COCI_2006_OKVIRI {
   static StringTokenizer st;
   static int l;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     String n = readLine();
     l = n.length();
     print1();
@@ -24,37 +24,37 @@ public class COCI_2006_OKVIRI {
     print1();
   }
 
-  private static void print1 () {
+  private static void print1() {
     for (int x = 0; x < l; x++)
       System.out.printf("..%1$s.", (x + 1) % 3 == 0 ? "*" : "#");
     System.out.println(".");
   }
 
-  private static void print2 () {
+  private static void print2() {
     for (int x = 0; x < l; x++)
       System.out.printf(".%1$s.%1$s", (x + 1) % 3 == 0 ? "*" : "#");
     System.out.println(".");
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }

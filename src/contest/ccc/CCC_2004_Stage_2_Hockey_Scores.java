@@ -16,7 +16,7 @@ public class CCC_2004_Stage_2_Hockey_Scores {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       Score[] s = new Score[n];
@@ -52,45 +52,45 @@ public class CCC_2004_Stage_2_Hockey_Scores {
     }
   }
 
-  static class Score implements Comparable<Score> {
-    int x, y;
-
-    Score (int x, int y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    @Override
-    public int compareTo (Score o) {
-      if (x - o.x == 0)
-        return y - o.y;
-      return x - o.x;
-    }
-  }
-
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static char readCharacter () throws IOException {
+  static char readCharacter() throws IOException {
     return next().charAt(0);
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
+  }
+
+  static class Score implements Comparable<Score> {
+    int x, y;
+
+    Score(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public int compareTo(Score o) {
+      if (x - o.x == 0)
+        return y - o.y;
+      return x - o.x;
+    }
   }
 }

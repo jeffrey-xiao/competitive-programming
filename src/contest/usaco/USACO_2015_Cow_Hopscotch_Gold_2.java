@@ -10,16 +10,15 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class USACO_2015_Cow_Hopscotch_Gold_2 {
+  static final int MOD = 1000000007;
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
-
-  static final int MOD = 1000000007;
   static int r, c, k;
   static int[][] g;
 
   @SuppressWarnings("unchecked")
-  public static void main (String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
     k = readInt();
@@ -69,13 +68,13 @@ public class USACO_2015_Cow_Hopscotch_Gold_2 {
       System.out.println(sum % MOD);
   }
 
-  private static void update (int x, int[] tree, int v) {
+  private static void update(int x, int[] tree, int v) {
     for (int idx = x; idx < tree.length; idx += (idx & -idx)) {
       tree[idx] = (tree[idx] + v) % MOD;
     }
   }
 
-  private static int query (int x, int[] tree) {
+  private static int query(int x, int[] tree) {
     int sum = 0;
     if (x == 0)
       return 0;
@@ -86,25 +85,25 @@ public class USACO_2015_Cow_Hopscotch_Gold_2 {
     return sum;
   }
 
-  static String next () throws IOException {
+  static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
     return st.nextToken();
   }
 
-  static long readLong () throws IOException {
+  static long readLong() throws IOException {
     return Long.parseLong(next());
   }
 
-  static int readInt () throws IOException {
+  static int readInt() throws IOException {
     return Integer.parseInt(next());
   }
 
-  static double readDouble () throws IOException {
+  static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
 
-  static String readLine () throws IOException {
+  static String readLine() throws IOException {
     return br.readLine().trim();
   }
 }
