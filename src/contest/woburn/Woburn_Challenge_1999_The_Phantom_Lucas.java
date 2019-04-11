@@ -16,7 +16,7 @@ public class Woburn_Challenge_1999_The_Phantom_Lucas {
   static ArrayList<ArrayList<Edge>> adj;
 
   public static void main(String[] args) throws IOException {
-    cases:
+  cases:
     for (int t = readInt(); t > 0; t--) {
       n = readInt();
       adj = new ArrayList<ArrayList<Edge>>();

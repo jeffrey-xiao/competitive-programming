@@ -40,7 +40,6 @@ public class USACO_2012_Moo {
     if (n > index + next)
       n -= (index + next);
     compute(index, next - 1, n);
-
   }
 
   static String next() throws IOException {

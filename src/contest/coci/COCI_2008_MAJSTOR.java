@@ -20,7 +20,7 @@ public class COCI_2008_MAJSTOR {
     for (int x = r; x > 0; x--) {
       String next = next();
       for (int y = 0; y < n; y++) {
-        if (next.charAt(y) == 'S') {// 0 is ROCK, 1 IS SCISSOR, 2 PAPER
+        if (next.charAt(y) == 'S') { // 0 is ROCK, 1 IS SCISSOR, 2 PAPER
           if (s.charAt(y) == 'S')
             sum++;
           else if (s.charAt(y) == 'R')

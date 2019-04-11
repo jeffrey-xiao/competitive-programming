@@ -26,7 +26,7 @@ public class USACO_2011_Simplifying_The_Farm {
     long counter = 1;
     int totalCost = 0;
     Arrays.sort(edges);
-    for (int x = 0; x < m && q.count > 1; ) {
+    for (int x = 0; x < m && q.count > 1;) {
       int y = x;
       int count = 0;
       int total = 0;
@@ -104,7 +104,7 @@ public class USACO_2011_Simplifying_The_Farm {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) (o);
+        Edge e = (Edge)(o);
         return source == e.source && dest == e.dest;
       }
       return false;

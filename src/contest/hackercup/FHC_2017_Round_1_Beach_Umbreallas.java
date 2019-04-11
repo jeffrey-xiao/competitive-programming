@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class FHC_2017_Round_1_Beach_Umbreallas {
 
-  static final long MOD = (long) (1e9 + 7);
+  static final long MOD = (long)(1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;

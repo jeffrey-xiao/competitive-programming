@@ -41,7 +41,7 @@ public class VMSS_Sets {
         l.get(first.get(i)).addAll(l.get(second.get(i)));
     for (int i = 0; i < 26; i++) {
       if (exist[i]) {
-        System.out.print((char) (i + 'A') + " = {");
+        System.out.print((char)(i + 'A') + " = {");
         int k = 0;
         for (Character c : l.get(i)) {
           System.out.print(c);

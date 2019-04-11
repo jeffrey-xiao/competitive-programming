@@ -11,7 +11,7 @@ public class CCC_1996_Stage_2_Safebreaker {
   static StringTokenizer st;
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       String[] nums = new String[n];
@@ -22,19 +22,18 @@ public class CCC_1996_Stage_2_Safebreaker {
         String s = next();
         guesses[x][0] = s.charAt(0) - 48;
         guesses[x][1] = s.charAt(2) - 48;
-
       }
       String code = "";
       for (int a = 0; a <= 9; a++) {
         for (int b = 0; b <= 9; b++) {
           for (int c = 0; c <= 9; c++) {
-            inner:
+          inner:
             for (int d = 0; d <= 9; d++) {
               for (int x = 0; x < n; x++) {
                 int correct = guesses[x][0];
                 int misplace = guesses[x][1];
-                int numCorrect = getCorrect(new int[]{a, b, c, d}, nums[x]);
-                int numMisplaced = getMisplaced(new int[]{a, b, c, d}, nums[x]);
+                int numCorrect = getCorrect(new int[] {a, b, c, d}, nums[x]);
+                int numMisplaced = getMisplaced(new int[] {a, b, c, d}, nums[x]);
                 if (correct != numCorrect || misplace != numMisplaced - numCorrect) {
                   continue inner;
                 }
@@ -63,7 +62,6 @@ public class CCC_1996_Stage_2_Safebreaker {
       if (guess[x] == s.charAt(x) - 48) {
         count++;
       }
-
     }
     return count;
   }

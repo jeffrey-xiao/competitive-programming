@@ -54,7 +54,7 @@ public class IOI_2005_Rivers {
       Node[] prev = new Node[size];
       for (int y = 0; y < size; y++)
         prev[y] = nodes[x].child.get(y).clone();
-      for (int gap = (int) (Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
+      for (int gap = (int)(Math.floor(Math.log(size - 1 == 0 ? 1 : size - 1) / Math.log(2))); gap > 0; gap--) {
         size = prev.length;
         Node[] level = new Node[(size + 1) / 2];
         for (int y = 0; y < level.length; y++) {
@@ -97,7 +97,6 @@ public class IOI_2005_Rivers {
         min = Math.min(min, cost + compute(n.child.get(0), x, last) + compute(n.child.get(1), k - x, last));
       for (int x = 0; x < k; x++)
         min = Math.min(min, compute(n.child.get(0), x, n) + compute(n.child.get(1), k - x - 1, n));
-
     }
     dp[n.id][k][last.id] = min;
     return min;
@@ -143,8 +142,7 @@ public class IOI_2005_Rivers {
     int index;
     ArrayList<Node> child = new ArrayList<Node>();
 
-    Node() {
-    }
+    Node() {}
 
     Node(int length, int trees) {
       this.length = length;

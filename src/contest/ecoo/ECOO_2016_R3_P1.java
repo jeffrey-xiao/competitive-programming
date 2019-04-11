@@ -40,7 +40,7 @@ public class ECOO_2016_R3_P1 {
         ans += (k + 1) * prob[0];
         prob[0] = 0;
       }
-      out.println((int) Math.ceil(ans));
+      out.println((int)Math.ceil(ans));
       out.flush();
     }
 

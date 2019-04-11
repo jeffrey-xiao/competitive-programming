@@ -69,7 +69,6 @@ public class Glenforest_Starry_Sky {
           ans = (ans + hm.get(j)) % MOD;
         }
       }
-
     }
     out.println((ans - 1 + MOD) % MOD);
     out.close();

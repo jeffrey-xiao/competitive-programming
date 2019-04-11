@@ -26,10 +26,10 @@ public class palsquare {
     char[] c = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     int n = readInt();
-    main:
+  main:
     for (int x = 1; x <= 300; x++) {
       ArrayList<Integer> currNums = new ArrayList<Integer>();
-      int currFactor = (int) Math.pow(n, (int) (Math.log(x * x) / Math.log(n)));
+      int currFactor = (int)Math.pow(n, (int)(Math.log(x * x) / Math.log(n)));
       int curr = x * x;
       while (currFactor != 0) {
         int next = curr / currFactor;

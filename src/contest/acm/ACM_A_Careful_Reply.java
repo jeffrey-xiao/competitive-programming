@@ -23,6 +23,5 @@ public class ACM_A_Careful_Reply {
       }
       System.out.println();
     }
-
   }
 }

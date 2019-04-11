@@ -37,7 +37,7 @@ public class LowestCommonAncestorDp {
     n = readInt();
     // number of queries
     q = readInt();
-    ln = (int) (Math.ceil(Math.log(n) / Math.log(2)) + 1);
+    ln = (int)(Math.ceil(Math.log(n) / Math.log(2)) + 1);
 
     depth = new int[n];
     pa = new int[n][ln];

@@ -69,7 +69,6 @@ public class USACO_2013_Luxury {
           currPort = ports[currPort][0];
       }
       cycle.put(start, currPort);
-
     }
     System.out.println(currPort + 1);
   }

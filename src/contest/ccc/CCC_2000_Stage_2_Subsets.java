@@ -32,7 +32,7 @@ public class CCC_2000_Stage_2_Subsets {
       next();
       int s = next().charAt(0);
       if (s >= 97)
-        sets.get(set).add((char) s);
+        sets.get(set).add((char)s);
       else {
         link.get(set).add(s - 65);
         if (!moves.contains(set))
@@ -48,9 +48,9 @@ public class CCC_2000_Stage_2_Subsets {
       for (char y : sets.get(x))
         s += "," + y;
       if (s.equals(""))
-        System.out.println((char) (x + 65) + " = {}");
+        System.out.println((char)(x + 65) + " = {}");
       else
-        System.out.println((char) (x + 65) + " = {" + s.substring(1, s.length()) + "}");
+        System.out.println((char)(x + 65) + " = {" + s.substring(1, s.length()) + "}");
     }
   }
 
@@ -88,5 +88,4 @@ public class CCC_2000_Stage_2_Subsets {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

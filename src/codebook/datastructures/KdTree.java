@@ -127,7 +127,6 @@ public class KdTree {
   }
 
   private static class Node {
-    @SuppressWarnings("unused")
     int height;
     Point value;
     Node left, right;
@@ -143,13 +142,11 @@ public class KdTree {
   private class Point {
     private double x, y;
 
-    @SuppressWarnings("unused")
     Point(double x, double y) {
       this.x = x;
       this.y = y;
     }
 
-    @SuppressWarnings("unused")
     public double distanceTo(Point p) {
       return Math.sqrt(distanceSquaredTo(p));
     }
@@ -226,5 +223,4 @@ public class KdTree {
       return dx * dx + dy * dy;
     }
   }
-
 }

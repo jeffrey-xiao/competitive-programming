@@ -24,7 +24,7 @@ public class Woburn_Challenge_1998_Do_Or_Do_Not_There_Is_No_Try {
         for (int y = 0; y < visited[0].length; y++)
           visited[x][y] = 5000005;
       Queue<int[]> q = new LinkedList<int[]>();
-      q.offer(new int[]{x1, y1});
+      q.offer(new int[] {x1, y1});
       visited[y1][x1] = 0;
       while (!q.isEmpty() && visited[y2][x2] == 5000005) {
         int[] p = q.poll();
@@ -34,7 +34,7 @@ public class Woburn_Challenge_1998_Do_Or_Do_Not_There_Is_No_Try {
               continue;
             if (p[0] + x >= 0 && p[0] + x < grid[0].length && p[1] + y >= 0 && p[1] + y < grid.length && visited[p[1] + y][p[0] + x] == 5000005 && grid[p[1] + y][p[0] + x] == '*') {
               visited[p[1] + y][p[0] + x] = visited[p[1]][p[0]] + 1;
-              q.add(new int[]{p[0] + x, p[1] + y});
+              q.add(new int[] {p[0] + x, p[1] + y});
             }
           }
         }
@@ -44,5 +44,4 @@ public class Woburn_Challenge_1998_Do_Or_Do_Not_There_Is_No_Try {
       x1 = scan.nextInt() - 1;
     }
   }
-
 }

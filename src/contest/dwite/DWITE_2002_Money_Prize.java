@@ -41,12 +41,10 @@ public class DWITE_2002_Money_Prize {
               possible.add(grid[x][y] + dp[x + 1][y][z]);
           }
           Collections.sort(possible, new Comparator<Integer>() {
-
             @Override
             public int compare(Integer arg0, Integer arg1) {
               return arg1 - arg0;
             }
-
           });
           for (int z = 0; z < Math.min(possible.size(), 5); z++)
             dp[x][y][z] = possible.get(z);

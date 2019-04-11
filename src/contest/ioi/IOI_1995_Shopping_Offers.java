@@ -52,7 +52,7 @@ public class IOI_1995_Shopping_Offers {
     int next = Integer.MAX_VALUE;
     boolean end = true;
 
-    main:
+  main:
     for (int x = 0; x < s; x++) {
       State nextState = new State(b);
       nextState.items = Arrays.copyOf(start.items, start.items.length);
@@ -119,7 +119,7 @@ public class IOI_1995_Shopping_Offers {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         for (int x = 0; x < items.length; x++)
           if (s.items[x] != items[x])
             return false;

@@ -16,7 +16,6 @@ public class CCC_2009_S2 {
     String[] lights = new String[r];
     for (int x = 0; x < r; x++) {
       lights[x] = readLine().replaceAll("\\s", "");
-
     }
     LinkedHashSet<String> poss = new LinkedHashSet<String>();
     poss.add(lights[0]);
@@ -27,7 +26,6 @@ public class CCC_2009_S2 {
       }
       newPoss.add(lights[x]);
       poss = new LinkedHashSet<String>(newPoss);
-
     }
     System.out.println(poss.size());
   }
@@ -63,5 +61,4 @@ public class CCC_2009_S2 {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

@@ -79,7 +79,6 @@ public class CCO_Prep_Double_Cross {
             totalCurr = (totalCurr + (query(cnt, SIZE - 1) - query(cnt, curr - 2)) * (curr * (curr - 1) / 2));
             totalCurr = (totalCurr + query(addSum, curr - 2) * curr - query(subSum, curr - 2));
             res = (res + totalCurr * down[i + 1][j] % MOD) % MOD;
-
           }
         }
         add(prev, prevMul);

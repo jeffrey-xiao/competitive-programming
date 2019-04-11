@@ -24,7 +24,7 @@ public class CCPC_2017_B {
 
     int T = readInt();
 
-    main:
+  main:
     for (int t = 1; t <= T; t++) {
       String input = readLine();
       for (int i = MAX_SIZE; i >= 1; i--) {

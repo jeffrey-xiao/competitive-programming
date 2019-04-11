@@ -160,7 +160,7 @@ public class ACM_NAQ_2016_L {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return Math.abs(p.x - x) < EPS && Math.abs(p.y - y) < EPS;
       }
       return false;

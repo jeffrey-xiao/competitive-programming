@@ -53,7 +53,6 @@ public class DMOPC_2014_Surprise_Teleport {
             continue;
           dist[nx][ny] = dist[curr.x][curr.y] + 1;
           q.offer(new Point(nx, ny));
-
         }
       }
     }

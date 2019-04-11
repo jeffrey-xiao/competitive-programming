@@ -69,7 +69,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
         else
           hi = mid - 1;
       }
-      int pressesRemaining = (int) (buttonPresses - sum[hi]);
+      int pressesRemaining = (int)(buttonPresses - sum[hi]);
       long currMin = minAns[hi];
       long currMax = maxAns[hi];
       if (pressesRemaining > 0) {

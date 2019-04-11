@@ -38,7 +38,6 @@ public class APIO_2009_The_Great_ATM_Robbery_2 {
       int a = readInt() - 1;
       int b = readInt() - 1;
       adj.get(a).add(b);
-
     }
     for (int x = 0; x < n; x++)
       if (disc[x] == -1)

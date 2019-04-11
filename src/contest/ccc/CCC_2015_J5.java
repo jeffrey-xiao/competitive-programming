@@ -14,7 +14,7 @@ public class CCC_2015_J5 {
   static PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  static int n, m; // n represents the number of pies, m represents the number of people
+  static int n, m;                              // n represents the number of pies, m represents the number of people
   static int[][][] dp = new int[251][251][251]; // memoization array: dp[i][j][k] where i is the number of pies left, j is the number of people left, and k is the previous pie given
 
   public static void main(String[] args) throws IOException {

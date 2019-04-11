@@ -31,7 +31,7 @@ public class WOC_28_D {
     Q = readInt();
 
     for (int i = 1; i <= MAX_N; i++)
-      calc[i] = (long) (i) * (i - 1) + calc[i - 1];
+      calc[i] = (long)(i) * (i - 1) + calc[i - 1];
 
     for (int q = 0; q < Q; q++) {
       N = readInt();

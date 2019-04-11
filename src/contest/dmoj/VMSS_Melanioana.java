@@ -33,7 +33,7 @@ public class VMSS_Melanioana {
       sum -= minus;
     if (d)
       sum = sum - minus + max;
-    System.out.println((int) (Math.round(100 * sum)));
+    System.out.println((int)(Math.round(100 * sum)));
   }
 
   static String next() throws IOException {

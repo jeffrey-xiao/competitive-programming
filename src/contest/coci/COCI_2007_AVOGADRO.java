@@ -62,7 +62,6 @@ public class COCI_2007_AVOGADRO {
           process.offer(g[c][1]);
         if (occ[g[c][2]][2] == 0)
           process.offer(g[c][2]);
-
       }
     }
     System.out.println(res);

@@ -14,13 +14,11 @@ public class ECOO_2002_Count_Shapes {
       char[][] image = new char[height][];
       for (int y = 0; y < height; y++) {
         image[y] = scan.nextLine().toCharArray();
-
       }
       shapes[x] = getShapes(image);
     }
     for (int x = 0; x < shapes.length; x++)
       System.out.printf("In rectangle #%d are %d shapes\n", x + 1, shapes[x]);
-
   }
 
   private static int getShapes(char[][] image) {
@@ -31,7 +29,6 @@ public class ECOO_2002_Count_Shapes {
           numOfShapes++;
           removeShapes(image, z, y, 0);
         }
-
       }
     }
     return numOfShapes;

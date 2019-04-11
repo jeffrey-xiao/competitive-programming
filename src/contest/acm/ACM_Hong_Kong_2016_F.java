@@ -35,7 +35,7 @@ public class ACM_Hong_Kong_2016_F {
     man = new int[N + 1];
     woman = new int[N + 1];
 
-    sz = (int) Math.sqrt(N);
+    sz = (int)Math.sqrt(N);
 
     for (int i = 1; i <= N; i++)
       man[i] = readInt();

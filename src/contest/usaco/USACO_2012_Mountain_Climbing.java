@@ -17,7 +17,6 @@ public class USACO_2012_Mountain_Climbing {
   public static void main(String[] args) throws IOException {
     int n = readInt();
     PriorityQueue<int[]> pq = new PriorityQueue<int[]>(n, new Comparator<int[]>() {
-
       @Override
       public int compare(int[] arg0, int[] arg1) {
         if (arg0[0] < arg0[1]) {
@@ -32,10 +31,9 @@ public class USACO_2012_Mountain_Climbing {
             return 1;
         }
       }
-
     });
     for (int x = 0; x < n; x++) {
-      pq.offer(new int[]{readInt(), readInt()});
+      pq.offer(new int[] {readInt(), readInt()});
     }
     Queue<int[]> d = new LinkedList<int[]>();
     int totalTimeUp = 0;
@@ -43,7 +41,7 @@ public class USACO_2012_Mountain_Climbing {
 
       int[] curr = pq.poll();
       totalTimeUp += curr[0];
-      d.offer(new int[]{curr[1], totalTimeUp});
+      d.offer(new int[] {curr[1], totalTimeUp});
     }
     int currTimeDown = 0;
     while (!d.isEmpty()) {
@@ -52,7 +50,6 @@ public class USACO_2012_Mountain_Climbing {
         currTimeDown = curr[1] + curr[0];
       else
         currTimeDown += curr[0];
-
     }
     System.out.println(currTimeDown);
   }

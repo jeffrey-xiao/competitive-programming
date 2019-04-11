@@ -35,7 +35,7 @@ public class Mo {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     n = readInt();
-    sz = (int) Math.sqrt(n);
+    sz = (int)Math.sqrt(n);
 
     a = new int[n + 1];
     for (int i = 1; i <= n; i++)

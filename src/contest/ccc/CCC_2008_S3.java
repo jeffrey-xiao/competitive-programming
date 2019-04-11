@@ -18,7 +18,7 @@ public class CCC_2008_S3 {
       }
       Queue<int[]> moves = new LinkedList<int[]>();
       // 0,1 = x,y, 2 is moves
-      moves.add(new int[]{0, 0, 1});
+      moves.add(new int[] {0, 0, 1});
       while (!moves.isEmpty()) {
         int[] curr = moves.poll();
         if (curr[0] < 0 || curr[0] >= r || curr[1] < 0 || curr[1] >= c || grid[curr[0]][curr[1]] == '*' || visited[curr[0]][curr[1]])
@@ -30,16 +30,16 @@ public class CCC_2008_S3 {
         }
 
         if (grid[curr[0]][curr[1]] == '+') {
-          moves.add(new int[]{curr[0] + 1, curr[1], curr[2] + 1});
-          moves.add(new int[]{curr[0] - 1, curr[1], curr[2] + 1});
-          moves.add(new int[]{curr[0], curr[1] + 1, curr[2] + 1});
-          moves.add(new int[]{curr[0], curr[1] - 1, curr[2] + 1});
+          moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1});
+          moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1});
+          moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1});
+          moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1});
         } else if (grid[curr[0]][curr[1]] == '|') {
-          moves.add(new int[]{curr[0] + 1, curr[1], curr[2] + 1});
-          moves.add(new int[]{curr[0] - 1, curr[1], curr[2] + 1});
+          moves.add(new int[] {curr[0] + 1, curr[1], curr[2] + 1});
+          moves.add(new int[] {curr[0] - 1, curr[1], curr[2] + 1});
         } else if (grid[curr[0]][curr[1]] == '-') {
-          moves.add(new int[]{curr[0], curr[1] + 1, curr[2] + 1});
-          moves.add(new int[]{curr[0], curr[1] - 1, curr[2] + 1});
+          moves.add(new int[] {curr[0], curr[1] + 1, curr[2] + 1});
+          moves.add(new int[] {curr[0], curr[1] - 1, curr[2] + 1});
         }
       }
       if (!visited[r - 1][c - 1])

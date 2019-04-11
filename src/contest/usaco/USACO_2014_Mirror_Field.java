@@ -55,10 +55,8 @@ public class USACO_2014_Mirror_Field {
           break;
       }
       num++;
-
     }
     return num;
-
   }
 
   static String next() throws IOException {

@@ -34,8 +34,8 @@ public class WOC_29_G {
       for (int j = 0; j < K; j++)
         adj[i][j] = (i * K + j) % N;
 
-    // after K steps from node i the node will be im^k + 
-    // m^(k - 1) * j_(k-1) + m^(k - 2) * j_(k - 2) * ... * j_0 * m^0 mod n 
+    // after K steps from node i the node will be im^k +
+    // m^(k - 1) * j_(k-1) + m^(k - 2) * j_(k - 2) * ... * j_0 * m^0 mod n
     // we can cover all remainders modulo n with m^k >= n
 
     int diameter = 0;

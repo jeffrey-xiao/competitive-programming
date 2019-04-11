@@ -103,6 +103,5 @@ public class Foxlings {
         System.out.print(i + " ");
       System.out.println();
     }
-
   }
 }

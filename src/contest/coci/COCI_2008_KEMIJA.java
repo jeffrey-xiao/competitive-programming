@@ -15,5 +15,4 @@ public class COCI_2008_KEMIJA {
     System.out.println(s);
     scan.close();
   }
-
 }

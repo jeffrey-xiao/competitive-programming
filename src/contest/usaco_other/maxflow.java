@@ -141,7 +141,6 @@ public class maxflow implements Runnable {
         chainNum++;
         getHld(j, i);
       }
-
   }
 
   static void dfs(int i, int d, int prev) {
@@ -194,5 +193,4 @@ public class maxflow implements Runnable {
     out.flush();
     out.close();
   }
-
 }

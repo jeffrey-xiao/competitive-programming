@@ -59,7 +59,6 @@ public class IOI_2006_The_Valley_Of_Mexico {
       print((l - 1 + n) % n, r, 0);
     else
       print(l, (r + 1) % n, 1);
-
   }
 
   static int isPossible(int l, int r, int type) {

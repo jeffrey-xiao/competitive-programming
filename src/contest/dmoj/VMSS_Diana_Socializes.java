@@ -74,7 +74,6 @@ public class VMSS_Diana_Socializes {
       for (int room : best)
         out.print(room + " ");
       out.println();
-
     }
     out.close();
   }

@@ -123,7 +123,7 @@ public class GaussianElimination {
       if (Math.abs(A[i][i]) < EPS)
         return null;
 
-      // eliminating zeroes in rows smaller than ix	
+      // eliminating zeroes in rows smaller than ix
       for (int j = i - 1; j >= 0; j--) {
         double factor = A[j][i] / A[i][i];
         for (int k = i; k < N; k++)
@@ -143,20 +143,20 @@ public class GaussianElimination {
   public static void main(String[] args) {
     double[][] A;
 
-    A = new double[][]{{25, 5, 1, 106.8}, {64, 8, 1, 177.2}, {144, 12, 1, 279.2}};
+    A = new double[][] {{25, 5, 1, 106.8}, {64, 8, 1, 177.2}, {144, 12, 1, 279.2}};
 
     // [0.29047619047619005, 19.690476190476193, 1.0857142857142679]
     System.out.println(Arrays.toString(solve(A)));
 
-    A = new double[][]{{3, 2, 2, 15}, {0, 4, 1, 6}, {1, 1, 3, 19}};
+    A = new double[][] {{3, 2, 2, 15}, {0, 4, 1, 6}, {1, 1, 3, 19}};
 
     // [1.0, 0.0, 6.0]
     System.out.println(Arrays.toString(solve(A)));
 
     // 8
-    System.out.println(determinant(new double[][]{{-1, 3}, {-5, 7}}));
+    System.out.println(determinant(new double[][] {{-1, 3}, {-5, 7}}));
 
     // 2457
-    System.out.println(determinant(new double[][]{{1, 3, 5, 2, 4, 6}, {2, 5, 4, 3, 1, 6}, {6, 1, 2, 3, 4, 5}, {2, 5, 1, 3, 6, 4}, {4, 5, 1, 2, 3, 6}, {5, 4, 3, 6, 1, 2}}));
+    System.out.println(determinant(new double[][] {{1, 3, 5, 2, 4, 6}, {2, 5, 4, 3, 1, 6}, {6, 1, 2, 3, 4, 5}, {2, 5, 1, 3, 6, 4}, {4, 5, 1, 2, 3, 6}, {5, 4, 3, 6, 1, 2}}));
   }
 }

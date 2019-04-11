@@ -32,7 +32,7 @@ public class USACO_2015_Stampede_Good {
     Collections.sort(e);
     TreeSet<Integer> curr = new TreeSet<Integer>();
     HashSet<Integer> res = new HashSet<Integer>();
-    for (int x = 0; x < e.size(); ) {
+    for (int x = 0; x < e.size();) {
       int y;
       for (y = x; y < e.size() && e.get(x).x == e.get(y).x; y++) {
         if (e.get(y).y > 0)

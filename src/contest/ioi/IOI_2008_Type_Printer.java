@@ -60,7 +60,7 @@ public class IOI_2008_Type_Printer {
     int nextIndex = 0;
     StringBuilder finalS = new StringBuilder();
     int operations = 0;
-    main:
+  main:
     for (int x = words.length - 1; x >= 0; x--) {
       int common = 0;
       if (x == 0) {
@@ -69,7 +69,6 @@ public class IOI_2008_Type_Printer {
         operations += ss.length() + 1;
 
         break main;
-
       }
       for (int y = 0; y < words[x].length(); y++) {
         if (words[x - 1].length() > y && words[x - 1].charAt(y) == words[x].charAt(y))

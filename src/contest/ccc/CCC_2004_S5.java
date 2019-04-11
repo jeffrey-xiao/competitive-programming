@@ -72,6 +72,5 @@ public class CCC_2004_S5 {
       width = scan.nextInt();
       scan.nextLine();
     }
-
   }
 }

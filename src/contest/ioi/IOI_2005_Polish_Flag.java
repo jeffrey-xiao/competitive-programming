@@ -45,7 +45,7 @@ public class IOI_2005_Polish_Flag {
           innerHi = mid - 1;
       }
 
-      long beg = lo; // first row of segment
+      long beg = lo;      // first row of segment
       long end = innerHi; // last row of segment
 
       lo = innerHi + 1;
@@ -94,7 +94,7 @@ public class IOI_2005_Polish_Flag {
           innerHi = mid - 1;
       }
 
-      long beg = lo; // first row of segment
+      long beg = lo;      // first row of segment
       long end = innerHi; // last row of segment
 
       lo = innerHi + 1;
@@ -162,7 +162,7 @@ public class IOI_2005_Polish_Flag {
   }
 
   static long[] toSize(long[] row) {
-    return new long[]{row[0], row[1] - row[0], row[2] - row[1]};
+    return new long[] {row[0], row[1] - row[0], row[2] - row[1]};
   }
 
   static long[] getRow(long row) {

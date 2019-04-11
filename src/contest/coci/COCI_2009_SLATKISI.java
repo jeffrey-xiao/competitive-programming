@@ -17,7 +17,7 @@ public class COCI_2009_SLATKISI {
   public static void main(String[] args) throws IOException {
     double n = readInt();
     int k = readInt();
-    System.out.println((int) (Math.round(n / (Math.pow(10, k))) * Math.pow(10, k)));
+    System.out.println((int)(Math.round(n / (Math.pow(10, k))) * Math.pow(10, k)));
   }
 
   static String next() throws IOException {

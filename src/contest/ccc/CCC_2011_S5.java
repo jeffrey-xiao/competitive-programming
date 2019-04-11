@@ -46,7 +46,6 @@ public class CCC_2011_S5 {
         }
       }
     }
-
   }
 
   private static void adjust(boolean[] newS) {

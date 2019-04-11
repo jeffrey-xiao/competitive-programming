@@ -17,7 +17,6 @@ public class USACO_2015_Cow_Hopscotch_Gold {
   static int r, c, k;
   static int[][] g;
 
-  @SuppressWarnings("unchecked")
   public static void main(String[] args) throws IOException {
     r = readInt();
     c = readInt();
@@ -39,7 +38,7 @@ public class USACO_2015_Cow_Hopscotch_Gold {
       for (int j = 1; j <= c; j++) {
         int a = g[i][j];
         if (!toCx[a].containsKey(i)) {
-          toCx[a].put(i, (short) (toCx[a].size() + 1));
+          toCx[a].put(i, (short)(toCx[a].size() + 1));
         }
       }
     }
@@ -47,7 +46,7 @@ public class USACO_2015_Cow_Hopscotch_Gold {
       for (int i = 1; i <= r; i++) {
         int a = g[i][j];
         if (!toCy[a].containsKey(j)) {
-          toCy[a].put(j, (short) (toCy[a].size() + 1));
+          toCy[a].put(j, (short)(toCy[a].size() + 1));
         }
       }
     }

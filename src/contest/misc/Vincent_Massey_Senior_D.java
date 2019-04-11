@@ -67,7 +67,6 @@ public class Vincent_Massey_Senior_D {
         } else
           dp[i] = Math.max(dp[x], dp[i]);
       }
-
     }
     System.out.println(dp[0]);
   }

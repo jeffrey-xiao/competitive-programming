@@ -32,7 +32,7 @@ public class Sherlock_And_Pairs {
       long cnt = 1;
       for (int i = 0; i < n; i++) {
         if (a[i] != prev) {
-          ans += (cnt) * (cnt) - cnt;
+          ans += (cnt) * (cnt)-cnt;
           prev = a[i];
           cnt = 1;
         } else {

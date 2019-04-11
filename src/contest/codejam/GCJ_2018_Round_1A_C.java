@@ -32,7 +32,7 @@ public class GCJ_2018_Round_1A_C {
       }
 
       HashMap<Integer, Double> hm = new HashMap<Integer, Double>();
-      hm.put(perimeter, (double) perimeter);
+      hm.put(perimeter, (double)perimeter);
 
       for (int i = 0; i < N; i++) {
         HashMap<Integer, Double> curr = new HashMap<Integer, Double>();

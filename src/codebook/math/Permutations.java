@@ -15,7 +15,7 @@ public class Permutations {
   static boolean nextPermutation(int n, int[] a) {
     for (int i = n - 1; i >= 0; i--) {
       if (a[i] < a[i + 1]) {
-        for (int j = n - 1; ; j--) {
+        for (int j = n - 1;; j--) {
           if (a[i] < a[j]) {
             swap(i, j, a);
             i++;
@@ -47,7 +47,7 @@ public class Permutations {
       free[i] = i;
 
     for (int i = 0; i < n; i++) {
-      int pos = (int) (x / fact[n - 1 - i]);
+      int pos = (int)(x / fact[n - 1 - i]);
       ret[i] = free[pos];
       for (int j = pos; j < n; j++)
         free[j] = free[j + 1];

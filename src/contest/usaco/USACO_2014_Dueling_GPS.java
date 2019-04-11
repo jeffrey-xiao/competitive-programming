@@ -133,7 +133,7 @@ public class USACO_2014_Dueling_GPS {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Vertex) {
-        Vertex v = (Vertex) o;
+        Vertex v = (Vertex)o;
         return index == v.index;
       }
       return false;
@@ -152,7 +152,7 @@ public class USACO_2014_Dueling_GPS {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge v = (Edge) o;
+        Edge v = (Edge)o;
         return dest == v.dest;
       }
       return false;

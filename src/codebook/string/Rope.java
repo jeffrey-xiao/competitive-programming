@@ -51,7 +51,6 @@ public class Rope {
         System.out.println(a.report(i, j));
       }
     }
-
   }
 
   @Override

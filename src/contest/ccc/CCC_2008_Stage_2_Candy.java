@@ -23,7 +23,7 @@ public class CCC_2008_Stage_2_Candy {
     dp[0] = true;
     int max = 0;
     for (int y = 1; y < candies.length; y++) {
-      dp:
+    dp:
       for (int x = dp.length - 1; x >= 1; x--) {
         for (int z = candies[y][1]; z >= 1; z--) {
           if (x - candies[y][0] * z >= 0 && dp[x - candies[y][0] * z]) {
@@ -33,7 +33,6 @@ public class CCC_2008_Stage_2_Candy {
           }
         }
       }
-
     }
     System.out.println((sum - max) - max);
   }

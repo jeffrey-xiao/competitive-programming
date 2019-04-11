@@ -39,25 +39,25 @@ public class CCC_2002_Stage_2_Game_Show_Math {
             next = (y - S) + nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short) (y - S);
+              prev[x][next] = (short)(y - S);
               op[x][next] = 1;
             }
             next = (y - S) - nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short) (y - S);
+              prev[x][next] = (short)(y - S);
               op[x][next] = 2;
             }
             next = (y - S) * nums[x] + S;
             if (next >= 0 && next < K) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short) (y - S);
+              prev[x][next] = (short)(y - S);
               op[x][next] = 3;
             }
             next = (y - S) / nums[x] + S;
             if (next >= 0 && next < K && (y - S) % nums[x] == 0) {
               poss[x % 2][next] = true;
-              prev[x][next] = (short) (y - S);
+              prev[x][next] = (short)(y - S);
               op[x][next] = 4;
             }
           }

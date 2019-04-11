@@ -38,7 +38,6 @@ public class IOI_1998_Contact {
         if (!hm.containsKey(add))
           hm.put(add, 0);
         hm.put(add, hm.get(add) + 1);
-
       }
     }
     ArrayList<State> list = new ArrayList<State>();

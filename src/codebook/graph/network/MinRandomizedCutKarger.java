@@ -47,7 +47,7 @@ public class MinRandomizedCutKarger {
     int nodesLeft = n;
 
     while (nodesLeft > 2) {
-      int ran = (int) (Math.random() * currSize);
+      int ran = (int)(Math.random() * currSize);
       int rx = find(e.get(ran).a);
       int ry = find(e.get(ran).b);
       if (rx != ry) {

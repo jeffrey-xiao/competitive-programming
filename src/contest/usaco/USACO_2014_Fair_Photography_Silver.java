@@ -94,7 +94,6 @@ public class USACO_2014_Fair_Photography_Silver {
     public int compareTo(Pair o) {
       return o.dist - dist;
     }
-
   }
 
   static class Cow implements Comparable<Cow> {

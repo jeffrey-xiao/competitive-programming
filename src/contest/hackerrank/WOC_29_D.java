@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 
 public class WOC_29_D {
 
-  static final long MAX_VALUE = (long) (1e15);
+  static final long MAX_VALUE = (long)(1e15);
   static final int UNCERTAINITY = 20;
   static BufferedReader br;
   static PrintWriter out;
@@ -72,7 +72,7 @@ public class WOC_29_D {
 
   static long incrementMegaPrime(long n) {
     long prev = n % 10;
-    long curr = getNextValue((int) prev);
+    long curr = getNextValue((int)prev);
     if (prev >= 7)
       return incrementMegaPrime(n / 10) * 10 + curr;
     else

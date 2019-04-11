@@ -40,7 +40,7 @@ public class FHC_2016_Qualification_High_Security {
             ts.add(i);
         }
         int l = 0;
-        for (int i = 0; i < n; ) {
+        for (int i = 0; i < n;) {
           if (g[(j + 1) % 2][i] == 'X') {
             if (i - 1 > l) {
               Integer remove = ts.floor(i - 1);

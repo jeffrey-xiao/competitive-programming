@@ -65,14 +65,13 @@ public class Good_Aim {
         org[id].y = y;
         pr.println(sorted[hi].sz - (lo == -1 ? 0 : sorted[lo].sz));
       }
-
     }
     pr.close();
   }
 
   static void shuffle(Team[] s) {
     for (int i = 0; i < n - 1; i++) {
-      int j = (int) (Math.random() * (n - i - 1) + (i + 1));
+      int j = (int)(Math.random() * (n - i - 1) + (i + 1));
       Team temp = s[j];
       s[j] = s[i];
       s[i] = temp;
@@ -205,7 +204,7 @@ public class Good_Aim {
       int c = read();
       while (isSpaceChar(c))
         c = read();
-      return (char) c;
+      return (char)c;
     }
 
     public int nextInt() {
@@ -235,6 +234,5 @@ public class Good_Aim {
     public boolean isEndOfLine(int c) {
       return c == '\n' || c == '\r' || c == -1;
     }
-
   }
 }

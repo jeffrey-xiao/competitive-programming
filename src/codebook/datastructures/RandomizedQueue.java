@@ -17,7 +17,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
   private int index;
   private int size;
 
-  @SuppressWarnings("unchecked")
   public RandomizedQueue() {
     index = 0;
     size = 1;
@@ -74,7 +73,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
   private void addSize() {
     size *= 2;
-    @SuppressWarnings("unchecked")
     Item[] newQueue = (Item[]) new Object[size];
     for (int x = 0; x < queue.length; x++)
       newQueue[x] = queue[x];
@@ -83,7 +81,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
   private void removeSize() {
     size /= 2;
-    @SuppressWarnings("unchecked")
     Item[] newQueue = (Item[]) new Object[size];
     for (int x = 0; x < newQueue.length; x++)
       newQueue[x] = queue[x];
@@ -91,7 +88,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
   }
 
   private int getRandom(int index) {
-    int i = (int) (Math.random() * index);
+    int i = (int)(Math.random() * index);
     return i;
   }
 

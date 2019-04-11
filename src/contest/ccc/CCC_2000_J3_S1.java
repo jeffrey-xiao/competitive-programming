@@ -43,7 +43,7 @@ public class CCC_2000_J3_S1 {
       }
       plays++;
       x--;
-      state = (byte) ((state + 1) % 3);
+      state = (byte)((state + 1) % 3);
     }
     System.out.printf("Martha plays %d times before going broke.", plays);
   }

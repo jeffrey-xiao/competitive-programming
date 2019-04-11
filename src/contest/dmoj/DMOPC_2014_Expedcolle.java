@@ -38,9 +38,9 @@ public class DMOPC_2014_Expedcolle {
       long vm = readInt();
       for (int j = 0; j < e; j++) {
         if (c <= r) {
-          pq.get((int) (c)).offer(v);
-          while (pq.get((int) (c)).size() * c > r)
-            pq.get((int) c).poll();
+          pq.get((int)(c)).offer(v);
+          while (pq.get((int)(c)).size() * c > r)
+            pq.get((int)c).poll();
         }
         c = (c * ca + cb) % cm;
         v = (v * va + vb) % vm;

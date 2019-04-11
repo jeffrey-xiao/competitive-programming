@@ -30,7 +30,7 @@ public class IOI_2011_Dancing_Elephants {
     L = readInt();
     M = readInt();
 
-    S = (int) (Math.sqrt(N));
+    S = (int)(Math.sqrt(N));
     bucketCnt = (N - 1) / S + 1;
     b = new ArrayList<ArrayList<State>>();
 

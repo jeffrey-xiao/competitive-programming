@@ -59,7 +59,6 @@ public class COCI_2007_MUZICARI {
       }
       System.out.print(time[i] + " ");
     }
-
   }
 
   static String next() throws IOException {

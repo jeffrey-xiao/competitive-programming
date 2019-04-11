@@ -35,7 +35,7 @@ public class CCC_2007_S2 {
         return o1[0] * o1[1] * o1[2] - o2[0] * o2[1] * o2[2];
       }
     });
-    main:
+  main:
     for (int x = 0; x < numOfItems; x++) {
       for (int y = 0; y < numOfBoxes; y++) {
         if (items[x][0] <= boxes[y][0] && items[x][1] <= boxes[y][1] && items[x][2] <= boxes[y][2]) {

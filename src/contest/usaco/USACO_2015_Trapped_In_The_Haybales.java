@@ -36,12 +36,10 @@ public class USACO_2015_Trapped_In_The_Haybales {
     id = new int[n - 1];
     seg = new Seg[n - 1];
     PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
-
       @Override
       public int compare(Integer o1, Integer o2) {
         return seg[o1].compareTo(seg[o2]);
       }
-
     });
     for (int i = 0; i < n - 1; i++) {
       sz[i] = 1;

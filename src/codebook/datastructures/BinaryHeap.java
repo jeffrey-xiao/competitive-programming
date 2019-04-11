@@ -23,7 +23,7 @@ public class BinaryHeap {
   public static void main(String[] args) {
     BinaryHeap h = new BinaryHeap();
     for (int x = 0; x < 100; x++)
-      h.add((int) (Math.random() * 100));
+      h.add((int)(Math.random() * 100));
     for (int x = 0; x < 100; x++) {
       System.out.print(h.remove() + " ");
     }

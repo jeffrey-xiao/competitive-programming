@@ -24,7 +24,7 @@ public class CCC_2010_Stage_2_Computer_Purchase_Return {
       int c = nextInt();
       int v = nextInt();
       int i = nextInt() - 1;
-      p.get(i).add(new int[]{c, v});
+      p.get(i).add(new int[] {c, v});
     }
     int b = nextInt();
     dp = new int[n][b + 1];

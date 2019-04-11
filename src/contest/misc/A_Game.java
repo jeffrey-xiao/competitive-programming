@@ -18,9 +18,7 @@ class A_Game {
         int j = y + 2 > z ? 0 : table[y + 2][z];
         int k = z - 2 < y ? 0 : table[y][z - 2];
         table[y][z] = max(coins[y] + min(i, j), coins[z] + min(i, k));
-
       }
-
     }
     System.out.print(table[0][coins.length - 1] + " ");
     System.out.println(Math.min(table[1][coins.length - 1], table[0][coins.length - 2]));

@@ -30,7 +30,6 @@ public class DMOPC_2014_Yokan {
     for (int i = 0; i < n; i++) {
       in[i] = readInt();
       cc[i] = new Candy(in[i], i);
-
     }
     Arrays.sort(cc);
     int q = readInt();
@@ -42,7 +41,7 @@ public class DMOPC_2014_Yokan {
       int res = 0;
       hs.clear();
       for (int j = 0; j < 25; j++) {
-        int rand = (int) (Math.random() * (r - l + 1) + l);
+        int rand = (int)(Math.random() * (r - l + 1) + l);
         int cnt = lower(in[rand], r) - Math.max(0, higher(in[rand], l)) + 1;
         if (cnt * 3 >= (r - l + 1) * 2) {
           valid = true;
@@ -127,6 +126,5 @@ public class DMOPC_2014_Yokan {
         return i - o.i;
       return v - o.v;
     }
-
   }
 }

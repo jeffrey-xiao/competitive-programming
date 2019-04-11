@@ -19,7 +19,7 @@ public class GCJ_2018_Round_2_A {
 
     T = readInt();
 
-    outer:
+  outer:
     for (int t = 1; t <= T; t++) {
 
       int C = readInt();

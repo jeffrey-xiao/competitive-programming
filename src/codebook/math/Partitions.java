@@ -19,7 +19,7 @@ public class Partitions {
       s += p.get(i);
       p.remove(p.size() - 1);
     }
-    for (p.set(i, p.get(i) + 1); s-- > 0; )
+    for (p.set(i, p.get(i) + 1); s-- > 0;)
       p.add(1);
     return true;
   }

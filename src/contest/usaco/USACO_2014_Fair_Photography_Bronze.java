@@ -26,7 +26,7 @@ public class USACO_2014_Fair_Photography_Bronze {
       cows[x] = new Cow(readInt(), readCharacter() == 'G');
     }
     Arrays.sort(cows, 1, cows.length);
-    for (int x = 1; x <= n; ) {
+    for (int x = 1; x <= n;) {
       int sizeOfOne = 1;
       while (x + sizeOfOne <= n && cows[x].isG == cows[x + sizeOfOne].isG)
         sizeOfOne++;

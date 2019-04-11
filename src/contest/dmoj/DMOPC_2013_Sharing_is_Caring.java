@@ -14,7 +14,6 @@ public class DMOPC_2013_Sharing_is_Caring {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  @SuppressWarnings("unused")
   public static void main(String[] args) throws IOException {
     int n = readInt();
     int m = readInt();

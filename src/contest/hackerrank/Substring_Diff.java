@@ -29,7 +29,6 @@ public class Substring_Diff {
       int max = 0;
       for (int i = 0; i < n; i++) {
         max = Math.max(max, Math.max(getMax(0, i, s), getMax(i, 0, s)));
-
       }
       out.println(max);
     }

@@ -31,7 +31,6 @@ public class DWITE_2005_Five_Digit_Divisibility {
       if (string.indexOf(Integer.toString(x)) == -1)
         getPermutations(a, b, string + x);
     }
-
   }
 
   static String next() throws IOException {
@@ -55,5 +54,4 @@ public class DWITE_2005_Five_Digit_Divisibility {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

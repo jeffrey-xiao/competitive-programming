@@ -37,7 +37,5 @@ public class Woburn_Challenge_1999_Mission_Impossible_2 {
     removeObject(room, x - 1, y);
     removeObject(room, x, y + 1);
     removeObject(room, x, y - 1);
-
   }
-
 }

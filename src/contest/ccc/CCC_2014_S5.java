@@ -15,18 +15,18 @@ public class CCC_2014_S5 {
     int n = nextInt();
 
     int[][] points = new int[n + 1][];
-    points[0] = new int[]{0, 0};
+    points[0] = new int[] {0, 0};
 
     int counter = 0;
     int[][] pairs = new int[n * (n + 1) / 2][];
 
     for (int x = 1; x < n + 1; x++) {
       if (x != 0)
-        points[x] = new int[]{nextInt(), nextInt()};
+        points[x] = new int[] {nextInt(), nextInt()};
       for (int y = x - 1; y >= 0; y--) {
         int x1 = points[x][0] - points[y][0];
         int y1 = points[x][1] - points[y][1];
-        pairs[counter] = new int[]{y, x, x1 * x1 + y1 * y1};
+        pairs[counter] = new int[] {y, x, x1 * x1 + y1 * y1};
         counter++;
       }
     }

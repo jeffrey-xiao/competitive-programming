@@ -57,7 +57,7 @@ public class DMOPC_2015_The_Gamblers_Legacy {
   }
 
   static int f(int x) {
-    int p = (int) Math.log10(x) + 1;
+    int p = (int)Math.log10(x) + 1;
     int ret = 0;
     while (x > 0) {
       ret += pow(x % 10, p);

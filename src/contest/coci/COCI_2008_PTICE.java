@@ -32,6 +32,5 @@ public class COCI_2008_PTICE {
       System.out.println("Bruno");
     if (c1 == max)
       System.out.println("Goran");
-
   }
 }

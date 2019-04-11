@@ -54,7 +54,6 @@ public class CCC_2014_Stage_2_King_Gruff {
     for (Edge e : sorted) {
       sums[count] = sums[count - 1] + e.cost;
       count++;
-
     }
     for (int q = readInt(); q > 0; q--) {
       int distance = readInt();
@@ -180,7 +179,7 @@ public class CCC_2014_Stage_2_King_Gruff {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Node) {
-        Node n = (Node) o;
+        Node n = (Node)o;
         return this.index == n.index;
       }
       return false;

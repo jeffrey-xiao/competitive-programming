@@ -94,7 +94,6 @@ public class IOI_2002_Bus_Terminals {
               bMax2 = dist2 - hubDist;
             }
           }
-
         }
 
         int currMaxDist = Math.max(aMax1 + bMax1 + hubDist, Math.max(aMax1 + aMax2, bMax1 + bMax2));

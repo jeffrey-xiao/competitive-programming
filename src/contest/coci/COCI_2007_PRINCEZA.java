@@ -100,7 +100,6 @@ public class COCI_2007_PRINCEZA {
       }
     }
     System.out.println(X[curr] + " " + Y[curr]);
-
   }
 
   static void adjust(int x) {

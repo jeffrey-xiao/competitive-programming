@@ -41,7 +41,7 @@ public class COCI_2014_ZMIJA {
     int pos = 0;
     int npos = 0;
     int start = 0;
-    main:
+  main:
     for (; start < r; start++) {
       for (int j = 0; j < c; j++)
         if (g[start][j] == 'J')

@@ -25,7 +25,6 @@ public class COCI_2006_FIREFLY {
       } else {
         diff[m - readInt()]++;
         diff[m]--;
-
       }
     }
     int curr = 0;

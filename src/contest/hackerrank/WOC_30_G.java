@@ -65,7 +65,7 @@ public class WOC_30_G {
 
     sa = SA.computeSuffixArray(text);
     lcp = getLcp(sa, text);
-    ln = 1 + (int) (Math.ceil(Math.log(lcp.length - 1) / Math.log(2)));
+    ln = 1 + (int)(Math.ceil(Math.log(lcp.length - 1) / Math.log(2)));
 
     // computing the word associated with each index
     for (int i = 0; i < totalLen; i++) {
@@ -158,7 +158,7 @@ public class WOC_30_G {
 
   static int getRangeMin(int l, int r) {
     int sz = r - l + 1;
-    int lnSz = (int) (log[sz] / LOG_2);
+    int lnSz = (int)(log[sz] / LOG_2);
     return Math.min(rmq[l][lnSz], rmq[r - (1 << lnSz) + 1][lnSz]);
   }
 
@@ -170,7 +170,7 @@ public class WOC_30_G {
       rank[sa[i]] = i;
     int k = 0;
 
-    for (int i = 0; i < len; i++, k = k > 0 ? k - 1 : 0) {
+    for (int i = 0; i<len; i++, k = k> 0 ? k - 1 : 0) {
       if (rank[i] == len - 1) {
         k = 0;
         continue;
@@ -226,7 +226,7 @@ public class WOC_30_G {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair) o;
+        Pair p = (Pair)o;
         return x == p.x && y == p.y;
       }
       return false;
@@ -251,7 +251,7 @@ public class WOC_30_G {
         newOrder[i] = 0;
       }
 
-      for (sz = 1; ; sz <<= 1) {
+      for (sz = 1;; sz <<= 1) {
         Arrays.sort(res, C);
         for (int i = 0; i < len - 1; i++)
           newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);

@@ -14,7 +14,7 @@ public class CCC_2014_J5_S2 {
     ArrayList<String> students1 = new ArrayList<String>(Arrays.asList(scan.nextLine().split(" ")));
     ArrayList<String> students2 = new ArrayList<String>(Arrays.asList(scan.nextLine().split(" ")));
 
-    main:
+  main:
     for (int x = 0; x < n; x++) {
       for (int y = 0; y < n; y++) {
         if (y == x)

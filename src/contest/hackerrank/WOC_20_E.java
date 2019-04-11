@@ -80,7 +80,7 @@ public class WOC_20_E {
       }
     }
     Arrays.sort(pairs, 0, index);
-    for (int i = 0; i < index; ) {
+    for (int i = 0; i < index;) {
       int j = i;
       while (j < index && pairs[i] == pairs[j]) {
         j++;

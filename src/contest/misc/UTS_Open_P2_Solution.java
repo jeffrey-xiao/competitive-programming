@@ -16,7 +16,7 @@ public class UTS_Open_P2_Solution {
   public static void main(String[] args) throws IOException {
     String c = "2";
     // letters, cases, length
-    UTS_Open_P2_Generation.main(new String[]{"3", "5", "5", c});
+    UTS_Open_P2_Generation.main(new String[] {"3", "5", "5", c});
     br = new BufferedReader(new FileReader("UTS - P2 - " + c + ".in"));
     ps = new PrintWriter("UTS - P2 - " + c + ".out");
     // br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +31,7 @@ public class UTS_Open_P2_Solution {
       map2[x] = readCharacter() - 'a';
     }
     int q = readInt();
-    main:
+  main:
     for (int x = 0; x < q; x++) {
       char[] in = next().toCharArray();
       char[] out = next().toCharArray();

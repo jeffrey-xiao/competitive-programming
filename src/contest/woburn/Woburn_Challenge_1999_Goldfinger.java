@@ -25,5 +25,4 @@ public class Woburn_Challenge_1999_Goldfinger {
       input = scan.nextInt();
     }
   }
-
 }

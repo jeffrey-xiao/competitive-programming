@@ -101,7 +101,6 @@ public class ACM_Waterloo_Local_2016_Fall_A {
           dist[pair[next]] = dist[curr] + 1;
           q.offer(pair[next]);
         }
-
       }
     }
     return dist[NULL] != 1 << 30;

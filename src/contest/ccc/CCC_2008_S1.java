@@ -20,5 +20,4 @@ public class CCC_2008_S1 {
     } while (!city.equals("Waterloo"));
     System.out.println(s);
   }
-
 }

@@ -32,14 +32,14 @@ public class USACO_2014_Cross_Country_Skiing {
       for (int y = 0; y < c; y++) {
         int i = readInt();
         if (i == 1)
-          waypoints.add(new int[]{x, y});
+          waypoints.add(new int[] {x, y});
       }
     }
     startx = waypoints.get(0)[0];
     starty = waypoints.get(0)[1];
 
     Queue<int[]> moves = new LinkedList<int[]>();
-    moves.offer(new int[]{startx, starty, 0});
+    moves.offer(new int[] {startx, starty, 0});
 
     while (!moves.isEmpty()) {
 
@@ -52,13 +52,13 @@ public class USACO_2014_Cross_Country_Skiing {
       if (!visited[curr[0]][curr[1]]) {
         visited[curr[0]][curr[1]] = true;
         if (curr[0] + 1 < r)
-          moves.add(new int[]{curr[0] + 1, curr[1], Math.abs(grid[curr[0] + 1][curr[1]] - grid[curr[0]][curr[1]])});
+          moves.add(new int[] {curr[0] + 1, curr[1], Math.abs(grid[curr[0] + 1][curr[1]] - grid[curr[0]][curr[1]])});
         if (curr[0] - 1 >= 0)
-          moves.add(new int[]{curr[0] - 1, curr[1], Math.abs(grid[curr[0] - 1][curr[1]] - grid[curr[0]][curr[1]])});
+          moves.add(new int[] {curr[0] - 1, curr[1], Math.abs(grid[curr[0] - 1][curr[1]] - grid[curr[0]][curr[1]])});
         if (curr[1] + 1 < c)
-          moves.add(new int[]{curr[0], curr[1] + 1, Math.abs(grid[curr[0]][curr[1] + 1] - grid[curr[0]][curr[1]])});
+          moves.add(new int[] {curr[0], curr[1] + 1, Math.abs(grid[curr[0]][curr[1] + 1] - grid[curr[0]][curr[1]])});
         if (curr[1] - 1 >= 0)
-          moves.add(new int[]{curr[0], curr[1] - 1, Math.abs(grid[curr[0]][curr[1] - 1] - grid[curr[0]][curr[1]])});
+          moves.add(new int[] {curr[0], curr[1] - 1, Math.abs(grid[curr[0]][curr[1] - 1] - grid[curr[0]][curr[1]])});
       }
     }
     long max = Integer.MIN_VALUE;

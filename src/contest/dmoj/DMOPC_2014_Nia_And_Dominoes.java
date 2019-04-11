@@ -122,7 +122,7 @@ public class DMOPC_2014_Nia_And_Dominoes {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return a == s.a && s.b == b;
       }
       return false;

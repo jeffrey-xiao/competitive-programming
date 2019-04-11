@@ -71,7 +71,6 @@ public class COCI_2007_PRVA {
       dfs(nx, ny, z, s + g[nx][ny]);
       visited[nx][ny] = false;
     }
-
   }
 
   static String next() throws IOException {

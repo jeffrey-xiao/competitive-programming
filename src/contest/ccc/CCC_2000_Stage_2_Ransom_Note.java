@@ -27,7 +27,7 @@ public class CCC_2000_Stage_2_Ransom_Note {
     while (br.ready())
       in.append(br.readLine() + "  ");
     ArrayList<String> clips = new ArrayList<String>();
-    for (int i = 0; i < search.length(); ) {
+    for (int i = 0; i < search.length();) {
       while (search.charAt(i) == ' ')
         i++;
       int lo = i + 1;

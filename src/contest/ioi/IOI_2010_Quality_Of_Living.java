@@ -26,7 +26,7 @@ public class IOI_2010_Quality_Of_Living {
     int low = 1;
     int high = max * 2;
     int mid = 0;
-    main:
+  main:
     while (low != high) {
       mid = (low + high) / 2;
       int[][] newGrid = new int[r + 1][c + 1];

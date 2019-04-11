@@ -83,7 +83,7 @@ public class ACM_Waterloo_Local_2017_Fall_C {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return index == s.index && pos == s.pos;
       }
       return false;

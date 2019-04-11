@@ -26,7 +26,7 @@ public class IOI_2004_Artemis {
     int[] down = new int[n];
     int[] trees = new int[n];
     int first = 0, second = 0;
-    main:
+  main:
     for (int x = 0; x < n; x++) {
       down[x] = x;
       for (int y = 0; y < x; y++) {

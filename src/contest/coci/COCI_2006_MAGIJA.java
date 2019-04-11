@@ -31,7 +31,6 @@ public class COCI_2006_MAGIJA {
         System.out.print(grid[x][y]);
       System.out.println();
     }
-
   }
 
   static String next() throws IOException {

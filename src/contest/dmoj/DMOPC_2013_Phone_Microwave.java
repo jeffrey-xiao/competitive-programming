@@ -26,12 +26,10 @@ public class DMOPC_2013_Phone_Microwave {
     int j = 0;
     for (; j + 24 < i; j += 24) {
       c.add(Calendar.HOUR_OF_DAY, -24);
-
     }
     c.set(Calendar.HOUR_OF_DAY, i(in2[0]));
     c.add(Calendar.HOUR_OF_DAY, -(i - j));
     System.out.println(df.format(c.getTime()));
-
   }
 
   static int i(String s) {

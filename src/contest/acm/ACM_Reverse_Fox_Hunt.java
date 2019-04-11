@@ -152,7 +152,7 @@ public class ACM_Reverse_Fox_Hunt {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) o;
+        Edge e = (Edge)o;
         return dest == e.dest;
       }
       return false;

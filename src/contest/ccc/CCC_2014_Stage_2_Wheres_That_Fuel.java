@@ -22,14 +22,14 @@ public class CCC_2014_Stage_2_Wheres_That_Fuel {
       }
       if (temp < temp1)
         continue;
-      planets.add(new Integer[]{temp - temp1, temp1});
+      planets.add(new Integer[] {temp - temp1, temp1});
     }
     Collections.sort(planets, new Comparator<Object>() {
       @Override
       public int compare(Object arg0, Object arg1) {
-        if (((Integer[]) arg0)[1].intValue() < ((Integer[]) arg1)[1].intValue())
+        if (((Integer[])arg0)[1].intValue() < ((Integer[])arg1)[1].intValue())
           return 1;
-        else if (((Integer[]) arg0)[1].intValue() > ((Integer[]) arg1)[1].intValue())
+        else if (((Integer[])arg0)[1].intValue() > ((Integer[])arg1)[1].intValue())
           return -1;
         return 0;
       }
@@ -40,7 +40,6 @@ public class CCC_2014_Stage_2_Wheres_That_Fuel {
         numOfPlanets++;
         startingGas += planets.get(x)[0];
       }
-
     }
     System.out.println(startingGas + "\n" + numOfPlanets);
   }

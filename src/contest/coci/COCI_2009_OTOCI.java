@@ -40,7 +40,7 @@ public class COCI_2009_OTOCI {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     n = readInt();
-    sn = (int) (Math.sqrt(n));
+    sn = (int)(Math.sqrt(n));
     id = new int[n + 1];
     size = new int[n + 1];
     val = new int[n + 1];

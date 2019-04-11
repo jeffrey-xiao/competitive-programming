@@ -31,10 +31,10 @@ public class Lexicographically_Least_Substring {
     int minLen = readInt();
     for (int i = 0; i < len; i++) {
       res[i] = i;
-      order[i] = (int) (input[i]);
+      order[i] = (int)(input[i]);
       newOrder[i] = 0;
     }
-    for (sz = 1; ; sz <<= 1) {
+    for (sz = 1;; sz <<= 1) {
       Arrays.sort(res, C);
       for (int i = 0; i < len - 1; i++)
         newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);

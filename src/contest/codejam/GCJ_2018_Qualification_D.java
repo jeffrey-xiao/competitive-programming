@@ -20,15 +20,8 @@ public class GCJ_2018_Qualification_D {
     int T = readInt();
 
     for (int t = 1; t <= T; t++) {
-      Point[] points = new Point[]{
-          new Point(0.5, 0.5, 0.5),
-          new Point(-0.5, 0.5, 0.5),
-          new Point(0.5, -0.5, 0.5),
-          new Point(-0.5, -0.5, 0.5),
-          new Point(0.5, 0.5, -0.5),
-          new Point(-0.5, 0.5, -0.5),
-          new Point(0.5, -0.5, -0.5),
-          new Point(-0.5, -0.5, -0.5),
+      Point[] points = new Point[] {
+          new Point(0.5, 0.5, 0.5), new Point(-0.5, 0.5, 0.5), new Point(0.5, -0.5, 0.5), new Point(-0.5, -0.5, 0.5), new Point(0.5, 0.5, -0.5), new Point(-0.5, 0.5, -0.5), new Point(0.5, -0.5, -0.5), new Point(-0.5, -0.5, -0.5),
       };
       Point[] currPoints = new Point[8];
 
@@ -88,16 +81,7 @@ public class GCJ_2018_Qualification_D {
     assert ((Math.abs((p1.x * p3.x + p1.y * p3.y + p1.z * p3.z) / (dist1 * dist3)) - 1) <= EPS);
     assert ((Math.abs((p2.x * p3.x + p2.y * p3.y + p2.z * p3.z) / (dist2 * dist3)) - 1) <= EPS);
 
-    Point[] compute = new Point[]{
-        add(add(p1, p2), p3),
-        add(add(neg(p1), p2), p3),
-        add(add(p1, neg(p2)), p3),
-        add(add(neg(p1), neg(p2)), p3),
-        add(add(p1, p2), neg(p3)),
-        add(add(neg(p1), p2), neg(p3)),
-        add(add(p1, neg(p2)), neg(p3)),
-        add(add(neg(p1), neg(p2)), neg(p3))
-    };
+    Point[] compute = new Point[] {add(add(p1, p2), p3), add(add(neg(p1), p2), p3), add(add(p1, neg(p2)), p3), add(add(neg(p1), neg(p2)), p3), add(add(p1, p2), neg(p3)), add(add(neg(p1), p2), neg(p3)), add(add(p1, neg(p2)), neg(p3)), add(add(neg(p1), neg(p2)), neg(p3))};
     assert (Math.abs(targetArea - getArea(compute)) <= EPS);
 
     out.println(p1);
@@ -118,19 +102,11 @@ public class GCJ_2018_Qualification_D {
   }
 
   static Point rotateX(Point p, double angle) {
-    return new Point(
-        p.x,
-        p.y * Math.cos(angle) - p.z * Math.sin(angle),
-        p.y * Math.sin(angle) + p.z * Math.cos(angle)
-    );
+    return new Point(p.x, p.y * Math.cos(angle) - p.z * Math.sin(angle), p.y * Math.sin(angle) + p.z * Math.cos(angle));
   }
 
   static Point rotateZ(Point p, double angle) {
-    return new Point(
-        p.x * Math.cos(angle) - p.y * Math.sin(angle),
-        p.x * Math.sin(angle) + p.y * Math.cos(angle),
-        p.z
-    );
+    return new Point(p.x * Math.cos(angle) - p.y * Math.sin(angle), p.x * Math.sin(angle) + p.y * Math.cos(angle), p.z);
   }
 
   static double getArea(Point[] points) {
@@ -160,7 +136,6 @@ public class GCJ_2018_Qualification_D {
     u.remove(u.size() - 1);
     l.remove(l.size() - 1);
     l.addAll(u);
-
 
     double area = 0;
     int j = l.size() - 1;

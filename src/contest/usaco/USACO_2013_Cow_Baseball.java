@@ -28,7 +28,6 @@ public class USACO_2013_Cow_Baseball {
       }
     }
     System.out.println(total);
-
   }
 
   static String next() throws IOException {

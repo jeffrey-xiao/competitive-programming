@@ -72,7 +72,7 @@ public class DMOPC_2014_Aircraft_Carrier_Akagi {
 
       long totalSmallerSum = query(leftSum, median) + query(rightSum, median - offset) + offset * smallRightSz;
       long totalBiggerSum = query(leftSum, SIZE - 1) + query(rightSum, SIZE - 1) + offset * (smallRightSz + bigRightSz) - totalSmallerSum;
-      min = Math.min(min, (leftSz) * median - totalSmallerSum + totalBiggerSum - median * (rightSz));
+      min = Math.min(min, (leftSz)*median - totalSmallerSum + totalBiggerSum - median * (rightSz));
     }
     out.println(min == 1l << 60 ? -1 : min);
     out.close();

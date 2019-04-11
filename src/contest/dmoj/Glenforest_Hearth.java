@@ -84,6 +84,5 @@ public class Glenforest_Hearth {
       }
       return name.length() - o.name.length();
     }
-
   }
 }

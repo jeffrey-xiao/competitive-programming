@@ -21,7 +21,7 @@ public class ACM_MVP {
   static int[] movey = {-1, 1, 0, 0};
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int t = readInt(); t > 0; t--) {
       r = readInt();
       c = readInt();

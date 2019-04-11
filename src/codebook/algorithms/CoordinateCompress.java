@@ -32,7 +32,7 @@ public class CoordinateCompress {
   }
 
   public static void main(String[] args) {
-    int[] a = new int[]{1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
+    int[] a = new int[] {1, 2, 1, 5, 20, 20, 30, 20, 5, 1};
     compress(a, 0, 9);
     System.out.println(Arrays.toString(a));
   }

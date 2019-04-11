@@ -19,8 +19,8 @@ public class SegmentTreeTest {
     int n = readInt();
     start = 0;
     end = n - 1;
-    height = (int) Math.ceil(Math.log(n) / Math.log(2));
-    size = 2 * (int) Math.pow(2, height) - 1;
+    height = (int)Math.ceil(Math.log(n) / Math.log(2));
+    size = 2 * (int)Math.pow(2, height) - 1;
     tree = new int[size];
     for (int x = 0; x < size; x++)
       tree[x] = Integer.MAX_VALUE;
@@ -41,7 +41,6 @@ public class SegmentTreeTest {
         update(update, index, start, end, 0);
       }
     }
-
   }
 
   static int construct(int[] input, int sindex, int eindex, int curr) {

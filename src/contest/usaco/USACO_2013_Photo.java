@@ -23,7 +23,7 @@ public class USACO_2013_Photo {
       }
     });
     int count = 0;
-    for (int x = 0; x < n; ) {
+    for (int x = 0; x < n;) {
       int stop = n;
       for (int y = 0; y < pairs.length; y++) {
 

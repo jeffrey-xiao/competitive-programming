@@ -56,7 +56,7 @@ public class CCC_2001_Stage_2_Election_Night {
           }
         }
       }
-      main:
+    main:
       for (int x = 1; x <= candidates; x++) {
         for (int y = 1; y <= candidates; y++) {
           if (x != y && possible[y] >= guarantee[x]) {
@@ -110,11 +110,10 @@ public class CCC_2001_Stage_2_Election_Night {
     }
   }
 
-  @SuppressWarnings("unchecked")
   private static ArrayList<ArrayList<Edge>> cloneList(ArrayList<ArrayList<Edge>> adj) {
     ArrayList<ArrayList<Edge>> t = new ArrayList<ArrayList<Edge>>();
     for (ArrayList<Edge> a : adj)
-      t.add((ArrayList<Edge>) a.clone());
+      t.add((ArrayList<Edge>)a.clone());
     return t;
   }
 
@@ -218,7 +217,7 @@ public class CCC_2001_Stage_2_Election_Night {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) o;
+        Edge e = (Edge)o;
         return e.dest == dest;
       }
       return false;

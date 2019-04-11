@@ -35,12 +35,12 @@ public class WOC_29_F_Generator {
 
     int cnt = 0;
     start = dist(X, Y);
-    start -= (int) start;
+    start -= (int)start;
 
     for (int i = 1; i <= 12; i++) {
       for (int j = i; j <= 12; j++) {
         double dist = dist(i, j);
-        if (dist != (int) dist) {
+        if (dist != (int)dist) {
           x[cnt] = i;
           y[cnt] = j;
           cnt++;
@@ -56,7 +56,7 @@ public class WOC_29_F_Generator {
           for (int d = c + 1; d < POINT_SIZE; d++)
             for (int e = d + 1; e < POINT_SIZE; e++) {
               double dist = dist(x[a], y[a]) + dist(x[b], y[b]) + dist(x[c], y[c]) + dist(x[d], y[d]) + dist(x[e], y[e]);
-              dist -= (int) (dist);
+              dist -= (int)(dist);
               State add = new State(dist);
               add.indexes = add.indexes * 100 + a;
               add.indexes = add.indexes * 100 + b;
@@ -82,12 +82,12 @@ public class WOC_29_F_Generator {
       double dist = start;
       for (int k = 0; k < j; k++)
         dist += dist(x[indexes[k]], y[indexes[k]]);
-      dist -= (int) dist;
+      dist -= (int)dist;
 
       State candidate = ts.floor(new State(1.0 - dist));
       if (candidate != null) {
         double poss = dist + candidate.value;
-        poss -= (int) poss;
+        poss -= (int)poss;
         poss = 1.0 - poss;
         if (poss < 1e-12) {
           found = true;
@@ -99,8 +99,8 @@ public class WOC_29_F_Generator {
           }
           long curr = candidate.indexes;
           for (int k = 0; k < 5; k++) {
-            ansx[cnt] = x[(int) (curr % 100)];
-            ansy[cnt] = y[(int) (curr % 100)];
+            ansx[cnt] = x[(int)(curr % 100)];
+            ansy[cnt] = y[(int)(curr % 100)];
             curr /= 100;
             cnt++;
           }
@@ -109,7 +109,7 @@ public class WOC_29_F_Generator {
       candidate = ts.ceiling(new State(1.0 - dist));
       if (candidate != null) {
         double poss = dist + candidate.value;
-        poss -= (int) poss;
+        poss -= (int)poss;
         if (poss < 1e-12) {
           found = true;
           int cnt = 1;
@@ -120,8 +120,8 @@ public class WOC_29_F_Generator {
           }
           long curr = candidate.indexes;
           for (int k = 0; k < 5; k++) {
-            ansx[cnt] = x[(int) (curr % 100)];
-            ansy[cnt] = y[(int) (curr % 100)];
+            ansx[cnt] = x[(int)(curr % 100)];
+            ansy[cnt] = y[(int)(curr % 100)];
             curr /= 100;
             cnt++;
           }

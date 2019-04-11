@@ -23,10 +23,9 @@ public class CCC_2015_J3 {
     String res = "";
     for (int x = 0; x < in.length; x++) {
       if (vowel.indexOf(in[x]) == -1)
-        res += "" + in[x] + (char) (closest[in[x] - 'a']) + (char) (next[in[x] - 'a']);
+        res += "" + in[x] + (char)(closest[in[x] - 'a']) + (char)(next[in[x] - 'a']);
       else
         res += in[x];
-
     }
     System.out.println(res);
   }

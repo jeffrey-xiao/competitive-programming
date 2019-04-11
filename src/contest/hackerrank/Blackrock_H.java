@@ -42,8 +42,8 @@ public class Blackrock_H {
       cache[i] = new int[1 << i];
     }
 
-    // solving left bitmasks
-    main:
+  // solving left bitmasks
+  main:
     for (int i = 0; i < (1 << half); i++) {
       int cnt = bitCount(i);
       if (cnt < half - cnt)
@@ -66,7 +66,6 @@ public class Blackrock_H {
           set2 |= (val[j] << len2);
           len2++;
         }
-
       }
       if ((set1 & ((1 << Math.min(len1, len2)) - 1)) != (set2 & ((1 << Math.min(len1, len2)) - 1)))
         continue main;
@@ -80,8 +79,8 @@ public class Blackrock_H {
 
     long ans = 0;
 
-    // solving right bitmasks
-    main:
+  // solving right bitmasks
+  main:
     for (int i = 0; i < (1 << half); i++) {
       int cnt = bitCount(i);
       if (cnt < half - cnt)
@@ -105,7 +104,6 @@ public class Blackrock_H {
           set22 = (set22 << 1) | val[half + j];
           len2++;
         }
-
       }
       if ((set1 & ((1 << Math.min(len1, len2)) - 1)) != (set2 & ((1 << Math.min(len1, len2)) - 1)))
         continue main;
@@ -166,7 +164,7 @@ public class Blackrock_H {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return s.mask == mask && s.length == length;
       }
       return false;

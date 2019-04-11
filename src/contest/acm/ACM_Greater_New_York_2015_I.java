@@ -14,7 +14,7 @@ public class ACM_Greater_New_York_2015_I {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
     int P = Integer.parseInt(in.readLine());
-    main:
+  main:
     while (P-- > 0) {
       StringTokenizer st = new StringTokenizer(in.readLine());
       int K = Integer.parseInt(st.nextToken());

@@ -32,7 +32,6 @@ public class USACO_2014_Odometer_Bronze {
                 if (num <= l && num >= n) {
                   count++;
                 }
-
               }
           }
       }

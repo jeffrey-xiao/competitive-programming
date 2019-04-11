@@ -17,7 +17,6 @@ public class BinaryIndexedTree {
     this.size = size;
     this.tree1 = new int[size];
     this.tree2 = new int[size];
-
   }
 
   // Point updates and range queries
@@ -103,5 +102,4 @@ public class BinaryIndexedTree {
   public int query(int x1, int x2) {
     return query(x2) - query(x1 - 1);
   }
-
 }

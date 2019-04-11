@@ -52,7 +52,6 @@ public class Mackenzie_ECOO {
       Collections.sort(best);
       for (String s : best)
         out.println(s);
-
     }
 
     out.close();

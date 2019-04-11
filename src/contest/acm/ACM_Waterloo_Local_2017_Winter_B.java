@@ -18,7 +18,7 @@ public class ACM_Waterloo_Local_2017_Winter_B {
     // br = new BufferedReader(new FileReader("in.txt"));
     // out = new PrintWriter(new FileWriter("out.txt"));
 
-    main:
+  main:
     while (br.ready()) {
       N = readInt();
       X = new int[N];

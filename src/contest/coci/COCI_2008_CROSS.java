@@ -63,11 +63,10 @@ public class COCI_2008_CROSS {
             pos[x][y] &= ~(1 << n);
           }
         }
-
       }
       for (int n = 1; n <= 9; n++) {
         for (int i = 0; i < 3; i++) {
-          next:
+        next:
           for (int j = 0; j < 3; j++) {
             boolean has = false;
             int nx = 0;

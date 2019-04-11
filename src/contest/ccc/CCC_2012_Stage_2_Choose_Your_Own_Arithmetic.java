@@ -21,7 +21,6 @@ public class CCC_2012_Stage_2_Choose_Your_Own_Arithmetic {
     int[] digits = new int[numOfDigits];
     for (int x = 0; x < numOfDigits; x++) {
       digits[x] = readInt();
-
     }
     for (int x = 0; x < numOfDigits; x++) {
       compute(digits, operations, digits[x]);
@@ -33,7 +32,6 @@ public class CCC_2012_Stage_2_Choose_Your_Own_Arithmetic {
       else
         System.out.println("N");
     }
-
   }
 
   private static void compute(int[] digits, int operations, int curr) {

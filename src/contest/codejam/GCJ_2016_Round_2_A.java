@@ -27,7 +27,7 @@ public class GCJ_2016_Round_2_A {
 
     T = readInt();
 
-    main:
+  main:
     for (int t = 1; t <= T; t++) {
       N = readInt();
       R = readInt();
@@ -181,6 +181,5 @@ public class GCJ_2016_Round_2_A {
     public int compareTo(State s) {
       return compare(prev, s.prev);
     }
-
   }
 }

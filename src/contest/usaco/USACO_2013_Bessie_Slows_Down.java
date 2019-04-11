@@ -43,7 +43,6 @@ public class USACO_2013_Bessie_Slows_Down {
     }
     if (currentD < 1000)
       currentT += (1000 - currentD) / (1.0 / speed);
-    System.out.println((int) Math.round(currentT));
+    System.out.println((int)Math.round(currentT));
   }
-
 }

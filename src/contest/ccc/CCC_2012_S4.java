@@ -30,7 +30,7 @@ public class CCC_2012_S4 {
         start.s[x].push(readInt());
       int end = 0;
       for (int x = 1; x <= n; x++)
-        end += (x) * Math.pow(RADIX, x);
+        end += (x)*Math.pow(RADIX, x);
       Queue<Pos> q = new LinkedList<Pos>();
       q.offer(new Pos(toIndex(start), 0));
       while (!q.isEmpty()) {
@@ -99,8 +99,8 @@ public class CCC_2012_S4 {
   static State toState(Integer i) {
     State res = new State();
     for (int x = n; x >= 1; x--) {
-      res.s[i / (int) (Math.pow(RADIX, x)) - 1].push(x);
-      i %= (int) (Math.pow(RADIX, x));
+      res.s[i / (int)(Math.pow(RADIX, x)) - 1].push(x);
+      i %= (int)(Math.pow(RADIX, x));
     }
     return res;
   }
@@ -141,7 +141,6 @@ public class CCC_2012_S4 {
   }
 
   static class State {
-    @SuppressWarnings("unchecked")
     Stack<Integer>[] s = new Stack[n];
 
     State() {

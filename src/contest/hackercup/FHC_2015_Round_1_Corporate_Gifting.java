@@ -29,7 +29,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
     int t = readInt();
     for (int qq = 1; qq <= t; qq++) {
       n = readInt();
-      ln = (int) (Math.ceil(Math.log(n) / Math.log(2)));
+      ln = (int)(Math.ceil(Math.log(n) / Math.log(2)));
       adj = new ArrayList<ArrayList<Integer>>();
       dp1 = new State[n];
       dp2 = new State[n];

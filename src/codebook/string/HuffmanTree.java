@@ -21,19 +21,19 @@ public class HuffmanTree {
 
   public static void main(String[] args) {
     HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
-    hm.put('e', (int) (Math.random() * 10));
-    hm.put('n', (int) (Math.random() * 10));
-    hm.put('o', (int) (Math.random() * 10));
-    hm.put('u', (int) (Math.random() * 10));
-    hm.put('a', (int) (Math.random() * 10));
-    hm.put('t', (int) (Math.random() * 10));
-    hm.put('m', (int) (Math.random() * 10));
-    hm.put('i', (int) (Math.random() * 10));
-    hm.put('x', (int) (Math.random() * 10));
-    hm.put('p', (int) (Math.random() * 10));
-    hm.put('h', (int) (Math.random() * 10));
-    hm.put('s', (int) (Math.random() * 10));
-    hm.put('r', (int) (Math.random() * 10));
+    hm.put('e', (int)(Math.random() * 10));
+    hm.put('n', (int)(Math.random() * 10));
+    hm.put('o', (int)(Math.random() * 10));
+    hm.put('u', (int)(Math.random() * 10));
+    hm.put('a', (int)(Math.random() * 10));
+    hm.put('t', (int)(Math.random() * 10));
+    hm.put('m', (int)(Math.random() * 10));
+    hm.put('i', (int)(Math.random() * 10));
+    hm.put('x', (int)(Math.random() * 10));
+    hm.put('p', (int)(Math.random() * 10));
+    hm.put('h', (int)(Math.random() * 10));
+    hm.put('s', (int)(Math.random() * 10));
+    hm.put('r', (int)(Math.random() * 10));
     HuffmanTree tree = new HuffmanTree(hm);
     tree.traverse();
   }
@@ -69,7 +69,6 @@ public class HuffmanTree {
     traverse(n.right);
   }
 
-  @SuppressWarnings("unused")
   private class Node implements Comparable<Node> {
     private Character value;
     private Integer freq;

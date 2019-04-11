@@ -34,7 +34,6 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 
     for (int i = 0; i < N; i++) {
       a[i] = readInt();
-
     }
 
     Arrays.sort(a);
@@ -205,7 +204,7 @@ public class CCC_2015_Stage_2_Hungry_Fox {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return value == s.value;
       }
       return false;

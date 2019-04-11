@@ -46,7 +46,6 @@ public class CCC_2006_S5 {
     for (int i = 0; i < (1 << (m * n)); i++) {
       if (!v[i]) {
         compute(i, true);
-
       }
       int ni = getIndex(nextState(getState(i)));
       if (ni != i)

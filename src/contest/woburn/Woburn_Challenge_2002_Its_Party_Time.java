@@ -21,5 +21,4 @@ public class Woburn_Challenge_2002_Its_Party_Time {
       return b;
     return gcf(c, b % c);
   }
-
 }

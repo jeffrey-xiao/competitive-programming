@@ -26,7 +26,7 @@ public class WOC_29_F {
     for (int a = -12; a <= 12; a++) {
       for (int b = -12; b <= 12; b++) {
         double dist = Math.sqrt(a * a + b * b);
-        if (dist == (int) dist)
+        if (dist == (int)dist)
           continue;
         Point target = new Point(a, b);
         initPoints();
@@ -65,7 +65,7 @@ public class WOC_29_F {
     for (int j = 0; j < 12; j++) {
       dist += Math.sqrt(p[i][j].x * p[i][j].x + p[i][j].y * p[i][j].y);
     }
-    dist -= (int) dist;
+    dist -= (int)dist;
     dist = Math.min(Math.abs(dist), Math.abs(1 - dist));
     if (dist > 1e-12)
       return false;
@@ -76,7 +76,7 @@ public class WOC_29_F {
     }
     for (int j = 0; j < 12; j++) {
       dist = Math.sqrt(p[i][j].x * p[i][j].x + p[i][j].y * p[i][j].y);
-      if (dist == (int) dist)
+      if (dist == (int)dist)
         return false;
     }
     return true;
@@ -512,7 +512,7 @@ public class WOC_29_F {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return p.x == x && p.y == y;
       }
       return false;

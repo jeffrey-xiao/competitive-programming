@@ -117,7 +117,7 @@ public class COCI_2007_GEORGE {
 
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        return dest == ((Edge) o).dest;
+        return dest == ((Edge)o).dest;
       }
       return false;
     }

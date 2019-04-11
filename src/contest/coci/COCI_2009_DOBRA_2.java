@@ -53,7 +53,6 @@ public class COCI_2009_DOBRA_2 {
     s.setCharAt(i, 'A');
     compute(x + 1, size, 5 * m);
     s.setCharAt(i, '_');
-
   }
 
   static String next() throws IOException {

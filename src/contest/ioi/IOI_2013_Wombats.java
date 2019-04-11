@@ -109,7 +109,7 @@ public class IOI_2013_Wombats {
   static int[][] computeNextRow(int row) {
     int[][] ret = new int[C][C];
 
-    // computing current row first	
+    // computing current row first
 
     // going right
     for (int i = 0; i < C; i++)
@@ -138,7 +138,6 @@ public class IOI_2013_Wombats {
         ret[j][i] = Math.min(ret[j][i], ret[j][i + 1] + H[row + 1][i]);
 
     return ret;
-
   }
 
   // [X, Y], [Y, Z]

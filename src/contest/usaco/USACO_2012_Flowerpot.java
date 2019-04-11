@@ -25,14 +25,12 @@ public class USACO_2012_Flowerpot {
       pots[x] = new Pot(readInt(), readInt(), x);
     }
     Arrays.sort(pots, new Comparator<Pot>() {
-
       @Override
       public int compare(Pot o1, Pot o2) {
         if (o1.x == o2.x)
           return o1.y - o2.y;
         return o1.x - o2.x;
       }
-
     });
 
     int lo = 0;
@@ -96,7 +94,7 @@ public class USACO_2012_Flowerpot {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Pot) {
-        Pot p = (Pot) o;
+        Pot p = (Pot)o;
         return y == p.y;
       }
       return false;

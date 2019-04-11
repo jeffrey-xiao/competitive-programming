@@ -31,7 +31,6 @@ public class COCI_2014_METEOR {
     ArrayList<Point> p = new ArrayList<Point>();
     for (int i = 0; i < r; i++) {
       g[i] = next().toCharArray();
-
     }
     ArrayList<Point> ans = new ArrayList<Point>();
     for (int j = 0; j < c; j++) {

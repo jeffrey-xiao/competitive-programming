@@ -41,7 +41,7 @@ public class CCC_2004_Stage_2_Orko {
         num += s[i].charAt(1) - '1';
         isA[num] = true;
       }
-      System.out.println(compute((1 << 20) - 1, true, (byte) 10));
+      System.out.println(compute((1 << 20) - 1, true, (byte)10));
       in = readLine();
     }
   }
@@ -65,9 +65,9 @@ public class CCC_2004_Stage_2_Orko {
             i ^= 1 << next;
             // other player wins
             if (k > j % 5) {
-              min = (byte) Math.min(min, size - 1 - compute(i, !isATurn, (byte) (size - 1)));
+              min = (byte)Math.min(min, size - 1 - compute(i, !isATurn, (byte)(size - 1)));
             } else {
-              min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
+              min = (byte)Math.min(min, 1 + compute(i, isATurn, (byte)(size - 1)));
             }
             i ^= 1 << next;
           }
@@ -77,14 +77,13 @@ public class CCC_2004_Stage_2_Orko {
           for (int k = 0; k < 20; k++) {
             if ((i & 1 << k) != 0 && isA[k] != isATurn) {
               i ^= (1 << k);
-              min = (byte) Math.min(min, 1 + compute(i, isATurn, (byte) (size - 1)));
+              min = (byte)Math.min(min, 1 + compute(i, isATurn, (byte)(size - 1)));
               i ^= (1 << k);
             }
-
           }
         }
         i ^= 1 << j;
-        best = (byte) Math.max(best, min);
+        best = (byte)Math.max(best, min);
       }
     }
     return dp[i][isATurn ? 1 : 0] = best;

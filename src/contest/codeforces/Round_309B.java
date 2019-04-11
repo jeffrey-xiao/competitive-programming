@@ -38,12 +38,12 @@ public class Round_309B {
     }
     long cnt = 0;
     for (int i = 1; i <= n; i++) {
-      cnt += (long) Math.ceil(Math.pow(2, n - i - 1));
+      cnt += (long)Math.ceil(Math.pow(2, n - i - 1));
       if (k <= cnt) {
         for (int j = i; j >= 1; j--) {
           print(j - 1);
         }
-        compute(n - i, k - (long) ((cnt - Math.ceil(Math.pow(2, n - i - 1)))));
+        compute(n - i, k - (long)((cnt - Math.ceil(Math.pow(2, n - i - 1)))));
         break;
       }
     }

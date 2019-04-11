@@ -125,7 +125,6 @@ public class CCO_Prep_Escape_Maze {
       System.out.println(ansNum + " " + ansCount);
       n = readInt();
     }
-
   }
 
   private static void dfs(int i, int prev) {

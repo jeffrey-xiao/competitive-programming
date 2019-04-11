@@ -11,7 +11,7 @@ public class ACM_The_Foxens_Treasure {
   static StringTokenizer st;
 
   public static void main(String[] args) throws IOException {
-    testCase:
+  testCase:
     for (int t = readInt(); t > 0; t--) {
       int lcm = 1;
       int n = readInt();
@@ -22,7 +22,7 @@ public class ACM_The_Foxens_Treasure {
         foxens[x][2] = readInt();
         lcm = lcm(lcm, foxens[x][0] + foxens[x][1]);
       }
-      main:
+    main:
       for (int x = 0; x <= lcm; x++) {
         for (int y = 0; y < n; y++) {
           if ((x + foxens[y][2]) % (foxens[y][0] + foxens[y][1]) < foxens[y][0])

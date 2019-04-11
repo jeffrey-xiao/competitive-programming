@@ -19,7 +19,7 @@ public class CCC_1996_Stage_2_Hoppers {
   static int r;
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int t = readInt(); t > 0; t--) {
       c = readInt();
       r = readInt();
@@ -42,7 +42,7 @@ public class CCC_1996_Stage_2_Hoppers {
       }
 
       Queue<int[]> q = new LinkedList<int[]>();
-      q.add(new int[]{startx, starty, 0, 0, 0});
+      q.add(new int[] {startx, starty, 0, 0, 0});
       while (!q.isEmpty()) {
         int[] next = q.poll();
         int x = next[0];
@@ -66,7 +66,7 @@ public class CCC_1996_Stage_2_Hoppers {
         for (int z = 0; z < 9; z++) {
           int nextsx = sx + movex[z];
           int nextsy = sy + movey[z];
-          q.add(new int[]{x + nextsx, y + nextsy, nextsx, nextsy, moves + 1});
+          q.add(new int[] {x + nextsx, y + nextsy, nextsx, nextsy, moves + 1});
         }
       }
       System.out.println("No solution.");

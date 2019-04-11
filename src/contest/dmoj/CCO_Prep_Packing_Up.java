@@ -67,7 +67,7 @@ public class CCO_Prep_Packing_Up {
   }
 
   static double f(int a, int b) {
-    return (double) (top(b, a)) / (double) (bottom(b, a));
+    return (double)(top(b, a)) / (double)(bottom(b, a));
   }
 
   static boolean greater(int a, int b, int c, int d) {

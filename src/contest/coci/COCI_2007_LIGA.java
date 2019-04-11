@@ -37,7 +37,7 @@ public class COCI_2007_LIGA {
         c1 = (c2 = c);
       else if (b != -1 && a != -1 && d != -1)
         c1 = (c2 = a - b - d);
-      main:
+    main:
       for (int x = a1; x <= a2; x++) {
         for (int y = b1; y <= b2; y++) {
           for (int z = c1; z <= c2; z++) {
@@ -52,7 +52,6 @@ public class COCI_2007_LIGA {
         }
       }
     }
-
   }
 
   private static int input() throws IOException {

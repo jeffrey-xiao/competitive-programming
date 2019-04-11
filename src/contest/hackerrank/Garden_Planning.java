@@ -75,7 +75,7 @@ public class Garden_Planning {
           out.println();
           dp.get(i).put(new State(newRow, true), 1l);
         } else {
-          main:
+        main:
           for (Map.Entry<State, Long> e : dp.get((i - 1) % 2).entrySet()) {
             State s = e.getKey();
             HashSet<Integer> hs = new HashSet<Integer>();
@@ -87,7 +87,6 @@ public class Garden_Planning {
                   continue main;
                 if (s.row[k] != 0 && s.row[l] != 0 && s.row[k] != s.row[l] && (newRow[k] == 0 || newRow[l] == 0))
                   continue main;
-
               }
             }
 
@@ -203,7 +202,7 @@ public class Garden_Planning {
 
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         for (int i = 0; i < row.length; i++)
           if (s.row[i] != row[i])
             return false;
@@ -211,6 +210,5 @@ public class Garden_Planning {
       }
       return false;
     }
-
   }
 }

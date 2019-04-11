@@ -20,12 +20,11 @@ public class IOI_2009_Museum {
     for (int x = 1; x <= n; x++)
       vases.add(x);
     Collections.sort(vases, new Comparator<Integer>() {
-
       @Override
       public int compare(Integer o1, Integer o2) {
         StringBuilder b1 = new StringBuilder(" ");
         StringBuilder b2 = new StringBuilder(" ");
-        for (int x = (int) Math.pow(2, (int) (Math.log(o1) / Math.log(2))); x >= 1; x /= 2) {
+        for (int x = (int)Math.pow(2, (int)(Math.log(o1) / Math.log(2))); x >= 1; x /= 2) {
           if (o1 >= x) {
             b1.append("1");
             o1 -= x;
@@ -33,7 +32,7 @@ public class IOI_2009_Museum {
             b1.append("0");
           }
         }
-        for (int x = (int) Math.pow(2, (int) (Math.log(o2) / Math.log(2))); x >= 1; x /= 2) {
+        for (int x = (int)Math.pow(2, (int)(Math.log(o2) / Math.log(2))); x >= 1; x /= 2) {
           if (o2 >= x) {
             b2.append("1");
             o2 -= x;
@@ -56,7 +55,6 @@ public class IOI_2009_Museum {
         }
         return b1.length() - b2.length();
       }
-
     });
     for (int i : vases) {
       System.out.println(i);

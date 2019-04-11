@@ -77,7 +77,6 @@ public class USACO_2012_Distant_Pastures {
         min[nextx][nexty] = add + time;
         moves.add(new Point(nextx, nexty, add + time));
       }
-
     }
     return max;
   }
@@ -123,7 +122,7 @@ public class USACO_2012_Distant_Pastures {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return x == p.x && y == p.y;
       }
       return false;

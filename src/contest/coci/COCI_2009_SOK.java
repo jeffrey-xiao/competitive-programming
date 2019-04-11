@@ -30,5 +30,4 @@ public class COCI_2009_SOK {
     }
     System.out.printf("%.6f %.6f %.6f", a, b, c);
   }
-
 }

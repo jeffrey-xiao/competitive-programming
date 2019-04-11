@@ -80,7 +80,6 @@ public class COCI_2008_KRTICA {
         int d2 = currDiameter;
         ans = Math.min(ans, Math.max((d1 + 1) / 2 + (d2 + 1) / 2 + 1, Math.max(d1, d2)));
         solve(v, u, Math.max(currDist, dist) + 1, d2);
-
       }
     }
   }

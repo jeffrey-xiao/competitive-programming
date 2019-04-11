@@ -11,7 +11,7 @@ public class Woburn_Challenge_2002_Cow_Bot {
       for (int x = scan.nextInt(); x > 0; x--) {
         if (isPrime(y)) {
           y *= 11;
-        } else if (Math.sqrt(y) - (int) Math.sqrt(y) == 0) {
+        } else if (Math.sqrt(y) - (int)Math.sqrt(y) == 0) {
           y = y + Integer.parseInt(new StringBuilder(Integer.toString(y)).reverse().toString());
         } else if (isPalindrome(Integer.toString(y))) {
           y = y * 10 + 4;

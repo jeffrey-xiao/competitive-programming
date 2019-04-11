@@ -14,14 +14,14 @@ public class CCC_2011_S3 {
   public static boolean isCrystal(int m, int x, int y) {
     if (m == 0)
       return false;
-    int newX = (int) Math.floor(x / (Math.pow(5, m) / 5));
-    int newY = (int) Math.floor(y / (Math.pow(5, m) / 5));
+    int newX = (int)Math.floor(x / (Math.pow(5, m) / 5));
+    int newY = (int)Math.floor(y / (Math.pow(5, m) / 5));
     if (newX > 0 && newX < 4 && newY == 0) {
       return true;
     } else if (newX == 2 && newY == 1) {
       return true;
     } else if (((newX == 1 || newX == 3) && newY == 1) || (newY == 2 && newX == 2))
-      return isCrystal(m - 1, (int) (x % (Math.pow(5, m) / 5)), (int) (y % (Math.pow(5, m) / 5)));
+      return isCrystal(m - 1, (int)(x % (Math.pow(5, m) / 5)), (int)(y % (Math.pow(5, m) / 5)));
     return false;
   }
 }

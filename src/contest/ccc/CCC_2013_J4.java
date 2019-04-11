@@ -22,5 +22,4 @@ public class CCC_2013_J4 {
     }
     System.out.println(count);
   }
-
 }

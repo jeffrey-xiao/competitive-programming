@@ -39,7 +39,6 @@ public class USACO_2014_Cow_Art {
           remove(grid1, x, y, 'R', 'G');
           other++;
         }
-
       }
     }
     System.out.printf("%d %d", RGB, other);
@@ -56,5 +55,4 @@ public class USACO_2014_Cow_Art {
     remove(grid, x, y + 1, c, c2);
     remove(grid, x, y - 1, c, c2);
   }
-
 }

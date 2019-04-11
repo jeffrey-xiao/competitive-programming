@@ -43,7 +43,7 @@ public class VMSS_Pollos {
     int total = 0;
     if (dist[0] - curr > t)
       return Integer.MAX_VALUE;
-    for (int x = 0; x < n - 1; ) {
+    for (int x = 0; x < n - 1;) {
       if (obliged[x]) {
         if (dist[x] - curr > t)
           return Integer.MAX_VALUE;

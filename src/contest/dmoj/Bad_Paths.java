@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class Bad_Paths {
 
-  static final int MOD = (int) (1e9 + 7);
+  static final int MOD = (int)(1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
@@ -34,7 +34,7 @@ public class Bad_Paths {
     for (int i = 0; i < N; i++) {
       int val = readInt();
       long total = (fact[val] * prefix[val] - (val + 1)) % MOD;
-      long tree = (long) val * (val - 1) % MOD;
+      long tree = (long)val * (val - 1) % MOD;
       long ans = ((total - tree) % MOD + MOD) % MOD;
       ans = divMod(ans, 2, MOD);
       out.printf("%d\n", ans);

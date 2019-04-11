@@ -27,7 +27,7 @@ public class Peg_Test_2014_E_Stingy_Candyman {
         System.out.println(x);
       return true;
     }
-    main:
+  main:
     for (int x = 2; x <= 10; x++) {
       long next = toTen(nums[i], x);
       if (next == -1)

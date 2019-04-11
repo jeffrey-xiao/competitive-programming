@@ -123,7 +123,6 @@ public class ECOO_2002_Stack_Print {
       seconds = Integer.parseInt(time.substring(4, 6));
       this.taken = taken;
       this.name = name;
-
     }
   }
 }

@@ -72,7 +72,7 @@ public class WOC_28_F {
     for (int i = 0; i < 26; i++)
       intervals.add(new ArrayList<Interval>());
 
-    for (int i = 0; i < w.length(); ) {
+    for (int i = 0; i < w.length();) {
       char c = w.charAt(i++);
       Interval curr = new Interval(1);
       while (i < w.length() && w.charAt(i) == c) {

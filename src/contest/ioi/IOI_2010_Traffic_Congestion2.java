@@ -35,7 +35,7 @@ public class IOI_2010_Traffic_Congestion2 {
     Stack<Integer> moves = new Stack<Integer>();
     Stack<int[]> bottom = new Stack<int[]>();
     moves.push(0);
-    bottom.push(new int[]{0, -1});
+    bottom.push(new int[] {0, -1});
     while (!moves.isEmpty()) {
       int curr = moves.pop();
       visited[curr] = true;
@@ -44,7 +44,7 @@ public class IOI_2010_Traffic_Congestion2 {
         if (visited[next])
           continue;
         moves.push(next);
-        bottom.push(new int[]{next, curr});
+        bottom.push(new int[] {next, curr});
       }
     }
     while (!bottom.isEmpty()) {
@@ -59,7 +59,6 @@ public class IOI_2010_Traffic_Congestion2 {
         dp[curr[0]] = Math.max(dp[curr[0]], sum[next]);
       }
       sum[curr[0]] = total;
-
     }
 
     int min = Integer.MAX_VALUE;
@@ -70,7 +69,6 @@ public class IOI_2010_Traffic_Congestion2 {
         min = dp[x];
         index = x;
       }
-
     }
     System.out.println(index);
   }

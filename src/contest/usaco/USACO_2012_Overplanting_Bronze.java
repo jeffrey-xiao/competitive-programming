@@ -20,8 +20,8 @@ public class USACO_2012_Overplanting_Bronze {
       int y1 = readInt();
       int x2 = readInt();
       int y2 = readInt();
-      lines[x * 2] = (new int[]{x1, y2, y1, 1});
-      lines[x * 2 + 1] = (new int[]{x2, y2, y1, -1});
+      lines[x * 2] = (new int[] {x1, y2, y1, 1});
+      lines[x * 2 + 1] = (new int[] {x2, y2, y1, -1});
     }
     Arrays.sort(lines, new Comparator<int[]>() {
       @Override

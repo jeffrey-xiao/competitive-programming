@@ -38,7 +38,6 @@ public class CCC_2002_Stage_2_Spam {
             add(message, next.substring(i, i + 3));
         }
         next = readLine();
-
       }
 
       if (s > 0)

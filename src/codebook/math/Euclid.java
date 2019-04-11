@@ -31,14 +31,14 @@ public class Euclid {
       b = a - q * b;
       a = t;
     }
-    return a > 0 ? new int[]{a, x, y} : new int[]{-a, -x, -y};
+    return a > 0 ? new int[] {a, x, y} : new int[] {-a, -x, -y};
   }
 
   public static int[] euclid2(int a, int b) {
     if (b == 0)
-      return a > 0 ? new int[]{a, 1, 0} : new int[]{-a, -1, 0};
+      return a > 0 ? new int[] {a, 1, 0} : new int[] {-a, -1, 0};
     int[] r = euclid2(b, a % b);
-    return new int[]{r[0], r[2], r[1] - a / b * r[2]};
+    return new int[] {r[0], r[2], r[1] - a / b * r[2]};
   }
 
   // finds all solutions to ax = b mod n
@@ -63,17 +63,17 @@ public class Euclid {
     int[] res = euclid(m1, m2);
     int g = res[0], s = res[1], t = res[2];
     if (r1 % g != r2 % g)
-      return new int[]{0, -1};
-    return new int[]{mod(s * r2 * m1 + t * r1 * m2, m1 * m2) / g, m1 * m2 / g};
+      return new int[] {0, -1};
+    return new int[] {mod(s * r2 * m1 + t * r1 * m2, m1 * m2) / g, m1 * m2 / g};
   }
 
   // Chinese remainder theorem: find z such that
   // z % m[i] = r[i] for all i.  Note that the solution is
-  // unique modulo M = lcm_i (m[i]).  Return (z, M). On 
+  // unique modulo M = lcm_i (m[i]).  Return (z, M). On
   // failure, M = -1. Note that we do not require the a[i]'s
   // to be relatively prime.
   static int[] chineseRemainderTheorem(int[] m, int[] r) {
-    int[] ret = new int[]{r[0], m[0]};
+    int[] ret = new int[] {r[0], m[0]};
     for (int i = 1; i < m.length; i++) {
       ret = chineseRemainderTheorem(ret[1], ret[0], m[i], r[i]);
       if (ret[1] == -1)
@@ -98,7 +98,7 @@ public class Euclid {
       y = ret[2] * c;
     }
 
-    return new int[]{x, y};
+    return new int[] {x, y};
   }
 
   // precondition: m > 0 && gcd(a, m) = 1
@@ -138,7 +138,7 @@ public class Euclid {
     for (int i = 0; i < x.length; ++i) {
       x[i] = a[i];
       for (int j = 0; j < i; ++j) {
-        x[i] = (int) modInverse(p[j], p[i]) * (x[i] - x[j]);
+        x[i] = (int)modInverse(p[j], p[i]) * (x[i] - x[j]);
         x[i] = (x[i] % p[i] + p[i]) % p[i];
       }
     }

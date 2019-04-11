@@ -37,7 +37,7 @@ public class Blackrock_D {
     int curr = -1;
     int cnt = 0;
 
-    for (int i = 0; i < N; ) {
+    for (int i = 0; i < N;) {
       String c = next();
       if (!c.equals("#")) {
         adj.add(new ArrayList<Integer>());

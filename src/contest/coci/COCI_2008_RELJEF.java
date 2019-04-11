@@ -57,7 +57,6 @@ public class COCI_2008_RELJEF {
         fill(newx, newy);
         adjust();
       }
-
     }
     for (int x = 0; x < r; x++) {
       for (int y = 0; y < c; y++)

@@ -28,8 +28,8 @@ public class StringAutomaton {
     for (int i = 0, j = 1; j < len; j++) {
       for (int k = 0; k < R; k++)
         dfa[k][j] = dfa[k][i]; // Copy mismatch cases
-      dfa[pat[j]][j] = j + 1; // Initialize math case
-      i = dfa[pat[j]][i]; // Update restart state
+      dfa[pat[j]][j] = j + 1;  // Initialize math case
+      i = dfa[pat[j]][i];      // Update restart state
     }
   }
 

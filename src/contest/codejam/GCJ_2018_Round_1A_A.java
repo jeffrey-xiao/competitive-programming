@@ -19,7 +19,7 @@ public class GCJ_2018_Round_1A_A {
 
     T = readInt();
 
-    outer:
+  outer:
     for (int t = 1; t <= T; t++) {
       int R = readInt();
       int C = readInt();
@@ -78,10 +78,7 @@ public class GCJ_2018_Round_1A_A {
 
       for (int i = 1; i < horizontalCuts.size(); i++) {
         for (int j = 1; j < verticalCuts.size(); j++) {
-          int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] -
-              sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] -
-              sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] +
-              sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
+          int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] - sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] - sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] + sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
           if (curr != cellCount) {
             out.printf("Case #%d: IMPOSSIBLE\n", t);
             continue outer;

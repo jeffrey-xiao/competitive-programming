@@ -36,7 +36,6 @@ public class CCC_2012_S3 {
         continue;
       }
       break;
-
     }
     System.out.println(Math.abs(firstValue - secondValue));
     scan.close();

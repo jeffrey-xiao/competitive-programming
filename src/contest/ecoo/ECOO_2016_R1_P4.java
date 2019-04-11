@@ -64,7 +64,7 @@ public class ECOO_2016_R1_P4 {
           }
         }
       }
-      out.printf("%.1f\n", demo / (double) (cnt) * 100);
+      out.printf("%.1f\n", demo / (double)(cnt)*100);
     }
     out.close();
   }
@@ -130,7 +130,7 @@ public class ECOO_2016_R1_P4 {
 
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return p.x == x && p.y == y;
       }
       return false;

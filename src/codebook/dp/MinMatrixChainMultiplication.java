@@ -44,7 +44,7 @@ public class MinMatrixChainMultiplication {
     for (int i = 1; i < n; i++)
       m[i][i] = 0;
 
-    // L is chain length.  
+    // L is chain length.
     for (int L = 2; L < n; L++) {
       for (int i = 1; i <= n - L + 1; i++) {
         int j = i + L - 1;

@@ -43,5 +43,4 @@ public class Cyclipian_Census {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

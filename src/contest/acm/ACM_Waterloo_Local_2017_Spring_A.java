@@ -90,73 +90,118 @@ public class ACM_Waterloo_Local_2017_Spring_A {
     // 10 12 13
     // 13 14 17
     int count = 0;
-    if (index == 0 && (state & (1 << 1)) > 0 && (state & 1 << 2) > 0) count++;
+    if (index == 0 && (state & (1 << 1)) > 0 && (state & 1 << 2) > 0)
+      count++;
 
-    if (index == 1 && (state & (1 << 0)) > 0 && (state & 1 << 2) > 0) count++;
+    if (index == 1 && (state & (1 << 0)) > 0 && (state & 1 << 2) > 0)
+      count++;
 
-    if (index == 2 && (state & (1 << 0)) > 0 && (state & 1 << 1) > 0) count++;
-    if (index == 2 && (state & (1 << 4)) > 0 && (state & 1 << 5) > 0) count++;
+    if (index == 2 && (state & (1 << 0)) > 0 && (state & 1 << 1) > 0)
+      count++;
+    if (index == 2 && (state & (1 << 4)) > 0 && (state & 1 << 5) > 0)
+      count++;
 
-    if (index == 3 && (state & (1 << 4)) > 0 && (state & 1 << 7) > 0) count++;
+    if (index == 3 && (state & (1 << 4)) > 0 && (state & 1 << 7) > 0)
+      count++;
 
-    if (index == 4 && (state & (1 << 2)) > 0 && (state & 1 << 5) > 0) count++;
-    if (index == 4 && (state & (1 << 3)) > 0 && (state & 1 << 7) > 0) count++;
+    if (index == 4 && (state & (1 << 2)) > 0 && (state & 1 << 5) > 0)
+      count++;
+    if (index == 4 && (state & (1 << 3)) > 0 && (state & 1 << 7) > 0)
+      count++;
 
-    if (index == 5 && (state & (1 << 2)) > 0 && (state & 1 << 4) > 0) count++;
-    if (index == 5 && (state & (1 << 6)) > 0 && (state & 1 << 10) > 0) count++;
+    if (index == 5 && (state & (1 << 2)) > 0 && (state & 1 << 4) > 0)
+      count++;
+    if (index == 5 && (state & (1 << 6)) > 0 && (state & 1 << 10) > 0)
+      count++;
 
-    if (index == 6 && (state & (1 << 5)) > 0 && (state & 1 << 10) > 0) count++;
+    if (index == 6 && (state & (1 << 5)) > 0 && (state & 1 << 10) > 0)
+      count++;
 
-    if (index == 7 && (state & (1 << 3)) > 0 && (state & 1 << 4) > 0) count++;
-    if (index == 7 && (state & (1 << 9)) > 0 && (state & 1 << 11) > 0) count++;
+    if (index == 7 && (state & (1 << 3)) > 0 && (state & 1 << 4) > 0)
+      count++;
+    if (index == 7 && (state & (1 << 9)) > 0 && (state & 1 << 11) > 0)
+      count++;
 
-    if (index == 8 && (state & (1 << 9)) > 0 && (state & 1 << 15) > 0) count++;
+    if (index == 8 && (state & (1 << 9)) > 0 && (state & 1 << 15) > 0)
+      count++;
 
-    if (index == 9 && (state & (1 << 7)) > 0 && (state & 1 << 11) > 0) count++;
-    if (index == 9 && (state & (1 << 8)) > 0 && (state & 1 << 15) > 0) count++;
+    if (index == 9 && (state & (1 << 7)) > 0 && (state & 1 << 11) > 0)
+      count++;
+    if (index == 9 && (state & (1 << 8)) > 0 && (state & 1 << 15) > 0)
+      count++;
 
-    if (index == 10 && (state & (1 << 5)) > 0 && (state & 1 << 6) > 0) count++;
-    if (index == 10 && (state & (1 << 12)) > 0 && (state & 1 << 13) > 0) count++;
+    if (index == 10 && (state & (1 << 5)) > 0 && (state & 1 << 6) > 0)
+      count++;
+    if (index == 10 && (state & (1 << 12)) > 0 && (state & 1 << 13) > 0)
+      count++;
 
-    if (index == 11 && (state & (1 << 7)) > 0 && (state & 1 << 9) > 0) count++;
-    if (index == 11 && (state & (1 << 12)) > 0 && (state & 1 << 16) > 0) count++;
+    if (index == 11 && (state & (1 << 7)) > 0 && (state & 1 << 9) > 0)
+      count++;
+    if (index == 11 && (state & (1 << 12)) > 0 && (state & 1 << 16) > 0)
+      count++;
 
-    if (index == 12 && (state & (1 << 10)) > 0 && (state & 1 << 13) > 0) count++;
-    if (index == 12 && (state & (1 << 11)) > 0 && (state & 1 << 16) > 0) count++;
+    if (index == 12 && (state & (1 << 10)) > 0 && (state & 1 << 13) > 0)
+      count++;
+    if (index == 12 && (state & (1 << 11)) > 0 && (state & 1 << 16) > 0)
+      count++;
 
-    if (index == 13 && (state & (1 << 10)) > 0 && (state & 1 << 12) > 0) count++;
-    if (index == 13 && (state & (1 << 14)) > 0 && (state & 1 << 17) > 0) count++;
+    if (index == 13 && (state & (1 << 10)) > 0 && (state & 1 << 12) > 0)
+      count++;
+    if (index == 13 && (state & (1 << 14)) > 0 && (state & 1 << 17) > 0)
+      count++;
 
-    if (index == 14 && (state & (1 << 13)) > 0 && (state & 1 << 17) > 0) count++;
+    if (index == 14 && (state & (1 << 13)) > 0 && (state & 1 << 17) > 0)
+      count++;
 
-    if (index == 15 && (state & (1 << 8)) > 0 && (state & 1 << 9) > 0) count++;
+    if (index == 15 && (state & (1 << 8)) > 0 && (state & 1 << 9) > 0)
+      count++;
 
-    if (index == 16 && (state & (1 << 11)) > 0 && (state & 1 << 12) > 0) count++;
+    if (index == 16 && (state & (1 << 11)) > 0 && (state & 1 << 12) > 0)
+      count++;
 
-    if (index == 17 && (state & (1 << 13)) > 0 && (state & 1 << 14) > 0) count++;
+    if (index == 17 && (state & (1 << 13)) > 0 && (state & 1 << 14) > 0)
+      count++;
 
     return count;
   }
 
   static int toIndex(int a, int b) {
-    if (a == 1 && b == 2) return 0;
-    if (a == 1 && b == 3) return 1;
-    if (a == 2 && b == 3) return 2;
-    if (a == 2 && b == 4) return 3;
-    if (a == 2 && b == 5) return 4;
-    if (a == 3 && b == 5) return 5;
-    if (a == 3 && b == 6) return 6;
-    if (a == 4 && b == 5) return 7;
-    if (a == 4 && b == 7) return 8;
-    if (a == 4 && b == 8) return 9;
-    if (a == 5 && b == 6) return 10;
-    if (a == 5 && b == 8) return 11;
-    if (a == 5 && b == 9) return 12;
-    if (a == 6 && b == 9) return 13;
-    if (a == 6 && b == 10) return 14;
-    if (a == 7 && b == 8) return 15;
-    if (a == 8 && b == 9) return 16;
-    if (a == 9 && b == 10) return 17;
+    if (a == 1 && b == 2)
+      return 0;
+    if (a == 1 && b == 3)
+      return 1;
+    if (a == 2 && b == 3)
+      return 2;
+    if (a == 2 && b == 4)
+      return 3;
+    if (a == 2 && b == 5)
+      return 4;
+    if (a == 3 && b == 5)
+      return 5;
+    if (a == 3 && b == 6)
+      return 6;
+    if (a == 4 && b == 5)
+      return 7;
+    if (a == 4 && b == 7)
+      return 8;
+    if (a == 4 && b == 8)
+      return 9;
+    if (a == 5 && b == 6)
+      return 10;
+    if (a == 5 && b == 8)
+      return 11;
+    if (a == 5 && b == 9)
+      return 12;
+    if (a == 6 && b == 9)
+      return 13;
+    if (a == 6 && b == 10)
+      return 14;
+    if (a == 7 && b == 8)
+      return 15;
+    if (a == 8 && b == 9)
+      return 16;
+    if (a == 9 && b == 10)
+      return 17;
     assert false;
     return 0;
   }

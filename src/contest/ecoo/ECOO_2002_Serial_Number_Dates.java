@@ -19,9 +19,9 @@ public class ECOO_2002_Serial_Number_Dates {
     for (int t = 5; t > 0; t--) {
       Date d = new Date();
       double input = readDouble();
-      int n = (int) input;
+      int n = (int)input;
       double frac = input - n;
-      for (int x = 1904; ; x++) {
+      for (int x = 1904;; x++) {
         int num = x % 4 == 0 ? 366 : 365;
         if (n - num < 0)
           break;
@@ -37,8 +37,8 @@ public class ECOO_2002_Serial_Number_Dates {
       d.month = currMonth + 1;
       d.day = n + 1;
 
-      int min = (int) (frac * 1440);
-      int seconds = (int) Math.ceil(60 * (frac * 1440 - (int) (frac * 1440)));
+      int min = (int)(frac * 1440);
+      int seconds = (int)Math.ceil(60 * (frac * 1440 - (int)(frac * 1440)));
       d.hour = min / 60;
       min %= 60;
       d.minute = min;
@@ -74,7 +74,5 @@ public class ECOO_2002_Serial_Number_Dates {
     return br.readLine().trim();
   }
 
-  static class Date {
-    int day, month, year, hour, minute, second;
-  }
+  static class Date { int day, month, year, hour, minute, second; }
 }

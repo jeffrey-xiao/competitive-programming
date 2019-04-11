@@ -24,7 +24,7 @@ public class VMSS_Jayden_Watches_Videos {
     l = readInt();
     x = readInt();
 
-    out.println((int) Math.ceil(round(l * x / (1.0 / (1.0 - 1.0 / x)))));
+    out.println((int)Math.ceil(round(l * x / (1.0 / (1.0 - 1.0 / x)))));
     out.close();
   }
 

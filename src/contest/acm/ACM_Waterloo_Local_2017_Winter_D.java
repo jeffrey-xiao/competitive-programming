@@ -44,7 +44,7 @@ public class ACM_Waterloo_Local_2017_Winter_D {
         return;
       }
       for (int i = 0; i < N; i++) {
-        int next = (int) ((curr * A[i] + B[i]) % M);
+        int next = (int)((curr * A[i] + B[i]) % M);
         if (moves[next] == 1 << 30) {
           q.offer(next);
           moves[next] = moves[curr] + 1;

@@ -87,7 +87,6 @@ public class CCC_1999_Stage_2_Sum_of_Products {
       }
       st.add(add);
     }
-
   }
 
   private static int getPriority(char op) {

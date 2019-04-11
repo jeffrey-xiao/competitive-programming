@@ -26,7 +26,7 @@ public class Clash_May_2016_P1 {
 
     N = readLong();
 
-    primes = getPrimesEratosthenes((int) (Math.ceil(Math.sqrt(N))));
+    primes = getPrimesEratosthenes((int)(Math.ceil(Math.sqrt(N))));
 
     long res = 0;
     for (long i = (N + 2) / 2; i <= N; i++) {

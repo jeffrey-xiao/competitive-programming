@@ -17,7 +17,6 @@ public class IOI_2011_Hottest {
     for (int x = days + 1; x < temperature.length; x++) {
       temperature[x] = readInt() + temperature[x - 1];
       largest = Math.max(largest, temperature[x] - temperature[x - days]);
-
     }
     System.out.println(largest);
   }

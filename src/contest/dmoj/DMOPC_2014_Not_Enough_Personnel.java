@@ -30,7 +30,6 @@ public class DMOPC_2014_Not_Enough_Personnel {
       } else {
         System.out.println(next.name);
       }
-
     }
   }
 

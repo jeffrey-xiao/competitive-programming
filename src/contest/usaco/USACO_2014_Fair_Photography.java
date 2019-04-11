@@ -14,7 +14,7 @@ public class USACO_2014_Fair_Photography {
 
   public static void main(String[] args) throws IOException {
     int n = readInt();
-    int[][] cows = new int[n][2];// 1 is white, -1 is spotted
+    int[][] cows = new int[n][2]; // 1 is white, -1 is spotted
     for (int x = 0; x < n; x++) {
       int pos = readInt();
       int cow = next().equals("W") ? 1 : -1;

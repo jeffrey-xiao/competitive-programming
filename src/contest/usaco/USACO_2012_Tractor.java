@@ -46,7 +46,6 @@ public class USACO_2012_Tractor {
           zeros.offer(new Point(nx, ny));
         else
           ones.offer(new Point(nx, ny));
-
       }
     }
     System.out.println(min[0][0] - 1);

@@ -38,7 +38,6 @@ public class WOC_20_B {
         ans += Math.min(1, occ[i]) * 2;
       else
         ans += Math.max(occ[i], occ[K - i]);
-
     }
 
     ans /= 2;

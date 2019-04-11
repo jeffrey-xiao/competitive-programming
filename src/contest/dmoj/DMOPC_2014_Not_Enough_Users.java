@@ -18,7 +18,7 @@ public class DMOPC_2014_Not_Enough_Users {
     int n = readInt();
     int k = readInt();
     int d = readInt();
-    System.out.println(n * (int) (Math.pow(k, d)));
+    System.out.println(n * (int)(Math.pow(k, d)));
   }
 
   static String next() throws IOException {

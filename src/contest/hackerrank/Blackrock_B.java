@@ -67,7 +67,7 @@ public class Blackrock_B {
         if (proportionalAllocation >= o[i].order)
           toAllocate = o[i].order;
         else {
-          toAllocate = (int) (proportionalAllocation);
+          toAllocate = (int)(proportionalAllocation);
           toAllocate = ((toAllocate - minTradeSize) / inc) * inc + minTradeSize;
         }
       }

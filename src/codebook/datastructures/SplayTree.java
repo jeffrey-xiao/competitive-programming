@@ -19,7 +19,7 @@ public class SplayTree {
     SplayTree t = new SplayTree();
     long c = System.currentTimeMillis();
     for (int x = 0; x < 100; x++) {
-      int ran = (int) (Math.random() * (100)) + 5;
+      int ran = (int)(Math.random() * (100)) + 5;
       t.add(ran);
     }
     t.traverse(t.root);
@@ -99,15 +99,14 @@ public class SplayTree {
       // if it has only one child
       if (root.left == null)
         root = root.right;
-        // move the rightmost node from the left subtree up to replace the
-        // node
+      // move the rightmost node from the left subtree up to replace the
+      // node
       else {
         Node right = root.right;
         root = root.left;
         splay(root, k);
         root.right = right;
       }
-
     }
   }
 
@@ -201,5 +200,4 @@ public class SplayTree {
       return key - o.key;
     }
   }
-
 }

@@ -36,5 +36,4 @@ public class CCC_2003_S4 {
     }
     return counter;
   }
-
 }

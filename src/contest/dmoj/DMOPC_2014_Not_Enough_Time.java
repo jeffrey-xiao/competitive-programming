@@ -32,7 +32,6 @@ public class DMOPC_2014_Not_Enough_Time {
             dp[j + p[i][k]] = Math.max(dp[j + p[i][k]], dp[j] + v[i][k]);
           }
         }
-
       }
     }
     int max = 0;

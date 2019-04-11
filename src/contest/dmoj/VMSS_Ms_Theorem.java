@@ -24,10 +24,10 @@ public class VMSS_Ms_Theorem {
       y += Math.sin(Math.toRadians(degrees)) * r;
       x += Math.cos(Math.toRadians(degrees)) * r;
     }
-    int degrees = (int) Math.round(Math.toDegrees(Math.atan2(y, x)));
+    int degrees = (int)Math.round(Math.toDegrees(Math.atan2(y, x)));
     if (degrees < 0)
       degrees += 360;
-    System.out.println((int) Math.round(Math.sqrt(x * x + y * y)) + " " + degrees);
+    System.out.println((int)Math.round(Math.sqrt(x * x + y * y)) + " " + degrees);
   }
 
   static String next() throws IOException {

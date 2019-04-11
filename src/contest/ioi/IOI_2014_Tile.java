@@ -61,7 +61,6 @@ public class IOI_2014_Tile {
       compute(x1, midx, midy + 1, y2, midx, midy + 1);
       compute(midx + 1, x2, midy + 1, y2, x, y);
     }
-
   }
 
   static String next() throws IOException {

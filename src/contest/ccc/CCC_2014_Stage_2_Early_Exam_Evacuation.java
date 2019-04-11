@@ -12,8 +12,8 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
   static long[][] tree;
-  static int ny;// column
-  static int nx;// row
+  static int ny; // column
+  static int nx; // row
   static Long[] up;
   static Long[] down;
 
@@ -67,8 +67,8 @@ public class CCC_2014_Stage_2_Early_Exam_Evacuation {
     topCount--;
     for (int x = 0; x < n; x++) {
       int curr = index[x];
-      long d = down[curr] * a + (bottomCount) * b;
-      long u = up[curr] * a + (topCount) * b;
+      long d = down[curr] * a + (bottomCount)*b;
+      long u = up[curr] * a + (topCount)*b;
       if (d <= u) {
         total -= u;
         total += d;

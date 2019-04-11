@@ -99,7 +99,6 @@ public class Upvotes {
         ans += s.segments() - (r - s.l + 1) * (r - s.l) / 2;
       }
 
-
       out.println(ans);
     }
 

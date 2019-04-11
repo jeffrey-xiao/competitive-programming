@@ -36,8 +36,8 @@ public class NOI_2002_Island_Of_Caveman {
       max = Math.max(max, start[x]);
     }
 
-    main:
-    for (int b = max; ; b++) {
+  main:
+    for (int b = max;; b++) {
       for (int x = 0; x < n; x++) {
         for (int y = x + 1; y < n; y++) {
           int a = move[x] - move[y];
@@ -86,7 +86,6 @@ public class NOI_2002_Island_Of_Caveman {
     int y = x1 - (a / b) * y1;
     x1 = x;
     y1 = y;
-
   }
 
   static String next() throws IOException {

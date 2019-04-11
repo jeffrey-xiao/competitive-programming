@@ -124,6 +124,5 @@ public class The_Fox_And_The_Wolf {
       this.b2 = b2;
       this.c = c;
     }
-
   }
 }

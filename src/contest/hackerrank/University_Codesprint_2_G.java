@@ -39,7 +39,7 @@ public class University_Codesprint_2_G {
       // current answer
       long ans = last * val + pre;
 
-      if (last <= (float) (N - 1) / 2.0 || N == 2)
+      if (last <= (float)(N - 1) / 2.0 || N == 2)
         out.println(ans);
       else {
         // added value to all nodes from 2 to N - 1

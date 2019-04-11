@@ -75,7 +75,7 @@ public class IOI_2015_Teams {
 
     M = readInt();
 
-    main:
+  main:
     for (int i = 0; i < M; i++) {
       int currIndex = nodeIndex;
       nodes[nodeIndex].left = nodes[nodeIndex].right = nodeIndex;

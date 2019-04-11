@@ -17,7 +17,6 @@ public class COCI_2007_BIJELE {
     System.out.print(2 - readInt() + " ");
     System.out.print(2 - readInt() + " ");
     System.out.print(8 - readInt() + " ");
-
   }
 
   static String next() throws IOException {

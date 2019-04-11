@@ -14,7 +14,7 @@ public class Shortest_Path {
     // 0-> source, 1-> destination, 2-> distance
     int edges = scan.nextInt();
     for (int x = 0; x < edges; x++)
-      adjlist.get(scan.nextInt() - 1).add(new int[]{scan.nextInt() - 1, scan.nextInt()});
+      adjlist.get(scan.nextInt() - 1).add(new int[] {scan.nextInt() - 1, scan.nextInt()});
 
     int[] dist = new int[n];
     int[] pred = new int[n];
@@ -34,6 +34,5 @@ public class Shortest_Path {
       }
     }
     System.out.println(dist[n - 1]);
-
   }
 }

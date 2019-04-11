@@ -44,7 +44,7 @@ public class FHC_2016_Round_1_Yachtzee {
     long sum = 0;
     double res = 0;
     double curr = 0;
-    outer:
+  outer:
     while (true) {
       curr = 0;
       for (int i = 0; i < n; i++) {

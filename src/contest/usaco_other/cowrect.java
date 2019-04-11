@@ -39,7 +39,6 @@ public class cowrect {
         H[a][b]++;
       } else
         G[a][b]++;
-
     }
     for (int x = 1; x <= 1001; x++) {
       for (int y = 1; y <= 1001; y++) {

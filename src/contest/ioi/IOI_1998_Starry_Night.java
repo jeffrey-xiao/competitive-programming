@@ -78,7 +78,7 @@ public class IOI_1998_Starry_Night {
           }
 
           for (Point p : curr) {
-            g[p.x][p.y] = (char) ('a' + index);
+            g[p.x][p.y] = (char)('a' + index);
           }
 
           if (!exists) {
@@ -211,7 +211,7 @@ public class IOI_1998_Starry_Night {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return p.x == x && p.y == y;
       }
       return false;

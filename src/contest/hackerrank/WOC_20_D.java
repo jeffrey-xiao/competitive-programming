@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class WOC_20_D {
 
-  static final int MOD = (int) (1e9 + 7);
+  static final int MOD = (int)(1e9 + 7);
   static final int MAX_XOR = 600;
   static BufferedReader br;
   static PrintWriter out;

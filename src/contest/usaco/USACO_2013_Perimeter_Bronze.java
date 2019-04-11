@@ -93,7 +93,6 @@ public class USACO_2013_Perimeter_Bronze {
       this.y = y;
       this.px = px;
       this.py = py;
-
     }
   }
 }

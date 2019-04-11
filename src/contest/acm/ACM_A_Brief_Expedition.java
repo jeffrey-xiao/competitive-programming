@@ -26,7 +26,7 @@ public class ACM_A_Brief_Expedition {
       int total = 0;
       int max = 0;
       Queue<int[]> moves = new LinkedList<int[]>(); // 0 x, 1 y, 2 moves
-      moves.offer(new int[]{cx, cy, 0});
+      moves.offer(new int[] {cx, cy, 0});
       while (!moves.isEmpty()) {
 
         int[] i = moves.poll();
@@ -39,10 +39,10 @@ public class ACM_A_Brief_Expedition {
           if (i[2] > max)
             max = i[2];
         }
-        moves.add(new int[]{i[0] + 1, i[1], i[2] + 1});
-        moves.add(new int[]{i[0] - 1, i[1], i[2] + 1});
-        moves.add(new int[]{i[0], i[1] + 1, i[2] + 1});
-        moves.add(new int[]{i[0], i[1] - 1, i[2] + 1});
+        moves.add(new int[] {i[0] + 1, i[1], i[2] + 1});
+        moves.add(new int[] {i[0] - 1, i[1], i[2] + 1});
+        moves.add(new int[] {i[0], i[1] + 1, i[2] + 1});
+        moves.add(new int[] {i[0], i[1] - 1, i[2] + 1});
       }
       System.out.println(total - max);
     }

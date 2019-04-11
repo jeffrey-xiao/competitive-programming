@@ -27,7 +27,7 @@ public class Main {
     Node treap = null;
     long time = System.currentTimeMillis();
     for (int i = 0; i < 1000000; i++) {
-      int rand = (int) (Math.random() * 1000000000);
+      int rand = (int)(Math.random() * 1000000000);
       treap = insert(treap, rand);
       ts.add(rand);
       //			assert contains(treap, rand) ;

@@ -51,13 +51,13 @@ public class COCI_2008_SKAKAVAC_2 {
       for (y = x; y < n * n && p[x].p == p[y].p; y++) {
         short max = p[y].dp;
         if (p[y].x > 0)
-          max = (short) Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
+          max = (short)Math.max(max, 1 + getMax(br, p[y].x - 1, p[y]));
         if (p[y].x + 1 < n)
-          max = (short) Math.max(max, 1 + getMax(br, p[y].x + 1, p[y]));
+          max = (short)Math.max(max, 1 + getMax(br, p[y].x + 1, p[y]));
         if (p[y].y > 0)
-          max = (short) Math.max(max, 1 + getMax(bc, p[y].y - 1, p[y]));
+          max = (short)Math.max(max, 1 + getMax(bc, p[y].y - 1, p[y]));
         if (p[y].y + 1 < n)
-          max = (short) Math.max(max, 1 + getMax(bc, p[y].y + 1, p[y]));
+          max = (short)Math.max(max, 1 + getMax(bc, p[y].y + 1, p[y]));
         p[y].dp = max;
         total = Math.max(p[y].dp, total);
       }
@@ -128,8 +128,7 @@ public class COCI_2008_SKAKAVAC_2 {
     int p;
     short dp;
 
-    Point() {
-    }
+    Point() {}
 
     Point(short x, short y, int p) {
       this.x = x;

@@ -152,7 +152,7 @@ public class ACM_Mount_Allison_2017_H {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Rational) {
-        Rational r = (Rational) o;
+        Rational r = (Rational)o;
         return num.equals(r.num) && den.equals(r.den);
       }
       return false;

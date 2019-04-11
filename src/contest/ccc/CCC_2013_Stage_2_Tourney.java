@@ -15,7 +15,7 @@ public class CCC_2013_Stage_2_Tourney {
 
   public static void main(String[] args) throws IOException {
     int n = readInt();
-    int size = (int) Math.pow(2, n + 1);
+    int size = (int)Math.pow(2, n + 1);
     b = new Player[size];
     int m = readInt();
     for (int x = size / 2; x < size; x++) {

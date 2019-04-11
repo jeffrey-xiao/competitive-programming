@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class FHC_2015_Round_1_Winning_At_Sports {
 
-  static final int MOD = (int) (1e9 + 7);
+  static final int MOD = (int)(1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
@@ -62,5 +62,4 @@ public class FHC_2015_Round_1_Winning_At_Sports {
   static double readDouble() throws IOException {
     return Double.parseDouble(next());
   }
-
 }

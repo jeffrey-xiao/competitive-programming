@@ -19,7 +19,6 @@ public class Shortest_Path_Adjacency {
           if (x != z && y != 0 && table[z][y] != 0 && table[x][z] != 0) {
             table[x][y] = Math.min(table[x][y] == 0 ? Integer.MAX_VALUE : table[x][y], table[z][y] + table[x][z]);
           }
-
         }
       }
     }

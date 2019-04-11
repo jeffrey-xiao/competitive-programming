@@ -10,7 +10,7 @@ public class Woburn_Challenge_1995_Coded_Message {
       String input = scan.next();
       scan.nextLine();
       String msg = scan.nextLine();
-      char[][] code = new char[(int) Math.ceil(msg.length() / 5.0)][5];
+      char[][] code = new char[(int)Math.ceil(msg.length() / 5.0)][5];
       if (input.equals("D")) {
         int counter = 0;
         for (int x = 0; x < code[0].length; x++) {

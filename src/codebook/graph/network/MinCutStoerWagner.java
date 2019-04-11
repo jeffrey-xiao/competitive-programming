@@ -74,7 +74,7 @@ public class MinCutStoerWagner {
             adj[prev][i] = adj[i][prev] += adj[i][curr];
           inContraction[curr] = true;
           // either the min-cut of G involves (prev, curr) in different subsets or the same subset
-          // therefore we take the weight of them in different subsets, and then merge them to account 
+          // therefore we take the weight of them in different subsets, and then merge them to account
           // for the case where they are in the same subet
           minCut = Math.min(minCut, weight[curr]);
         }

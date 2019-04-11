@@ -13,7 +13,7 @@ public class CCC_2001_Stage_2_Partitions_DP {
   static int[][] dp = new int[101][101];
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int q = readInt(); q > 0; q--) {
       int n = readInt();
       int a = readInt();

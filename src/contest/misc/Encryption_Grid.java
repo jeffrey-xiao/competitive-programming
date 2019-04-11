@@ -10,7 +10,7 @@ public class Encryption_Grid {
     while (columns != 0) {
       String s = scan.next();
       int counter = 0;
-      char[][] grid = new char[(int) Math.ceil(s.length() / 1.0 / columns)][columns];
+      char[][] grid = new char[(int)Math.ceil(s.length() / 1.0 / columns)][columns];
       for (int x = 0; x < grid.length; x++) {
         if (x % 2 == 0) {
           for (int y = 0; y < grid[0].length; y++) {

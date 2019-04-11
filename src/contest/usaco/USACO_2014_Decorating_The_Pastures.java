@@ -32,13 +32,13 @@ public class USACO_2014_Decorating_The_Pastures {
     for (int y = 0; y < n; y++) {
       int count1 = 0;
       int count2 = 0;
-      moves.add(new int[]{y, -1});
+      moves.add(new int[] {y, -1});
       while (!moves.isEmpty()) {
         int[] curr = moves.poll();
         if (vertices[curr[0]] != 0)
           continue;
 
-        byte opp = (byte) (curr[1] == -1 ? 1 : -1);
+        byte opp = (byte)(curr[1] == -1 ? 1 : -1);
         vertices[curr[0]] = opp;
         if (opp == 1)
           count1++;
@@ -50,7 +50,7 @@ public class USACO_2014_Decorating_The_Pastures {
             System.out.println(-1);
             return;
           } else if (vertices[conn] == 0) {
-            moves.offer(new int[]{conn, opp});
+            moves.offer(new int[] {conn, opp});
           }
         }
       }

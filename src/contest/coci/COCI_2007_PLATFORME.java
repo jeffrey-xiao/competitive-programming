@@ -25,12 +25,10 @@ public class COCI_2007_PLATFORME {
       platforms[x][2] = readInt();
     }
     Arrays.sort(platforms, new Comparator<int[]>() {
-
       @Override
       public int compare(int[] o1, int[] o2) {
         return o1[0] - o2[0];
       }
-
     });
     for (int x = 1; x < platforms.length; x++) {
       int x1 = Integer.MAX_VALUE;

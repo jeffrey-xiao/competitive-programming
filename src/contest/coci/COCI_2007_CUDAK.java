@@ -52,7 +52,7 @@ public class COCI_2007_CUDAK {
     for (int i = st.s; i >= st.s - firstD + 1; i--) {
       res += dp1(new State(len - 1, i));
     }
-    res += dp2(new State(st.l - firstD * (long) Math.pow(10, len - 1), st.s - firstD));
+    res += dp2(new State(st.l - firstD * (long)Math.pow(10, len - 1), st.s - firstD));
     hm2.put(st, res);
     return res;
   }
@@ -111,7 +111,7 @@ public class COCI_2007_CUDAK {
 
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State st = (State) o;
+        State st = (State)o;
         return l == st.l && s == st.s;
       }
       return false;
@@ -120,6 +120,5 @@ public class COCI_2007_CUDAK {
     public int hashCode() {
       return new Long(l).hashCode() * 31 + new Integer(s).hashCode();
     }
-
   }
 }

@@ -40,7 +40,7 @@ public class DMOPC_2014_Exam_Delay {
     while (!pq.isEmpty()) {
       State curr = pq.poll();
       for (Edge next : adj.get(curr.index)) {
-        double nextTime = curr.time + next.dist / (double) next.speed;
+        double nextTime = curr.time + next.dist / (double)next.speed;
         int nextInter = curr.inter + 1;
         if (s[next.dest].time < nextTime || (s[next.dest].time == nextTime && s[next.dest].inter <= nextInter))
           continue;
@@ -57,7 +57,7 @@ public class DMOPC_2014_Exam_Delay {
       c = s[c].prev;
     }
     System.out.println(count);
-    System.out.println((int) (Math.round(60 * (delay - s[v - 1].time))));
+    System.out.println((int)(Math.round(60 * (delay - s[v - 1].time))));
   }
 
   static String next() throws IOException {
@@ -97,8 +97,8 @@ public class DMOPC_2014_Exam_Delay {
 
     @Override
     public int compareTo(Edge o) {
-      Double d1 = dist / (double) speed;
-      Double d2 = o.dist / (double) o.speed;
+      Double d1 = dist / (double)speed;
+      Double d2 = o.dist / (double)o.speed;
       return d1.compareTo(d2);
     }
   }

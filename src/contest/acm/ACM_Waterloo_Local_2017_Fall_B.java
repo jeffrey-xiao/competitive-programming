@@ -28,7 +28,6 @@ public class ACM_Waterloo_Local_2017_Fall_B {
     c1 = new Card(a1, b1);
     c2 = new Card(a2, b2);
 
-
     hand[0] = c1;
     hand[1] = c2;
 
@@ -56,15 +55,24 @@ public class ACM_Waterloo_Local_2017_Fall_B {
           hand[4] = cards.get(k);
 
           Arrays.sort(hand);
-          if (isStraightFlush()) ret[0]++;
-          else if (isQuad()) ret[1]++;
-          else if (isFull()) ret[2]++;
-          else if (isFlush()) ret[3]++;
-          else if (isStraight()) ret[4]++;
-          else if (isTriple()) ret[5]++;
-          else if (isTwoPair()) ret[6]++;
-          else if (isPair()) ret[7]++;
-          else ret[8]++;
+          if (isStraightFlush())
+            ret[0]++;
+          else if (isQuad())
+            ret[1]++;
+          else if (isFull())
+            ret[2]++;
+          else if (isFlush())
+            ret[3]++;
+          else if (isStraight())
+            ret[4]++;
+          else if (isTriple())
+            ret[5]++;
+          else if (isTwoPair())
+            ret[6]++;
+          else if (isPair())
+            ret[7]++;
+          else
+            ret[8]++;
         }
       }
     }
@@ -195,7 +203,7 @@ public class ACM_Waterloo_Local_2017_Fall_B {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Card) {
-        Card c = (Card) o;
+        Card c = (Card)o;
         return rank == c.rank && suit == c.suit;
       }
       return false;

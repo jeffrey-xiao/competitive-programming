@@ -12,8 +12,8 @@ public class Divisibility_Rules {
 
   public static void main(String[] args) throws IOException {
     for (int testCases = readInt(); testCases > 0; testCases--) {
-      int b = readInt();// base
-      int t = readInt();// divisibility rule for
+      int b = readInt(); // base
+      int t = readInt(); // divisibility rule for
       // (BA+1)=0 mod t
       int smallestNValue = -t - 1;
       int smallestPValue = t + 1;
@@ -53,5 +53,4 @@ public class Divisibility_Rules {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

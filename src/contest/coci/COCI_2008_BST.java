@@ -19,7 +19,6 @@ public class COCI_2008_BST {
       n.insert(readInt());
       System.out.println(count);
     }
-
   }
 
   static String next() throws IOException {

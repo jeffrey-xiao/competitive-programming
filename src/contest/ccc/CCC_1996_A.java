@@ -18,7 +18,6 @@ public class CCC_1996_A {
         }
       }
       nums[x][0] = sum;
-
     }
     String s = "";
     for (int[] x : nums) {

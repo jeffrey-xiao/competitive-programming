@@ -115,7 +115,7 @@ public class COCI_2007_PRAVOKUTNI {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Fraction) {
-        Fraction f = (Fraction) o;
+        Fraction f = (Fraction)o;
         return num == f.num && den == f.den;
       }
       return false;

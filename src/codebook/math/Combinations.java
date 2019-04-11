@@ -9,7 +9,7 @@ public class Combinations {
   static boolean nextCombination(int n, int k, int[] a) {
     for (int i = k - 1; i >= 0; i--) {
       if (a[i] < n - k + i) {
-        for (++a[i]; ++i < k; )
+        for (++a[i]; ++i < k;)
           a[i] = a[i - 1] + 1;
         return true;
       }
@@ -20,7 +20,7 @@ public class Combinations {
   static boolean nextCombinationRepeat(int n, int k, int[] a) {
     for (int i = k - 1; i >= 0; i--) {
       if (a[i] < n - 1) {
-        for (++a[i]; ++i < k; )
+        for (++a[i]; ++i < k;)
           a[i] = a[i - 1];
         return true;
       }
@@ -39,7 +39,7 @@ public class Combinations {
     int cnt = n;
     for (int i = 0; i < k; i++) {
       int j = 1;
-      for (; ; j++) {
+      for (;; j++) {
         long num = choose(cnt - j, k - 1 - i);
         if (x < num)
           break;

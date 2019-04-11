@@ -23,7 +23,6 @@ public class COCI_2006_SKENER {
         }
         System.out.println();
       }
-
     }
   }
 

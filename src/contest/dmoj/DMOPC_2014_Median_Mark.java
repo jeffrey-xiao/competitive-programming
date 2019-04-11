@@ -26,9 +26,9 @@ public class DMOPC_2014_Median_Mark {
       a[i] = readDouble();
     Arrays.sort(a);
     if (n % 2 == 0)
-      ps.println((int) Math.round((a[n / 2] + a[(n - 1) / 2]) / 2.0d));
+      ps.println((int)Math.round((a[n / 2] + a[(n - 1) / 2]) / 2.0d));
     else
-      ps.println((int) a[n / 2]);
+      ps.println((int)a[n / 2]);
     ps.close();
   }
 

@@ -23,9 +23,9 @@ public class HashMap {
     HashMap hm = new HashMap(50);
     Integer[] added = new Integer[100];
     for (int i = 0; i < 100; i++) {
-      Integer add1 = (int) (Math.random() * 100);
+      Integer add1 = (int)(Math.random() * 100);
       added[i] = add1;
-      Integer add2 = (int) (Math.random() * 100);
+      Integer add2 = (int)(Math.random() * 100);
       hm.insert(add1, add2);
       assert hm.get(add1) == add2;
     }

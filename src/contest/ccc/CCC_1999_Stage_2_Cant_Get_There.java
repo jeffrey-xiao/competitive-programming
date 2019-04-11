@@ -175,15 +175,15 @@ public class CCC_1999_Stage_2_Cant_Get_There {
     short x, y, m;
 
     Point(double x, double y, double m) {
-      this.x = (short) x;
-      this.y = (short) y;
-      this.m = (short) m;
+      this.x = (short)x;
+      this.y = (short)y;
+      this.m = (short)m;
     }
 
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return p.x == x && p.y == y && p.m == m;
       }
       return false;

@@ -101,7 +101,6 @@ public class CCOQR_2016_P2 {
       out.println(max[readInt() - 1]);
 
     out.close();
-
   }
 
   static String next() throws IOException {
@@ -144,7 +143,7 @@ public class CCOQR_2016_P2 {
 
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) (o);
+        State s = (State)(o);
         return from == s.from && to == s.to;
       }
       return false;

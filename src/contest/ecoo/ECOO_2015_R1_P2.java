@@ -23,7 +23,7 @@ public class ECOO_2015_R1_P2 {
       String[] in = readLine().split(" ");
       int curr = 0;
       String s = "";
-      for (int i = 0; i < in.length; ) {
+      for (int i = 0; i < in.length;) {
         if (curr == 0) {
           while (in[i].length() > n) {
             System.out.println(in[i].substring(0, n));

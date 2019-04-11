@@ -35,7 +35,7 @@ public class ariprog {
     boolean empty = true;
 
     for (int x = 1; x < size / (n - 1) + 1; x++) {
-      main:
+    main:
       for (int y = 0; y <= size; y++) {
         if (!check[y])
           continue;

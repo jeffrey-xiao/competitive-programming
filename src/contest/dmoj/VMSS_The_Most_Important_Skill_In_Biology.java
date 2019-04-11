@@ -35,7 +35,7 @@ public class VMSS_The_Most_Important_Skill_In_Biology {
     for (int i = 0; i < N; i++) {
       area += X[i] * Y[(i + 1) % N] - Y[i] * X[(i + 1) % N];
     }
-    out.println((int) (Math.ceil(Math.abs(area) / 2)));
+    out.println((int)(Math.ceil(Math.abs(area) / 2)));
     out.close();
   }
 

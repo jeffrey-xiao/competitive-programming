@@ -22,7 +22,7 @@ public class ECOO_2015_R1_P4 {
       String s = next();
       int[] dp = new int[s.length() + 1];
       dp[0] = 1;
-      String[] num = new String[]{"ook", "ookook", "oog", "ooga", "ug", "mook", "mookmook", "oogam", "oogum", "ugug"};
+      String[] num = new String[] {"ook", "ookook", "oog", "ooga", "ug", "mook", "mookmook", "oogam", "oogum", "ugug"};
       for (int i = 0; i < s.length(); i++) {
         for (int j = 0; j < num.length; j++) {
           if (i + num[j].length() <= s.length() && s.substring(i, i + num[j].length()).equals(num[j]))

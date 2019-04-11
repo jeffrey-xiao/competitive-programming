@@ -13,7 +13,7 @@ public class CCC_2007_J5 {
     int a = scan.nextInt();
     int b = scan.nextInt();
     int length = scan.nextInt();
-    List<Integer> motels = new ArrayList<Integer>(Arrays.asList(new Integer[]{0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000}));
+    List<Integer> motels = new ArrayList<Integer>(Arrays.asList(new Integer[] {0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000}));
     int[] dp = new int[motels.size() + length];
     for (int x = 0; x < length; x++)
       motels.add(scan.nextInt());

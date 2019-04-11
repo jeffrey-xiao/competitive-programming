@@ -21,7 +21,6 @@ public class Woburn_Challenge_1998_Return_Of_The_Plachta {
       n2 /= gcf;
       System.out.println(n1 + (n2 == 1 ? "" : " " + n2));
     }
-
   }
 
   public static int gcf(int a, int b) {

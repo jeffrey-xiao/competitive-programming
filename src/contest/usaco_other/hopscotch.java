@@ -51,7 +51,6 @@ public class hopscotch {
     return sum;
   }
 
-  @SuppressWarnings("unchecked")
   private static int solve() throws IOException {
     r = readInt();
     c = readInt();

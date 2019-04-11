@@ -36,7 +36,7 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
     }
     int r2 = readInt();
     for (int i = 0; i < r2; i++) {
-      mapT.get(readCharacter() - 'A').add(new char[]{readCharacter(), readCharacter()});
+      mapT.get(readCharacter() - 'A').add(new char[] {readCharacter(), readCharacter()});
     }
     int w = readInt();
     for (int q = 0; q < w; q++) {
@@ -94,7 +94,5 @@ public class CCC_2012_Stage_2_Mhocskain_Languages {
     return br.readLine().trim();
   }
 
-  static class Pair {
-    char a, b;
-  }
+  static class Pair { char a, b; }
 }

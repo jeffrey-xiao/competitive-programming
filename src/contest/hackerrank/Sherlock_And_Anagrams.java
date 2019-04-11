@@ -32,7 +32,6 @@ public class Sherlock_And_Anagrams {
                 ans++;
             }
           }
-
         }
       }
       System.out.println(ans);
@@ -47,7 +46,6 @@ public class Sherlock_And_Anagrams {
     Arrays.sort(c1);
     Arrays.sort(c2);
     return new String(c1).equals(new String(c2));
-
   }
 
   static String next() throws IOException {

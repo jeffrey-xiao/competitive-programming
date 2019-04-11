@@ -25,7 +25,6 @@ public class CCC_1998_D {
           seq.add("(" + seq.pollLast() + " X " + s.nextToken() + ")");
         else
           seq.add(t);
-
       }
       LinkedList<String> res = new LinkedList<String>();
       while (!seq.isEmpty()) {

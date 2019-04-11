@@ -29,7 +29,7 @@ public class ECOO_2016_R2_P2 {
 
         String append = get(in.length);
         for (int i = 0; i < in.length; i++)
-          append += (char) ('a' + in[i].length());
+          append += (char)('a' + in[i].length());
 
         for (int i = 0; i < in.length; i++)
           append += in[i];
@@ -44,9 +44,9 @@ public class ECOO_2016_R2_P2 {
 
         for (int i = 0; i < append.length(); i++) {
           if (i < append.length() - 1)
-            out.print((char) (((append.charAt(i) - 'a' + (k + val[i + 1])) % 26) + 'a'));
+            out.print((char)(((append.charAt(i) - 'a' + (k + val[i + 1])) % 26) + 'a'));
           else
-            out.print((char) (((append.charAt(i) - 'a' + k) % 26) + 'a'));
+            out.print((char)(((append.charAt(i) - 'a' + k) % 26) + 'a'));
         }
       } else {
         char[] e = in[0].toCharArray();
@@ -55,9 +55,9 @@ public class ECOO_2016_R2_P2 {
         int sum = 0;
         for (int i = d.length - 1; i >= 0; i--) {
           if (i == d.length - 1)
-            d[i] = (char) (((e[i] - 'a' - k) % 26 + 26) % 26 + 'a');
+            d[i] = (char)(((e[i] - 'a' - k) % 26 + 26) % 26 + 'a');
           else
-            d[i] = (char) (((e[i] - 'a' - k - sum) % 26 + 26) % 26 + 'a');
+            d[i] = (char)(((e[i] - 'a' - k - sum) % 26 + 26) % 26 + 'a');
           sum += d[i] - 'a';
         }
         int numOfWords = (d[0] - 'a') * 26 + (d[1] - 'a');
@@ -82,7 +82,7 @@ public class ECOO_2016_R2_P2 {
   static String get(int n) {
     int a = n / 26;
     int b = n % 26;
-    return "" + (char) ('a' + a) + (char) ('a' + b);
+    return "" + (char)('a' + a) + (char)('a' + b);
   }
 
   static String next() throws IOException {

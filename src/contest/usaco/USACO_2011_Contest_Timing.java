@@ -16,7 +16,6 @@ public class USACO_2011_Contest_Timing {
     int m = readInt() - 11;
     int total = d * 24 * 60 + h * 60 + m;
     System.out.println(total < 0 ? -1 : total);
-
   }
 
   static String next() throws IOException {

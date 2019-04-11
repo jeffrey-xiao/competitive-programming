@@ -257,7 +257,7 @@ public class COCI_2015_TOPOVI {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return r == p.r && c == p.c;
       }
       return false;

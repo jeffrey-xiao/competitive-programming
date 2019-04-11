@@ -67,7 +67,7 @@ public class COCI_2015_SLON {
       b = a - q * b;
       a = t;
     }
-    return a > 0 ? new long[]{a, x, y} : new long[]{-a, -x, -y};
+    return a > 0 ? new long[] {a, x, y} : new long[] {-a, -x, -y};
   }
 
   static long mod(long a, long b) {

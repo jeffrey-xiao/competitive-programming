@@ -29,7 +29,6 @@ public class CCC_1996_E {
             low = mid + 1;
           else
             high = mid - 1;
-
         }
         max = Math.max(max, mid - i);
       }

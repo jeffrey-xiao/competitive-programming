@@ -8,7 +8,7 @@ public class Woburn_Challenge_1997_Typing {
   public static void main(String[] args) {
     int testcases = scan.nextInt();
     scan.nextLine();
-    main:
+  main:
     for (int x = testcases; x > 0; x--) {
       int[] alpha = new int[26];
       String s = scan.nextLine().toLowerCase();

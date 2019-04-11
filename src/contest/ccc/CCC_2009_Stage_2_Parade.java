@@ -50,7 +50,6 @@ public class CCC_2009_Stage_2_Parade {
     tree[n].p = product(tree[l(n)].p, tree[r(n)].p);
   }
 
-  @SuppressWarnings("unused")
   private static byte[][] query(int l, int r, int n) {
     if (tree[n].left == l && tree[n].right == r)
       return tree[n].p;

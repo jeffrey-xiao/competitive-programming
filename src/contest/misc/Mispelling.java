@@ -23,7 +23,6 @@ public class Mispelling {
           System.out.print(input.charAt(y));
       System.out.println();
     }
-
   }
 
   static String next() throws IOException {

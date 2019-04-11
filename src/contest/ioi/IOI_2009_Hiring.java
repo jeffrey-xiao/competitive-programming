@@ -102,7 +102,7 @@ public class IOI_2009_Hiring {
     Person(int pay, int quality, int index) {
       this.pay = pay;
       this.quality = quality;
-      this.rate = ((double) (pay)) / ((double) (quality));
+      this.rate = ((double)(pay)) / ((double)(quality));
       this.index = index;
     }
 

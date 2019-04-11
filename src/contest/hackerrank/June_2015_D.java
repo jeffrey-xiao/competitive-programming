@@ -41,7 +41,7 @@ public class June_2015_D {
     int[] end2 = getEnd(new StringBuilder(in).reverse().toString());
 
     long[] ans = new long[q];
-    int sz = (int) Math.sqrt(in.length());
+    int sz = (int)Math.sqrt(in.length());
     for (int i = 0; i < (in.length() - 1) / sz + 1; i++) {
       int start = i * sz;
       int end = Math.min((i + 1) * sz - 1, in.length() - 1);
@@ -89,11 +89,11 @@ public class June_2015_D {
     newOrder = new int[s.length()];
     for (int i = 0; i < s.length(); i++) {
       sa[i] = i;
-      order[i] = (int) (s.charAt(i));
+      order[i] = (int)(s.charAt(i));
       newOrder[i] = 0;
     }
 
-    for (sz = 1; ; sz <<= 1) {
+    for (sz = 1;; sz <<= 1) {
       Arrays.sort(sa, sc);
       for (int i = 0; i < s.length() - 1; i++) {
         newOrder[i + 1] = newOrder[i] + (sc.compare(sa[i], sa[i + 1]) < 0 ? 1 : 0);
@@ -106,7 +106,7 @@ public class June_2015_D {
     }
     int[] lcp = new int[s.length()];
     int k = 0;
-    for (int i = 0; i < s.length(); i++, k = k > 0 ? k - 1 : k) {
+    for (int i = 0; i<s.length(); i++, k = k> 0 ? k - 1 : k) {
       if (order[i] == s.length() - 1) {
         lcp[i] = 0;
         continue;

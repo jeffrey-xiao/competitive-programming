@@ -13,7 +13,7 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
   static int start;
 
   public static void main(String[] args) throws IOException {
-    testcases:
+  testcases:
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       int index = readInt();
@@ -30,7 +30,7 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
 
       int next = 0;
       int sum = 0;
-      main:
+    main:
       while (index != 0 || sum == n) {
         int currSum = 0;
 
@@ -52,7 +52,6 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
         }
         values = new int[n + 1];
         compute(index, 0, next);
-
       }
       while (n != sum) {
         s += "1,";
@@ -60,7 +59,6 @@ public class CCC_2001_Stage_2_Partitions_Brute_Force {
       }
       System.out.println("(" + s.substring(0, s.length() - 1) + ")");
     }
-
   }
 
   private static int compute(int n, int sum, int prev) {

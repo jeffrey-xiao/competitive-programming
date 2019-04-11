@@ -13,7 +13,7 @@ public class CCC_2005_J3 {
     while (!loc.equals("SCHOOL")) {
       d = scan.next();
       loc = scan.next();
-      locations.add(new String[]{d, loc});
+      locations.add(new String[] {d, loc});
     }
     for (int x = locations.size() - 1; x >= 0; x--)
       if (!locations.get(x)[1].equals("SCHOOL")) {

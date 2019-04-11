@@ -75,7 +75,7 @@ public class CCC_2011_Stage_2_Putnam {
     }
 
     private void setHi() {
-      hi = (int) (2 * average - lo);
+      hi = (int)(2 * average - lo);
     }
   }
 }

@@ -83,7 +83,7 @@ public class Perl_Golf {
   }
 
   static char get(char c) {
-    return (char) (c + c);
+    return (char)(c + c);
   }
 
   static String next() throws IOException {

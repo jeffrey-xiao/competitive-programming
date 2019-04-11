@@ -121,7 +121,7 @@ public class palpath {
 
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return l == s.l && r == s.r && lh == s.lh && rh == s.rh;
       }
       return false;

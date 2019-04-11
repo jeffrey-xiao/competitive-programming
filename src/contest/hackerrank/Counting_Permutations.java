@@ -104,7 +104,6 @@ public class Counting_Permutations {
       long pow = tree[dpv.get(0)].hash.get(i).toString().equals(tree[dpv.get(1)].hash.get(i).toString()) ? 1 : 2;
       tree[i].dp.put(prev, (((choose(a + b, a) * dpa) % MOD * dpb) % MOD * pow) % MOD);
     }
-
   }
 
   private static void compute(int i, int prev) {

@@ -28,7 +28,7 @@ public class IOI_1999_A_Strip_Of_Land {
     c = readInt();
     r = readInt();
     h = readInt();
-    lc = Math.min(1 + (int) (Math.log(c) / Math.log(2)), 1 + (int) (Math.log(100) / Math.log(2)));
+    lc = Math.min(1 + (int)(Math.log(c) / Math.log(2)), 1 + (int)(Math.log(100) / Math.log(2)));
     max = new int[r + 1][c + 1][lc];
     min = new int[r + 1][c + 1][lc];
     for (int i = 1; i <= r; i++)
@@ -83,12 +83,12 @@ public class IOI_1999_A_Strip_Of_Land {
   }
 
   static int getMax(int c1, int c2, int r) {
-    int sz = (int) (Math.log(c2 - c1 + 1) / Math.log(2));
+    int sz = (int)(Math.log(c2 - c1 + 1) / Math.log(2));
     return Math.max(max[r][c1][sz], max[r][c2 - (1 << sz) + 1][sz]);
   }
 
   static int getMin(int c1, int c2, int r) {
-    int sz = (int) (Math.log(c2 - c1 + 1) / Math.log(2));
+    int sz = (int)(Math.log(c2 - c1 + 1) / Math.log(2));
     return Math.min(min[r][c1][sz], min[r][c2 - (1 << sz) + 1][sz]);
   }
 

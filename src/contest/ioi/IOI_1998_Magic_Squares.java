@@ -160,8 +160,7 @@ public class IOI_1998_Magic_Squares {
   static class Perm {
     byte[] num = new byte[8];
 
-    Perm() {
-    }
+    Perm() {}
 
     Perm(Perm p) {
       for (int x = 0; x < 8; x++)
@@ -179,7 +178,7 @@ public class IOI_1998_Magic_Squares {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Perm) {
-        Perm p = (Perm) o;
+        Perm p = (Perm)o;
         for (int x = 0; x < 8; x++)
           if (num[x] != p.num[x])
             return false;

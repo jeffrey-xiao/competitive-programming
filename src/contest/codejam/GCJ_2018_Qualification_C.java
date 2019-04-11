@@ -20,7 +20,7 @@ public class GCJ_2018_Qualification_C {
 
     int T = readInt();
 
-    outer:
+  outer:
     for (int t = 1; t <= T; t++) {
       grid = new boolean[1001][1001];
       readInt();

@@ -27,12 +27,10 @@ public class USACO_2013_Crowded_Cows {
       cows[x] = new Cow(height, pos, x);
     }
     Arrays.sort(cows, new Comparator<Cow>() {
-
       @Override
       public int compare(Cow o1, Cow o2) {
         return o1.pos - o2.pos;
       }
-
     });
     TreeSet<Cow> loSeg = new TreeSet<Cow>();
     TreeSet<Cow> hiSeg = new TreeSet<Cow>();
@@ -102,7 +100,7 @@ public class USACO_2013_Crowded_Cows {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Cow) {
-        Cow c = (Cow) o;
+        Cow c = (Cow)o;
         return c.index == index && c.height == height;
       }
       return false;

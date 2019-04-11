@@ -15,7 +15,6 @@ public class Peg_Test_2014_Assembly_Elves_2 {
   static PrintWriter ps = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
   static StringTokenizer st;
 
-  @SuppressWarnings("unchecked")
   static TreeSet<Integer>[][] dp = new TreeSet[101][101];
   static boolean[][] mem = new boolean[101][101];
 
@@ -30,7 +29,7 @@ public class Peg_Test_2014_Assembly_Elves_2 {
 
   private static TreeSet<Integer> compute(int i, TreeSet<Integer> prev, int with) {
     if (mem[i][with])
-      return (TreeSet<Integer>) dp[i][with].headSet(i, true);
+      return (TreeSet<Integer>)dp[i][with].headSet(i, true);
 
     TreeSet<Integer> curr = new TreeSet<Integer>();
     curr.addAll(prev);

@@ -10,15 +10,12 @@ public class USACO_2011_Above_The_Median {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  public USACO_2011_Above_The_Median() {
-  }
+  public USACO_2011_Above_The_Median() {}
 
-  @SuppressWarnings("unused")
   public static void main(String[] args) throws IOException {
     int numOfCows = readInt();
     int median = readInt();
     int[] cows = new int[numOfCows];
-
   }
 
   static String next() throws IOException {

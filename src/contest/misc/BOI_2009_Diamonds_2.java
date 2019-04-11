@@ -23,7 +23,6 @@ public class BOI_2009_Diamonds_2 {
         for (int z = 1; z <= L; z++) {
 
           grid[i(x, y, z)] = readInt() + grid[i(x - 1, y, z)] + grid[i(x, y - 1, z)] + grid[i(x, y, z - 1)] - grid[i(x - 1, y - 1, z)] - grid[i(x - 1, y, z - 1)] - grid[i(x, y - 1, z - 1)] + grid[i(x - 1, y - 1, z - 1)];
-
         }
       }
     }

@@ -18,7 +18,5 @@ public class CCC_2007_J4 {
       }
     }
     System.out.println("Is an anagram.");
-
   }
-
 }

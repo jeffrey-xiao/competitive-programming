@@ -28,6 +28,5 @@ public class USACO_2014_Secret_Code_Silver {
     if (s.substring(1, l / 2 + 1).equals(s.substring(l / 2 + 1, l)))
       ways += count(s.substring(0, l / 2 + 1)) + 1;
     return ways;
-
   }
 }

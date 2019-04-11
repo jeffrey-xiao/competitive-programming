@@ -15,7 +15,7 @@ public class IOI_2009_POI {
     int pID = readInt() - 1;
     int[] points = new int[tasks];
     boolean[][] cons = new boolean[con][tasks];
-    int[][] conScore = new int[con][tasks];// 0 is score, 1 is numOfProblems
+    int[][] conScore = new int[con][tasks]; // 0 is score, 1 is numOfProblems
     // solved
     for (int x = 0; x < con; x++) {
       for (int y = 0; y < tasks; y++) {

@@ -59,7 +59,7 @@ public class USACO_2013_Tractor {
   private static int floodFill(int x, int y, int mid, int[][] grid, boolean[][] visited) {
     int ans = 0;
     Queue<int[]> moves = new LinkedList<int[]>();
-    moves.add(new int[]{x, y, grid[x][y]});
+    moves.add(new int[] {x, y, grid[x][y]});
     visited[x][y] = true;
     while (!moves.isEmpty()) {
       int[] curr = moves.poll();
@@ -71,7 +71,7 @@ public class USACO_2013_Tractor {
 
         if (nextx < 0 || nexty < 0 || nextx >= n || nexty >= n || visited[nextx][nexty] || Math.abs(grid[nextx][nexty] - curr[2]) > mid)
           continue;
-        moves.add(new int[]{nextx, nexty, grid[nextx][nexty]});
+        moves.add(new int[] {nextx, nexty, grid[nextx][nexty]});
         visited[nextx][nexty] = true;
       }
     }

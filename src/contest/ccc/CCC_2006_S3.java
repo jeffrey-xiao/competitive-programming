@@ -16,7 +16,7 @@ public class CCC_2006_S3 {
     Line l = a.getLine(b);
     int n = readInt();
     int count = 0;
-    main:
+  main:
     for (int x = 0; x < n; x++) {
       int points = readInt();
       Point[] ps = new Point[points + 1];
@@ -61,7 +61,6 @@ public class CCC_2006_S3 {
     if (yy1 != yy2)
       return false;
     return y1 <= yy1 && yy2 <= y2 && y3 <= yy2 && yy2 <= y4 && x1 <= xx && xx <= x2 && x3 <= xx && xx <= x4;
-
   }
 
   static String next() throws IOException {
@@ -105,7 +104,7 @@ public class CCC_2006_S3 {
     }
 
     Line getLine(Point a) {
-      double m = ((double) this.y - a.y) / (this.x - a.x);
+      double m = ((double)this.y - a.y) / (this.x - a.x);
       if (m == Double.NEGATIVE_INFINITY)
         m = Double.POSITIVE_INFINITY;
       double b = y - m * this.x;

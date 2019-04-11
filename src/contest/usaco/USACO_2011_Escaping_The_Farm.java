@@ -16,7 +16,7 @@ public class USACO_2011_Escaping_The_Farm {
     int[] cows = new int[numOfCows];
     for (int x = 0; x < numOfCows; x++)
       cows[x] = readInt();
-    getSolution(0, 0, 0, numOfCows, cows);// 0 index, 1 sum, 2 curr, 3 max
+    getSolution(0, 0, 0, numOfCows, cows); // 0 index, 1 sum, 2 curr, 3 max
 
     System.out.println(max);
   }
@@ -31,7 +31,6 @@ public class USACO_2011_Escaping_The_Farm {
       getSolution(i + 1, j, k, end, cows);
     } else
       getSolution(i + 1, j, k, end, cows);
-
   }
 
   private static boolean isValid(int i, int j) {

@@ -80,18 +80,17 @@ public class USACO_2013_Whats_Up_With_Gravity {
     int dir = regGrav ? 1 : -1;
     if (x + dir >= 0 && x + dir < r) {
       if (grid[x][y] == 'D')
-        return new int[]{x, y};
+        return new int[] {x, y};
       while (grid[x + dir][y] != '#') {
 
         x += dir;
         if (grid[x][y] == 'D')
-          return new int[]{x, y};
+          return new int[] {x, y};
         if (x + dir < 0 || x + dir >= r)
-          return new int[]{-1, -1};
-
+          return new int[] {-1, -1};
       }
     }
-    return new int[]{x, y};
+    return new int[] {x, y};
   }
 
   static String next() throws IOException {

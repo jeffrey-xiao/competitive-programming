@@ -120,7 +120,7 @@ public class CCC_2013_J5_S3 {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Game) {
-        Game g = (Game) o;
+        Game g = (Game)o;
         return team1 == g.team1 && team2 == g.team2;
       }
       return false;

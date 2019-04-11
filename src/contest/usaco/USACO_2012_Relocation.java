@@ -41,7 +41,7 @@ public class USACO_2012_Relocation {
       getPath(markets[x], x);
     permute(k, k, new ArrayList<Integer>());
     int minValue = Integer.MAX_VALUE;
-    main:
+  main:
     for (int x = 0; x < n; x++) {
       for (int y = 0; y < k; y++) {
         if (x == markets[y]) {
@@ -71,7 +71,7 @@ public class USACO_2012_Relocation {
       if (!a.contains(x)) {
         a.add(x);
         permute(i, c - 1, a);
-        a.remove((Integer) x);
+        a.remove((Integer)x);
       }
     }
   }

@@ -62,7 +62,7 @@ public class CCC_2010_Stage_2_Shuffle {
   public static char toChar(int x) {
     if (x == 26)
       x = 30;
-    return (char) (x + 65);
+    return (char)(x + 65);
   }
 
   public static int toCode(char c) {

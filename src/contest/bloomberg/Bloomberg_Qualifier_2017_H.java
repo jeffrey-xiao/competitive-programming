@@ -134,6 +134,5 @@ public class Bloomberg_Qualifier_2017_H {
     public int compareTo(State o) {
       return cost - o.cost;
     }
-
   }
 }

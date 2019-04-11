@@ -16,7 +16,7 @@ public class TLE_Prefix_Sum_Array {
   static int N, M;
   static long[] a;
 
-  static int MOD = (int) (1e9 + 7);
+  static int MOD = (int)(1e9 + 7);
 
   public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));

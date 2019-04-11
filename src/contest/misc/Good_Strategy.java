@@ -38,7 +38,6 @@ public class Good_Strategy {
       else
         System.out.println(problems.first().id + 1 + " " + (problems.last().id + 1));
     }
-
   }
 
   static String next() throws IOException {
@@ -83,7 +82,7 @@ public class Good_Strategy {
     @Override
     public boolean equals(Object arg) {
       if (arg instanceof Problem) {
-        Problem p = (Problem) arg;
+        Problem p = (Problem)arg;
         return p.id == this.id;
       }
       return true;

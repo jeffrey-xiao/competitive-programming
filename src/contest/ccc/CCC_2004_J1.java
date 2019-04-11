@@ -11,7 +11,7 @@ public class CCC_2004_J1 {
   static StringTokenizer st;
 
   public static void main(String[] args) throws IOException {
-    System.out.printf("The largest square has side length %d.", (int) (Math.sqrt(readInt())));
+    System.out.printf("The largest square has side length %d.", (int)(Math.sqrt(readInt())));
   }
 
   static String next() throws IOException {

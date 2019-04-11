@@ -102,7 +102,5 @@ public class COCI_2008_SLIKAR {
     return br.readLine().trim();
   }
 
-  static class State {
-    int[] type = new int[3];
-  }
+  static class State { int[] type = new int[3]; }
 }

@@ -105,7 +105,6 @@ public class IOI_1995_Word_Chains {
         System.out.println(s + (letter == '\u0000' ? "" : letter));
       if (index != -1)
         links[index].printWords(s + (letter == '\u0000' ? "" : letter));
-
     }
 
     void debug(String s) {

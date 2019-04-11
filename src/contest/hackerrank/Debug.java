@@ -77,7 +77,7 @@ public class Debug {
           dp.get(i).put(new State(newRow, true), 1l);
         } else {
           int[] ogrow = Arrays.copyOf(newRow, newRow.length);
-          main:
+        main:
           for (Map.Entry<State, Long> e : dp.get((i - 1) % 2).entrySet()) {
             newRow = Arrays.copyOf(ogrow, ogrow.length);
             State s = e.getKey();
@@ -209,7 +209,6 @@ public class Debug {
       }
     }
     return res;
-
   }
 
   static boolean dfs(int i, int j, int pi, int pj) {
@@ -288,7 +287,7 @@ public class Debug {
 
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         for (int i = 0; i < row.length; i++)
           if (s.row[i] != row[i])
             return false;
@@ -296,6 +295,5 @@ public class Debug {
       }
       return false;
     }
-
   }
 }

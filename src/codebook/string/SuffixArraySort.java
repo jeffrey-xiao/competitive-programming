@@ -59,7 +59,7 @@ public class SuffixArraySort {
     // initializing suffix array, order and new order
     for (int i = 0; i < len; i++) {
       res[i] = i;
-      order[i] = (int) (text[i]);
+      order[i] = (int)(text[i]);
       newOrder[i] = 0;
     }
     // we sort the suffix array with steps of the powers of 2
@@ -67,7 +67,7 @@ public class SuffixArraySort {
     // strings each with length 2^n
     // since we already have the order of the first strings, the order
     // changes only when two first strings are equivalent
-    for (sz = 1; ; sz <<= 1) {
+    for (sz = 1;; sz <<= 1) {
       Arrays.sort(res, C);
       // checking if two first strings are equivalent
       for (int i = 0; i < len - 1; i++)
@@ -90,5 +90,4 @@ public class SuffixArraySort {
       return o2 - o1;
     }
   }
-
 }

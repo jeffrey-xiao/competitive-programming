@@ -56,5 +56,4 @@ public class COCI_2007_VAUVAU {
       return 1;
     return gcf(b, a % b);
   }
-
 }

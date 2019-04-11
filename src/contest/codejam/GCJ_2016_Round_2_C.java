@@ -25,7 +25,7 @@ public class GCJ_2016_Round_2_C {
 
     T = readInt();
 
-    main:
+  main:
     for (int t = 1; t <= T; t++) {
       out.printf("Case #%d: \n", t);
       R = readInt();
@@ -41,7 +41,7 @@ public class GCJ_2016_Round_2_C {
         lover[b] = a;
       }
 
-      inner:
+    inner:
       for (int i = 0; i < 1 << (R * C); i++) {
         g = new char[R][C];
         for (int j = 0; j < R * C; j++) {

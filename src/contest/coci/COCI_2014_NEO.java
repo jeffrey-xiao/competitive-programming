@@ -40,7 +40,6 @@ public class COCI_2014_NEO {
       for (int j = 1; j < c; j++)
         if (dp[i][j] != 0)
           dp[i][j] += dp[i][j - 1];
-
     }
     for (int j = 1; j < c; j++) {
       Stack<State> curr = new Stack<State>();

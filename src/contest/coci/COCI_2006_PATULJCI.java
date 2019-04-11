@@ -17,7 +17,7 @@ public class COCI_2006_PATULJCI {
       total += (n[x] = readInt());
     int a = 0;
     int b = 0;
-    main:
+  main:
     for (int x = 0; x < 9; x++)
       for (int y = x + 1; y < 9; y++)
         if (total - n[x] - n[y] == 100) {

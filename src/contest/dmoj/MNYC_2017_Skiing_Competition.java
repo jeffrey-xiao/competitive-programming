@@ -290,7 +290,7 @@ public class MNYC_2017_Skiing_Competition {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) o;
+        Edge e = (Edge)o;
         return (src == e.src && sink == e.sink && cost == e.cost);
       }
       return false;

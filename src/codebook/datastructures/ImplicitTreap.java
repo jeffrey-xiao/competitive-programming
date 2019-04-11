@@ -19,8 +19,8 @@ class ImplicitTreap {
     java.util.ArrayList<Integer> list = new java.util.ArrayList<Integer>();
     ImplicitTreap treap = new ImplicitTreap();
     for (int i = 0; i < 100000; i++) {
-      int rnd = (int) (Math.random() * (i + 1));
-      int val = (int) (Math.random() * 10000000);
+      int rnd = (int)(Math.random() * (i + 1));
+      int val = (int)(Math.random() * 10000000);
 
       list.add(rnd, val);
       treap.add(rnd, val);
@@ -34,14 +34,14 @@ class ImplicitTreap {
     long start = System.currentTimeMillis();
 
     for (int i = 0; i < 1000000; i++) {
-      int rnd = (int) (Math.random() * (i + 1));
-      int val = (int) (Math.random() * 10000000);
+      int rnd = (int)(Math.random() * (i + 1));
+      int val = (int)(Math.random() * 10000000);
 
       treap.add(rnd, val);
     }
 
     for (int i = 999999; i >= 0; i--) {
-      int rnd = (int) (Math.random() * (i + 1) + 1);
+      int rnd = (int)(Math.random() * (i + 1) + 1);
       int prev = treap.get(rnd);
       treap.remove(rnd);
       if (rnd < treap.getSize(treap.root))

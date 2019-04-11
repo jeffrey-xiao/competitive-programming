@@ -30,7 +30,6 @@ public class CCC_2001_J5_S3 {
           vertices[a][b] = true;
           vertices[b][a] = true;
         }
-
       }
       for (int x = 0; x < 26; x++) {
         for (int y = 0; y < 26; y++) {

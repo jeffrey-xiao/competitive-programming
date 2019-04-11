@@ -53,7 +53,6 @@ public class Valentines_P1 {
           Group gr = poss.get(y + 1);
           poss.set(y + 1, poss.get(y));
           poss.set(y, gr);
-
         }
       }
     }

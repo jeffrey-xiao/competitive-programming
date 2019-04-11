@@ -17,7 +17,7 @@ public class GCJ_2018_Qualification_B {
 
     int T = readInt();
 
-    outer:
+  outer:
     for (int t = 1; t <= T; t++) {
       ArrayList<Integer> left = new ArrayList<Integer>(), right = new ArrayList<Integer>();
       ArrayList<Integer> sorted = new ArrayList<Integer>();

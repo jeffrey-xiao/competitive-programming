@@ -14,7 +14,7 @@ public class COCI_2006_TENIS {
     String n1 = next();
     String n2 = next();
     int t = readInt();
-    main:
+  main:
     for (int x = 0; x < t; x++) {
       String[] match = readLine().split(" ");
       int gamesA = 0;

@@ -69,7 +69,6 @@ public class Benergy_Transfer {
         hi = mid2;
     }
     return (lo + hi) / 2;
-
   }
 
   static String next() throws IOException {

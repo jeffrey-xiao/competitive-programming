@@ -14,7 +14,7 @@ public class IOI_2004_Phidias {
     int width = scan.nextInt();
     int height = scan.nextInt();
     int[][] dp = new int[height + 1][width + 1];
-    int[][] slabs = new int[scan.nextInt() + 1][2];// 0 is x, 1 is y
+    int[][] slabs = new int[scan.nextInt() + 1][2]; // 0 is x, 1 is y
     for (int x = 1; x < slabs.length; x++) {
       slabs[x][0] = scan.nextInt();
       slabs[x][1] = scan.nextInt();
@@ -32,7 +32,6 @@ public class IOI_2004_Phidias {
             int a = dp[y - 1][x];
             int b = dp[y][x - 1];
             dp[y][x] = Math.max(Math.max(a, b), dp[y][x]);
-
           }
         }
       }

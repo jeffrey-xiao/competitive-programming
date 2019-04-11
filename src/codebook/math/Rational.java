@@ -82,7 +82,7 @@ public class Rational implements Comparable<Rational> {
   @Override
   public boolean equals(Object o) {
     if (o instanceof Rational) {
-      Rational r = (Rational) o;
+      Rational r = (Rational)o;
       return num.equals(r.num) && den.equals(r.den);
     }
     return false;

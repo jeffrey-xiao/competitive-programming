@@ -20,20 +20,20 @@ public class Woburn_Challenge_2001_Who_Wants_To_Be_As_Rich_As_Regis {
       boolean[][][] visited = new boolean[n][n][n];
       int startx = scan.nextInt() - 1;
       int starty = scan.nextInt() - 1;
-      Queue<int[]> moves = new LinkedList<int[]>();// z,x,y
-      moves.add(new int[]{0, startx, starty});
+      Queue<int[]> moves = new LinkedList<int[]>(); // z,x,y
+      moves.add(new int[] {0, startx, starty});
       while (!moves.isEmpty()) {
         int[] c = moves.poll();
         if (c[0] < 0 || c[1] < 0 || c[2] < 0 || c[0] >= n || c[1] >= n || c[2] >= n || visited[c[0]][c[1]][c[2]] || grid[c[0]][c[1]][c[2]] == '1')
           continue;
         visited[c[0]][c[1]][c[2]] = true;
         counter++;
-        moves.add(new int[]{c[0] + 1, c[1], c[2]});
-        moves.add(new int[]{c[0] - 1, c[1], c[2]});
-        moves.add(new int[]{c[0], c[1] + 1, c[2]});
-        moves.add(new int[]{c[0], c[1] - 1, c[2]});
-        moves.add(new int[]{c[0], c[1], c[2] + 1});
-        moves.add(new int[]{c[0], c[1], c[2] - 1});
+        moves.add(new int[] {c[0] + 1, c[1], c[2]});
+        moves.add(new int[] {c[0] - 1, c[1], c[2]});
+        moves.add(new int[] {c[0], c[1] + 1, c[2]});
+        moves.add(new int[] {c[0], c[1] - 1, c[2]});
+        moves.add(new int[] {c[0], c[1], c[2] + 1});
+        moves.add(new int[] {c[0], c[1], c[2] - 1});
       }
       System.out.println(counter);
       n = scan.nextInt();

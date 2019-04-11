@@ -78,7 +78,7 @@ public class CCC_1996_Stage_2_Quadtrees {
       if (value.toString().equals(""))
         return;
       currChild = 0;
-      for (int x = 0; x < value.length(); ) {
+      for (int x = 0; x < value.length();) {
         if (value.charAt(x) == 'p') {
           int end = x + 5;
           for (int y = x + 1; y < Math.min(end, value.length()); y++) {

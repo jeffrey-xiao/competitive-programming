@@ -58,7 +58,7 @@ public class Bytelandian_Tours {
       prev = -1;
       long res = 1;
       int next = 0;
-      main:
+    main:
       while (next != -1) {
         next = -1;
         int cnt = 0;
@@ -80,7 +80,6 @@ public class Bytelandian_Tours {
           break;
         prev = curr;
         curr = next;
-
       }
       if (prev != -1)
         res = (res * 2) % MOD;

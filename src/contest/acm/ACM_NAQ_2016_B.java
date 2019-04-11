@@ -122,7 +122,7 @@ public class ACM_NAQ_2016_B {
       if (Math.abs(A[i][i]) < EPS)
         return null;
 
-      // eliminating zeroes in rows smaller than ix	
+      // eliminating zeroes in rows smaller than ix
       for (int j = i - 1; j >= 0; j--) {
         double factor = A[j][i] / A[i][i];
         for (int k = i; k < N; k++)

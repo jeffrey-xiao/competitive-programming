@@ -27,7 +27,7 @@ public class ACM_Attack_of_the_Bloons {
         course[x] = (curr += course[x]);
 
       int m = readInt();
-      main:
+    main:
       for (int x = 0; x < m; x++) {
         int next = readInt();
         for (int y = 0; y < l; y++) {

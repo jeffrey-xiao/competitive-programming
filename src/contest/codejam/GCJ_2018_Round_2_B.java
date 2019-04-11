@@ -56,7 +56,6 @@ public class GCJ_2018_Round_2_B {
       index++;
     }
 
-
     return dp[j][r][b] = ret;
   }
 

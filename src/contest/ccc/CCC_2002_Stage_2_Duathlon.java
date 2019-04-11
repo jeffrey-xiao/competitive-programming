@@ -38,7 +38,7 @@ public class CCC_2002_Stage_2_Duathlon {
       }
     }
     if (maxTime >= 0)
-      System.out.printf("The cheater can win by %d seconds with r = %.2fkm and k = %.2fkm.", (int) Math.round(maxTime * 60 * 60), distance, dist - distance);
+      System.out.printf("The cheater can win by %d seconds with r = %.2fkm and k = %.2fkm.", (int)Math.round(maxTime * 60 * 60), distance, dist - distance);
     else
       System.out.println("The cheater cannot win.");
   }

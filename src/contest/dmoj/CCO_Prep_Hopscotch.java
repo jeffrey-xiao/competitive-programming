@@ -25,7 +25,7 @@ public class CCO_Prep_Hopscotch {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     N = readInt();
-    interval = (int) (Math.sqrt(N));
+    interval = (int)(Math.sqrt(N));
 
     val = new int[N];
     block = new int[N];
@@ -82,7 +82,6 @@ public class CCO_Prep_Hopscotch {
             pos[j] = pos[j + val[j]];
           }
         }
-
       }
     }
 

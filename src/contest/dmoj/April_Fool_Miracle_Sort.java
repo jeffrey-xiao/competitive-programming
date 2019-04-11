@@ -27,7 +27,7 @@ public class April_Fool_Miracle_Sort {
   }
 
   static char get(char c) {
-    return (char) (c + c);
+    return (char)(c + c);
   }
 
   static String next() throws IOException {

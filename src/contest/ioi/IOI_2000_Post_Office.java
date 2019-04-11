@@ -68,7 +68,6 @@ public class IOI_2000_Post_Office {
     System.out.println(min);
     for (int x = s.size(); x > 0; x--)
       System.out.print(s.pop() + " ");
-
   }
 
   private static int cost(int y, int z) {

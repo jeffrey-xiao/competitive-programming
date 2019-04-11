@@ -22,5 +22,4 @@ public class USACO_2013_Breed_Proximity {
     }
     System.out.println(max);
   }
-
 }

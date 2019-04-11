@@ -79,7 +79,7 @@ public class Woburn_Challenge_2015_The_Force_Awakens_Senior {
 
       Collections.sort(times);
 
-      for (int j = 0; j < times.size() - 1; ) {
+      for (int j = 0; j < times.size() - 1;) {
         if (Math.abs(times.get(j) - times.get(j + 1)) < EPS)
           times.remove(j + 1);
         else

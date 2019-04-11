@@ -45,9 +45,8 @@ public class USACO_2012_Overplanting_Silver {
       for (int x = 0; x < count; x++) {
         currTotal += line[x];
         if (lastx != Integer.MIN_VALUE && currTotal >= 1 && x != count - 1) {
-          totalArea += (currx - lastx) * ((long) toCoord.get(x + 1) - (long) toCoord.get(x));
+          totalArea += (currx - lastx) * ((long)toCoord.get(x + 1) - (long)toCoord.get(x));
         }
-
       }
       lastx = currx;
       line[toIndex.get(curr.y1)] += curr.value;

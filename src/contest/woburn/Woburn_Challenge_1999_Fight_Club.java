@@ -23,7 +23,7 @@ public class Woburn_Challenge_1999_Fight_Club {
     // pr = new PrintWriter(new FileWriter("out.txt"));
 
     int x, y;
-    main:
+  main:
     while ((x = readInt()) != -1 && (y = readInt()) != -1) {
       ArrayList<Pair> l = new ArrayList<Pair>();
       TreeSet<Integer> ts = new TreeSet<Integer>();

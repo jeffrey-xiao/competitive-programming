@@ -35,8 +35,8 @@ public class DMOPC_2014_Bad_Smores {
       long fl = xf - r;
       long fr = xf + r;
       if (i != yf) {
-        fl = (long) (Math.ceil(xf - Math.sqrt(r * r - (yf - i) * (yf - i))));
-        fr = (long) (Math.floor(xf + Math.sqrt(r * r - (yf - i) * (yf - i))));
+        fl = (long)(Math.ceil(xf - Math.sqrt(r * r - (yf - i) * (yf - i))));
+        fr = (long)(Math.floor(xf + Math.sqrt(r * r - (yf - i) * (yf - i))));
       }
       long range = l - Math.abs(i - yw);
       if (range < 0)

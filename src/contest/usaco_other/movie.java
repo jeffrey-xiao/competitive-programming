@@ -61,7 +61,7 @@ public class movie {
         min = Math.min(min, count[nv]);
       }
       for (int x = 0; x < n; x++) {
-        if (((nv) & 1 << x) != 0)
+        if (((nv)&1 << x) != 0)
           continue;
         Integer nextMovie = ts.get(x).floor(nt);
         if (nextMovie == null || v[nv] >= nextMovie || nextMovie + times[x] <= nt)

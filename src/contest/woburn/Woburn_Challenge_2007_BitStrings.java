@@ -13,7 +13,7 @@ public class Woburn_Challenge_2007_BitStrings {
   public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int numOfBitStrings = readInt();
-      int[][] dp = new int[readInt() + 1][readInt() + 1];// 0 is 0, 1 is 1
+      int[][] dp = new int[readInt() + 1][readInt() + 1]; // 0 is 0, 1 is 1
       int[][] bitstrings = new int[numOfBitStrings][2];
       for (int x = 0; x < numOfBitStrings; x++) {
         String s = readLine();

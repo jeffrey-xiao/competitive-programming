@@ -98,7 +98,6 @@ public class ACM_Waterloo_Local_2017_Winter_E {
           dist[pair[next]] = dist[curr] + 1;
           q.offer(pair[next]);
         }
-
       }
     }
 

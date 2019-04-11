@@ -26,9 +26,9 @@ public class BinaryHeapExtended {
   public static void main(String[] args) {
     BinaryHeapExtended h = new BinaryHeapExtended();
     for (int x = 0; x < 100; x++)
-      h.add(x, (int) (Math.random() * 100));
+      h.add(x, (int)(Math.random() * 100));
     for (int x = 0; x < 100; x++)
-      h.changePriority(x, (int) (Math.random() * 100));
+      h.changePriority(x, (int)(Math.random() * 100));
     for (int x = 0; x < 100; x++) {
       Pair res = h.remove();
       System.out.println(res.first + " " + res.second);

@@ -13,7 +13,6 @@ public class USACO_2012_Rope_Folding {
 
   public static void main(String[] args) throws IOException {
     int n = readInt();
-    @SuppressWarnings("unused")
     int l = readInt();
     int[] seq = new int[n];
     for (int x = 0; x < n; x++)

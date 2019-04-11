@@ -40,7 +40,7 @@ public class LongestCommonSubstring {
           dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
       }
     StringBuilder ret = new StringBuilder("");
-    for (int i = s1.length(), j = s2.length(); i > 0 && j > 0; ) {
+    for (int i = s1.length(), j = s2.length(); i > 0 && j > 0;) {
       if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
         ret.append(s1.charAt(i - 1));
         i--;

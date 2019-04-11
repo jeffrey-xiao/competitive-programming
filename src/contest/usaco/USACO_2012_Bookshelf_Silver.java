@@ -17,7 +17,7 @@ public class USACO_2012_Bookshelf_Silver {
     int[] dp = new int[n + 1];
     for (int x = 1; x <= n; x++) {
       books[x][0] = readInt();
-      books[x][1] = readInt();// 0 height, 1 width
+      books[x][1] = readInt();   // 0 height, 1 width
       dp[x] = Integer.MAX_VALUE; // lowest bookshelf with the first x
       // books
     }

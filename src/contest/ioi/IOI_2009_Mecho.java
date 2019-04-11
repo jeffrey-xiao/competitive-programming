@@ -19,7 +19,7 @@ public class IOI_2009_Mecho {
     n = readInt();
     int speed = readInt();
     char[][] grid = new char[n][n];
-    Queue<int[]> moves = new LinkedList<int[]>();// x,y,moves
+    Queue<int[]> moves = new LinkedList<int[]>(); // x,y,moves
     int startx = 0;
     int starty = 0;
     for (int x = 0; x < n; x++) {
@@ -27,7 +27,7 @@ public class IOI_2009_Mecho {
       for (int y = 0; y < n; y++) {
         grid[x][y] = s.charAt(y);
         if (s.charAt(y) == 'H') {
-          moves.offer(new int[]{x, y, speed});
+          moves.offer(new int[] {x, y, speed});
         } else if (grid[x][y] == 'M') {
           startx = x;
           starty = y;
@@ -45,7 +45,7 @@ public class IOI_2009_Mecho {
           continue;
         visited[newX][newY] = true;
         steps[newX][newY] = curr[2];
-        moves.add(new int[]{newX, newY, curr[2] + speed});
+        moves.add(new int[] {newX, newY, curr[2] + speed});
       }
     }
     int min = -1;
@@ -64,7 +64,7 @@ public class IOI_2009_Mecho {
   private static boolean bfs(char[][] grid, int[][] steps, int mid, int x, int y) {
     boolean[][] visited = new boolean[n][n];
     Queue<int[]> moves = new LinkedList<int[]>();
-    moves.add(new int[]{x, y, mid});
+    moves.add(new int[] {x, y, mid});
     if (mid >= steps[x][y])
       return false;
     while (!moves.isEmpty()) {
@@ -77,7 +77,7 @@ public class IOI_2009_Mecho {
         if (newX < 0 || newY < 0 || newX >= n || newY >= n || visited[newX][newY] || grid[newX][newY] == 'T' || (curr[2] + 1 >= steps[newX][newY] && grid[newX][newY] != 'D'))
           continue;
         visited[newX][newY] = true;
-        moves.add(new int[]{newX, newY, curr[2] + 1});
+        moves.add(new int[] {newX, newY, curr[2] + 1});
       }
     }
     return false;

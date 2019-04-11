@@ -78,7 +78,6 @@ public class Christmas_Mine_And_Tree {
       }
     }
     out.close();
-
   }
 
   static int lca(int i, int j) {

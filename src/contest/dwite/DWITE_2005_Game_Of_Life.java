@@ -27,7 +27,6 @@ public class DWITE_2005_Game_Of_Life {
       grid = newgrid;
       if (x == 1 || x == 5 || x == 10 || x == 50 || x == 100)
         System.out.println(alive);
-
     }
   }
 
@@ -36,7 +35,6 @@ public class DWITE_2005_Game_Of_Life {
     for (int[] i : moves) {
       if (i[0] + x >= 0 && i[0] + x < grid.length && i[1] + y >= 0 && i[1] + y < grid[0].length && grid[x + i[0]][y + i[1]] == 'X')
         neighbours++;
-
     }
     return neighbours;
   }

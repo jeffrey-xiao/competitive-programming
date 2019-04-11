@@ -66,7 +66,6 @@ public class censor {
       }
     }
     return -1;
-
   }
 
   static int[] computePrefix(char[] s) {

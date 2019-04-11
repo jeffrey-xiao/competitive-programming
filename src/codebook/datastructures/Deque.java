@@ -105,7 +105,6 @@ public class Deque<Item> implements Iterable<Item> {
     return new DequeIterator();
   }
 
-  @SuppressWarnings("hiding")
   private class Node<Item> {
     private Item value = null;
     private Node<Item> next = null;

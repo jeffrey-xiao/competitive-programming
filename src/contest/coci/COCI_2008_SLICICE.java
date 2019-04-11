@@ -66,7 +66,7 @@ public class COCI_2008_SLICICE {
       augment = bfs();
     }
     int[] nums = new int[n];
-    main:
+  main:
     for (int x = 1; x <= p; x++) {
       if (x <= m) {
         int flow = Integer.MAX_VALUE - adj.get(x).get(adj.get(x).indexOf(new Edge(input[x][0], 0))).cost;
@@ -182,7 +182,7 @@ public class COCI_2008_SLICICE {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) o;
+        Edge e = (Edge)o;
         return dest == e.dest;
       }
       return false;

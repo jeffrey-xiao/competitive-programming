@@ -19,7 +19,6 @@ public class CCC_2010_S1 {
     Arrays.sort(computers);
     for (int x = 0; x < Math.min(computers.length, 2); x++)
       System.out.println(computers[x].name);
-
   }
 
   static String next() throws IOException {

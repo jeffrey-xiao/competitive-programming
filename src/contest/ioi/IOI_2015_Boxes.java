@@ -36,9 +36,7 @@ class IOI_2015_Boxes {
 
       } else {
         dp1[i] = Math.min(2 * pos[i], l);
-
       }
-
     }
     for (int i = n; i >= 1; i--) {
       if (i + k <= n) {

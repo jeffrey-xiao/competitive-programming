@@ -26,5 +26,4 @@ public class CCC_2007_S3 {
       n2 = scan.nextInt() - 1;
     }
   }
-
 }

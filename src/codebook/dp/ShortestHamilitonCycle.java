@@ -40,7 +40,7 @@ public class ShortestHamilitonCycle {
       int[] p = new int[n];
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
-          dist[i][j] = (int) (Math.random() * 1000);
+          dist[i][j] = (int)(Math.random() * 1000);
         dist[i][i] = 0;
         p[i] = i;
       }

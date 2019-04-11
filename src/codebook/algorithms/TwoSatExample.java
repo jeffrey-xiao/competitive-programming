@@ -65,7 +65,7 @@ public class TwoSatExample {
     comNum = 0;
     n = 0;
     int Q = -1;
-    main:
+  main:
     while ((Q = readInt()) != 0) {
       for (int i = 0; i < 2000; i++) {
         adj.add(new HashSet<Integer>());
@@ -169,7 +169,6 @@ public class TwoSatExample {
             idCom[i] = -1;
             idCom[negcom[i]] = 1;
           } else {
-
           }
         }
       }

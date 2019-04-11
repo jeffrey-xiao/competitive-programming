@@ -29,7 +29,7 @@ public class LinkedList {
     int nextIndex = 1000001;
     int freeIndex = 999999;
 
-    val[1000000] = 0 | ((long) (prevIndex ^ nextIndex) << shift);
+    val[1000000] = 0 | ((long)(prevIndex ^ nextIndex) << shift);
     int n = readInt();
     for (int i = 0; i < n; i++) {
       char c = readCharacter();
@@ -39,17 +39,17 @@ public class LinkedList {
         long v = readLong() + diff;
         // creating 2
         int newIndex = freeIndex;
-        freeIndex = (int) val[freeIndex];
+        freeIndex = (int)val[freeIndex];
 
         // setting 2, 3
-        val[newIndex] = v | ((long) (prevIndex ^ currIndex) << shift);
-        val[currIndex] = clearLast(val[currIndex]) | ((long) (newIndex ^ nextIndex) << shift);
+        val[newIndex] = v | ((long)(prevIndex ^ currIndex) << shift);
+        val[currIndex] = clearLast(val[currIndex]) | ((long)(newIndex ^ nextIndex) << shift);
 
         // setting 1, 4
-        int prevprev = (int) (val[prevIndex] >>> shift) ^ (currIndex);
-        int nextnext = (int) (val[nextIndex] >>> shift) ^ (currIndex);
-        val[prevIndex] = clearLast(val[prevIndex]) | ((long) (prevprev ^ newIndex) << shift);
-        val[nextIndex] = clearLast(val[nextIndex]) | ((long) (nextnext ^ currIndex) << shift);
+        int prevprev = (int)(val[prevIndex] >>> shift) ^ (currIndex);
+        int nextnext = (int)(val[nextIndex] >>> shift) ^ (currIndex);
+        val[prevIndex] = clearLast(val[prevIndex]) | ((long)(prevprev ^ newIndex) << shift);
+        val[nextIndex] = clearLast(val[nextIndex]) | ((long)(nextnext ^ currIndex) << shift);
 
         nextIndex = currIndex;
         currIndex = newIndex;
@@ -57,11 +57,11 @@ public class LinkedList {
         val[currIndex] = freeIndex;
         freeIndex = currIndex;
 
-        val[nextIndex] = clearLast(val[nextIndex]) | ((long) (prevIndex ^ (int) ((val[nextIndex] >>> shift) ^ currIndex)) << shift);
-        val[prevIndex] = clearLast(val[prevIndex]) | ((long) (nextIndex ^ (int) ((val[prevIndex] >>> shift) ^ currIndex)) << shift);
+        val[nextIndex] = clearLast(val[nextIndex]) | ((long)(prevIndex ^ (int)((val[nextIndex] >>> shift) ^ currIndex)) << shift);
+        val[prevIndex] = clearLast(val[prevIndex]) | ((long)(nextIndex ^ (int)((val[prevIndex] >>> shift) ^ currIndex)) << shift);
 
         currIndex = nextIndex;
-        nextIndex = (int) ((val[nextIndex] >>> shift) ^ prevIndex);
+        nextIndex = (int)((val[nextIndex] >>> shift) ^ prevIndex);
       } else if (c == '=') {
         val[currIndex] = clearFirst(val[currIndex]) | (readLong() + diff);
       } else if (c == '!') {
@@ -69,11 +69,11 @@ public class LinkedList {
       } else if (c == '>') {
         prevIndex = currIndex;
         currIndex = nextIndex;
-        nextIndex = (int) ((val[currIndex] >>> shift) ^ prevIndex);
+        nextIndex = (int)((val[currIndex] >>> shift) ^ prevIndex);
       } else if (c == '<') {
         nextIndex = currIndex;
         currIndex = prevIndex;
-        prevIndex = (int) ((val[currIndex] >>> shift) ^ nextIndex);
+        prevIndex = (int)((val[currIndex] >>> shift) ^ nextIndex);
       }
     }
     out.close();

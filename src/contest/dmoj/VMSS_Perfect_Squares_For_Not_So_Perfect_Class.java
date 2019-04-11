@@ -23,7 +23,7 @@ public class VMSS_Perfect_Squares_For_Not_So_Perfect_Class {
     int b = readInt();
     int sum = 0;
     for (int i = a; i <= b; i++)
-      if (i >= 0 && (int) Math.sqrt(i) == Math.sqrt(i))
+      if (i >= 0 && (int)Math.sqrt(i) == Math.sqrt(i))
         sum++;
     out.println(sum);
     out.close();

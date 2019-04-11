@@ -80,7 +80,6 @@ public class Good_Celebration {
         }
       }
     }
-
   }
 
   static String next() throws IOException {

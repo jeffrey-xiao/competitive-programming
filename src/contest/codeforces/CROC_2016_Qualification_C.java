@@ -57,7 +57,6 @@ public class CROC_2016_Qualification_C {
       if (pathHosts.get(res) == null)
         pathHosts.put(res, new ArrayList<String>());
       pathHosts.get(res).add(e.getKey());
-
     }
     ArrayList<ArrayList<String>> ans = new ArrayList<ArrayList<String>>();
 

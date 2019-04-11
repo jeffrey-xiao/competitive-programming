@@ -11,7 +11,7 @@ public class CCC_2005_Stage_2_Primed_Sequences {
   static StringTokenizer st;
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
       int[] sum = new int[n + 1];

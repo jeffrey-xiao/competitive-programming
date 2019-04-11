@@ -12,7 +12,6 @@ public class COCI_2009_KAJAK {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
 
-  @SuppressWarnings("unused")
   public static void main(String[] args) throws IOException {
     int r = readInt();
     int c = readInt();
@@ -34,7 +33,6 @@ public class COCI_2009_KAJAK {
       public int compare(int[] a, int[] b) {
         return b[1] - a[1];
       }
-
     });
     int[] standings = new int[9];
     int currPos = 0;
@@ -45,7 +43,6 @@ public class COCI_2009_KAJAK {
       dist = places[x][1];
 
       standings[places[x][0]] = currPos;
-
     }
     for (int i : standings)
       System.out.println(i);

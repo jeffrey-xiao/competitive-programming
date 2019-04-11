@@ -70,7 +70,7 @@ public class COCI_2016_CEZAR {
       char[] ret = new char[26];
       int index = 0;
       while (!s.isEmpty()) {
-        ret[s.pop()] = (char) (index++ + 'a');
+        ret[s.pop()] = (char)(index++ + 'a');
       }
       out.println(ret);
     }

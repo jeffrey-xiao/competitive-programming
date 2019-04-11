@@ -25,7 +25,7 @@ public class GCJ_2017_Round_1B_B {
 
     T = readInt();
 
-    main:
+  main:
     for (int t = 1; t <= T; t++) {
       int N = readInt();
       int R = readInt();

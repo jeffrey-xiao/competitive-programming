@@ -23,7 +23,7 @@ public class CCC_2010_J4 {
       }
       // assume cycle length is 1 and continue;
       int x = 1;
-      main:
+    main:
       for (; x < diff.length; x++) {
         for (int y = x; y < diff.length; y++) {
           if (diff[y - x] != diff[y])

@@ -25,7 +25,7 @@ public class USACO_2013_Vacation_Planning {
       int a = readInt() - 1;
       int b = readInt() - 1;
       int c = readInt();
-      con.get(a).add(new int[]{b, c});
+      con.get(a).add(new int[] {b, c});
     }
     int count = 0;
     int total = 0;

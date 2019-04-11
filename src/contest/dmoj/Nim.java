@@ -105,5 +105,4 @@ public class Nim {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

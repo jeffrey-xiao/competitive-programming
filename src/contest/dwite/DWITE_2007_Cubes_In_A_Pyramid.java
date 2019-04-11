@@ -8,6 +8,6 @@ public class DWITE_2007_Cubes_In_A_Pyramid {
   public static void main(String[] arg) {
     double l = scan.nextDouble();
     double h = scan.nextDouble();
-    System.out.println((int) Math.ceil(l * l * h * (1.0 / 3.0)));
+    System.out.println((int)Math.ceil(l * l * h * (1.0 / 3.0)));
   }
 }

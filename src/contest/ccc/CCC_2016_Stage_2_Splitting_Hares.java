@@ -26,9 +26,9 @@ public class CCC_2016_Stage_2_Splitting_Hares {
       Double slope2 = 0.0;
 
       if (x[i] != 0)
-        slope1 = (double) (y[i]) / x[i];
+        slope1 = (double)(y[i]) / x[i];
       if (x[j] != 0)
-        slope2 = (double) (y[j]) / x[j];
+        slope2 = (double)(y[j]) / x[j];
 
       if (slope1 * slope2 > 0)
         return slope1.compareTo(slope2);

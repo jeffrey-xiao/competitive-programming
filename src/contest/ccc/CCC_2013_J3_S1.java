@@ -11,8 +11,8 @@ public class CCC_2013_J3_S1 {
   static StringTokenizer st;
 
   public static void main(String[] args) throws IOException {
-    main:
-    for (int x = readInt() + 1; ; x++) {
+  main:
+    for (int x = readInt() + 1;; x++) {
       boolean[] nums = new boolean[10];
       int y = x;
       while (y != 0) {

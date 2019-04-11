@@ -119,6 +119,5 @@ public class Glenforest_Soko_Boop {
       this.by = by;
       this.cnt = cnt;
     }
-
   }
 }

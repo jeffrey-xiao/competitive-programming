@@ -24,7 +24,6 @@ public class CCC_2000_Stage_2_Oil_Droplet {
           d2 = charges[x] * 1.01d / (newCharge + 1);
         System.out.println(d2);
       }
-
     }
     System.out.printf("%.4f", d2);
   }

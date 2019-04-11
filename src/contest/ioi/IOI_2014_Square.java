@@ -27,5 +27,4 @@ public class IOI_2014_Square {
     }
     System.out.println(max * num);
   }
-
 }

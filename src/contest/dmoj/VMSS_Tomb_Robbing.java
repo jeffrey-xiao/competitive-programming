@@ -42,7 +42,6 @@ public class VMSS_Tomb_Robbing {
           cnt++;
           dfs(i, j);
         }
-
       }
     }
     out.println(cnt);

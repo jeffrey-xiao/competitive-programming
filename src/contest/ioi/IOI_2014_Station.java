@@ -16,7 +16,7 @@ public class IOI_2014_Station {
         days[x] = -1;
     }
 
-    main:
+  main:
     for (int x = 1; x < days.length; x++) {
       for (int y = Math.min(days.length - 1, x + maxDistance); y > x; y--) {
         if (days[x] != -1 && stations[y] == 1) {

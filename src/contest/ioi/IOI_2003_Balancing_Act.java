@@ -23,7 +23,7 @@ public class IOI_2003_Balancing_Act {
     nodes[0] = new Node(u, 0);
     ArrayList<int[]> edges = new ArrayList<int[]>();
     for (int x = 0; x < n - 1; x++)
-      edges.add(new int[]{readInt() - 1, readInt() - 1});
+      edges.add(new int[] {readInt() - 1, readInt() - 1});
     while (!edges.isEmpty()) {
       for (int x = edges.size() - 1; x >= 0; x--) {
         int[] curr = edges.get(x);

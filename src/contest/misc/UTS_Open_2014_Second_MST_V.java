@@ -96,7 +96,6 @@ public class UTS_Open_2014_Second_MST_V {
     nextE[E] = last[y];
     last[y] = E;
     E++;
-
   }
 
   private static int find(int x) {

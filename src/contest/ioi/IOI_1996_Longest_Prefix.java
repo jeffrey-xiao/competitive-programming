@@ -45,7 +45,6 @@ public class IOI_1996_Longest_Prefix {
         return;
       }
     }
-
   }
 
   static String next() throws IOException {

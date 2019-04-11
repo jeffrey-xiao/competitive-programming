@@ -29,7 +29,7 @@ public class CCC_2003_Stage_2_Constrained_Permutations {
       count++;
       return;
     }
-    main:
+  main:
     for (int x = 1; x <= n; x++) {
       if (!v.contains(x)) {
         HashSet<Integer> c = cons.get(x);

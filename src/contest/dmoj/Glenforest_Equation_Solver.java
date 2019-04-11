@@ -18,7 +18,7 @@ public class Glenforest_Equation_Solver {
   public static void main(String[] args) throws IOException {
     String[] in = readLine().split(" ");
     Stack<Integer> s = new Stack<Integer>();
-    for (int i = 0; i < in.length - 1; ) {
+    for (int i = 0; i < in.length - 1;) {
       if (!in[i].equals("P") && !in[i].equals("M")) {
         s.push(Integer.parseInt(in[i]));
         i++;

@@ -26,11 +26,11 @@ public class DMOPC_2015_New_Key {
       if (encrypted[i] == '0')
         decrypted[i] = '9';
       else if ('1' <= encrypted[i] && encrypted[i] <= '9')
-        decrypted[i] = (char) ('A' + encrypted[i] - '0' - 1);
+        decrypted[i] = (char)('A' + encrypted[i] - '0' - 1);
       else if ('A' <= encrypted[i] && encrypted[i] <= 'J')
-        decrypted[i] = (char) ('K' + encrypted[i] - 'A' - 1);
+        decrypted[i] = (char)('K' + encrypted[i] - 'A' - 1);
       else if ('K' <= encrypted[i] && encrypted[i] <= 'P')
-        decrypted[i] = (char) ('U' + encrypted[i] - 'K' - 1);
+        decrypted[i] = (char)('U' + encrypted[i] - 'K' - 1);
     }
     out.println(decrypted);
     out.close();

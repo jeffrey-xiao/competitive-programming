@@ -42,7 +42,6 @@ public class IOI_2010_Traffic_Congestion {
         min = dp[x];
         index = x;
       }
-
     }
     System.out.println(index);
   }

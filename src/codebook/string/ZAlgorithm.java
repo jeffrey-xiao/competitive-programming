@@ -48,7 +48,7 @@ public class ZAlgorithm {
         int j = i - l;
         if (z[j] < r - i + 1)
           z[i] = z[j];
-          // if the size of the prefix substring at j is larger than the boundary, then we have to extend it
+        // if the size of the prefix substring at j is larger than the boundary, then we have to extend it
         else {
 
           l = i;

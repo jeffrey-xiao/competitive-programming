@@ -46,7 +46,7 @@ public class WOC_29_G_Suboptimal {
   }
 
   static void solve2() {
-    parameter = new int[]{1, 2};
+    parameter = new int[] {1, 2};
 
     int min = 1 << 30;
     int[][] bestAdj = new int[N][K];
@@ -90,7 +90,6 @@ public class WOC_29_G_Suboptimal {
             bestAdj = adj;
           }
         }
-
     }
     out.println(min);
     if (!DEBUG)
@@ -102,7 +101,7 @@ public class WOC_29_G_Suboptimal {
   }
 
   static void solveSmall() {
-    parameter = new int[]{1, 0, 0, 0, 0};
+    parameter = new int[] {1, 0, 0, 0, 0};
 
     int min = 1 << 30;
     int[][] bestAdj = new int[N][K];
@@ -186,7 +185,7 @@ public class WOC_29_G_Suboptimal {
 
   static int[] getRandomNeighbour(int[] parameters) {
     int gap = N - K;
-    int index = (int) (Math.random() * gap + 1);
+    int index = (int)(Math.random() * gap + 1);
     int[] ret = Arrays.copyOf(parameters, K);
     if (index < ret[0]) {
       ret[0] = index;

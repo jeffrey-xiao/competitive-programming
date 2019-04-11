@@ -28,8 +28,8 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
           int y = i, x = j;
           char next = '*';
           for (int z = k; z > 0; z--) {
-            int ny = (int) (y / Math.pow(n, z - 1));
-            int nx = (int) (x / Math.pow(n, z - 1));
+            int ny = (int)(y / Math.pow(n, z - 1));
+            int nx = (int)(x / Math.pow(n, z - 1));
             if (grid[ny][nx] == '.') {
               next = ' ';
               break;
@@ -47,7 +47,6 @@ public class CCC_1999_Stage_2_Mandelzumas_Revenge {
       }
       System.out.println();
     }
-
   }
 
   static String next() throws IOException {

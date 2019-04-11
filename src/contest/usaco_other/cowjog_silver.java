@@ -32,7 +32,7 @@ public class cowjog_silver {
       c[x] = new Cow(readDouble(), readDouble());
 
     int count = 0;
-    for (int x = 0; x < n; ) {
+    for (int x = 0; x < n;) {
       int y;
       for (y = x + 1; y < n; y++) {
         double timeToCatch = (c[x].pos - c[y].pos) / (c[y].speed - c[x].speed);

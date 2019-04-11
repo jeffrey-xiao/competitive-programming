@@ -43,7 +43,6 @@ public class COCI_2014_BOB {
         temp += count * cnt[i][j];
         total += temp;
         stack[++top] = new State(grid[i][j], cnt[i][j], count, temp);
-
       }
     }
     System.out.println(total);

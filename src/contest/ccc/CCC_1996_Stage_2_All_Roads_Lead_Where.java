@@ -31,7 +31,6 @@ public class CCC_1996_Stage_2_All_Roads_Lead_Where {
       int b = next().charAt(0) - 65;
       System.out.println(new StringBuilder(bfs(a, b)).reverse().toString());
     }
-
   }
 
   private static String bfs(int a, int b) {
@@ -57,7 +56,7 @@ public class CCC_1996_Stage_2_All_Roads_Lead_Where {
     int curr = b;
     String s = "";
     while (curr != -1) {
-      s += (char) (curr + 65);
+      s += (char)(curr + 65);
       curr = prev[curr];
     }
     return s;

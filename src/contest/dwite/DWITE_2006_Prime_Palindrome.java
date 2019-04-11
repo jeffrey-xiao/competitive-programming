@@ -32,5 +32,4 @@ public class DWITE_2006_Prime_Palindrome {
   private static boolean isPalindrome(String x) {
     return new StringBuilder(x).reverse().toString().equals(x);
   }
-
 }

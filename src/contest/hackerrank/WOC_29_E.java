@@ -39,7 +39,7 @@ public class WOC_29_E {
       bestDen = 1;
 
       // starting points
-      Rational candidate = new Rational((long) Math.round(min * PI.doubleValue()) % min, min);
+      Rational candidate = new Rational((long)Math.round(min * PI.doubleValue()) % min, min);
 
       if (DECIMAL_PI.subtract(candidate.toBigDecimal()).abs().compareTo(best) < 0) {
         best = DECIMAL_PI.subtract(candidate.toBigDecimal()).abs();
@@ -47,7 +47,7 @@ public class WOC_29_E {
         bestDen = candidate.den;
       }
 
-      candidate = new Rational((long) Math.round(max * PI.doubleValue()) % max, max);
+      candidate = new Rational((long)Math.round(max * PI.doubleValue()) % max, max);
 
       if (DECIMAL_PI.subtract(candidate.toBigDecimal()).abs().compareTo(best) < 0) {
         best = DECIMAL_PI.subtract(candidate.toBigDecimal()).abs();
@@ -88,7 +88,7 @@ public class WOC_29_E {
     for (int i = 0; i < curr.length; i++) {
       long num = curr[i].curr.num;
       long den = curr[i].curr.den;
-      long factor = (long) Math.ceil(1.0 * min / den);
+      long factor = (long)Math.ceil(1.0 * min / den);
       num *= factor;
       den *= factor;
       if (den <= max) {

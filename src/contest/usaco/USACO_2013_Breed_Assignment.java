@@ -37,7 +37,7 @@ public class USACO_2013_Breed_Assignment {
     if (i == n)
       return 1;
     int count = 0;
-    main:
+  main:
     for (int x = 1; x <= 3; x++) {
       for (int y = 0; y < i; y++) {
         if (b[y] == x && adj[y][i] == 'D')

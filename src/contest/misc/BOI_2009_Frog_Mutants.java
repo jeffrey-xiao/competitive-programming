@@ -64,7 +64,5 @@ public class BOI_2009_Frog_Mutants {
     return br.readLine().trim();
   }
 
-  static class State {
-    int h, j;
-  }
+  static class State { int h, j; }
 }

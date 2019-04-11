@@ -31,7 +31,6 @@ public class CCC_2004_S3 {
             } else {
               values[x][y] += values[index[0]][index[1]];
             }
-
           }
         }
       }

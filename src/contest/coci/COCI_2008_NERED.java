@@ -37,7 +37,6 @@ public class COCI_2008_NERED {
           min = Math.min(min, res);
         }
       }
-
     }
     System.out.println(min);
   }

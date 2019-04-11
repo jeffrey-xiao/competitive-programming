@@ -41,8 +41,8 @@ public class COCI_2009_POSLOZI {
       A[x] = readInt() - 1;
       B[x] = readInt() - 1;
     }
-    vs.put(toIndex(startState.s), (byte) -1);
-    ve.put(toIndex(endState.s), (byte) -1);
+    vs.put(toIndex(startState.s), (byte)-1);
+    ve.put(toIndex(endState.s), (byte)-1);
     Queue<State> q = new LinkedList<State>();
     q.offer(startState);
     q.offer(endState);

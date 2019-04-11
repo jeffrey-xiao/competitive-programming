@@ -26,7 +26,7 @@ public class FHC_2015_Qualification_Laser_Maze {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     int n = readInt();
-    main:
+  main:
     for (int t = 1; t <= n; t++) {
       int r = readInt();
       int c = readInt();

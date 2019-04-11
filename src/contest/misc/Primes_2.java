@@ -19,7 +19,7 @@ public class Primes_2 {
     if (start == 0)
       start++;
     int end = readInt();
-    int end1 = (int) Math.sqrt(end);
+    int end1 = (int)Math.sqrt(end);
     boolean[] sieve1 = new boolean[end1];
     LinkedList<Integer> ll = new LinkedList<Integer>();
     sieve1[0] = true;
@@ -34,7 +34,7 @@ public class Primes_2 {
           sieve1[y] = true;
       }
 
-    boolean[] sieve2 = new boolean[end - start];// true means it's nonprime
+    boolean[] sieve2 = new boolean[end - start]; // true means it's nonprime
     for (int x : ll) {
       for (int y = x * x - 1; y < sieve2.length + start; y += x) {
         if (y - start < 0)

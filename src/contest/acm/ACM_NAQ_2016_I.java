@@ -59,7 +59,6 @@ public class ACM_NAQ_2016_I {
         for (int j = 0; j < system[i][N * M]; j++)
           out.print(i + 1 + " ");
       out.println();
-
     }
 
     out.close();

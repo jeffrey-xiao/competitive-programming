@@ -48,7 +48,6 @@ public class Valentines_P3 {
         q.offer(new Pos(nx, ny, nz, curr.moves + 1));
       }
     }
-
   }
 
   static String next() throws IOException {

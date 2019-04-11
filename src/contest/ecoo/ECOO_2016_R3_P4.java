@@ -183,7 +183,7 @@ public class ECOO_2016_R3_P4 {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return num == s.num;
       }
       return false;

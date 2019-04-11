@@ -27,7 +27,7 @@ public class ACM_NAQ_2016_G {
     if (in.length() < 9) {
       int n = 1;
       int target = Integer.parseInt(in);
-      for (int i = 1; ; i++) {
+      for (int i = 1;; i++) {
         n *= i;
         if (n == target) {
           out.println(i);
@@ -52,7 +52,7 @@ public class ACM_NAQ_2016_G {
   }
 
   static int digits(int n) {
-    return (int) Math.ceil(prefix[n]);
+    return (int)Math.ceil(prefix[n]);
   }
 
   static String next() throws IOException {

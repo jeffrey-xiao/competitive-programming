@@ -93,7 +93,6 @@ public class MaxBipartiteMatchingHopcroftKarp {
           dist[pair[next]] = dist[curr] + 1;
           q.offer(pair[next]);
         }
-
       }
     }
 

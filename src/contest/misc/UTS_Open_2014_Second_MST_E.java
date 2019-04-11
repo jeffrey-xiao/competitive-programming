@@ -66,13 +66,13 @@ public class UTS_Open_2014_Second_MST_E {
       dfs(next);
       int x = dp[next] + 1;
       if (x + dp[i] > len) {
-        len = x + dp[i]; // update length
+        len = x + dp[i];              // update length
         num = paths[i] * paths[next]; // update number
       } else if (x + dp[i] == len) {
         num += paths[i] * paths[next]; // increment number
       }
       if (dp[i] < x) {
-        dp[i] = x; // update dp
+        dp[i] = x;              // update dp
         paths[i] = paths[next]; // update paths
       } else if (dp[i] == x) {
         paths[i] += paths[next]; // increment paths

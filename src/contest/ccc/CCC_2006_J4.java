@@ -46,7 +46,6 @@ public class CCC_2006_J4 {
     } else {
       System.out.println("Cannot complete these tasks. Going to bed.");
     }
-
   }
 
   public static boolean checkCanDo(int task) {

@@ -52,7 +52,6 @@ public class Woburn_Challenge_2001_Austin_Powers_III_Time_To_Get_Medieval {
         } else {
           sum += times[x][0];
         }
-
       }
       System.out.println(sum == -1 ? "Requires more conduits" : sum);
     }

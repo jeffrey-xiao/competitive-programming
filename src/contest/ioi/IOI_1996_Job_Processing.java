@@ -18,16 +18,14 @@ public class IOI_1996_Job_Processing {
     int tasks = readInt();
     int numOfA = readInt();
     PriorityQueue<int[]> moves = new PriorityQueue<int[]>(numOfA, new Comparator<int[]>() {
-
       @Override
       public int compare(int[] arg0, int[] arg1) {
         return arg0[0] + arg0[1] - arg1[0] - arg1[1];
       }
-
     });
     for (int x = 0; x < numOfA; x++) {
       int a = readInt();
-      moves.offer(new int[]{0, a});
+      moves.offer(new int[] {0, a});
     }
     ArrayList<Integer> finishTimes = new ArrayList<Integer>();
     int max = 0;
@@ -35,23 +33,21 @@ public class IOI_1996_Job_Processing {
       int[] curr = moves.poll();
       max = Math.max(curr[0] + curr[1], max);
       finishTimes.add(curr[0] + curr[1]);
-      moves.offer(new int[]{curr[0] + curr[1], curr[1]});
+      moves.offer(new int[] {curr[0] + curr[1], curr[1]});
     }
 
     // GREEDILY ASSIGN B
 
     int numOfB = readInt();
     moves = new PriorityQueue<int[]>(numOfA, new Comparator<int[]>() {
-
       @Override
       public int compare(int[] arg0, int[] arg1) {
         return arg0[0] + arg0[1] - arg1[0] - arg1[1];
       }
-
     });
     for (int x = 0; x < numOfB; x++) {
       int b = readInt();
-      moves.offer(new int[]{0, b});
+      moves.offer(new int[] {0, b});
     }
     ArrayList<Integer> finishTimesB = new ArrayList<Integer>();
     int maxB = 0;
@@ -59,7 +55,7 @@ public class IOI_1996_Job_Processing {
       int[] curr = moves.poll();
       maxB = Math.max(curr[0] + curr[1], maxB);
       finishTimesB.add(curr[0] + curr[1]);
-      moves.offer(new int[]{curr[0] + curr[1], curr[1]});
+      moves.offer(new int[] {curr[0] + curr[1], curr[1]});
     }
     Collections.reverse(finishTimesB);
 

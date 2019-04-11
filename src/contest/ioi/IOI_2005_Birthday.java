@@ -65,7 +65,6 @@ public class IOI_2005_Birthday {
           peaks.add((p - 1 + N) % N);
         }
       }
-
     }
 
     int prev = 0;

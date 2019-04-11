@@ -37,7 +37,6 @@ public class NOI_2002_The_Greedy_Kuzuryu {
       adj.add(new ArrayList<Edge>());
       for (int j = 0; j <= k; j++)
         dp[i][j][0] = dp[i][j][1] = 1 << 29;
-
     }
     for (int i = 0; i < n - 1; i++) {
       int a = readInt() - 1;

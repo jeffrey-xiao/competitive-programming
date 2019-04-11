@@ -14,7 +14,7 @@ public class CCC_1999_P3 {
   public static void main(String[] args) throws IOException {
     for (int t = readInt(); t > 0; t--) {
       int n = readInt();
-      int size = (int) Math.pow(3, n);
+      int size = (int)Math.pow(3, n);
       g = new char[size][size];
       for (int x = 0; x < size; x++)
         for (int y = 0; y < size; y++)
@@ -44,7 +44,7 @@ public class CCC_1999_P3 {
         g[x][y] = ' ';
     if (n == 0)
       return;
-    int d = (int) Math.pow(3, n) - 1;
+    int d = (int)Math.pow(3, n) - 1;
     fractal(x1, x1 + d, y2 - d, y2, n - 1);
     fractal(x1 + d + 1, x1 + 2 * d + 1, y2 - d, y2, n - 1);
     fractal(x2 - d, x2, y2 - d, y2, n - 1);
@@ -55,7 +55,6 @@ public class CCC_1999_P3 {
     fractal(x1, x1 + d, y1, y1 + d, n - 1);
     fractal(x1 + d + 1, x1 + 2 * d + 1, y1, y1 + d, n - 1);
     fractal(x2 - d, x2, y1, y1 + d, n - 1);
-
   }
 
   static String next() throws IOException {

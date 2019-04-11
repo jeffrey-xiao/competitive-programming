@@ -37,7 +37,6 @@ public class USACO_2013_The_Cow_Run {
       }
     }
     System.out.println(Math.min(dp[1][n][0], dp[1][n][1]));
-
   }
 
   static String next() throws IOException {

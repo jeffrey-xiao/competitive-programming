@@ -58,7 +58,7 @@ public class ECOO_2016_R2_P1 {
 
       // initializing the length of the palindrome centered at i
       max[i] = r > i ? Math.min(r - i, max[j]) : 0;
-      // extending the palindrome at i 
+      // extending the palindrome at i
       while (i + 1 + max[i] < len && i - 1 - max[i] >= 0 && text[i + 1 + max[i]] == text[i - 1 - max[i]])
         max[i]++;
 

@@ -110,10 +110,7 @@ public class GCJ_2018_Round_2_D {
       return 0;
     }
     vis[i][j] = true;
-    return 1 + search(i + 1, j, r, c, pattern)
-        + search(i - 1, j, r, c, pattern)
-        + search(i, j + 1, r, c, pattern)
-        + search(i, j - 1, r, c, pattern);
+    return 1 + search(i + 1, j, r, c, pattern) + search(i - 1, j, r, c, pattern) + search(i, j + 1, r, c, pattern) + search(i, j - 1, r, c, pattern);
   }
 
   static String next() throws IOException {

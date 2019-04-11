@@ -19,7 +19,6 @@ public class CCC_2012_S2 {
         total += (input[x] - 48) * curr;
       else
         total -= (input[x] - 48) * curr;
-
     }
     System.out.println(total);
   }

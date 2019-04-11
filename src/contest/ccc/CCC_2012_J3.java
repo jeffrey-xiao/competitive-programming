@@ -12,7 +12,7 @@ class CCC_2012_J3 {
     for (int x = 0; x < 3 * scaling; x++) {
       for (int y = 0; y < 3; y++) {
         for (int z = 0; z < scaling; z++) {
-          resizedBoard[x][(y * scaling) + z] = board[(int) Math.floor(x / scaling)][y];
+          resizedBoard[x][(y * scaling) + z] = board[(int)Math.floor(x / scaling)][y];
         }
       }
     }

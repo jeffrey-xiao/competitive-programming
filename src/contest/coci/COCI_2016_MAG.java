@@ -178,6 +178,5 @@ public class COCI_2016_MAG {
     public String toString() {
       return String.format("%d/%d", a, b);
     }
-
   }
 }

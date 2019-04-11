@@ -20,7 +20,7 @@ public class VMSS_Senpai_Help_Me {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     int n = readInt();
-    for (int x = (int) Math.sqrt(n); x >= 1; x--)
+    for (int x = (int)Math.sqrt(n); x >= 1; x--)
       if (n % x == 0) {
         out.println(x * 2 + n / x * 2);
         break;

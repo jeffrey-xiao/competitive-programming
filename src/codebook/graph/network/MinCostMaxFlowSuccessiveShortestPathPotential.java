@@ -101,7 +101,6 @@ public class MinCostMaxFlowSuccessiveShortestPathPotential {
       for (int i = 0; i < cnt; i++)
         if (e[i].flow > 0)
           phi[e[i].dest] = Math.min(phi[e[i].dest], phi[e[i].orig] + e[i].cost);
-
   }
 
   static boolean dijkstra() {

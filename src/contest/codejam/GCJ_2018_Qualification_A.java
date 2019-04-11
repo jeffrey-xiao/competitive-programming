@@ -17,7 +17,7 @@ public class GCJ_2018_Qualification_A {
 
     int T = readInt();
 
-    outer:
+  outer:
     for (int t = 1; t <= T; t++) {
       int D = readInt();
       String s = next();

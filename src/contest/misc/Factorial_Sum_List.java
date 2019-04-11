@@ -27,5 +27,4 @@ public class Factorial_Sum_List {
       s = scan.next();
     }
   }
-
 }

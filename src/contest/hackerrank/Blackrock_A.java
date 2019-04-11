@@ -29,7 +29,7 @@ public class Blackrock_A {
       start /= readDouble();
       start /= readDouble();
 
-      out.println((int) Math.max(0, Math.floor(start - 100000)));
+      out.println((int)Math.max(0, Math.floor(start - 100000)));
     }
 
     out.close();

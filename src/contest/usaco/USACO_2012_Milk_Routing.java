@@ -55,12 +55,12 @@ public class USACO_2012_Milk_Routing {
         if (next.capacity < currCost)
           continue;
 
-        float f = curr.latency + next.latency + ((float) milk) / (Math.min(curr.capacity, next.capacity));
+        float f = curr.latency + next.latency + ((float)milk) / (Math.min(curr.capacity, next.capacity));
 
         if (minCost[next.dest] < f)
           continue;
 
-        minCost[next.dest] = (int) f;
+        minCost[next.dest] = (int)f;
         visited[next.dest] = true;
 
         pq.add(new Node(next.dest, curr.latency + next.latency, Math.min(curr.capacity, next.capacity)));
@@ -104,8 +104,8 @@ public class USACO_2012_Milk_Routing {
 
     @Override
     public int compareTo(Node n) {
-      float f1 = latency + ((float) (milk) / capacity);
-      float f2 = n.latency + ((float) (milk) / n.capacity);
+      float f1 = latency + ((float)(milk) / capacity);
+      float f2 = n.latency + ((float)(milk) / n.capacity);
       if (f1 == f2)
         return 0;
       return f1 - f2 < 0 ? -1 : 1;
@@ -114,7 +114,7 @@ public class USACO_2012_Milk_Routing {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Node) {
-        Node n = (Node) o;
+        Node n = (Node)o;
         return curr == n.curr;
       }
       return false;

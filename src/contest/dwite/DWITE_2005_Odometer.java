@@ -6,13 +6,13 @@ public class DWITE_2005_Odometer {
   static Scanner scan = new Scanner(System.in);
 
   public static void main(String[] args) {
-    main:
+  main:
     for (int x = 0; x < 5; x++) {
       int n = scan.nextInt();
       int x1 = scan.nextInt();
       int x2 = scan.nextInt();
       int occurences = countOccurences(pad(n), x1);
-      for (int y = n + 1; ; y++) {
+      for (int y = n + 1;; y++) {
         if (y > 999999)
           y = 0;
         if (countOccurences(pad(y), x2) == occurences) {
@@ -38,5 +38,4 @@ public class DWITE_2005_Odometer {
         occurences++;
     return occurences;
   }
-
 }

@@ -49,7 +49,6 @@ public class IOI_1998_Party_Lamps {
               s.add(print(lights));
               possible = true;
             }
-
           }
           flip(4, lights);
         }

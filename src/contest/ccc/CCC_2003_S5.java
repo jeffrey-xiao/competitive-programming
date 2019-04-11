@@ -30,8 +30,8 @@ public class CCC_2003_S5 {
       int a = nextInt() - 1;
       int b = nextInt() - 1;
       int c = nextInt();
-      adjlist.get(a).add(new int[]{b, c});
-      adjlist.get(b).add(new int[]{a, c});
+      adjlist.get(a).add(new int[] {b, c});
+      adjlist.get(b).add(new int[] {a, c});
     }
 
     boolean[] visited = new boolean[numOfCities];
@@ -78,7 +78,6 @@ public class CCC_2003_S5 {
       if (cities[destinations[x]] < max)
         max = cities[destinations[x]];
     System.out.println(max);
-
   }
 
   static String next() {

@@ -13,7 +13,12 @@ public class DMOPC_2015_D_Mails {
   static PrintWriter out;
   static StringTokenizer st;
 
-  static String[] names = {"Okabe", "Mayuri", "Daru", "Kurisu",};
+  static String[] names = {
+      "Okabe",
+      "Mayuri",
+      "Daru",
+      "Kurisu",
+  };
   static String[] catchphrase = {"elpsycongroo", "tuturu", "superhacker", "myfork"};
   static int N;
 

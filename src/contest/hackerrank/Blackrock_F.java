@@ -145,7 +145,6 @@ public class Blackrock_F {
     public int compareTo(State s) {
       return s.val.compareTo(val);
     }
-
   }
 
   static class Stock {

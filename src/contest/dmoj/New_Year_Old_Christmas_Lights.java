@@ -38,7 +38,7 @@ public class New_Year_Old_Christmas_Lights {
     for (int i = 1; i <= n; i++)
       a[i] = readInt();
 
-    int ln = 1 + (int) (Math.ceil(Math.log(n) / Math.log(2)));
+    int ln = 1 + (int)(Math.ceil(Math.log(n) / Math.log(2)));
 
     min = new int[n + 1][ln];
     max = new int[n + 1][ln];
@@ -90,7 +90,7 @@ public class New_Year_Old_Christmas_Lights {
       int l = x;
       int r = endpoint - 1;
 
-      int sz = (int) (Math.log(endpoint - 1 - l + 1) / Math.log(2));
+      int sz = (int)(Math.log(endpoint - 1 - l + 1) / Math.log(2));
 
       if (sz >= 0) {
         if (maxAns[l][sz] >= maxAns[r - (1 << sz) + 1][sz]) {
@@ -139,12 +139,12 @@ public class New_Year_Old_Christmas_Lights {
   }
 
   static int queryMin(int l, int r) {
-    int sz = (int) (Math.log(r - l + 1) / Math.log(2));
+    int sz = (int)(Math.log(r - l + 1) / Math.log(2));
     return Math.min(min[l][sz], min[r - (1 << sz) + 1][sz]);
   }
 
   static int queryMax(int l, int r) {
-    int sz = (int) (Math.log(r - l + 1) / Math.log(2));
+    int sz = (int)(Math.log(r - l + 1) / Math.log(2));
     return Math.max(max[l][sz], max[r - (1 << sz) + 1][sz]);
   }
 

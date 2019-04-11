@@ -50,7 +50,6 @@ public class COCI_2009_MALI {
       }
       System.out.println(max);
     }
-
   }
 
   static String next() throws IOException {

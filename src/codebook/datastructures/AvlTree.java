@@ -19,7 +19,7 @@ public class AvlTree {
     AvlTree t = new AvlTree();
     long c = System.currentTimeMillis();
     for (int x = 0; x < 1000000; x++) {
-      int ran = (int) (Math.random() * (1 << 30)) + 5;
+      int ran = (int)(Math.random() * (1 << 30)) + 5;
       t.add(ran);
     }
     // t.traverse(root);
@@ -42,7 +42,6 @@ public class AvlTree {
     // t.remove(10);
     // System.out.println();
     // t.traverse(root);
-
   }
 
   // methods to reset and get the height of a node
@@ -217,6 +216,5 @@ public class AvlTree {
       this.value = key;
       this.height = 0;
     }
-
   }
 }

@@ -131,7 +131,6 @@ public class COCI_2014_KAMP {
         has = true;
         total += next.cost;
       }
-
     }
     return inTree[i] |= has;
   }

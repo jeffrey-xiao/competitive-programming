@@ -32,8 +32,8 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
       int a = readInt() - 1;
       int b = readInt() - 1;
       int c = readInt();
-      straight.get(a).add(new int[]{b, c});
-      reverse.get(b).add(new int[]{a, c});
+      straight.get(a).add(new int[] {b, c});
+      reverse.get(b).add(new int[] {a, c});
     }
     ArrayList<Integer> hubs = new ArrayList<Integer>();
     for (int x = 0; x < k; x++)
@@ -128,7 +128,7 @@ public class USACO_2013_Vacation_Planning_Gold_2 {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Vertex) {
-        Vertex v = (Vertex) o;
+        Vertex v = (Vertex)o;
         return index == v.index;
       }
       return false;

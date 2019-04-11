@@ -1,6 +1,5 @@
 package contest.woburn;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,7 +38,7 @@ public class Woburn_Challenge_2015_Coded_Paper {
     dp = new int[5];
 
     for (int i = N - 1; i >= 0; i--) {
-      int[] curr = new int[]{R, R + R, R + a[1][i], a[0][i] + R, a[0][i] + a[1][i]};
+      int[] curr = new int[] {R, R + R, R + a[1][i], a[0][i] + R, a[0][i] + a[1][i]};
       if (i == N - 1) {
         dp = Arrays.copyOf(curr, curr.length);
       } else {

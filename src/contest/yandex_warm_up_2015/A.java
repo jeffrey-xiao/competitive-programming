@@ -43,7 +43,6 @@ public class A {
         counter[i]++;
         cnt++;
       }
-
     }
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n && cnt < m; j++) {

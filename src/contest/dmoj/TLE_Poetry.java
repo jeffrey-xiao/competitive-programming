@@ -33,7 +33,7 @@ public class TLE_Poetry {
     int index = 0;
     int stringIndex = 0;
     StringBuilder buffer = new StringBuilder("");
-    for (int i = 0; i < words.length; ) {
+    for (int i = 0; i < words.length;) {
       if (words[i].length() - stringIndex > a[index % N] && buffer.length() == 0) {
         out.println(words[i].substring(stringIndex, stringIndex + a[index % N]));
         stringIndex += a[index % N];

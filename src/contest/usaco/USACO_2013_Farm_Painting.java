@@ -92,7 +92,7 @@ public class USACO_2013_Farm_Painting {
     @Override
     public boolean equals(Object o) {
       if (o instanceof HoriEvent) {
-        HoriEvent e = (HoriEvent) o;
+        HoriEvent e = (HoriEvent)o;
         return y == e.y && add == e.add;
       }
       return false;

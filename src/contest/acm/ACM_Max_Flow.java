@@ -14,6 +14,5 @@ public class ACM_Max_Flow {
       }
       System.out.println(max);
     }
-
   }
 }

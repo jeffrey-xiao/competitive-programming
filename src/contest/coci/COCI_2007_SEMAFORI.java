@@ -28,5 +28,4 @@ public class COCI_2007_SEMAFORI {
     }
     System.out.println(time + d - stoplights[n - 1][0]);
   }
-
 }

@@ -17,5 +17,4 @@ public class COCI_2008_PET {
     }
     System.out.println(index + " " + max);
   }
-
 }

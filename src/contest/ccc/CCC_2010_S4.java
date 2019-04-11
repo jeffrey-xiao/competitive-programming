@@ -35,7 +35,6 @@ public class CCC_2010_S4 {
           hm.put(p, new ArrayList<Integer>());
         hm.get(p).add(x);
       }
-
     }
     for (Map.Entry<Pair, ArrayList<Integer>> e : hm.entrySet()) {
       if (e.getValue().size() == 1) {
@@ -59,7 +58,7 @@ public class CCC_2010_S4 {
     PriorityQueue<Edge> pq = new PriorityQueue<Edge>();
     pq.add(new Edge(i, 0));
     int sum = 0;
-    main:
+  main:
     while (!pq.isEmpty()) {
       Edge curr = pq.poll();
       while (visited[curr.dest]) {
@@ -120,7 +119,7 @@ public class CCC_2010_S4 {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair) o;
+        Pair p = (Pair)o;
         return x == p.x && y == p.y;
       }
       return false;

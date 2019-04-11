@@ -64,7 +64,6 @@ public class Round_365D_Div2 {
       out.println(ans[i]);
 
     out.close();
-
   }
 
   static void update(int x, int val) {

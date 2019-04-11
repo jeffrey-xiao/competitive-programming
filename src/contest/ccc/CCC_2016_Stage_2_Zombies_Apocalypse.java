@@ -61,7 +61,7 @@ public class CCC_2016_Stage_2_Zombies_Apocalypse {
     Arrays.sort(ver);
     Arrays.sort(hor);
 
-    // area of sweepline 
+    // area of sweepline
     long horRet = 0;
     // previous horizontal position
     long horPrev = -1;

@@ -60,7 +60,7 @@ public class ArrayRotation {
   }
 
   public static void main(String[] args) throws IOException {
-    int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+    int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
     rotate3(a, 0, 5, 8);
     System.out.println(Arrays.toString(a));
 
@@ -72,5 +72,4 @@ public class ArrayRotation {
     rotate3(a3, 0, 555, 999);
     assert Arrays.equals(a1, a2) && Arrays.equals(a2, a3);
   }
-
 }

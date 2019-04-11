@@ -41,7 +41,6 @@ public class Trees {
     for (int i = 0; i < n; i++)
       if (matrix[x][i] == 1 && !v[i])
         dfs(i);
-
   }
 
   static String next() throws IOException {

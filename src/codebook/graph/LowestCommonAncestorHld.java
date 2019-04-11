@@ -92,7 +92,6 @@ public class LowestCommonAncestorHld {
         chainNum++;
         getHld(j, i);
       }
-
   }
 
   static void dfs(int i, int d, int prev) {

@@ -90,7 +90,6 @@ public class CCC_2010_Stage_2_Tree_Pruning {
       n.numWhite += nodes[n.right].numWhite;
       n.numBlack += nodes[n.right].numBlack;
     }
-
   }
 
   static String next() throws IOException {

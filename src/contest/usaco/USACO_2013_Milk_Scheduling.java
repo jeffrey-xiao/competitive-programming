@@ -16,12 +16,10 @@ public class USACO_2013_Milk_Scheduling {
   public static void main(String[] args) throws IOException {
     int numOfCows = readInt();
     PriorityQueue<Integer> maxGall = new PriorityQueue<Integer>(numOfCows, new Comparator<Integer>() {
-
       @Override
       public int compare(Integer o1, Integer o2) {
         return o2 - o1;
       }
-
     });
     int[][] cows = new int[numOfCows][2];
     for (int x = 0; x < numOfCows; x++) {
@@ -31,12 +29,10 @@ public class USACO_2013_Milk_Scheduling {
       cows[x][1] = time;
     }
     Arrays.sort(cows, new Comparator<int[]>() {
-
       @Override
       public int compare(int[] o1, int[] o2) {
         return o2[1] - o1[1];
       }
-
     });
     int index = 0;
     int total = 0;
@@ -45,7 +41,6 @@ public class USACO_2013_Milk_Scheduling {
 
         maxGall.offer(cows[index][0]);
         index++;
-
       }
       if (!maxGall.isEmpty())
         total += maxGall.poll();

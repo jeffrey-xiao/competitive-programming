@@ -39,7 +39,7 @@ public class DMOPC_2015_Steins_Number {
       base *= 3;
     ArrayList<Integer> baseThree = new ArrayList<Integer>();
     while (base != 0) {
-      baseThree.add((int) (n / base));
+      baseThree.add((int)(n / base));
       n %= base;
       base /= 3;
     }

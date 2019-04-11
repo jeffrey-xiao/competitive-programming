@@ -14,8 +14,8 @@ public class IOI_2014_Wall {
 
   public static void main(String[] args) throws IOException {
     int n = readInt();
-    int height = (int) Math.ceil(Math.log(n) / Math.log(2));
-    int size = 2 * (int) Math.pow(2, height) - 1;
+    int height = (int)Math.ceil(Math.log(n) / Math.log(2));
+    int size = 2 * (int)Math.pow(2, height) - 1;
     up = new int[size * 2 + 1];
     down = new int[size * 2 + 1];
     int k = readInt();
@@ -50,13 +50,13 @@ public class IOI_2014_Wall {
   }
 
   static void combine(int n, int d, int u) {
-    down[n] = Math.min(down[n], d);// adjusting min for child considering
+    down[n] = Math.min(down[n], d); // adjusting min for child considering
     // min parent
-    down[n] = Math.max(down[n], u);// adjusting min for child considering
+    down[n] = Math.max(down[n], u); // adjusting min for child considering
     // max parent
-    up[n] = Math.max(up[n], u);// adjusting max for child considering max
+    up[n] = Math.max(up[n], u); // adjusting max for child considering max
     // parent
-    up[n] = Math.min(up[n], d);// adjusting max for child considering min
+    up[n] = Math.min(up[n], d); // adjusting max for child considering min
     // parent
   }
 

@@ -51,7 +51,6 @@ public class Similar_Pair {
     for (Integer j : adj.get(i))
       dfs(j);
     update(i + 1, -1);
-
   }
 
   static void update(int x, int val) {

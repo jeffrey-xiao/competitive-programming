@@ -44,7 +44,6 @@ public class USACO_2015_Censoring_Silver {
       }
     }
     return -1;
-
   }
 
   static int[] computePrefix(char[] s) {

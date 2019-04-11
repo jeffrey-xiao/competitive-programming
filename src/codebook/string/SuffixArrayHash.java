@@ -90,5 +90,4 @@ public class SuffixArrayHash {
       return ((hash[j] - hash[i - 1] * pow[j - (i - 1)] % MOD + MOD) % MOD);
     }
   }
-
 }

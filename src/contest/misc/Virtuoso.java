@@ -68,7 +68,6 @@ public class Virtuoso {
         if (dp[n - 1][y][i].moves < minMoves || (dp[n - 1][y][i].turns < minTurns && dp[n - 1][y][i].moves == minMoves)) {
           minMoves = dp[n - 1][y][i].moves;
           minTurns = dp[n - 1][y][i].turns;
-
         }
       }
     }

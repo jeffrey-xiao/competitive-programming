@@ -23,7 +23,7 @@ public class A {
       StringBuilder A = new StringBuilder(), B = new StringBuilder();
       for (int i = 0; i < N.length(); i++) {
         if (N.charAt(i) == '4') {
-          A.append((char) (N.charAt(i) - 1));
+          A.append((char)(N.charAt(i) - 1));
           B.append('1');
         } else {
           A.append(N.charAt(i));

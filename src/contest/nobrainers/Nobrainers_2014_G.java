@@ -28,7 +28,6 @@ public class Nobrainers_2014_G {
           max = Math.max(x, max);
         }
       }
-
     }
     System.out.println((sum - max) - max);
   }

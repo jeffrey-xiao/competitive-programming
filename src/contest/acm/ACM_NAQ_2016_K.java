@@ -126,7 +126,7 @@ public class ACM_NAQ_2016_K {
       b = a - q * b;
       a = t;
     }
-    return a > 0 ? new int[]{a, x, y} : new int[]{-a, -x, -y};
+    return a > 0 ? new int[] {a, x, y} : new int[] {-a, -x, -y};
   }
 
   static int gcd(int a, int b) {

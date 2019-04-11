@@ -69,7 +69,7 @@ public class ClosestTwoPoints {
       int N = 100;
       Point[] points = new Point[N];
       for (int i = 0; i < N; i++)
-        points[i] = new Point((int) (Math.random() * 1000), (int) (Math.random() * 1000));
+        points[i] = new Point((int)(Math.random() * 1000), (int)(Math.random() * 1000));
 
       Point[] res = findClosestPair(points);
       int d1 = dist(res[0], res[1]);

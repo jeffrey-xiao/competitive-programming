@@ -20,5 +20,4 @@ public class NOI_2000_Ceramic_Necklace {
     }
     System.out.println(n - 1);
   }
-
 }

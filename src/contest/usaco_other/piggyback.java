@@ -106,6 +106,5 @@ public class piggyback {
     public int compareTo(Vertex o) {
       return cost - o.cost;
     }
-
   }
 }

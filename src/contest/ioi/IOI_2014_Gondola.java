@@ -126,7 +126,6 @@ public class IOI_2014_Gondola {
         } else {
           list.add(new Entry(og, seq[i]));
         }
-
       }
     }
     Collections.sort(list);

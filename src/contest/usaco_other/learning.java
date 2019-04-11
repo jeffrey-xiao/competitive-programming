@@ -176,7 +176,7 @@ public class learning {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Cow) {
-        Cow c = (Cow) o;
+        Cow c = (Cow)o;
         return weight == c.weight;
       }
       return false;

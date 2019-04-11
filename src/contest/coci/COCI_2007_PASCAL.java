@@ -45,5 +45,4 @@ public class COCI_2007_PASCAL {
   static String readLine() throws IOException {
     return br.readLine().trim();
   }
-
 }

@@ -30,6 +30,5 @@ public class CCC_1996_C {
       else
         printPatterns(i - 1, j, s + "0");
     }
-
   }
 }

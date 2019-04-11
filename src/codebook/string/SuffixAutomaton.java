@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class SuffixAutomaton {
 
   // constants
-  static final int MAXN = (int) (1e6);
+  static final int MAXN = (int)(1e6);
 
   // attributes of the input data
   private String input;
@@ -50,7 +50,6 @@ public class SuffixAutomaton {
 
     assert !st.isAccepted("xabc");
     assert !st.isAccepted("c");
-
   }
 
   public String getString() {
@@ -123,7 +122,6 @@ public class SuffixAutomaton {
     // redirect transitions where needed
     for (; to.get(prev).get(c) == next; prev = link[prev])
       to.get(prev).put(c, next2);
-
   }
 
   public boolean isAccepted(String s) {

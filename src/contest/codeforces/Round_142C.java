@@ -24,7 +24,7 @@ public class Round_142C {
     int[] a = new int[m];
     int[] b = new int[m];
     long[] in = new long[n];
-    long N = (long) n;
+    long N = (long)n;
     for (int i = 0; i < m; i++) {
       a[i] = readInt() - 1;
       b[i] = readInt() - 1;

@@ -53,7 +53,8 @@ public class COCI_2009_HOLMES {
     }
     for (int i = 0; i < d; i++) {
       if (ans[i])
-        outer:for (int j = 0; j < d; j++) {
+      outer:
+        for (int j = 0; j < d; j++) {
           if (!ans[j]) {
             for (int k = 0; k < d; k++) {
               if (cause[i][k] && !cause[j][k])

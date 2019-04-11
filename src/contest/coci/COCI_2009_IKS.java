@@ -27,7 +27,7 @@ public class COCI_2009_IKS {
     for (int y = 0; y < 168; y++) {
       total[y] /= n;
       if (total[y] != 0)
-        gcf *= (int) (Math.pow(revMap.get(y), total[y]));
+        gcf *= (int)(Math.pow(revMap.get(y), total[y]));
     }
     for (int x = 0; x < n; x++) {
       for (int y = 0; y < 168; y++) {

@@ -131,7 +131,6 @@ public class ECOO_2016_R2_P4 {
                 continue;
 
               q.offer(new Point(nr, nc, curr.type));
-
             }
           }
         }
@@ -288,7 +287,6 @@ public class ECOO_2016_R2_P4 {
         out.println();
       }
       out.println();
-
     }
 
     out.close();

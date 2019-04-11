@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class WOC_28_C {
 
-  static final int MOD = (int) (1e9 + 7);
+  static final int MOD = (int)(1e9 + 7);
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;

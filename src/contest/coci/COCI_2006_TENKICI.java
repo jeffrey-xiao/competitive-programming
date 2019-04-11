@@ -98,5 +98,4 @@ public class COCI_2006_TENKICI {
       return c - o.c;
     }
   }
-
 }

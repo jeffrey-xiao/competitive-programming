@@ -120,7 +120,6 @@ public class ACM_NAQ_2016_E {
           dist[pair[next]] = dist[curr] + 1;
           q.offer(pair[next]);
         }
-
       }
     }
     return dist[NULL] != 1 << 30;

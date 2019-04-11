@@ -37,7 +37,7 @@ public class CCC_2003_Stage_2_Cube {
             cube[i][j][k] = in[k];
         }
       boolean valid = true;
-      main:
+    main:
       for (int q = 0; q < 6; q++) {
         for (int x = 1; x <= n; x++) {
           for (int y = 1; y <= n; y++) {

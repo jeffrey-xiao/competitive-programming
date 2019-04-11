@@ -28,7 +28,7 @@ public class Traffic_Lights {
     }
     ArrayList<int[]> cycles = new ArrayList<int[]>();
     for (int x = 0; x < m; x++) {
-      cycles.add(new int[]{readInt(), readInt()});
+      cycles.add(new int[] {readInt(), readInt()});
     }
     System.out.println(shortestPath(adjlist, cycles));
   }
@@ -49,8 +49,8 @@ public class Traffic_Lights {
         int greenCycle = cycles.get(next.dest)[0];
         int redCycle = cycles.get(next.dest)[1];
         int totalCycle = greenCycle + redCycle;
-        if (totalCycle != 0 && nextTime % (totalCycle) - greenCycle >= 0)
-          nextTime += redCycle - (nextTime % (totalCycle) - greenCycle);
+        if (totalCycle != 0 && nextTime % (totalCycle)-greenCycle >= 0)
+          nextTime += redCycle - (nextTime % (totalCycle)-greenCycle);
 
         if (nextTime >= min[next.dest])
           continue;

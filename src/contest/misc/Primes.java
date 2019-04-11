@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Primes {
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    int end = 542; // where you want to end
-    int num = scan.nextInt();// first how many primes
+    int end = 542;            // where you want to end
+    int num = scan.nextInt(); // first how many primes
     boolean[] primes = new boolean[end];
     primes[0] = true;
     for (int x = 1; x < primes.length; x += 2)
@@ -26,5 +26,4 @@ public class Primes {
     }
     scan.close();
   }
-
 }

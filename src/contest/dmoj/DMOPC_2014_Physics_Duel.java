@@ -23,7 +23,7 @@ public class DMOPC_2014_Physics_Duel {
       h += (t * (s * Math.sin(x * Math.PI / 180.0d)));
     }
     double v = Math.sqrt(2 * 9.8 * h);
-    System.out.println((int) (Math.round(v)));
+    System.out.println((int)(Math.round(v)));
   }
 
   static String next() throws IOException {

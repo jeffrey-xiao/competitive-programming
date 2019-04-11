@@ -35,7 +35,7 @@ public class GCJ_2016_Qualification_C {
         BigInteger num = new BigInteger(Long.toString(i, 2));
         boolean valid = true;
         long[] div = new long[11];
-        main:
+      main:
         for (int j = 2; j <= 10; j++) {
           BigInteger curr = toBase(num, j);
           for (int prime : primes)

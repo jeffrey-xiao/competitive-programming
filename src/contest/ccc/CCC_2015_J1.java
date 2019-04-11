@@ -28,7 +28,6 @@ public class CCC_2015_J1 {
         System.out.println("After");
       else
         System.out.println("Special");
-
     }
   }
 

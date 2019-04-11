@@ -34,7 +34,6 @@ public class MMM_Benergy_Transfer {
         higher = (lower + higher) / 2;
       else
         lower = (lower + higher) / 2;
-
     }
     System.out.println(lower);
   }

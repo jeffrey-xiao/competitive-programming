@@ -29,7 +29,7 @@ public class ACM_Hong_Kong_2016_C {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     N = readInt();
-    LN = (int) (Math.ceil(Math.log(N) / Math.log(2)) + 1);
+    LN = (int)(Math.ceil(Math.log(N) / Math.log(2)) + 1);
 
     id = new int[N];
     sz = new int[N];
@@ -69,7 +69,7 @@ public class ACM_Hong_Kong_2016_C {
     for (int i = 0; i < M; i++) {
       int cnt = readInt();
       HashMap<Integer, ArrayList<Integer>> hm = new HashMap<Integer, ArrayList<Integer>>();
-      main:
+    main:
       for (int j = 0; j < cnt; j++) {
         int x = readInt() - 1;
         int root = find(x);
@@ -87,7 +87,6 @@ public class ACM_Hong_Kong_2016_C {
           }
           v.add(x);
         }
-
       }
       int ans = 0;
       for (Map.Entry<Integer, ArrayList<Integer>> e : hm.entrySet())

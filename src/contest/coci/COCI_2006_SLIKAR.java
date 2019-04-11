@@ -39,7 +39,6 @@ public class COCI_2006_SLIKAR {
         }
         min[x][y] = Integer.MAX_VALUE;
       }
-
     }
     boolean[][] visited = new boolean[r][c];
     if (!moves.isEmpty())

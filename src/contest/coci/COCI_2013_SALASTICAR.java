@@ -197,13 +197,13 @@ public class COCI_2013_SALASTICAR {
   static Integer[] computeSuffixArray() {
     for (int i = 0; i < N; i++) {
       res[i] = i;
-      order[i] = (int) (input[i] - '0');
+      order[i] = (int)(input[i] - '0');
       newOrder[i] = 0;
     }
 
     final SuffixComparator C = new SuffixComparator();
 
-    for (sz = 1; ; sz <<= 1) {
+    for (sz = 1;; sz <<= 1) {
       Arrays.sort(res, C);
       for (int i = 0; i < N - 1; i++)
         newOrder[i + 1] = newOrder[i] + (C.compare(res[i], res[i + 1]) < 0 ? 1 : 0);

@@ -30,7 +30,6 @@ public class COCI_2007_LEKTIRA {
     for (int x = 0; x < s1.length(); x++) {
       if (s1.charAt(x) != s2.charAt(x))
         return new Integer(s1.charAt(x)).compareTo(new Integer(s2.charAt(x)));
-
     }
     return 0;
   }

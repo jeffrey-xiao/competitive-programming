@@ -30,7 +30,7 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
       for (int x1 = 0; x1 < n; x1++) {
         String s = next().toLowerCase();
         TreeSet<Point> p = new TreeSet<Point>();
-        main:
+      main:
         for (int x = 0; x < r; x++) {
           for (int y = 0; y < c; y++) {
             if (find(x, y, grid, s)) {
@@ -70,7 +70,6 @@ public class CCC_1996_Stage_2_Wheres_Waldorf {
         d = false;
       if (x + z >= r || y - z < 0 || grid[x + z][y - z] != s.charAt(z))
         e = false;
-
     }
     return a || b || d || e;
   }

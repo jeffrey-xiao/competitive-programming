@@ -122,7 +122,7 @@ public class Peg_Test_2014_Gift_Delivery {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return x == p.x && y == p.y;
       }
       return false;

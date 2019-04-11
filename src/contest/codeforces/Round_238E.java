@@ -62,7 +62,6 @@ public class Round_238E {
         continue;
       used.add(toIndex(u, v));
       neighbours.add(v);
-
     }
 
     for (int v : neighbours) {

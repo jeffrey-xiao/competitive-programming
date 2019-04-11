@@ -28,7 +28,6 @@ public class USACO_2011_Cow_Photography_2 {
       }
     }
     Arrays.sort(order, new Comparator<Cow>() {
-
       @Override
       public int compare(Cow o1, Cow o2) {
         int total = 0;
@@ -37,7 +36,6 @@ public class USACO_2011_Cow_Photography_2 {
             total++;
         return total - 2;
       }
-
     });
     for (int x = 0; x < n; x++)
       ps.println(order[x].value);

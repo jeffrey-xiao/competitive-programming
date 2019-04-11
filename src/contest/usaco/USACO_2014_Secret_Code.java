@@ -16,7 +16,6 @@ public class USACO_2014_Secret_Code {
   public static void main(String[] args) throws IOException {
     String s = next();
     System.out.println(compute(s) - 1);
-
   }
 
   private static int compute(String s) {

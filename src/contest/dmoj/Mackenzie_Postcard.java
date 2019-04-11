@@ -41,7 +41,6 @@ public class Mackenzie_Postcard {
 
           minC = Math.min(minC, j);
           maxC = Math.max(maxC, j);
-
         }
       }
     }

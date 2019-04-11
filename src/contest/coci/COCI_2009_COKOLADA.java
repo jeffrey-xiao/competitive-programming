@@ -12,7 +12,7 @@ public class COCI_2009_COKOLADA {
 
   public static void main(String[] args) throws IOException {
     int n = readInt();
-    int power = (int) Math.pow(2, Math.ceil(Math.log(n) / Math.log(2)));
+    int power = (int)Math.pow(2, Math.ceil(Math.log(n) / Math.log(2)));
     int x = 0;
     int count = 0;
     for (int y = power; y != 0; y /= 2, x++) {

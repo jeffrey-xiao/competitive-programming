@@ -209,7 +209,7 @@ public class GCJ_2016_Round_2_D {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State s = (State) o;
+        State s = (State)o;
         return a == s.a && b == s.b;
       }
       return false;

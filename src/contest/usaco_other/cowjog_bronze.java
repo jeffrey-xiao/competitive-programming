@@ -30,7 +30,7 @@ public class cowjog_bronze {
     }
     // x represents furthest cow
     int count = 0;
-    for (int x = 0; x < n; ) {
+    for (int x = 0; x < n;) {
       int y;
       for (y = x + 1; y < n; y++) {
         if (c[y].speed <= c[x].speed)

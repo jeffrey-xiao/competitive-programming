@@ -43,7 +43,6 @@ public class USACO_2015_Censoring_Bronze_2 {
       }
     }
     return -1;
-
   }
 
   static int[] computePrefix(char[] s) {

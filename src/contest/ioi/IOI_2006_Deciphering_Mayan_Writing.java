@@ -15,8 +15,8 @@ public class IOI_2006_Deciphering_Mayan_Writing {
     int g = nextInt();
     int s = nextInt();
     for (int x = 0; x < g; x++) {
-      char c = (char) br.read();
-      int index = (c) - 65 > 25 ? (c) - 71 : (c) - 65;
+      char c = (char)br.read();
+      int index = (c)-65 > 25 ? (c)-71 : (c)-65;
       charsInGlyph[index]++;
     }
     nextLine();
@@ -26,7 +26,7 @@ public class IOI_2006_Deciphering_Mayan_Writing {
     int occurences = 0;
     for (int x = 0; x < s; x++) {
       char c = sequence[x];
-      int index = (c) - 65 > 25 ? (c) - 71 : (c) - 65;
+      int index = (c)-65 > 25 ? (c)-71 : (c)-65;
       charsInSeq[index]++;
       if (charsInGlyph[index] == 0) {
         charsInSeq = new int[52];
@@ -34,7 +34,7 @@ public class IOI_2006_Deciphering_Mayan_Writing {
       } else {
         while (charsInSeq[index] > charsInGlyph[index]) {
           char charToRemove = sequence[indexOfSeq++];
-          int indexToRemove = (charToRemove) - 65 > 25 ? (charToRemove) - 71 : (charToRemove) - 65;
+          int indexToRemove = (charToRemove)-65 > 25 ? (charToRemove)-71 : (charToRemove)-65;
           charsInSeq[indexToRemove]--;
         }
       }
@@ -67,5 +67,4 @@ public class IOI_2006_Deciphering_Mayan_Writing {
     }
     return s;
   }
-
 }

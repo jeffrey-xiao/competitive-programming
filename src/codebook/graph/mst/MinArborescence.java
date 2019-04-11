@@ -51,7 +51,6 @@ public class MinArborescence {
           continue;
         if (min[ry] == null || min[ry].c > edge.c) {
           min[ry] = edge;
-
         }
       }
       adj = new ArrayList<ArrayList<Edge>>();

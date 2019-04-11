@@ -22,14 +22,22 @@ public class ACM_Waterloo_Local_2017_Spring_E {
     for (int i = 0; i < N; i++) {
       char[] in = next().replace("-", "").toCharArray();
       for (int j = 0; j < in.length; j++) {
-        if ('A' <= in[j] && in[j] <= 'C') in[j] = '2';
-        if ('D' <= in[j] && in[j] <= 'F') in[j] = '3';
-        if ('G' <= in[j] && in[j] <= 'I') in[j] = '4';
-        if ('J' <= in[j] && in[j] <= 'L') in[j] = '5';
-        if ('M' <= in[j] && in[j] <= 'O') in[j] = '6';
-        if ('P' <= in[j] && in[j] <= 'S') in[j] = '7';
-        if ('T' <= in[j] && in[j] <= 'V') in[j] = '8';
-        if ('W' <= in[j] && in[j] <= 'Y') in[j] = '9';
+        if ('A' <= in[j] && in[j] <= 'C')
+          in[j] = '2';
+        if ('D' <= in[j] && in[j] <= 'F')
+          in[j] = '3';
+        if ('G' <= in[j] && in[j] <= 'I')
+          in[j] = '4';
+        if ('J' <= in[j] && in[j] <= 'L')
+          in[j] = '5';
+        if ('M' <= in[j] && in[j] <= 'O')
+          in[j] = '6';
+        if ('P' <= in[j] && in[j] <= 'S')
+          in[j] = '7';
+        if ('T' <= in[j] && in[j] <= 'V')
+          in[j] = '8';
+        if ('W' <= in[j] && in[j] <= 'Y')
+          in[j] = '9';
       }
       String res = new String(in);
       if (!occ.containsKey(res)) {

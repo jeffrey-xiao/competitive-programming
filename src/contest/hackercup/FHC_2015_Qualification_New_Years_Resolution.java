@@ -20,7 +20,7 @@ public class FHC_2015_Qualification_New_Years_Resolution {
     //out = new PrintWriter(new FileWriter("out.txt"));
 
     int t = readInt();
-    main:
+  main:
     for (int z = 1; z <= t; z++) {
       int p = readInt();
       int c = readInt();
@@ -38,7 +38,6 @@ public class FHC_2015_Qualification_New_Years_Resolution {
             totalP += s[y].p;
             totalC += s[y].c;
             totalF += s[y].f;
-
           }
         }
         if (totalP == p && totalC == c && totalF == f) {

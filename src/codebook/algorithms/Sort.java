@@ -249,7 +249,7 @@ public class Sort {
     int[] b = new int[10000];
 
     for (int j = 0; j < 10000; j++)
-      a[j] = (int) (Math.random() * 10000);
+      a[j] = (int)(Math.random() * 10000);
     System.arraycopy(a, 0, b, 0, a.length);
 
     Arrays.sort(b);
@@ -257,15 +257,14 @@ public class Sort {
 
     assert Arrays.equals(a, b);
 
-
     a = new int[10000];
     b = new int[10000];
 
     for (int j = 0; j < 10000; j++)
-      a[j] = (int) (Math.random() * 10000);
+      a[j] = (int)(Math.random() * 10000);
     System.arraycopy(a, 0, b, 0, a.length);
 
-    int k = (int) (Math.random() * 10000);
+    int k = (int)(Math.random() * 10000);
     Arrays.sort(a);
     int answer = b[quickSelect(b, 0, b.length - 1, k)];
     assert a[k] == answer;

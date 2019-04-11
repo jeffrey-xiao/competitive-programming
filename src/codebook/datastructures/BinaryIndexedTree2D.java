@@ -84,5 +84,4 @@ public class BinaryIndexedTree2D {
     }
     return s1 * idx * idy + s2 * idx + s3 * idy + s4;
   }
-
 }

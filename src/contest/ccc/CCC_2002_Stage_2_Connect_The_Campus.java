@@ -63,7 +63,6 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
           moves.remove(new Edge(y, 0));
           moves.offer(new Edge(y, matrix[curr][y]));
           minValue[y] = matrix[curr][y];
-
         }
       }
       if (moves.size() == 0)
@@ -132,7 +131,7 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Edge) {
-        Edge e = (Edge) o;
+        Edge e = (Edge)o;
         return dest == e.dest;
       }
       return false;

@@ -63,7 +63,6 @@ public class USACO_2012_Meet_And_Greet {
         count++;
     }
     System.out.println(count - 1);
-
   }
 
   static String next() throws IOException {

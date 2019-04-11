@@ -26,7 +26,7 @@ public class Uva_11183_Teen_Girl_Squad {
     // br = new BufferedReader(new FileReader("in.txt"));
     // out = new PrintWriter(new FileWriter("out.txt"));
     int t = readInt();
-    main:
+  main:
     for (int qq = 1; qq <= t; qq++) {
       n = readInt();
       m = readInt();
@@ -52,7 +52,6 @@ public class Uva_11183_Teen_Girl_Squad {
             continue;
           if (min[ry] == null || min[ry].c > edge.c) {
             min[ry] = edge;
-
           }
         }
         adj = new ArrayList<ArrayList<Edge>>();
@@ -97,7 +96,6 @@ public class Uva_11183_Teen_Girl_Squad {
             }
           }
         }
-
       }
       out.printf("Case #%d: %d\n", qq, res);
     }

@@ -37,6 +37,5 @@ public class USACO_2014_Ski_Course_Design {
       }
       System.out.println(minCost);
     }
-
   }
 }

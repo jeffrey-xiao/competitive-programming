@@ -32,7 +32,7 @@ public class SparseTable {
 
     n = readInt();
     q = readInt();
-    ln = 1 + (int) (Math.ceil(Math.log(n) / Math.log(2)));
+    ln = 1 + (int)(Math.ceil(Math.log(n) / Math.log(2)));
 
     m = new int[n][ln];
 
@@ -45,7 +45,7 @@ public class SparseTable {
     for (int i = 0; i < q; i++) {
       int a = readInt() - 1;
       int b = readInt() - 1;
-      int sz = (int) (Math.log(b - a + 1) / Math.log(2));
+      int sz = (int)(Math.log(b - a + 1) / Math.log(2));
       out.println(Math.min(m[a][sz], m[b - (1 << sz) + 1][sz]));
     }
 

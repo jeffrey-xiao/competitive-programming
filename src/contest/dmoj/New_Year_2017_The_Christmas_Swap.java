@@ -45,7 +45,7 @@ public class New_Year_2017_The_Christmas_Swap {
   }
 
   static int compute(int index) {
-    int lo = 1, hi = count(in, (char) (index + '0'));
+    int lo = 1, hi = count(in, (char)(index + '0'));
 
     while (lo <= hi) {
       int mid = (lo + hi) >> 1;

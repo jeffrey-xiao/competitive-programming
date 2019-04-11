@@ -26,7 +26,7 @@ public class IOI_1996_Sorting_A_Three_Valued_Sequence {
     int indexOne = 0;
     int count = 0;
     ArrayList<String> output = new ArrayList<String>();
-    main:
+  main:
     for (int x = num - 1; numOfOne > 0 && x > indexOne; x--) {
       if (seq[x] == 1) {
         for (int y = 0; y < numOfOne; y++) {

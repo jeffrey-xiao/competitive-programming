@@ -60,7 +60,6 @@ public class MockCCC_2015_J5 {
           Integer c2 = bs(yC.get(y), Math.min(nx, x), false);
           res += c1 - Math.max(0, c2) + 1;
         }
-
       }
       x = nx;
       y = ny;

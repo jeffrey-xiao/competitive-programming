@@ -23,5 +23,4 @@ public class Woburn_Challenge_2001_Mission_Impossible_3 {
       return 1;
     return gcf(b, a % b);
   }
-
 }

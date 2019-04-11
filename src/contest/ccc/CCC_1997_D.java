@@ -29,7 +29,6 @@ public class CCC_1997_D {
         }
         System.out.println();
       }
-
     }
   }
 }

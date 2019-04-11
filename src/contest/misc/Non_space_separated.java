@@ -34,7 +34,5 @@ public class Non_space_separated {
       BigInteger curr = new BigInteger(s.substring(0, x + 1));
       getSums(s.substring(x + 1, s.length()), i.add(curr));
     }
-
   }
-
 }

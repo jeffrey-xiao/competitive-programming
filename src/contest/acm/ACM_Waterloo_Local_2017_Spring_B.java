@@ -20,10 +20,10 @@ public class ACM_Waterloo_Local_2017_Spring_B {
     ArrayList<Long> primes = new ArrayList<Long>();
 
     for (long i = 2; i < 65000; i++) {
-      if (!prime[(int) i]) {
+      if (!prime[(int)i]) {
         primes.add(i);
         for (long j = i * i; j < 65000; j += i) {
-          prime[(int) j] = true;
+          prime[(int)j] = true;
         }
       }
     }
@@ -34,7 +34,7 @@ public class ACM_Waterloo_Local_2017_Spring_B {
       long n = readLong();
       long j = Math.max(2, n) - 1;
 
-      inner:
+    inner:
       while (true) {
         j++;
         for (long p : primes) {

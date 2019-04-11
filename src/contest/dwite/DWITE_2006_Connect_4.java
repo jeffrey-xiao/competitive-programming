@@ -12,7 +12,7 @@ public class DWITE_2006_Connect_4 {
   static int[] movey = {-1, 0, 1, -1, 1, -1, 0, 1};
 
   public static void main(String[] args) throws IOException {
-    main:
+  main:
     for (int t = 0; t < 5; t++) {
       int[] index = new int[7];
       char[][] grid = new char[6][7];

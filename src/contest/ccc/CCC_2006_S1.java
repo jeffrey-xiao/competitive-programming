@@ -9,15 +9,15 @@ public class CCC_2006_S1 {
 
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   static StringTokenizer st;
-  static char[] dom = new char[]{'A', 'B', 'C', 'D', 'E'};
-  static char[] rec = new char[]{'a', 'b', 'c', 'd', 'e'};
+  static char[] dom = new char[] {'A', 'B', 'C', 'D', 'E'};
+  static char[] rec = new char[] {'a', 'b', 'c', 'd', 'e'};
 
   public static void main(String[] args) throws IOException {
     String s1 = next();
     String s2 = next();
 
     int n = readInt();
-    main:
+  main:
     for (int x = 0; x < n; x++) {
       String baby = next();
       for (int y = 0; y < 5; y++) {

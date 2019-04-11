@@ -134,7 +134,7 @@ public class New_Year_Leftover_Eggnog {
     @Override
     public boolean equals(Object o) {
       if (o instanceof State) {
-        State p = (State) o;
+        State p = (State)o;
         return p.x == x && p.y == y;
       }
       return false;

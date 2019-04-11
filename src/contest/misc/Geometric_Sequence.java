@@ -12,7 +12,6 @@ public class Geometric_Sequence {
     for (int x = 0; x < nums.length; x++)
       nums[x] = scan.nextDouble();
     Arrays.sort(nums, new Comparator<Double>() {
-
       @Override
       public int compare(Double o1, Double o2) {
         if (Math.abs(o1) < Math.abs(o2))
@@ -39,5 +38,4 @@ public class Geometric_Sequence {
     }
     System.out.println(maxRatio);
   }
-
 }

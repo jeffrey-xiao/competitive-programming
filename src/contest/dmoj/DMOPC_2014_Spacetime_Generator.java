@@ -22,8 +22,8 @@ public class DMOPC_2014_Spacetime_Generator {
     pr.println(n);
     pr.println(10000);
     for (int i = 0; i < n; i++) {
-      int x = (int) (Math.random() * 9999);
-      int y = (int) (Math.random() * 9999 + 1);
+      int x = (int)(Math.random() * 9999);
+      int y = (int)(Math.random() * 9999 + 1);
       if (done[x][y]) {
         i--;
         continue;

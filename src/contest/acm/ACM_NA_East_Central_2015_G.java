@@ -31,8 +31,8 @@ public class ACM_NA_East_Central_2015_G {
     dp = new long[M][8];
 
     for (int i = 0; i < K; i++) {
-      int a = (int) readDouble();
-      int b = (int) readDouble();
+      int a = (int)readDouble();
+      int b = (int)readDouble();
       taken[a][b] = true;
     }
 
@@ -41,7 +41,7 @@ public class ACM_NA_East_Central_2015_G {
         for (int j = 0; j < 8; j++) {
           int[] p = getPoss(j);
           boolean valid = true;
-          for (int k = 0; k < N; ) {
+          for (int k = 0; k < N;) {
             if (p[k] == 0)
               k++;
             else if (p[k] == 1 && (k == N - 1 || p[k + 1] == 0)) {

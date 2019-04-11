@@ -26,21 +26,21 @@ public class CCC_2002_S5 {
       // get x point on height edge
       x = (z * h) / slope + sx;
       // get the height and width of the blocks
-      int closeY = (int) ((int) ((y - h / 2) / h + 1) * h);
-      int closeX = (int) ((int) ((x - w / 2) / w + 1) * w);
+      int closeY = (int)((int)((y - h / 2) / h + 1) * h);
+      int closeX = (int)((int)((x - w / 2) / w + 1) * w);
       if (Math.abs(closeY - y) < 5) {
         if (closeY != y) {
-          System.out.println(z - 1 + (int) (y / h));
+          System.out.println(z - 1 + (int)(y / h));
           return;
         }
-        System.out.println(z - 1 + (int) (y / h) - 1);
+        System.out.println(z - 1 + (int)(y / h) - 1);
         return;
       } else if (Math.abs(closeX - x) < 5) {
         if (closeX != x) {
-          System.out.println(z - 1 + (int) (x / w));
+          System.out.println(z - 1 + (int)(x / w));
           return;
         }
-        System.out.println(z - 1 + (int) (x / w) - 1);
+        System.out.println(z - 1 + (int)(x / w) - 1);
         return;
       }
     }

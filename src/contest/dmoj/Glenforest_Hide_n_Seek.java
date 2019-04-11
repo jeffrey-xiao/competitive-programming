@@ -40,11 +40,11 @@ public class Glenforest_Hide_n_Seek {
         if (g[i][j] == 'G') {
           X[0] = i;
           Y[0] = j;
-          g[i][j] = (char) 0;
+          g[i][j] = (char)0;
         } else if (g[i][j] == 'H') {
           X[index] = i;
           Y[index] = j;
-          g[i][j] = (char) index;
+          g[i][j] = (char)index;
           index++;
         }
       }

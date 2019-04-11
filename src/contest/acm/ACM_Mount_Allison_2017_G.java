@@ -138,7 +138,7 @@ public class ACM_Mount_Allison_2017_G {
     @Override
     public boolean equals(Object o) {
       if (o instanceof Pair) {
-        Pair p = (Pair) o;
+        Pair p = (Pair)o;
         return p.x == x && p.y == y;
       }
       return false;

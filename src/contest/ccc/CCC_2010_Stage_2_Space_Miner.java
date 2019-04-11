@@ -46,13 +46,13 @@ public class CCC_2010_Stage_2_Space_Miner {
           double dist1 = Math.sqrt(dx1 * dx1 + dy1 * dy1 + dz1 * dz1);
           double dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2 + dz2 * dz2);
           if (dist1 <= minD + p[j].r || dist2 <= minD + p[j].r) {
-            total += (int) p[j].v;
+            total += (int)p[j].v;
             p[j].collected = true;
           }
         } else {
           double dist = Math.sqrt(a * x1 * x1 + b * x1 + c);
           if (dist <= minD + p[j].r) {
-            total += (int) p[j].v;
+            total += (int)p[j].v;
             p[j].collected = true;
           }
         }

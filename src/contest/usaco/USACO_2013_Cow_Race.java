@@ -44,7 +44,7 @@ public class USACO_2013_Cow_Race {
       if (state == 0) {
 
         count++;
-        state = (byte) (distance < 0 ? -1 : 1);
+        state = (byte)(distance < 0 ? -1 : 1);
       } else if (state == 1 && distance < 0) {
         count++;
         state = -1;

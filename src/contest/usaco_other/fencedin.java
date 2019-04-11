@@ -66,9 +66,9 @@ public class fencedin {
 
     while (i <= N || j <= M) {
       if ((j == M + 1) || (i <= N && length[i] < height[j])) {
-        ans += length[i++] * (long) (i <= 1 || j <= 1 ? M : M - j + 1);
+        ans += length[i++] * (long)(i <= 1 || j <= 1 ? M : M - j + 1);
       } else {
-        ans += height[j++] * (long) (i <= 1 || j <= 1 ? N : N - i + 1);
+        ans += height[j++] * (long)(i <= 1 || j <= 1 ? N : N - i + 1);
       }
     }
 

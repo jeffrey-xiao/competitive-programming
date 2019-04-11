@@ -14,7 +14,6 @@ public class DMOPC_2014_Aurora {
   static PrintWriter pr;
   static StringTokenizer st;
 
-  @SuppressWarnings("unused")
   public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
     pr = new PrintWriter(new OutputStreamWriter(System.out));

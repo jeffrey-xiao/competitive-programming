@@ -70,7 +70,6 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
         }
         out.println();
       }
-
     }
 
     out.close();
@@ -147,7 +146,7 @@ public class Woburn_Challenge_2016_Puzzle_Rooms {
 
     public boolean equals(Object o) {
       if (o instanceof Point) {
-        Point p = (Point) o;
+        Point p = (Point)o;
         return r == p.r && c == p.c;
       }
       return false;

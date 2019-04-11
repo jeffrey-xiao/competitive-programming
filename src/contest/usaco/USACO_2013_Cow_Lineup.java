@@ -47,7 +47,6 @@ public class USACO_2013_Cow_Lineup {
       lineup.put(nextCow, 1);
     else
       lineup.put(nextCow, lineup.get(nextCow) + 1);
-
   }
 
   static String next() throws IOException {

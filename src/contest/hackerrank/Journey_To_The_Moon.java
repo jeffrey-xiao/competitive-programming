@@ -38,7 +38,7 @@ public class Journey_To_The_Moon {
     ArrayList<Long> sz = new ArrayList<Long>();
     for (int i = 0; i < n; i++)
       if (!v[i])
-        sz.add((long) dfs(i));
+        sz.add((long)dfs(i));
     for (int i = 0; i < sz.size(); i++)
       if (i > 0)
         sz.set(i, sz.get(i - 1) + sz.get(i));

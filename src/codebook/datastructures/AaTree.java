@@ -22,7 +22,7 @@ public class AaTree {
     long c = System.currentTimeMillis();
     TreeSet<Integer> hs = new TreeSet<Integer>();
     for (int x = 0; x < 100000; x++) {
-      int ran = (int) (Math.random() * (100000)) + 5;
+      int ran = (int)(Math.random() * (100000)) + 5;
       hs.add(ran);
       t.add(ran);
     }
@@ -218,5 +218,4 @@ public class AaTree {
       this.level = 1;
     }
   }
-
 }

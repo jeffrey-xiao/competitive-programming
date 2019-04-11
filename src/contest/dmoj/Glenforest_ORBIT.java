@@ -125,8 +125,7 @@ public class Glenforest_ORBIT {
 
     int left, right, max, total;
 
-    Node() {
-    }
+    Node() {}
 
     Node(int left, int right, int max, int total) {
       this.left = left;

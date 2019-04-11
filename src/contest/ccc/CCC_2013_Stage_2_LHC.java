@@ -78,7 +78,7 @@ public class CCC_2013_Stage_2_LHC {
     // CENTERS
     ArrayList<Integer> centers = new ArrayList<Integer>();
     double split = (path.size() - 1) / 2.0d;
-    for (int x = (int) Math.floor(split); x <= (int) Math.ceil(split); x++)
+    for (int x = (int)Math.floor(split); x <= (int)Math.ceil(split); x++)
       centers.add(path.get(x));
     for (int x = 0; x < centers.size() - 1; x++) {
       int a = centers.get(x);
@@ -103,7 +103,7 @@ public class CCC_2013_Stage_2_LHC {
         v[i] = true;
         long add = dfs(i, 1);
 
-        currTotal += (add) * currPaths;
+        currTotal += (add)*currPaths;
         currPaths += add;
       }
       sum = currTotal;
@@ -122,7 +122,6 @@ public class CCC_2013_Stage_2_LHC {
         if (currSum != 0)
           sum *= currSum;
       }
-
     }
     System.out.println(pathLength + 1 + " " + sum);
   }

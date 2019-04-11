@@ -88,6 +88,5 @@ public class CCC_2005_Stage_2_The_Great_Spamway_Strike {
     public int compareTo(State o) {
       return (depth * 10 * 2 + lagTime * 2 + lag[index]) - (o.depth * 10 * 2 + o.lagTime * 2 + lag[o.index]);
     }
-
   }
 }
