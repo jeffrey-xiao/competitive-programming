@@ -61,7 +61,6 @@ public class GCJ_2019_Round_1A_C {
     }
   }
 
-
   static class Node {
     private Node[] child;
     private int count;
@@ -71,7 +70,6 @@ public class GCJ_2019_Round_1A_C {
       count = 0;
     }
   }
-
 
   static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())
