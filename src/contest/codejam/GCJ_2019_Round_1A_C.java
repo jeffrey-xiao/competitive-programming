@@ -3,14 +3,15 @@ package codejam;
 import java.io.*;
 import java.util.*;
 
-public class GCJ_2019_Qualification_A {
+public class GCJ_2019_Round_1A_C {
 
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
 
-  static int T;
-  static String N;
+  static int T, N;
+  static Node root;
+  static final int SHIFT = 'A';
 
   public static void main(String[] args) throws IOException {
     br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,29 +20,58 @@ public class GCJ_2019_Qualification_A {
     // out = new PrintWriter(new FileWriter("out.txt"));
 
     T = readInt();
-
     for (int t = 1; t <= T; t++) {
-      N = next();
-      StringBuilder A = new StringBuilder(), B = new StringBuilder();
-      for (int i = 0; i < N.length(); i++) {
-        if (N.charAt(i) == '4') {
-          A.append((char)(N.charAt(i) - 1));
-          B.append('1');
-        } else {
-          A.append(N.charAt(i));
-          if (B.length() != 0) {
-            B.append('0');
-          }
-        }
+      N = readInt();
+      root = new Node();
+      for (int i = 0; i < N; i++) {
+        String word = next();
+        addWord(word);
       }
-      if (B.length() == 0) {
-        B.append('0');
-      }
-      out.printf("Case #%d: %s %s%n", t, A, B);
+
+      out.printf("Case #%d: %d\n", t, solve(root));
     }
 
     out.close();
   }
+
+  static int solve(Node curr) {
+    int total = 0;
+    int children = 0;
+    for (int i = 0; i < 26; i++) {
+      if (curr.child[i] != null) {
+        children += solve(curr.child[i]);
+      }
+    }
+    if (curr.count == 0) {
+      return children;
+    } else if (curr.count - children >= 2) {
+      return children + 2;
+    } else {
+      return children;
+    }
+  }
+
+  static void addWord(String word) {
+    Node curr = root;
+    for (int i = word.length() - 1; i >= 0; i--) {
+      if (curr.child[word.charAt(i) - SHIFT] == null)
+        curr.child[word.charAt(i) - SHIFT] = new Node();
+      curr = curr.child[word.charAt(i) - SHIFT];
+      curr.count++;
+    }
+  }
+
+
+  static class Node {
+    private Node[] child;
+    private int count;
+
+    Node() {
+      child = new Node[26];
+      count = 0;
+    }
+  }
+
 
   static String next() throws IOException {
     while (st == null || !st.hasMoreTokens())

@@ -1,7 +1,9 @@
+package codejam;
+
 import java.io.*;
 import java.util.*;
 
-public class D {
+public class GCJ_2019_Qualification_D {
 
   static BufferedReader br;
   static PrintWriter out;
