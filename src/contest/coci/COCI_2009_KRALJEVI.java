@@ -44,7 +44,7 @@ public class COCI_2009_KRALJEVI {
     for (int i = 1; i <= R; i++)
       grid[i] = (" " + next()).toCharArray();
 
-    out.printf("%d %d\n", compute('M'), compute('S'));
+    out.printf("%d %d%n", compute('M'), compute('S'));
     out.close();
   }
 

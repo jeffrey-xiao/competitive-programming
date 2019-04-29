@@ -48,7 +48,7 @@ public class Almost_Sorted {
       return;
     }
     if (swap && index1 != -1 && index2 != -1 && a[index1] == b[index2] && a[index2] == b[index1]) {
-      System.out.printf("yes\nswap %d %d\n", index1 + 1, index2 + 1);
+      System.out.printf("yes%nswap %d %d%n", index1 + 1, index2 + 1);
       return;
     }
     int i = 0;
@@ -66,7 +66,7 @@ public class Almost_Sorted {
     }
     if (reverse && (i == 0 || a[i - 1] < a[j]) && (j == n - 1 || a[j + 1] > a[i])) {
       System.out.println("yes");
-      System.out.printf("reverse %d %d\n", i + 1, j + 1);
+      System.out.printf("reverse %d %d%n", i + 1, j + 1);
     } else {
       System.out.println("no");
     }

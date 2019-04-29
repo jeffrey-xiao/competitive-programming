@@ -38,7 +38,7 @@ public class TLE_Power_Ranking {
     Arrays.sort(users);
 
     for (int i = 0; i < N; i++)
-      out.printf("%d. %s\n", i + 3, users[i].name);
+      out.printf("%d. %s%n", i + 3, users[i].name);
 
     out.close();
   }

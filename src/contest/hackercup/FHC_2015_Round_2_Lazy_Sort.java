@@ -65,7 +65,7 @@ public class FHC_2015_Round_2_Lazy_Sort {
       }
       if (l > r)
         valid = true;
-      out.printf("Case #%d: %s\n", q, valid ? "yes" : "no");
+      out.printf("Case #%d: %s%n", q, valid ? "yes" : "no");
     }
 
     out.close();

@@ -53,7 +53,7 @@ public class COCI_2016_JETPACK {
         }
         out.println(press.size());
         while (!press.isEmpty())
-          out.printf("%d %d\n", press.pop() - 1, 1);
+          out.printf("%d %d%n", press.pop() - 1, 1);
         out.close();
         return;
       }

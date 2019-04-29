@@ -81,7 +81,7 @@ public class FHC_2015_Qualification_Laser_Maze {
       while (!q.isEmpty()) {
         Point curr = q.poll();
         if (curr.x == ex && curr.y == ey) {
-          out.printf("Case #%d: %d\n", t, curr.time);
+          out.printf("Case #%d: %d%n", t, curr.time);
           continue main;
         }
         for (int z = 0; z < 4; z++) {
@@ -95,7 +95,7 @@ public class FHC_2015_Qualification_Laser_Maze {
           q.offer(new Point(nx, ny, curr.time + 1));
         }
       }
-      out.printf("Case #%d: impossible\n", t);
+      out.printf("Case #%d: impossible%n", t);
     }
     out.close();
   }

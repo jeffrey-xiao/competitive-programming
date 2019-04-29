@@ -62,7 +62,7 @@ public class MinArborescence {
           edgesAdded++;
         }
       if (edgesAdded < sz - 1) {
-        out.printf("NO MINIMUM ARBORESCENCE FOUND\n");
+        out.printf("NO MINIMUM ARBORESCENCE FOUND%n");
         return;
       }
       v = new boolean[n];
@@ -96,7 +96,7 @@ public class MinArborescence {
         }
       }
     }
-    out.printf("The minimum arborescence is %d\n", res);
+    out.printf("The minimum arborescence is %d%n", res);
     out.close();
   }
 

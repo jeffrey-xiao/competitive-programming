@@ -83,7 +83,7 @@ public class StableMarriage {
       }
     }
     for (int i = 0; i < n; i++)
-      out.printf("Woman %d gets married with man %d\n", i, womenChoice[i]);
+      out.printf("Woman %d gets married with man %d%n", i, womenChoice[i]);
     out.close();
   }
 

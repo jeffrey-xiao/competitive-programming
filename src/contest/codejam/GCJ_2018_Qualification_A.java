@@ -37,7 +37,7 @@ public class GCJ_2018_Qualification_A {
         for (int i = shots.size() - 1; i >= 0; i--) {
           if (i == 0) {
             if (shots.get(i) == 0) {
-              out.printf("Case #%d: IMPOSSIBLE\n", t);
+              out.printf("Case #%d: IMPOSSIBLE%n", t);
               continue outer;
             } else {
               shots.set(i, shots.get(i) - 1);
@@ -55,7 +55,7 @@ public class GCJ_2018_Qualification_A {
           }
         }
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
 
     out.close();

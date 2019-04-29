@@ -128,7 +128,7 @@ public class IOI_2005_Polish_Flag {
         innerLo = r + 1;
       }
     }
-    out.printf("%d %d %d %d %d %d\n", lWhite, lRed, bWhite, bRed, rWhite, rRed);
+    out.printf("%d %d %d %d %d %d%n", lWhite, lRed, bWhite, bRed, rWhite, rRed);
     out.close();
   }
 

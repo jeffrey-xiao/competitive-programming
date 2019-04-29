@@ -16,8 +16,8 @@ public class CCC_2005_J1 {
     int w = readInt();
     int a = Math.max(0, d - 100) * 25 + 15 * n + 20 * w;
     int b = Math.max(0, d - 250) * 45 + 35 * n + 25 * w;
-    System.out.printf("Plan A costs %d cents\n", a);
-    System.out.printf("Plan B costs %d cents\n", b);
+    System.out.printf("Plan A costs %d cents%n", a);
+    System.out.printf("Plan B costs %d cents%n", b);
     if (a < b)
       System.out.println("Plan A is cheapest.");
     else if (a == b)

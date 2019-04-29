@@ -52,7 +52,7 @@ public class CCC_1999_Stage_2_Cant_Get_There {
         double b = y - m * x;
         if (ey == m * ex + b && (((dir == 0 || dir == 1) && ey >= y) || (dir == 2 || dir == 3) && ey <= y)) {
           count += Math.abs(ey - prevy);
-          System.out.printf("B can be reached from A after %d move(s).\n", count);
+          System.out.printf("B can be reached from A after %d move(s).%n", count);
           break;
         }
         if (dir == 0) {

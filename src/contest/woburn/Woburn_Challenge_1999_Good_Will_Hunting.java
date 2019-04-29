@@ -18,7 +18,7 @@ public class Woburn_Challenge_1999_Good_Will_Hunting {
       }
       if (r == 0.1)
         ex = -ex;
-      System.out.printf("%.3f%s\n", x, ex == 0 ? "" : " x 10^" + ex);
+      System.out.printf("%.3f%s%n", x, ex == 0 ? "" : " x 10^" + ex);
       x = scan.nextDouble();
     }
   }

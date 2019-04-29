@@ -45,7 +45,7 @@ public class COCI_2007_LIGA {
             if (d != -1)
               i = d;
             if (x == y + z + i && (e == -1 || y * 3 + z == e) && (x - y - z >= 0) && i <= 100) {
-              System.out.printf("%d %d %d %d %d\n", x, y, z, i, y * 3 + z);
+              System.out.printf("%d %d %d %d %d%n", x, y, z, i, y * 3 + z);
               break main;
             }
           }

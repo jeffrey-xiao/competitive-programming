@@ -71,7 +71,7 @@ public class Nim {
             break;
           }
         }
-        out.printf("The computer removes %d coins from pile %d\n", taken, pile);
+        out.printf("The computer removes %d coins from pile %d%n", taken, pile);
 
         a[pile] -= taken;
         sum -= taken;

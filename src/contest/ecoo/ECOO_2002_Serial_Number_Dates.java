@@ -43,8 +43,8 @@ public class ECOO_2002_Serial_Number_Dates {
       min %= 60;
       d.minute = min;
       d.second = seconds;
-      System.out.printf("year = %d month = %d day = %d\n", d.year, d.month, d.day);
-      System.out.printf("time is: %2d:%02d:%02d\n\n", d.hour, d.minute, d.second);
+      System.out.printf("year = %d month = %d day = %d%n", d.year, d.month, d.day);
+      System.out.printf("time is: %2d:%02d:%02d%n%n", d.hour, d.minute, d.second);
     }
   }
 

@@ -33,7 +33,7 @@ public class GCJ_2016_Round_1A_A {
         else
           res = in[i] + res;
       }
-      out.printf("Case #%d: %s\n", t, res);
+      out.printf("Case #%d: %s%n", t, res);
     }
 
     out.close();

@@ -64,7 +64,7 @@ public class WOC_29_E {
         curr = next;
       }
 
-      out.printf("%d/%d\n", bestNum + bestDen * 3, bestDen);
+      out.printf("%d/%d%n", bestNum + bestDen * 3, bestDen);
     } else {
       BigDecimal best = PI;
       long num = 0;
@@ -78,7 +78,7 @@ public class WOC_29_E {
           den = i;
         }
       }
-      out.printf("%d/%d\n", num, den);
+      out.printf("%d/%d%n", num, den);
     }
 
     out.close();

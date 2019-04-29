@@ -64,9 +64,9 @@ public class Bloomberg_Codecon_2017_B {
       }
     }
     if (winners.size() > 1)
-      out.printf("tie %d\n", score);
+      out.printf("tie %d%n", score);
     else
-      out.printf("%d %d\n", winners.get(0) + 1, score);
+      out.printf("%d %d%n", winners.get(0) + 1, score);
     out.close();
   }
 

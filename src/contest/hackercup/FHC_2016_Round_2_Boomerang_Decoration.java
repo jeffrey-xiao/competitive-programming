@@ -78,7 +78,7 @@ public class FHC_2016_Round_2_Boomerang_Decoration {
         else
           ans = 1;
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
 
     out.close();

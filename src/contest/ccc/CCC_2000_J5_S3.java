@@ -61,7 +61,7 @@ public class CCC_2000_J5_S3 {
     String s1 = readLine();
     String s2 = readLine();
     while (!s1.equals("The End")) {
-      System.out.printf("%s surf from %s to %s.\n", bfs(rm.get(s1), rm.get(s2)) ? "Can" : "Can't", s1, s2);
+      System.out.printf("%s surf from %s to %s.%n", bfs(rm.get(s1), rm.get(s2)) ? "Can" : "Can't", s1, s2);
       s1 = readLine();
       if (br.ready())
         s2 = readLine();

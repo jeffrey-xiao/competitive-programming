@@ -85,7 +85,7 @@ public class CCC_2003_Stage_2_Cheap_Gas {
       if (min == 1 << 30)
         System.out.println("Stranded on the shoulder");
       else
-        System.out.printf("%.2f\n", min);
+        System.out.printf("%.2f%n", min);
     }
   }
 

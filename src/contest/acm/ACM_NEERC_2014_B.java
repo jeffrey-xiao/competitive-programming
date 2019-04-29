@@ -97,7 +97,7 @@ public class ACM_NEERC_2014_B {
     out.println("Yes");
 
     for (int i = 0; i < K; i++)
-      out.printf("%d %d\n", C1[i], C2[i]);
+      out.printf("%d %d%n", C1[i], C2[i]);
 
     out.close();
   }

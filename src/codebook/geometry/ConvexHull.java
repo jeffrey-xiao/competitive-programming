@@ -56,7 +56,7 @@ public class ConvexHull {
     l.addAll(u);
 
     for (Point p : l)
-      out.printf("(%d, %d)\n", p.x, p.y);
+      out.printf("(%d, %d)%n", p.x, p.y);
 
     out.println();
     out.close();

@@ -30,7 +30,7 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
       K = readInt();
 
       if (K >= N || K >= M)
-        out.printf("Case #%d: %d\n", t, -1);
+        out.printf("Case #%d: %d%n", t, -1);
       else {
         int min = 1 << 30;
         if (2 * K + 3 <= M && K < N)
@@ -41,7 +41,7 @@ public class FHC_2017_Round_2_Subtle_Sabotage {
           min = Math.min(min, 2 + ((K == 1) ? 3 : 2));
         if (2 * K + 1 <= M && N >= 1 + K + 1 + K + 1)
           min = Math.min(min, 2 + ((K == 1) ? 3 : 2));
-        out.printf("Case #%d: %d\n", t, min == 1 << 30 ? -1 : min);
+        out.printf("Case #%d: %d%n", t, min == 1 << 30 ? -1 : min);
       }
     }
 

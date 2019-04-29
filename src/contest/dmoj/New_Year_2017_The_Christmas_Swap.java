@@ -40,7 +40,7 @@ public class New_Year_2017_The_Christmas_Swap {
       }
     }
 
-    out.printf("%d %d\n", compute(1), compute(0));
+    out.printf("%d %d%n", compute(1), compute(0));
     out.close();
   }
 

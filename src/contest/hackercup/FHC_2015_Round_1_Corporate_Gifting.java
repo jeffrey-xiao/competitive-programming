@@ -41,7 +41,7 @@ public class FHC_2015_Round_1_Corporate_Gifting {
           adj.get(a).add(x);
       }
       compute(0);
-      out.printf("Case #%d: %d\n", qq, dp1[0].value);
+      out.printf("Case #%d: %d%n", qq, dp1[0].value);
     }
 
     out.close();

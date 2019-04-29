@@ -37,7 +37,7 @@ public class Bad_Paths {
       long tree = (long)val * (val - 1) % MOD;
       long ans = ((total - tree) % MOD + MOD) % MOD;
       ans = divMod(ans, 2, MOD);
-      out.printf("%d\n", ans);
+      out.printf("%d%n", ans);
     }
 
     out.close();

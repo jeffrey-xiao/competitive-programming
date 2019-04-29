@@ -20,7 +20,7 @@ public class CCC_2009_J2 {
       for (int y = 0; y <= n / b; y++) {
         for (int z = 0; z <= n / c; z++) {
           if (x * a + y * b + z * c <= n && x + y + z > 0) {
-            System.out.printf("%d Brown Trout, %d Northern Pike, %d Yellow Pickerel\n", x, y, z);
+            System.out.printf("%d Brown Trout, %d Northern Pike, %d Yellow Pickerel%n", x, y, z);
             count++;
           }
         }

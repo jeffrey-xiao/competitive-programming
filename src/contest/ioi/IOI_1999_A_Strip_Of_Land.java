@@ -78,7 +78,7 @@ public class IOI_1999_A_Strip_Of_Land {
         }
       }
     }
-    out.printf("%d %d %d %d\n", loc, lor, hic, hir);
+    out.printf("%d %d %d %d%n", loc, lor, hic, hir);
     out.close();
   }
 

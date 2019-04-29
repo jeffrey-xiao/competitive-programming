@@ -47,7 +47,7 @@ public class FHC_2017_Round_1_Pie_Progress {
             if (j - (k + 1) >= i)
               dp[j] = Math.min(dp[j], dp[j - (k + 1)] + cost[k] + (k + 1) * (k + 1));
       }
-      out.printf("Case #%d: %d\n", t, dp[N]);
+      out.printf("Case #%d: %d%n", t, dp[N]);
     }
 
     out.close();

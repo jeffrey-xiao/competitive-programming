@@ -29,7 +29,7 @@ public class Glenforest_TShirts {
     free -= (b - nb);
     int na = Math.max(0, a - free);
     free -= (a - na);
-    System.out.printf("%.2f\n", na * small + nb * med + nc * large);
+    System.out.printf("%.2f%n", na * small + nb * med + nc * large);
   }
 
   static String next() throws IOException {

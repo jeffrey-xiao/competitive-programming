@@ -47,7 +47,7 @@ public class FHC_2016_Round_2_Carnival_Coins {
           best[i] = Math.max(best[i], best[j] + best[i - j]);
       }
 
-      out.printf("Case #%d: %.15f\n", t, best[n]);
+      out.printf("Case #%d: %.15f%n", t, best[n]);
     }
 
     out.close();

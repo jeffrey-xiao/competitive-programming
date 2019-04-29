@@ -35,7 +35,7 @@ public class FHC_2015_Qualification_Cooking_The_Books {
           swap(curr, x, y);
         }
       }
-      out.printf("Case #%d: %d %d\n", t, min, max);
+      out.printf("Case #%d: %d %d%n", t, min, max);
     }
 
     out.close();

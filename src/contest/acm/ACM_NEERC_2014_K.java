@@ -60,7 +60,7 @@ public class ACM_NEERC_2014_K {
       curr.add(x);
     for (int i = 1; i < N; i++)
       if (curr.contains(minDist[p.get(0)][i])) {
-        out.printf("%d %d\n", p.get(0) + 1, minDist[p.get(0)][i] + 1);
+        out.printf("%d %d%n", p.get(0) + 1, minDist[p.get(0)][i] + 1);
         a.add(p.get(0));
         b.add(minDist[p.get(0)][i]);
         for (int x : p) {

@@ -54,7 +54,7 @@ public class Woburn_Challenge_2015_Target_Practice {
       max += occ[i] * score[i];
     }
 
-    out.printf("%d\n%d\n", min, max);
+    out.printf("%d%n%d%n", min, max);
     out.close();
   }
 

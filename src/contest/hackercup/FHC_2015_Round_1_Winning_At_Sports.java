@@ -39,7 +39,7 @@ public class FHC_2015_Round_1_Winning_At_Sports {
       String[] s = next().split("-");
       int a = Integer.parseInt(s[0]);
       int b = Integer.parseInt(s[1]);
-      out.printf("Case #%d: %d %d\n", x, unstress[a][b], unstress[b + 1][b]);
+      out.printf("Case #%d: %d %d%n", x, unstress[a][b], unstress[b + 1][b]);
     }
 
     out.close();

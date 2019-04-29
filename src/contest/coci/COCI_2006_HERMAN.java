@@ -7,7 +7,7 @@ public class COCI_2006_HERMAN {
 
   public static void main(String[] args) {
     double input = scan.nextInt();
-    System.out.printf("%.6f\n", input * input * Math.PI);
+    System.out.printf("%.6f%n", input * input * Math.PI);
     System.out.printf("%.6f", input * input * 2);
   }
 }

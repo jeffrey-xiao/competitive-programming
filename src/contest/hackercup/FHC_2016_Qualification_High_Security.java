@@ -63,7 +63,7 @@ public class FHC_2016_Qualification_High_Security {
         }
         ans += ts.size();
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

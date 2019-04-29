@@ -44,7 +44,7 @@ public class FHC_2017_Qualification_Fighting_The_Zombie {
         }
         ans = Math.max(ans, compute(Integer.parseInt(in[0]), Integer.parseInt(in[1]), offset));
       }
-      out.printf("Case #%d: %.10f\n", t, ans);
+      out.printf("Case #%d: %.10f%n", t, ans);
     }
 
     out.close();

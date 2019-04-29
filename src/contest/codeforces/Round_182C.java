@@ -21,23 +21,23 @@ public class Round_182C {
 
     // terminate add 1
     for (int i = 0; i < 9; i++)
-      out.printf("%d??<>%d\n", i, i + 1);
+      out.printf("%d??<>%d%n", i, i + 1);
 
     // carry
-    out.printf("9??>>??0\n");
+    out.printf("9??>>??0%n");
 
     // terminate carry
-    out.printf("??<>1\n");
+    out.printf("??<>1%n");
 
     // push ? right
     for (int i = 0; i < 10; i++)
-      out.printf("?%d>>%d?\n", i, i);
+      out.printf("?%d>>%d?%n", i, i);
 
     // finished pushing
-    out.printf("?>>??\n");
+    out.printf("?>>??%n");
 
     // begin
-    out.printf(">>?\n");
+    out.printf(">>?%n");
 
     out.close();
   }

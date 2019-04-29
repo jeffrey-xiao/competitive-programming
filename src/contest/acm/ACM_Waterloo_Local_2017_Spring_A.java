@@ -48,9 +48,9 @@ public class ACM_Waterloo_Local_2017_Spring_A {
       }
 
       if ((isA && solve(initial) + score > 0) || (!isA && solve(initial) + score < 0)) {
-        out.printf("Game %d: A wins.\n", i + 1);
+        out.printf("Game %d: A wins.%n", i + 1);
       } else {
-        out.printf("Game %d: B wins.\n", i + 1);
+        out.printf("Game %d: B wins.%n", i + 1);
       }
     }
 

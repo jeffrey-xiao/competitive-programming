@@ -58,7 +58,7 @@ public class CCC_1996_Stage_2_Hoppers {
           continue;
 
         if (x == endx && endy == y) {
-          System.out.printf("Optimal solution takes %d hop(s).\n", moves);
+          System.out.printf("Optimal solution takes %d hop(s).%n", moves);
           continue main;
         }
 

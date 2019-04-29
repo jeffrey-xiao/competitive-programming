@@ -80,7 +80,7 @@ public class Blackrock_B {
     }
 
     for (int i = 0; i < T; i++)
-      out.printf("%s %d\n", toName.get(i), ans[i]);
+      out.printf("%s %d%n", toName.get(i), ans[i]);
 
     out.close();
   }

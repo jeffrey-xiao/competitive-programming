@@ -47,7 +47,7 @@ public class COCI_2016_MAG {
       min = Math.min(min, val[i] = readInt());
 
     if (min != 1)
-      out.printf("%d/%d\n", min, 1);
+      out.printf("%d/%d%n", min, 1);
     else {
       best = new Fraction(min, 1);
       dfs(0, -1);

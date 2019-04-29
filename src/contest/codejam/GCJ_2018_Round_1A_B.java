@@ -55,7 +55,7 @@ public class GCJ_2018_Round_1A_B {
         }
       }
 
-      out.printf("Case #%d: %d\n", t, lo);
+      out.printf("Case #%d: %d%n", t, lo);
     }
 
     out.close();

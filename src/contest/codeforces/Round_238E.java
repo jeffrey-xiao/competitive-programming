@@ -72,13 +72,13 @@ public class Round_238E {
       if (next == -1)
         leftover.push(v);
       else
-        out.printf("%d %d %d\n", u + 1, v + 1, next + 1);
+        out.printf("%d %d %d%n", u + 1, v + 1, next + 1);
     }
 
     while (leftover.size() >= 2) {
       int a = leftover.pop();
       int b = leftover.pop();
-      out.printf("%d %d %d\n", a + 1, u + 1, b + 1);
+      out.printf("%d %d %d%n", a + 1, u + 1, b + 1);
     }
     return leftover.size() == 0 ? -1 : leftover.pop();
   }

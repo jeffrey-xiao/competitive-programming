@@ -120,7 +120,7 @@ public class CCC_2015_Stage_2_Eggscavation {
         }
       } else if (type == 2) {
         int amt = readInt();
-        out.printf("%.5f\n", (query(BIT_SIZE - 1) - query(amt - 1)) / total);
+        out.printf("%.5f%n", (query(BIT_SIZE - 1) - query(amt - 1)) / total);
       }
     }
 

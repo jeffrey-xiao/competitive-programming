@@ -78,9 +78,9 @@ public class MNYC_2017_Skiing_Competition {
       for (int i = 0; i < Q; i++) {
         int val = readInt() - 1;
         if (cost[val] == -1)
-          out.printf("-1\n");
+          out.printf("-1%n");
         else
-          out.printf("%d %d\n", cost[val], min[val]);
+          out.printf("%d %d%n", cost[val], min[val]);
       }
       out.close();
       return;
@@ -165,9 +165,9 @@ public class MNYC_2017_Skiing_Competition {
     for (int i = 0; i < Q; i++) {
       int val = readInt() - 1;
       if (cost[val] == -1)
-        out.printf("-1\n");
+        out.printf("-1%n");
       else
-        out.printf("%d %d\n", cost[val], min[val]);
+        out.printf("%d %d%n", cost[val], min[val]);
     }
     out.close();
   }

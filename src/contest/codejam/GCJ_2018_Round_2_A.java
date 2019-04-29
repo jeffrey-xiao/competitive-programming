@@ -30,7 +30,7 @@ public class GCJ_2018_Round_2_A {
       }
 
       if (B[0] == 0 || B[C - 1] == 0) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue outer;
       }
 
@@ -67,7 +67,7 @@ public class GCJ_2018_Round_2_A {
         curr += B[i];
       }
 
-      out.printf("Case #%d: %d\n", t, maxRows);
+      out.printf("Case #%d: %d%n", t, maxRows);
       for (int i = 0; i < maxRows; i++) {
         for (int j = 0; j < C; j++) {
           out.printf("%c", grid[i][j]);

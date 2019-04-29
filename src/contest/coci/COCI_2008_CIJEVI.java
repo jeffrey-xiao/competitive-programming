@@ -28,19 +28,19 @@ public class COCI_2008_CIJEVI {
         if (g[i][j] != '.')
           continue;
         if (up(i, j) && left(i, j) && down(i, j) && right(i, j))
-          System.out.printf("%d %d +\n", i + 1, j + 1);
+          System.out.printf("%d %d +%n", i + 1, j + 1);
         else if (up(i, j) && down(i, j))
-          System.out.printf("%d %d |\n", i + 1, j + 1);
+          System.out.printf("%d %d |%n", i + 1, j + 1);
         else if (left(i, j) && right(i, j))
-          System.out.printf("%d %d -\n", i + 1, j + 1);
+          System.out.printf("%d %d -%n", i + 1, j + 1);
         else if (down(i, j) && right(i, j))
-          System.out.printf("%d %d 1\n", i + 1, j + 1);
+          System.out.printf("%d %d 1%n", i + 1, j + 1);
         else if (up(i, j) && right(i, j))
-          System.out.printf("%d %d 2\n", i + 1, j + 1);
+          System.out.printf("%d %d 2%n", i + 1, j + 1);
         else if (up(i, j) && left(i, j))
-          System.out.printf("%d %d 3\n", i + 1, j + 1);
+          System.out.printf("%d %d 3%n", i + 1, j + 1);
         else if (down(i, j) && left(i, j))
-          System.out.printf("%d %d 4\n", i + 1, j + 1);
+          System.out.printf("%d %d 4%n", i + 1, j + 1);
       }
     }
   }

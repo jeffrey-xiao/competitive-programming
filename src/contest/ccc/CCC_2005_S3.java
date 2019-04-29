@@ -60,7 +60,7 @@ public class CCC_2005_S3 {
       maxc = Math.max(maxc, sum);
       minc = Math.min(minc, sum);
     }
-    System.out.printf("%d\n%d\n%d\n%d\n%d\n%d", maxe, mine, maxr, minr, maxc, minc);
+    System.out.printf("%d%n%d%n%d%n%d%n%d%n%d", maxe, mine, maxr, minr, maxc, minc);
   }
 
   static String next() throws IOException {

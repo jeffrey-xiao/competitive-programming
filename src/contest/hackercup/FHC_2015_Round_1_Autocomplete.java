@@ -28,7 +28,7 @@ public class FHC_2015_Round_1_Autocomplete {
         total += find(c, 0, root);
         insert(c, 0, root);
       }
-      out.printf("Case #%d: %d\n", k, total);
+      out.printf("Case #%d: %d%n", k, total);
     }
 
     out.close();

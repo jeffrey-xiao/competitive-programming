@@ -62,7 +62,7 @@ public class FHC_2015_Round_2_Autocomplete_Strikes_Back {
         }
         curr.min[1] = curr.depth;
       }
-      out.printf("Case #%d: %d\n", qq, root.min[k]);
+      out.printf("Case #%d: %d%n", qq, root.min[k]);
     }
     out.close();
   }

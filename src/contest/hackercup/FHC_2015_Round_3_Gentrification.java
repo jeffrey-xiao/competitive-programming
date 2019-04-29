@@ -90,7 +90,7 @@ public class FHC_2015_Round_3_Gentrification {
         v = new boolean[2 * idCnt + n];
         ans += match(i) ? 1 : 0;
       }
-      out.printf("Case #%d: %d\n", tt, 2 * idCnt + n - ans);
+      out.printf("Case #%d: %d%n", tt, 2 * idCnt + n - ans);
     }
     out.close();
   }

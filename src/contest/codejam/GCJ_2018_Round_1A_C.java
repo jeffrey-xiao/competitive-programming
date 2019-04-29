@@ -62,7 +62,7 @@ public class GCJ_2018_Round_1A_C {
         ans = Math.max(currAns, ans);
       }
 
-      out.printf("Case #%d: %.9f\n", t, ans);
+      out.printf("Case #%d: %.9f%n", t, ans);
     }
 
     out.close();

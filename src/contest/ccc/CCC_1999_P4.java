@@ -58,11 +58,11 @@ public class CCC_1999_P4 {
         }
       }
       if (win)
-        System.out.printf("Win in %d knight move(s).\n", winMoves);
+        System.out.printf("Win in %d knight move(s).%n", winMoves);
       else if (stale)
-        System.out.printf("Stalemate in %d knight move(s).\n", staleMoves);
+        System.out.printf("Stalemate in %d knight move(s).%n", staleMoves);
       else
-        System.out.printf("Loss in %d knight move(s).\n", pr - 1);
+        System.out.printf("Loss in %d knight move(s).%n", pr - 1);
     }
   }
 

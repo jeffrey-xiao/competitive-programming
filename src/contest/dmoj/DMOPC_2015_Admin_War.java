@@ -33,7 +33,7 @@ public class DMOPC_2015_Admin_War {
       else if (b[i] > a[i])
         cntb++;
     }
-    out.printf("%d %d\n", cnta, cntb);
+    out.printf("%d %d%n", cnta, cntb);
     if (cnta == cntb)
       out.println("Tie");
     else if (cnta > cntb)

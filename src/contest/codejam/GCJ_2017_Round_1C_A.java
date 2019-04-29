@@ -52,7 +52,7 @@ public class GCJ_2017_Round_1C_A {
 
         ans = Math.max(ans, Math.PI * radius * radius + currAns);
       }
-      out.printf("Case #%d: %f\n", t, ans);
+      out.printf("Case #%d: %f%n", t, ans);
     }
 
     out.close();

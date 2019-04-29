@@ -86,10 +86,10 @@ public class TLE_Rock_Paper_Scissors {
         continue;
       }
       if (val[id[u]][id[v]] != -1) {
-        out.printf("%d %d\n", u + 1, val[id[u]][id[v]] - sz[id[u]]);
+        out.printf("%d %d%n", u + 1, val[id[u]][id[v]] - sz[id[u]]);
         continue;
       } else if (val[id[v]][id[u]] != -1) {
-        out.printf("%d %d\n", v + 1, val[id[v]][id[u]] - sz[id[v]]);
+        out.printf("%d %d%n", v + 1, val[id[v]][id[u]] - sz[id[v]]);
         continue;
       } else {
         out.println("Indeterminate");

@@ -15,7 +15,7 @@ public class CCC_1996_Stage_2_Quadtrees {
       Quadtree qt = new Quadtree();
       qt.insert(0, new StringBuilder(next()));
       qt.insert(0, new StringBuilder(next()));
-      System.out.printf("There are %d black pixels.\n", qt.getTotalValue(1024));
+      System.out.printf("There are %d black pixels.%n", qt.getTotalValue(1024));
     }
   }
 

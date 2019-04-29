@@ -40,7 +40,7 @@ public class CCC_2002_Stage_2_Connect_The_Campus {
       matrix[a][b] = 0;
       matrix[b][a] = 0;
     }
-    System.out.printf("%.2f\n", prim());
+    System.out.printf("%.2f%n", prim());
     for (Connection c : conn) {
       System.out.println(c.source + 1 + " " + (c.dest + 1));
     }

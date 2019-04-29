@@ -50,7 +50,7 @@ public class GCJ_2017_Round_1A_A {
           for (int j = 0; j < C; j++)
             grid[i - 1][j] = grid[i][j];
 
-      out.printf("Case #%d:\n", t);
+      out.printf("Case #%d:%n", t);
       for (int i = 0; i < R; i++, out.println())
         for (int j = 0; j < C; j++)
           out.print(grid[i][j]);

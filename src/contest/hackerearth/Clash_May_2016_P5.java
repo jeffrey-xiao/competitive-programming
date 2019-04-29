@@ -41,11 +41,11 @@ public class Clash_May_2016_P5 {
         negativeIndex = i;
     }
     if (zeroIndex != -1) {
-      out.printf("YES\n%d\n%d\n", 1, zeroIndex + 1);
+      out.printf("YES%n%d%n%d%n", 1, zeroIndex + 1);
     } else if (positiveIndex == -1 || negativeIndex == -1) {
-      out.printf("NO\n");
+      out.printf("NO%n");
     } else {
-      out.printf("YES\n%d\n", Math.abs(val[negativeIndex]) + Math.abs(val[positiveIndex]));
+      out.printf("YES%n%d%n", Math.abs(val[negativeIndex]) + Math.abs(val[positiveIndex]));
       for (int i = 0; i < Math.abs(val[negativeIndex]); i++)
         out.printf("%d ", positiveIndex + 1);
       for (int i = 0; i < Math.abs(val[positiveIndex]); i++)

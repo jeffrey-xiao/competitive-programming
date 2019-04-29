@@ -67,7 +67,7 @@ public class FHC_2016_Qualification_Text_Editor {
       for (int n = 0; n < N; n++)
         ans = Math.min(ans, dp[n][K] + words[n].length());
 
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

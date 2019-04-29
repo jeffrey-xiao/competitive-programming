@@ -16,7 +16,7 @@ public class DWITE_2009_Trailing_Bears {
       Point b = new Point(readDouble(), readDouble());
       Point c = new Point(readDouble(), readDouble());
       Point center = circleCenter(a, b, c);
-      System.out.printf("%.2f %.2f\n", center.x, center.y);
+      System.out.printf("%.2f %.2f%n", center.x, center.y);
     }
   }
 

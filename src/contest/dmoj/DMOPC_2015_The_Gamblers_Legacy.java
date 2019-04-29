@@ -26,9 +26,9 @@ public class DMOPC_2015_The_Gamblers_Legacy {
       int val = readInt();
       State s = getCycle(val);
       if (s.length == 1)
-        out.printf("Equilibrium: Bob's investment becomes $%d after %d second(s)!\n", s.val, s.start);
+        out.printf("Equilibrium: Bob's investment becomes $%d after %d second(s)!%n", s.val, s.start);
       else
-        out.printf("Instability: Loop of length %d encountered after %d second(s)!\n", s.length, s.start);
+        out.printf("Instability: Loop of length %d encountered after %d second(s)!%n", s.length, s.start);
     }
 
     out.close();

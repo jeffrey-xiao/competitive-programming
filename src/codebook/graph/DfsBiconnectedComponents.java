@@ -56,13 +56,13 @@ public class DfsBiconnectedComponents {
       out.printf("%d-%d ", s.peek().a + 1, s.peek().b + 1);
       s.pop();
     }
-    out.printf("%d-%d\n", s.peek().a + 1, s.peek().b + 1);
+    out.printf("%d-%d%n", s.peek().a + 1, s.peek().b + 1);
     s.pop();
     for (int i = 0; i < n; i++)
       if (cutVertex[i])
-        out.printf("%d is a cut vertex\n", i + 1);
+        out.printf("%d is a cut vertex%n", i + 1);
     for (Edge e : bridges)
-      out.printf("%d-%d is a bridge\n", e.a, e.b);
+      out.printf("%d-%d is a bridge%n", e.a, e.b);
     out.close();
   }
 
@@ -82,7 +82,7 @@ public class DfsBiconnectedComponents {
             out.printf("%d-%d ", s.peek().a + 1, s.peek().b + 1);
             s.pop();
           }
-          out.printf("%d-%d\n", s.peek().a + 1, s.peek().b + 1);
+          out.printf("%d-%d%n", s.peek().a + 1, s.peek().b + 1);
           s.pop();
         }
         if (low[j] > disc[i])

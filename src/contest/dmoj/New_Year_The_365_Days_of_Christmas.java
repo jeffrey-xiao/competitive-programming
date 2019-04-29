@@ -32,13 +32,13 @@ public class New_Year_The_365_Days_of_Christmas {
 
       if (i % 100 >= 11 && i % 100 <= 13)
         str = "th";
-      out.printf("On the %d%s day of Christmas my true love sent to me:\n", i, str);
+      out.printf("On the %d%s day of Christmas my true love sent to me:%n", i, str);
       s[i] = readLine();
       for (int j = i; j >= 1; j--) {
         if (i > 1 && j == 1)
-          out.printf("and %d %s\n", j, s[j]);
+          out.printf("and %d %s%n", j, s[j]);
         else
-          out.printf("%d %s\n", j, s[j]);
+          out.printf("%d %s%n", j, s[j]);
       }
       out.println();
     }

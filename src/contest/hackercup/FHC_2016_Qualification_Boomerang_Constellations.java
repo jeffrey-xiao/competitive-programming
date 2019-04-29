@@ -45,7 +45,7 @@ public class FHC_2016_Qualification_Boomerang_Constellations {
         for (Map.Entry<Integer, Integer> e : cnt.entrySet())
           ans += (e.getValue() * (e.getValue() - 1));
       }
-      out.printf("Case #%d: %d\n", t, ans / 2);
+      out.printf("Case #%d: %d%n", t, ans / 2);
     }
     out.close();
   }

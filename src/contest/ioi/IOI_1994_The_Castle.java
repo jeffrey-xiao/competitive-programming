@@ -59,7 +59,7 @@ public class IOI_1994_The_Castle {
         }
       }
     }
-    System.out.printf("%d\n%d\n%d\n%d %d %c", counter, max, maxCombo, x1, y1, dir);
+    System.out.printf("%d%n%d%n%d%n%d %d %c", counter, max, maxCombo, x1, y1, dir);
   }
 
   private static int fillGrid(int x, int y, int[][] g, int c, boolean[][] v) {

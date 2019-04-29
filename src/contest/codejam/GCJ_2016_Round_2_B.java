@@ -54,7 +54,7 @@ public class GCJ_2016_Round_2_B {
 
         ans = Math.max(ans, getProb(left, right));
       }
-      out.printf("Case #%d: %f\n", t, ans);
+      out.printf("Case #%d: %f%n", t, ans);
     }
 
     out.close();

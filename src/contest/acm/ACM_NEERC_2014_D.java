@@ -63,7 +63,7 @@ public class ACM_NEERC_2014_D {
     for (; j < poss.size(); j++)
       used.add(poss.get(j).index);
 
-    out.printf("%d %d\n", used.size(), lowVoltage);
+    out.printf("%d %d%n", used.size(), lowVoltage);
     for (int index : used)
       out.print(index + 1 + " ");
     out.println();

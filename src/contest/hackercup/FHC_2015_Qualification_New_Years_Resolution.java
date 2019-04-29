@@ -41,11 +41,11 @@ public class FHC_2015_Qualification_New_Years_Resolution {
           }
         }
         if (totalP == p && totalC == c && totalF == f) {
-          out.printf("Case #%d: yes\n", z);
+          out.printf("Case #%d: yes%n", z);
           continue main;
         }
       }
-      out.printf("Case #%d: no\n", z);
+      out.printf("Case #%d: no%n", z);
     }
     out.close();
   }

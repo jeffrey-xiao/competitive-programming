@@ -53,7 +53,7 @@ public class CCC_2002_Stage_2_Spam {
         nonspamMeasure = Math.round(nonspamMeasure * 1000000.0);
         if (nonspamMeasure % 10 == 5)
           nonspamMeasure -= 5;
-        System.out.printf("%.5f %.5f\n", spamMeasure / 1000000.0, nonspamMeasure / 1000000.0);
+        System.out.printf("%.5f %.5f%n", spamMeasure / 1000000.0, nonspamMeasure / 1000000.0);
         if (spamMeasure > nonspamMeasure)
           System.out.println("spam");
         else

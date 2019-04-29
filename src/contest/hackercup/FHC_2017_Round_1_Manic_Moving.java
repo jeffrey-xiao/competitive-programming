@@ -109,7 +109,7 @@ public class FHC_2017_Round_1_Manic_Moving {
         }
       }
 
-      out.printf("Case #%d: %d\n", t, dp[K][0] >= 1 << 30 ? -1 : dp[K][0]);
+      out.printf("Case #%d: %d%n", t, dp[K][0] >= 1 << 30 ? -1 : dp[K][0]);
     }
 
     out.close();

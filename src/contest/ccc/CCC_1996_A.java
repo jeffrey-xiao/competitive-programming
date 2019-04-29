@@ -27,7 +27,7 @@ public class CCC_1996_A {
         s = "an abundant";
       else
         s = "a deficient";
-      System.out.printf("%d is %s number.\n", x[1], s);
+      System.out.printf("%d is %s number.%n", x[1], s);
     }
   }
 }

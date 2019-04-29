@@ -72,7 +72,7 @@ public class SuffixTree {
       if (curr.child[i] != null) {
         for (int j = 0; j < depth; j++)
           System.out.print("----");
-        System.out.printf("%s\n", input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
+        System.out.printf("%s%n", input.substring(curr.child[i].start, curr.child[i].end == END ? input.length() : curr.child[i].end));
         printTree(curr.child[i], depth + 1);
       }
     }

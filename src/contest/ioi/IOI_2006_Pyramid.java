@@ -66,7 +66,7 @@ public class IOI_2006_Pyramid {
         }
       }
     }
-    out.printf("%d %d\n%d %d\n", minB, minA, minD, minC);
+    out.printf("%d %d%n%d %d%n", minB, minA, minD, minC);
     out.close();
   }
 

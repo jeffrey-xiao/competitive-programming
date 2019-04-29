@@ -67,7 +67,7 @@ public class GCJ_2017_Round_1C_C {
         ans = Math.max(ans, compute(updatedProb));
       }
 
-      out.printf("Case #%d: %.20f\n", t, ans);
+      out.printf("Case #%d: %.20f%n", t, ans);
     }
 
     out.close();

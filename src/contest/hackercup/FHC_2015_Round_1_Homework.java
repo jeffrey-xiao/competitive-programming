@@ -46,7 +46,7 @@ public class FHC_2015_Round_1_Homework {
         if (count[x] == k)
           total++;
 
-      out.printf("Case #%d: %d\n", c, total);
+      out.printf("Case #%d: %d%n", c, total);
     }
 
     out.close();

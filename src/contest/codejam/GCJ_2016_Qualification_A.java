@@ -26,7 +26,7 @@ public class GCJ_2016_Qualification_A {
     for (int t = 1; t <= T; t++) {
       N = readInt();
       if (N == 0) {
-        out.printf("Case #%d: INSOMNIA\n", t);
+        out.printf("Case #%d: INSOMNIA%n", t);
         continue;
       }
       int seen = 0, i = 1;
@@ -37,7 +37,7 @@ public class GCJ_2016_Qualification_A {
           curr /= 10;
         }
       }
-      out.printf("Case #%d: %d\n", t, N * (i - 1));
+      out.printf("Case #%d: %d%n", t, N * (i - 1));
     }
     out.close();
   }

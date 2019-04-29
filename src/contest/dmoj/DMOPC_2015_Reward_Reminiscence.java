@@ -33,7 +33,7 @@ public class DMOPC_2015_Reward_Reminiscence {
           cnt++;
       }
 
-      out.printf("Bob wins $%.2f at IOI!\n", Math.sqrt(N - cnt) * 100);
+      out.printf("Bob wins $%.2f at IOI!%n", Math.sqrt(N - cnt) * 100);
     }
 
     out.close();

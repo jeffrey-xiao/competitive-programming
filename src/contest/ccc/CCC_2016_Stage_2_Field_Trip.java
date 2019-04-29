@@ -61,7 +61,7 @@ public class CCC_2016_Stage_2_Field_Trip {
       }
     }
 
-    out.printf("%d %d\n", ans, minConnections);
+    out.printf("%d %d%n", ans, minConnections);
     out.close();
   }
 

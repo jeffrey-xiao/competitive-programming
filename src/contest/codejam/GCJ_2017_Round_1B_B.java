@@ -64,21 +64,21 @@ public class GCJ_2017_Round_1B_B {
 
       // Cases when not possible to match secondary colors
       if (O > 0 && O + 1 > B) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue main;
       } else {
         B -= O;
         N -= 2 * O;
       }
       if (G > 0 && G + 1 > R) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue main;
       } else {
         R -= G;
         N -= 2 * G;
       }
       if (V > 0 && V + 1 > Y) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue main;
       } else {
         Y -= V;
@@ -105,7 +105,7 @@ public class GCJ_2017_Round_1B_B {
           }
         }
         if (!valid) {
-          out.printf("Case #%d: IMPOSSIBLE\n", t);
+          out.printf("Case #%d: IMPOSSIBLE%n", t);
           continue main;
         }
       }
@@ -137,7 +137,7 @@ public class GCJ_2017_Round_1B_B {
         }
         out.println();
       } else {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
       }
     }
 

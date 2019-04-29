@@ -87,7 +87,7 @@ public class ACM_NAQ_2016_K {
       }
 
       if (solutions == 1) {
-        out.printf("%d %d\n", ansx, ansy);
+        out.printf("%d %d%n", ansx, ansy);
       } else {
         out.println("?");
       }

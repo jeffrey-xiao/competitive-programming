@@ -63,7 +63,7 @@ public class Round_352C {
         int pos = divisors.get(i).peekFirst() - 1;
         if (pos >= 1) {
           update(1, 1, N, 1, pos, i);
-          System.out.printf("update %d %d with %d\n", 1, pos, i);
+          System.out.printf("update %d %d with %d%n", 1, pos, i);
         }
       }
     }
@@ -87,7 +87,7 @@ public class Round_352C {
               else
                 hi = mid - 1;
             }
-            System.out.printf("UPDATING %d to %d with %d\n", i, pos, val[i - 1]);
+            System.out.printf("UPDATING %d to %d with %d%n", i, pos, val[i - 1]);
             if (lo <= pos)
               update(1, 1, N, lo, pos, val[i - 1]);
           }

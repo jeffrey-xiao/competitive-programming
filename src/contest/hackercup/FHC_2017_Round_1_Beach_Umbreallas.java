@@ -42,7 +42,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
       }
 
       if (N == 1) {
-        out.printf("Case #%d: %d\n", t, M);
+        out.printf("Case #%d: %d%n", t, M);
         continue;
       }
 
@@ -62,7 +62,7 @@ public class FHC_2017_Round_1_Beach_Umbreallas {
       }
       ans = (ans * fact[N - 2] * 2) % MOD;
 
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
 
     out.close();

@@ -18,7 +18,7 @@ public class DWITE_2002_Sales {
         double b = readDouble();
         min = Math.min(min, b / a);
       }
-      System.out.printf("%.3f\n", (1 - min) * 100);
+      System.out.printf("%.3f%n", (1 - min) * 100);
     }
   }
 

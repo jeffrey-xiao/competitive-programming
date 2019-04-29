@@ -16,7 +16,7 @@ public class CCC_2005_J2 {
     int count = 0;
     for (int x = s; x <= e; x++)
       count += (isRSA(x) ? 1 : 0);
-    System.out.printf("The number of RSA numbers between %d and %d is %d\n", s, e, count);
+    System.out.printf("The number of RSA numbers between %d and %d is %d%n", s, e, count);
   }
 
   private static boolean isRSA(int n) {

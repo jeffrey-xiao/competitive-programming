@@ -101,7 +101,7 @@ public class GCJ_2016_Round_1A_C {
         }
         maxCycle = Math.max(maxCycle, sz[i]);
       }
-      out.printf("Case #%d: %d\n", t, Math.max(maxCycle, ans / 2));
+      out.printf("Case #%d: %d%n", t, Math.max(maxCycle, ans / 2));
     }
 
     out.close();

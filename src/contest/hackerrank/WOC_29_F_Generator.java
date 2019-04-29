@@ -70,7 +70,7 @@ public class WOC_29_F_Generator {
     compute(0, 0, new int[6]);
 
     for (int i = 0; i < 12; i++)
-      out.printf("%d %d\n", ansx[i], ansy[i]);
+      out.printf("%d %d%n", ansx[i], ansy[i]);
 
     out.close();
   }

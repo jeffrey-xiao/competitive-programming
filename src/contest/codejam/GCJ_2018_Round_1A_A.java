@@ -40,12 +40,12 @@ public class GCJ_2018_Round_1A_A {
       }
 
       if (total == 0) {
-        out.printf("Case #%d: POSSIBLE\n", t);
+        out.printf("Case #%d: POSSIBLE%n", t);
         continue outer;
       }
 
       if (total % ((H + 1) * (V + 1)) != 0) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue outer;
       }
 
@@ -72,7 +72,7 @@ public class GCJ_2018_Round_1A_A {
       }
 
       if (horizontalCuts.size() != H + 2 || verticalCuts.size() != V + 2) {
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
         continue outer;
       }
 
@@ -80,13 +80,13 @@ public class GCJ_2018_Round_1A_A {
         for (int j = 1; j < verticalCuts.size(); j++) {
           int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] - sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] - sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] + sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
           if (curr != cellCount) {
-            out.printf("Case #%d: IMPOSSIBLE\n", t);
+            out.printf("Case #%d: IMPOSSIBLE%n", t);
             continue outer;
           }
         }
       }
 
-      out.printf("Case #%d: POSSIBLE\n", t);
+      out.printf("Case #%d: POSSIBLE%n", t);
     }
 
     out.close();

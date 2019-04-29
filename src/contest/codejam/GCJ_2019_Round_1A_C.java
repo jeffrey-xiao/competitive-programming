@@ -28,7 +28,7 @@ public class GCJ_2019_Round_1A_C {
         addWord(word);
       }
 
-      out.printf("Case #%d: %d\n", t, solve(root));
+      out.printf("Case #%d: %d%n", t, solve(root));
     }
 
     out.close();

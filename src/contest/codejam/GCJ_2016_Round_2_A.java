@@ -59,7 +59,7 @@ public class GCJ_2016_Round_2_A {
         PriorityQueue<State> ns = new PriorityQueue<State>();
         while (r.size() != 0 || p.size() != 0 || s.size() != 0) {
           if ((p.size() == 0 && s.size() == 0) || (r.size() == 0 && s.size() == 0) || (r.size() == 0 && p.size() == 0)) {
-            out.printf("Case #%d: IMPOSSIBLE\n", t);
+            out.printf("Case #%d: IMPOSSIBLE%n", t);
             continue main;
           }
           // take R and P

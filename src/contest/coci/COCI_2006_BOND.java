@@ -23,7 +23,7 @@ public class COCI_2006_BOND {
     }
     HashSet<Integer> v = new HashSet<Integer>();
     compute(0, n, v, 1.0d);
-    System.out.printf("%.6f\n", ans * 100);
+    System.out.printf("%.6f%n", ans * 100);
   }
 
   private static void compute(int i, int n, HashSet<Integer> v, double a) {

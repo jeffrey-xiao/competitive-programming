@@ -27,7 +27,7 @@ public class GCJ_2016_Round_2_C {
 
   main:
     for (int t = 1; t <= T; t++) {
-      out.printf("Case #%d: \n", t);
+      out.printf("Case #%d: %n", t);
       R = readInt();
       C = readInt();
 

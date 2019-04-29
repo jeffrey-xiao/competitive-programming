@@ -28,7 +28,7 @@ public class GCJ_2018_Round_2_B {
       R = readInt();
       B = readInt();
 
-      out.printf("Case #%d: %d\n", t, solve(0, R, B) - 1);
+      out.printf("Case #%d: %d%n", t, solve(0, R, B) - 1);
     }
 
     out.close();

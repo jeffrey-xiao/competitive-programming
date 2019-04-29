@@ -31,7 +31,7 @@ public class ACM_NEERC_2014_M {
           s.get(s.size() - 1).put(line[j], new Variable(i + 1, j + 1));
           for (int k = s.size() - 2; k >= 0; k--) {
             if (s.get(k).containsKey(line[j])) {
-              out.printf("%d:%d: warning: shadowed declaration of %c, the shadowed position is %d:%d\n", i + 1, j + 1, line[j], s.get(k).get(line[j]).line, s.get(k).get(line[j]).col);
+              out.printf("%d:%d: warning: shadowed declaration of %c, the shadowed position is %d:%d%n", i + 1, j + 1, line[j], s.get(k).get(line[j]).line, s.get(k).get(line[j]).col);
               break;
             }
           }

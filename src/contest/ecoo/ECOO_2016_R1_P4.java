@@ -64,7 +64,7 @@ public class ECOO_2016_R1_P4 {
           }
         }
       }
-      out.printf("%.1f\n", demo / (double)(cnt)*100);
+      out.printf("%.1f%n", demo / (double)(cnt)*100);
     }
     out.close();
   }

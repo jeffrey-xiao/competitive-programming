@@ -40,7 +40,7 @@ public class CCC_2000_S5 {
     }
     for (int x = 0; x < n; x++) {
       if (segments[x].lo <= segments[x].hi)
-        System.out.printf("The sheep at (%.2f, %.2f) might be eaten.\n", points[x].x, points[x].y);
+        System.out.printf("The sheep at (%.2f, %.2f) might be eaten.%n", points[x].x, points[x].y);
     }
   }
 

@@ -51,7 +51,7 @@ public class SccTarjan {
       if (disc[i] == 0)
         dfs(i);
     for (int i = 0; i < n; i++)
-      out.printf("Vertex %d is in component %d\n", i + 1, id[i]);
+      out.printf("Vertex %d is in component %d%n", i + 1, id[i]);
     out.close();
   }
 

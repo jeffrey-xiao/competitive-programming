@@ -19,7 +19,7 @@ public class CCC_2003_J2 {
           last = x;
       }
       int perimeter = 2 * last + 2 * (n / last);
-      System.out.printf("Minimum perimeter is %d with dimensions %d x %d\n", perimeter, last, n / last);
+      System.out.printf("Minimum perimeter is %d with dimensions %d x %d%n", perimeter, last, n / last);
     }
   }
 

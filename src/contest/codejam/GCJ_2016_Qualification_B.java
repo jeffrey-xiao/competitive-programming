@@ -33,7 +33,7 @@ public class GCJ_2016_Qualification_B {
 
       if (in[in.length - 1] == '-')
         ans++;
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

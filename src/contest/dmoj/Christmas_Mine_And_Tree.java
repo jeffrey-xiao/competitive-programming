@@ -74,7 +74,7 @@ public class Christmas_Mine_And_Tree {
         Node res = merge(solve(u, lca, true, false), solve(v, lca, false, true));
         res = merge(start, res);
         Point ans = rotate(res.dp, res.rotate);
-        out.printf("%.6f %.6f\n", ans.x, ans.y);
+        out.printf("%.6f %.6f%n", ans.x, ans.y);
       }
     }
     out.close();

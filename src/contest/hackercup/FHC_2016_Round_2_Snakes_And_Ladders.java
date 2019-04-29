@@ -84,7 +84,7 @@ public class FHC_2016_Round_2_Snakes_And_Ladders {
         }
       }
 
-      out.printf("Case #%d: %d\n", t, (ans % MOD + MOD) % MOD);
+      out.printf("Case #%d: %d%n", t, (ans % MOD + MOD) % MOD);
     }
 
     out.close();

@@ -112,9 +112,9 @@ public class COCI_2006_LISTA {
     for (int i = 0; i < N; i++) {
       if (!in[i]) {
         if (i == 0) {
-          out.printf("A 1 %d\n", min + 1);
+          out.printf("A 1 %d%n", min + 1);
         } else {
-          out.printf("B %d %d\n", i + 1, i);
+          out.printf("B %d %d%n", i + 1, i);
         }
       }
     }

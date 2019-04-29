@@ -46,9 +46,9 @@ public class Woburn_Challenge_2001_The_Rock {
         System.out.println(s);
       else {
         if (repeat - 1 == 0)
-          System.out.printf("%s repeated\n", s.substring(repeat - 1));
+          System.out.printf("%s repeated%n", s.substring(repeat - 1));
         else
-          System.out.printf("%s then %s repeated\n", s.substring(0, repeat - 1), s.substring(repeat - 1));
+          System.out.printf("%s then %s repeated%n", s.substring(0, repeat - 1), s.substring(repeat - 1));
       }
     }
   }

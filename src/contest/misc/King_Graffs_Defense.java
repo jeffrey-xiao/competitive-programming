@@ -51,7 +51,7 @@ public class King_Graffs_Defense {
         total += (size) * (size - 1) / 2;
       }
     }
-    out.printf("%.5f\n", 1 - total / (double)((long)n * (n - 1) / 2));
+    out.printf("%.5f%n", 1 - total / (double)((long)n * (n - 1) / 2));
     out.close();
   }
 

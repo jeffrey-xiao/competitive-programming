@@ -34,7 +34,7 @@ public class IOI_1995_Packing_Rectangles {
     permute(0);
     out.println(min);
     for (Rect r : ans)
-      out.printf("%d %d\n", r.r, r.c);
+      out.printf("%d %d%n", r.r, r.c);
     out.close();
   }
 

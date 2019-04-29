@@ -61,7 +61,7 @@ public class Woburn_Challenge_2015_Detective_Work {
         ways = (ways * 26) % 1000;
       }
     }
-    out.printf("%d %d\n", cost, ways);
+    out.printf("%d %d%n", cost, ways);
 
     out.close();
   }

@@ -66,7 +66,7 @@ public class FHC_2017_Round_1_Fighting_The_Zombies {
         }
       }
 
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
 
     out.close();

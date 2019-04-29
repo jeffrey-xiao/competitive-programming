@@ -47,10 +47,10 @@ public class STNBD_Fianna_Ray_Ordesia {
     p[1] = new Point(x2, y2);
     Arrays.sort(p);
     if (B * B - 4 * A * C == 0 || x1 == x2) {
-      System.out.printf("%f %f\n", p[0].x, p[0].y);
+      System.out.printf("%f %f%n", p[0].x, p[0].y);
     } else {
-      System.out.printf("%.6f %.6f\n", p[0].x, p[0].y);
-      System.out.printf("%.6f %.6f\n", p[1].x, p[1].y);
+      System.out.printf("%.6f %.6f%n", p[0].x, p[0].y);
+      System.out.printf("%.6f %.6f%n", p[1].x, p[1].y);
     }
   }
 

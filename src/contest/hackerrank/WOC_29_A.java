@@ -25,11 +25,11 @@ public class WOC_29_A {
 
     if (year != 1918) {
       if ((year > 1918 && isLeapYearGregorian(year)) || (year < 1918 && isLeapYearJulian(year)))
-        out.printf("12.09.%04d\n", year);
+        out.printf("12.09.%04d%n", year);
       else
-        out.printf("13.09.%04d\n", year);
+        out.printf("13.09.%04d%n", year);
     } else {
-      out.printf("26.09.%04\n", year);
+      out.printf("26.09.%04%n", year);
     }
 
     out.close();

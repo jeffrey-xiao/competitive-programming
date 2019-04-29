@@ -49,7 +49,7 @@ public class ACM_Waterloo_Local_2017_Spring_E {
     boolean dup = false;
     for (Map.Entry<String, Integer> e : occ.entrySet()) {
       if (e.getValue() > 1) {
-        out.printf("%s-%s %d\n", e.getKey().substring(0, 3), e.getKey().substring(3), e.getValue());
+        out.printf("%s-%s %d%n", e.getKey().substring(0, 3), e.getKey().substring(3), e.getValue());
         dup = true;
       }
     }

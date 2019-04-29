@@ -135,9 +135,9 @@ public class IOI_2015_Sorting {
     out.println(lo);
     for (int i = 0; i < lo; i++) {
       if (i < s1.size())
-        out.printf("%d %d\n", ans1.get(i), ans2.get(i));
+        out.printf("%d %d%n", ans1.get(i), ans2.get(i));
       else
-        out.printf("0 0\n");
+        out.printf("0 0%n");
     }
     out.close();
   }

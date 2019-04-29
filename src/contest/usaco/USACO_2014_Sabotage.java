@@ -18,7 +18,7 @@ public class USACO_2014_Sabotage {
     for (int x = 0; x < n; x++)
       cows[x] = readInt();
     double value = bsearch();
-    System.out.printf("%.3f\n", Math.round(value * 1000) / 1000d);
+    System.out.printf("%.3f%n", Math.round(value * 1000) / 1000d);
   }
 
   private static double bsearch() {

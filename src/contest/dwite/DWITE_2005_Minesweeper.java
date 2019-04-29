@@ -26,11 +26,11 @@ public class DWITE_2005_Minesweeper {
       else {
         int mines = checkSquares(x, y);
         if (mines > 0) {
-          System.out.printf("NO MINE - %d SURROUNDING IT\n", mines);
+          System.out.printf("NO MINE - %d SURROUNDING IT%n", mines);
         } else {
           boolean[][] visited = new boolean[16][30];
           int squares = floodFill(x, y, visited);
-          System.out.printf("NO MINE - %d SQUARES REVEALED\n", squares);
+          System.out.printf("NO MINE - %d SQUARES REVEALED%n", squares);
         }
       }
     }

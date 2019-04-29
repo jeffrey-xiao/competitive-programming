@@ -58,7 +58,7 @@ public class GCJ_2018_Qualification_D {
 
       assert (Math.abs(targetArea - getArea(currPoints)) <= EPS);
 
-      out.printf("Case #%d:\n", t);
+      out.printf("Case #%d:%n", t);
       printCenters(currPoints, targetArea);
     }
 

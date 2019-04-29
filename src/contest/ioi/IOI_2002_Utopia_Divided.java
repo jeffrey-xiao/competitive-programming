@@ -81,7 +81,7 @@ public class IOI_2002_Utopia_Divided {
     int currHor = 0, currVer = 0;
     for (int i = 0; i < N; i++) {
       out.printf("%c%d ", horNeg == (ans1[i] % 2 == 0) ? '-' : '+', codes1[ans1[i]]);
-      out.printf("%c%d\n", verNeg == (ans2[i] % 2 == 0) ? '-' : '+', codes2[ans2[i]]);
+      out.printf("%c%d%n", verNeg == (ans2[i] % 2 == 0) ? '-' : '+', codes2[ans2[i]]);
       currHor += horNeg == (ans1[i] % 2 == 0) ? -codes1[ans1[i]] : codes1[ans1[i]];
       currVer += verNeg == (ans2[i] % 2 == 0) ? -codes2[ans2[i]] : codes2[ans2[i]];
       assert currHor > 0 == isHorPos(regions[i]) && currVer > 0 == isVerPos(regions[i]);

@@ -63,7 +63,7 @@ public class SccKosaraju {
       }
     }
     for (int i = 0; i < n; i++)
-      out.printf("vertex %d is in component %d\n", i + 1, id[i]);
+      out.printf("vertex %d is in component %d%n", i + 1, id[i]);
     out.close();
   }
 

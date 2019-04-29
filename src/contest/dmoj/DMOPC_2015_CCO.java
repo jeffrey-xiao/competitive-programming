@@ -32,13 +32,13 @@ public class DMOPC_2015_CCO {
       if (i == 1 || i == height)
         out.println(rep('=', width));
       else if (i == 2)
-        out.printf("|%s%s|\n", V, rep(' ', width - 2 - V.length()));
+        out.printf("|%s%s|%n", V, rep(' ', width - 2 - V.length()));
       else if (i == height - 1)
-        out.printf("|%s%s|\n", rep(' ', width - 2 - V.length()), V);
+        out.printf("|%s%s|%n", rep(' ', width - 2 - V.length()), V);
       else if (i <= 1 + H || i >= height - H)
-        out.printf("|%s|\n", rep(' ', width - 2));
+        out.printf("|%s|%n", rep(' ', width - 2));
       else
-        out.printf("|%s%s%s|\n", rep(' ', (width - 5) / 2), design[index++], rep(' ', (width - 5) / 2));
+        out.printf("|%s%s%s|%n", rep(' ', (width - 5) / 2), design[index++], rep(' ', (width - 5) / 2));
     }
 
     out.close();

@@ -23,7 +23,7 @@ public class CCC_2002_J3_S1 {
         for (int z = 0; z <= total / cost3; z++) {
           for (int i = 0; i <= total / cost4; i++) {
             if (x * cost1 + y * cost2 + z * cost3 + i * cost4 == total) {
-              System.out.printf("# of PINK is %d # of GREEN is %d # of RED is %d # of ORANGE is %d\n", x, y, z, i);
+              System.out.printf("# of PINK is %d # of GREEN is %d # of RED is %d # of ORANGE is %d%n", x, y, z, i);
               count++;
               if (x + y + z + i < min)
                 min = x + y + z + i;
@@ -32,8 +32,8 @@ public class CCC_2002_J3_S1 {
         }
       }
     }
-    System.out.printf("Total combinations is %d.\n", count);
-    System.out.printf("Minimum number of tickets to print is %d.\n", min);
+    System.out.printf("Total combinations is %d.%n", count);
+    System.out.printf("Minimum number of tickets to print is %d.%n", min);
   }
 
   static String next() throws IOException {

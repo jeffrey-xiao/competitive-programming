@@ -30,7 +30,7 @@ public class GCJ_2016_Qualification_D {
 
       int needed = (K + C - 1) / C;
       if (needed > S)
-        out.printf("Case #%d: IMPOSSIBLE\n", t);
+        out.printf("Case #%d: IMPOSSIBLE%n", t);
       else {
         int[][] pos = new int[needed][C];
         int cnt = 0;

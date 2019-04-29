@@ -48,7 +48,7 @@ public class VMSS_Cold_War_Telecom {
 
     out.println(cutVertices.size());
     for (Integer u : cutVertices)
-      out.printf("%d\n", u);
+      out.printf("%d%n", u);
     out.close();
   }
 

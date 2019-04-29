@@ -55,9 +55,9 @@ public class FHC_2016_Round_1_Boomerang_Tournament {
           val[i] = i;
         solve(val, N, 0);
       }
-      out.printf("Case #%d: \n", t);
+      out.printf("Case #%d: %n", t);
       for (int i = 0; i < N; i++)
-        out.printf("%d %d\n", best[i], loseFirst[i] == 0 ? N / 2 + 1 : 1);
+        out.printf("%d %d%n", best[i], loseFirst[i] == 0 ? N / 2 + 1 : 1);
     }
 
     out.close();

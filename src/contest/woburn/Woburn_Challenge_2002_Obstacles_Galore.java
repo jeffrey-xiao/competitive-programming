@@ -51,11 +51,11 @@ public class Woburn_Challenge_2002_Obstacles_Galore {
       if (minTime >= endRad / g)
         out.println("The monkeys need help!\n");
       else {
-        out.printf("%.3f\n", minTime);
+        out.printf("%.3f%n", minTime);
         for (int i = 0; i < N; i++)
           if (Math.abs(minTime - dist(cx, cy, X[i], Y[i]) / g) < 1e-8)
             out.printf("%d ", i + 1);
-        out.printf("\n%.3f\n\n", minTime * g);
+        out.printf("%n%.3f%n%n", minTime * g);
       }
     }
 

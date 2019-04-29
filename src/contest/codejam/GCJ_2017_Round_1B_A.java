@@ -33,7 +33,7 @@ public class GCJ_2017_Round_1B_A {
         int speed = readInt();
         maxTime = Math.max(1.0 * (D - pos) / speed, maxTime);
       }
-      out.printf("Case #%d: %f\n", t, D / maxTime);
+      out.printf("Case #%d: %f%n", t, D / maxTime);
     }
 
     out.close();

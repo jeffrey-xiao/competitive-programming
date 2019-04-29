@@ -18,7 +18,7 @@ public class ECOO_2002_Count_Shapes {
       shapes[x] = getShapes(image);
     }
     for (int x = 0; x < shapes.length; x++)
-      System.out.printf("In rectangle #%d are %d shapes\n", x + 1, shapes[x]);
+      System.out.printf("In rectangle #%d are %d shapes%n", x + 1, shapes[x]);
   }
 
   private static int getShapes(char[][] image) {

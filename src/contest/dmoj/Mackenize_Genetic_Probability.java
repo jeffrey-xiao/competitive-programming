@@ -36,7 +36,7 @@ public class Mackenize_Genetic_Probability {
 
       prob *= cnt / 4.0;
     }
-    out.printf("%.10f\n", prob);
+    out.printf("%.10f%n", prob);
     out.close();
   }
 

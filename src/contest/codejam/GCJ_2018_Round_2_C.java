@@ -66,7 +66,7 @@ public class GCJ_2018_Round_2_C {
         ans += getMaxMatching();
       }
 
-      out.printf("Case #%d: %d\n", t, N * N - ans);
+      out.printf("Case #%d: %d%n", t, N * N - ans);
     }
 
     out.close();

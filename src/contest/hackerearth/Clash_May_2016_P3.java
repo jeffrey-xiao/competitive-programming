@@ -30,17 +30,17 @@ public class Clash_May_2016_P3 {
       out.println("NO");
     else {
       out.println("YES");
-      out.printf("%d %d\n", W, 1);
+      out.printf("%d %d%n", W, 1);
       taken[W][1] = true;
-      out.printf("%d %d\n", 1, H);
+      out.printf("%d %d%n", 1, H);
       taken[1][H] = true;
-      out.printf("%d %d\n", 1, 1);
+      out.printf("%d %d%n", 1, 1);
       taken[1][1] = true;
 
       for (int i = 1; i <= W; i++)
         for (int j = 1; j <= H; j++)
           if (!taken[i][j])
-            out.printf("%d %d\n", i, j);
+            out.printf("%d %d%n", i, j);
     }
 
     out.close();

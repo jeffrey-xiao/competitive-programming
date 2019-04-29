@@ -63,7 +63,7 @@ public class Uva_11183_Teen_Girl_Squad {
             edgesAdded++;
           }
         if (edgesAdded < sz - 1) {
-          out.printf("Case #%d: Possums!\n", qq);
+          out.printf("Case #%d: Possums!%n", qq);
           continue main;
         }
         v = new boolean[n];
@@ -97,7 +97,7 @@ public class Uva_11183_Teen_Girl_Squad {
           }
         }
       }
-      out.printf("Case #%d: %d\n", qq, res);
+      out.printf("Case #%d: %d%n", qq, res);
     }
 
     out.close();

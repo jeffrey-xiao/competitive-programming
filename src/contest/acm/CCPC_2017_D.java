@@ -23,9 +23,9 @@ public class CCPC_2017_D {
     int B = readInt();
 
     if (B >= A) {
-      out.printf("Dr. Chaz will have %d piece%s of chicken left over!\n", B - A, (B - A) == 1 ? "" : "s");
+      out.printf("Dr. Chaz will have %d piece%s of chicken left over!%n", B - A, (B - A) == 1 ? "" : "s");
     } else {
-      out.printf("Dr. Chaz needs %d more piece%s of chicken!\n", A - B, (A - B) == 1 ? "" : "s");
+      out.printf("Dr. Chaz needs %d more piece%s of chicken!%n", A - B, (A - B) == 1 ? "" : "s");
     }
 
     out.close();

@@ -74,7 +74,7 @@ public class MEC_P5 {
       j = i;
     }
 
-    out.printf("%.1f\n", length - first - last - N + 1);
+    out.printf("%.1f%n", length - first - last - N + 1);
     out.close();
   }
 

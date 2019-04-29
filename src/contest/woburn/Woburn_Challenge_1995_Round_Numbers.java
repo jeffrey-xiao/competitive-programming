@@ -65,7 +65,7 @@ public class Woburn_Challenge_1995_Round_Numbers {
         currZero++;
       }
     }
-    System.out.printf("There are %d round numbers less than or equal to %d.\n", sum, n);
+    System.out.printf("There are %d round numbers less than or equal to %d.%n", sum, n);
   }
 
   private static long C(int n, int k) {

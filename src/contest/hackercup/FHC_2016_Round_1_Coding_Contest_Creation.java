@@ -40,7 +40,7 @@ public class FHC_2016_Round_1_Coding_Contest_Creation {
         }
       }
       ans += (4 - problems) % 4;
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

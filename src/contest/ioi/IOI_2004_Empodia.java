@@ -78,7 +78,7 @@ public class IOI_2004_Empodia {
 
     out.println(intervals.size());
     for (Interval i : intervals)
-      out.printf("%d %d\n", i.l + 1, i.r + 1);
+      out.printf("%d %d%n", i.l + 1, i.r + 1);
 
     out.close();
   }

@@ -75,7 +75,7 @@ public class ACM_NA_East_Central_2015_H {
     else if (x + r > w || x - r < 0 || Math.atan2(cueDir.y, cueDir.x) * 180 / Math.PI + 180 > 180)
       out.println("impossible");
     else
-      out.printf("%.2f %.2f\n", x, Math.atan2(cueDir.y, cueDir.x) * 180 / Math.PI + 180);
+      out.printf("%.2f %.2f%n", x, Math.atan2(cueDir.y, cueDir.x) * 180 / Math.PI + 180);
 
     out.close();
   }

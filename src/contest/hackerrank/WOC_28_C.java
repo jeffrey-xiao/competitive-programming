@@ -44,7 +44,7 @@ public class WOC_28_C {
     ans = (ans + dp[1][0]) % MOD;
     ans = (ans + dp[0][0]) % MOD;
 
-    out.printf("%d\n", ans);
+    out.printf("%d%n", ans);
     out.close();
   }
 

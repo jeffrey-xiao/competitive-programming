@@ -52,7 +52,7 @@ public class ACM_MVP {
       while (!moves.isEmpty()) {
         Point curr = moves.poll();
         if (curr.x == ex && curr.y == ey) {
-          System.out.printf("pwned you in %d seconds eZ, learn to play n00b\n", curr.time);
+          System.out.printf("pwned you in %d seconds eZ, learn to play n00b%n", curr.time);
           continue main;
         }
         for (int z = 0; z < 4; z++) {

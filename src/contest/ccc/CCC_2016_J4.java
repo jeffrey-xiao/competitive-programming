@@ -30,7 +30,7 @@ public class CCC_2016_J4 {
       }
     }
     min %= 1440;
-    out.printf("%02d:%02d\n", min / 60, min % 60);
+    out.printf("%02d:%02d%n", min / 60, min % 60);
 
     out.close();
   }

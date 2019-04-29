@@ -51,7 +51,7 @@ public class DMOPC_2014_Chemistry_Homework {
     if (!isPossible) {
       System.out.println("Impossible.");
     } else {
-      System.out.printf("%d\nC%sH%s\n", energy, C == 1 ? "" : C, H == 1 ? "" : H);
+      System.out.printf("%d%nC%sH%s%n", energy, C == 1 ? "" : C, H == 1 ? "" : H);
     }
   }
 

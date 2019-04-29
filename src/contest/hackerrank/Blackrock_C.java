@@ -39,7 +39,7 @@ public class Blackrock_C {
     for (int i = 1; i <= t; i++)
       s[i] = readInt();
 
-    out.printf("%.3f\n", getAnswer(s));
+    out.printf("%.3f%n", getAnswer(s));
 
     compute(1, 0);
     String[] ans = new String[3];

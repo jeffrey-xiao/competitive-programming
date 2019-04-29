@@ -33,7 +33,7 @@ public class ACM_Waterloo_Local_2017_Spring_C {
       }
 
       permute(0);
-      out.printf("%.3f\n", ans);
+      out.printf("%.3f%n", ans);
     }
 
     out.close();

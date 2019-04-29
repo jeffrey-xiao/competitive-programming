@@ -41,7 +41,7 @@ public class GCJ_2016_Round_1B_C {
         }
         adj.get(left.get(leftToken)).add(N + right.get(rightToken));
       }
-      out.printf("Case #%d: %d\n", t, N - (left.size() + right.size() - getMaxMatching()));
+      out.printf("Case #%d: %d%n", t, N - (left.size() + right.size() - getMaxMatching()));
     }
 
     out.close();

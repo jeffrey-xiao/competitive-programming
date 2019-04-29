@@ -22,7 +22,7 @@ public class Vincent_Massey_Senior_C {
         a /= 10.0;
       }
     }
-    System.out.printf("%.2f\n%d", a, count);
+    System.out.printf("%.2f%n%d", a, count);
   }
 
   static String next() throws IOException {

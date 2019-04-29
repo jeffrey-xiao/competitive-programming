@@ -53,7 +53,7 @@ public class COCI_2008_CAVLI {
       int lowYI = 0;
       long highY = Integer.MIN_VALUE;
       int highYI = 0;
-      System.out.printf("%.1f\n", getArea(l));
+      System.out.printf("%.1f%n", getArea(l));
       for (int i = 0; i < l.size(); i++) {
         long x = l.get(i).x;
         long y = l.get(i).y;

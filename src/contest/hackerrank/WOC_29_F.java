@@ -49,7 +49,7 @@ public class WOC_29_F {
               }
             }
             for (int j = 1; j < 12; j++)
-              out.printf("%d %d\n", p[i][j].x, p[i][j].y);
+              out.printf("%d %d%n", p[i][j].x, p[i][j].y);
             assert isValid(i) : Arrays.toString(p[i]);
             break;
           }

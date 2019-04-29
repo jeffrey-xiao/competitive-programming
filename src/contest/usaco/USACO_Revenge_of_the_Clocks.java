@@ -41,7 +41,7 @@ public class USACO_Revenge_of_the_Clocks {
                       int h1 = h + moves[0][7] * x1 + moves[1][7] * x2 + moves[2][7] * x3 + moves[3][7] * x4 + moves[4][7] * x5 + moves[5][7] * x6 + moves[6][7] * x7 + moves[7][7] * x8 + moves[8][7] * x9;
                       int i1 = i + moves[0][8] * x1 + moves[1][8] * x2 + moves[2][8] * x3 + moves[3][8] * x4 + moves[4][8] * x5 + moves[5][8] * x6 + moves[6][8] * x7 + moves[7][8] * x8 + moves[8][8] * x9;
                       if (a1 % 12 + b1 % 12 + c1 % 12 + d1 % 12 + e1 % 12 + f1 % 12 + g1 % 12 + h1 % 12 + i1 % 12 == 0) {
-                        System.out.printf("%d %d %d %d %d %d %d %d %d\n", x1, x2, x3, x4, x5, x6, x7, x8, x9);
+                        System.out.printf("%d %d %d %d %d %d %d %d %d%n", x1, x2, x3, x4, x5, x6, x7, x8, x9);
                         break main;
                       }
                     }

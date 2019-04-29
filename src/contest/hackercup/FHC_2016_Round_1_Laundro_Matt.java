@@ -59,7 +59,7 @@ public class FHC_2016_Round_1_Laundro_Matt {
         }
         ans += d;
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

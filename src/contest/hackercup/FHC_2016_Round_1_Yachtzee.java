@@ -34,7 +34,7 @@ public class FHC_2016_Round_1_Yachtzee {
         c[i] = readLong();
 
       double ans = sum(b) - sum(a);
-      out.printf("Case #%d: %.10f\n", t, ans / (b - a));
+      out.printf("Case #%d: %.10f%n", t, ans / (b - a));
     }
 
     out.close();

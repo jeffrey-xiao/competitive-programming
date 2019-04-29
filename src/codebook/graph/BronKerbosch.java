@@ -45,8 +45,8 @@ public class BronKerbosch {
     for (int i = 0; i < n; i++)
       w[i] = readInt();
 
-    out.printf("Unweighted maximal clique: %d\n", solveUnweighted(n));
-    out.printf("Weighted maximal clique: %d\n", solveWeighted(n));
+    out.printf("Unweighted maximal clique: %d%n", solveUnweighted(n));
+    out.printf("Weighted maximal clique: %d%n", solveWeighted(n));
     out.close();
   }
 

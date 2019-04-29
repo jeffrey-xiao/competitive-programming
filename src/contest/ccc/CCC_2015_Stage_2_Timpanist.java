@@ -44,7 +44,7 @@ public class CCC_2015_Stage_2_Timpanist {
     double ans = 0;
     for (int i = 0; i < ns; i++)
       ans = Math.max(ans, compute(i, 0));
-    System.out.printf("%.2f\n", ans == 1 << 30 ? 0 : ans);
+    System.out.printf("%.2f%n", ans == 1 << 30 ? 0 : ans);
     pr.close();
   }
 

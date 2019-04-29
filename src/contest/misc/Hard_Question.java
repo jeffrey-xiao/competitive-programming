@@ -18,7 +18,7 @@ public class Hard_Question {
     t1 /= (2 * g / 2);
     double d = (g / 2) * t1 * t1;
     double v = Math.sqrt(2 * g * d);
-    System.out.printf("%.2f\n%.2f", d, v);
+    System.out.printf("%.2f%n%.2f", d, v);
   }
 
   static String next() throws IOException {

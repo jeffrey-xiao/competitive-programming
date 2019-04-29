@@ -64,7 +64,7 @@ public class WOC_20_F {
     }
 
     for (int i = 0; i < K; i++)
-      out.printf("%d\n", ans[readInt()]);
+      out.printf("%d%n", ans[readInt()]);
     out.close();
   }
 

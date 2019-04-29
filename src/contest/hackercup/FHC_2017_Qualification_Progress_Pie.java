@@ -35,13 +35,13 @@ public class FHC_2017_Qualification_Progress_Pie {
       if (angle < 0)
         angle += 2 * Math.PI;
       if (P == 0)
-        out.printf("Case #%d: white\n", t);
+        out.printf("Case #%d: white%n", t);
       else if (x == 0 && y == 0)
-        out.printf("Case #%d: black\n", t);
+        out.printf("Case #%d: black%n", t);
       else if (x * x + y * y > 50 * 50 || angle > P)
-        out.printf("Case #%d: white\n", t);
+        out.printf("Case #%d: white%n", t);
       else
-        out.printf("Case #%d: black\n", t);
+        out.printf("Case #%d: black%n", t);
     }
 
     out.close();

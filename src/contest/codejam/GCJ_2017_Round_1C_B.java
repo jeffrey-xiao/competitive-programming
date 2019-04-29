@@ -93,7 +93,7 @@ public class GCJ_2017_Round_1C_B {
         }
       }
 
-      out.printf("Case #%d: %d\n", t, exchanges);
+      out.printf("Case #%d: %d%n", t, exchanges);
     }
 
     out.close();

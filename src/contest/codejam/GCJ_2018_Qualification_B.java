@@ -41,11 +41,11 @@ public class GCJ_2018_Qualification_B {
       }
       for (int i = 0; i < N - 1; i++) {
         if (sorted.get(i) > sorted.get(i + 1)) {
-          out.printf("Case #%d: %d\n", t, i);
+          out.printf("Case #%d: %d%n", t, i);
           continue outer;
         }
       }
-      out.printf("Case #%d: OK\n", t);
+      out.printf("Case #%d: OK%n", t);
     }
 
     out.close();

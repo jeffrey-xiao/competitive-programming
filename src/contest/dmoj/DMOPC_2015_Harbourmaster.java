@@ -65,7 +65,7 @@ public class DMOPC_2015_Harbourmaster {
       }
     }
 
-    out.printf("%.1f\n", Math.min(100, max * 100));
+    out.printf("%.1f%n", Math.min(100, max * 100));
     out.close();
   }
 

@@ -137,7 +137,7 @@ public class CCC_2015_Stage_2_Hungry_Fox {
 
     long max = Math.max(getMax(loFirst), getMax(hiFirst));
 
-    out.printf("%d %d\n", min, max);
+    out.printf("%d %d%n", min, max);
 
     out.close();
   }

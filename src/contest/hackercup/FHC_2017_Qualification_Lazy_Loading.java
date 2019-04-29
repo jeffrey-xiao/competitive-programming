@@ -47,7 +47,7 @@ public class FHC_2017_Qualification_Lazy_Loading {
         r--;
         ans++;
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
 
     out.close();

@@ -55,7 +55,7 @@ public class FHC_2015_Round_2_All_Critical {
       double ans = 0;
       for (int i = 1; i <= 5000; i++)
         ans += i * (prob[i][20] - prob[i - 1][20]);
-      out.printf("Case #%d: %.5f\n", qq, ans);
+      out.printf("Case #%d: %.5f%n", qq, ans);
     }
     out.close();
   }

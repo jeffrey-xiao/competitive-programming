@@ -76,7 +76,7 @@ public class Woburn_Challenge_2016_Turbolift_Testing {
         currMin = Math.min(currMin, netAns[hi] + min[buttonIndex[hi + 1]][pressesRemaining]);
         currMax = Math.max(currMax, netAns[hi] + max[buttonIndex[hi + 1]][pressesRemaining]);
       }
-      out.printf("%d %d\n", currMin, currMax);
+      out.printf("%d %d%n", currMin, currMax);
     }
 
     out.close();

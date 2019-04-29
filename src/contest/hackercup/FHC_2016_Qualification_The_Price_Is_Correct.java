@@ -39,7 +39,7 @@ public class FHC_2016_Qualification_The_Price_Is_Correct {
         }
         ans += (lo - i);
       }
-      out.printf("Case #%d: %d\n", t, ans);
+      out.printf("Case #%d: %d%n", t, ans);
     }
     out.close();
   }

@@ -62,7 +62,7 @@ public class CCC_2015_Stage_2_Cars_On_Ice {
     while (!q.isEmpty()) {
       State curr = q.poll();
       if (car[curr.r][curr.c][curr.d]) {
-        out.printf("(%d,%d)\n", curr.r, curr.c);
+        out.printf("(%d,%d)%n", curr.r, curr.c);
         for (int z = 0; z < 4; z++)
           if (z != curr.d) {
             in[curr.r][curr.c][z]--;

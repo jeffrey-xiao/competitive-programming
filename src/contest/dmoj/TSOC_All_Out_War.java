@@ -34,7 +34,7 @@ public class TSOC_All_Out_War {
       int b = readInt();
       int c = readInt();
       update(a, b, 1, c);
-      System.out.printf("%d %d\n", query(a, b, 1), query(1, n, 1));
+      System.out.printf("%d %d%n", query(a, b, 1), query(1, n, 1));
     }
     pr.close();
   }

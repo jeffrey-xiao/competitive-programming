@@ -28,7 +28,7 @@ public class DMOPC_2014_Logging_Log {
       if (sum == 0)
         out.println("Weekend");
       else
-        out.printf("Day %d: %d\n", i, sum);
+        out.printf("Day %d: %d%n", i, sum);
     }
 
     out.close();

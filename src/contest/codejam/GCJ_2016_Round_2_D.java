@@ -63,7 +63,7 @@ public class GCJ_2016_Round_2_D {
         }
 
       if (s.isEmpty()) {
-        out.printf("Case #%d: %d\n", t, ans - edges);
+        out.printf("Case #%d: %d%n", t, ans - edges);
 
       } else {
         Collections.sort(s);
@@ -138,7 +138,7 @@ public class GCJ_2016_Round_2_D {
         for (int i = 0; i <= N; i++)
           min = Math.min(min, dp[i][maxStates - 1]);
 
-        out.printf("Case #%d: %d\n", t, ans + min - edges);
+        out.printf("Case #%d: %d%n", t, ans + min - edges);
       }
     }
 

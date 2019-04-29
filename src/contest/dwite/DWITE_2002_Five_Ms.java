@@ -34,7 +34,7 @@ public class DWITE_2002_Five_Ms {
         currCount = 1;
       }
     }
-    System.out.printf("%.2f\n%.2f\n%.2f\n%.2f\n%.2f\n", total / n, (numbers[(int)(Math.floor((n - 1) / 2))] + numbers[(int)(Math.ceil((n - 1) / 2))]) / 2.0d, maxMode, numbers[(int)(n - 1)], numbers[0]);
+    System.out.printf("%.2f%n%.2f%n%.2f%n%.2f%n%.2f%n", total / n, (numbers[(int)(Math.floor((n - 1) / 2))] + numbers[(int)(Math.ceil((n - 1) / 2))]) / 2.0d, maxMode, numbers[(int)(n - 1)], numbers[0]);
   }
 
   static String next() throws IOException {

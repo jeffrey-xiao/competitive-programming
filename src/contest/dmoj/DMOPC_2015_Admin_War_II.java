@@ -70,7 +70,7 @@ public class DMOPC_2015_Admin_War_II {
           t1.remove(key);
       }
     }
-    out.printf("%d\n%d\n", ans2, ans1);
+    out.printf("%d%n%d%n", ans2, ans1);
     out.close();
   }
 

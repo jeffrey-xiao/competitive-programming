@@ -29,7 +29,7 @@ public class GCJ_2016_Qualification_C {
     for (int t = 1; t <= T; t++) {
       int N = readInt();
       int J = readInt();
-      out.printf("Case #%d:\n", t);
+      out.printf("Case #%d:%n", t);
       int cnt = 0;
       for (long i = (1l << (N - 1)) + 1; cnt < J; i += 2) {
         BigInteger num = new BigInteger(Long.toString(i, 2));
