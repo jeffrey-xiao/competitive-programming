@@ -1,4 +1,4 @@
-package codejam;
+package contest.codejam;
 
 import java.io.*;
 import java.util.*;
