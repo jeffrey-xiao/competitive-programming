@@ -42,6 +42,7 @@ public class GCJ_2019_Round_1A_B {
       out.flush();
       int verdict = readInt();
       if (verdict == -1) {
+        out.close();
         return;
       }
     }

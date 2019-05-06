@@ -87,6 +87,7 @@ public class GCJ_2019_Qualification_D {
       out.println();
       out.flush();
       if (readInt() == -1) {
+        out.close();
         return;
       }
     }

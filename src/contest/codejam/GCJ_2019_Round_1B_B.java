@@ -48,6 +48,7 @@ public class GCJ_2019_Round_1B_B {
       out.flush();
 
       if (readInt() == -1) {
+        out.close();
         return;
       }
     }
