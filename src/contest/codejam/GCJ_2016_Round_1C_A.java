@@ -8,7 +8,7 @@ public class GCJ_2016_Round_1C_A {
   static BufferedReader br;
   static PrintWriter out;
   static StringTokenizer st;
-  
+
   static int T, N;
 
   public static void main(String[] args) throws IOException {
@@ -55,7 +55,7 @@ public class GCJ_2016_Round_1C_A {
     State(char party, int count) {
       this.party = party;
       this.count = count;
-    } 
+    }
 
     @Override
     public int compareTo(State s) {

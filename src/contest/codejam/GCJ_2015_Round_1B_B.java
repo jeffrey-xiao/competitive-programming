@@ -50,9 +50,8 @@ public class GCJ_2015_Round_1B_B {
       // 3.4.3 OR .4.4.
       // .4.4.    3.4.3
       // 2.3.2    .3.3.
-      return Math.min(
-          score(R, C, N, (R * C + 1) / 2, 4, ((R - 2) * (C - 2) + 1) / 2),
-          score(R, C, N, (R * C) / 2, 0, ((R - 2) * (C - 2)) / 2));
+      return Math.min(score(R, C, N, (R * C + 1) / 2, 4, ((R - 2) * (C - 2) + 1) / 2),
+                      score(R, C, N, (R * C) / 2, 0, ((R - 2) * (C - 2)) / 2));
     }
     return score(R, C, N, (R * C + 1) / 2, 2, ((R - 2) * (C - 2) + 1) / 2);
   }

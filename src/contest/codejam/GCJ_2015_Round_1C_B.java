@@ -43,7 +43,6 @@ public class GCJ_2015_Round_1C_B {
         count[keyboard[i] - 'A']++;
       }
 
-
       dp[0][0] = 1;
       reachable[0][0] = true;
       double totalExpected = 0;
@@ -86,7 +85,7 @@ public class GCJ_2015_Round_1C_B {
           }
         }
       }
-      out.printf("Case #%d: %.6f%n", t,  totalMax - totalExpected);
+      out.printf("Case #%d: %.6f%n", t, totalMax - totalExpected);
     }
 
     out.close();

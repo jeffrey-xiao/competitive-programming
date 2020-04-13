@@ -63,7 +63,8 @@ public class GCJ_2020_Qualification_D {
             boolean diff = next().equals("1");
 
             isFlip = A[sameIndex] != same;
-            isReverse = (A[diffIndex] != diff && A[sameIndex] == same) || (A[diffIndex] == diff && A[sameIndex] != same);
+            isReverse = (A[diffIndex] != diff && A[sameIndex] == same) ||
+                        (A[diffIndex] == diff && A[sameIndex] != same);
           } else if (sameIndex != null) {
             out.println(sameIndex + 1);
             out.flush();

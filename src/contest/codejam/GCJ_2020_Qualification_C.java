@@ -53,7 +53,7 @@ public class GCJ_2020_Qualification_C {
 
   static class Interval implements Comparable<Interval> {
     int index, start, end;
-    Interval (int index, int start, int end) {
+    Interval(int index, int start, int end) {
       this.index = index;
       this.start = start;
       this.end = end;

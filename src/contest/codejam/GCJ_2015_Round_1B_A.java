@@ -26,7 +26,7 @@ public class GCJ_2015_Round_1B_A {
     out.close();
   }
 
-  static long solve (long N) {
+  static long solve(long N) {
     ArrayList<Integer> n = new ArrayList<Integer>();
     long temp = N;
     while (temp > 0) {

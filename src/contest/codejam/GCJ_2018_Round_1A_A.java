@@ -32,7 +32,8 @@ public class GCJ_2018_Round_1A_A {
       for (int i = 1; i <= R; i++) {
         String s = readLine();
         for (int j = 0; j < s.length(); j++) {
-          sum[i][j + 1] = sum[i - 1][j + 1] + sum[i][j] - sum[i - 1][j] + (s.charAt(j) == '@' ? 1 : 0);
+          int curr = s.charAt(j) == '@' ? 1 : 0;
+          sum[i][j + 1] = sum[i - 1][j + 1] + sum[i][j] - sum[i - 1][j] + curr;
           if (s.charAt(j) == '@') {
             total += 1;
           }
@@ -53,7 +54,7 @@ public class GCJ_2018_Round_1A_A {
       int colCount = total / (V + 1);
       int cellCount = total / ((H + 1) * (V + 1));
       int prev = 0;
-      ArrayList<Integer> horizontalCuts = new ArrayList<Integer>(), verticalCuts = new ArrayList<Integer>();
+      ArrayList<Integer> horizontalCuts = new ArrayList<>(), verticalCuts = new ArrayList<>();
       horizontalCuts.add(0);
       verticalCuts.add(0);
       for (int i = 1; i <= R; i++) {
@@ -78,7 +79,10 @@ public class GCJ_2018_Round_1A_A {
 
       for (int i = 1; i < horizontalCuts.size(); i++) {
         for (int j = 1; j < verticalCuts.size(); j++) {
-          int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] - sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] - sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] + sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
+          int curr = sum[horizontalCuts.get(i)][verticalCuts.get(j)] -
+                     sum[horizontalCuts.get(i - 1)][verticalCuts.get(j)] -
+                     sum[horizontalCuts.get(i)][verticalCuts.get(j - 1)] +
+                     sum[horizontalCuts.get(i - 1)][verticalCuts.get(j - 1)];
           if (curr != cellCount) {
             out.printf("Case #%d: IMPOSSIBLE%n", t);
             continue outer;

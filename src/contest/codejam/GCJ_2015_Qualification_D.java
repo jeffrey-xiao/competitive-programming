@@ -26,8 +26,7 @@ public class GCJ_2015_Qualification_D {
       int S = Math.min(R, C);
       int L = Math.max(R, C);
       if (R * C % X != 0 || (X == 3 && S == 1) || (X == 4 && S <= 2) ||
-          (X == 5 && (S <= 2 || (S == 3 && L == 5))) || (X == 6 && S <= 3) ||
-          X >= 7) {
+          (X == 5 && (S <= 2 || (S == 3 && L == 5))) || (X == 6 && S <= 3) || X >= 7) {
         out.printf("Case #%d: RICHARD%n", t);
       } else {
         out.printf("Case #%d: GABRIEL%n", t);

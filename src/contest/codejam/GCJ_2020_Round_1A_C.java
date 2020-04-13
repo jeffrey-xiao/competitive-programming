@@ -28,7 +28,7 @@ public class GCJ_2020_Round_1A_C {
       long currInterest = 0;
       for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
-          int skill = readInt();;
+          int skill = readInt();
           currInterest += skill;
           ps[i][j] = new Point(i, j, skill);
           candidate.add(ps[i][j]);
@@ -125,7 +125,7 @@ public class GCJ_2020_Round_1A_C {
   static class Point {
     int r, c, skill;
     Point n, e, s, w;
-    Point (int r, int c, int skill) {
+    Point(int r, int c, int skill) {
       this.r = r;
       this.c = c;
       this.skill = skill;

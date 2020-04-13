@@ -151,9 +151,7 @@ public class GCJ_2015_Qualification_C {
     if (i < j) {
       return 1;
     } else {
-      return multiply(
-          multiply(prefix[i - 1], multiply(prefix[i - 1], prefix[i - 1])),
-          prefix[j]);
+      return multiply(multiply(prefix[i - 1], multiply(prefix[i - 1], prefix[i - 1])), prefix[j]);
     }
   }
 

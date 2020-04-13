@@ -12,8 +12,8 @@ public class GCJ_2016_Round_1B_A {
   static int T;
   static String S;
 
-  static final String[] DIGITS = {"SIX", "ZERO", "TWO", "FOUR", "ONE", "EIGHT", "THREE",  "FIVE",
-    "SEVEN", "NINE"};
+  static final String[] DIGITS = {"SIX",   "ZERO",  "TWO",  "FOUR",  "ONE",
+                                  "EIGHT", "THREE", "FIVE", "SEVEN", "NINE"};
   static final int[] IDS = {6, 0, 2, 4, 1, 8, 3, 5, 7, 9};
 
   public static void main(String[] args) throws IOException {
