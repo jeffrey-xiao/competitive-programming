@@ -130,16 +130,6 @@ public class GCJ_2020_Round_1A_C {
       this.c = c;
       this.skill = skill;
     }
-
-    @Override
-    public int hashCode() {
-      return Integer.hashCode(r) * 31 * 31 + Integer.hashCode(c) * 31 + Integer.hashCode(skill);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-      return this == (Point)o;
-    }
   }
 
   static String next() throws IOException {
